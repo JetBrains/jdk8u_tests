@@ -45,7 +45,7 @@ import java.util.SortedMap;
  * 2. Excutes a cycle of param[0] iterations, on each iteration:
  *         a. Allocates large ByteBuffer of param[1] size. 
  *         b. Creates a new Encoder for next available charset (obtained by Charset.availableCharsets()) 
- *         c. Encodes a 3-char string (randomly obtained) in REPLACE mode into “large” ByteBuffer. 
+ *         c. Encodes a 3-char string (randomly obtained) in REPLACE mode into "large" ByteBuffer.
  *         d. Allocates small ByteBuffer of size 1 (byte). 
  *         e. Calls CharsetEncoder.flush() into the small ByteBuffer. 
  *         f. checks the results is CoderResult.OVERFLOW. 
