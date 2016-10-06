@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander D. Shipilov
+Version: $Revision: 1.6 $
+-->
+<Test
+  ID="constantValue11"
+  date-of-creation="2005-06-08"
+  timeout="1"
+  >
+  <Author value="Alexander D. Shipilov"/>
+  <Description>
+      Tests that contantvalue index of Constant Value attribute
+      can not have incorrect index in the constant pool
+      which actually refers to the float constant instead of integer one.
+      
+      Covered assertions assert_class408 assert_class410
+  </Description>
+  
+  <Keyword name="verifier"/>
+  <Keyword name="pass1"/>
+  <Keyword name="classloader"/>
+  <Source name="constantValue11n.ccode"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+                <Option name="load"/>
+                <Option name="org.apache.harmony.vts.test.vm.jvms.classFile.attributes.constantValue.constantValue11.constantValue11n"/>
+                <Option name="java.lang.ClassFormatError"/>
+            </Param>
+  </Runner>
+</Test>

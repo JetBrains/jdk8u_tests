@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="athrow0701"
+  date-of-creation="2004-11-03"
+  timeout="1"
+  >	
+  <Author value="Ilia A. Leviev"/>
+  <Description>
+      Test checks an exception handling.
+      Instruction athrow throw exception of type of java.lang.Exception and 
+      there is two exception handlers which have same start_pc but different end_pc
+      (first end_pc less than second end_pc ),
+      first  catch_type = java.lang.Throwable,
+      second catch_type = java.lang.Exception, than 
+      if exception caught by first catch test fail.
+      if exception caught by second catch test pass.
+    
+      Covered assertions assert_instr2a118 assert_instr2a119 assert_instr2a120 assert_instr2a121 assert_instr2a122 assert_class453
+  </Description>
+
+  <Source name="athrow0701p.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.exceptions.athrow.athrow07.athrow0701.athrow0701p"/>                          
+</Runner>
+</Test>

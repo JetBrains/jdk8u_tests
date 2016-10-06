@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="fcmpl0201"
+  date-of-creation="2004-11-26"
+  timeout="1"
+  >	
+  <Author value="Ilia A. Leviev"/>
+  <Description>
+    Tests fcpmg java virtual machine instruction.	  
+    Test checks that fcpmg instruction compares values of float type only.
+    if value1  and value2 not float type then VM throw VerifyError.
+   
+    Covered assertions assert_const153 assert_class665
+  </Description>
+
+  <Keyword name="verifier"/>
+
+<Source name="fcmpl0201w.j"/>
+<Source name="fcmpl0201.jj"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+      <Option name="run"/>
+      <Option name="org.apache.harmony.vts.test.vm.jvms.instructions.arithm.fcmpl.fcmpl02.fcmpl0201.fcmpl0201w"/>                          
+      <Option name="java.lang.VerifyError"/>
+    </Param>
+</Runner>
+</Test>

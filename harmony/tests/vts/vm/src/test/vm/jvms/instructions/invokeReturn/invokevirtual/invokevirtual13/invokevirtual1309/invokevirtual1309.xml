@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.3 $
+-->
+<Test
+  ID="invokevirtual1309"
+  date-of-creation="2005-09-08"
+  timeout="1"
+  >
+  <Author value="Ilia A. Leviev"/>
+  <Description>
+    Tests invokevirtual java virtual machine instruction.    
+    The LinkageError is thrown if protected method is member of class S that superclass of direct superclass of current class and type of object is direct superclass.
+   Covered assertions assert_instr26a369 assert_instr26a371
+</Description>
+
+  <Source name="invokevirtual1309w.j"/>
+  <Source name="invokevirtual1309n.j"/>
+  <Source name="invokevirtual1309super2.j"/>
+  <Source name="invokevirtual1309super.j"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.invokeReturn.invokevirtual.invokevirtual13.invokevirtual1309.invokevirtual1309w"/>
+  </Runner>
+</Test>
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Nikolay Y. Amosov
+Version: $Revision: 1.1 $
+-->
+<Test
+    ID="fields02p"
+    date-of-creation="2006-07-06"
+    timeout="1"
+    >
+    <Author value="Nikolay Y. Amosov"/>
+    <Description>
+        Positive test to maximum length of field name.
+		It is limited to 65535 characters by the 16-bit unsigned length item.
+		In this test we create class with field name composed of
+		65535 latin symbol "a".
+		It is expected that test load without any problems.
+	    Covered assertions assert_class940
+    </Description>
+
+    <Keyword name="verifier"/>
+    
+    <Keyword name="pass1"/>
+
+    <Keyword name="classloader"/>
+
+    <Source name="fields02p.ccode"/>
+
+    <Runner ID="Runtime">
+	    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+				<Option name="load"/>
+				<Option name="org.apache.harmony.vts.test.vm.jvms.classFile.limitations.fields.fields02.fields02p"/>
+		</Param>    
+    
+    </Runner>
+
+</Test>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander D. Shipilov
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="putfield01"
+  date-of-creation="2005-03-18"
+  timeout="1"
+  >
+  <Author value="Alexander D. Shipilov"/>
+  <Description>
+      Tests that the type of value stored by a putfield instruction 
+      must be compatible with  the descriptor of the field of the class instance. 
+      The test tries put instance into int field.
+
+      Covered assertions assert_class693
+  </Description>
+
+  <Keyword name="verifier"/> 
+  <Keyword name="pass3"/>    
+  <Source name="putfield01n.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+				<Option name="load"/>
+				<Option name="org.apache.harmony.vts.test.vm.jvms.classFile.constraints.structural.constraint16.putfield01.putfield01n"/>
+				<Option name="java.lang.VerifyError"/>
+			</Param>
+  </Runner>
+</Test>

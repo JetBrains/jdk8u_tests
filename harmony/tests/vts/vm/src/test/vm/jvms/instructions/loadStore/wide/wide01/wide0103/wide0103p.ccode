@@ -1,0 +1,210 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Maxim V. Makarov
+ * @version: $Revision: 1.1 $
+ */
+
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 11
+
+constant_pool {
+  /* #1 */ Method = #10 #4
+  /* #2 */ UTF8 = "java/lang/Object"
+  /* #3 */ UTF8 = "<init>"
+  /* #4 */ NameAndType = #3 #7
+  /* #5 */ UTF8 = "Code"
+  /* #6 */ UTF8 = "test"
+  /* #7 */ UTF8 = "()V"
+  /* #8 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/instructions/loadStore/wide/wide01/wide0103/wide0103p"
+  /* #9 */ Class = #8
+  /* #10 */ Class = #2
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #9  
+
+super_class = #10  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #3  // "<init>"
+    descriptor_index = #7  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #5  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code bin {
+                 x2A xB7 x00 x01 xB1 
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #6  // "test"
+    descriptor_index = #7  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #5  // "Code"
+          attribute_length = 783
+          max_stack = 3
+          max_locals = 257
+          code_length = 771
+          code bin {
+              // lconst_0
+			  // lstore_0
+              // ... 	  
+              // lconst_0
+			  // lstore 255
+			  // wide 0xC4	
+			  // fstore 0x38 fload 0x17
+			  // indexbyte1 x10	
+			  // indexbyte2 x00
+                 x09 x3F x09 x40 x09 x41 x09 x42
+                 x09 x37 x04 x09 x37 x05 x09 x37
+                 x06 x09 x37 x07 x09 x37 x08 x09
+                 x37 x09 x09 x37 x0A x09 x37 x0B
+                 x09 x37 x0C x09 x37 x0D x09 x37
+                 x0E x09 x37 x0F x09 x37 x10 x09
+                 x37 x11 x09 x37 x12 x09 x37 x13
+                 x09 x37 x14 x09 x37 x15 x09 x37
+                 x16 x09 x37 x17 x09 x37 x18 x09
+                 x37 x19 x09 x37 x1A x09 x37 x1B
+                 x09 x37 x1C x09 x37 x1D x09 x37
+                 x1E x09 x37 x1F x09 x37 x20 x09
+                 x37 x21 x09 x37 x22 x09 x37 x23
+                 x09 x37 x24 x09 x37 x25 x09 x37
+                 x26 x09 x37 x27 x09 x37 x28 x09
+                 x37 x29 x09 x37 x2A x09 x37 x2B
+                 x09 x37 x2C x09 x37 x2D x09 x37
+                 x2E x09 x37 x2F x09 x37 x30 x09
+                 x37 x31 x09 x37 x32 x09 x37 x33
+                 x09 x37 x34 x09 x37 x35 x09 x37
+                 x36 x09 x37 x37 x09 x37 x38 x09
+                 x37 x39 x09 x37 x3A x09 x37 x3B
+                 x09 x37 x3C x09 x37 x3D x09 x37
+                 x3E x09 x37 x3F x09 x37 x40 x09
+                 x37 x41 x09 x37 x42 x09 x37 x43
+                 x09 x37 x44 x09 x37 x45 x09 x37
+                 x46 x09 x37 x47 x09 x37 x48 x09
+                 x37 x49 x09 x37 x4A x09 x37 x4B
+                 x09 x37 x4C x09 x37 x4D x09 x37
+                 x4E x09 x37 x4F x09 x37 x50 x09
+                 x37 x51 x09 x37 x52 x09 x37 x53
+                 x09 x37 x54 x09 x37 x55 x09 x37
+                 x56 x09 x37 x57 x09 x37 x58 x09
+                 x37 x59 x09 x37 x5A x09 x37 x5B
+                 x09 x37 x5C x09 x37 x5D x09 x37
+                 x5E x09 x37 x5F x09 x37 x60 x09
+                 x37 x61 x09 x37 x62 x09 x37 x63
+                 x09 x37 x64 x09 x37 x65 x09 x37
+                 x66 x09 x37 x67 x09 x37 x68 x09
+                 x37 x69 x09 x37 x6A x09 x37 x6B
+                 x09 x37 x6C x09 x37 x6D x09 x37
+                 x6E x09 x37 x6F x09 x37 x70 x09
+                 x37 x71 x09 x37 x72 x09 x37 x73
+                 x09 x37 x74 x09 x37 x75 x09 x37
+                 x76 x09 x37 x77 x09 x37 x78 x09
+                 x37 x79 x09 x37 x7A x09 x37 x7B
+                 x09 x37 x7C x09 x37 x7D x09 x37
+                 x7E x09 x37 x7F x09 x37 x80 x09
+                 x37 x81 x09 x37 x82 x09 x37 x83
+                 x09 x37 x84 x09 x37 x85 x09 x37
+                 x86 x09 x37 x87 x09 x37 x88 x09
+                 x37 x89 x09 x37 x8A x09 x37 x8B
+                 x09 x37 x8C x09 x37 x8D x09 x37
+                 x8E x09 x37 x8F x09 x37 x90 x09
+                 x37 x91 x09 x37 x92 x09 x37 x93
+                 x09 x37 x94 x09 x37 x95 x09 x37
+                 x96 x09 x37 x97 x09 x37 x98 x09
+                 x37 x99 x09 x37 x9A x09 x37 x9B
+                 x09 x37 x9C x09 x37 x9D x09 x37
+                 x9E x09 x37 x9F x09 x37 xA0 x09
+                 x37 xA1 x09 x37 xA2 x09 x37 xA3
+                 x09 x37 xA4 x09 x37 xA5 x09 x37
+                 xA6 x09 x37 xA7 x09 x37 xA8 x09
+                 x37 xA9 x09 x37 xAA x09 x37 xAB
+                 x09 x37 xAC x09 x37 xAD x09 x37
+                 xAE x09 x37 xAF x09 x37 xB0 x09
+                 x37 xB1 x09 x37 xB2 x09 x37 xB3
+                 x09 x37 xB4 x09 x37 xB5 x09 x37
+                 xB6 x09 x37 xB7 x09 x37 xB8 x09
+                 x37 xB9 x09 x37 xBA x09 x37 xBB
+                 x09 x37 xBC x09 x37 xBD x09 x37
+                 xBE x09 x37 xBF x09 x37 xC0 x09
+                 x37 xC1 x09 x37 xC2 x09 x37 xC3
+                 x09 x37 xC4 x09 x37 xC5 x09 x37
+                 xC6 x09 x37 xC7 x09 x37 xC8 x09
+                 x37 xC9 x09 x37 xCA x09 x37 xCB
+                 x09 x37 xCC x09 x37 xCD x09 x37
+                 xCE x09 x37 xCF x09 x37 xD0 x09
+                 x37 xD1 x09 x37 xD2 x09 x37 xD3
+                 x09 x37 xD4 x09 x37 xD5 x09 x37
+                 xD6 x09 x37 xD7 x09 x37 xD8 x09
+                 x37 xD9 x09 x37 xDA x09 x37 xDB
+                 x09 x37 xDC x09 x37 xDD x09 x37
+                 xDE x09 x37 xDF x09 x37 xE0 x09
+                 x37 xE1 x09 x37 xE2 x09 x37 xE3
+                 x09 x37 xE4 x09 x37 xE5 x09 x37
+                 xE6 x09 x37 xE7 x09 x37 xE8 x09
+                 x37 xE9 x09 x37 xEA x09 x37 xEB
+                 x09 x37 xEC x09 x37 xED x09 x37
+                 xEE x09 x37 xEF x09 x37 xF0 x09
+                 x37 xF1 x09 x37 xF2 x09 x37 xF3
+                 x09 x37 xF4 x09 x37 xF5 x09 x37
+                 xF6 x09 x37 xF7 x09 x37 xF8 x09
+                 x37 xF9 x09 x37 xFA x09 x37 xFB
+                 x09 x37 xFC x09 x37 xFD x09 x37
+                 xFE x0B xC4 x38 x01 x00 xC4 x17 // wide fstore 256 wide fload 256
+                 x01 x00 xB1
+
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 0

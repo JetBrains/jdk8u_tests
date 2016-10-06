@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.6 $
+-->
+<Test
+  ID="finally0401"
+  date-of-creation="2005-01-30"
+  timeout="1"
+  >	
+  <Author value="Ilia A. Leviev"/>
+  <Description>    
+      Tests finally implementation.
+      The try block throws TestException 
+      and finally block throws  TestExceptionF, 
+      then if wrap try statement catches TestExceptionF - test passed,   
+      else test failed.  
+      
+      Covered assertions assert_class884
+  </Description>
+  <Source name="finally0401w.j"/>
+  <Source name="finally0401.jj"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classFile.finally.finally04.finally0401.finally0401w"/>                          
+</Runner>
+</Test>

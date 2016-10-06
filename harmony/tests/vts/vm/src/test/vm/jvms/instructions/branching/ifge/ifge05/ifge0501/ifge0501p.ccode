@@ -1,0 +1,110 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/*
+ * Author: Maxim V. Makarov
+ * Version: $Revision: 1.1.1.1 $
+ */
+
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 14
+
+constant_pool {
+  /* #1 */ Method = #3 #11
+  /* #2 */ Class = #12
+  /* #3 */ Class = #13
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ UTF8 = "()V"
+  /* #6 */ UTF8 = "Code"
+  /* #7 */ UTF8 = "XXX"
+  /* #8 */ UTF8 = "test"
+  /* #9 */ UTF8 = "XXX"
+  /* #10 */ UTF8 = "XXX"
+  /* #11 */ NameAndType = #4 #5
+  /* #12 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/instructions/branching/ifge/ifge05/ifge0501/ifge0501p"
+  /* #13 */ UTF8 = "java/lang/Object"
+}
+
+access_flags = PUBLIC SUPER  // x20
+
+this_class = #2
+
+super_class = #3  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #4  // "<init>"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #8  // "test"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 18
+          max_stack = 2
+          max_locals = 1
+          code_length = 6
+          code bin {
+            // ifge 0x9E
+            // branchbyte1 0x00  
+            // branchbyte2 0x03
+			x03 x59 x9E x00 x03 xB1
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 0

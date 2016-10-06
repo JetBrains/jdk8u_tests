@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander D. Shipilov
+Version: $Revision: 1.3 $
+-->
+<Test
+  ID="ldiv0804"
+  date-of-creation="2004-01-20"
+  timeout="1"
+  >
+  <Author value="Alexander D. Shipilov"/>
+  <Description>
+    Tests ldiv java virtual machine instruction
+    Division long -10 and long 5. Result must be less than long 0.
+    
+    Covered assertions assert_instr28a108 assert_instr28a109 assert_instr28a110 assert_instr28a111 assert_instr28a113
+  </Description>
+
+  <Source name="ldiv0804p.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.arithm.ldiv.ldiv08.ldiv0804.ldiv0804p"/>
+  </Runner>
+</Test>

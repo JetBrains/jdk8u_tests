@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander D. Shipilov
+Version: $Revision: 1.5 $
+-->
+<Test
+  ID="return0201"
+  date-of-creation="2004-11-24"
+  timeout="10"
+  >
+  <Author value="Alexander D. Shipilov"/>
+  <Description>
+    Tests return java virtual machine instruction.
+   
+    In this test using 3 threads - main, first and second.
+    Main thread creating object (java.lang.Object). (It named "locker".)
+    (This object will be locked by first thread and second thread will be attempt to get lock to it.)
+    Then main thread creating first thread.
+    During initialization main thread transmit to the first thread reference to the "locker" object.
+    First thread saving this reference into the field. (Field named "lockerField".)
+    Then main thread starting first thread and begins to wait until first thread not to die.
+
+    Meantime first thread reading from "lockerField" field reference to the "locker" object.
+    (And store it in local variable.) Then first thread gets a lock to the "locker" object.
+    After this first thread execute return instruction. 
+    Monitor released after return only if it returns from synchronized method
+
+    Main thread waking up. Main thread creating integer array (int array[1]). It named "checker".
+    (This array will be used like a signal - by using of this array second thread will 
+    signal to the main thread when he will be ready to try to get lock to the "locker" object.)
+    Main thread store 0 to the "checker"[0].
+    After this main thread creating second thread.
+    During initialization main thread transmit to the second thread reference to the "locker" object 
+    and reference to the "checker" array.
+    Second thread saving these references into the fields. (Fields named "lockerField" and "checkerField" correspondingly.)
+    Then main thread starting second thread and begin to wait until checker[0] will not changed (by the second thread). 
+
+    Meantime second thread reading from "lockerField" field reference to the "locker" object and 
+    reference to "checker" array from "checkerField". (And store it in local variables).
+    After this second thread signaling to the main thread that he ready to try to get a lock to the "locker" object.
+    (He changing checker[0] - storing 1 there.)
+
+    After this main thread wait 100 milliseconds more to give to the second thread try to get lock.
+    If second thread getting a lock it means that test passed - second thread breaking test execution with 104 result.
+
+    After waiting main thread stopped second thread (it means that test failed).
+    Main thread finish test execution with 105 result.
+   
+    Covered assertions assert_instr212a017
+</Description>
+
+
+  <Source name="return0201p.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.invokeReturn.return.return02.return0201.return0201p"/>
+  </Runner>
+</Test>

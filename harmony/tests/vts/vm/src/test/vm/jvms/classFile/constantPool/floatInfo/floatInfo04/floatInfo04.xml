@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Maxim V. Makarov
+Version: $Revision: 1.2 $
+-->
+<Test ID="floatInfo04" date-of-creation="2006-06-06" timeout="1" >
+  <Author value="Maxim V. Makarov"/>
+  <Description>
+      Checks that value in the range 0x7f800001 through 0x7fffffff or 
+      in the range 0xff800001 through 0xffffffff
+      in CONSTANT_Float_info structure is interpreted by VM as float NaN.
+      
+      Covered assertions assert_class224
+  </Description>
+  <Source name="floatInfo04p.ccode"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classFile.constantPool.floatInfo.floatInfo04.floatInfo04p"/>
+  </Runner>
+</Test>

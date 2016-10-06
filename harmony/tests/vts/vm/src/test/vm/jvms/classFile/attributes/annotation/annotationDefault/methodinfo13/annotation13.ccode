@@ -1,0 +1,80 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * Author: Maxim V. Makarov
+ * Version: $Revision: 1.1 $
+ */
+
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 49
+
+constant_pool_count = 11
+
+constant_pool {
+  /* #1 */ Class = #8
+  /* #2 */ Class = #9
+  /* #3 */ Class = #10
+  /* #4 */ UTF8 = "value"
+  /* #5 */ UTF8 = "()Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/annotationDefault/methodinfo13/annotation13ann;"
+  /* #6 */ UTF8 = "AnnotationDefault"
+  /* #7 */ UTF8 = "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/annotationDefault/methodinfo13/annotation13ann;"
+  /* #8 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/annotationDefault/methodinfo13/annotation13"
+  /* #9 */ UTF8 = "java/lang/Object"
+  /* #10 */ UTF8 = "java/lang/annotation/Annotation"
+}
+
+access_flags = x2601  // PUBLIC INTERFACE ABSTRACT ANNOTATION 
+
+this_class = #1  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/annotationDefault/methodinfo13/annotation13"
+
+super_class = #2  // "java/lang/Object"
+
+interfaces_count = 1
+
+interfaces {
+  #3  // "java/lang/annotation/Annotation"
+}
+
+fields_count = 0
+
+methods_count = 1
+
+methods {
+  method {
+    access_flag = x401  // PUBLIC ABSTRACT 
+    name_index = #4  // "value"
+    descriptor_index = #5  // "()Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/annotationDefault/methodinfo13/annotation13ann;"
+    attributes_count = 1
+      attributes {
+        attribute AnnotationDefault {
+          attribute_name_index = #6  // "AnnotationDefault"
+          attribute_length = 5
+          tag = @
+          Annotation {
+            type_index = #7  // "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/annotationDefault/methodinfo13/annotation13ann;"
+            num_element_value_pairs = 0
+          }
+        }
+      }
+  }
+}
+
+attributes_count = 0

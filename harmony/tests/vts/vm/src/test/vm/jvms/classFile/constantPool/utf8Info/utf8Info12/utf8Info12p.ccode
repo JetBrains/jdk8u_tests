@@ -1,0 +1,198 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * @author: Alexander V. Esin
+ * @version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 49
+
+constant_pool_count = 39
+
+constant_pool {
+  /* #1 */ Method = #10 #22
+  /* #2 */ String = #23
+  /* #3 */ Field = #6 #24
+  /* #4 */ Method = #25 #26
+  /* #5 */ int = x2F81A //194586
+  /* #6 */ Class = #27
+  /* #7 */ Method = #6 #22
+  /* #8 */ Method = #6 #28
+  /* #9 */ Method = #29 #30
+  /* #10 */ Class = #31
+  /* #11 */ UTF8 = "testString"
+  /* #12 */ UTF8 = "Ljava/lang/String;"
+  /* #13 */ UTF8 = "<init>"
+  /* #14 */ UTF8 = "()V"
+  /* #15 */ UTF8 = "Code"
+  /* #16 */ UTF8 = "test"
+  /* #17 */ UTF8 = "([Ljava/lang/String;)I"
+  /* #18 */ UTF8 = "Exceptions"
+  /* #19 */ Class = #32
+  /* #20 */ UTF8 = "main"
+  /* #21 */ UTF8 = "([Ljava/lang/String;)V"
+  /* #22 */ NameAndType = #13 #14
+  /* #23 */ 
+  { x01 x0 x06 xED xA1 xBE xED xB0 x9A} //UTF-16 representation of Unicode character, 
+                                        // which Code point is equal to 0x2F81A
+  /* #24 */ NameAndType = #11 #12
+  /* #25 */ Class = #33
+  /* #26 */ NameAndType = #34 #35
+  /* #27 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/utf8Info/utf8Info12/utf8Info12p"
+  /* #28 */ NameAndType = #16 #17
+  /* #29 */ Class = #36
+  /* #30 */ NameAndType = #37 #38
+  /* #31 */ UTF8 = "java/lang/Object"
+  /* #32 */ UTF8 = "java/lang/Exception"
+  /* #33 */ UTF8 = "java/lang/String"
+  /* #34 */ UTF8 = "codePointAt"
+  /* #35 */ UTF8 = "(I)I"
+  /* #36 */ UTF8 = "java/lang/System"
+  /* #37 */ UTF8 = "exit"
+  /* #38 */ UTF8 = "(I)V"
+}
+
+access_flags = x21  // PUBLIC SUPER 
+
+this_class = #6  // "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/utf8Info/utf8Info12/utf8Info12p"
+
+super_class = #10  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 1
+
+fields {
+  field {
+    access_flag = x00  // 
+    name_index = #11  // "testString"
+    descriptor_index = #12  // "Ljava/lang/String;"
+    attributes_count = 0
+  }
+}
+
+methods_count = 3
+
+methods {
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #13  // "<init>"
+    descriptor_index = #14  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #15  // "Code"
+          attribute_length = 23
+          max_stack = 2
+          max_locals = 1
+          code_length = 11
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	aload_0
+          5:	ldc #2
+          7:	putfield #3  // "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/utf8Info/utf8Info12/utf8Info12p" "testString" "Ljava/lang/String;"
+          10:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #16  // "test"
+    descriptor_index = #17  // "([Ljava/lang/String;)I"
+    attributes_count = 2
+      attributes {
+        attribute Code {
+          attribute_name_index = #15  // "Code"
+          attribute_length = 33
+          max_stack = 2
+          max_locals = 3
+          code_length = 21
+          code asm {
+          0:	aload_0
+          1:	getfield #3  // "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/utf8Info/utf8Info12/utf8Info12p" "testString" "Ljava/lang/String;"
+          4:	iconst_0
+          5:	invokevirtual #4  // "java/lang/String" "codePointAt" "(I)I"
+          8:	istore_2
+          9:	iload_2
+          10:	ldc #5
+          12:	if_icmpne 6
+          15:	bipush 104
+          17:	ireturn
+          18:	bipush 105
+          20:	ireturn
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+        attribute Exceptions {
+          attribute_name_index = #18  // "Exceptions"
+          attribute_length = 4
+          number_of_exceptions = 1
+          exception_index_table {
+            #19  // "java/lang/Exception"
+          }
+        }
+      }
+  }
+  method {
+    access_flag = x09  // PUBLIC STATIC 
+    name_index = #20  // "main"
+    descriptor_index = #21  // "([Ljava/lang/String;)V"
+    attributes_count = 2
+      attributes {
+        attribute Code {
+          attribute_name_index = #15  // "Code"
+          attribute_length = 27
+          max_stack = 2
+          max_locals = 1
+          code_length = 15
+          code asm {
+          0:	new #6  // "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/utf8Info/utf8Info12/utf8Info12p"
+          3:	dup
+          4:	invokespecial #7  // "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/utf8Info/utf8Info12/utf8Info12p" "<init>" "()V"
+          7:	aload_0
+          8:	invokevirtual #8  // "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/utf8Info/utf8Info12/utf8Info12p" "test" "([Ljava/lang/String;)I"
+          11:	invokestatic #9  // "java/lang/System" "exit" "(I)V"
+          14:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+        attribute Exceptions {
+          attribute_name_index = #18  // "Exceptions"
+          attribute_length = 4
+          number_of_exceptions = 1
+          exception_index_table {
+            #19  // "java/lang/Exception"
+          }
+        }
+      }
+  }
+}
+
+attributes_count = 0

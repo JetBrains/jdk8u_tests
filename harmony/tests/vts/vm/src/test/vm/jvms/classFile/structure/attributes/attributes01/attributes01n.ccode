@@ -1,0 +1,65 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Khen G. Kim
+ * @version: $Revision: 1.1.1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 8
+
+constant_pool {
+  /* #1 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/structure/attributes/attributes01/attributes01n"
+  /* #2 */ UTF8 = "attributes01n.ccode"
+  /* #3 */ UTF8 = "java/lang/Object"
+  /* #4 */ Class = #3
+  /* #5 */ Class = #1
+  /* #6 */ UTF8 = "SourceFile"
+  /* #7 */ UTF8 = "Deprecated"
+}
+
+access_flags = PUBLIC  
+
+this_class = #5
+
+super_class = #4
+
+interfaces_count = 0
+
+fields_count = 0
+
+methods_count = 0
+
+attributes_count = 5  // Tested invalid value. It should be 2
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #6  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #2  // "attributes01n.ccode"
+  }
+  attribute Deprecated {
+    attribute_name_index = #7  // "Deprecated"
+    attribute_length = 0
+  }
+}

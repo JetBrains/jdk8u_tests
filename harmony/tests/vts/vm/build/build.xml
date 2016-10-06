@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- 
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+     
+      http://www.apache.org/licenses/LICENSE-2.0
+     
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
+
+ -->
+
+<project name="VTS" basedir=".." default="default">
+
+    <description>VTS build script</description>
+
+    <import file="${basedir}/build/build-settings.xml"/>
+
+    <property name="log.file" location="${basedir}/../build.log"/>
+    <property name="vts.verbose" value="false"/>
+    <property name="th.log.level" value="6"/>
+    <property name="th.concurrency.same" value="3"/>
+    <property name="th.concurrency.other" value="10"/>
+
+    <property name="unex" value="true"/>
+    <property name="nosame" value="true"/>
+
+    <record name="${log.file}"/>
+
+    <taskdef resource="net/sf/antcontrib/antlib.xml" onerror="ignore">
+        <classpath>
+            <pathelement location="${ant-contrib.jar}"/>
+        </classpath>
+    </taskdef>
+
+    <taskdef resource="cpptasks.tasks" onerror="ignore">
+        <classpath>
+            <pathelement location="${cpptasks.jar}"/>
+        </classpath>
+    </taskdef>
+
+    <typedef resource="cpptasks.types" onerror="ignore">
+        <classpath>
+            <pathelement location="${cpptasks.jar}"/>
+        </classpath>
+    </typedef>
+
+    <property name="f" value="${file.separator}"/>
+    <property name="p" value="${path.separator}"/>
+
+    <import file="build-vm.xml"/>
+
+    <!-- Pattern sets -->
+    <patternset id="vm.tests.pattern">
+        <include name="**/*.j"/>
+        <include name="**/*.jj"/>
+        <include name="**/*.ccode"/>
+        <include name="**/*.ccodeh"/>
+        <include name="**/*.java"/>
+        <include name="**/*.xml"/>
+        <include name="**/*.c"/>
+        <include name="**/*.cpp"/>
+        <include name="**/*.h"/>
+        <exclude name="**/share/*.xml"/>
+        <excludesfile name="${vts.image.build}/build_exclude.list"/>
+    </patternset>
+    <!-- End of pattern sets -->
+
+    <target name="check-config">
+        <description>
+            Check the correctness of build configuration.
+        </description>
+
+        <!-- first: check up the setup has already been done -->
+        <fail>
+            <condition>
+                <not>
+                    <or>
+                    <available file="${build.properties.file}" type="file"/>
+                    <available file="${build.external.deps.file}" type="file"/>
+                    </or>
+                </not>
+            </condition>
+...
+Build configuration files are not available.
+Do
+    > ant setup
+first!
+        </fail>
+
+        <echo message="build-date=${build.date}"/>
+        <echo message="build-time=${build.time}"/>
+        <echo message="on platform=${os.name} version=${os.version} arch=${os.arch}"/>
+        <echo message="with java home = ${java.home} VM version = ${java.vm.version} vendor = ${java.vm.vendor}"/>
+        <echo message="Platform = ${pl_efl}"/>
+        <echo message="Architecture = ${arch_efl}"/>
+        
+        <check-file-presence 
+            file2check="${tested.runtime}" description="Tested Runtime"
+        />
+        <check-file-presence 
+            file2check="${java.home.1.5}" description="JDK 1.5 Home" type="dir"
+        />
+        <check-file-presence 
+            file2check="${vts.harness.jar}" description="VTS Test Harness"
+        />
+        <check-file-presence 
+            file2check="${vmtt.jar}" description="Virtual Machine Testing Tool"
+        />
+
+        <antcall target="-check-ext-deps-presence"/>
+    </target>
+
+    <macrodef name="check-file-presence">
+        <attribute name="description"/>
+        <attribute name="file2check"/>
+        <attribute name="type" default="file"/>
+        <sequential>
+            <echo>Check for '@{description}' at '@{file2check}'</echo>
+            <fail>
+                <condition>
+                    <not>
+                        <available file="@{file2check}" type="@{type}"/>
+                    </not>
+                </condition>
+...
+========================================
+Build configuration FAILURE:
+
+Could not find the '@{description}' component 
+required for succesfull build execution.
+
+Current build configuration points to '@{file2check}' for it,
+but there is no such @{type}.
+
+This is because of some configuration properties was not set up correctly
+or not all of supporting frameworks have been built.
+
+TO RESOLVE THE PROBLEM:
+    1) CHECK:
+        ${build.properties.file}
+    configuration file
+    2) TRY:
+        > ant setup
+    to make sure you have built all supporting frameworks.
+========================================
+            </fail>
+            <echo message="ok"/>
+        </sequential>
+    </macrodef>
+
+    <target name="-check-ext-deps-presence" depends="-check-dep-availability">
+        <echo>Check external dependencies...</echo>
+        <fail if="some.ext.dep.unavailable">
+...
+========================================
+BUILD FAILURE: Some external dependencies are unavailable.
+Please, do
+    > ant fetch-depends
+to download and install them.
+========================================
+        </fail>
+        <echo message="ok"/>
+    </target>
+
+    <target name="setup" depends="-check-dep-availability, make-harness, make-tools">
+        <description>
+            Sets up the workspace for use.
+        </description>
+        <available file="${build.properties.file}" type="file"
+                   property="${build.properties.file}.exists"/>
+        <available file="${build.external.deps.file}" type="file"
+                   property="${build.external.deps.file}.exists"/>
+        <antcall target="make-build-prop-file"/>
+        <antcall target="make-external-deps-file"/>
+        <!-- antcall target="fetch-depends"/ -->
+    </target>
+
+    <target name="make-harness" unless="${vts.harness.jar}.exists">
+        <ant antfile="${root}/../tools/harness/build.xml"
+             dir="${root}/../tools/harness"/>
+    </target>
+
+    <target name="make-tools" unless="${vmtt.jar}.exists">
+        <ant antfile="${root}/../tools/vmtt/build.xml"
+             dir="${root}/../tools/vmtt"/>
+    </target>
+
+    <target name="fetch-depends"
+            depends="-check-dep-availability, -make-dep-dirs, -setup-proxy">
+        <description>
+            Fetches all needed external dependencies.
+            Network connection is required.
+        </description>
+        <antcall target="-fetch-archive">
+           <param name="component" value="jasmin"/>
+           <param name="path2jar" value="${jasmin.jar}"/>
+        </antcall>
+        <antcall target="-fetch-library">
+           <param name="component" value="xerces.impl"/>
+           <param name="path2jar" value="${xerces.impl.jar}"/>
+        </antcall>
+        <antcall target="-fetch-library">
+           <param name="component" value="xml.apis"/>
+           <param name="path2jar" value="${xml.apis.jar}"/>
+        </antcall>
+        <antcall target="-fetch-archive">
+           <param name="component" value="ant-contrib"/>
+           <param name="path2jar" value="${ant-contrib.jar}"/>
+        </antcall>
+        <antcall target="-fetch-archive">
+           <param name="component" value="cpptasks"/>
+           <param name="path2jar" value="${cpptasks.jar}"/>
+        </antcall>
+    </target>
+
+    <target name="-make-dep-dirs" unless="${depends.jars}.exists">
+        <!-- Make the dirrectories to store external dependencies -->
+        <mkdir dir="${depends.jars}"/>
+        <mkdir dir="${depends.arch}"/>
+        <mkdir dir="${depends.temp}"/>
+    </target>
+
+    <target name="-check-dep-availability">
+        <condition property="${depends.jars}.exists">
+            <and>
+                <available file="${depends.jars}" type="dir"/>
+                <available file="${depends.arch}" type="dir"/>
+                <available file="${depends.temp}" type="dir"/>
+            </and>
+        </condition>
+        <available file="${vts.harness.jar}" type="file"
+                   property="${vts.harness.jar}.exists"/>
+        <available file="${vmtt.jar}" type="file"
+                   property="${vmtt.jar}.exists"/>
+        <available file="${jasmin.jar}" type="file"
+                   property="${jasmin.jar}.exists"/>
+        <available file="${xerces.impl.jar}" type="file"
+                   property="${xerces.impl.jar}.exists"/>
+        <available file="${xml.apis.jar}" type="file"
+                   property="${xml.apis.jar}.exists"/>
+        <available file="${ant-contrib.jar}" type="file"
+                   property="${ant-contrib.jar}.exists"/>
+        <available file="${cpptasks.jar}" type="file"
+                   property="${cpptasks.jar}.exists"/>
+        <condition property="some.ext.dep.unavailable">
+            <or>
+                <not><isset property="${jasmin.jar}.exists"/></not>
+                <not><isset property="${xerces.impl.jar}.exists"/></not>
+                <not><isset property="${xerces.impl.jar}.exists"/></not>
+                <not><isset property="${ant-contrib.jar}.exists"/></not>
+                <not><isset property="${cpptasks.jar}.exists"/></not>
+            </or>
+        </condition>
+    </target>
+
+    <target name="-fetch-library" unless="${path2jar}.exists">
+        <echo>Fetching '${component}' external component to ${path2jar}</echo>
+        <fetch-library component="${component}"/>
+    </target>
+
+    <target name="-fetch-archive" unless="${path2jar}.exists">
+        <echo>Fetching '${component}' external component to ${path2jar}</echo>
+        <fetch-archive component="${component}"/>
+    </target>
+
+    <macrodef name="fetch-archive">
+        <attribute name="component"/>
+        <sequential>
+            <available file="${depends.arch}/${@{component}.zip}" 
+                       property="${@{component}.zip}.exists"/>
+            <antcall target="-do-download">
+                <param name="src" value="${@{component}.url}"/>
+                <param name="dest" value="${depends.temp}/${@{component}.zip}"/>
+            </antcall>
+            <checksum file="${depends.temp}/${@{component}.zip}" property="@{component}.url.md5"/>
+            <fail>
+                <condition>
+                    <not><equals arg1="${@{component}.url.md5}" 
+                                 arg2="${@{component}.md5}"/></not>
+                </condition>
+...
+
+File ${@{component}.zip} downloaded from:
+    ${@{component}.url} 
+has incorrect MD5 checksum: '${@{component}.url.md5}'
+while expected is: '${@{component}.md5}'
+            </fail>
+            <!-- archive has been verified, so place with other archives -->
+            <move file="${depends.temp}/${@{component}.zip}"
+                  todir="${depends.arch}"/>
+            <unzip src="${depends.arch}/${@{component}.zip}"
+                   dest="${depends.temp}">
+                <patternset>
+                    <include name="**/@{component}.jar"/>
+                </patternset>
+            </unzip>
+            <move todir="${depends.jars}" flatten="true">
+                <fileset dir="${depends.temp}">
+                    <include name="**/@{component}.jar"/>
+                </fileset>
+            </move>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="fetch-library">
+        <attribute name="component"/>
+        <sequential>
+            <available file="${@{component}.jar}" property="${@{component}.jar}.exists"/>
+            <antcall target="-do-download">
+                <param name="src" value="${@{component}.url}"/>
+                <param name="dest" value="${@{component}.jar}"/>
+            </antcall>
+            <checksum file="${@{component}.jar}" 
+                      property="${@{component}.md5}" 
+                      verifyproperty="@{component}.jar.verified"/>
+            <fail>
+                <condition>
+                    <isfalse value="${@{component}.jar.verified}"/>
+                </condition>
+...
+
+File ${@{component}.jar} downloaded from:
+    ${@{component}.url} 
+has incorrect MD5 checksum! 
+Expected: ${@{component}.md5}
+            </fail>
+        </sequential>
+    </macrodef>
+
+    <target name="-setup-proxy" if="http.proxyHost">
+        <setproxy proxyhost="${http.proxyHost}" proxyport="${http.proxyPort}"/>
+    </target>
+
+    <target name="-do-download" unless="${dest}.exists">
+        <echo>Downloading ${dest} from ${src} ...</echo>
+        <get src="${src}" dest="${dest}" usetimestamp="true" verbose="true"/>
+    </target>
+
+    <!-- default target -->
+    <target name="default" depends="all"/>
+
+    <!-- all target -->
+    <target name="all" depends="build-vts, run-tests">
+        <description>Builds all.</description>
+    </target>
+
+    <target name="run-tests" depends="check-config, -run-same, -run-other">
+        <echo>
+========================================
+Test run succeded. 
+For test results see report.xml file under
+    ${distrib.location}${f}${vts.zip.prefix}_results
+directory.
+========================================
+        </echo>
+    </target>
+
+    <target name="build-vts" depends="check-config, -declare-tasks, compile-sources">
+        <description>Compile Framework and tests</description>
+        
+        <!-- compile-sources target from build-vm.xml file succeded -->
+        <echo message="TESTS COMPILED SUCCESSFULLY"/>
+
+        <!-- Update description files -->
+        <java fork="yes" classname="CheckLinks" dir="${vts.temp}">
+            <arg line="-i -insert -basedir ${vts.built.src.test}"/>
+        </java>
+        <java fork="yes" classname="BuildIndex" dir="${vts.temp}">
+            <arg line="-basedir ${vts.built.src.test}"/>
+        </java>
+
+        <!-- Set TestBaseVersion -->
+        <replace file="${vts.built.config}/cfg_ts.xml">
+            <replacefilter token="#TestBaseVersion#" value="${build.string}"/>
+            <replacefilter token="#TestBaseVersionComment#" value="${build.comment.string}"/>
+        </replace>
+        <!-- Create file with build version enh #808 -->
+        <replace file="${vts.built.home}/release.notes">
+            <replacefilter token="#TestBaseVersion#" value="${build.string}"/>
+            <replacefilter token="#TestBaseVersionComment#" value="${build.comment.string}"/>
+        </replace>
+
+        <!-- Set harness configuration -->
+        <replace file="${vts.built.config}/cfg_env.xml">
+            <replacefilter token="#TestSuiteRoot#" value="${vts.build.path}"/>
+            <replacefilter token="#TestResultRoot#" value="${distrib.location}${f}result"/>
+            <replacefilter token="#TestedRuntime#" value="${tested.runtime}"/>
+            <replacefilter token="#TestedCompile#" value="${tested.compile}"/>
+            <replacefilter token="#ReferenceRuntime#" value="${reference.runtime}"/>
+            <replacefilter token="#TempStorage#" value="${distrib.location}${f}temp"/>
+            <replacefilter token="#JVMARGS#" value=""/>
+        </replace>
+    </target>
+
+    <target name="-prepare-vts-built-ws">
+        <description>
+                Establish VTS-built directory structure.
+        </description>
+                
+        <!-- build all the tests -->
+        <property name="tests.vm" value="**/*.*"/>
+
+        <mkdir dir="${vts.built.home}"/>
+        <mkdir dir="${vts.built.bin}"/>
+        <mkdir dir="${vts.built.bin.classes}"/>
+        <mkdir dir="${vts.built.bin.lib}"/>
+        <mkdir dir="${vts.built.src}"/>
+        <mkdir dir="${vts.built.src.test}"/>
+        <mkdir dir="${vts.built.src.test.share}"/>
+        <mkdir dir="${vts.built.config}"/>
+        <copy todir="${vts.built.config}">
+            <fileset dir="${vts.image.config}"/>
+        </copy>
+        <copy todir="${vts.built.src.test}">
+            <fileset dir="${vts.image.src.test}">
+                <include name="**/*.dtd"/>
+                <include name="test.xsl"/>
+            </fileset>
+        </copy>
+        <copy todir="${vts.built.home}" file="${vts.image.home}/release.notes"/>
+    </target>
+
+    <target name="-build-tasks" depends="-prepare-vts-built-ws">
+        <mkdir dir="${vts.temp}"/>
+        <javac fork="yes" 
+               destdir="${vts.temp}" 
+               srcdir="${vts.image.build}/helpers" 
+               includes="*.java">
+            <classpath>
+                <pathelement location="${jasmin.jar}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="-declare-tasks" depends="-build-tasks">
+        <taskdef name="jasmin" classname="JasminTask">
+            <classpath>
+                <pathelement location="${vts.temp}"/>
+                <pathelement location="${jasmin.jar}"/>
+            </classpath>
+        </taskdef>
+    </target>
+
+    <target name="-run-same" unless="nosame">
+        <description>
+                Run all VTS tests in SameJVM mode.
+        </description>
+        <echo message="Running tests in Same JVM mode ..."/>
+        <tstamp>
+            <format property="start.time.same" pattern="yyyy-MM-dd hh:mm:ss"/>
+        </tstamp>
+        <echo message="Start: ${start.time.same}"/>
+        <property name="xml.classpath" refid="XML_CLASSPATH"/>
+
+        <java classname="${vts.harness.main}" 
+              fork="yes" 
+              dir="${vts.build.path}"
+              classpath="{vts.built.bin.classes}:${vts.built.bin.lib}:${vts.harness.jar}:${xml.classpath}">
+            <arg line="-cfp ${vts.built.config} -exclude ${vts.built.config}/exclude.file -execopt exec same -execopt location remote -execopt concurrent 1 -version -property TestResultRoot ${distrib.location}${f}${vts.zip.prefix}_results${f}result.Same -logl ${th.log.level} -property TestedRuntime ${tested.runtime}"/>
+        </java>
+
+        <tstamp>
+            <format property="end.time.same" pattern="yyyy-MM-dd hh:mm:ss"/>
+        </tstamp>
+        <echo message="Start: ${start.time.same}"/>
+        <echo message="End: ${end.time.same}"/>
+
+        <!-- Generate unexpected test failures -->
+        <echo message="Generating expected test failures report"/>
+           <copy  todir="${distrib.location}${f}${vts.zip.prefix}_results${f}result.Same" file="${vts.image.build}/report_efl.xsl"/>
+    </target>
+
+    <target name="-run-other" unless="noother">
+        <description>
+                Run all VTS tests in OtherJVM mode.
+        </description>
+        <echo message="Running tests in Other JVM mode ..."/>
+        <tstamp>
+            <format property="start.time.other" pattern="yyyy-MM-dd hh:mm:ss"/>
+        </tstamp>
+        <echo message="Start: ${start.time.other}"/>
+        <property name="xml.classpath" refid="XML_CLASSPATH"/>
+        <java classname="${vts.harness.main}" 
+              fork="yes" 
+              dir="${vts.build.path}"
+              classpath="{vts.built.bin.classes}:${vts.built.bin.lib}:${vts.harness.jar}:${xml.classpath}">
+            <arg line="-cfp ${vts.built.config} -exclude ${vts.built.config}/exclude.file -execopt exec other -execopt location local -execopt concurrent ${th.concurrency.other} -version -property TestResultRoot ${distrib.location}${f}${vts.zip.prefix}_results${f}result.Other -logl ${th.log.level}  -property TestedRuntime ${tested.runtime}"/>
+        </java>
+
+        <tstamp>
+            <format property="end.time.other" pattern="yyyy-MM-dd hh:mm:ss"/>
+        </tstamp>
+        <echo message="Start: ${start.time.other}"/>
+        <echo message="End: ${end.time.other}"/>
+
+        <!-- Generate unexpected test failures -->
+        <echo message="Generating expected test failures report"/>
+           <copy  todir="${distrib.location}${f}${vts.zip.prefix}_results${f}result.Other" file="${vts.image.build}/report_efl.xsl"/>
+    </target>
+
+    <!-- clean -->
+    <target name="clean">
+        <description>Clean VTS-built directory structure.</description>
+        <delete dir="${vts.built.home}"/>
+    </target>
+
+</project>
+

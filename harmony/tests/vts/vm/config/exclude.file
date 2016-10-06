@@ -1,0 +1,113 @@
+# Tests that fail on RI, win ia32: 51 test
+
+vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod03/enclosingMethod03.xml 
+vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod04/enclosingMethod04.xml 
+vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod05/enclosingMethod05.xml 
+vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod08/enclosingMethod08.xml 
+vm/jvms/classFile/attributes/innerClasses/innerClasses11/innerClasses11.xml 
+vm/jvms/classFile/attributes/innerClasses/innerClasses12/innerClasses12.xml 
+vm/jvms/classFile/attributes/signature/signature06/signature0603/signature0603.xml 
+vm/jvms/classFile/attributes/signature/signature06/signature0604/signature0604.xml 
+vm/jvms/classFile/attributes/signature/signature07/signature0703/signature0703.xml 
+vm/jvms/classFile/attributes/signature/signature07/signature0704/signature0704.xml 
+vm/jvms/classFile/attributes/sourceDebugExtension/sourceDebugExtension02/sourceDebugExtension02.xml 
+vm/jvms/classFile/attributes/sourceDebugExtension/sourceDebugExtension04/sourceDebugExtension04.xml 
+vm/jvms/classFile/constraints/structural/constraint18/aastore03/aastore03.xml 
+vm/jvms/classFile/fields/nameIndex/nameIndex07/nameIndex07.xml 
+vm/jvms/classFile/methods/accessFlags/accessFlags08/accessFlags08.xml 
+vm/jvms/classFile/methods/accessFlags/accessFlags09/accessFlags09.xml 
+vm/jvms/classFile/methods/accessFlags/accessFlags40/accessFlags40.xml 
+vm/jvms/classFile/methods/nameIndex/nameIndex07/nameIndex07.xml 
+vm/jvms/classFile/structure/accessFlags/accessFlags20/accessFlags2001/accessFlags2001.xml 
+vm/jvmti/events/CompiledMethodUnload/CompiledMethodUnload0101/CompiledMethodUnload0101.xml 
+vm/jvmti/events/DataDumpRequest/DataDumpRequest0101/DataDumpRequest0101.xml 
+vm/jvmti/events/MonitorContendedEntered/MonitorContendedEntered0102/MonitorContendedEntered0102.xml 
+vm/jvmti/funcs/AddToBootCLSearch/AddToBootCLSearch0102/AddToBootCLSearch0102.xml 
+vm/jvmti/funcs/GenerateEvents/GenerateEvents0104/GenerateEvents0104.xml 
+vm/jvmti/funcs/GetFieldDeclaringClass/GetFieldDeclaringClass0103/GetFieldDeclaringClass0103.xml 
+vm/jvmti/funcs/GetFieldModifiers/GetFieldModifiers0103/GetFieldModifiers0103.xml 
+vm/jvmti/funcs/GetMethodName/GetMethodName0102/GetMethodName0102.xml # HARMONY-4404
+vm/jvmti/funcs/GetObjectsWithTags/GetObjectsWithTags0103/GetObjectsWithTags0103.xml 
+vm/jvmti/funcs/GetSourceDebugExtension/GetSourceDebugExtension0101/GetSourceDebugExtension0101.xml 
+vm/jvmti/funcs/GetThreadGroupChildren/GetThreadGroupChildren0102/GetThreadGroupChildren0102.xml 
+vm/jvmti/funcs/GetThreadGroupInfo/GetThreadGroupInfo0102/GetThreadGroupInfo0102.xml 
+vm/jvmti/funcs/GetThreadInfo/GetThreadInfo0102/GetThreadInfo0102.xml 
+vm/jvmti/funcs/IsFieldSynthetic/IsFieldSynthetic0104/IsFieldSynthetic0104.xml 
+vm/jvmti/funcs/IterateInstances/IterateInstances0104/IterateInstances0104.xml 
+vm/jvmti/funcs/IterateOverHeap/IterateOverHeap0103/IterateOverHeap0103.xml 
+vm/jvmti/funcs/PopFrame/PopFrame0105/PopFrame0105.xml 
+vm/jvmti/funcs/RawMonitorNotify/RawMonitorNotify0102/RawMonitorNotify0102.xml 
+vm/jvmti/funcs/RawMonitorNotifyAll/RawMonitorNotifyAll0103/RawMonitorNotifyAll0103.xml 
+vm/jvmti/funcs/RedefineClasses/RedefineClasses0105/RedefineClasses0105.xml 
+vm/jvmti/funcs/ResumeThread/ResumeThread0103/ResumeThread0103.xml 
+vm/jvmti/funcs/SetEventNotificationMode/SetEventNotificationMode0102/SetEventNotificationMode0102.xml 
+vm/jvmti/funcs/SetEventNotificationMode/SetEventNotificationMode0104/SetEventNotificationMode0104.xml 
+vm/jvmti/funcs/SetEventNotificationMode/SetEventNotificationMode0106/SetEventNotificationMode0106.xml 
+vm/jvmti/funcs/SetEventNotificationMode/SetEventNotificationMode0107/SetEventNotificationMode0107.xml 
+vm/jvmti/funcs/StopThread/StopThread0101/StopThread0101.xml 
+vm/jvmti/funcs/StopThread/StopThread0105/StopThread0105.xml 
+
+Incorrect tests: 15 tests
+vm/jvms/classFile/attributes/innerClasses/innerClasses12/innerClasses12.xml # HARMONY-4359: non-bug diff with JRockit
+vm/jvms/classFile/structure/accessFlags/accessFlags08/accessFlags08.xml 			# test issue 8234  - 1.4 specific test
+vm/jvms/instructions/invokeReturn/invokestatic/invokestatic11/invokestatic1102/invokestatic1102.xml 	# test issue 6890
+vm/jvms/classLLI/loading/loading08/loading08.xml 						# test issue 9867
+vm/jvmti/events/ObjectFree/ObjectFree0101/ObjectFree0101.xml 				# test issue 10413
+vm/jvmti/events/MonitorContendedEnter/MonitorContendedEnter0101/MonitorContendedEnter0101.xml 	# test issue 10260
+vm/jvmti/funcs/SuspendThreadList/SuspendThreadList0101/SuspendThreadList0101.xml 		# test issue 9156 - intermittent failure
+vm/jvmti/events/MonitorContendedEntered/MonitorContendedEntered0101/MonitorContendedEntered0101.xml	# test issue 10260	
+vm/jvmti/funcs/GetObjectMonitorUsage/GetObjectMonitorUsage0101/GetObjectMonitorUsage0101.xml   # test issue 9156: sleep is used to synchronization
+vm/jvms/threads/threads201/threads20101/threads20101.xml       # test issue 9914 intermittent failure
+vm/jvms/threads/threads209/threads20901/threads20901.xml       # test issue 9914 intermittent failure
+vm/jvms/threads/threads189/threads18901/threads18901.xml       # test issue 9914 intermittent failure
+vm/jvms/classFile/finally/finally09/finally0901/finally0901.xml  (former # H-3755)				
+vm/jvms/classFile/constraints/structural/constraint23/subroutine01/subroutine01.xml (former # H-3755)
+
+Harmony bugs:
+# H-2081
+vm/jvms/instructions/invokeReturn/areturn/areturn03/areturn0301/areturn0301.xml 		
+vm/jvms/instructions/invokeReturn/dreturn/dreturn03/dreturn0301/dreturn0301.xml 		
+vm/jvms/instructions/invokeReturn/freturn/freturn03/freturn0301/freturn0301.xml 		
+vm/jvms/instructions/invokeReturn/ireturn/ireturn03/ireturn0301/ireturn0301.xml 		
+vm/jvms/instructions/invokeReturn/lreturn/lreturn03/lreturn0301/lreturn0301.xml 		
+vm/jvms/instructions/invokeReturn/return/return04/return0401/return0401.xml 			
+vm/jvms/instructions/sync/monitorexit/monitorexit03/monitorexit0301/monitorexit0301.xml 	
+vm/jvms/instructions/exceptions/athrow/athrow11/athrow1101/athrow1101.xml 			
+# H-3999
+vm/jvmti/events/ExceptionCatch/ExceptionCatch0101/ExceptionCatch0101.xml 			
+
+Harmony feature request (http://wiki.apache.org/harmony/CoreVmDevelopmentItems): 9 tests
+vm/jni/references/DeleteLocalRefTest/DeleteLocalRefTest.xml 					# Harmony feature request
+vm/jvmti/funcs/IsMethodObsolete/IsMethodObsolete0101/IsMethodObsolete0101.xml 		# Harmony feature request
+vm/jvmti/funcs/IsMethodObsolete/IsMethodObsolete0103/IsMethodObsolete0103.xml 		# Harmony feature request
+vm/jvmti/funcs/IsMethodObsolete/IsMethodObsolete0104/IsMethodObsolete0104.xml 		# Harmony feature request
+vm/jvmti/funcs/RedefineClasses/RedefineClasses0101/RedefineClasses0101.xml 			# Harmony feature request
+vm/jvmti/funcs/RedefineClasses/RedefineClasses0102/RedefineClasses0102.xml 			# Harmony feature request
+vm/jvmti/funcs/RedefineClasses/RedefineClasses0103/RedefineClasses0103.xml 			# Harmony feature request
+vm/jvmti/funcs/RedefineClasses/RedefineClasses0106/RedefineClasses0106.xml 			# Harmony feature request
+vm/jvmti/funcs/RedefineClasses/RedefineClasses0107/RedefineClasses0107.xml 			# Harmony feature request
+
+Harmony non bug issues and limitations (http://wiki.apache.org/harmony/KnownNonBugIssuesAndLimitations): 35 tests
+vm/jvmti/funcs/GetLocalDouble/GetLocalDouble0104/GetLocalDouble0104.xml 			# Harmony limitations
+vm/jvmti/funcs/GetLocalFloat/GetLocalFloat0104/GetLocalFloat0104.xml 			# Harmony limitations
+vm/jvmti/funcs/GetLocalInt/GetLocalInt0104/GetLocalInt0104.xml 				# Harmony limitations
+vm/jvmti/funcs/GetLocalLong/GetLocalLong0104/GetLocalLong0104.xml 				# Harmony limitations
+vm/jvmti/funcs/GetLocalObject/GetLocalObject0104/GetLocalObject0104.xml 			# Harmony limitations
+vm/jvmti/funcs/SetLocalDouble/SetLocalDouble0104/SetLocalDouble0104.xml 			# Harmony limitations
+vm/jvmti/funcs/SetLocalFloat/SetLocalFloat0104/SetLocalFloat0104.xml 			# Harmony limitations
+vm/jvmti/funcs/SetLocalInt/SetLocalInt0104/SetLocalInt0104.xml 				# Harmony limitations
+vm/jvmti/funcs/SetLocalLong/SetLocalLong0104/SetLocalLong0104.xml 				# Harmony limitations
+vm/jvmti/funcs/SetLocalObject/SetLocalObject0104/SetLocalObject0104.xml 			# Harmony limitations
+vm/jvmti/funcs/GetArgumentsSize/GetArgumentsSize0102/GetArgumentsSize0102.xml 		# Harmony limitations
+vm/jvmti/funcs/GetBytecodes/GetBytecodes0103/GetBytecodes0103.xml 				# Harmony limitations
+vm/jvmti/funcs/GetLineNumberTable/GetLineNumberTable0104/GetLineNumberTable0104.xml 		# Harmony limitations
+vm/jvmti/funcs/GetLocalVariableTable/GetLocalVariableTable0104/GetLocalVariableTable0104.xml 	# Harmony limitations
+vm/jvmti/funcs/GetMaxLocals/GetMaxLocals0102/GetMaxLocals0102.xml 				# Harmony limitations
+vm/jvmti/funcs/GetMethodDeclaringClass/GetMethodDeclaringClass0102/GetMethodDeclaringClass0102.xml 	# Harmony limitations
+vm/jvmti/funcs/GetMethodLocation/GetMethodLocation0103/GetMethodLocation0103.xml 		# Harmony limitations
+vm/jvmti/funcs/GetMethodModifiers/GetMethodModifiers0102/GetMethodModifiers0102.xml 		# Harmony limitations
+vm/jvmti/funcs/IsMethodNative/IsMethodNative0102/IsMethodNative0102.xml 			# Harmony limitations
+vm/jvmti/funcs/IsMethodSynthetic/IsMethodSynthetic0103/IsMethodSynthetic0103.xml 		# Harmony limitations
+vm/jvms/instructions/invokeReturn/invokedynamic/invokedynamic01/invokedynamic0101/invokedynamic0101.xml 
+
+

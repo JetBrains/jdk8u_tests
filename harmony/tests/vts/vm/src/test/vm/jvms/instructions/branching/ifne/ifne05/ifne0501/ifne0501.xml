@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Maxim V. Makarov
+Version: $Revision: 1.2 $
+-->
+<Test ID="ifne0501" date-of-creation="2006-05-17" timeout="1">
+  <Author value="Maxim V. Makarov"/>
+  <Description>
+   Checks that a branchoffset for ifne instruction is calculated as (branchbyte1 lshift 8) | branchbyte2
+   Covered assertions assert_instr26a150
+  </Description>
+  <Source name="ifne0501p.ccode"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+ 		<Option name="run"/>
+ 		<Option name="org.apache.harmony.vts.test.vm.jvms.instructions.branching.ifne.ifne05.ifne0501.ifne0501p"/>
+    </Param>
+  </Runner>
+</Test>

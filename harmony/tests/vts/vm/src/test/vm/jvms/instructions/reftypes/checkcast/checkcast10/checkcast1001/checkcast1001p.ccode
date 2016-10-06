@@ -1,0 +1,107 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Maxim V. Makarov
+ * @version: $Revision: 1.1.1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 11
+
+constant_pool {
+  /* #1 */ Method = #2 #8
+  /* #2 */ Class = #9
+  /* #3 */ Class = #10
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ UTF8 = "()V"
+  /* #6 */ UTF8 = "Code"
+  /* #7 */ UTF8 = "test"
+  /* #8 */ NameAndType = #4 #5
+  /* #9 */ UTF8 = "java/lang/Object"
+  /* #10 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/instructions/reftypes/checkcast/checkcast10/checkcast1001/checkcast1001p"
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #3
+
+super_class = #2  // "java/lang/Object"
+
+interfaces_count = 0
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #4  // "<init>"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 2
+          code_length = 5
+          code asm {
+			  0: aload_0
+			  1: invokespecial #1
+			  4: return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+     }
+  }
+
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #7  // "test"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 18
+          max_stack = 2
+          max_locals = 2
+          code_length = 6
+          code bin {
+				// checkcast 0xC0
+				// indexbyte1 0x00
+				// indexbyte2 0xC0
+				x01 xC0 x00 x02 x4C xB1
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+     }
+  }
+}
+
+ 
+attributes_count = 0

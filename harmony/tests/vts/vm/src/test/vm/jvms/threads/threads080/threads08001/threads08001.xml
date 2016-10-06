@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Maxim N. Kurzenev
+Version: $Revision: 1.1 $
+-->
+<Test ID="threads08001" date-of-creation="2006-07-14" timeout="1">
+  <Author value="Maxim N. Kurzenev"/>
+  <Description>
+      We don't have direct access to atomic actions like store or use 
+      so we just trigger them with less atomic actions and check the
+      expected induced consequences.
+
+      The test starts a thread T which calls the following method:
+
+          public void anny() {
+              synchronized (this) {
+                  synchronized (this) {
+                      A = 1;
+                  } // force store operation by unlocking a lock
+                  A = 2;
+              } // force store operation by unlocking a lock
+          }
+
+      Since the write operations by main memory on A must follow the order of
+      corresponding store operations by a thread T on A, the master copy of A
+      must hold the value of 2.      
+      
+      After thread finished its call, the master thread makes a check of A
+      to be equal to 2.      
+
+      Test is repeated until the time specified by delay parameter elapses.
+      
+      Covered assertions assert_thread080
+  </Description>
+  <Source name="threads08001p.j"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.threads.threads080.threads08001.threads08001p">
+        <Option name="delay" value="5000"/>
+    </Param>
+  </Runner>
+</Test>

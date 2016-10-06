@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Nikolay Y. Amosov
+Version: $Revision: 1.2 $
+-->
+<Test
+    ID="methods01"
+    date-of-creation="2006-06-13"
+    timeout="1"
+    >
+    <Author value="Nikolay Y. Amosov"/>
+    <Description>
+		Test to limitation of methods number contained in a class.
+		By default quantity of methods are limited by size of 2 bytes 
+		methods_count item (65535). 
+		This limitation crosses with limitation to constant_pool_count. 
+		Finally, class can contain only 65521 methods
+		(63518 generated "methodNNNNN",(where NNNNN is a method number) 
+		+ "main" + "test" + class constructor).
+		It is expected that class (with 65521 methods) which is generated 
+		in test will be loaded without any problem.
+	    Covered assertions assert_class931
+    </Description>
+
+    <Keyword name="verifier"/>
+    
+    <Keyword name="pass1"/>
+
+    <Keyword name="classloader"/>
+
+    <Source name="Methods01.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classFile.limitations.methods.methods01.Methods01">
+        </Param>
+    </Runner>
+</Test>

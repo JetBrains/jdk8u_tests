@@ -1,0 +1,65 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Maxim V. Makarov
+ * @version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 8
+
+constant_pool {
+  /* #1 */ Class = #5
+  /* #2 */ Class = #6
+  /* #3 */ UTF8 = "SourceFile"
+  /* #4 */ UTF8 = "deprecated14p.ccode"
+  /* #5 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/deprecated/deprecated14/deprecated14p"
+  /* #6 */ UTF8 = "java/lang/Object"
+  /* #7 */ UTF8 = "Deprecated"
+}
+
+access_flags = INTERFACE ABSTRACT  // x600
+
+this_class = #1  
+
+super_class = #2  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 0
+
+attributes_count = 1
+attributes {
+  // Test attribute
+  attribute Deprecated {
+    attribute_name_index = #7 // Deprecated
+    attribute_length = 0 
+  }
+
+}

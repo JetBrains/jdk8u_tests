@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Maxim N. Kurzenev
+Version: $Revision: 1.1 $
+-->
+<Test ID="threads07601" date-of-creation="2006-07-12" timeout="1">
+  <Author value="Maxim N. Kurzenev"/>
+  <Description>
+      We don't have direct access to atomic actions like store or use 
+      so we just trigger them with less atomic actions and check the
+      expected induced consequences.
+
+      The test starts a thread T1 that assigns a value to variable V and dies.
+      The test then starts a thread T2 that checks if it sees the proper value of V
+      assigned by T1.
+      
+      Assign by T1 on V causes store operation by T1 on V which in turn causes
+      write operation by main memory on a master copy of V. 
+      
+      Value check of V by T2 triggers load by T2 of its working copy of V,
+      which in turn must trigger read of master copy of V by the main memory.
+      
+      If T2 sees the wrong value of V it means that at least one of the above
+      write or read operations was not performed.
+
+      Covered assertions assert_thread076 assert_thread077
+  </Description>
+  <Source name="threads07601p.j"/>
+  <Source name="threads07601p$1.j"/>
+  <Source name="threads07601p$2.j"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.threads.threads076.threads07601.threads07601p"/>
+  </Runner>
+</Test>

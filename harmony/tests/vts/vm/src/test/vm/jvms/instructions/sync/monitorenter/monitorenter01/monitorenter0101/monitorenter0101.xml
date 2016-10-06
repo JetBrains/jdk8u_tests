@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander D. Shipilov
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="monitorenter0101"
+  date-of-creation="2004-11-23"
+  timeout="1"
+  >
+  <Author value="Alexander D. Shipilov"/>
+  <Description>
+     Tests monitorenter java virtual machine instruction.
+
+     In this test 3 threads are used - main, first and second.
+    Each thread have unique class. So, every thread correlate with his object.
+    As an object of synchronization java.lang.Object are used.
+    The first thread will lock the Object and the second thread will try to get lock for it.
+    Test will pass if the lock for the object will not be taken by second thread.
+    Test will fail otherwise.
+
+    Detailed description:
+
+	Notations:
+       Main thread is the basic thread.
+       "locker" - java.lang.Object. This object will be locked by first thread and second thread will be attempt to get lock to it. 
+                Creating in the main thread.
+	 "lockerField" - fields in the threads objects. In this fields threads objects store reference to the "locker".
+                     Used in the first and in the second threads.
+	 "result" - array int[1]. 
+       "resultField" - field in the first and second threads objects. In this field threads objects store reference to the "result".
+
+	Implementation:
+
+     Main thread creating array ("result") and store 104 to it (result[0]=104). Then main thread creating first thread.
+    During initialization main thread transmit to the first thread reference to the "result" array.
+    First thread saving this reference into the field ("resultField").
+    Then main thread starting first thread and begins to sleep 10000 milliseconds.
+
+     The first thread reads from "resultField" field reference to the "result" array
+    and store it in the local variable. Then the first thread create "locker" object and get the lock to it.
+    It means that only first thread can get access to the "locker" object.
+    After this first thread creating second thread.
+    During initialization first thread transmit to the second thread reference to the "locking" object 
+    and reference to the "result" array.
+    Second thread saving these references into the fields. Fields named "lockerField" and "resultField" correspondingly.
+    Then first thread starting second thread and begins to wait when the second thread ends work.
+
+     The second thread reads from "lockerField" field reference to the "locker" object and 
+    reference to "result" array from "resultField" and store it in local variables.
+     Then second thread has try to get lock to locker object. If second thread getting a lock it means that test failed
+     - second thread write 105 to result array (result[0]=105).
+
+     Main thread waking up and finish test execution with result in result array (return result[0]).
+
+     Lock - monitorenter. Unlock - monitorexit.
+
+     Warning! This test can work incorrectly in stress situation.
+     Covered assertions assert_instr29a007 assert_instr29a004 assert_instr29a006
+  </Description>
+
+  <Source name="monitorenter0101p.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.sync.monitorenter.monitorenter01.monitorenter0101.monitorenter0101p"/>
+  </Runner>
+</Test>

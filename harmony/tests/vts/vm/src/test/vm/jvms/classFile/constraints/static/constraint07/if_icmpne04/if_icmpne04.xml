@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander D. Shipilov
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="if_icmpne04"
+  date-of-creation="2005-04-26"
+  timeout="1"
+  >
+  <Author value="Alexander D. Shipilov"/>
+  <Description>
+    Tests that if_icmpne can not have illegal branch (jump to the instruction modified by wide instruction).
+    This fail occurs in method marked "// Test method".
+    
+    Covered assertions assert_class622 assert_class623 assert_instr26a135
+  </Description>
+
+  <Keyword name="verifier"/>
+
+  <Keyword name="pass1"/>
+
+  <Source name="if_icmpne04n.ccode"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+				<Option name="load"/>
+				<Option name="org.apache.harmony.vts.test.vm.jvms.classFile.constraints.static.constraint07.if_icmpne04.if_icmpne04n"/>
+				<Option name="java.lang.VerifyError"/>
+			</Param>
+  </Runner>
+</Test>

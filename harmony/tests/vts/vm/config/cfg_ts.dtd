@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT ts_configuration (mapping, plugin-list?, property-list)>
+<!ELEMENT mapping (runner-mapping+)>
+<!ELEMENT runner-mapping EMPTY>
+<!ATTLIST runner-mapping 
+	name CDATA #REQUIRED
+	class-name CDATA #REQUIRED>
+<!ELEMENT plugin-list (plugin+)>
+<!ELEMENT plugin (parameter*)>
+<!ATTLIST plugin 
+	name CDATA #REQUIRED
+	class-name CDATA #REQUIRED>
+<!ELEMENT parameter (value+)>
+<!ATTLIST parameter 
+	name CDATA #REQUIRED>
+<!ELEMENT value (#PCDATA)>
+<!ATTLIST value 
+	name CDATA #REQUIRED>
+<!ELEMENT property-list (property+)>
+<!ELEMENT property (#PCDATA)>
+<!ATTLIST property 
+	name CDATA #REQUIRED>

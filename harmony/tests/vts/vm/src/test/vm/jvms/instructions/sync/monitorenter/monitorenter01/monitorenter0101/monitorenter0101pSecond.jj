@@ -1,0 +1,79 @@
+;    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+;
+;    Licensed under the Apache License, Version 2.0 (the "License");
+;    you may not use this file except in compliance with the License.
+;    You may obtain a copy of the License at
+;
+;       http://www.apache.org/licenses/LICENSE-2.0
+;
+;    Unless required by applicable law or agreed to in writing, software
+;    distributed under the License is distributed on an "AS IS" BASIS,
+;    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;
+;    See the License for the specific language governing permissions and
+;    limitations under the License.
+
+;
+; Author: Alexander D. Shipilov
+; Version: $Revision: 1.1.1.1 $
+;
+
+.class public org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond
+.super java/lang/Thread
+.field public lockerField Ljava/lang/Object;
+.field public resultField [I
+
+;
+; initializer
+.method public <init>(Ljava/lang/Object;[I)V
+   .limit stack 2
+   .limit locals 3
+
+   aload_0
+   invokespecial java/lang/Thread/<init>()V
+
+; store locker object in this.lockerField field
+   aload_0
+   aload_1
+   putfield org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond/lockerField Ljava/lang/Object;
+
+; store result array int[1] in this.resultField field
+   aload_0
+   aload_2
+   putfield org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond/resultField [I
+
+   return
+.end method
+
+;
+; run method
+.method public run()V
+   .limit stack 3
+   .limit locals 3
+   
+; get locker object from lockerField field and store it in local variable 1
+   aload_0
+   getfield org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond/lockerField Ljava/lang/Object;
+   astore_1
+
+; get result array from resultField field and store it in local variable 2
+   aload_0
+   getfield org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond/resultField [I
+   astore_2
+
+; try to get a lock to locker object
+   aload_1
+   monitorenter
+
+; fail, push 105 to the locker[0]
+   aload_2
+   iconst_0
+   sipush 105
+   iastore
+
+; unlock array object
+   aload_1
+   monitorexit
+
+   return
+.end method

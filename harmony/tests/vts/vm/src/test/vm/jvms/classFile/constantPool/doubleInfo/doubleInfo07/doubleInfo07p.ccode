@@ -1,0 +1,157 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * Author: Maxim V. Makarov
+ * Version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 33
+
+constant_pool {
+  /* #1 */ UTF8 = "java/lang/Double"
+  /* #2 */ UTF8 = "([Ljava/lang/String;)V"
+  /* #3 */ UTF8 = "java/lang/Object"
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ Class = #3
+  /* #6 */ NameAndType = #4 #11
+  /* #7 */ NameAndType = #29 #16
+  /* #8 */ Method = #10 #6
+  /* #9 */ NameAndType = #25 #18
+  /* #10 */ Class = #20
+  /* #11 */ UTF8 = "()V"
+  /* #12 */ Class = #23
+  /* #13 */ UTF8 = "Code"
+  /* #14 */ Method = #12 #9
+  /* #15 */ UTF8 = "main"
+  /* #16 */ UTF8 = "([Ljava/lang/String;)I"
+  /* #17 */ UTF8 = "SourceFile"
+  /* #18 */ UTF8 = "(I)V"
+  /* #19 */ UTF8 = "D"
+  /* #20 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/doubleInfo/doubleInfo07/doubleInfo07p"
+  /* #21 */ Method = #5 #6
+  /* #22 */ Class = #1
+  /* #23 */ UTF8 = "java/lang/System"
+  /* #24 */ Field = #22 #32
+  /* #25 */ UTF8 = "exit"
+  { x06 xFF xF0 x00 x00 x00 x00 x00 x00 } // double = -Infinity
+  /* #28 */ Method = #10 #7
+  /* #29 */ UTF8 = "test"
+  /* #30 */ UTF8 = "doubleInfo07p.ccode"
+  /* #31 */ UTF8 = "NEGATIVE_INFINITY"
+  /* #32 */ NameAndType = #31 #19
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #10  // "doubleInfo07p"
+
+super_class = #5  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 3
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #4  // "<init>"
+    descriptor_index = #11  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #13  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #21  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #29  // "test"
+    descriptor_index = #16  // "([Ljava/lang/String;)I"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #13  // "Code"
+          attribute_length = 30
+          max_stack = 4
+          max_locals = 2
+          code_length = 18
+          code asm {
+          0:	ldc2_w #26  // -Infinity
+          3:	getstatic #24  // "java/lang/Double" "NEGATIVE_INFINITY" "D"
+          6:	dcmpg
+          7:	ifne 7
+          10:	sipush 104
+          13:	ireturn
+          14:	sipush 105
+          17:	ireturn
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC STATIC  // x09
+    name_index = #15  // "main"
+    descriptor_index = #2  // "([Ljava/lang/String;)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #13  // "Code"
+          attribute_length = 27
+          max_stack = 2
+          max_locals = 1
+          code_length = 15
+          code asm {
+          0:	new #10  // "doubleInfo07p"
+          3:	dup
+          4:	invokespecial #8  // "doubleInfo07p" "<init>" "()V"
+          7:	aload_0
+          8:	invokevirtual #28  // "doubleInfo07p" "test" "([Ljava/lang/String;)I"
+          11:	invokestatic #14  // "java/lang/System" "exit" "(I)V"
+          14:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 0

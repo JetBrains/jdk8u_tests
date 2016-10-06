@@ -1,0 +1,218 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Khen G. Kim
+ * @version: $Revision: 1.1 $
+ */
+
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 46
+
+constant_pool_count = 31
+
+constant_pool {
+  /* #1 */ Method = #9 #20
+  /* #2 */ Class = #21
+  /* #3 */ Method = #2 #20
+  /* #4 */ Method = #2 #22
+  /* #5 */ Method = #23 #24
+  /* #6 */ Class = #25
+  /* #7 */ Method = #6 #20
+  /* #8 */ Class = #26
+  /* #9 */ Class = #27
+  /* #10 */ UTF8 = "<init>"
+  /* #11 */ UTF8 = "()V"
+  /* #12 */ UTF8 = "Code"
+  /* #13 */ UTF8 = "LineNumberTable"
+  /* #14 */ UTF8 = "main"
+  /* #15 */ UTF8 = "([Ljava/lang/String;)V"
+  /* #16 */ UTF8 = "test"
+  /* #17 */ UTF8 = "([Ljava/lang/String;)I"
+  /* #18 */ UTF8 = "SourceFile"
+  /* #19 */ UTF8 = "code31p.java"
+  /* #20 */ NameAndType = #10 #11
+  /* #21 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/code/code31/code31p"
+  /* #22 */ NameAndType = #16 #17
+  /* #23 */ Class = #28
+  /* #24 */ NameAndType = #29 #30
+  /* #25 */ UTF8 = "java/lang/Exception"
+  /* #26 */ UTF8 = "java/lang/Throwable"
+  /* #27 */ UTF8 = "java/lang/Object"
+  /* #28 */ UTF8 = "java/lang/System"
+  /* #29 */ UTF8 = "exit"
+  /* #30 */ UTF8 = "(I)V"
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #2  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/code/code31/code31p"
+
+super_class = #9  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 3
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #10  // "<init>"
+    descriptor_index = #11  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 29
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:    aload_0
+          1:    invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:    return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #13  // "LineNumberTable"
+                attribute_length = 6
+                line_number_table_length = 1
+                line_number_table {
+                    // start_pc line_number
+                    0 3
+                }
+              }
+            }
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC STATIC  // x09
+    name_index = #14  // "main"
+    descriptor_index = #15  // "([Ljava/lang/String;)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 49
+          max_stack = 2
+          max_locals = 2
+          code_length = 17
+          code asm {
+          0:    new #2  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/code/code31/code31p"
+          3:    dup
+          4:    invokespecial #3  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/code/code31/code31p" "<init>" "()V"
+          7:    astore_1
+          8:    aload_1
+          9:    aload_0
+          10:   invokevirtual #4  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/code/code31/code31p" "test" "([Ljava/lang/String;)I"
+          13:   invokestatic #5  // "java/lang/System" "exit" "(I)V"
+          16:   return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #13  // "LineNumberTable"
+                attribute_length = 14
+                line_number_table_length = 3
+                line_number_table {
+                    // start_pc line_number
+                    0 6
+                    8 7
+                    16 9
+                }
+              }
+            }
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #16  // "test"
+    descriptor_index = #17  // "([Ljava/lang/String;)I"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 72
+          max_stack = 2
+          max_locals = 3
+          code_length = 16
+          code asm {
+          0:    new #6  // "java/lang/Exception"
+          3:    dup
+          4:    invokespecial #7  // "java/lang/Exception" "<init>" "()V"
+          7:    athrow
+          8:    astore_2
+          9:    bipush 105
+          11:   ireturn
+          12:   astore_2
+          13:   bipush 104
+          15:   ireturn
+          }
+          exception_table_length = 2
+          exception_table {
+            // start_pc end_pc handler_pc catch_type
+
+            //////////////////////////////////////////////////////////////////////////
+            0 8 12 8 // Tested first java.lang.Throwable exception entry to be catched
+            //////////////////////////////////////////////////////////////////////////
+
+            0 8 8 6 // java.lang.Exception
+          }
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #13  // "LineNumberTable"
+                attribute_length = 22
+                line_number_table_length = 5
+                line_number_table {
+                    // start_pc line_number
+                    0 12
+                    8 13
+                    9 14
+                    12 15
+                    13 16
+                }
+              }
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #18  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #19  // "code31p.java"
+  }
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Mikhail Bolotov
+Version: $Revision: 1.2 $
+-->
+<Test
+  ID="loading1002"
+  date-of-creation="2006-06-02"
+  timeout="1"
+  >
+  <Author value="Mikhail Bolotov"/>
+  <Description>
+    Creates an array class using user-defined class loader and 
+    ensures that the accessibility of the array class is equal to the accessibility of the class used at creation of the array.
+    Covered assertions assert_const109 
+  </Description>
+
+  <Source name="loading1002p.java"/>
+  <Source name="loading1002pClassHolder.java"/>
+  <Source name="loading1002pDefault.java"/>
+  <Source name="loading1002pPublic.java"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classLLI.loading.loading10.loading1002.loading1002p"/>
+  </Runner>
+
+</Test>

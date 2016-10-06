@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Maxim N. Kurzenev
+Version: $Revision: 1.1 $
+-->
+<Test ID="threads09402" date-of-creation="2006-06-23" timeout="1">
+  <Author value="Maxim N. Kurzenev"/>
+  <Description>
+      Checks that lock operation on a lock succeeds only if the number of other threads'
+      unlock operations on that lock match the number of corresponding lock operations.
+      In more detail:
+          - lock the object O twice
+          - start the helper thread which tries to lock O and sets a flag after that
+          - unlock the object O once
+          - check that the flag is not set yet
+          - unlock the object O once more
+          - check that the flag is set now
+      (There are even more details in the code since we need also
+      accurate synchronized access to the flag)
+      
+      Covered assertions assert_thread094
+  </Description>
+  <Source name="threads09402p.j"/>
+  <Source name="Helper.j"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.threads.threads094.threads09402.threads09402p">
+        <Option name="delay" value="500"/>
+    </Param>
+  </Runner>
+</Test>

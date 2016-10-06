@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Mikhail Bolotov
+Version: $Revision: 1.1 $
+-->
+<Test
+  ID="loading1001userdef"
+  date-of-creation="2006-06-02"
+  timeout="1"
+  >
+  <Author value="Mikhail Bolotov"/>
+  <Description>
+    Creates an array class using user-defined class loaders and 
+    checks that the component type of the array class is equal to the class used at the creation of that array.
+    Covered assertions assert_const101 assert_const104 assert_const105  
+  </Description>
+
+  <Source name="../../../share/ClassLoaderRunner.java"/>
+  <Source name="loading1001userdefpA.java"/>
+  <Source name="loading1001userdefpB.java"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classLLI.loading.share.ClassLoaderRunner">
+     <Option name="2"/>
+     <Option name="org.apache.harmony.vts.test.vm.jvms.classLLI.loading.loading10.loading1001.loading1001userdef.loading1001userdefpA"/>
+     <Option name="org.apache.harmony.vts.test.vm.jvms.classLLI.loading.loading10.loading1001.loading1001userdef.loading1001userdefpB"/>
+    </Param>
+
+  </Runner>
+
+</Test>

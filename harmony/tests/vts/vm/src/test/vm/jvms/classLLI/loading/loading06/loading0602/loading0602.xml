@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Mikhail Bolotov
+Version: $Revision: 1.2 $
+-->
+<Test
+  ID="loading0602"
+  date-of-creation="2006-05-25"
+  timeout="1"
+  >
+  <Author value="Mikhail Bolotov"/>
+  <Description>
+    Ensures that a class is determined by a pair of fully qualified name and its class loader.
+    It uses the bootstrap and two user-defined classloaders to create 3 instances of loading0602pClassTest class.
+   
+    Covered assertions assert_const061
+  </Description>
+
+  <Source name="loading0602p.j"/>
+  <Source name="loading0602pClassLoader1.jj"/>
+  <Source name="loading0602pClassLoader2.jj"/>
+  <Source name="loading0602pClassTest.jj"/>
+  <Source name="loading0602pTest.jj"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classLLI.loading.loading06.loading0602.loading0602p"/>
+  </Runner>
+
+</Test>

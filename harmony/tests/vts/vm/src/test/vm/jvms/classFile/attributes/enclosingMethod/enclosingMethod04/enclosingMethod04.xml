@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander V. Esin
+Version: $Revision: 1.1 $
+-->
+<Test
+  ID="enclosingMethod04"
+  date-of-creation="2006-06-30"
+  timeout="1"
+  >
+  <Author value="Alexander V. Esin"/>
+  <Description>
+    Checks that VM throws ClassFormatError on loading a class which has 
+    EnclosingMethod attribute in which attribute_length is less than 4.
+    Negative test.
+    Covered assertions assert_class527_05
+  </Description>
+
+  <Keyword name="JVMS3ed_specific"/>
+
+  <Source name="enclosingMethod04n.ccode"/>
+  <Source name="enclosingMethod04n$1EnclosingMethod.ccode"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+                <Option name="load"/>
+                <Option name="org.apache.harmony.vts.test.vm.jvms.classFile.attributes.enclosingMethod.enclosingMethod04.enclosingMethod04n$1EnclosingMethod"/>
+                <Option name="java.lang.ClassFormatError"/>
+    </Param>
+  </Runner>
+</Test>

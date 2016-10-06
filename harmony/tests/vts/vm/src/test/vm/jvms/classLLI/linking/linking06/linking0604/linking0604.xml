@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Mikhail Bolotov
+Version: $Revision: 1.1 $
+-->
+<Test
+  ID="linking0604n"
+  date-of-creation="2006-07-07"
+  timeout="1"
+  >
+  <Author value="Mikhail Bolotov"/>
+  <Description>
+    Resolves an inaccessible method name in 4 different classes.   
+    Ensures that the resolution always fails with the same error.    
+    Covered assertions assert_const166 
+  </Description>
+
+  <Source name="linking0604n.j"/>
+  <Source name="linking0604nA.j"/>
+  <Source name="linking0604nA1.j"/>
+  <Source name="linking0604nA2.j"/>
+  <Source name="linking0604nA3.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classLLI.linking.linking06.linking0604.linking0604n"/>
+  </Runner>
+
+</Test>

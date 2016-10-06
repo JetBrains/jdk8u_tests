@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- 
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+     
+      http://www.apache.org/licenses/LICENSE-2.0
+     
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
+
+ -->
+
+<project name="vm.tests" default="compile-sources">
+
+    <description>
+        Build VM tests
+    </description>
+
+    <!-- VM tests filesets -->
+    <fileset id="sources" dir="${vts.image.src.test}/vm" casesensitive="yes">
+        <include name="**/*.j" />
+    </fileset>
+    <fileset id="helpers-sources" dir="${vts.image.src.test}/vm" casesensitive="yes">
+        <include name="**/*.jj" />
+    </fileset>
+    
+    <!-- ccode filesets -->
+    <fileset id="ccodesources" dir="${vts.image.src.test}/vm" casesensitive="yes">
+        <include name="**/*.ccode"/>
+    </fileset>
+    <fileset id="ccodehelpers-sources" dir="${vts.image.src.test}/vm" casesensitive="yes">
+        <include name="**/*.ccodeh"/>
+    </fileset>
+
+    <target name="-do-share-precompile">
+        <description>
+                Compile framework.
+        </description>
+        <echo message="Compile auxilary classes ..." />
+        <javac destdir="${vts.built.bin.classes}" 
+               srcdir="${vts.image.src}" 
+               includes="**/share/**/*.java **/shared/**/*.java" 
+               excludes="**/jvmti/**/share/**/*.java" >
+            <classpath>
+                <pathelement location="${vts.built.bin.classes}" />
+                <pathelement location="${vts.harness.jar}" />
+                <path refid="XML_CLASSPATH" />
+            </classpath>
+        </javac>
+
+        <!-- JVMTI sources must be compiled with debug info -->
+        <echo message="Compile auxilary classes for jvmti tests ..." />
+        <javac destdir="${vts.built.bin.classes}" 
+               srcdir="${vts.image.src}" 
+               includes="**/jvmti/**/share/**/*.java" 
+               debug="true">
+            <classpath>
+                <pathelement location="${vts.built.bin.classes}" />
+                <pathelement location="${vts.harness.jar}" />
+                <path refid="XML_CLASSPATH" />
+            </classpath>
+        </javac>
+
+    </target>
+
+    <!-- Copy test description and resource files to build directory.-->
+    <target name="-copy-xml-and-resources">
+        <echo message="Copying VM tests..."/>
+        <echo message="test.vm: ${tests.vm}"/>
+        <mkdir dir="${vts.built.src.test}/vm"/>
+        <copy todir="${vts.built.src.test}/vm">
+            <fileset dir="${vts.image.src.test}/vm">
+                <include name="**/*.xml"/>
+                <include name="**/*.hidden"/>
+                <exclude name="**/share/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="-do-tests-compile" depends="-copy-xml-and-resources, -do-share-precompile">
+        <description>
+                Compile framework and tests.
+        </description>
+        <javac destdir="${vts.built.bin.classes}" srcdir="${vts.image.src.test}"
+               includes="**/*.java" excludes="**/share/**/*.java **/jvmti/**/*.java">
+            <depend targetdir="${vts.built.bin.classes}/org/apache/harmony/vts/test">
+                <mapper>
+                    <regexpmapper from="^(.*)/([^/]+)(?:/\2|(/.*))\.java$$" 
+                                  to="\1/\2\3.class" 
+                                  handledirsep="yes"
+                    />
+                </mapper>
+            </depend>
+            <classpath>
+                <pathelement location="${vts.built.bin.classes}" />
+                <pathelement location="${vts.harness.jar}" />
+                <path refid="XML_CLASSPATH" />
+            </classpath>
+        </javac>
+        <!-- JVMTI tests must be compiled with debug info -->
+        <javac destdir="${vts.built.bin.classes}" srcdir="${vts.image.src.test}" 
+               includes="**/jvmti/**/*.java" excludes="**/share/**/*.java" debug="true">
+            <depend targetdir="${vts.built.bin.classes}/org/apache/harmony/vts/test">
+                <mapper>
+                    <chainedmapper>
+                        <flattenmapper/>
+                        <globmapper from="*.java" to="/vm/jvmti/*.class"/>
+                    </chainedmapper>
+                </mapper>
+            </depend>
+            <classpath>
+                <pathelement location="${vts.built.bin.classes}" />
+                <pathelement location="${vts.harness.jar}" />
+                <path refid="XML_CLASSPATH" />
+            </classpath>
+        </javac>
+        <echo message="TESTS COMPILED SUCCESSFULLY"/>
+    </target>
+
+    <target name="compile-sources" description="Compile VM tests" depends="-declare-tasks, -do-compile-native">
+        <!-- Process JASMINE tests -->
+        <if>
+            <not>
+                <isset property="nojasm"/>
+            </not>
+            <then>
+                <tstamp>
+                    <format property="start.vm.build" pattern="yyyy-MM-dd hh:mm:ss" />
+                </tstamp>
+                <jasmin dest="${vts.built.bin.classes}" >
+                    <fileset dir="${vts.image.src.test}/vm" casesensitive="yes">
+                        <include name="**/*.j" />
+                        <include name="**/*.jj" />
+                        <depend targetdir="${vts.built.bin.classes}/org/apache/harmony/vts/test/vm">
+                            <mapper>
+                                <regexpmapper from="^(.*)\.jj?$$" to="\1.class"/>
+                            </mapper>
+                        </depend>
+                    </fileset>
+                </jasmin>
+                <tstamp>
+                    <format property="end.vm.build" pattern="yyyy-MM-dd hh:mm:ss" />
+                </tstamp>
+                <echo message="Start: ${start.vm.build}" />
+                <echo message="End: ${end.vm.build}" />
+            </then>
+        </if>
+        <!-- Process CCODE tests -->
+        <if>
+            <not>
+                <isset property="noccode"/>
+            </not>
+            <then>
+                <tstamp>
+                    <format property="start.vm.build" pattern="yyyy-MM-dd hh:mm:ss" />
+                </tstamp>
+                <!-- CCODE -->
+                <foreach target="compile-jvm-ccode-test" param="ccodesource" inheritall="true" >
+                    <path>
+                        <fileset id="ccodesources" dir="${vts.image.src.test}/vm" casesensitive="yes">
+                            <include name="**/*.ccode"/>
+                            <depend targetdir="${vts.built.bin.classes}/org/apache/harmony/vts/test/vm">
+                                <mapper>
+                                    <globmapper from="*.ccode" to="*.class"/>
+                                </mapper>
+                            </depend>
+                        </fileset>
+                        <fileset id="ccodehelpers-sources" dir="${vts.image.src.test}/vm" casesensitive="yes">
+                            <include name="**/*.ccodeh"/>
+                            <depend targetdir="${vts.built.bin.classes}/org/apache/harmony/vts/test/vm">
+                                <mapper>
+                                    <globmapper from="*.ccodeh" to="*.class"/>
+                                </mapper>
+                            </depend>
+                        </fileset>
+                    </path>
+                </foreach>
+                <!-- /CCODE -->
+                <tstamp>
+                    <format property="end.vm.build" pattern="yyyy-MM-dd hh:mm:ss" />
+                </tstamp>
+                <echo message="Start: ${start.vm.build}" />
+                <echo message="End: ${end.vm.build}" />
+            </then>
+        </if>
+        <runtarget target="-do-tests-compile" />
+    </target>
+
+    <target name="-do-compile-native" unless="nonative">
+        <subant target="jvmti" inheritall="true">
+                <fileset dir="." includes="build/build-native.xml"/>
+            <property name="out.lib" value="${vts.built.bin.lib}"/>
+            <property name="src.test" value="${vts.image.src.test}"/>
+            <property name="java.home" value="${java.home.1.5}"/>
+        </subant>
+        <subant target="jni" inheritall="true">
+                <fileset dir="." includes="build/build-native.xml"/>
+            <property name="out.lib" value="${vts.built.bin.lib}"/>
+            <property name="src.test" value="${vts.image.src.test}"/>
+            <property name="java.home" value="${java.home.1.5}"/>
+        </subant>
+    </target>
+
+    <target name="-do-compile-jvm-test">
+        <java jar="${jasmin.jar}" fork="true">
+            <arg value="-d" />
+            <arg value="${vts.built.bin.classes}" />
+            <arg value="${vm.source}" />
+        </java>
+    </target>
+
+    <!-- CCODE -->
+    <target name="compile-jvm-ccode-test">
+        <if>
+            <contains string="${ccodesource}" substring=".ccodeh" casesensitive="false" />
+            <then>
+                <basename property="vmtt.class.file.name" file="${ccodesource}" suffix=".ccodeh" />
+            </then>
+            <else>
+                <basename property="vmtt.class.file.name" file="${ccodesource}" suffix=".ccode" />
+            </else>
+        </if>
+        <dirname property="vmtt.class.file.dir" file="${ccodesource}"/>
+        <propertyregex property="vmtt.class.file.dir.rembs" 
+                       input="${vmtt.class.file.dir}" 
+                       regexp="\\" 
+                       replace="\/" 
+                       defaultValue="${vmtt.class.file.dir}"/>
+        <propertyregex property="vmtt.package" 
+                       input="${vmtt.class.file.dir.rembs}" 
+                       regexp=".*\/src\/.*?(\/vm\/.*)" 
+                       select="\1" 
+                       casesensitive="false"/>
+        
+        <mkdir dir="${vts.built.bin.classes}/org/apache/harmony/vts/test/${vmtt.package}"/>
+        <java classname="${vmtt.main.class}">
+            <classpath>
+                <pathelement location="${vmtt.jar}"/>
+            </classpath>
+            <arg line="-C -d${vts.built.bin.classes}/org/apache/harmony/vts/test/${vmtt.package} ${ccodesource}"/>
+        </java>
+    </target>
+    <!-- /CCODE -->
+
+</project>

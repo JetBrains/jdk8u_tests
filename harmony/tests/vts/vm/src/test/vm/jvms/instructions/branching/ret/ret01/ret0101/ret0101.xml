@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.5 $
+-->
+<Test
+  ID="ret0101"
+  date-of-creation="2004-11-18"
+  timeout="1"
+  >	
+  <Author value="Ilia A. Leviev"/>
+  <Description>    
+       Test checks that only ret can take returnAddress from local variable.
+       jsr pushes returnAddress onto stack, then instruction astore stores returnAddress
+       in local variable array, then aload loads returnAddress from local variable. 
+       if VM throws VerifyError - test passes, else actions of JVM is  not specified - test fails.  
+    
+       Covered assertions assert_instr212a008 assert_const153 assert_class702
+  </Description>
+
+  <Keyword name="verifier"/>
+  <Source name="ret0101w.j"/>
+  <Source name="ret0101.jj"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+			<Option name="run"/>
+			<Option name="org.apache.harmony.vts.test.vm.jvms.instructions.branching.ret.ret01.ret0101.ret0101w"/>
+			<Option name="java.lang.VerifyError"/>
+	</Param>
+  </Runner>
+</Test>

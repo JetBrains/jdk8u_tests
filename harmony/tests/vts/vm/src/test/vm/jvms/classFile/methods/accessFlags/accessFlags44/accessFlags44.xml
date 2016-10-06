@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander V. Esin
+Version: $Revision: 1.3 $
+-->
+<Test
+  ID="accessFlags44"
+  date-of-creation="2006-06-27"
+  timeout="1"
+  >
+  <Author value="Alexander V. Esin"/>
+  <Description>
+    Checks that VM throws java.lang.ClassFormatError during loading a class with
+    public varargs bridge synthetic strict init method. 
+    Negative test.
+    Covered assertions assert_class354_01
+  </Description>
+  <Keyword name="JVMS3ed_specific"/>
+  <Source name="accessFlags44n.ccode"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+                <Option name="load"/>
+                <Option name="org.apache.harmony.vts.test.vm.jvms.classFile.methods.accessFlags.accessFlags44.accessFlags44n"/>
+                <Option name="java.lang.ClassFormatError"/>
+            </Param>
+  </Runner>
+</Test>

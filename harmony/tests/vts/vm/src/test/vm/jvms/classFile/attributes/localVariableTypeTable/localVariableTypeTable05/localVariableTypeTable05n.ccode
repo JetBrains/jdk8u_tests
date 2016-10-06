@@ -1,0 +1,147 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * @author: Alexander V. Esin
+ * @version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 49
+
+constant_pool_count = 22
+
+constant_pool {
+  /* #1 */ UTF8 = "ts"
+  /* #2 */ UTF8 = "java/lang/Object"
+  /* #3 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTypeTable/localVariableTypeTable05/localVariableTypeTable05n"
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ Class = #2
+  /* #6 */ NameAndType = #4 #8
+  /* #7 */ Class = #3
+  /* #8 */ UTF8 = "()V"
+  /* #9 */ UTF8 = "Code"
+  /* #10 */ UTF8 = "LocalVariableTypeTable"
+  /* #11 */ UTF8 = "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTypeTable/localVariableTypeTable05/localVariableTypeTable05Test;"
+  /* #12 */ UTF8 = "SourceFile"
+  /* #13 */ Method = #20 #6
+  /* #14 */ UTF8 = "()I"
+  /* #15 */ Method = #5 #6
+  /* #16 */ UTF8 = "localVariableTypeTable05n.ccode"
+  /* #17 */ UTF8 = "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTypeTable/localVariableTypeTable05/localVariableTypeTable05Test<Ljava/lang/String;>;"
+  /* #18 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTypeTable/localVariableTypeTable05/localVariableTypeTable05Test"
+  /* #19 */ UTF8 = "test"
+  /* #20 */ Class = #18
+  /* #21 */ UTF8 = "LocalVariableTable"
+}
+
+access_flags = x21  // PUBLIC SUPER 
+
+this_class = #7  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTypeTable/localVariableTypeTable05/localVariableTypeTable05n"
+
+super_class = #5  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #4  // "<init>"
+    descriptor_index = #8  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #15  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #19  // "test"
+    descriptor_index = #14  // "()I"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 59
+          max_stack = 2
+          max_locals = 2
+          code_length = 11
+          code asm {
+          0:	new #20  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTypeTable/localVariableTypeTable05/localVariableTypeTable05Test"
+          3:	dup
+          4:	invokespecial #13  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTypeTable/localVariableTypeTable05/localVariableTypeTable05Test" "<init>" "()V"
+          7:	astore_1
+          8:	bipush 104
+          10:	ireturn
+          }
+          exception_table_length = 0
+          attributes_count = 2
+            attributes {
+              attribute LocalVariableTable {
+                attribute_name_index = #21  // "LocalVariableTable"
+                attribute_length = 12
+                local_variable_table_length = 1
+                local_variable_table {
+                    // start_pc length name_index descriptor_index index
+                    0 8 #1 #11 1
+                }
+              }
+
+              attribute LocalVariableTypeTable {
+                attribute_name_index = #10  // "LocalVariableTypeTable"
+                attribute_length = 20 //should be 12
+                local_variable_type_table_length = 1
+                local_variable_type_table {
+                    // start_pc length name_index signature_index index
+                    0 8 #1 #17 1
+                }
+              }
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #12  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #16  // "localVariableTypeTable05n.ccode"
+  }
+}

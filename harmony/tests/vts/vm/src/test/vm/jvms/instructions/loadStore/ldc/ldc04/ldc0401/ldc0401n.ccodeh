@@ -1,0 +1,367 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Ilia A. Leviev
+ * @version: $Revision: 1.2 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 264
+
+constant_pool {
+ /* #1 */ Method = #14 #8
+ /* #2 */ UTF8 = "java/lang/Object"
+ /* #3 */ UTF8 = "ldc0401n.ccodeh"
+ /* #4 */ UTF8 = "SourceFile"
+ /* #5 */ UTF8 = "<init>"
+ /* #6 */ Class = #10
+ /* #7 */ int = 3
+ /* #8 */ NameAndType = #5 #13
+ /* #9 */ UTF8 = "Code"
+ /* #10 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/instructions/loadStore/ldc/ldc04/ldc0401/ldc0401n"
+ /* #11 */ UTF8 = "sdf"
+ /* #12 */ UTF8 = "test"
+ /* #13 */ UTF8 = "()V"
+ /* #14 */ Class = #2
+ /* #15 */ int = 3 
+ /* #16 */ int = 3 
+ /* #17 */ int = 3
+ /* #18 */ int = 3
+ /* #19 */ int = 3
+ /* #20 */ int = 3
+ /* #21 */ int = 3
+ /* #22 */ int = 3
+ /* #23 */ int = 3
+ /* #24 */ int = 3
+ /* #25 */ int = 3
+ /* #26 */ int = 3
+ /* #27 */ int = 3
+ /* #28 */ int = 3
+ /* #29 */ int = 3
+ /* #30 */ int = 3
+ /* #31 */ int = 3
+ /* #32 */ int = 3
+ /* #33 */ int = 3
+ /* #34 */ int = 3
+ /* #35 */ int = 3
+ /* #36 */ int = 3
+ /* #37 */ int = 3
+ /* #38 */ int = 3
+ /* #39 */ int = 3
+ /* #40 */ int = 3
+ /* #41 */ int = 4
+ /* #42 */ int = 4
+ /* #43 */ int = 4
+ /* #44 */ int = 4
+ /* #45 */ int = 4
+ /* #46 */ int = 4
+ /* #47 */ int = 4
+ /* #48 */ int = 4
+ /* #49 */ int = 3
+ /* #50 */ int = 1
+ /* #51 */ int = 1
+ /* #52 */ int = 1
+ /* #53 */ int = 1
+ /* #54 */ int = 1
+ /* #55 */ int = 1
+ /* #56 */ int = 1
+ /* #57 */ int = 1
+ /* #58 */ int = 1
+ /* #59 */ int = 1
+ /* #60 */ int = 6
+ /* #61 */ int = 6
+ /* #62 */ int = 6
+ /* #63 */ int = 6
+ /* #64 */ int = 6
+ /* #65 */ int = 6
+ /* #66 */ int = 6
+ /* #67 */ int = 6
+ /* #68 */ int = 6
+ /* #69 */ int = 6
+ /* #70 */ int = 7
+ /* #71 */ int = 7
+ /* #72 */ int = 7
+ /* #73 */ int = 7
+ /* #74 */ int = 7
+ /* #75 */ int = 7
+ /* #76 */ int = 7
+ /* #77 */ int = 7
+ /* #78 */ int = 7
+ /* #79 */ int = 3
+ /* #80 */ int = 8
+ /* #81 */ int = 8
+ /* #82 */ int = 8
+ /* #83 */ int = 8
+ /* #84 */ int = 8
+ /* #85 */ int = 8
+ /* #86 */ int = 8
+ /* #87 */ int = 8
+ /* #88 */ int = 8
+ /* #89 */ int = 8
+ /* #90 */ int = 9
+ /* #91 */ int = 9
+ /* #92 */ int = 9
+ /* #93 */ int = 9
+ /* #94 */ int = 9
+ /* #95 */ int = 9
+ /* #96 */ int = 9
+ /* #97 */ int = 9
+ /* #98 */ int = 9
+ /* #99 */ int = 9
+ /* #100 */ int = 10
+ /* #101 */ int = 10
+ /* #102 */ int = 10
+ /* #103 */ int = 10
+ /* #104 */ int = 10
+ /* #105 */ int = 10
+ /* #106 */ int = 10
+ /* #107 */ int = 10
+ /* #108 */ int = 10
+ /* #109 */ int = 3
+ /* #110 */ int = 11
+ /* #111 */ int = 11
+ /* #112 */ int = 11
+ /* #113 */ int = 11
+ /* #114 */ int = 11
+ /* #115 */ int = 11
+ /* #116 */ int = 11
+ /* #117 */ int = 11
+ /* #118 */ int = 11
+ /* #119 */ int = 11
+ /* #120 */ int = 3
+ /* #121 */ int = 3
+ /* #122 */ int = 3
+ /* #123 */ int = 3
+ /* #124 */ int = 3
+ /* #125 */ int = 3
+ /* #126 */ int = 3
+ /* #127 */ int = 3
+ /* #128 */ int = 3
+ /* #129 */ int = 3
+ /* #130 */ int = 3
+ /* #131 */ int = 3
+ /* #132 */ int = 3
+ /* #133 */ int = 3
+ /* #134 */ int = 3
+ /* #135 */ int = 3
+ /* #136 */ int = 3
+ /* #137 */ int = 3
+ /* #138 */ int = 3
+ /* #139 */ int = 3
+ /* #140 */ int = 3
+ /* #141 */ int = 4
+ /* #142 */ int = 4
+ /* #143 */ int = 4
+ /* #144 */ int = 4
+ /* #145 */ int = 4
+ /* #146 */ int = 4
+ /* #147 */ int = 4
+ /* #148 */ int = 4
+ /* #149 */ int = 3
+ /* #150 */ int = 1
+ /* #151 */ int = 1
+ /* #152 */ int = 1
+ /* #153 */ int = 1
+ /* #154 */ int = 1
+ /* #155 */ int = 1
+ /* #156 */ int = 1
+ /* #157 */ int = 1
+ /* #158 */ int = 1
+ /* #159 */ int = 1
+ /* #160 */ int = 6
+ /* #161 */ int = 6
+ /* #162 */ int = 6
+ /* #163 */ int = 6
+ /* #164 */ int = 6
+ /* #165 */ int = 6
+ /* #166 */ int = 6
+ /* #167 */ int = 6
+ /* #168 */ int = 6
+ /* #169 */ int = 6
+ /* #170 */ int = 7
+ /* #171 */ int = 7
+ /* #172 */ int = 7
+ /* #173 */ int = 7
+ /* #174 */ int = 7
+ /* #175 */ int = 7
+ /* #176 */ int = 7
+ /* #177 */ int = 7
+ /* #178 */ int = 7
+ /* #179 */ int = 3
+ /* #180 */ int = 8
+ /* #181 */ int = 8
+ /* #182 */ int = 8
+ /* #183 */ int = 8
+ /* #184 */ int = 8
+ /* #185 */ int = 8
+ /* #186 */ int = 8
+ /* #187 */ int = 8
+ /* #188 */ int = 8
+ /* #189 */ int = 8
+ /* #190 */ int = 9
+ /* #191 */ int = 9
+ /* #192 */ int = 9
+ /* #193 */ int = 9
+ /* #194 */ int = 9
+ /* #195 */ int = 9
+ /* #196 */ int = 9
+ /* #197 */ int = 9
+ /* #198 */ int = 9
+ /* #199 */ int = 9
+ /* #200 */ int = 10
+ /* #201 */ int = 10
+ /* #202 */ int = 10
+ /* #203 */ int = 10
+ /* #204 */ int = 10
+ /* #205 */ int = 10
+ /* #206 */ int = 10
+ /* #207 */ int = 10
+ /* #208 */ int = 10
+ /* #209 */ int = 3
+ /* #210 */ int = 11
+ /* #211 */ int = 11
+ /* #212 */ int = 11
+ /* #213 */ int = 11
+ /* #214 */ int = 11
+ /* #215 */ int = 11
+ /* #216 */ int = 11
+ /* #217 */ int = 11
+ /* #218 */ int = 11
+ /* #219 */ int = 11
+ /* #220 */ int = 3
+ /* #221 */ int = 3
+ /* #222 */ int = 3
+ /* #223 */ int = 3
+ /* #224 */ int = 3
+ /* #225 */ int = 3
+ /* #226 */ int = 3
+ /* #227 */ int = 3
+ /* #228 */ int = 3
+ /* #229 */ int = 3
+ /* #230 */ int = 3
+ /* #231 */ int = 3
+ /* #232 */ int = 3
+ /* #233 */ int = 3
+ /* #234 */ int = 3
+ /* #235 */ int = 3
+ /* #236 */ int = 3
+ /* #237 */ int = 3
+ /* #238 */ int = 3
+ /* #239 */ int = 3
+ /* #240 */ int = 3
+ /* #241 */ int = 4
+ /* #242 */ int = 4
+ /* #243 */ int = 4
+ /* #244 */ int = 4
+ /* #245 */ int = 4
+ /* #246 */ int = 4
+ /* #247 */ int = 4
+ /* #248 */ int = 4
+ /* #249 */ int = 3
+ /* #250 */ int = 1
+ /* #251 */ int = 1
+ /* #252 */ int = 1
+ /* #253 */ int = 1
+ /* #254 */ int = 1
+ /* #255 */ int = 1
+ /* #256 */ int = 1
+ /* #257 */ int = 1
+ /* #258 */ int = 1
+/* #259 */ int = 1
+/* #260 */ int = 1
+/* #261 */ int = 1
+/* #262 */ int = 1
+/* #263 */ int = 1
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #6  // "org/apache/harmony/vts/test/vm/jvms/instructions/loadStore/ldc/ldc04/ldc0401/ldc0401n"
+
+super_class = #14  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #5  // "<init>"
+    descriptor_index = #13  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code bin {
+                 x2A xB7 x00 x01 xB1 
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+
+// Test method
+  method {
+    access_flag =   // x00
+    name_index = #12  // "test"
+    descriptor_index = #13  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 16
+          max_stack = 2
+          max_locals = 2
+          code_length = 4
+          code asm {
+            0:     ldc #0 // value of index is 0
+            1:     pop
+            3:     return          
+          }                          
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #4  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #3  // "ldc0401n.ccodeh"
+  }
+}

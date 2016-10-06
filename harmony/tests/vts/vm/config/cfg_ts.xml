@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE ts_configuration SYSTEM "cfg_ts.dtd">
+<ts_configuration>
+
+<!--
+Author:  Aleksey V. Yantsen, Vladimir A. Ivanov
+Version: $Revision: 1.3 $
+-->
+
+	<mapping>
+		<runner-mapping name="RuntimeNegative" class-name="org.apache.harmony.harness.plugins.RunNeg"/>
+		<runner-mapping name="Runtime" class-name="org.apache.harmony.harness.plugins.Run"/>
+		<runner-mapping name="CompileNegative" class-name="org.apache.harmony.harness.plugins.Comp"/>
+		<runner-mapping name="CompileRuntime" class-name="org.apache.harmony.harness.plugins.CompRun"/>
+		<runner-mapping name="ExecuteNegative" class-name="org.apache.harmony.harness.plugins.Exec"/>
+		<runner-mapping name="Execute" class-name="org.apache.harmony.harness.plugins.ExecRun"/>
+		<runner-mapping name="MultiCase" class-name="org.apache.harmony.harness.plugins.MultiCase"/>
+		<runner-mapping name="JPDARunner" class-name="org.apache.harmony.harness.plugins.JPDARunner"/>
+		<runner-mapping name="DistributedRunner" class-name="org.apache.harmony.harness.plugins.DistributedRunner"/>
+		<runner-mapping name="JUExec" class-name="org.apache.harmony.harness.plugins.JUExec"/>
+	</mapping>
+
+	<property-list>
+		<property name="TestBaseVersion">#TestBaseVersion#</property>
+		<property name="TestBaseVersionComment">#TestBaseVersionComment#</property>
+	</property-list>
+	
+</ts_configuration>

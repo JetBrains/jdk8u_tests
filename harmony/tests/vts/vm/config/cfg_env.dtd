@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT env_configuration (properties, execution?, run-remote?, totest?, plugin-list, resource-list?)>
+<!ELEMENT properties (property+)>
+<!ELEMENT property (#PCDATA)>
+<!ATTLIST property 
+	name CDATA #REQUIRED>
+<!ELEMENT execution (exec-mode+)>
+<!ELEMENT exec-mode (#PCDATA)>
+<!ATTLIST exec-mode 
+	name CDATA #REQUIRED>
+<!ELEMENT run-remote (host+)>
+<!ELEMENT host (port?, mode, run)>
+<!ATTLIST host 
+	name CDATA #REQUIRED>
+<!ELEMENT port (#PCDATA)>
+<!ELEMENT mode (#PCDATA)>
+<!ELEMENT run (#PCDATA)>
+<!ELEMENT totest (subsuite+)>
+<!ELEMENT subsuite (#PCDATA)>
+<!ATTLIST subsuite 
+	name CDATA #IMPLIED>
+<!ELEMENT plugin-list (plugin+)>
+<!ELEMENT plugin (parameter*)>
+<!ATTLIST plugin 
+	name CDATA #REQUIRED
+	class-name CDATA #REQUIRED>
+<!ELEMENT parameter (value+)>
+<!ATTLIST parameter 
+	name CDATA #REQUIRED>
+<!ELEMENT value (#PCDATA)>
+<!ATTLIST value 
+	name CDATA #REQUIRED>
+<!ELEMENT resource-list (resource+)>
+<!ELEMENT resource (concurrency?, runit?, value*)>
+<!ATTLIST resource 
+	name CDATA #REQUIRED>
+<!ELEMENT concurrency (#PCDATA)>
+<!ELEMENT runit (#PCDATA)>

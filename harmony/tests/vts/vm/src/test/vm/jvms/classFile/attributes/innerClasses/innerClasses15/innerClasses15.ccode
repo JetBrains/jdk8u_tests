@@ -1,0 +1,99 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * @author: Alexander V. Esin
+ * @version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 49
+
+constant_pool_count = 14
+
+constant_pool {
+  /* #1 */ Method = #3 #10
+  /* #2 */ Class = #11
+  /* #3 */ Class = #12
+  /* #4 */ Class = #13
+  /* #5 */ UTF8 = "InnerClass"
+  /* #6 */ UTF8 = "InnerClasses"
+  /* #7 */ UTF8 = "<init>"
+  /* #8 */ UTF8 = "()V"
+  /* #9 */ UTF8 = "Code"
+  /* #10 */ NameAndType = #7 #8
+  /* #11 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses15/innerClasses15"
+  /* #12 */ UTF8 = "java/lang/Object"
+  /* #13 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses15/innerClasses15$InnerClass"
+}
+
+access_flags = x21  // PUBLIC SUPER 
+
+this_class = #2  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses15/innerClasses15"
+
+super_class = #3  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 1
+
+methods {
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #7  // "<init>"
+    descriptor_index = #8  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute InnerClasses {
+    attribute_name_index = #6  // "InnerClasses"
+    attribute_length = 10
+    number_of_classes = 1
+    InnerClass {
+        inner_class_info_index = #4  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses15/innerClasses15$InnerClass"
+        outer_class_info_index = #2  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses15/innerClasses15"
+        inner_name_index = #5  // "InnerClass"
+        inner_class_access_flags = x4019  // PUBLIC STATIC FINAL ENUM 
+    }
+  }
+}

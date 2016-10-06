@@ -1,0 +1,157 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * Author: Maxim V. Makarov
+ * Version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 32
+
+constant_pool {
+  /* #1 */ UTF8 = "([Ljava/lang/String;)V"
+  /* #2 */ UTF8 = "java/lang/Object"
+  /* #3 */ UTF8 = "<init>"
+  /* #4 */ Class = #2
+  /* #5 */ NameAndType = #3 #10
+  /* #6 */ NameAndType = #26 #15
+  /* #7 */ Method = #9 #5
+  /* #8 */ NameAndType = #24 #18
+  /* #9 */ Class = #20
+  /* #10 */ UTF8 = "()V"
+  /* #11 */ Class = #23
+  /* #12 */ UTF8 = "Code"
+  /* #13 */ Method = #11 #8
+  /* #14 */ UTF8 = "main"
+  /* #15 */ UTF8 = "([Ljava/lang/String;)I"
+  /* #16 */ UTF8 = "SourceFile"
+  { x04 x7F x80 x00 x00 } // +Infinity
+  /* #18 */ UTF8 = "(I)V"
+  /* #19 */ UTF8 = "F"
+  /* #20 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/constantPool/floatInfo/floatInfo02/floatInfo02p"
+  /* #21 */ Method = #4 #5
+  /* #22 */ Class = #30
+  /* #23 */ UTF8 = "java/lang/System"
+  /* #24 */ UTF8 = "exit"
+  /* #25 */ Method = #9 #6
+  /* #26 */ UTF8 = "test"
+  /* #27 */ Field = #22 #31
+  /* #28 */ UTF8 = "floatInfo02p.ccode"
+  /* #29 */ UTF8 = "POSITIVE_INFINITY"
+  /* #30 */ UTF8 = "java/lang/Float"
+  /* #31 */ NameAndType = #29 #19
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #9  // "floatInfo02p"
+
+super_class = #4  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 3
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #3  // "<init>"
+    descriptor_index = #10  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #21  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #26  // "test"
+    descriptor_index = #15  // "([Ljava/lang/String;)I"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 29
+          max_stack = 4
+          max_locals = 2
+          code_length = 17
+          code asm {
+          0:	ldc #17
+          2:	getstatic #27  // "java/lang/Float" "POSITIVE_INFINITY" "F"
+          5:	fcmpg
+          6:	ifne 7
+          9:	sipush 104
+          12:	ireturn
+          13:	sipush 105
+          16:	ireturn
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC STATIC  // x09
+    name_index = #14  // "main"
+    descriptor_index = #1  // "([Ljava/lang/String;)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 27
+          max_stack = 2
+          max_locals = 1
+          code_length = 15
+          code asm {
+          0:	new #9  // "floatInfo02p"
+          3:	dup
+          4:	invokespecial #7  // "floatInfo02p" "<init>" "()V"
+          7:	aload_0
+          8:	invokevirtual #25  // "floatInfo02p" "test" "([Ljava/lang/String;)I"
+          11:	invokestatic #13  // "java/lang/System" "exit" "(I)V"
+          14:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 0

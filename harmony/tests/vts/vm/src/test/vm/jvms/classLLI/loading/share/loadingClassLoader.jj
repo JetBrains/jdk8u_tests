@@ -1,0 +1,1176 @@
+;    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+;
+;    Licensed under the Apache License, Version 2.0 (the "License");
+;    you may not use this file except in compliance with the License.
+;    You may obtain a copy of the License at
+;
+;       http://www.apache.org/licenses/LICENSE-2.0
+;
+;    Unless required by applicable law or agreed to in writing, software
+;    distributed under the License is distributed on an "AS IS" BASIS,
+;    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;
+;    See the License for the specific language governing permissions and
+;    limitations under the License.
+
+;
+; Author: Mikhail Bolotov
+; Version: $Revision: 1.2 $
+;
+
+.class public org/apache/harmony/vts/test/vm/jvms/classLLI/loading/share/loadingClassLoader
+.super java/lang/ClassLoader
+
+
+
+.method public <init>()V
+.limit stack 2
+.limit locals 1
+	aload_0
+	invokespecial java/lang/ClassLoader/<init>()V
+	return
+.end method
+
+.method public loadClass(Ljava/lang/String;)Ljava/lang/Class;
+	.throws java/lang/ClassNotFoundException
+	.limit stack 5
+	.limit locals 3
+
+	aload_1
+	ldc "org.apache.harmony.vts.test.vm.jvms.classLLI.loading.share.loadingClassTest"
+	invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
+	ifeq Label0
+	aload_0
+	aload_1
+	aload_0
+	invokevirtual org/apache/harmony/vts/test/vm/jvms/classLLI/loading/share/loadingClassLoader/getBytes()[B
+	iconst_0
+	aload_0
+	invokevirtual org/apache/harmony/vts/test/vm/jvms/classLLI/loading/share/loadingClassLoader/getBytes()[B
+	arraylength
+	invokevirtual org/apache/harmony/vts/test/vm/jvms/classLLI/loading/share/loadingClassLoader/defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
+	astore_2
+	aload_2
+	areturn
+Label0:
+	aload_0
+	aload_1
+	invokespecial java/lang/ClassLoader/loadClass(Ljava/lang/String;)Ljava/lang/Class;
+	areturn
+
+.end method
+
+
+
+
+
+.method  getBytes()[B
+	.limit stack 4
+	.limit locals 2
+
+	sipush 275
+	newarray byte
+	dup
+	sipush 0
+	bipush -54
+	bastore
+	dup
+	sipush 1
+	bipush -2
+	bastore
+	dup
+	sipush 2
+	bipush -70
+	bastore
+	dup
+	sipush 3
+	bipush -66
+	bastore
+	dup
+	sipush 4
+	bipush 0
+	bastore
+	dup
+	sipush 5
+	bipush 3
+	bastore
+	dup
+	sipush 6
+	bipush 0
+	bastore
+	dup
+	sipush 7
+	bipush 45
+	bastore
+	dup
+	sipush 8
+	bipush 0
+	bastore
+	dup
+	sipush 9
+	bipush 14
+	bastore
+	dup
+	sipush 10
+	bipush 10
+	bastore
+	dup
+	sipush 11
+	bipush 0
+	bastore
+	dup
+	sipush 12
+	bipush 13
+	bastore
+	dup
+	sipush 13
+	bipush 0
+	bastore
+	dup
+	sipush 14
+	bipush 6
+	bastore
+	dup
+	sipush 15
+	bipush 1
+	bastore
+	dup
+	sipush 16
+	bipush 0
+	bastore
+	dup
+	sipush 17
+	bipush 16
+	bastore
+	dup
+	sipush 18
+	bipush 106
+	bastore
+	dup
+	sipush 19
+	bipush 97
+	bastore
+	dup
+	sipush 20
+	bipush 118
+	bastore
+	dup
+	sipush 21
+	bipush 97
+	bastore
+	dup
+	sipush 22
+	bipush 47
+	bastore
+	dup
+	sipush 23
+	bipush 108
+	bastore
+	dup
+	sipush 24
+	bipush 97
+	bastore
+	dup
+	sipush 25
+	bipush 110
+	bastore
+	dup
+	sipush 26
+	bipush 103
+	bastore
+	dup
+	sipush 27
+	bipush 47
+	bastore
+	dup
+	sipush 28
+	bipush 79
+	bastore
+	dup
+	sipush 29
+	bipush 98
+	bastore
+	dup
+	sipush 30
+	bipush 106
+	bastore
+	dup
+	sipush 31
+	bipush 101
+	bastore
+	dup
+	sipush 32
+	bipush 99
+	bastore
+	dup
+	sipush 33
+	bipush 116
+	bastore
+	dup
+	sipush 34
+	bipush 1
+	bastore
+	dup
+	sipush 35
+	bipush 0
+	bastore
+	dup
+	sipush 36
+	bipush 10
+	bastore
+	dup
+	sipush 37
+	bipush 83
+	bastore
+	dup
+	sipush 38
+	bipush 111
+	bastore
+	dup
+	sipush 39
+	bipush 117
+	bastore
+	dup
+	sipush 40
+	bipush 114
+	bastore
+	dup
+	sipush 41
+	bipush 99
+	bastore
+	dup
+	sipush 42
+	bipush 101
+	bastore
+	dup
+	sipush 43
+	bipush 70
+	bastore
+	dup
+	sipush 44
+	bipush 105
+	bastore
+	dup
+	sipush 45
+	bipush 108
+	bastore
+	dup
+	sipush 46
+	bipush 101
+	bastore
+	dup
+	sipush 47
+	bipush 1
+	bastore
+	dup
+	sipush 48
+	bipush 0
+	bastore
+	dup
+	sipush 49
+	bipush 6
+	bastore
+	dup
+	sipush 50
+	bipush 60
+	bastore
+	dup
+	sipush 51
+	bipush 105
+	bastore
+	dup
+	sipush 52
+	bipush 110
+	bastore
+	dup
+	sipush 53
+	bipush 105
+	bastore
+	dup
+	sipush 54
+	bipush 116
+	bastore
+	dup
+	sipush 55
+	bipush 62
+	bastore
+	dup
+	sipush 56
+	bipush 1
+	bastore
+	dup
+	sipush 57
+	bipush 0
+	bastore
+	dup
+	sipush 58
+	bipush 3
+	bastore
+	dup
+	sipush 59
+	bipush 40
+	bastore
+	dup
+	sipush 60
+	bipush 41
+	bastore
+	dup
+	sipush 61
+	bipush 73
+	bastore
+	dup
+	sipush 62
+	bipush 12
+	bastore
+	dup
+	sipush 63
+	bipush 0
+	bastore
+	dup
+	sipush 64
+	bipush 4
+	bastore
+	dup
+	sipush 65
+	bipush 0
+	bastore
+	dup
+	sipush 66
+	bipush 11
+	bastore
+	dup
+	sipush 67
+	bipush 1
+	bastore
+	dup
+	sipush 68
+	bipush 0
+	bastore
+	dup
+	sipush 69
+	bipush 4
+	bastore
+	dup
+	sipush 70
+	bipush 67
+	bastore
+	dup
+	sipush 71
+	bipush 111
+	bastore
+	dup
+	sipush 72
+	bipush 100
+	bastore
+	dup
+	sipush 73
+	bipush 101
+	bastore
+	dup
+	sipush 74
+	bipush 1
+	bastore
+	dup
+	sipush 75
+	bipush 0
+	bastore
+	dup
+	sipush 76
+	bipush 19
+	bastore
+	dup
+	sipush 77
+	bipush 108
+	bastore
+	dup
+	sipush 78
+	bipush 111
+	bastore
+	dup
+	sipush 79
+	bipush 97
+	bastore
+	dup
+	sipush 80
+	bipush 100
+	bastore
+	dup
+	sipush 81
+	bipush 105
+	bastore
+	dup
+	sipush 82
+	bipush 110
+	bastore
+	dup
+	sipush 83
+	bipush 103
+	bastore
+	dup
+	sipush 84
+	bipush 67
+	bastore
+	dup
+	sipush 85
+	bipush 108
+	bastore
+	dup
+	sipush 86
+	bipush 97
+	bastore
+	dup
+	sipush 87
+	bipush 115
+	bastore
+	dup
+	sipush 88
+	bipush 115
+	bastore
+	dup
+	sipush 89
+	bipush 84
+	bastore
+	dup
+	sipush 90
+	bipush 101
+	bastore
+	dup
+	sipush 91
+	bipush 115
+	bastore
+	dup
+	sipush 92
+	bipush 116
+	bastore
+	dup
+	sipush 93
+	bipush 46
+	bastore
+	dup
+	sipush 94
+	bipush 106
+	bastore
+	dup
+	sipush 95
+	bipush 106
+	bastore
+	dup
+	sipush 96
+	bipush 1
+	bastore
+	dup
+	sipush 97
+	bipush 0
+	bastore
+	dup
+	sipush 98
+	bipush 4
+	bastore
+	dup
+	sipush 99
+	bipush 116
+	bastore
+	dup
+	sipush 100
+	bipush 101
+	bastore
+	dup
+	sipush 101
+	bipush 115
+	bastore
+	dup
+	sipush 102
+	bipush 116
+	bastore
+	dup
+	sipush 103
+	bipush 7
+	bastore
+	dup
+	sipush 104
+	bipush 0
+	bastore
+	dup
+	sipush 105
+	bipush 12
+	bastore
+	dup
+	sipush 106
+	bipush 1
+	bastore
+	dup
+	sipush 107
+	bipush 0
+	bastore
+	dup
+	sipush 108
+	bipush 3
+	bastore
+	dup
+	sipush 109
+	bipush 40
+	bastore
+	dup
+	sipush 110
+	bipush 41
+	bastore
+	dup
+	sipush 111
+	bipush 86
+	bastore
+	dup
+	sipush 112
+	bipush 1
+	bastore
+	dup
+	sipush 113
+	bipush 0
+	bastore
+	dup
+	sipush 114
+	bipush 75
+	bastore
+	dup
+	sipush 115
+	bipush 111
+	bastore
+	dup
+	sipush 116
+	bipush 114
+	bastore
+	dup
+	sipush 117
+	bipush 103
+	bastore
+	dup
+	sipush 118
+	bipush 47
+	bastore
+	dup
+	sipush 119
+	bipush 97
+	bastore
+	dup
+	sipush 120
+	bipush 112
+	bastore
+	dup
+	sipush 121
+	bipush 97
+	bastore
+	dup
+	sipush 122
+	bipush 99
+	bastore
+	dup
+	sipush 123
+	bipush 104
+	bastore
+	dup
+	sipush 124
+	bipush 101
+	bastore
+	dup
+	sipush 125
+	bipush 47
+	bastore
+	dup
+	sipush 126
+	bipush 104
+	bastore
+	dup
+	sipush 127
+	bipush 97
+	bastore
+	dup
+	sipush 128
+	bipush 114
+	bastore
+	dup
+	sipush 129
+	bipush 109
+	bastore
+	dup
+	sipush 130
+	bipush 111
+	bastore
+	dup
+	sipush 131
+	bipush 110
+	bastore
+	dup
+	sipush 132
+	bipush 121
+	bastore
+	dup
+	sipush 133
+	bipush 47
+	bastore
+	dup
+	sipush 134
+	bipush 118
+	bastore
+	dup
+	sipush 135
+	bipush 116
+	bastore
+	dup
+	sipush 136
+	bipush 115
+	bastore
+	dup
+	sipush 137
+	bipush 47
+	bastore
+	dup
+	sipush 138
+	bipush 116
+	bastore
+	dup
+	sipush 139
+	bipush 101
+	bastore
+	dup
+	sipush 140
+	bipush 115
+	bastore
+	dup
+	sipush 141
+	bipush 116
+	bastore
+	dup
+	sipush 142
+	bipush 47
+	bastore
+	dup
+	sipush 143
+	bipush 118
+	bastore
+	dup
+	sipush 144
+	bipush 109
+	bastore
+	dup
+	sipush 145
+	bipush 47
+	bastore
+	dup
+	sipush 146
+	bipush 106
+	bastore
+	dup
+	sipush 147
+	bipush 118
+	bastore
+	dup
+	sipush 148
+	bipush 109
+	bastore
+	dup
+	sipush 149
+	bipush 115
+	bastore
+	dup
+	sipush 150
+	bipush 47
+	bastore
+	dup
+	sipush 151
+	bipush 99
+	bastore
+	dup
+	sipush 152
+	bipush 108
+	bastore
+	dup
+	sipush 153
+	bipush 97
+	bastore
+	dup
+	sipush 154
+	bipush 115
+	bastore
+	dup
+	sipush 155
+	bipush 115
+	bastore
+	dup
+	sipush 156
+	bipush 76
+	bastore
+	dup
+	sipush 157
+	bipush 76
+	bastore
+	dup
+	sipush 158
+	bipush 73
+	bastore
+	dup
+	sipush 159
+	bipush 47
+	bastore
+	dup
+	sipush 160
+	bipush 108
+	bastore
+	dup
+	sipush 161
+	bipush 111
+	bastore
+	dup
+	sipush 162
+	bipush 97
+	bastore
+	dup
+	sipush 163
+	bipush 100
+	bastore
+	dup
+	sipush 164
+	bipush 105
+	bastore
+	dup
+	sipush 165
+	bipush 110
+	bastore
+	dup
+	sipush 166
+	bipush 103
+	bastore
+	dup
+	sipush 167
+	bipush 47
+	bastore
+	dup
+	sipush 168
+	bipush 115
+	bastore
+	dup
+	sipush 169
+	bipush 104
+	bastore
+	dup
+	sipush 170
+	bipush 97
+	bastore
+	dup
+	sipush 171
+	bipush 114
+	bastore
+	dup
+	sipush 172
+	bipush 101
+	bastore
+	dup
+	sipush 173
+	bipush 47
+	bastore
+	dup
+	sipush 174
+	bipush 108
+	bastore
+	dup
+	sipush 175
+	bipush 111
+	bastore
+	dup
+	sipush 176
+	bipush 97
+	bastore
+	dup
+	sipush 177
+	bipush 100
+	bastore
+	dup
+	sipush 178
+	bipush 105
+	bastore
+	dup
+	sipush 179
+	bipush 110
+	bastore
+	dup
+	sipush 180
+	bipush 103
+	bastore
+	dup
+	sipush 181
+	bipush 67
+	bastore
+	dup
+	sipush 182
+	bipush 108
+	bastore
+	dup
+	sipush 183
+	bipush 97
+	bastore
+	dup
+	sipush 184
+	bipush 115
+	bastore
+	dup
+	sipush 185
+	bipush 115
+	bastore
+	dup
+	sipush 186
+	bipush 84
+	bastore
+	dup
+	sipush 187
+	bipush 101
+	bastore
+	dup
+	sipush 188
+	bipush 115
+	bastore
+	dup
+	sipush 189
+	bipush 116
+	bastore
+	dup
+	sipush 190
+	bipush 7
+	bastore
+	dup
+	sipush 191
+	bipush 0
+	bastore
+	dup
+	sipush 192
+	bipush 2
+	bastore
+	dup
+	sipush 193
+	bipush 0
+	bastore
+	dup
+	sipush 194
+	bipush 33
+	bastore
+	dup
+	sipush 195
+	bipush 0
+	bastore
+	dup
+	sipush 196
+	bipush 10
+	bastore
+	dup
+	sipush 197
+	bipush 0
+	bastore
+	dup
+	sipush 198
+	bipush 13
+	bastore
+	dup
+	sipush 199
+	bipush 0
+	bastore
+	dup
+	sipush 200
+	bipush 0
+	bastore
+	dup
+	sipush 201
+	bipush 0
+	bastore
+	dup
+	sipush 202
+	bipush 0
+	bastore
+	dup
+	sipush 203
+	bipush 0
+	bastore
+	dup
+	sipush 204
+	bipush 2
+	bastore
+	dup
+	sipush 205
+	bipush 0
+	bastore
+	dup
+	sipush 206
+	bipush 1
+	bastore
+	dup
+	sipush 207
+	bipush 0
+	bastore
+	dup
+	sipush 208
+	bipush 4
+	bastore
+	dup
+	sipush 209
+	bipush 0
+	bastore
+	dup
+	sipush 210
+	bipush 11
+	bastore
+	dup
+	sipush 211
+	bipush 0
+	bastore
+	dup
+	sipush 212
+	bipush 1
+	bastore
+	dup
+	sipush 213
+	bipush 0
+	bastore
+	dup
+	sipush 214
+	bipush 7
+	bastore
+	dup
+	sipush 215
+	bipush 0
+	bastore
+	dup
+	sipush 216
+	bipush 0
+	bastore
+	dup
+	sipush 217
+	bipush 0
+	bastore
+	dup
+	sipush 218
+	bipush 17
+	bastore
+	dup
+	sipush 219
+	bipush 0
+	bastore
+	dup
+	sipush 220
+	bipush 1
+	bastore
+	dup
+	sipush 221
+	bipush 0
+	bastore
+	dup
+	sipush 222
+	bipush 1
+	bastore
+	dup
+	sipush 223
+	bipush 0
+	bastore
+	dup
+	sipush 224
+	bipush 0
+	bastore
+	dup
+	sipush 225
+	bipush 0
+	bastore
+	dup
+	sipush 226
+	bipush 5
+	bastore
+	dup
+	sipush 227
+	bipush 42
+	bastore
+	dup
+	sipush 228
+	bipush -73
+	bastore
+	dup
+	sipush 229
+	bipush 0
+	bastore
+	dup
+	sipush 230
+	bipush 1
+	bastore
+	dup
+	sipush 231
+	bipush -79
+	bastore
+	dup
+	sipush 232
+	bipush 0
+	bastore
+	dup
+	sipush 233
+	bipush 0
+	bastore
+	dup
+	sipush 234
+	bipush 0
+	bastore
+	dup
+	sipush 235
+	bipush 0
+	bastore
+	dup
+	sipush 236
+	bipush 0
+	bastore
+	dup
+	sipush 237
+	bipush 9
+	bastore
+	dup
+	sipush 238
+	bipush 0
+	bastore
+	dup
+	sipush 239
+	bipush 9
+	bastore
+	dup
+	sipush 240
+	bipush 0
+	bastore
+	dup
+	sipush 241
+	bipush 5
+	bastore
+	dup
+	sipush 242
+	bipush 0
+	bastore
+	dup
+	sipush 243
+	bipush 1
+	bastore
+	dup
+	sipush 244
+	bipush 0
+	bastore
+	dup
+	sipush 245
+	bipush 7
+	bastore
+	dup
+	sipush 246
+	bipush 0
+	bastore
+	dup
+	sipush 247
+	bipush 0
+	bastore
+	dup
+	sipush 248
+	bipush 0
+	bastore
+	dup
+	sipush 249
+	bipush 15
+	bastore
+	dup
+	sipush 250
+	bipush 0
+	bastore
+	dup
+	sipush 251
+	bipush 1
+	bastore
+	dup
+	sipush 252
+	bipush 0
+	bastore
+	dup
+	sipush 253
+	bipush 1
+	bastore
+	dup
+	sipush 254
+	bipush 0
+	bastore
+	dup
+	sipush 255
+	bipush 0
+	bastore
+	dup
+	sipush 256
+	bipush 0
+	bastore
+	dup
+	sipush 257
+	bipush 3
+	bastore
+	dup
+	sipush 258
+	bipush 16
+	bastore
+	dup
+	sipush 259
+	bipush 104
+	bastore
+	dup
+	sipush 260
+	bipush -84
+	bastore
+	dup
+	sipush 261
+	bipush 0
+	bastore
+	dup
+	sipush 262
+	bipush 0
+	bastore
+	dup
+	sipush 263
+	bipush 0
+	bastore
+	dup
+	sipush 264
+	bipush 0
+	bastore
+	dup
+	sipush 265
+	bipush 0
+	bastore
+	dup
+	sipush 266
+	bipush 1
+	bastore
+	dup
+	sipush 267
+	bipush 0
+	bastore
+	dup
+	sipush 268
+	bipush 3
+	bastore
+	dup
+	sipush 269
+	bipush 0
+	bastore
+	dup
+	sipush 270
+	bipush 0
+	bastore
+	dup
+	sipush 271
+	bipush 0
+	bastore
+	dup
+	sipush 272
+	bipush 2
+	bastore
+	dup
+	sipush 273
+	bipush 0
+	bastore
+	dup
+	sipush 274
+	bipush 8
+	bastore
+	dup
+	areturn
+
+.end method

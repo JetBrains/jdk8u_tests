@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Maxim V. Makarov
+Version: $Revision: 1.2 $
+-->
+<Test ID="arraylength0601" date-of-creation="2006-04-17" timeout="1">
+  <Author value="Maxim V. Makarov"/>
+  <Description>
+   Checks that VM throws java.lang.VerifyError if argument on top of the stack 
+   for instruction arraylength is not an array reference
+   Covered assertions assert_instr2a089
+  </Description>
+  <Source name="arraylength0601p.j"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+			<Option name="load"/>
+			<Option name="org.apache.harmony.vts.test.vm.jvms.instructions.reftypes.arraylength.arraylength06.arraylength0601.arraylength0601p"/>
+			<Option name="java.lang.VerifyError"/>
+	</Param>
+  </Runner>
+</Test>

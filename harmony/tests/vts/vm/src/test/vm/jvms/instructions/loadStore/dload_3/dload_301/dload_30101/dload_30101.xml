@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Alexander D. Shipilov
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="dload_30101"
+  date-of-creation="2004-12-10"
+  timeout="1"
+  >
+  <Author value="Alexander D. Shipilov"/>
+  <Description>
+    Tests dload_3 java virtual machine instruction.
+    dstore 1 to the lv3 and 4. dload_3 from lv3 and 4. 
+    Then pop value. dload_3 must not throw any exception.
+    
+    Covered assertions assert_instr23a133 assert_instr23a134 assert_instr23a135
+  </Description>
+
+  <Source name="dload_30101p.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.loadStore.dload_3.dload_301.dload_30101.dload_30101p"/>
+  </Runner>
+</Test>

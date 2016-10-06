@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="aload0803"
+  date-of-creation="2005-03-20"
+  timeout="1"
+  >
+  <Author value="Ilia A. Leviev"/>
+  <Description>   
+    The test is against the aload java virtual machine instruction. 
+    It performs the following check.     
+    The VerifyError is thrown if the local variable that specified at index is of type double.
+    
+    Covered assertions assert_instr2a045 assert_instr2a046 assert_const153 assert_class658
+  </Description>
+  <Keyword name="verifier"/>
+  <Source name="aload0803n.jj"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.share.vmVerifierRun">
+      <Option name="load"/>
+      <Option name="org.apache.harmony.vts.test.vm.jvms.instructions.loadStore.aload.aload08.aload0803.aload0803n"/>
+      <Option name="java.lang.VerifyError"/>
+    </Param>
+  </Runner>
+</Test>

@@ -1,0 +1,84 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * @author: Alexander V. Esin
+ * @version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 49
+
+constant_pool_count = 14
+
+constant_pool {
+  /* #1 */ UTF8 = "RUNTIME"
+  /* #2 */ UTF8 = "Ljava/lang/annotation/RetentionPolicy;"
+  /* #3 */ UTF8 = "java/lang/Object"
+  /* #4 */ UTF8 = "Ljava/lang/annotation/Retention;"
+  /* #5 */ UTF8 = "SourceFile"
+  /* #6 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/runtimeInvisibleAnnotations/classinfo03/annotation03n"
+  /* #7 */ UTF8 = "annotation03n.ccode"
+  /* #8 */ UTF8 = "java/lang/annotation/Annotation"
+  /* #9 */ Class = #8
+  /* #10 */ UTF8 = "value"
+  /* #11 */ Class = #6
+  /* #12 */ UTF8 = "RuntimeInvisibleAnnotations"
+  /* #13 */ Class = #3
+}
+
+access_flags = x2221  // PUBLIC SUPER INTERFACE ANNOTATION 
+
+this_class = #11  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/annotation/runtimeInvisibleAnnotations/classinfo03/annotation03n"
+
+super_class = #13  // "java/lang/Object"
+
+interfaces_count = 1
+
+interfaces {
+  #9  // "java/lang/annotation/Annotation"
+}
+
+fields_count = 0
+
+methods_count = 0
+
+attributes_count = 2
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #5  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #7  // "annotation03n.ccode"
+  }
+  attribute RuntimeInvisibleAnnotations {
+    attribute_name_index = #12  // "RuntimeInvisibleAnnotations"
+    attribute_length = 30 // should be 13
+    num_annotations = 1
+    Annotation {
+      type_index = #4  // "Ljava/lang/annotation/Retention;"
+      num_element_value_pairs = 1
+      {
+        element_name_index = #10  // "value"
+        tag = e
+        type_name_index = #2  // "Ljava/lang/annotation/RetentionPolicy;"
+        const_name_index = #1  // "RUNTIME"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+
+<!-- 
+Author: Valentin Al. Sitnick
+Version: $Revision: 1.2 $
+-->
+
+<Test ID="SetLocalObject0109" date-of-creation="03-06-2005" timeout="1" >
+
+    <Author value="Valentin Al. Sitnick"/>
+
+    <Description>
+        This is the test for JVMTI function: SetLocalObject0109. 
+        Checks that function works fine with correct input parameters.
+
+		Covered assertions assert_jvmti1430
+    </Description>
+
+    <Keyword name="simple"/>
+    <Source name="SetLocalObject0109.cpp"/>
+    <Source name="SetLocalObject0109.java"/>
+
+    <Runner ID="RuntimeNegative">
+        <Option name="runnerEMsg" value="passed"/>
+        <Option value="-agentlib:SetLocalObject0109"/>
+        <Option value="-showversion"/>
+        <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvmti.SetLocalObject0109"/>
+    </Runner>
+
+    <Restriction name="OtherVMOnly"/>
+</Test>
+

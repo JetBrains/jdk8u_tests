@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Nikolay Y. Amosov
+Version: $Revision: 1.5 $
+-->
+<Test
+    ID="stack01"
+    date-of-creation="2006-06-19"
+    timeout="1"
+    >
+    <Author value="Nikolay Y. Amosov"/>
+    <Description>
+        Tests size of an operand stack in a frame. 
+        This size is limited to 65535 values by the max_stack field 
+        of the Code_attribute structure. 
+        This limitation confronts with limitation to code_length (65535) and 
+        As a result of this constraint, and by using iconst_0 instruction 
+        we can push onto the operand stack only 65534 int "0" values.
+        It is expected that test will passed without any problem.
+        Covered assertions assert_class934
+    </Description>
+
+    <Keyword name="verifier"/>
+    
+    <Keyword name="pass1"/>
+
+    <Keyword name="classloader"/>
+
+    <Restriction name="OtherVMOnly"/>
+    
+    <Source name="Stack01.j"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.classFile.limitations.stack.stack01.Stack01">
+        </Param>
+    </Runner>
+</Test>

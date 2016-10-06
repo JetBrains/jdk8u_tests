@@ -1,0 +1,178 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Maxim V. Makarov
+ * @version: $Revision: 1.1 $
+ */
+
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 39
+
+constant_pool {
+  /* #1 */ Method = #4 #36
+  /* #2 */ double = 0.1
+  /* #4 */ Class = #37
+  /* #5 */ Class = #38
+  /* #6 */ UTF8 = "<init>"
+  /* #7 */ UTF8 = "()V"
+  /* #8 */ UTF8 = "Code"
+  /* #9 */ UTF8 = "LineNumberTable"
+  /* #10 */ UTF8 = "LocalVariableTable"
+  /* #11 */ UTF8 = "this"
+  /* #12 */ UTF8 = "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTable/localVariableTable01/localVariableTable01p;"
+  /* #13 */ UTF8 = "test"
+  /* #14 */ UTF8 = "localVar1"
+  /* #15 */ UTF8 = "I"
+  /* #16 */ UTF8 = "localVar2"
+  /* #17 */ UTF8 = "S"
+  /* #18 */ UTF8 = "localVar3"
+  /* #19 */ UTF8 = "B"
+  /* #20 */ UTF8 = "localVar4"
+  /* #21 */ UTF8 = "Z"
+  /* #22 */ UTF8 = "localVar5"
+  /* #23 */ UTF8 = "J"
+  /* #24 */ UTF8 = "localVar6"
+  /* #25 */ UTF8 = "D"
+  /* #26 */ UTF8 = "localVar7"
+  /* #27 */ UTF8 = "F"
+  /* #28 */ UTF8 = "localVar8"
+  /* #29 */ UTF8 = "Ljava/lang/Object;"
+  /* #30 */ UTF8 = "localVar9"
+  /* #31 */ UTF8 = "[Ljava/lang/Object;"
+  /* #32 */ UTF8 = "localVar10"
+  /* #33 */ UTF8 = "C"
+  /* #34 */ UTF8 = "SourceFile"
+  /* #35 */ UTF8 = "localVariableTable01p.ccode"
+  /* #36 */ NameAndType = #6 #7
+  /* #37 */ UTF8 = "java/lang/Object"
+  /* #38 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTable/localVariableTable01/localVariableTable01p"
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #5  // "A"
+
+super_class = #4  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #6  // "<init>"
+    descriptor_index = #7  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #8  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #13  // "test"
+    descriptor_index = #7  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #8  // "Code"
+          attribute_length = 164
+          max_stack = 2
+          max_locals = 13
+          code_length = 34
+          code asm {
+          0:	iconst_0
+          1:	istore_1
+          2:	iconst_0
+          3:	istore_2
+          4:	iconst_0
+          5:	istore_3
+          6:	iconst_0
+          7:	istore 4
+          9:	lconst_0
+          10:	lstore 5
+          12:	ldc2_w #2  // 0.1
+          15:	dstore 7
+          17:	fconst_1
+          18:	fstore 9
+          20:	aload_0
+          21:	astore 10
+          23:	iconst_4
+          24:	anewarray #4  // "java/lang/Object"
+          27:	astore 11
+          29:	bipush 65
+          31:	istore 12
+          33:	return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+				
+			  // Tested attribute	
+              attribute LocalVariableTable {
+                attribute_name_index = #10  // "LocalVariableTable"
+                attribute_length = 112
+                local_variable_table_length = 11
+                local_variable_table {
+                    // start_pc length name_index descriptor_index index
+                    0 34 #11 #12 0  // int
+                    2 32 #14 #15 1  // boolean
+                    4 30 #16 #17 2  // byte
+                    6 28 #18 #19 3  // char
+                    9 25 #20 #21 4  // short
+                    12 22 #22 #23 5 // long
+                    17 17 #24 #25 7 // double
+                    20 14 #26 #27 9 // float 
+                    23 11 #28 #29 10 // objectref
+                    29 5 #30 #31 11  // arrayref
+                    33 1 #32 #33 12  // return
+
+                }
+              }
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 0

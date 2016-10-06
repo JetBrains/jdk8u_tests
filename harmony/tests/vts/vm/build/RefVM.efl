@@ -1,0 +1,15 @@
+// The content of this file should be list of tests failing on some 
+// (reference, for example) VM which are known failures, already analyzed test failures -
+// to avoid duplicative test analysis. The list is used by select_expected.pl script.
+//
+//  Format: 
+//  TestID                        Platform    Architecture    Runtime BugID   Reason  Comment
+//  Values:                         Linux       Same/Other      RefVM   #       ...     ...
+//
+//  Example:
+// vm/jvms/classFile/methods/accessFlags/accessFlags08/accessFlags08   Linux   Same        RefVM       #3731   105FAILED
+// vm/jvms/classFile/methods/accessFlags/accessFlags08/accessFlags08   Linux   Other       RefVM       #3731   105FAILED
+//
+// Note: Only <Tab> symbol should be used as columns separator.
+
+TestID                              Platform    Architecture    Runtime BugID   Reason  Comment

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.3 $
+-->
+<Test
+  ID="getstatic1303"
+  date-of-creation="2004-12-27"
+  timeout="1"
+  >
+  <Author value="Ilia A. Leviev"/>
+  <Description>
+    The test is against the getstatic java virtual machine instruction.
+    It performs the following check.
+    The NoSuchFieldError is thrown if target class not contain field with name declared in reference.
+  Covered assertions assert_instr25a020 assert_const189 assert_instr25a025 assert_const195
+  </Description>
+
+  <Source name="getstatic1303p.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.reftypes.getstatic.getstatic13.getstatic1303.getstatic1303p"/>
+  </Runner>
+</Test>

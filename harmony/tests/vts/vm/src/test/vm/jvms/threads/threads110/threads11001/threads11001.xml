@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author:  Maxim N. Kurzenev
+Version: $Revision: 1.1 $
+-->
+<Test ID="threads11001" date-of-creation="2006-06-30" timeout="1">
+  <Author value="Maxim N. Kurzenev"/>
+  <Description>
+      The test declares volatile long variable v and starts two threads. The threads
+      concurrently repeatedly assign 0x00000000FFFFFFFF and 0xFFFFFFFF00000000 to v.
+
+      Master thread continuously checks the value of v, to be either
+      0x00000000FFFFFFFF or 0xFFFFFFFF00000000 and returns failed status otherwise.
+      The procedure is repeated until timeout specified by delay parameter is reached.
+
+      Covered assertions assert_thread110 assert_thread106 assert_thread104
+  </Description>
+  <Source name="threads11001p.j"/>
+  <Source name="threads11001p$1.j"/>
+  <Source name="threads11001p$2.j"/>
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.threads.threads110.threads11001.threads11001p">
+        <Option name="delay" value="30000"/>
+    </Param>
+  </Runner>
+</Test>

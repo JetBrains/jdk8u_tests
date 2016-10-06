@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Ilia A. Leviev
+Version: $Revision: 1.4 $
+-->
+<Test
+  ID="f2i0701"
+  date-of-creation="2004-12-17"
+  timeout="1"
+  > 
+  <Author value="Ilia A. Leviev"/>
+  <Description>
+ 
+  Tests f2i java virtual machine instruction.
+  Checks that f2i convert type of value from operand stack and push correct result, if value = MIX_VALUE. 
+   Covered assertions assert_instr24a015 assert_instr24a017 assert_instr24a022 assert_concept229
+</Description>
+
+
+  <Source name="f2i0701p.j"/>
+
+  <Runner ID="Runtime">
+    <Param name="toRun" value="org.apache.harmony.vts.test.vm.jvms.instructions.typeCnv.f2i.f2i07.f2i0701.f2i0701p"/>                          
+</Runner>
+</Test>

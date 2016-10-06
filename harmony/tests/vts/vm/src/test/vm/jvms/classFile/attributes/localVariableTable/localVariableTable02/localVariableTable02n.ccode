@@ -1,0 +1,142 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Maxim V. Makarov
+ * @version: $Revision: 1.1 $
+ */
+
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 19
+
+constant_pool {
+  /* #1 */ Method = #3 #16
+  /* #2 */ Class = #17
+  /* #3 */ Class = #18
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ UTF8 = "()V"
+  /* #6 */ UTF8 = "Code"
+  /* #7 */ UTF8 = "LineNumberTable"
+  /* #8 */ UTF8 = "LocalVariableTable"
+  /* #9 */ UTF8 = "this"
+  /* #10 */ UTF8 = "LA;"
+  /* #11 */ UTF8 = "test"
+  /* #12 */ UTF8 = "a"
+  /* #13 */ UTF8 = "I"
+  /* #14 */ UTF8 = "SourceFile"
+  /* #15 */ UTF8 = "localVariableTable02n"
+  /* #16 */ NameAndType = #4 #5
+  /* #17 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/localVariableTable/localVariableTable02/localVariableTable02n"
+  /* #18 */ UTF8 = "java/lang/Object"
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #2 
+
+super_class = #3  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x00
+    name_index = #4  // "<init>"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 17
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #11  // "test"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 15
+          max_stack = 1
+          max_locals = 2
+          code_length = 3
+          code asm {
+          0:	iconst_0
+          1:	istore_1
+          2:	return
+          }
+          exception_table_length = 0
+          attributes_count = 2
+            attributes {
+
+              attribute LocalVariableTable {
+                attribute_name_index = #8  // "LocalVariableTable"
+                attribute_length = 22
+                local_variable_table_length = 2
+                local_variable_table {
+                    // start_pc length name_index descriptor_index index
+                    0 3 #9 #10 0
+                    2 1 #12 #13 1
+                }
+              }
+
+ 			 // Duplicate attribute LocalVariableTable, must throw java/lang/ClassFormatError
+              attribute LocalVariableTable {
+                attribute_name_index = #8  // "LocalVariableTable"
+                attribute_length = 22
+                local_variable_table_length = 2
+                local_variable_table {
+                    // start_pc length name_index descriptor_index index
+                    0 3 #9 #10 0
+                    2 1 #12 #13 1
+                }
+              }
+
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 0

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
+
+ -->
+
+<project name="Top-Level property definitions" default="echo" basedir="..">
+
+    <property name="root" location="${basedir}/.."/>
+
+    <property name="build.external.deps.file"
+                            value="${basedir}/build/dependencies.properties"/>
+    <property file="${build.external.deps.file}"/>
+
+    <property name="build.properties.file"
+                            value="${basedir}/build/build.properties"/>
+    <property file="${build.properties.file}"/>
+    
+    <property name="xml.jars.home" value="${depends.jars}"/>
+
+    <path id="XML_CLASSPATH">
+        <pathelement path="${xml.jars.home}/xercesImpl.jar"/>
+        <pathelement path="${xml.jars.home}/xml-apis.jar"/>
+    </path>
+    
+    <tstamp>
+        <format property="build.date" pattern="yyyyMMdd" locale="en"/>
+    </tstamp>
+    <tstamp>
+        <format property="build.time" pattern="yyyyMMdd_HHmm"/>
+    </tstamp>
+
+    <property name="vts.zip.prefix" value="vts_${build.time}"/>
+    
+    <property name="build.string" value="${vts.zip.prefix}"/>
+    <property name="build.comment.string" value=""/>
+
+    <property name="distrib.location" location="${root}/dest"/>
+
+    <property name="vts.build.path" location="${distrib.location}/VTS-built"/>
+    <property name="vts.harness.jar" location="${root}/../tools/th.dest/bin/th.jar"/>
+    <property name="vts.harness.main" value="org.apache.harmony.harness.Main"/>
+    <property name="vts.temp" location="${distrib.location}/temp"/>
+
+    <!-- Virtual Machine Testing Tool -->
+    <property name="vmtt.jar" location="${root}/../tools/vmtt.dest/bin/vmtt.jar"/>
+    <property name="vmtt.main.class" value="org.apache.harmony.vmtt.VMTT"/>
+
+    <!-- VTS-image properties -->
+    <property name="vts.image.home" location="${basedir}"/>
+    <property name="vts.image.build" location="${vts.image.home}/build"/>
+    <property name="vts.image.docs" location="${vts.image.home}/docs"/>
+    <property name="vts.image.src" location="${vts.image.home}/src"/>
+    <property name="vts.image.src.plugins" location="${vts.image.src}/plugins"/>
+    <property name="vts.image.src.test" location="${vts.image.src}/test"/>
+    <property name="vts.image.src.test.share" location="${vts.image.src.test}/vm/jvms/share"/>
+    <property name="vts.image.config" location="${vts.image.home}/config"/>
+
+    <!-- VTS-built properties -->
+    <property name="vts.built.home" location="${vts.build.path}"/>
+    <property name="vts.built.bin" location="${vts.built.home}/bin"/>
+    <property name="vts.built.bin.classes" location="${vts.built.bin}/classes"/>
+    <property name="vts.built.bin.lib" location="${vts.built.bin}/lib"/>
+    <property name="vts.built.src" location="${vts.built.home}/src"/>
+    <property name="vts.built.src.plugins" location="${vts.built.src}/plugins"/>
+    <property name="vts.built.src.test" location="${vts.built.src}/test"/>
+    <property name="vts.built.src.test.share" location="${vts.built.src.test}/vm/jvms/share"/>
+    <property name="vts.built.config" location="${vts.built.home}/config"/>
+
+    <!-- Set platform -->
+    <condition property="if.win" value="true">
+        <os family="Windows"/>
+    </condition>
+    <condition property="if.linux" value="true">
+        <and>
+            <os name="linux"/>
+            <os family="unix"/>
+        </and>
+    </condition>
+    <condition property="pl_efl" value="Windows">
+        <istrue value="${if.win}"/>
+    </condition>
+    <condition property="pl_efl" value="Linux">
+        <istrue value="${if.linux}"/>
+    </condition>
+
+    <!-- Set architecture-->
+    <condition property="if.ia32_EM64T" value="true">
+        <contains string="${os.arch}" substring="x86_64"/>
+    </condition>
+    <condition property="if.ia32" value="true">
+        <and>
+            <contains string="${os.arch}" substring="86"/>
+            <not>
+                <isset property="if.ia32_EM64T"/>
+            </not>
+        </and>
+    </condition>
+    <condition property="if.ipf" value="true">
+        <contains string="${os.arch}" substring="ia64"/>
+    </condition>
+    <condition property="arch_efl" value="ia32">
+        <isset property="if.ia32"/>
+    </condition>
+    <condition property="arch_efl" value="ia32_EM64T">
+        <isset property="if.ia32_EM64T"/>
+    </condition>
+    <condition property="arch_efl" value="ipf">
+        <isset property="if.ipf"/>
+    </condition>
+    <condition property="arch_efl" value="unknown">
+        <not><isset property="arch_efl"/></not>
+    </condition>
+
+    <target name="make-build-prop-file" unless="${build.properties.file}.exists">
+        <!-- build configuration file creation -->
+        <echo file="${build.properties.file}">
+#
+# Build Configuration File
+#
+
+# Path to runtime to test
+# example: tested.runtime=C:/JDK1.5/bin/java.exe
+
+tested.runtime=
+
+
+# JDK 1.5 home
+# example: java.home.1.5=C:/JDK1.5
+
+java.home.1.5=
+
+
+# Uncomment and set up these properties
+# if you are using a proxy server for internat connection
+
+#http.proxyHost=
+#http.proxyPort=
+        </echo>
+        <echo>
+========================================
+NOTE! Further action is REQUIRED:
+Please set up required properties in local build configuration file:
+${build.properties.file}.
+========================================
+        </echo>
+    </target>
+
+    <target name="make-external-deps-file" unless="${build.external.deps.file}.exists">
+        <echo file="${build.external.deps.file}">
+#
+# External dependencies
+#
+
+depends.dir=depends
+depends.jars=${depends.dir}/jars
+depends.arch=${depends.dir}/arch
+depends.temp=${depends.dir}/temp
+mirror.base=http://mirrors.ibiblio.org/pub/mirrors/maven2
+
+xerces.impl.jar=${depends.jars}/xercesImpl.jar
+xerces.impl.url=${mirror.base}/xerces/xercesImpl/2.8.0/xercesImpl-2.8.0.jar
+xerces.impl.md5=7eb2db331a62e74744ab79aab5b454bd
+
+xml.apis.jar=${depends.jars}/xml-apis.jar
+xml.apis.url=${mirror.base}/xml-apis/xml-apis/1.3.03/xml-apis-1.3.03.jar
+xml.apis.md5=6dee9238dd2900171197104951940778
+
+jasmin.jar=${depends.jars}/jasmin.jar
+jasmin.zip=jasmin-2.2.zip
+jasmin.url=http://heanet.dl.sourceforge.net/sourceforge/jasmin/jasmin-2.2.zip
+jasmin.md5=c2f4a1df004983850046e1d9eaf724f3
+
+ant-contrib.jar=${depends.jars}/ant-contrib.jar
+ant-contrib.zip=ant-contrib-1.0b2-bin.zip
+ant-contrib.url=http://downloads.sourceforge.net/sourceforge/ant-contrib/ant-contrib-1.0b2-bin.zip?use_mirror=autoselect
+ant-contrib.md5=576eafb2aca3e87c26d6d274047de482
+
+cpptasks.jar=${depends.jars}/cpptasks.jar
+cpptasks.zip=cpptasks-1.0b4.zip
+cpptasks.url=http://heanet.dl.sourceforge.net/sourceforge/ant-contrib/cpptasks-1.0b4.zip
+cpptasks.md5=118e601b58a48519208efa9893c7c5c0
+        </echo>
+        <echo>
+========================================
+NOTE! Further action is REQUIRED:
+To proceed with external dependencies do:
+    > ant fetch-depends
+========================================
+        </echo>
+    </target>
+
+</project>

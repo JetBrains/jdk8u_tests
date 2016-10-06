@@ -1,0 +1,38 @@
+;    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+;
+;    Licensed under the Apache License, Version 2.0 (the "License");
+;    you may not use this file except in compliance with the License.
+;    You may obtain a copy of the License at
+;
+;       http://www.apache.org/licenses/LICENSE-2.0
+;
+;    Unless required by applicable law or agreed to in writing, software
+;    distributed under the License is distributed on an "AS IS" BASIS,
+;    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;
+;    See the License for the specific language governing permissions and
+;    limitations under the License.
+
+;
+; Author: Alexander V. Esin
+; Version: $Revision: 1.2 $
+;
+.bytecode 49.0
+.class org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod02/enclosingMethod02Test
+.super java/lang/Object
+.enclosing method org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod02/enclosingMethod02p/test([Ljava/lang/String;)I
+.inner class enclosingMethod02Test inner org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod02/enclosingMethod02Test
+
+.field final this$0 Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod02/enclosingMethod02p;
+
+.method public <init>(Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod02/enclosingMethod02p;)V
+   .limit stack 2
+   .limit locals 2
+
+   aload_0
+   aload_1
+   putfield org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod02/enclosingMethod02Test/this$0 Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod02/enclosingMethod02p;
+   aload_0
+   invokespecial java/lang/Object/<init>()V
+   return
+.end method

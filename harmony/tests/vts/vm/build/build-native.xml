@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- 
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+     
+      http://www.apache.org/licenses/LICENSE-2.0
+     
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
+
+ -->
+
+<project name="vts_native" default="mk.all" basedir="..">
+
+<description> Build for vts native part </description>
+
+    <!-- set global properties for this build -->
+
+	<property name="vts.built" location="${basedir}"/>
+
+	<!--property name="out.lib" location="${vts.built}/bin/lib"/-->
+	<property name="src.test" location="${vts.built}/src/test"/>
+
+	<property name="jni.dir" location="${src.test}/vm"/>
+	<property name="jni.share" location="${jni.dir}/share"/>
+	<property name="jvmti.dir" location="${src.test}/vm/jvmti"/>
+	<property name="jvmti.share" location="${jvmti.dir}/share"/>
+    <property name="runtime.property" value="dynamic"/>
+
+	<property name="java.include" location="${java.home}/include"/>
+
+	<target name="win.init" if="if.win">
+		<property name="ext" value=".dll"/>
+		<property name="pref" value=""/>
+		<property name="compiler.name" value="msvc"/>
+		<property name="add.option" value=""/>
+        <!--property name="out.lib" location="${vts.built}/bin/lib/win.${os.arch}"/-->
+        <property name="out.lib" location="${vts.built}/bin/lib"/>
+		<mkdir dir="${out.lib}"/>
+		<property name="tmp.dir" location="${out.lib}/tmp"/>
+	</target>
+
+	<target name="lnx.init" if="if.linux">
+		<property name="ext" value=".so"/>
+		<property name="pref" value="lib"/>
+		<property name="compiler.name" value="gcc"/>
+		<property name="add.option" value="-DLINUX -DPLATFORM_POSIX -fPIC"/>
+        <!--property name="out.lib" location="${vts.built}/bin/lib/lnx.${os.arch}"/-->
+        <property name="out.lib" location="${vts.built}/bin/lib"/>
+		<mkdir dir="${out.lib}"/>
+		<property name="tmp.dir" location="${out.lib}/tmp"/>
+	</target>
+
+
+	<target name="-mk.jni" depends="win.init,lnx.init"  description="compile jnitests library">
+
+		<property name="jni.library.name" value="jnitests"/>
+		<mkdir dir="${tmp.dir}"/>
+
+        <fileset id="-mk.jni.sources" dir="${jni.dir}" 
+                includes="**/*.c, **/*.cpp" 
+                excludes="**/jvmti/**/*.c **/jvmti/**/*.cpp" />
+
+        <dependset>
+            <srcfileset refid="-mk.jni.sources"/>
+            <targetfilelist dir="${out.lib}" files="${pref}${jni.library.name}${ext}"/>
+        </dependset>
+
+        <if>
+            <not><available file="${out.lib}/${pref}${jni.library.name}${ext}"/></not>
+            <then>
+                <cc     name    = "${compiler.name}"
+                    outfile = "${tmp.dir}/${jni.library.name}"
+                    objdir  = "${tmp.dir}"
+                    outtype = "shared"
+                    runtime = "${runtime.property}"
+                    debug   = "off"
+                        >
+                                                                                                                              
+                    <fileset dir="${jni.dir}" includes="**/*.c, **/*.cpp" excludes="**/jvmti/**/*.c **/jvmti/**/*.cpp" />
+                                                                                                                              
+                                                                                                                              
+                    <compilerarg value="-I${java.include}"/> 
+                    <compilerarg value="-I${java.include}\win32" if="if.win"/>
+                    <compilerarg value="-I${java.include}/linux" if="if.linux"/> 
+                    <compilerarg value="-I${jni.share}"/>
+                    <compilerarg value="${add.option}"/>
+
+                </cc>
+                <copy todir="${out.lib}">
+                    <fileset dir="${tmp.dir}" includes="**/*${ext}"/>
+                </copy>
+                <delete dir="${tmp.dir}"/>
+         </then>
+        </if>
+	</target>
+
+	<target name="jni" depends="-mk.jni"  description="build library for jni tests">
+
+		<echo message="Build library(ies) for jni tests finished ..."/>
+
+	</target>
+
+	<!--target name="-mk.jvmti.lib" depends="win.init,lnx.init" description="compile cpp file to library">
+
+		<mkdir dir="${tmp.dir}"/>
+		<echo message="File fullname: ${comp_file}"/>
+		<basename property="file.cpp" file="${comp_file}" suffix=".cpp"/>
+		<echo message="File name(cpp): ${file.cpp}"/>
+
+		
+		<cc     name    = "${compiler.name}"
+			outfile = "${tmp.dir}/${file.cpp}"
+			objdir  = "${tmp.dir}"
+			outtype = "shared"
+			runtime = "${runtime.property}"
+			debug   = "on"
+                >
+                                                                                                                      
+			<fileset file="${comp_file}"/>
+			<fileset file="${jvmti.dir}/share/events.cpp"/>
+			<fileset file="${jvmti.dir}/share/utils.cpp"/>
+                                                                                                                      
+			<compilerarg value="-I${java.include}"/> 
+			<compilerarg value="-I${java.include}\win32" if="if.win"/>
+			<compilerarg value="-I${java.include}/linux" if="if.linux"/> 
+			<compilerarg value="-I${jvmti.share}"/>
+			<compilerarg value="${add.option}"/>
+
+		</cc>
+
+	</target-->
+
+	
+	<!-- target was redefined: tests not compiled by gcc, but cpptasks1.0b3 always use it for linking -->
+	<target name="-mk.jvmti.lib" depends="-compile.jvmti.lib.lnx,-compile.jvmti.lib.win" description="compile cpp file to library">
+
+		<echo message="File fullname: ${comp_file}"/>
+		<basename property="file.cpp" file="${comp_file}" suffix=".cpp"/>
+		<echo message="File name(cpp): ${file.cpp}"/>
+		
+	</target>
+
+	<target name="-compile.jvmti.lib.lnx" depends="lnx.init" description="compile cpp file to library" if="if.linux">
+
+		<mkdir dir="${tmp.dir}"/>
+		<echo message="File fullname: ${comp_file}"/>
+		<basename property="file.cpp" file="${comp_file}" suffix=".cpp"/>
+		<echo message="File name(cpp): ${file.cpp}"/>
+
+		
+		<!--cc     name    = "${compiler.name}"
+			outfile = "${tmp.dir}/${file.cpp}"
+			objdir  = "${tmp.dir}"
+			outtype = "shared"
+			runtime = "${runtime.property}"
+			debug   = "on"
+                >
+                                                                                                                      
+			<fileset file="${comp_file}"/>
+			<fileset file="${jvmti.dir}/share/events.cpp"/>
+			<fileset file="${jvmti.dir}/share/utils.cpp"/>
+                                                                                                                      
+			<compilerarg value="-I${java.include}"/> 
+			<compilerarg value="-I${java.include}\win32" if="if.win"/>
+			<compilerarg value="-I${java.include}/linux" if="if.linux"/> 
+			<compilerarg value="-I${jvmti.share}"/>
+			<compilerarg value="${add.option}"/>
+
+		</cc-->
+
+		<!-- only g++ now supported as test compiler -->
+		<exec executable="g++" dir="${tmp.dir}" failonerror="false">
+			<arg line="-O1 -g -I${java.include} -I${java.include}/linux -I${jvmti.share} ${add.option}"/>
+			<arg line="-shared -o lib${file.cpp}${ext} ${comp_file} ${jvmti.dir}/share/events.cpp ${jvmti.dir}/share/utils.cpp"/>
+		</exec>
+	</target>
+
+	<target name="-compile.jvmti.lib.win" depends="win.init" description="compile cpp file to library" if="if.win">
+
+		<mkdir dir="${tmp.dir}"/>
+		<echo message="File fullname: ${comp_file}"/>
+		<basename property="file.cpp" file="${comp_file}" suffix=".cpp"/>
+		<echo message="File name(cpp): ${file.cpp}"/>
+
+		
+		<cc     name    = "${compiler.name}"
+			outfile = "${tmp.dir}/${file.cpp}"
+			objdir  = "${tmp.dir}"
+			outtype = "shared"
+			runtime = "${runtime.property}"
+			debug   = "on"
+                >
+                                                                                                                      
+			<fileset file="${comp_file}"/>
+			<fileset file="${jvmti.dir}/share/events.cpp"/>
+			<fileset file="${jvmti.dir}/share/utils.cpp"/>
+                                                                                                                      
+			<compilerarg value="-I${java.include}"/> 
+			<compilerarg value="-I${java.include}\win32" if="if.win"/>
+			<compilerarg value="-I${java.include}/linux" if="if.linux"/> 
+			<compilerarg value="-I${jvmti.share}"/>
+			<compilerarg value="${add.option}"/>
+
+		</cc>
+        <echo message="${tmp.dir}/${file.cpp}${ext}" />
+
+        <condition property="embed.manifest">
+            <available file="${tmp.dir}/${file.cpp}${ext}.manifest" />
+        </condition>
+
+        <antcall target="-include.manifest" />
+    </target>
+
+    <target name="-include.manifest" if="embed.manifest">
+        <echo message="Manifesting ${tmp.dir}/${file.cpp}${ext}" />
+        <exec executable="mt.exe">
+            <arg value="-nologo" />
+            <arg value="-manifest" />
+            <arg value="${tmp.dir}/${file.cpp}${ext}.manifest" />
+            <arg value="-outputresource:${tmp.dir}/${file.cpp}${ext};#2" />
+        </exec>
+    </target>
+
+	<target name="-mk.jvmti" depends="win.init,lnx.init" description="Compiling native parts for jvmti test">
+
+		<mkdir dir="${tmp.dir}"/>
+		<!-- compile files -->
+		<path id="c.files">
+			<fileset dir="${jvmti.dir}" includes="**/*.cpp" excludes="**/events.cpp, **/utils.cpp">
+                <depend targetdir="${out.lib}">
+                    <mapper>
+                        <chainedmapper>
+                            <flattenmapper/>
+                            <globmapper from="*.cpp" to="${pref}*${ext}"/>
+                        </chainedmapper>
+                    </mapper>
+                </depend>
+            </fileset>
+		</path>
+		<foreach  param="comp_file" target="-mk.jvmti.lib" parallel="false" inheritall="true">
+			<path>
+				<path refid="c.files"/>
+			</path>
+		</foreach>
+		
+		<copy todir="${out.lib}">
+			<fileset dir="${tmp.dir}" includes="**/*${ext}"/>
+		</copy>
+
+		<delete dir="${tmp.dir}"/>
+		<echo message="Compiling native parts for jvmti tests finished ..."/>
+	</target>
+
+	<target name="jvmti" depends="-mk.jvmti" description="Build library for jvmti tests">
+		
+		<echo message="Build library(ies) for jvmti tests finished ..."/>
+	</target>
+
+	<target name="mk.all" depends="jni,jvmti"  description="">
+		<echo message="Compiling native parts finished ..."/>
+	</target>
+
+</project>

@@ -1,0 +1,92 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * @author: Alexander V. Esin
+ * @version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 49
+
+constant_pool_count = 13
+
+constant_pool {
+  /* #1 */ Class = #12
+  /* #2 */ Method = #10 #7
+  /* #3 */ UTF8 = "java/lang/Object"
+  /* #4 */ UTF8 = "([Ljava/lang/String;)V"
+  /* #5 */ UTF8 = "SourceFile"
+  /* #6 */ UTF8 = "<init>"
+  /* #7 */ NameAndType = #6 #9
+  /* #8 */ UTF8 = "Code"
+  /* #9 */ UTF8 = "()V"
+  /* #10 */ Class = #3
+  /* #11 */ UTF8 = "accessFlags44n.ccode"
+  /* #12 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/methods/accessFlags/accessFlags44/accessFlags44n"
+}
+
+access_flags = x21  // PUBLIC SUPER 
+
+this_class = #1
+
+super_class = #10  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 1
+
+methods {
+  method {
+    access_flag = PUBLIC VARARGS STRICT SYNTHETIC BRIDGE // x1881 |  x0040
+    name_index = #6  // "<init>"
+    descriptor_index = #4  // "([Ljava/lang/String;)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #8  // "Code"
+          attribute_length = 17
+          max_stack = 3
+          max_locals = 3
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #2  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #5  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #11  
+  }
+}

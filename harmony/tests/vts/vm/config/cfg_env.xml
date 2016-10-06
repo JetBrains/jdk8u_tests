@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE env_configuration SYSTEM "cfg_env.dtd">
+<env_configuration>
+
+<!--
+Author:  Aleksey V. Yantsen, Vladimir A. Ivanov
+Version: $Revision: 1.3 $
+-->
+
+	<properties>
+		<property name="TestSuiteRoot">#TestSuiteRoot#</property>
+		<property name="TestResultRoot">#TestResultRoot#</property>
+		<property name="TestedRuntime">#TestedRuntime#</property>
+		<property name="TestedCompile">#TestedCompile#</property>
+		<property name="ReferenceRuntime">#ReferenceRuntime#</property>
+		<property name="TempStorage">#TempStorage#</property>
+		<property name="GenTimeout">600</property>
+		<property name="LogLevel">INFO</property>
+	</properties>
+
+	<execution>
+		<exec-mode name="bootClassPath"></exec-mode>
+		<exec-mode name="exec">other</exec-mode>
+		<exec-mode name="location">local</exec-mode>
+		<exec-mode name="concurrent">1</exec-mode>
+		<exec-mode name="syncChannelHost">localhost</exec-mode>
+		<exec-mode name="syncChannelPort">9998</exec-mode>
+		<exec-mode name="generalEnv">Path=$TestSuiteLibRoot$PathSeparator${Env.Path},LD_LIBRARY_PATH=$TestSuiteLibRoot$PathSeparator${Env.LD_LIBRARY_PATH},windir=${Env.windir},SystemRoot=${Env.windir}</exec-mode>
+		<exec-mode name="generalVMOption">-Xverify #JVMARGS#</exec-mode>
+	</execution>
+
+	<run-remote>
+		<host name="localhost">
+			<port>5778</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5779</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5787</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5780</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5781</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5782</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5783</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5784</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5785</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+		<host name="localhost">
+			<port>5786</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+	</run-remote>
+
+	<totest>
+		<subsuite name="lang"></subsuite>
+	</totest>
+
+	<plugin-list>
+		<plugin name="TestFinder" class-name="org.apache.harmony.harness.plugins.TestFinder">
+		</plugin>
+		<plugin name="ExecUnit" class-name="org.apache.harmony.harness.ExecUnit">
+			<parameter name="CompileNegative">
+				<value name="class-compiler">javac</value>
+			</parameter>
+			<parameter name="CompileRuntime">
+				<value name="class-compiler">#TestedCompile#</value>
+			</parameter>
+			<parameter name="DistributedRunner">
+				<value name="mode">client</value>
+				<value name="port">1099</value>
+				<value name="host">localhost</value>
+				<value name="host">www.qwerty</value>
+			</parameter>
+		</plugin>
+		<plugin name="Storage" class-name="org.apache.harmony.harness.plugins.StoreRes">
+		</plugin>
+		<plugin name="ResFinder" class-name="org.apache.harmony.harness.plugins.ResFinder">
+		</plugin>
+		<plugin name="Reporter" class-name="org.apache.harmony.harness.plugins.Reporter">
+			<parameter name="write">
+				<value name="over">true</value>
+			</parameter>
+			<parameter name="status">
+				<value name="passed">104</value>
+				<value name="failed">105</value>
+				<value name="error">106</value>
+				<value name="moderror">107</value>
+			</parameter>
+		</plugin>
+	</plugin-list>
+
+</env_configuration>

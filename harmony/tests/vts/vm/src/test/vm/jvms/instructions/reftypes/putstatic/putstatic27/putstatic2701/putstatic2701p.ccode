@@ -1,0 +1,129 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Maxim V. Makarov
+ * @version: $Revision: 1.1.1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 3
+
+major_version = 45
+
+constant_pool_count = 19
+
+constant_pool {
+  /* #1 */ Method = #4 #15
+  /* #2 */ Field = #3 #16
+  /* #3 */ Class = #17
+  /* #4 */ Class = #18
+  /* #5 */ UTF8 = "testField"
+  /* #6 */ UTF8 = "I"
+  /* #7 */ UTF8 = "<init>"
+  /* #8 */ UTF8 = "()V"
+  /* #9 */ UTF8 = "Code"
+  /* #10 */ UTF8 = "XXX"
+  /* #11 */ UTF8 = "test"
+  /* #12 */ UTF8 = "()I"
+  /* #13 */ UTF8 = "XXX"
+  /* #14 */ UTF8 = "XXX"
+  /* #15 */ NameAndType = #7 #8
+  /* #16 */ NameAndType = #5 #6
+  /* #17 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/instructions/reftypes/putstatic/putstatic27/putstatic2701/putstatic2701p"
+  /* #18 */ UTF8 = "java/lang/Object"
+
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #3
+
+super_class = #4  // "java/lang/Object"
+
+interfaces_count = 0
+
+fields_count = 1
+
+fields {
+  field {
+    access_flag = PUBLIC STATIC // x09
+    name_index = #5  // "testField"
+    descriptor_index = #6  // "I"
+    attributes_count = 0
+  }
+}
+
+
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #7  // "<init>"
+    descriptor_index = #8  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 17
+          max_stack = 2
+          max_locals = 2
+          code_length = 5
+          code asm {
+			  0: aload_0
+			  1: invokespecial #1
+			  4: return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+     }
+  }
+
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #11  // "test"
+    descriptor_index = #8  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 17
+          max_stack = 2
+          max_locals = 2
+          code_length = 5
+          code bin {
+			// putstatic 0xB3 
+			// indexbyte1 0x00 
+			// indexbyte2 0x02
+
+			x03 xB3 x00 x02 xB1
+			
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+     }
+  }
+}
+
+ 
+attributes_count = 0

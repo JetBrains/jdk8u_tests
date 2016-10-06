@@ -1,0 +1,80 @@
+;    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+;
+;    Licensed under the Apache License, Version 2.0 (the "License");
+;    you may not use this file except in compliance with the License.
+;    You may obtain a copy of the License at
+;
+;       http://www.apache.org/licenses/LICENSE-2.0
+;
+;    Unless required by applicable law or agreed to in writing, software
+;    distributed under the License is distributed on an "AS IS" BASIS,
+;    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;
+;    See the License for the specific language governing permissions and
+;    limitations under the License.
+
+;
+; Author: Alexander D. Shipilov
+; Version: $Revision: 1.1.1.1 $
+;
+
+.class public org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pFirst
+.super java/lang/Thread
+.field public resultField [I
+
+;
+; initializer
+.method public <init>([I)V
+   .limit stack 2
+   .limit locals 2
+
+   aload_0
+   invokespecial java/lang/Thread/<init>()V
+
+; store result array int[1] in this.resultField field
+   aload_0
+   aload_1
+   putfield org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pFirst/resultField [I
+
+   return
+.end method
+
+;
+; run method
+.method public run()V
+   .limit stack 4
+   .limit locals 4
+   
+; get result object from resultField field and store it in local variable 1
+   aload_0
+   getfield org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pFirst/resultField [I
+   astore_1
+
+; create locker Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   astore 3
+
+; get a lock to locker object
+   aload 3
+   monitorenter
+
+; create second thread
+   new org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond
+   dup
+   aload 3
+   aload_1
+   invokespecial org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond/<init>(Ljava/lang/Object;[I)V
+   astore_2
+
+; start second thread
+   aload_2
+   invokevirtual org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond/start()V
+
+; do while second thread working
+   aload_2
+   invokevirtual org/apache/harmony/vts/test/vm/jvms/instructions/sync/monitorenter/monitorenter01/monitorenter0101/monitorenter0101pSecond/join()V
+
+   return
+.end method

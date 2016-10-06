@@ -1,0 +1,124 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * @author: Alexander V. Esin
+ * @version: $Revision: 1.1 $
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 49
+
+constant_pool_count = 21
+
+constant_pool {
+  /* #1 */ Field = #3 #13
+  /* #2 */ Method = #4 #14
+  /* #3 */ Class = #15
+  /* #4 */ Class = #17
+  /* #5 */ UTF8 = "this$0"
+  /* #6 */ UTF8 = "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n;"
+  /* #7 */ UTF8 = "<init>"
+  /* #8 */ UTF8 = "(Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n;)V"
+  /* #9 */ UTF8 = "Code"
+  /* #10 */ UTF8 = "EnclosingMethod"
+  /* #11 */ Class = #18
+  /* #12 */ NameAndType = #19 #20
+  /* #13 */ NameAndType = #5 #6
+  /* #14 */ NameAndType = #7 #20
+  /* #15 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n$1EnclosingMethod"
+  /* #16 */ UTF8 = "InnerClasses"
+  /* #17 */ UTF8 = "java/lang/Object"
+  /* #18 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n"
+  /* #19 */ UTF8 = "test"
+  /* #20 */ UTF8 = "()V"
+}
+
+access_flags = x20  // SUPER 
+
+this_class = #3  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n$1EnclosingMethod"
+
+super_class = #4  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 1
+
+fields {
+  field {
+    access_flag = x1010  // FINAL SYNTHETIC 
+    name_index = #5  // "this$0"
+    descriptor_index = #6  // "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n;"
+    attributes_count = 0
+  }
+}
+
+methods_count = 1
+
+methods {
+  method {
+    access_flag = x00  // 
+    name_index = #7  // "<init>"
+    descriptor_index = #8  // "(Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n;)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #9  // "Code"
+          attribute_length = 22
+          max_stack = 2
+          max_locals = 2
+          code_length = 10
+          code asm {
+          0:	aload_0
+          1:	aload_1
+          2:	putfield #1  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n$1EnclosingMethod" "this$0" "Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n;"
+          5:	aload_0
+          6:	invokespecial #2  // "java/lang/Object" "<init>" "()V"
+          9:	return
+          }
+          exception_table_length = 0
+          attributes_count = 0
+        }
+      }
+  }
+}
+
+attributes_count = 2
+attributes {
+  attribute EnclosingMethod {
+    attribute_name_index = #10  // "EnclosingMethod"
+    attribute_length = 4
+    class_index = #50  // should be #11
+    method_index = #12  // "test" "()V"
+  }
+  attribute InnerClasses {
+    attribute_name_index = #16  // "InnerClasses"
+    attribute_length = 10
+    number_of_classes = 1
+    InnerClass {
+        inner_class_info_index = #3  // "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/enclosingMethod/enclosingMethod06/enclosingMethod06n$1EnclosingMethod"
+        outer_class_info_index = #0  // inner class is not a member
+        inner_name_index = #10  // "EnclosingMethod"
+        inner_class_access_flags = x00  // 
+    }
+  }
+}

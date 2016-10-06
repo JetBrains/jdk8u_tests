@@ -1,0 +1,166 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+// Ccode file
+
+/**
+ * @author: Khen G. Kim
+ * @version: $Revision: 1.1 $
+ */
+
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 46
+
+constant_pool_count = 21
+
+constant_pool {
+  /* #1 */ Method = #5 #15
+  /* #2 */ Class = #16
+  /* #3 */ Method = #2 #17
+  /* #4 */ Class = #18
+  /* #5 */ Class = #19
+  /* #6 */ UTF8 = "inner"
+  /* #7 */ UTF8 = "InnerClasses"
+  /* #8 */ UTF8 = "<init>"
+  /* #9 */ UTF8 = "()V"
+  /* #10 */ UTF8 = "Code"
+  /* #11 */ UTF8 = "LineNumberTable"
+  /* #12 */ UTF8 = "test"
+  /* #13 */ UTF8 = "SourceFile"
+  /* #14 */ UTF8 = "innerClasses11n.ccode"
+  /* #15 */ NameAndType = #8 #9
+  /* #16 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses11/innerClasses11n$inner"
+  /* #17 */ NameAndType = #8 #20
+  /* #18 */ UTF8 = "org/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses11/innerClasses11n"
+  /* #19 */ UTF8 = "java/lang/Object"
+  /* #20 */ UTF8 = "(Lorg/apache/harmony/vts/test/vm/jvms/classFile/attributes/innerClasses/innerClasses11/innerClasses11n;)V"
+}
+
+access_flags = PUBLIC SUPER  // x21
+
+this_class = #4
+
+super_class = #5  // "java/lang/Object"
+
+interfaces_count = 0
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #8  // "<init>"
+    descriptor_index = #9  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #10  // "Code"
+          attribute_length = 46
+          max_stack = 3
+          max_locals = 1
+          code_length = 14
+          code asm {
+          0:    aload_0
+          1:    invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:    new #2
+          7:    dup
+          8:    aload_0
+          9:    invokespecial #3
+          12:   pop
+          13:   return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #11  // "LineNumberTable"
+                attribute_length = 14
+                line_number_table_length = 3
+                line_number_table {
+                    // start_pc line_number
+                    0 5
+                    4 6
+                    13 7
+                }
+              }
+            }
+        }
+      }
+  }
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #12  // "test"
+    descriptor_index = #9  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #10  // "Code"
+          attribute_length = 38
+          max_stack = 3
+          max_locals = 1
+          code_length = 10
+          code asm {
+          0:    new #2
+          3:    dup
+          4:    aload_0
+          5:    invokespecial #3
+          8:    pop
+          9:    return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #11  // "LineNumberTable"
+                attribute_length = 10
+                line_number_table_length = 2
+                line_number_table {
+                    // start_pc line_number
+                    0 10
+                    9 11
+                }
+              }
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 2
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #13  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #14  // "innerClasses11n.ccode"
+  }
+  attribute InnerClasses {
+    attribute_name_index = #7  // "InnerClasses"
+    attribute_length = 15 // Tested invalid attribute_length item value. Should be 10.
+    number_of_classes = 1
+    InnerClass {
+        inner_class_info_index = #2  // "innerClasses11n$inner"
+        outer_class_info_index = #4  // "innerClasses11n"
+        inner_name_index = #6  // "inner"
+        inner_class_access_flags = PUBLIC
+    }
+  }
+}

@@ -1,0 +1,85 @@
+;    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+;
+;    Licensed under the Apache License, Version 2.0 (the "License");
+;    you may not use this file except in compliance with the License.
+;    You may obtain a copy of the License at
+;
+;       http://www.apache.org/licenses/LICENSE-2.0
+;
+;    Unless required by applicable law or agreed to in writing, software
+;    distributed under the License is distributed on an "AS IS" BASIS,
+;    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;
+;    See the License for the specific language governing permissions and
+;    limitations under the License.
+
+;
+; Author: Alexander D. Shipilov
+; Version: $Revision: 1.1.1.1 $
+;
+
+.class public org/apache/harmony/vts/test/vm/jvms/instructions/invokeReturn/return/return02/return0201/return0201pSecond
+.super java/lang/Thread
+.field public lockerField [I
+.field public checkerField [I
+
+;
+; initializer
+.method public <init>([I[I)V
+   .limit stack 2
+   .limit locals 3
+
+   aload_0
+   invokespecial java/lang/Thread/<init>()V
+
+; store locker array int[1] in this.lockerField field
+   aload_0
+   aload_1
+   putfield org/apache/harmony/vts/test/vm/jvms/instructions/invokeReturn/return/return02/return0201/return0201pSecond/lockerField [I
+
+; store checker array int[1] in this.checkerField field
+   aload_0
+   aload_2
+   putfield org/apache/harmony/vts/test/vm/jvms/instructions/invokeReturn/return/return02/return0201/return0201pSecond/checkerField [I
+
+   return
+.end method
+
+;
+; run method
+.method public run()V
+   .limit stack 3
+   .limit locals 3
+   
+; get locker array from lockerField field and store it in local variable 1
+   aload_0
+   getfield org/apache/harmony/vts/test/vm/jvms/instructions/invokeReturn/return/return02/return0201/return0201pSecond/lockerField [I
+   astore_1
+
+; get checker array from checkerField field and store it in local variable 2
+   aload_0
+   getfield org/apache/harmony/vts/test/vm/jvms/instructions/invokeReturn/return/return02/return0201/return0201pSecond/checkerField [I
+   astore_2
+
+; set checker to 1
+   aload_2
+   iconst_0
+   iconst_1
+   iastore
+
+; try to get a lock to locker object
+   aload_1
+   monitorenter
+
+; pass, push 104 to the locker[0]
+   aload_1
+   iconst_0
+   sipush 104
+   iastore
+
+; unlock array object
+   aload_1
+   monitorexit
+
+   return
+.end method
