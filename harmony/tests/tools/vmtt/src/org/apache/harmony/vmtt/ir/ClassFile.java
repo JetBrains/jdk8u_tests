@@ -211,7 +211,7 @@ public class ClassFile
 	}
 	
 	/** Add new constant to this class
-	 * @param ñ constant
+	 * @param  constant
 	 * @return index of added constant in the constant pool
 	 * @throws NullPointerException if c argument is null
 	 */
