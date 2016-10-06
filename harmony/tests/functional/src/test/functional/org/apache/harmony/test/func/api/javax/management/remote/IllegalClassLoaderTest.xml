@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test  ID="IllegalClassLoaderTest"  date-of-creation="2006-04-02" timeout="30">
+    
+    
+    
+    <MulticaseTestDescription>
+    
+        <TestedClass name="javax.management.remote.JMXConnectorServerFactory"/>
+        
+        <Case ID="testIncorrectClassLoaderKey01">
+            <TestedMethod name="JMXConnectorServer newJMXConnectorServer(JMXServiceURL serviceURL,Map environment,MBeanServer mbeanServer)"/>
+            <Description>
+            Check that if the value of jmx.remote.default.class.loader is not a ClassLoader thrown IllegalArgumentException (on client)
+            </Description>
+        </Case>
+        
+        <Case ID="testIncorrectClassLoaderKey02">
+            <TestedMethod name="JMXConnectorServer newJMXConnectorServer(JMXServiceURL serviceURL,Map environment,MBeanServer mbeanServer)"/>
+            <Description>
+            Check that if the value of jmx.remote.default.class.loader.name is not an ObjectName that names a ClassLoader thrown IllegalArgumentException
+            </Description>
+        </Case>
+        
+        <Case ID="testIncorrectClassLoaderKey03">
+            <TestedMethod name="JMXConnectorServer newJMXConnectorServer(JMXServiceURL serviceURL,Map environment,MBeanServer mbeanServer)"/>
+            <Description>
+            Check that if the value of jmx.remote.default.class.loader is not a ClassLoader thrown IllegalArgumentException (on Server)
+            </Description>
+        </Case>
+        
+        <Case ID="testIncorrectClassLoaderKey04">
+            <TestedMethod name="JMXConnectorServer newJMXConnectorServer(JMXServiceURL serviceURL,Map environment,MBeanServer mbeanServer)"/>
+            <Description>
+            Check that if both jmx.remote.default.class.loader and jmx.remote.default.class.loader.name are defined thrown IllegalArgumentException
+            </Description>
+        </Case>
+        
+    </MulticaseTestDescription>    
+    
+    <Source name="IllegalClassLoaderTest.java"/>
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.remote.IllegalClassLoaderTest">           
+    </Param>
+</Runner>
+</Test>

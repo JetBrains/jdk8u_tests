@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="ListenersTest"
+    date-of-creation="2005-05-11"
+    timeout="1"
+    >
+
+    
+    
+
+    <APITestDescription>
+        <TestedClass name="java.awt.Component" />
+        <TestedMethod name="public &lt;T extends EventListener&gt; T[] getListeners(Class&lt;T&gt; listenerType)"/>
+        <TestedMethod name="public void addComponentListener(ComponentListener l)" />
+        <TestedMethod name="public void addFocusListener(FocusListener l)" />
+        <TestedMethod name="public void addHierarchyBoundsListener(HierarchyBoundsListener l)" />
+        <TestedMethod name="public void addHierarchyListener(HierarchyListener l)" />
+        <TestedMethod name="public void addInputMethodListener(InputMethodListener l)" />
+        <TestedMethod name="public void addKeyListener(KeyListener l)" />
+        <TestedMethod name="public void addMouseListener(MouseListener l)" />
+        <TestedMethod name="public void addMouseMotionListener(MouseMotionListener l)" />
+        <TestedMethod name="public void addMouseWheelListener(MouseWheelListener l)" />
+        <TestedMethod name="public void applyComponentOrientation(ComponentOrientation orientation)" />
+        <TestedMethod name="public void dispatchEvent(AWTEvent e)" />
+        <TestedMethod name="public ComponentListener[] getComponentListeners()" />
+        <TestedMethod name="public FocusListener[] getFocusListeners()" />
+        <TestedMethod name="public HierarchyBoundsListener[] getHierarchyBoundsListeners()" />
+        <TestedMethod name="public HierarchyListener[] getHierarchyListeners()" />
+        <TestedMethod name="public InputMethodListener[] getInputMethodListeners()" />
+        <TestedMethod name="public KeyListener[] getKeyListeners()" />
+        <TestedMethod name="public MouseListener[] getMouseListeners()" />
+        <TestedMethod name="public MouseMotionListener[] getMouseMotionListeners()" />
+        <TestedMethod name="public MouseWheelListener[] getMouseWheelListeners()" />
+        <TestedMethod name="public void removeComponentListener(ComponentListener l)" />
+        <TestedMethod name="public void removeFocusListener(FocusListener l)" />
+        <TestedMethod name="public void removeHierarchyBoundsListener(HierarchyBoundsListener l)" />
+        <TestedMethod name="public void removeHierarchyListener(HierarchyListener l)" />
+        <TestedMethod name="public void removeInputMethodListener(InputMethodListener l)" />
+        <TestedMethod name="public void removeKeyListener(KeyListener l)" />
+        <TestedMethod name="public void removeMouseListener(MouseListener l)" />
+        <TestedMethod name="public void removeMouseMotionListener(MouseMotionListener l)" />
+        <TestedMethod name="public void removeMouseWheelListener(MouseWheelListener l)" />
+        
+    </APITestDescription>
+    
+    <Keyword name="functional" />
+    <Keyword name="gui" />
+    
+    <Source name="ListenersTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.Component.ListenersTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-generalVMOption" value="$generalVMOption"/>                              
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

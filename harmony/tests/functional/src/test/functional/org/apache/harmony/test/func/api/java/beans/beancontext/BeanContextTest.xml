@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test  ID="BeanContextTest"  date-of-creation="2005-04-11" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.beancontext.BeanContextSupport"/>
+        <Case ID="testSimpleBeanContext">
+            <TestedMethod name="public boolean add(Object)"/>
+               <TestedMethod name="public void setDesignTime(boolean)"/>
+               <TestedMethod name="public void setLocale(Locale)"/>    
+            <Description>
+             Initialization and adding the components to bean context
+            </Description>
+        </Case>
+        <Case ID="testLocateBenaContext">
+            <TestedMethod name="public Locale getLocale()"/>
+            <Description>
+             It's verified that the bean context locale in "rus"
+            </Description>
+        </Case>
+        <Case ID="testIsEmpty">
+            <TestedMethod name="public boolean isEmpty()"/>
+            <Description>
+            It's verified that the bean context isn't empty
+            </Description>
+        </Case>
+        <Case ID="testDesignTime">
+            <TestedMethod name="public boolean isDesignTime()"/>
+            <Description>
+            It's verified "DesignTime" of bean context
+            </Description>
+        </Case>
+        <Case ID="testIsSerializing">
+            <TestedMethod name="public boolean isSerializing()"/>
+            <Description>
+            It's verified the serializing of bean context
+            </Description>
+        </Case>
+        <Case ID="testAutoBeanContext">
+            <TestedMethod name="public Object instantiateChild(String)"/>
+            <Description>
+            Create bean automatically into bean context
+            </Description>
+        </Case>
+        <Case ID="testSimpleSize">
+            <TestedMethod name="public int size()"/>
+            <Description>
+            It's verified number of children in the bean context
+            </Description>
+        </Case>
+        
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="BeanContextTest.java"/>
+
+<Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.beancontext.BeanContextTest">
+    </Param>    
+</Runner>        
+</Test>

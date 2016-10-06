@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="statement"  date-of-creation="2004-24-12" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.Statement"/>
+        <Case ID="testNotStaticWithoutParams">
+            <TestedMethod name="public Statement(Object target, String methodName, Object[] arguments)"/>        
+            <TestedMethod name="public void execute()"/>
+            <Description>
+            Verify, that Statement class invokes not static method without parameters. 
+                Step-by-step decoding: 
+                    - Create type. 
+                    - Create not static method without parameters in this type. 
+                    - Create instance of this type. 
+                    - Create Statement instance: new Statement(object,methodName,new Object[]{}). 
+                    - Execute statement. 
+                    - Verify selected method was invoked.
+            </Description>
+        </Case>
+        <Case ID="testStaticWithoutParams">
+            <TestedMethod name="public Statement(Object target, String methodName, Object[] arguments)"/>
+            <TestedMethod name="public void execute()"/>
+            <Description>
+                Verify, that Statement class invokes static method without parameters. 
+                Step-by-step decoding: 
+                    - Create type. 
+                    - Create static method without parameters in this type. 
+                    - Create Statement instance: new Statement(Type.class,methodName,new Object[]{}). 
+                    - Execute statement. 
+                    - Verify selected method was invoked.
+            </Description>
+        </Case>
+        <Case ID="testNotStaticWithParams">
+            <TestedMethod name="public Statement(Object target, String methodName, Object[] arguments)"/>
+            <TestedMethod name="public void execute()"/>
+            <Description>
+                Verify, that Statement class invokes not static method, which has primitive and not-primitive 
+                 parameters. 
+                Step-by-step decoding: 
+                    - Create type. 
+                    - Create not static method in the type, which has primitive and not-primitive parameters. 
+                    - Create instance of this type. 
+                    - Create Statement instance: new Statement(object,methodName,new Object[]{args}). 
+                    - Execute statement. 
+                    - Verify selected method was invoked with selected arguments.                
+            </Description>
+        </Case>
+        <Case ID="testStaticWithParams">
+            <TestedMethod name="public Statement(Object target, String methodName, Object[] arguments)"/>
+            <TestedMethod name="public void execute()"/>
+            <Description>
+                Verify, that Statement class invokes static method, which has primitive and not-primitive 
+                 parameters. 
+                Step-by-step decoding: 
+                    - Create type. 
+                    - Create static method in the type, which has primitive and not-primitive parameters. 
+                    - Create Statement instance: new Statement(Type.class,methodName,new Object[]
+                     {args}). 
+                    - Execute statement. 
+                    - Verify selected method was invoked with selected arguments.                
+            </Description>
+        </Case>
+        <Case ID="testStaticWithIntegerAsParam">
+            <TestedMethod name="public Statement(Object target, String methodName, Object[] arguments)"/>
+            <TestedMethod name="public void execute()"/>
+            <Description>
+                Verify, that Statement class invokes method, which has wrapper of primitive as parameters. 
+                Step-by-step decoding: 
+                    - Create type. 
+                    - Create static method in the type, which has Integer class as parameters. 
+                    - Create Statement instance: new Statement(Type.class,methodName,new Object[]
+                     {args}). 
+                    - Execute statement. 
+                    - Verify selected method was invoked with selected arguments.                
+            </Description>
+        </Case>
+        <Case ID="testSetValueElementOfArray">
+            <TestedMethod name="public Statement(Object target, String methodName, Object[] arguments)"/>
+            <TestedMethod name="public void execute()"/>
+            <Description>
+                Verify that Statement class sets a value of element of array. 
+                Step-by-step decoding: 
+                    - Create Integer array. 
+                    - Create Statement instance: new Statement(array,"set",new Object[]{numberOfElement,
+                     value}). 
+                    - Execute statement. 
+                    - Verify that selected element of array was set to given value.                
+            </Description>
+        </Case>
+        <Case ID="testException">
+            <TestedMethod name="public Statement(Object target, String methodName, Object[] arguments)"/>
+            <TestedMethod name="public void execute()"/>
+            <Description>
+                Verify that if method to be invoked throws exception, execute method of Statement class also 
+                 throws the same exception. 
+                Step-by-step decoding: 
+                    - Create type. 
+                    - Create method in the type, which throws exception. 
+                    - Create object of this type. 
+                    - Create Statement instance: new Statement(object,methodName,new Object[]{}). 
+                    - Execute statement. 
+                    - Verify that exception was thrown.                
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="StatementTest.java"/>
+
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.statement.StatementTest"/></Runner>
+</Test>

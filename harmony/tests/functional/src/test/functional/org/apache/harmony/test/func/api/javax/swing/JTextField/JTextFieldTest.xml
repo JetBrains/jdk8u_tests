@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="JTextFieldTest"
+    date-of-creation="2005-05-25"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.JTextField"/>
+
+        <Case ID="testJTextField0">
+            <TestedMethod name="public JTextField()"/>
+            
+            <Precondition></Precondition>
+            <Description>create a child of JTextField and checks its class type</Description>
+            <Expected>
+                        the result should be JTextField class instance
+            </Expected>
+        </Case>
+
+        <Case ID="testJTextField1">
+            <TestedMethod name="public JTextField(int columns)"/>
+            
+            <Precondition></Precondition>
+            <Description>create a child of JTextField, checks its class type
+                and call getColumns()</Description>
+            <Expected>
+                        the result should be JTextField class instance,
+                        getColumns() should return columns value
+            </Expected>
+        </Case>
+
+        <Case ID="testJTextField2">
+            <TestedMethod name="public JTextField(Document doc, String text, int columns)"/>
+            
+            <Precondition></Precondition>
+            <Description>create a child of JTextField and checks its class type,
+                Document, text and columns values</Description>
+            <Expected>
+                        the result should be JTextField class instance,
+                        getColumns() should return columns value,
+                        getDocument() should return doc value,
+                        getText() should return text value
+            </Expected>
+        </Case>
+
+
+        <Case ID="testgetUIClassID">
+            <TestedMethod name="public String getUIClassID()"/>
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>call getUIClassID()</Description>
+            <Expected>no more methods are called</Expected>
+        </Case>
+
+        <Case ID="testsetDocument">
+            <TestedMethod name="public void setDocument(Document doc)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging,
+                create a child of Document instrumented with logging</Precondition>
+            <Description>create new Document and call setDocument(Document doc)</Description>
+            <Expected>do not call any additional methods</Expected>
+        </Case>
+        
+        <Case ID="testisValidateRoot">
+            <TestedMethod name="public boolean isValidateRoot()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>call isValidateRoot()</Description>
+            <Expected>do not call any additional methods</Expected>
+        </Case>
+        
+        <Case ID="testsetHorizontalAlignment">
+            <TestedMethod name="public void setHorizontalAlignment(int aligment)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>call setHorizontalAlignment several times</Description>
+            <Expected>do not call any additional methods,
+                IllegalArgumentException is thrown when alignment &lt; 0
+            </Expected>
+        </Case>
+
+        <Case ID="testgetHorizontalAlignment">
+            <TestedMethod name="public int getHorizontalAlignment()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>call getHorizontalAlignment several times</Description>
+            <Expected>call JTextField.getHorizontalAlignment()
+                returns values when were set by setHorizontalAlignment(int alignment)
+            </Expected>
+        </Case>
+        
+        <Case ID="testcreateDefaultModel">
+            <TestedMethod name="protected Document createDefaultModel()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                with public method createDefaultModel</Precondition>
+            <Description>call createDefaultModel()</Description>
+            <Expected>do not call any additional methods,
+                the type of returned object is Document
+            </Expected>
+        </Case>
+        
+        <Case ID="testsetColumns">
+            <TestedMethod name="public void setColumns(int columns)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>call setColumns(int columns) several times</Description>
+            <Expected>do not call any additional methods,
+                IllegalArgumentException is thrown if columns &lt; 0
+            </Expected>
+        </Case>
+
+        <Case ID="testgetColumns">
+            <TestedMethod name="public int getColumns()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>call setColumns(int columns) and getColumns() several times</Description>
+            <Expected>do not call any additional methods,
+                returns values which were set by setColumns(int columns)
+            </Expected>
+        </Case>
+
+        <Case ID="testgetColumnsWidth">
+            <TestedMethod name="protected int getColumnWidth()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                with public method getColumnsWidth()</Precondition>
+            <Description>call getColumnsWidth()</Description>
+            <Expected>do not call any additional methods
+            </Expected>
+        </Case>
+
+        <Case ID="testgetPreferredSize">
+            <TestedMethod name="public Dimension getPreferredSize()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>call getPreferredSize()</Description>
+            <Expected>do not call any additional methods,
+                check if the returned value has correct type
+            </Expected>
+        </Case>
+
+        <Case ID="testsetFont">
+            <TestedMethod name="public void setFont(Font f)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>create a new Font instance "f" and call setFont(f)</Description>
+            <Expected>do not call any additional methods
+            </Expected>
+        </Case>
+
+        <Case ID="testaddActionListener">
+            <TestedMethod name="public void addActionListener(ActionListener l)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>create a child of ActionListener instrumented with logging 
+                and call addActionListener(l) and postActionEvent()
+                </Description>
+            <Expected>do not call any additional methods,
+                postActionEvent() calls ActionPerformed()
+            </Expected>
+        </Case>
+
+        <Case ID="testremoveActionListener">
+            <TestedMethod name="public void removeActionListener(ActionListener l)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>create a child of ActionListener instrumented with logging 
+                and call addActionListener(l), removeActionListener(l) and
+                postActionEvent()
+                </Description>
+            <Expected>do not call any additional methods
+                after ActionListener removing postActionEvent does nothing 
+                (doesn't call ActionPerformed())
+            </Expected>
+        </Case>
+
+        <Case ID="testgetActionListeners">
+            <TestedMethod name="public ActionListener[] getActionListeners()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging</Precondition>
+            <Description>create a child of ActionListener instrumented with logging 
+                and call addActionListener(l), getActionListeners(), 
+                removeActionListener(l) and again getActionListeners()
+                </Description>
+            <Expected>do not call any additional methods,
+                the size of th returned array should be 1 and 0 respectively,
+                the type of returned values should be ActionListener.
+            </Expected>
+        </Case>
+
+        <Case ID="testfireActionPerformed">
+            <TestedMethod name="protected void fireActionPerformed()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                and public method fireActionPerformed()</Precondition>
+            <Description>create a child of ActionListener instrumented with logging 
+                and call addActionListener(l) and fireActionPerformed()
+                </Description>
+            <Expected>do not call any additional methods
+            </Expected>
+        </Case>
+
+        <Case ID="testsetActionCommand">
+            <TestedMethod name="public void setActionCommand(String command)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                </Precondition>
+            <Description>create a child of ActionListener instrumented with logging 
+                and call addActionListener(l) setActionCommand([random command])
+                and postActionEvent()
+                </Description>
+            <Expected>do not call any additional methods,
+                ActionCommand of ActionEvent should be the same as defined command
+            </Expected>
+        </Case>
+        
+        <Case ID="testsetAction">
+            <TestedMethod name="public void setAction(Action a)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                and a child of Action instrumented with logging</Precondition>
+            <Description>call setAction(a) 
+                </Description>
+            <Expected>do not call any additional methods
+            </Expected>
+        </Case>
+        
+        <Case ID="testgetActions">
+            <TestedMethod name="public Action[] getActions()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                </Precondition>
+            <Description>call getActions()
+                </Description>
+            <Expected>do not call any additional methods,
+                the returned array is not empty
+            </Expected>
+        </Case>
+        
+        <Case ID="testgetHorizontalVisibility()">
+            <TestedMethod name="public BoundedRangeModel getHorizontalVisibility()"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                </Precondition>
+            <Description>call getHorizontalVisibility()
+                </Description>
+            <Expected>do not call any additional methods,
+                the returned value isn't null,
+                the type of returned value is BoundedRangeModel
+            </Expected>
+        </Case>
+
+        <Case ID="testscrollRectToVisible">
+            <TestedMethod name="public void scrollRectToVisible(Rectangle r)"/>
+            
+            <Precondition>create a child of JTextField instrumented with logging
+                </Precondition>
+            <Description>create a new Rectangle r and call testscrollRectToVisible(r)
+                </Description>
+            <Expected>do not call any additional methods
+            </Expected>
+        </Case>     
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>    
+    <Source name="JTextFieldTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.JTextField.JTextFieldTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

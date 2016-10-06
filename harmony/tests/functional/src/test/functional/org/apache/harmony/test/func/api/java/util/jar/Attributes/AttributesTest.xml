@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="AttributesTest"
+    date-of-creation="2005-02-21"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.jar.Attributes"/>
+
+        <Case ID="testInit">
+            <TestedMethod name="Attributes()"/>
+            <Precondition>create the Attributes object with no-argument constructor</Precondition>
+            <Description>call size()</Description>
+            <Expected>0</Expected>
+        </Case>
+
+        <Case ID="testInitInt">
+            <TestedMethod name="Attributes(int i)"/>
+            <Precondition>create the Attributes object with using new Attributes(int &gt; 0)</Precondition>
+            <Description>call size()</Description>
+            <Expected>0</Expected>
+        </Case>
+
+        <Case ID="testEntrySet">
+            <TestedMethod name="public Set&lt;Map.Entry&lt;Object,Object&gt;&gt; entrySet()"/>
+            <Precondition>create the Attributes object and save set returned by entrySet() method to a variable</Precondition>
+            <Description>manipulate Attributes object - put data to it, etc. Make sure that 
+            UnsupportedOperationException is thrown if we try to add something to this set</Description>
+            <Expected>contents of the variable containing set change properly</Expected>
+        </Case>
+
+        <Case ID="testGet">
+            <TestedMethod name="Object get(Object o)"/>
+            <Precondition>create the Attributes object</Precondition>
+            <Description>manipulate Attributes object - put data to it, etc</Description>
+            <Expected>get(Object) behaves according to spec</Expected>
+        </Case>
+
+        <Case ID="testGetValueString">
+            <TestedMethod name="String getValue(String s)"/>
+            <Precondition>create the Attributes object</Precondition>
+            <Description>manipulate Attributes object - put data to it, etc</Description>
+            <Expected>getValue(String) behaves according to spec</Expected>
+        </Case>
+
+        <Case ID="testGetValueAttributesName">
+            <TestedMethod name="String getValue(Attributes.Name n)"/>
+            <Precondition>create the Attributes object</Precondition>
+            <Description>manipulate Attributes object - put data to it, etc</Description>
+            <Expected>getValue(Attributes.Name) behaves according to spec</Expected>
+        </Case>
+
+        <Case ID="testPut">
+            <TestedMethod name="Object put(Object key, Object value)"/>
+            <Precondition>create the Attributes object</Precondition>
+            <Description>put data to it using put(Object, Object)</Description>
+            <Expected>expected values returned by this method</Expected>
+        </Case>
+        
+        <Case ID="testPutValue">
+            <TestedMethod name="String putValue(String key, String value)"/>
+            <Precondition>create the Attributes object</Precondition>
+            <Description>put data to it using putValue(String, String)</Description>
+            <Expected>expected values returned (or exceptions thrown) by this method</Expected>
+        </Case>
+        
+        <Case ID="testPutValue">
+            <TestedMethod name="String putValue(String key, String value)"/>
+            <Precondition>create the Attributes object</Precondition>
+            <Description>put data to it using putValue(String, String)</Description>
+            <Expected>expected values returned (or exceptions thrown) by this method</Expected>
+        </Case>
+
+        <Case ID="testSize">
+            <TestedMethod name="int size()"/>
+            <Precondition>create the Attributes object</Precondition>
+            <Description>manipulate it - put data, remove, etc</Description>
+            <Expected>size() always returns expected value</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="AttributesTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.jar.Attributes.AttributesTest">
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

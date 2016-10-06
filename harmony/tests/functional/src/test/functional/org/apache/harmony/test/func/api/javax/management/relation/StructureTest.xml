@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test ID="StructureTest" date-of-creation="2005-11-02"    timeout="1">
+
+    <MulticaseTestDescription>
+        <TestedClass name="javax.management.relation.RelationService"/>
+        <Case ID="testUpperStructure">
+            <TestedMethod name="public void sendRelationCreationNotification(String relationId)"/>
+            <TestedMethod name="public void sendRelationRemovalNotification(String relationId, List unregMBeans)"/>
+            <TestedMethod name="public void sendRoleUpdateNotification(String relationId, Role newRole, List oldRoleValue)"/>
+            <TestedMethod name="public ObjectName isRelationMBean(String relationId)"/>
+            <TestedMethod name="public String isRelation(ObjectName objectName)"/>
+            <TestedMethod name="public Boolean hasRelation(String relationId)"/>
+            <TestedMethod name="public void isActive()"/>
+            <TestedMethod name="public void removeRelation(String relationId)"/>
+            <TestedMethod name="public void removeRelationType(String relationTypeName)"/>
+            <TestedMethod name="public Map findAssociatedMBeans(ObjectName objectName, String relationTypeName, String roleName)"/>
+            <TestedMethod name="public Map findReferencingRelations(ObjectName objectName, String relationTypeName, String roleName)"/>
+            <TestedMethod name="public List findRelationsOfType(String relationTypeName)"/>    
+            <TestedMethod name="public List getAllRelationTypeNames()"/>
+            <TestedMethod name="public Map getReferencedMBeans(String relationId)"/>
+            <TestedMethod name="public Integer getRoleCardinality(String relationId, String roleName)"/>
+            
+            <TestedClass name="javax.management.relation.RelationNotification"/>
+            <TestedMethod name="public List getMBeansToUnregister()"/>
+            <TestedMethod name="public List getNewRoleValue()"/>
+            <TestedMethod name="public ObjectName getObjectName()"/>
+            <TestedMethod name="public List getOldRoleValue()"/>
+            <TestedMethod name="public String getRelationId()"/>
+            <TestedMethod name="public String getRelationTypeName()"/>
+            <TestedMethod name="public String getRoleName()"/>
+
+            <Description>
+                Step by step for verification that Relation Updates Are Correct, Relations
+                 Are Removed If Relation Type Is Deleted, Registered Only Relations With
+                  Unique Id, Notification Are Sent:
+  
+                a. Register a RelationService
+                b. Create several number of RelationTypes and add several number of external RelationTypes.
+                c. Create several number of Relations and add several number of external Relations.
+                d. Update Relation, check the changes are correct.
+                e. Try to register Internal and external relation with non-unique Id
+                f. Remove RelationType from RelationService, check that all internal Relations of that type are removed.
+                g. Remove Relation from RelationService.
+                h.Check that all Notifications are correct.
+            </Description>
+        </Case>
+        <Case ID="testRelationServiseConsistency">
+        
+            <TestedMethod name="public boolean getPurgeFlag()"/>
+            <TestedMethod name="public void setPurgeFlag(boolean flag)"/>
+            <TestedMethod name="public void purgeRelations()"/>
+            <TestedMethod name="public List getAllRelationIds()"/>
+            
+            <Description>
+                Step by step for verification Relation Service Consistency When Referenced
+                 MBeans Are Unregistered From MBean Server; Checking Influence The Purge Flag
+                To The Relation Consistency Support;
+                
+                a. Register a RelationService
+                b. Create several number of RelationTypes and add several number of external RelationTypes.
+                c. Create several number of Relations and add several number of external Relations.
+                e. Check RelationService consistency then referenced MBeans are unregistered from MBeanServer
+            </Description>
+        </Case>        
+    </MulticaseTestDescription>    
+    <Keyword name="functional" />
+    <Source name="StructureTest.java" />
+    <Source name="ERelation.java" />
+    <Source name="ERelationMBean.java" />
+    <Source name="NotUnit.java" />
+    <Source name="NotUnitMBean.java" />
+    <Source name="RelationNotificationForCompare.java" />
+    <Source name="Unit.java" />
+    <Source name="UnitMBean.java" />
+
+    
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.relation.StructureTest" />
+    </Runner>
+    <Restriction name="OtherVMOnly" />
+</Test>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="LeafElementTest"
+    date-of-creation="2005-06-03"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.text.AbstractDocument$LeafElement"/>
+
+        <Case ID="testConstructor">
+            <TestedMethod name="public AbstractDocument.LeafElement(Element parent, AttributeSet a, int offs0, int offs1)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testAttributes">
+
+            <TestedClass name="javax.swing.text.AbstractDocument$AbstractElement"/>
+            <TestedMethod name="public Enumeration&lt;?&gt; getAttributeNames()"/>
+            <TestedMethod name="public AttributeSet getAttributes()"/>
+            <TestedMethod name="public int getAttributeCount()"/>
+            <TestedMethod name="public Object getAttribute(Object attrName)"/>
+            <TestedMethod name="public void addAttributes(AttributeSet attr)"/>
+                        
+            <Precondition></Precondition>
+            <Description>create a child of LeafElement instrumented with logging</Description>
+            <Expected>correct manipulation of attributes</Expected>
+        </Case>
+        
+        <Case ID="testDocument">
+            <TestedClass name="javax.swing.text.AbstractDocument$AbstractElement"/>
+            <TestedMethod name="public Document getDocument()"/>
+                        
+            <Precondition></Precondition>
+            <Description>create a child of LeafElement</Description>
+            <Expected>getDocument() returns constructor parameter, constructor with document == null throws NPE</Expected>
+        </Case>
+        
+        <Case ID="testElements">
+            <TestedMethod name="public Element getElement(int index)"/>
+            <TestedMethod name="public int getElementCount()"/>
+                        
+            <Precondition></Precondition>
+            <Description>create a child of LeafElement instrumented with logging, call those methdods</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+        <Case ID="testGetElementIndex">
+            <TestedMethod name="public int getElementIndex(int offset)"/>
+                        
+            <Precondition></Precondition>
+            <Description>create a child of LeafElement instrumented with logging, call this method</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+        <Case ID="testGetOffset">
+            <TestedMethod name="public int getStartOffset()"/>
+            <TestedMethod name="public int getEndOffset()"/>
+                        
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>
+    <Keyword name="gui"/>    
+    <Source name="LeafElementTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.text.AbstractDocument.LeafElementTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>    
+</Test> 

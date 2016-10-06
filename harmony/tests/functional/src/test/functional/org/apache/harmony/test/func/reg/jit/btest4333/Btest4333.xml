@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!--
+-->
+
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<Test ID="Btest4333"
+    date-of-creation="2005-10-11"
+    timeout="2"    >
+
+    
+    
+
+    <Description>
+        (Generation of method calls with 'long' is illegal)
+
+        Please, note that this is reproducible with the following Jitrino
+        switches only:
+        -Xjitrino opt::skip=false -Xjitrino opt::do_abcd=off
+        -Xjitrino opt::do_osr=off -Xjitrino ia32::do_inline=off
+        -Xjitrino opt::do_guarded_devirtualization=off
+    </Description>
+
+    <Keyword name="regression"/>
+    <Keyword name="opt"/>
+    <Keyword name="hlo"/>
+
+    <Source name="Btest4333.java"/>
+
+    <Runner ID="ExecuteRegression">
+        <Param name="toRun" value="hang">
+            <Option name="~opt"/>
+            <Option name="~crashString=PASSED!"/>
+            <Option name="~skipOff"/>
+            <Option name="~abcdOff"/>
+            <Option name="~osrOff"/>
+            <Option name="~inlineOff"/>
+            <Option name="~guardedDevirtOff"/>
+            <Option name="~testName=org.apache.harmony.test.func.reg.jit.btest4333.Btest4333"/>
+        </Param>
+    </Runner>
+
+</Test>

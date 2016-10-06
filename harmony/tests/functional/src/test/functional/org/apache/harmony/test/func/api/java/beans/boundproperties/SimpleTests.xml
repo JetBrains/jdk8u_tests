@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="SimpleTests"  date-of-creation="2004-10-06" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.PropertyChangeSupport"/>
+        <Case ID="testAddListenerForSelectedPropertyAndForAllProperties">
+            <TestedMethod name="public PropertyChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Verify that listener registered for selected property and for all properties is notified, when selected 
+                     property is changed. 
+                Step-by-step decoding: 
+                - Add a listener for all properties. 
+                - Add 2 times the listener for selected property. 
+                - Call firePropertyChange method for selected property. 
+                - Verify that listener were notified 3 times.
+            </Description>
+        </Case>
+        <Case ID="testAddListenerForNSelectedProperties">
+            <TestedMethod name="public PropertyChangeSupport(Object sourceBean)"/>    
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Add listener for N different selected properties and verify that listener is notified when each 
+                     selected property is changed. 
+                Step-by-step decoding: 
+                    - Add listener for a selected property. 
+                    - Call firePropertyChange method for the selected property. 
+                    - Verify, that only one listener registered for the selected property is notified. 
+                    - Repeat N times items 1,2,3 for different selected property.
+            </Description>
+        </Case>
+        <Case ID="testAddListenersForSelectedProperty">
+            <TestedMethod name="public PropertyChangeSupport(Object sourceBean)"/>    
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Verify, that listeners registered for selected property are notified, when selected property is 
+                 changed. 
+                Step-by-step decoding: 
+                    - Add 5 times listener for selected property. 
+                    - Call firePropertyChange method for selected property. 
+                    - Verify that listener were notified 5 times.
+            </Description>
+        </Case>
+        <Case ID="testRemoveListenersForSelectedProperty">
+            <TestedMethod name="public PropertyChangeSupport(Object sourceBean)"/>    
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Verify, that no exception is thrown when unregistered listener is removed for all properties. 
+                Step-by-step decoding: 
+                    - Remove 5 times listener for selected property. 
+                    - Call firePropertyChange method for selected property. 
+                    - Verify, that no exception (NullPointerException, ArrayOfBoundsException, etc) wasn't 
+                     thrown.
+            </Description>
+        </Case>
+        <Case ID="testAddListenersForAllProperties">
+            <TestedMethod name="public PropertyChangeSupport(Object sourceBean)"/>    
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Verify, that listeners registered for all properties are notified, when selected property is changed. 
+                Step-by-step decoding: 
+                    - Add 5 times listener for all properties. 
+                    - Call firePropertyChange method for selected property. 
+                    - Verify that listener were notified 5 times.
+            </Description>
+        </Case>
+        <Case ID="testRemoveListenersForAllProperties">
+            <TestedMethod name="public PropertyChangeSupport(Object sourceBean)"/>    
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Verify, that no exception is thrown when unregistered listener is removed for selected properties. 
+                Step-by-step decoding: 
+                    - Remove 4 times listener for all properties. 
+                    - Call firePropertyChange method for selected property. 
+                    - Verify, that no exception (NullPointerException, ArrayOfBoundsException, etc) wasn't 
+                     thrown.
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="SimpleTests.java"/>
+
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.boundproperties.SimpleTests"/></Runner>
+</Test>

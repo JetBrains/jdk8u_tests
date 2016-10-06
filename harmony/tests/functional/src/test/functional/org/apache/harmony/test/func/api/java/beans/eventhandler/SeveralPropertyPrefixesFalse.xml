@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test
+    ID="SeveralPropertyPrefixesFalse"
+    date-of-creation="2004-12-21"
+    timeout="1"
+    >   
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.beans.EventHandler"/>
+             <TestedMethod name="public EventHandler(Object target, String action, String eventPropertyName, String listenerMethodName)"/>
+             <TestedMethod name="public static &lt;T&gt; T create(Class&lt;T&gt; listenerInterface, Object target, String action, String eventPropertyName, String listenerMethodName)"/>
+             <TestedMethod name="public Object invoke(Object proxy, Method method, Object[] arguments)"/>
+            <Description>
+                Purpose: verify installation of property on target class when event property name is qualified with 
+                 several property prefixes. 
+                Step-by-step encoding: 
+                    - 2.Create class which is type#1 class. 
+                    - 3.Create type#2 class which has a reader and writer methods of type#1 property. 
+                    - 4.Create type#3 class which has a reader and writer methods of type#2 property. 
+                    - 5.Create event for listener. Event class has reader and writer method of type#3 
+                     property. Set default value of property created in event class. 
+                    - 6.Create class which has writer and reader methods of type#1 property. 
+                    - 7.Invoke create(listener,class from item#5,name of property from item#5,
+                     eventProperyName) method, where eventProperyName is qualified with 3 property prefixes, 
+                     delimited with the "." symbol. 
+                      - 8.Invoke implemented method of listener thru EventHandler.invoke(..) method.
+                    - 9.Verify that property from item#5 was set.             
+            </Description>
+            </APITestDescription>
+        <Keyword name="functional"/>
+            <Source name="SeveralPropertyPrefixesTest.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.eventhandler.SeveralPropertyPrefixesTest">
+            <Option name="invokeByTypeCasting" value="false"/>
+            </Param>
+        </Runner>
+</Test>
+

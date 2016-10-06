@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<Tests>
+    <Test name="basic">
+        <Description>
+            Get anonymous access to server ("none" authorization) and
+            perform lookup, list, search etc. operations.
+        </Description>
+        <SysEnv>
+            <Param name="INITIAL_CONTEXT_FACTORY">
+                <Case value="com.sun.jndi.ldap.LdapCtxFactory" />
+            </Param>
+            <Param name="PROVIDER_URL"
+                value="ldap://localhost/dc=example,dc=com" heritable="false" />
+            <Param name="SECURITY_AUTHENTICATION" value="none"
+                heritable="false" />
+            <Param name="SECURITY_PRINCIPAL"
+                value="cn=admin,dc=example,dc=com" />
+            <Param name="SECURITY_CREDENTIALS" value="secret" />
+        </SysEnv>
+        <!-- ======================== Contexts ============================= -->
+        <Context name="ou=TestCtx_${dynamic.key}" parent="" Id="ctx1">
+            <Attributes ignoreCase="true">
+                <Attribute name="objectClass" ordered="false">
+                    <Value>top</Value>
+                    <Value>organizationalUnit</Value>
+                </Attribute>
+
+                <Attribute name="ou" ordered="false">
+                    <Value>TestCtx_${dynamic.key}</Value>
+                </Attribute>
+            </Attributes>
+        </Context>
+
+        <Context name="ou=People" parent="ou=TestCtx_${dynamic.key}"
+            Id="ctx2">
+            <Attributes ignoreCase="true">
+                <Attribute name="objectClass" ordered="false">
+                    <Value>top</Value>
+                    <Value>organizationalUnit</Value>
+                </Attribute>
+
+                <Attribute name="ou" ordered="false">
+                    <Value>People</Value>
+                </Attribute>
+            </Attributes>
+        </Context>
+        <!-- ========================= Binds =============================== -->
+        <Bind name="cn=Test_Bind"
+            ctx="ou=People,ou=TestCtx_${dynamic.key}" Id="test_bind">
+            <Object type="java.lang.String">
+                <Param name="str" type="java.lang.String">
+                    Test string
+                </Param>
+            </Object>
+
+            <Attributes ignoreCase="true"></Attributes>
+        </Bind>
+
+        <Bind name="cn=Test_Person1"
+            ctx="ou=People,ou=TestCtx_${dynamic.key}" Id="bind1">
+            <Attributes ignoreCase="true">
+                <Attribute name="objectClass" ordered="false">
+                    <Value>person</Value>
+                </Attribute>
+
+                <Attribute name="sn" ordered="false">
+                    <Value>Test1</Value>
+                </Attribute>
+
+                <Attribute name="cn" ordered="false">
+                    <Value>Test_Person1</Value>
+                </Attribute>
+
+                <Attribute name="telephoneNumber" ordered="true">
+                    <Value>1234567</Value>
+                    <Value>7654321</Value>
+                </Attribute>
+            </Attributes>
+        </Bind>
+
+        <Bind name="cn=Test_Person2"
+            ctx="ou=People,ou=TestCtx_${dynamic.key}" Id="bind2">
+            <Attributes ignoreCase="true">
+                <Attribute name="objectClass" ordered="false">
+                    <Value>person</Value>
+                </Attribute>
+
+                <Attribute name="sn" ordered="false">
+                    <Value>Test2</Value>
+                </Attribute>
+
+                <Attribute name="cn" ordered="false">
+                    <Value>Test_Person2</Value>
+                </Attribute>
+
+                <Attribute name="telephoneNumber" ordered="true">
+                    <Value>1234567</Value>
+                </Attribute>
+            </Attributes>
+        </Bind>
+        <!-- ====================== Attributes ============================= -->
+
+        <Attributes ignoreCase="true" Id="attributes1">
+            <Attribute name="telephoneNumber" ordered="true">
+                <Value>7654321</Value>
+            </Attribute>
+        </Attributes>
+
+        <Attributes ignoreCase="true" Id="attributes2">
+            <Attribute name="telephoneNumber" ordered="true">
+                <Value>1234567</Value>
+            </Attribute>
+        </Attributes>
+
+        <Attributes ignoreCase="true" Id="newAttrs1">
+            <Attribute name="telephoneNumber" ordered="false">
+                <Value>3333333</Value>
+            </Attribute>
+        </Attributes>
+
+        <Attributes ignoreCase="true" Id="reqAttrs1">
+            <Attribute name="objectClass" ordered="false">
+                <Value>person</Value>
+            </Attribute>
+
+            <Attribute name="sn" ordered="false">
+                <Value>Test2</Value>
+            </Attribute>
+
+            <Attribute name="cn" ordered="false">
+                <Value>Test_Person2</Value>
+            </Attribute>
+
+            <Attribute name="telephoneNumber" ordered="true">
+                <Value>1234567</Value>
+                <Value>3333333</Value>
+            </Attribute>
+        </Attributes>
+
+        <Attributes ignoreCase="true" Id="newAttrs2">
+            <Attribute name="telephoneNumber" ordered="false">
+                <Value>7654321</Value>
+            </Attribute>
+        </Attributes>
+
+        <Attributes ignoreCase="true" Id="reqAttrs2">
+            <Attribute name="objectClass" ordered="false">
+                <Value>person</Value>
+            </Attribute>
+
+            <Attribute name="sn" ordered="false">
+                <Value>Test1</Value>
+            </Attribute>
+
+            <Attribute name="cn" ordered="false">
+                <Value>Test_Person1</Value>
+            </Attribute>
+
+            <Attribute name="telephoneNumber" ordered="true">
+                <Value>1234567</Value>
+            </Attribute>
+        </Attributes>
+
+        <Attributes ignoreCase="true" Id="newAttrs3">
+            <Attribute name="objectClass" ordered="false">
+                <Value>person</Value>
+            </Attribute>
+
+            <Attribute name="sn" ordered="false">
+                <Value>Test2</Value>
+            </Attribute>
+
+            <Attribute name="cn" ordered="false">
+                <Value>Test_Person2</Value>
+            </Attribute>
+
+            <Attribute name="telephoneNumber" ordered="true">
+                <Value>1234567</Value>
+            </Attribute>
+        </Attributes>
+        <!-- ===================== BeforeTestMethods ======================= -->
+        <BeforeTestMethods heritable="false">
+            <Method name="login" logMsg="false">
+                <Description>
+                    This method is used to login to the server with
+                    valid credentials. It's necessary to create contexts
+                    and bindings.
+                </Description>
+                <Param name="auth" type="java.lang.String">
+                    simple
+                </Param>
+            </Method>
+
+            <Method name="testCreateCtx">
+                <Description>
+                    This method creates contexts: ctx1 and ctx2.
+                </Description>
+                <Param name="ids" type="java.lang.String">
+                    ctx1, ctx2
+                </Param>
+            </Method>
+
+            <Method name="testBindObjects">
+                <Description>
+                    This method binds objects: bind1.
+                </Description>
+                <Param name="ids" type="java.lang.String">
+                    test_bind, bind1, bind2
+                </Param>
+            </Method>
+        </BeforeTestMethods>
+        <!-- ======================= TestMethods =========================== -->
+        <TestMethods>
+            <Method name="testCreateInitCtx">
+                <Description>
+                    Set system environment and get access to the server.
+                    Fails if NamingException is thrown.
+                </Description>
+            </Method>
+
+            <Method name="testList">
+                <Description>
+                    Retrieves all bindings in the initial context.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="results" type="java.lang.String">
+                    ou=People
+                </Param>
+            </Method>
+
+            <Method name="testLookup">
+                <Description>
+                    Lookup for binding "ctx1" in the initial context.
+                    Fails if NamingException is thrown or retrieved
+                    binding is differ from described in the xml.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="result" type="java.lang.String">
+                    ctx1
+                </Param>
+            </Method>
+
+            <Method name="testLookup">
+                <Description>
+                    Lookup for binding "ctx2" in the "ctx1" sub context.
+                    Fails if NamingException is thrown or retrieved
+                    binding is differ from described in the xml.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="result" type="java.lang.String">
+                    ctx2
+                </Param>
+            </Method>
+
+            <Method name="testGetAttributes">
+                <Description>
+                    Get telephoneNumber and sn attributes associated
+                    with "ctx2". Fails if NamingException is thrown or
+                    retrieved attributes are differ from described in
+                    the xml.
+                </Description>
+
+                <Param name="attrIds" type="java.lang.String">
+                    telephoneNumber, sn
+                </Param>
+                <Param name="bId" type="java.lang.String">ctx2</Param>
+            </Method>
+
+            <Method name="testGetAttributes">
+                <Description>
+                    Get attributes associated with "ctx1". Empty value
+                    of the attrIds parameter indicates that none
+                    attributes should be retrieved. Fails if
+                    NamingException is thrown or retrieved Attributes is
+                    not empty.
+                </Description>
+
+                <Param name="attrIds" type="java.lang.String" />
+                <Param name="bId" type="java.lang.String">ctx1</Param>
+            </Method>
+
+            <Method name="testGetAttributes">
+                <Description>
+                    Get all attributes associated with "ctx2". Fails if
+                    NamingException is thrown or retrieved attributes
+                    are differ from described in the xml.
+                </Description>
+
+                <Param name="attrIds" type="java.lang.String">
+                    null
+                </Param>
+                <Param name="bId" type="java.lang.String">ctx2</Param>
+            </Method>
+
+            <Method name="testBasicSearch">
+                <Description>
+                    Searches in the initial context for objects,
+                    associated with attributes, described in Attributes
+                    tag which has attribute Id="attributes1". Search
+                    method should return object ctx1 and all attributes.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="attrsId" type="java.lang.String">
+                    attributes1
+                </Param>
+                <Param name="attributesToReturn"
+                    type="java.lang.String">
+                    null
+                </Param>
+                <Param name="res" type="java.lang.String">bind1</Param>
+            </Method>
+
+            <Method name="testBasicSearch">
+                <Description>
+                    Searches in the
+                    "ou=People,ou=TestCtx_${dynamic.key}" context for
+                    objects, associated with attributes, described in
+                    Attributes tag which has attribute Id="attributes2".
+                    Search method should return objects bind1, bind2 and
+                    cn attributes of each object.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="attrsId" type="java.lang.String">
+                    attributes2
+                </Param>
+                <Param name="attributesToReturn"
+                    type="java.lang.String">
+                    cn
+                </Param>
+                <Param name="res" type="java.lang.String">
+                    bind1, bind2
+                </Param>
+            </Method>
+
+            <Method name="testBasicSearch">
+                <Description>
+                    Searches in the
+                    "ou=People,ou=TestCtx_${dynamic.key}" context for
+                    objects, associated with attributes, described in
+                    Attributes tag which has attribute Id="attributes2".
+                    Search method should return objects none attributes
+                    of each object.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="attrsId" type="java.lang.String">
+                    attributes2
+                </Param>
+                <Param name="attributesToReturn"
+                    type="java.lang.String">
+                </Param>
+                <Param name="res" type="java.lang.String">
+                    bind1, bind2
+                </Param>
+            </Method>
+
+            <Method name="testAdvSearch">
+                <Description>
+                    Searches in the
+                    "ou=People,ou=TestCtx_${dynamic.key}" context and in
+                    the subtree scope for objects, which satisfy
+                    following criteria: filterExpr:
+                    (&amp;(telephoneNumber=1*)(sn=Test*)). This method
+                    should retrieve bind1 and bind2 objects.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="filterExpr" type="java.lang.String">
+                    (&amp;(telephoneNumber=1*)(sn=Test*))
+                </Param>
+                <Param name="filterArgs" type="java.lang.String"></Param>
+                <Param name="scope" type="java.lang.String">
+                    SUBTREE_SCOPE
+                </Param>
+                <Param name="countLimit" type="java.lang.String">
+                    0
+                </Param>
+                <Param name="res" type="java.lang.String">
+                    bind1, bind2
+                </Param>
+            </Method>
+
+            <Method name="testAdvSearch">
+                <Description>
+                    Searches in the
+                    "ou=People,ou=TestCtx_${dynamic.key}" context for
+                    objects, which satisfy following criteria:
+                    filterExpr: (&amp;(telephoneNumber=7*)(sn={0}))
+                    filterArgs: Test1. This method should retrieve bind1
+                    object.
+                </Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="filterExpr" type="java.lang.String">
+                    (&amp;(telephoneNumber=7*)(sn={0}))
+                </Param>
+                <Param name="filterArgs" type="java.lang.String">
+                    Test1
+                </Param>
+                <Param name="scope" type="java.lang.String">
+                    ONELEVEL_SCOPE
+                </Param>
+                <Param name="countLimit" type="java.lang.String">
+                    0
+                </Param>
+                <Param name="res" type="java.lang.String">bind1</Param>
+            </Method>
+
+            <Method name="testAdvSearch">
+                <Description></Description>
+
+                <Param name="name" type="java.lang.String">
+                    ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="filterExpr" type="java.lang.String">
+                    (&amp;(telephoneNumber=1*)(sn=Test*))
+                </Param>
+                <Param name="filterArgs" type="java.lang.String"></Param>
+                <Param name="scope" type="java.lang.String">
+                    OBJECT_SCOPE
+                </Param>
+                <Param name="countLimit" type="java.lang.String">
+                    0
+                </Param>
+                <Param name="res" type="java.lang.String"></Param>
+            </Method>
+
+        </TestMethods>
+        <!-- ==================== AfterTestMethods ========================= -->
+        <AfterTestMethods heritable="false">
+            <Method name="login">
+                <Description>
+                    This method is used to login to the server with
+                    valid credentials. It's necessary to unbind objecst
+                    and destroy contexts.
+                </Description>
+                <Param name="auth" type="java.lang.String">
+                    simple
+                </Param>
+            </Method>
+
+            <Method name="testUnbindObjects">
+                <Param name="ids" type="java.lang.String">
+                    test_bind, bind1, bind2
+                </Param>
+            </Method>
+
+            <Method name="testDestroyCtx">
+                <Param name="ids" type="java.lang.String">
+                    ctx2, ctx1
+                </Param>
+            </Method>
+        </AfterTestMethods>
+
+    </Test>
+
+
+
+    <!-- ====================== Test simple ================================ -->
+    <Test name="simple" extends="basic">
+        <SysEnv>
+            <Param name="SECURITY_AUTHENTICATION" value="simple"
+                heritable="false" />
+            <Param name="PROVIDER_URL"
+                value="ldap://localhost/dc=example,dc=com" heritable="false" />
+        </SysEnv>
+
+        <TestMethods>
+            <Method name="testCreateCtx" position="1">
+                <Description>
+                    This method creates contexts: ctx1 and ctx2.
+                </Description>
+                <Param name="ids" type="java.lang.String">
+                    ctx1, ctx2
+                </Param>
+            </Method>
+
+            <Method name="testBindObjects" position="2">
+                <Description>
+                    This method binds objects: bind1.
+                </Description>
+                <Param name="ids" type="java.lang.String">
+                    bind1, bind2, test_bind
+                </Param>
+            </Method>
+
+            <Method name="testModifyAttributes" position="15">
+                <Description></Description>
+
+                <Param name="name" type="java.lang.String">
+                    cn=Test_Person2,ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="newAttrs" type="java.lang.String">
+                    newAttrs1
+                </Param>
+                <Param name="reqAttrs" type="java.lang.String">
+                    reqAttrs1
+                </Param>
+                <Param name="mod_op" type="java.lang.String">
+                    ADD_ATTRIBUTE
+                </Param>
+            </Method>
+
+            <Method name="testModifyAttributes" position="16">
+                <Description></Description>
+
+                <Param name="name" type="java.lang.String">
+                    cn=Test_Person1,ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="newAttrs" type="java.lang.String">
+                    newAttrs2
+                </Param>
+                <Param name="reqAttrs" type="java.lang.String">
+                    reqAttrs2
+                </Param>
+                <Param name="mod_op" type="java.lang.String">
+                    REMOVE_ATTRIBUTE
+                </Param>
+            </Method>
+
+            <Method name="testModifyAttributes" position="17">
+                <Description></Description>
+
+                <Param name="name" type="java.lang.String">
+                    cn=Test_Person2,ou=People,ou=TestCtx_${dynamic.key}
+                </Param>
+                <Param name="newAttrs" type="java.lang.String">
+                    newAttrs3
+                </Param>
+                <Param name="reqAttrs" type="java.lang.String">
+                    newAttrs3
+                </Param>
+                <Param name="mod_op" type="java.lang.String">
+                    REPLACE_ATTRIBUTE
+                </Param>
+            </Method>
+
+            <Method name="testUnbindObjects" position="18">
+                <Param name="ids" type="java.lang.String">
+                    test_bind, bind1, bind2
+                </Param>
+            </Method>
+
+            <Method name="testDestroyCtx" position="19">
+                <Param name="ids" type="java.lang.String">
+                    ctx2, ctx1
+                </Param>
+            </Method>
+        </TestMethods>
+    </Test>
+
+
+
+    <!-- ==================== Test ssl ===================================== -->
+    <Test name="ssl" extends="simple">
+        <SysEnv>
+            <Param name="PROVIDER_URL"
+                value="ldaps://localhost:636/dc=example,dc=com" heritable="false" />
+            <Param name="javax.naming.security.protocol" value="ssl"
+                heritable="false" />
+        </SysEnv>
+    </Test>
+</Tests>

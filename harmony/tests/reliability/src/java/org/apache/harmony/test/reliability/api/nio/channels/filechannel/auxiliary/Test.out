@@ -1,0 +1,1090 @@
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+public class Test {
+    static void createFrame() {
+	new javax.swing.JFrame();
+        System.out.println("PASSED"); 
+    } 
+    public static void main(String args[]) throws Exception { 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {public void run() { createFrame(); }});
+    } 
+} 
+

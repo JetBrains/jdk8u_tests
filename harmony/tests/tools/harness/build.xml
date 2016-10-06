@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<project name="TH" basedir="." default="Default">
+    <description>Test harness build script</description>
+
+    <property name="log.file" location="${basedir}/../build.log" />
+    <property name="share" location="${basedir}/../share" />
+        
+    <property name="th.verbose" value="false" />
+
+    <property name="th" location="${basedir}" />
+    <property name="th.dest" location="${basedir}/../th.dest" />
+    <property name="th.name" value="th" />
+    <property name="th.jar" location="${th.dest}/bin/th.jar" />
+    <property name="th.zip.prefix" value="th" />
+
+    <property name="no.docs" value="true" />
+    
+    <record name="${log.file}" />
+
+
+    <!-- Default target -->
+    <target name="Default" depends="doc, Jar, ZipTH">
+        <description>
+                Load default properties
+        </description>
+    </target>
+
+
+    <!-- doc target -->
+    <target name="doc" unless="no.docs">
+        <javadoc destdir="${th.dest}/docs/javadoc" version="true" windowtitle="Test Harness javadoc" verbose="no">
+            <fileset dir="${th}">
+                <include name="**/*.java" />
+            </fileset>
+            <fileset dir="${share}">
+                <include name="org/apache/harmony/share/*.java" />
+            </fileset>
+        </javadoc>
+        <copy todir="${th.dest}" file="${th}/docs/readme.html" />
+    </target>
+
+            
+    <!-- Jar target -->
+    <target name="Jar" depends="Compile_plugins">
+        <description>
+                Create distribution.
+        </description>
+        <mkdir dir="${th.dest}/bin" />
+        <jar destfile="${th.jar}" basedir="${th.dest}" index="true" includes="org/**">
+            <manifest>
+              <attribute name="Main-Class" value="org.apache.harmony.harness.Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+
+    <!-- Compile_core target -->
+    <target name="Compile_core">
+        <mkdir dir="${th.dest}"/>
+        <javac destdir="${th.dest}" srcdir="${share}" includes="**/*.java" nowarn="yes" debug="on">
+        </javac>
+        <javac destdir="${th.dest}" srcdir="${th}" includes="**/*.java" excludes="org/apache/harmony/harness/plugins/*/**/*.java" nowarn="yes" debug="on">
+        </javac>
+    </target>
+
+
+    <!-- Compile_plugins target -->
+    <target name="Compile_plugins" depends="Compile_core" unless="no_plugins">
+        <javac destdir="${th.dest}" srcdir="${th}/org/apache/harmony/harness/plugins" includes="**/*.java" nowarn="yes" debug="on">
+        </javac>
+    </target>
+
+
+    <!-- ZipTH target -->
+    <target name="ZipTH">
+        <zip destfile="${th.dest}/${th.name}.zip" >
+            <zipfileset dir="${th.dest}" includes="docs/** bin/** readme.html" prefix="${th.zip.prefix}" />
+        </zip>
+    </target>
+
+    
+    <!-- clean target -->
+    <target name="clean">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${th}" includes="**/**.class"/>
+            <fileset dir="${th.dest}"/>
+        </delete>
+    </target>
+
+</project>
+

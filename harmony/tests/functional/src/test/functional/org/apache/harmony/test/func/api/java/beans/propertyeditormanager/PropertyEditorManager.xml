@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="PropertyEditorManager"  date-of-creation="2004-10-06" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.PropertyEditorManager"/>
+        <Case ID="testFindRegisteredEditor">
+            <TestedMethod name="public static void registerEditor(Class&lt;?&gt; targetType, Class&lt;?&gt; editorClass)"/>                        
+            <TestedMethod name="public static PropertyEditor findEditor(Class&lt;?&gt; targetType)"/>                                    
+            <TestedClass name="java.beans.PropertyEditorSupport"/>
+            <TestedMethod name="public protected PropertyEditorSupport()"/>
+            <Description>
+                Verify, that registerEditor method correctly registers an editor class. 
+                Step-by-step decoding: 
+                    - Create a type and editor for this type. 
+                    - Register the editor for this type by registerEditor method. 
+                    - Verify, that findEditor method returns the editor class.            
+            </Description>            
+        </Case>
+        <Case ID="testFindEditorInSearchPath">
+            <TestedMethod name="public static void setEditorSearchPath(String[] path)"/>            
+            <TestedMethod name="public static PropertyEditor findEditor(Class&lt;?&gt; targetType)"/>                                    
+            <TestedClass name="java.beans.PropertyEditorSupport"/>
+            <TestedMethod name="public protected PropertyEditorSupport()"/>
+            <Description>
+                Verify, that findEditor method finds an editor class in an editor search path. 
+                Step-by-step decoding: 
+                    - Create a type. 
+                    - Create an editor class in not package of type, with name: name of type plus "Editor". 
+                    - Set editor search path so that it points to the package of editor. 
+                    - Verify, that findEditor method returns the editor class.            
+            </Description>            
+        </Case>
+        <Case ID="testFindImmediateEditor">
+            <TestedMethod name="public static PropertyEditor findEditor(Class&lt;?&gt; targetType)"/>                                    
+            <TestedClass name="java.beans.PropertyEditorSupport"/>
+            <TestedMethod name="public protected PropertyEditorSupport()"/>
+            <Description>
+                Verify, that findEditor method finds an editor class in package of a type. 
+                Step-by-step decoding: 
+                    - Create a type. 
+                    - Create an editor class in package of type with name: name of type plus "Editor". 
+                    - Verify, that findEditor method returns the editor class.                
+            </Description>            
+        </Case>
+        <Case ID="testVerifyThatFirstSearchInRegisteredEditors">
+            <TestedMethod name="public static PropertyEditor findEditor(Class&lt;?&gt; targetType)"/>                                    
+            <TestedMethod name="public static void registerEditor(Class&lt;?&gt; targetType, Class&lt;?&gt; editorClass)"/>                        
+            <TestedClass name="java.beans.PropertyEditorSupport"/>
+            <TestedMethod name="public protected PropertyEditorSupport()"/>
+            <Description>
+                Verify, that PropertyEditorManager searches an editor in registered editors at first. 
+                Step-by-step decoding: 
+                    - Create a type. 
+                    - Register the editor for given type by registerEditor method. 
+                    - Create an editor class in package of type with name: name of type plus "Editor". 
+                    - Verify, that findEditor method returns registered editor.
+            </Description>            
+        </Case>        
+        <Case ID="testVerifyThatSecondSearchImmediateEditors">
+            <TestedMethod name="public static PropertyEditor findEditor(Class&lt;?&gt; targetType)"/>                                    
+            <TestedMethod name="public static void setEditorSearchPath(String[] path)"/>        
+            <TestedClass name="java.beans.PropertyEditorSupport"/>
+            <TestedMethod name="public protected PropertyEditorSupport()"/>
+            <Description>
+                Verify, that PropertyEditorManager searches an editor in package of a type at second. If this test 
+                 and testVerifyThatFirstSearchInRegisteredEditors test are passed, then PropertyEditorManager 
+                 searches an editor in an editor search path at third. 
+                Step-by-step decoding: 
+                    - Create a type. 
+                    - Create an editor in not package of the type, with name: name of type plus "Editor". 
+                    - Set editor search path so that it points to the package of editor of item#2. 
+                    - Create an editor in package of type with name: name of the type plus "Editor". 
+                    - Verify, that findEditor method returns the editor from package of the type.
+            </Description>            
+        </Case>        
+        <Case ID="testRemoveRegisteredEditor">
+            <TestedMethod name="public static PropertyEditor findEditor(Class&lt;?&gt; targetType)"/>                                    
+            <TestedMethod name="public static void registerEditor(Class&lt;?&gt; targetType, Class&lt;?&gt; editorClass)"/>                        
+            <TestedClass name="java.beans.PropertyEditorSupport"/>
+            <TestedMethod name="public protected PropertyEditorSupport()"/>
+            <Description>
+                Verify, that registerEditor method removes registered editor. 
+                Step-by-step decoding: 
+                    - Create a type. 
+                    - Create an editor class in package, which is not package of the type. 
+                    - Register editor for this type by registerEditor method. 
+                    - Remove editor for this type by registerEditor(type, null). 
+                    - Verify, that findEditor method returns null.
+            </Description>            
+        </Case>        
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Restriction name="OtherVMOnly"/>
+    <Source name="PropertyEditorManagerTest.java"/>
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.propertyeditormanager.PropertyEditorManagerTest"/></Runner>
+</Test>

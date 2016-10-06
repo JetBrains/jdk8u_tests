@@ -1,0 +1,64 @@
+## the list of excluded tests ##
+
+## HARMONY-2039, no class unloading
+vm.stack.StackFramesRestoreTest
+vm.classloading.MultiThreadedLoading
+vm.classloading.ClassUnloadingTest
+
+## HARMONY-4220, HARMONY-4232, the issue could be in the test
+api.kernel.thread.ThreadKill.ThreadKillTest
+
+## HARMONY-3224 - hang
+api.text.getAvailableLocals_RBC
+
+## HARMONY-2752, hang  
+api.text.CollationElementIteratorTest 
+api.text.CollationKeyTest_ArrHash
+api.text.CollationKeyTest
+
+## HARMONY-3680, reproduced on release build only  
+vm.classloading.ClassAttributesTest
+vm.classloading.ClassReflectionTest
+
+## HARMONY-4413   - test issue
+vm.finalization.ArrayElemFinalizationTest
+ 
+## HARMONY-4081, failed 2 times from 5 runs
+api.nio.channels.filechannel.ChannelWriteTest
+api.nio.channels.filechannel.FileChannelThrSafetyTest
+ 
+## HARMONY-62 
+api.text.getSentenceInstance_check
+
+## HARMONY-4758, immediate hang - not a reliability issue
+api.nio.charset.DecodingModesTest
+
+## HARMONY-4812
+api.net.MultiConnectTest
+
+## HARMONY-5172
+api.kernel.hooks.AddRmPropertiesHooksTest
+
+## HARMONY-5295, intermittent hang, also sometimes failed on SUN and BEA; probably test issue
+api.kernel.thread.VolatileVariableTest.DekkerTest
+
+## HARMONY-5334
+api.kernel.thread.Calculation.CalcTest
+api.kernel.thread.ThreadArrayTest.ThreadArrayTest
+api.kernel.object.ObjectFinalizeTest
+api.kernel.thread.LifeSimulationTest.Life
+
+## HARMONY-5400
+api.nio.charset.CharsetSyncCacheTest
+
+## HARMONY-5402, reproduced intermittently on release build only
+api.kernel.thread.ExcptHandlerTest.ExcptHandlerTest
+
+## HARMONY-5484, handle leakage
+api.kernel.thread.StackTraceTest.StackTraceTest
+
+## HARMONY-5512
+api.kernel.pckg.PackageGetTest
+
+## HARMONY-5532
+api.serialization.SerializableClassesTest

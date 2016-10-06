@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_CodeSourceTest_01"
+    date-of-creation="2004-11-30"
+    timeout="1"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.CodeSource"/>
+                    <TestedMethod name="public CodeSource(URL url, Certificate[] certs)"/>
+                    <TestedMethod name="public final URL getLocation()"/>
+                    <TestedMethod name="public boolean equals(Object obj)"/>
+                    <TestedMethod name="public int hashCode()"/>
+                    <TestedMethod name="public boolean implies(CodeSource codesource)"/>
+
+                    <TestedClass name="java.security.ProtectionDomain"/>
+                    <TestedMethod name="public final CodeSource getCodeSource()"/>
+
+                    <Description>
+                        Check code source mechanism.
+                    </Description>            
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_CodeSourceTest_01.java"/>
+                <Modification date="2004-12-02" />
+                
+        <!--Runner ID="Execute">
+            <Param name="toRun" value="$TestedCompile">
+                <Option name="-d" value="$TempStorage"/>
+                <Option name="-classpath" value="$TestSuiteClassRoot$PathSeparator$TestDirectory\auxiliary\AuxiliaryClass.jar"/>
+                <Option name="$TestDirectory$FileSeparatorF_CodeSourceTest_01.java"/>
+                
+            </Param>
+            <Param name="toRun" value="$TestedRuntime">
+                <Option name="-cp" value="$TestSuiteClassRoot$PathSeparator$TestDirectory\auxiliary\AuxiliaryClass.jar"/>
+                <Option value="$BOOT_CLASS_PATH"/>
+                        <Option name="-Djava.security.policy=$TestDirectory/auxiliary/CodeSourceTest.policy"/>
+                <Option name="org.apache.harmony.test.func.api.java.security.F_CodeSourceTest_01.F_CodeSourceTest_01"/>
+                <Option value="file:/USER_DIR/src/test/org/apache/harmony/test/func/api/java/security/F_CodeSourceTest_01/auxiliary/AuxiliaryClass.jar"/>
+                <Option value="src/test/org/apache/harmony/test/func/api/java/security/F_CodeSourceTest_01/auxiliary/auxiliary.cert"/>
+                <Option value="auxiliary.AuxiliaryClass"/>
+            </Param>
+        </Runner-->
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot"/>
+                   <Option name="-Djava.security.policy=$TestDirectory$FileSeparatorauxiliary$FileSeparatorCodeSourceTest.policy"/>
+                   <Option name="-Dqe.class=$TestSuiteClassRoot"/>
+                   <Option name="-Dqe.src=$TestSuiteTestRoot"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_CodeSourceTest_01.F_CodeSourceTest_01">
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparator-"/>
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorauxiliary.cert"/>
+                    <Option value="auxiliary.AuxiliaryClass"/>
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorAuxiliaryClass.jar"/>
+                </Param>                
+        </Runner>
+        <Restriction name="OtherVMOnly"/>
+
+</Test>

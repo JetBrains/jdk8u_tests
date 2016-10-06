@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="ComplexTests"  date-of-creation="2004-10-06" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.PropertyChangeSupport"/>
+        <Case ID="testAddListenersForSelectedPropertyAndForAllProperties">
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Add many listeners for selected property and for all properties. Verify that all registered listeners 
+                 are notified, when selected property is changed. 
+                Step-by-step decoding: 
+                    - Add 4 times listener#1 for all properties. 
+                    - Add listener#1 for N different selected properties. 
+                    - Add listener#2 for N different selected properties. 
+                    - Add 5 times listener#3 for selected property. 
+                    - Add 10 times listener#1 for selected property. 
+                    - After each addition firePropertyChange method is invoked and test verifies that all 
+                     registered listeners were notified.
+            </Description>
+        </Case>
+        <Case ID="testForTwoDifferentProperties">
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Add and remove many listeners for two different selected properties. Call firePropertyChange 
+                 method for one of selected property. Verify that all listeners registered for this selected property 
+                 are notified. Do the same verification for other property. 
+                Step-by-step decoding: 
+                    - Add 5 times listeners#0 for selected property#1. 
+                    - Add 12 times listeners#0 for selected property#0. 
+                    - Add 5 times listener#1 for selected property#1. 
+                    - Add 6 times listener#0 for selected property#0. 
+                    - Remove 5 times listeners#0 for selected property#1. 
+                    - Remove 5 times listener#1 for selected property#1. 
+                    - Remove 12 times listeners#0 for selected property#0.
+            </Description>
+        </Case>
+        <Case ID="testAddRemoveStress">
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>        
+            <TestedMethod name="public void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public void removePropertyChangeListener(PropertyChangeListener listener)"/>
+            <TestedMethod name="public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener)"/>
+            <Description>
+                Use different combination of adding and removing different listeners for different selected 
+                 properties and for all properties. Verify that all listeners registered for selected property and for all 
+                 property are notified when call firePropertyChange method for selected property. 
+                Step-by-step decoding: 
+                    - Do the same actions as in testForSelectedPropertyAndForAllProperties() 
+                    - Do the same actions as in testForTwoDifferentProperties() 
+                    - Add 4 times listener#1 for all properties. 
+                    - Add listener#1 for N different selected properties. 
+                    - Add listener#2 for N different selected properties 
+                    - Add 5 times listener#3 for selected property. 
+                    - Add 10 times listener#1 for selected property. 
+                    - Do the same actions as in testForSelectedPropertyAndForAllProperties() 
+                    - After each adding or removing firePropertyChange method is invoked and test verifies 
+                     that all registered listeners were notified.
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="ComplexTests.java"/>
+
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.boundproperties.ComplexTests"/></Runner>
+</Test>

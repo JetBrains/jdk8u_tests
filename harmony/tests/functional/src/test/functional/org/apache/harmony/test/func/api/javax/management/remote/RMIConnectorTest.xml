@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test  ID="RMIConnectorTest"  date-of-creation="2006-04-02" timeout="30">
+    
+    
+    
+    <MulticaseTestDescription>
+    
+        <TestedClass name="javax.management.remote.rmi.RMIConnector"/>
+                
+        <Case ID="testRMIConnectorServer01">
+        <TestedMethod name="connect()"/>
+        <Description>
+            Check that RMI Connector Server work properly, and able to create connection.
+            </Description>
+        </Case>
+        
+        <Case ID="testRMIConnectorServer02">
+            <TestedMethod name="connect()"/>
+            <Description>
+            Check that RMI Connector Server work properly, and able to create connection.
+            </Description>
+        </Case>
+        <Case ID="testRMIConnectorBase">
+            <TestedMethod name="connect()"/>
+            <Description>
+            Create Server and client check that connection able to connect eche other.
+            </Description>
+        </Case>
+        
+        <Case ID="testIOProblemRMIConnectorStart">
+            <TestedMethod name="connect()"/>
+            <Description>
+            Check that IOException thrown in case of any communication problem occurred when talking to the MBean server.
+            </Description>
+        </Case>
+        
+        <Case ID="testRMIConnectorMakeMBeanOperations">
+            <TestedMethod name="connect()"/>
+            <Description>
+            Make operation with SimplMBean via connection.
+            </Description>
+        </Case>
+        
+    </MulticaseTestDescription>    
+    
+    <Source name="RMIConnectorTest.java"/>
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.remote.RMIConnectorTest">           
+    </Param>
+</Runner>
+</Test>

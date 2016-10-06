@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="JNDI_LDAP_SP_sslauth" date-of-creation="2004-11-30"
+    timeout="1">
+    
+    
+
+    <APITestDescription>
+        <TestedClass name="javax.naming.InitialContext" />
+        <TestedMethod
+            name="public Object addToEnvironment(String propName, Object propVal)" />
+        <TestedMethod
+            name="public Name composeName(Name name, Name prefix)" />
+        <TestedMethod
+            name="public String composeName(String name, String prefix)" />
+        <TestedMethod name="protected Context getDefaultInitCtx()" />
+        <TestedMethod name="public Hashtable&lt;?,?&gt; getEnvironment()" />
+        <TestedMethod name="public String getNameInNamespace()" />
+        <TestedMethod name="public NameParser getNameParser(Name name)" />
+        <TestedMethod
+            name="public NameParser getNameParser(String name)  throws NamingException" />
+        <TestedMethod
+            name="protected Context getURLOrDefaultInitCtx(Name name) " />
+        <TestedMethod
+            name="protected Context getURLOrDefaultInitCtx(String name) " />
+        <TestedMethod
+            name="protected void init(Hashtable&lt;?,?&gt; environment) " />
+        <TestedMethod name="NamingEnumeration&lt;NameClassPair&gt; list(Name name)" />
+        <TestedMethod name="NamingEnumeration&lt;NameClassPair&gt; list(String name)" />
+        <TestedMethod
+            name="NamingEnumeration&lt;Binding&gt; listBindings(String name)" />
+        <TestedMethod
+            name="public NamingEnumeration&lt;Binding&gt; listBindings(Name name)" />
+        <TestedMethod name="public Object lookup(Name name)" />
+        <TestedMethod name="public Object lookup(String name)" />
+        <TestedMethod name="public Object lookupLink(Name name)" />
+        <TestedMethod name="public Object lookupLink(String name)" />
+        <TestedMethod
+            name="public Object removeFromEnvironment(String propName)" />
+        <TestedMethod name="unbind(Name name)" />
+        <TestedMethod name="unbind(String name)" />
+        <TestedMethod name="destroySubcontext(Name name)" />
+        <TestedMethod name="destroySubcontext(String name)" />
+
+        <TestedClass name="javax.naming.CompositeName" />
+        <TestedMethod name="public Name add(int posn, String comp)" />
+        <TestedMethod name="public Name add(String comp)" />
+        <TestedMethod name="public Name addAll(int posn, Name n)" />
+        <TestedMethod name="public Name addAll(Name suffix)" />
+        <TestedMethod name="public boolean equals(Object obj)" />
+        <TestedMethod name="public String toString()" />
+
+        <TestedClass name="javax.naming.directory.InitialDirContext" />
+        <TestedMethod name="public Attributes getAttributes(Name name)" />
+        <TestedMethod
+            name="public Attributes getAttributes(String name)" />
+        <TestedMethod
+            name="public Attributes getAttributes(String name, String[] attrIds)" />
+        <TestedMethod
+            name="public Attributes getAttributes(Name name, String[] attrIds)" />
+        <TestedMethod
+            name="public NamingEnumeration&lt;SearchResult&gt; search(Name name, Attributes matchingAttributes, String[] attributesToReturn)" />
+        <TestedMethod
+            name="public NamingEnumeration&lt;SearchResult&gt; search(String name, Attributes matchingAttributes, String[] attributesToReturn)" />
+        <TestedMethod
+            name="public NamingEnumeration&lt;SearchResult&gt; search(Name name, String filterExpr, Object[] filterArgs, SearchControls cons)" />
+        <TestedMethod
+            name="public NamingEnumeration&lt;SearchResult&gt; search(String name, String filterExpr, Object[] filterArgs, SearchControls cons) throws NamingException" />
+        <TestedMethod
+            name="bind(Name name, Object obj, Attributes attrs)" />
+        <TestedMethod
+            name="bind(String name, Object obj, Attributes attrs)" />
+        <TestedMethod
+            name="public DirContext createSubcontext(Name name, Attributes attrs)" />
+        <TestedMethod
+            name="public DirContext createSubcontext(String name, Attributes attrs)" />
+        <TestedMethod
+            name="modifyAttributes(Name name, int mod_op, Attributes attrs) " />
+        <TestedMethod
+            name="modifyAttributes(String name, int mod_op, Attributes attrs) " />
+        <TestedMethod
+            name="modifyAttributes(Name name, int mod_op, Attributes attrs) " />
+        <TestedMethod
+            name="modifyAttributes(String name, int mod_op, Attributes attrs) " />
+
+        <TestedClass name="javax.naming.directory.BasicAttributes" />
+        <TestedMethod name="public boolean equals(Object obj)" />
+        <TestedMethod name="public Attribute get(String attrID)" />
+        <TestedMethod name="public NamingEnumeration&lt;Attribute&gt; getAll()" />
+        <TestedMethod
+            name="public NamingEnumeration&lt;String&gt; getIDs()" />
+        <TestedMethod name="public int size()" />
+        <TestedMethod name="public Attribute put(Attribute)" />
+        <TestedMethod name="public Attribute put(String, Object)" />
+        <TestedMethod name="public BasicAttributes()" />
+        <TestedMethod name="public BasicAttributes(boolean ignoreCase)" />
+        <TestedMethod name="public BasicAttributes(String attrID, Object val, boolean ignoreCase)" />
+
+
+
+        <TestedClass name="javax.naming.directory.BasicAttribute" />
+        <TestedMethod name="public boolean equals(Object)" />
+        <TestedMethod name="public Object get(int ix)" />
+        <TestedMethod name="public Object get(int ix)" />
+        <TestedMethod name="public NamingEnumeration&lt;?&gt; getAll()" />
+        <TestedMethod name="public String getID()" />
+        <TestedMethod name="public int size()" />
+        <TestedMethod name="public boolean add(Object attrVal)" />
+        <TestedMethod name="public BasicAttribute(String id, Object value)" />
+        <TestedMethod name="public BasicAttribute(String id, Object value, boolean ordered)" />
+
+        <Description>
+Test design
+
+3.    SLL authentication (Context.SECURITY_AUTHENTICATION = DIGEST-MD5)
+3.1.    The same as simple authentication.
+        </Description>
+    </APITestDescription>
+    
+    <Keyword name="functional"/>
+
+    <Source name="../directory/JNDITest.java" />
+    <Runner ID="Runtime">
+        <Option name="-cp" value="$TestSuiteClassRoot$PathSeparator$TestSuiteLibRoot$FileSeparatorjndi$FileSeparatorproviders.jar" />
+        <Option value="-Djavax.net.ssl.trustStore=$TestSuiteClassRoot$FileSeparatororg$FileSeparatorapache$FileSeparatorharmony$FileSeparatortest$FileSeparatorfunc$FileSeparatorapi$FileSeparatorjavax$FileSeparatornaming$FileSeparatorshare$FileSeparatorkeystore" />
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.naming.directory.JNDITest">
+            <Option name="xmlPath"
+                value="org/apache/harmony/test/func/api/javax/naming/share/jndiLDAPTest.xml" />
+            <Option name="testName" value="ssl" />
+            <Option name="PROVIDER_URL" value="$LDAP_PROVIDER_URL" />
+        </Param>
+    </Runner>
+
+    <Restriction name="OtherVMOnly" />
+</Test>
+

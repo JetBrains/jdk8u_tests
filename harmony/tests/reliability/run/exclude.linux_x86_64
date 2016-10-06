@@ -1,0 +1,10 @@
+## HARMONY-5295 intermittent hang
+api.kernel.thread.VolatileVariableTest.DekkerTest
+## HARMONY-5531 intermittent hang
+api.net.DatagramTest
+## HARMONY-5553
+api.nio.channels.filechannel.MappedByteBufferForceTest
+## HARMONY-5532
+api.serialization.SerializableClassesTest
+## HARMONY-5567
+vm.classloading.DelegationModelTest

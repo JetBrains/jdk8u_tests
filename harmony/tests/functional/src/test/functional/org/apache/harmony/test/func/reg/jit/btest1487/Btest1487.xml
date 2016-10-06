@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<Test ID="Btest1487"
+    date-of-creation="2005-06-07"
+    timeout="5"    >
+    
+    <Description>
+        (Missing exception class cause jit to assert)
+        (Missing exception class causes assertion failure in Jitrino)
+            
+        Please, note that compiled Test1487Exception class should be deleted 
+        before the test running!
+    </Description>
+
+    <Keyword name="regression"/>
+    <Keyword name="opt"/>
+
+    <Source name="Btest1487.java"/>
+    <Source name="Test1487Exception.java"/>
+    <Source name="Test2.java"/>
+    <Source name="makefile"/>
+
+    <Runner ID="ExecuteRegression">
+        <Param name="toRun" value="negCrash">
+            <Option name="~crashString=java.lang.NoClassDefFoundError"/>
+            <Option name="~opt"/>
+            <Option name="org.apache.harmony.test.func.reg.jit.btest1487.Btest1487"/>
+        </Param>
+    </Runner>
+
+</Test> 

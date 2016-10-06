@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test ID="IntrospectBeanIfBeanInfoEmptyTest"
+    date-of-creation="2004-24-12" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.SimpleBeanInfo" />
+        <Case ID="testGetBeanDescriptor">
+            <TestedMethod
+                name="public java.beans.BeanDescriptor getBeanDescriptor()" />
+            <Description>
+                Verify that getBeanDescriptor() method returns Bean
+                class.
+            </Description>
+        </Case>
+        <Case ID="testGetDefaultEventIndex">
+            <TestedMethod name="public int getDefaultEventIndex()" />
+            <Description>
+                Verify getDefaultEventIndex() method returns -1.
+            </Description>
+        </Case>
+        <Case ID="testGetDefaultPropertyIndex">
+            <TestedMethod name="public int getDefaultPropertyIndex()" />
+            <Description>
+                Verify getDefaultPropertyIndex() method returns -1.
+            </Description>
+        </Case>
+        <Case ID="testGetIcon">
+            <TestedMethod name="public java.awt.Image getIcon(int i)" />
+            <Description>
+                Verify that getIcon(int) method returns null.
+            </Description>
+        </Case>
+        <Case ID="testGetMethodDescriptors">
+            <TestedMethod
+                name="public MethodDescriptor[] getMethodDescriptors()" />
+            <TestedClass name="java.beans.MethodDescriptor" />
+            <TestedClass name="java.beans.FeatureDescriptor" />
+            <TestedMethod name="public String getName()" />
+            <Description>
+                Verify that getMethodDescriptors() method returns method
+                descriptors for public methods of bean.
+            </Description>
+        </Case>
+        <Case ID="testGetEventSetDescriptors">
+            <TestedMethod
+                name="public EventSetDescriptor[] getEventSetDescriptors()" />
+            <TestedClass name="java.beans.EventSetDescriptor" />
+            <TestedMethod
+                name="public EventSetDescriptor(Class&lt;?&gt; sourceClass, String eventSetName, Class&lt;?&gt; listenerType, String listenerMethodName)" />
+            <TestedMethod name="public Method getAddListenerMethod()" />
+            <Description>
+                Verify that getEventSetDescriptors() method returns all
+                introspected events of bean.
+            </Description>
+        </Case>
+        <Case ID="testGetPropertyDescriptors">
+            <TestedMethod
+                name="public PropertyDescriptor[] getPropertyDescriptors()" />
+            <TestedClass name="java.beans.FeatureDescriptor" />
+            <TestedMethod name="public FeatureDescriptor()" />
+            <TestedMethod name="public String getName()" />
+            <Description>
+                Verify that getPropertyDescriptors() method returns all
+                introspected properties of bean.
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional" />
+    <Source name="IntrospectBeanIfBeanInfoEmptyTest.java" />
+    <Runner ID="MultiCase">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.java.beans.introspector.useallmethods.IntrospectBeanIfBeanInfoEmptyTest" />
+    </Runner>
+</Test>

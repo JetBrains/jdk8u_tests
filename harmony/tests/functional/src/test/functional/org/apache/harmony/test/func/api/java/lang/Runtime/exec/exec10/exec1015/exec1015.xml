@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../../test.dtd'>
+<Test
+    ID="exec1015"
+    date-of-creation="2005-6-30"
+    timeout="1"
+    >
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.Runtime"/>
+            <TestedMethod name="public Process exec(String command, String[] envp, File dir)"/>
+            <Description>
+The test is against exec1015 method.
+It exerecises the fillowing:
+
+1) Executes the specified string command in a separate process 
+   with the specified environment and working diretory. 
+
+For testing purposes JVM is used.
+The String[] envp argument contains the "java.home" property.
+The "File dir" argument is null;
+there is, however, no special checks on it,
+that is, only the trivial check is perfrmed.
+
+The test performs the following checks on the method.
+- If a String argument beginning with a "java" command
+  contains the "-help" token, that is, the command to launch JVM is correct,
+  the exit value returned on a process exit is 0.
+- If a String argument beginning with a "java" command
+  contains no tokens, that is, the command to launch JVM is incorrect,
+  the exit value returned on a process exit is 1.
+            </Description>
+            </APITestDescription>
+        <Source name="exec1015.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.Runtime.exec.exec10.exec1015.exec1015"/>
+        </Runner>
+        <Restriction name="OtherVMOnly"/>
+</Test>

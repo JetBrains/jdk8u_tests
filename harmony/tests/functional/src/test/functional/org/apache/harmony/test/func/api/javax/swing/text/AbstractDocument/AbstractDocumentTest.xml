@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="AbstractDocumentTest"
+    date-of-creation="2005-06-03"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.text.AbstractDocument"/>
+
+        <Case ID="testConstructorContent">
+            <TestedMethod name="protected AbstractDocument(AbstractDocument.Content data)"/>
+            <Precondition></Precondition>
+            <Description>create a child of AbstractAbstractDocument</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+        <Case ID="testConstructorContentContext">
+            <TestedMethod name="protected AbstractDocument(AbstractDocument.Content data, AbstractDocument.AttributeContext context)"/>
+            <Precondition></Precondition>
+            <Description>create a child of AbstractAbstractDocument</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+        <Case ID="testAddDocumentListener">
+            <TestedMethod name="public void addDocumentListener(DocumentListener listener)"/>
+            <Precondition>create a child of AbstractAbstractDocument</Precondition>
+            <Description>add a document listener</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+
+        <Case ID="testCreateLeafElement">
+            <TestedMethod name="protected Element createLeafElement(Element parent,  AttributeSet a,int p0, int p1)"/>
+            <Precondition>create a child of AbstractAbstractDocument</Precondition>
+            <Description>call createLeafElement</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+        <Case ID="testCreatePosition">
+            <TestedMethod name="public Position createPosition(int offs)"/>
+            <Precondition>create a child of AbstractAbstractDocument</Precondition>
+            <Description>call public createPosition(int offs)</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+        <Case ID="testGetBidiRootElement">
+            <TestedMethod name="public Element getBidiRootElement()"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call public getBidiRootElement()</Description>
+            <Expected>a certain sequence of events; element is not null</Expected>
+        </Case>
+        
+        <Case ID="testGetCurrentWriter">
+            <TestedMethod name="protected final Thread getCurrentWriter()"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>acquire a lock on it using writeLock() and release using writeUnlock()</Description>
+            <Expected>getCurrentWriter() returns correct values in all cases</Expected>
+        </Case>
+
+        <Case ID="testDocumentProperties">
+            <TestedMethod name="public Dictionary&lt;Object,Object&gt; getDocumentProperties()"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call getDocumentProperties()</Description>
+            <Expected>no more methods called</Expected>
+        </Case>
+        
+        <Case ID="testGetLength">
+            <TestedMethod name="public int getLength()"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call getLength()</Description>
+            <Expected>content length - 1</Expected>
+        </Case>
+        
+        <Case ID="testGetProperty">
+            <TestedMethod name="public final Object getProperty(Object key)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call getProperty()</Description>
+            <Expected>getDocumentProperties().get(key) is called</Expected>
+        </Case>
+        
+        <Case ID="testGetText">
+            <TestedMethod name="public String getText(int offset, int length)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call getText(int offset, int length)</Description>
+            <Expected>a certain sequence of events and exception where expected</Expected>
+        </Case>
+        
+        <Case ID="testGetTextSegment">
+            <TestedMethod name="public void getText(int offset, int length, Segment txt)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call getText(int offset, int length, Segment txt)</Description>
+            <Expected>a certain sequence of events and exception where expected</Expected>
+        </Case>
+        
+        <Case ID="testInsertString">
+            <TestedMethod name="public void insertString(int offs,  String str, AttributeSet a)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call insertString(...) several times</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+        <Case ID="testInsertUpdate">
+            <TestedMethod name="protected void insertUpdate(AbstractDocument.DefaultDocumentEvent chng, AttributeSet attr)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call insertUpdate(...) several times</Description>
+            <Expected>a certain sequence of events and exception where needed</Expected>
+        </Case>
+
+        <Case ID="testPostRemoveUpdate">
+            <TestedMethod name="protected void postRemoveUpdate(AbstractDocument.DefaultDocumentEvent chng)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call postRemoveUpdate(...) several times</Description>
+            <Expected>a certain sequence of events and exception where needed</Expected>
+        </Case>
+        
+        <Case ID="testRemoveUpdate">
+            <TestedMethod name="protected void removeUpdate(AbstractDocument.DefaultDocumentEvent chng)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call removeUpdate(...) several times</Description>
+            <Expected>a certain sequence of events and exception where needed</Expected>
+        </Case>
+        
+        <Case ID="testPutProperty">
+            <TestedMethod name="public final void putProperty(Object key, Object value)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call putProperty(...)</Description>
+            <Expected>getDocumentProperties().put(key, value) called</Expected>
+        </Case>
+
+        <Case ID="testNestedLocks">
+            <TestedMethod name="public final void readLock()"/>
+            <TestedMethod name="public final void readUnlock()"/>
+            <TestedMethod name="protected final void writeLock()"/>
+            <TestedMethod name="protected final void writeUnlock()"/>
+            
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>readLock, readUnlock, writeLock, writeUnlock several times</Description>
+            <Expected>writelock/unlock, readlock/unlock should be balanced</Expected>
+        </Case>
+        
+        <Case ID="testLockDeadWriter">
+            <TestedMethod name="protected final void writeLock()"/>
+            
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>thread acquires lock and dies</Description>
+            <Expected>document still locked</Expected>
+        </Case>
+        
+        <Case ID="testRemove">
+            <TestedMethod name="public void remove(int offs, int len)"/>
+            <Precondition>create a child of AbstractAbstractDocument instrumented with logging</Precondition>
+            <Description>call remove(...)</Description>
+            <Expected>a certain sequence of events</Expected>
+        </Case>
+        
+
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>
+    <Keyword name="gui"/>    
+    <Source name="AbstractDocumentTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.text.AbstractDocument.AbstractDocumentTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

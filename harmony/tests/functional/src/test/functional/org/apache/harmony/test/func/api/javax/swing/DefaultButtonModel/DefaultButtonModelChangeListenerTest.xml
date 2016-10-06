@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="DefaultButtonModelChangeListenerTest"
+    date-of-creation="2005-05-04"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.DefaultButtonModel"/>
+
+        <Case ID="testAddRemove">
+            <TestedMethod name="public void addChangeListener(ChangeListener l)"/>
+            <TestedMethod name="public void removeChangeListener(ChangeListener l)"/>
+            <TestedMethod name="public ChangeListener[] getChangeListeners()"/>
+            
+            <Precondition>creates a child of DefaultButtonModel</Precondition>
+            <Description>add and remove change listeners one by one and 
+                   count them using getChangeListeners()</Description>
+            <Expected>listeners are added and removed properly</Expected>
+        </Case>
+
+        <Case ID="testGetChangeListeners">
+            <TestedMethod name="public ChangeListener[] getChangeListeners()"/>
+            
+            <Precondition>creates a child of DefaultButtonModel</Precondition>
+            <Description>call getChangeListeners() twice</Description>
+            <Expected>objects returned by call are not equal (==)</Expected>
+        </Case>
+
+        <Case ID="testSetActionCommand">
+            <TestedMethod name="public void addChangeListener(ChangeListener l)"/>
+            
+            <Precondition>creates a child of DefaultButtonModel</Precondition>
+            <Description>add a change listener to it using addChangeListener() and call setActionCommand(...)</Description>
+            <Expected>stateChanged() of change listener is not called</Expected>
+        </Case>
+
+        <Case ID="testSetPressed">
+            <TestedMethod name="public void addChangeListener(ChangeListener l)"/>
+            
+            <Precondition>creates a child of DefaultButtonModel</Precondition>
+            <Description>add a change listener to it using addChangeListener(),
+            call setPressed(false) and call setPressed(true)</Description>
+            <Expected>stateChanged() of change listener is not called in the fist case but called in the second</Expected>
+        </Case>
+
+        <Case ID="testSetArmed">
+            <TestedMethod name="public void addChangeListener(ChangeListener l)"/>
+            
+            <Precondition>creates a child of DefaultButtonModel</Precondition>
+            <Description>add a change listener to it using addChangeListener(),
+            call setArmed(false) and call setArmed(true)</Description>
+            <Expected>stateChanged() of change listener is not called in the fist case but called in the second</Expected>
+        </Case>
+
+        
+        <Case ID="testFireStateChanged">
+            <TestedMethod name="public void addChangeListener(ChangeListener l)"/>
+            <TestedMethod name="protected void fireStateChanged()"/>
+            
+            <Precondition>creates a child of DefaultButtonModel with public fireStateChanged()</Precondition>
+            <Description>add a change listenet to it using addChangeListener() and call fireStateChanged()</Description>
+            <Expected>stateChanged() of change listener is called</Expected>
+        </Case>
+
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>
+    <Keyword name="gui"/>        
+    <Source name="DefaultButtonModelChangeListenerTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.DefaultButtonModel.DefaultButtonModelChangeListenerTest">
+        </Param>
+    </Runner>
+</Test> 

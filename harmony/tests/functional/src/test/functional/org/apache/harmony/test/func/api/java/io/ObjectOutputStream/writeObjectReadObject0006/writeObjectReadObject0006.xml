@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="writeObjectReadObject0006"
+    date-of-creation="2004-10-28"
+    timeout="1"
+    >    
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.io.ObjectOutputStream"/>
+            <TestedMethod name="writeObject(Object)"/>
+            
+            <TestedClass name="java.io.ObjectInputStream"/>
+            <TestedMethod name="public final Object readObject() "/>
+            
+            <Description>
+                        tests that HashSet is serialized and deserialized properly. 
+                        Creates instance of HashSet, put misc objects it (Strings, long, Boolean) and serializes it  to a file. Then this file
+                        is deserialized in another VM. We check that the resulted object is
+                        of appropriate type and that fields have required values.
+            </Description>
+            </APITestDescription>
+
+        <Keyword name="functional"/>    
+
+        <Source name="writeObjectReadObject0006.java"/>
+            
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.ObjectOutputStream.writeObjectReadObject0006.writeObjectReadObject0006">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-generalVMOption" value="$generalVMOption"/>                                
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+            </Param>            
+            
+        </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test>

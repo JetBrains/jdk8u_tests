@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="Rectangle2DTest"
+    date-of-creation="2005-05-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.geom.Rectangle2D"/>
+        
+        <Case ID="testRectangle2D_Float_init">
+            <TestedClass name="java.awt.geom.Rectangle2D$Float"/>
+            <TestedMethod name="public Rectangle2D.Float()"/>
+            
+            <Precondition>Create default Rectangle object.</Precondition>
+            <Description>Check that fields are default.</Description>
+            <Expected>The fields are default.</Expected>
+            
+        </Case>
+        <Case ID="testRectangle2D_Float_init_ffff">
+            <TestedClass name="java.awt.geom.Rectangle2D$Float"/>
+            <TestedMethod name="public Rectangle2D.Float(float x, float y, float w, float h)"/>
+            
+            <Precondition>Constructs and initializes a Rectangle2D from the specified float coordinates.</Precondition>
+            <Description>Check expected values.</Description>
+            <Expected>Expected values.</Expected>
+            
+        </Case>
+        <Case ID="testRectangle2D_Float_getXYWH">
+            <TestedClass name="java.awt.geom.Rectangle2D$Float"/>
+            <TestedMethod name="public double getX()"/>
+            <TestedMethod name="public double getY()"/>
+            <TestedMethod name="public double getWidth()"/>
+            <TestedMethod name="public double getHeight()"/>
+            
+            <Precondition>Constructs and initializes a Rectangle2D from the specified float coordinates.</Precondition>
+            <Description>
+            Check expected y coordinate.
+            Check expected x coordinate.
+            Check expected width.
+            Check expected height.
+            </Description>
+            <Expected>Expected x,y,width, height, returned by Rectangle2D.Float..getX(), Rectangle2D.Float.getY(), 
+            Rectangle2D.Float.getWidth(), Rectangle2D.Float.getHeight().
+            </Expected>
+            
+        </Case>
+        <Case ID="testRectangle2D_Float_setRect_ffff">
+            <TestedClass name="java.awt.geom.Rectangle2D$Float"/>
+            <TestedMethod name="public void setRect(double x, double y, double w, double h)"/>
+            <Precondition>Create Rectangle2D.Float object with default fields.
+            Set the specific field values by.
+            </Precondition>
+            <Description>Check expected field values.</Description>
+            <Expected>Expected field values.</Expected>
+
+        </Case>     
+        <Case ID="testRectangle2D_Float_setRect_rectangle2D">
+            <TestedMethod name="public void setRect(Rectangle2D r)"/>
+            <Precondition>Create default Rectangle2D object and Rectangle2D 
+            with specific field values. Set first Rectangle in accordance to the second one.
+            </Precondition>
+            <Description>Check that Rectangles equal.</Description>
+            <Expected>Equal.</Expected>
+
+        </Case>     
+        
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name = "functional"/>
+    <Keyword name = "gui"/>
+    
+    
+    <Source name="Rectangle2DTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.geom.Rectangle2D.Rectangle2DTest">
+        </Param>
+    </Runner>
+</Test> 

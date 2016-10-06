@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_CertStoreTest_02"
+    date-of-creation="2005-10-12"
+    timeout="1"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.cert.CertificateFactory"/>
+                    <TestedMethod name="public static final CertificateFactory getInstance(String type) throws CertificateException"/>
+                    <TestedMethod name="public final Certificate generateCertificate(InputStream inStream) throws CertificateException"/>
+                    <TestedMethod name="public final CRL generateCRL(InputStream inStream) throws CRLException"/>
+
+                    <TestedClass name="java.security.cert.CollectionCertStoreParameters"/>
+                    <TestedMethod name="public CollectionCertStoreParameters(Collection&lt;?&gt; collection)"/>
+                    <TestedMethod name="public Collection&lt;?&gt; getCollection()"/>
+
+                    <TestedClass name="java.security.cert.CertStore"/>
+                    <TestedMethod name="public static CertStore getInstance(String type, CertStoreParameters params) throws InvalidAlgorithmParameterException, NoSuchAlgorithmException"/>
+                    <TestedMethod name="public final CertStoreParameters getCertStoreParameters()"/>
+                    <TestedMethod name="public final String getType()"/>
+                    <TestedMethod name="public final Collection&lt;? extends Certificate&gt; getCertificates(CertSelector selector) throws CertStoreException"/>
+                    <TestedMethod name="public final Collection&lt;? extends CRL&gt; getCRLs(CRLSelector selector) throws CertStoreException"/>
+
+                    <TestedClass name="java.security.cert.X509CertSelector"/>
+                    <TestedMethod name="public X509CertSelector()"/>
+                    <TestedMethod name="public void setCertificateValid(Date certValid)"/>
+                    <TestedMethod name="public boolean match(Certificate cert)"/>
+                    <TestedMethod name="public void setSerialNumber(BigInteger serial)"/>
+                    <TestedMethod name="public void setExtendedKeyUsage(Set&lt;String&gt; keyPurposeSet) throws IOException"/>
+                    <TestedMethod name="public void setKeyUsage(boolean[] keyUsage)"/>
+                    <TestedMethod name="public void setSubjectAlternativeNames(Collection&lt;List&lt;?&gt;&gt; names) throws IOException"/>
+                    <TestedMethod name="public void setMatchAllSubjectAltNames(boolean matchAllNames)"/>
+                    <TestedMethod name="public void setSubjectPublicKey(PublicKey key)"/>
+
+                    <TestedClass name="java.security.cert.X509CRLSelector"/>
+                    <TestedMethod name="public X509CRLSelector()"/>
+                    <TestedMethod name="public void setCertificateChecking(X509Certificate cert)"/>
+                    <TestedMethod name="public void setDateAndTime(Date dateAndTime)"/>
+                    <TestedMethod name="public void setIssuers(Collection&lt;X500Principal&gt; issuers)"/>
+
+                    <TestedClass name="java.security.cert.X509Certificate"/>
+                    <TestedMethod name="public X500Principal getSubjectX500Principal()"/>
+                    <TestedMethod name="public X500Principal getIssuerX500Principal()"/>
+                    <TestedMethod name="public List&lt;String&gt; getExtendedKeyUsage() throws CertificateParsingException"/>
+                    <TestedMethod name="public Collection&lt;List&lt;?&gt;&gt; getIssuerAlternativeNames() throws CertificateParsingException"/>
+                    <TestedMethod name="public Collection&lt;List&lt;?&gt;&gt; getSubjectAlternativeNames() throws CertificateParsingException"/>
+
+                    <TestedClass name="java.security.cert.X509CRL"/>
+                    <TestedMethod name="public boolean equals(Object other)"/>
+                    <TestedMethod name="public int hashCode()"/>
+                    <TestedMethod name="public X500Principal getIssuerX500Principal()"/>
+                    <TestedMethod name="public X509CRLEntry getRevokedCertificate(X509Certificate certificate)"/>
+
+                    <TestedClass name="java.security.cert.X509CRLEntry"/>
+                    <TestedMethod name="public X500Principal getCertificateIssuer()"/>
+
+                    <TestedClass name="java.security.cert.Certificate"/>
+                    <TestedMethod name="public boolean equals(Object other)"/>
+            
+                    <Description>
+                        Checks mechanism of CertStore
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_CertStoreTest_02.java"/>
+                <Modification date="2005-10-12" />
+            
+                
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator"/>
+                   <Option name="-Dqe.class=$TestSuiteClassRoot"/>
+                   <Option name="-Dqe.src=$TestSuiteTestRoot"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.cert.F_CertStoreTest_02.F_CertStoreTest_02">
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorcert_test.cert"/>
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorca_root.cert"/>
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorcrl.pem"/>
+                </Param>
+        </Runner>
+
+        <Restriction name="OtherVMOnly"/>
+</Test>

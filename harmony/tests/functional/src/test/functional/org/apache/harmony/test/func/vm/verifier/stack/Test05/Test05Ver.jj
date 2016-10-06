@@ -1,0 +1,94 @@
+;  Licensed to the Apache Software Foundation (ASF) under one or more
+;  contributor license agreements.  See the NOTICE file distributed with
+;  this work for additional information regarding copyright ownership.
+;  The ASF licenses this file to You under the Apache License, Version 2.0
+;  (the "License"); you may not use this file except in compliance with
+;  the License.  You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+;  Unless required by applicable law or agreed to in writing, software
+;  distributed under the License is distributed on an "AS IS" BASIS,
+;  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;  See the License for the specific language governing permissions and
+;  limitations under the License.
+;
+;
+;
+
+.class public org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05Ver
+.super java/lang/Object
+
+;
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokespecial java/lang/Object/<init>()V
+   return
+.end method
+
+;
+; test method
+.method public test()V
+   .limit stack 5
+   .limit locals 2
+
+   iconst_1
+   ifeq lab1
+   new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05C
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05C/<init>()V
+   goto lab2
+lab1:
+   new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05E/<init>()V
+lab2:
+
+   iconst_1
+   ifeq lab3
+   new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05D
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05D/<init>()V
+       iconst_1
+       ifeq lab5
+       new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05K
+       dup
+       invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05K/<init>()V
+       goto lab6
+    lab5:
+       new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05L
+       dup
+       invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05L/<init>()V
+    lab6:
+       new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05O
+       dup
+       invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05O/<init>()V
+   goto lab4
+lab3:
+   new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05G
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05G/<init>()V
+       iconst_1
+       ifeq lab7
+       new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05M
+       dup
+       invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05M/<init>()V
+       goto lab8
+    lab7:
+       new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05N
+       dup
+       invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05N/<init>()V
+    lab8:
+       new org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05P
+       dup
+       invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05P/<init>()V
+lab4:
+
+   invokevirtual org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05R/test()V
+   invokevirtual org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05H/test()V
+   invokevirtual org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05F/test()V
+   invokevirtual org/apache/harmony/test/func/vm/verifier/stack/Test05/Test05B/test()V
+
+   return
+.end method

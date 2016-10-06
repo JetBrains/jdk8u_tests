@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="NotificationBroadcasterSupportTest"
+    date-of-creation="2005-06-06" timeout="1">
+
+    
+
+    
+
+    <APITestDescription>
+        <TestedClass
+            name="javax.management.NotificationBroadcasterSupport" />
+        <TestedMethod
+            name="protected void handleNotification(NotificationListener listener, Notification notif, Object handback) " />
+        <TestedMethod
+            name="public MBeanNotificationInfo[] getNotificationInfo() " />
+        <TestedMethod
+            name="public void NotificationBroadcasterSupport() " />
+        <TestedMethod
+            name="public void addNotificationListener(NotificationListener listener, NotificationFilter filter, Object handback) " />
+        <TestedMethod
+            name="public void removeNotificationListener(NotificationListener listener) throws ListenerNotFoundException " />
+        <TestedMethod
+            name="public void removeNotificationListener(NotificationListener listener, NotificationFilter filter, Object handback) throws ListenerNotFoundException " />
+        <TestedMethod
+            name="public void sendNotification(Notification notification) " />
+
+        <Description>
+            1. Create new instance of the HelloMBean.
+
+            2. Add notification listener to the MBean (the test
+            implements NotificationListener).
+
+            3. Invoke seyHello operation.
+
+            4. Verify that the method handleNotification() was called by
+            sendNotification().
+
+            5. Add the same listener with different handback object.
+
+            6. Remove the listener using
+            removeNotificationListener(NotificationListener listener).
+
+            7. Verify that all listeners removed (no more notifications
+            received).
+
+            8. Add the listener with notification filter and handback
+            object.
+
+            9. Remove the listener using the
+            removeNotificationListener(NotificationListener listener,
+            NotificationFilter filter, Object handback) method.
+
+            10. Verify that the listener removed.
+
+            11. Add two the same listeners with the same filter and
+            handback.
+
+            12. Remove the listener using the
+            removeNotificationListener(NotificationListener listener,
+            NotificationFilter filter, Object handback) method.
+
+            13. Verify that only one listener removed.
+
+            14. Verify that the method addNotificationListener() throws
+            IllegalArgumentException if the listener is null.
+
+            15. Verify that the methods removeNotificationListener()
+            throws ListenerNotFoundException if the listener is not
+            registered with the MBean.
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="NotificationBroadcasterSupportTest.java" />
+    <Source name="share/Hello.java" />
+    <Source name="share/HelloMBean.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.NotificationBroadcasterSupportTest" />
+    </Runner>
+    
+    <Restriction name="OtherVMOnly" />
+</Test>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE env_configuration SYSTEM "cfg_env.dtd">
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!-- config file for test runs in QA cycles -->
+
+<env_configuration>
+	<properties>
+		<property name="TestSuiteRoot">src/test</property>
+		<property name="TestResultRoot">.</property>
+		<property name="ReferenceRuntime">java</property>
+		<property name="TempStorage">temp</property>
+		<property name="GenTimeout">300</property>
+		<property name="LogLevel">INFO</property>
+	</properties>
+
+	<execution>
+		<exec-mode name="exec">other</exec-mode>
+		<exec-mode name="location">local</exec-mode>
+		<exec-mode name="concurrent">4</exec-mode>
+		<exec-mode name="syncChannelHost">localhost</exec-mode>
+		<exec-mode name="syncChannelPort">9999</exec-mode>
+		<exec-mode name="generalVMOption">-cp ${CP}</exec-mode>
+		<exec-mode name="generalEnv">HOME=${Env.HOME},windir=${Env.windir},SystemRoot=${Env.SystemRoot},Path=${TestSuiteLibRoot}$PathSeparator${Env.Path},LD_LIBRARY_PATH=$TestSuiteLibRoot${PathSeparator}${Env.LD_LIBRARY_PATH},PATH=$TestSuiteLibRoot${PathSeparator}${Env.PATH},DISPLAY=${Env.DISPLAY},HARMONY_INSTALL_SIG_HANDLER=1</exec-mode>
+
+		<!-- Standard JIT and interpreter switches. Please, make them empty if you
+			want to run the tests with reference implementation -->
+		<exec-mode name="XemSwitch"></exec-mode>
+
+		<exec-mode name="OptSwitch">-Xem:opt</exec-mode>
+		<exec-mode name="JetSwitch">-Xem:jet</exec-mode>
+		<exec-mode name="ServerSwitch">-Xem:server</exec-mode>
+		<exec-mode name="ServerStaticSwitch">-Xem:server_static</exec-mode>
+		<exec-mode name="ClientSwitch">-Xem:client</exec-mode>
+		<exec-mode name="IntSwitch">-Xint</exec-mode>
+
+		<!-- Assert dialog enabling/disabling switch. Please, make it empty if 
+			 you want to run the tests with reference implementation -->
+		<exec-mode name="AssertSwitch">-XX:vm.assert_dialog=false</exec-mode>
+
+		<exec-mode name="paintTimeout">4000</exec-mode>
+
+		<exec-mode name="Test_StabilityPoint">5</exec-mode>
+		<exec-mode name="Test_MaxIteration">100</exec-mode>
+
+<!-- arguments to RunExec -->
+		<exec-mode name="RunExec_id_num">20</exec-mode>
+		<exec-mode name="RunExec_numAppThread">10</exec-mode>
+
+	</execution>
+
+	<run-remote>
+		<host name="localhost">
+			<port>5676</port>
+			<mode>passive</mode>
+			<run>true</run>
+		</host>
+	</run-remote>
+	
+	<totest>
+		<subsuite name="all"></subsuite>
+	</totest>
+
+	<plugin-list>
+		<plugin name="ExecUnit" class-name="org.apache.harmony.harness.ExecUnit">
+			<parameter name="Runtime">
+				<value name="run">run</value>
+				<value name="compile">compile</value>
+				<value name="performance.tests.atomic">1000</value>
+				<value name="performance.tests.sets">5</value>
+				<value name="performance.tests.mode">speed</value>
+				<value name="qa.threads">5</value>
+			</parameter>
+			<parameter name="DistributedRunner">
+				<value name="mode">client</value>
+				<value name="port">1099</value>
+				<value name="host">localhost</value>
+				<value name="host">www.qwerty</value>
+			</parameter>
+		</plugin>
+		<plugin name="Storage" class-name="org.apache.harmony.harness.ReportTool.StoreResAsJU">
+			<parameter name="out_files">
+				<value name="extension">xml</value>
+			</parameter>
+		</plugin>
+		<plugin name="Reporter" class-name="org.apache.harmony.harness.plugins.Reporter">
+			<parameter name="write">
+				<value name="over">true</value>
+			</parameter>
+			<parameter name="status">
+				<value name="passed">104</value>
+				<value name="failed">105</value>
+				<value name="error">106</value>
+				<value name="moderror">107</value>
+			</parameter>
+		</plugin>
+	</plugin-list>
+</env_configuration>

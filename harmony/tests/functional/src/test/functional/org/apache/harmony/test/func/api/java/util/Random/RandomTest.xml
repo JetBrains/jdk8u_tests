@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="RandomTest"
+    date-of-creation="2006-03-17"
+    timeout="1"
+    >
+
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.Random"/>
+        <Case ID="testNextDouble">
+            <TestedMethod name="public double nextDouble()" />
+            <Description>
+                Check that doubles returned by nextDouble() is
+                approximately uniformly distributed in [0, 1) 
+            </Description>
+        </Case>
+        <Case ID="testNextFloat">
+            <TestedMethod name="public float nextFloat()" />
+            <Description>
+                Check that floats returned by nextFloat() is
+                approximately uniformly distributed in [0, 1) 
+            </Description>
+        </Case>
+        <Case ID="testNextInt">
+            <TestedMethod name="public int nextInt(int max)" />
+            <Description>
+                Check that ints returned by nextInt(int) is
+                approximately uniformly distributed in [0, max) 
+            </Description>
+        </Case>
+        
+        <Case ID="testNext">
+            <TestedMethod name="protected int next(int bits)" />
+            <Description>
+                Value of this method should be the same as of the 
+                algorithm specified in javadocs
+            </Description>
+        </Case>
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional" />
+    
+    <Source name="RandomTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.Random.RandomTest">
+        </Param>
+    </Runner>
+</Test> 

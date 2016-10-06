@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="ColorTest"
+    date-of-creation="2005-05-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.Color"/>
+        
+        <Case ID="testColor_init_iii">
+            <TestedMethod name="public Color(int r, int g, int b)"/>
+            
+            <Precondition>Create the Color object 
+            with specific red, green, blue values. </Precondition>
+            <Description>Check expected values.</Description>
+            <Expected>Expected values.</Expected>
+            
+        </Case>
+        
+        <Case ID="testColor_init_iiii">
+            <TestedMethod name="public Color(int r, int g, int b, int a)"/>
+            
+            <Precondition>Create the Color object with
+            specific red, green, blue, alpha.</Precondition>
+            <Description>Check expected values.</Description>
+            <Expected>Expected values.</Expected>
+            
+        </Case>
+        
+        <Case ID="testColor_equals">
+            <TestedMethod name="public boolean equals(Object obj)"/>
+            
+            <Precondition>Create few Color objects.</Precondition>
+            <Description>
+            Check that equals for null pointer retun false.
+            Check that equals for String object return false.
+            Check that different object are not equal.
+            Check that object equals itself.
+            Check that same objects are equal. </Description>
+            <Expected>
+            False.
+            False.
+            Different object are not equal.
+            Object equals itself.
+            Same objects are equal.
+            </Expected>
+            
+        </Case>
+        
+        <Case ID="testColor_getARGB">
+            <TestedMethod name="public int getAlpha()"/>
+            <TestedMethod name="public int getRed()"/>
+            <TestedMethod name="public int getGreen()"/>
+            <TestedMethod name="public int getBlue()"/>                                    
+            
+            <Precondition>Create Color object with specific red, green, blue,
+            alpha values. </Precondition>
+            <Description>Chect expected return values.</Description>
+            <Expected>Expected that getAlpha(),getRed(), getGreen(),
+            getBlue() return correct values.</Expected>
+            
+        </Case>
+
+        <Case ID="testColor_getRGB">
+            <TestedMethod name="public int getRGB()"/>
+            
+            <Precondition>Create black, white, red, blue, green Color objects.</Precondition>
+            <Description>Check that created objects are equal to static BLACK,
+            RED, GREEN, BLUE objects.</Description>
+            <Expected>Equal values.</Expected>
+            
+        </Case>
+        <Case ID="testColor_brighter">
+            <TestedMethod name="public Color brighter()"/>
+            
+            <Precondition>Create black, white, red, blue, green Color objects.</Precondition>
+            <Description>Check that created objects are equal to static BLACK,
+            RED, GREEN, BLUE objects.</Description>
+            <Expected>Equal values.</Expected>
+            
+        </Case>
+        <Case ID="testColor_darker">
+            <TestedMethod name="public Color darker()"/>
+            
+            <Precondition>Create black, white, red, blue, green Color objects.</Precondition>
+            <Description>Check that created objects are equal to static BLACK,
+            RED, GREEN, BLUE objects.</Description>
+            <Expected>Equal values.</Expected>
+            
+        </Case>
+    </MulticaseTestDescription>
+    
+    <Keyword name = "functional"/>
+    <Keyword name = "gui"/>
+    
+    <Source name="ColorTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.Color.ColorTest">
+        </Param>
+    </Runner>
+</Test> 

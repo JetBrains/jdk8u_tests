@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_KeyFactoryTest_02"
+        date-of-creation="2005-01-11"
+    timeout="1"
+        >
+        <!--
+        -->
+            
+                
+                <APITestDescription>
+
+                    <TestedClass name="java.security.KeyFactory"/>
+                    <TestedMethod name="protected KeyFactory(KeyFactorySpi keyFacSpi, Provider provider, String algorithm)"/>
+                    <TestedMethod name="public final PrivateKey generatePrivate(KeySpec keySpec) throws InvalidKeySpecException"/>
+                    <TestedMethod name="public final Key translateKey(Key key) throws InvalidKeyException"/>
+
+                    <TestedClass name="java.security.KeyFactorySpi"/>
+                    <TestedMethod name="public KeyFactorySpi()"/>                    
+
+                    <TestedClass name="java.security.Security"/>
+                    <TestedMethod name="public static int addProvider(Provider provider)"/>
+                    <TestedMethod name="public static String getProperty(String key)"/>
+
+                    <Description>
+                        Check KeyFactorySpi mechanism.
+                    </Description>
+
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_KeyFactoryTest_02.java"/>
+                <Modification date="2005-01-14" />
+
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator"/>
+                <Option name="-Djava.security.policy=$TestDirectory$FileSeparatorauxiliary$FileSeparatorKeyFactoryTest.policy"/>
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_KeyFactoryTest_02.F_KeyFactoryTest_02"/>
+        </Runner>
+        <Restriction name="OtherVMOnly"/>
+
+</Test>

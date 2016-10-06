@@ -1,0 +1,1551 @@
+;  Licensed to the Apache Software Foundation (ASF) under one or more
+;  contributor license agreements.  See the NOTICE file distributed with
+;  this work for additional information regarding copyright ownership.
+;  The ASF licenses this file to You under the Apache License, Version 2.0
+;  (the "License"); you may not use this file except in compliance with
+;  the License.  You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+;  Unless required by applicable law or agreed to in writing, software
+;  distributed under the License is distributed on an "AS IS" BASIS,
+;  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;  See the License for the specific language governing permissions and
+;  limitations under the License.
+;
+;
+;
+
+.class public org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Ver
+.super java/lang/Object
+.field public testFieldB Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704B;
+.field public testFieldH Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704H;
+.field public testFieldF Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704F;
+.field public testFieldR Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704R;
+.field public testFieldZ Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Z;
+
+;
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokespecial java/lang/Object/<init>()V
+   return
+.end method
+
+;
+; test method
+.method public test()V
+   .limit stack 26
+   .limit locals 3
+
+; store 0 to localvariable2
+   sipush 0
+   istore_2
+
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+
+lab:
+   iinc 2 1 ; localvariable2++
+   pop
+   pop
+   pop
+   putfield org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Ver/testFieldZ Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Z;
+   pop
+   pop
+   pop
+   putfield org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Ver/testFieldR Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704R;
+   pop
+   pop
+   pop
+   putfield org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Ver/testFieldF Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704F;
+   pop
+   pop
+   pop
+   putfield org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Ver/testFieldH Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704H;
+   pop
+   pop
+   pop
+   putfield org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Ver/testFieldB Lorg/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704B;
+
+   iload_2
+   tableswitch 1
+        l1 ; if 1 jump to l1
+        l2 ; if 2 jump to l2
+        l3 ; if 3 jump to l3
+        l4 ; if 4 jump to l4
+        l5 ; if 5 jump to l5
+        l6 ; if 6 jump to l6
+        l7 ; if 7 jump to l7
+        l8 ; if 8 jump to l8
+        l9 ; if 9 jump to l9
+        l10 ; if 10 jump to l10
+        l11 ; if 11 jump to l11
+        l12 ; if 12 jump to l12
+        l13 ; if 13 jump to l13
+        l14 ; if 14 jump to l14
+        l15 ; if 15 jump to l15
+        l16 ; if 16 jump to l16
+        l17 ; if 17 jump to l17
+        l18 ; if 18 jump to l18
+        l19 ; if 19 jump to l19
+        l20 ; if 20 jump to l20
+     default: def ; jump to def
+
+l1:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l2:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l3:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l4:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l5:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l6:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l7:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l8:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+ 
+l9:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l10:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l11:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l12:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l13:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l14:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l15:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l16:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l17:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l18:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l19:
+; push E, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l20:
+; push E or Object, 3xObject, P, 3xObject, N, 3xObject, L, 3xObject, Y, 3xObject
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704N/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+
+   iconst_1
+   ifeq l21
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704L/<init>()V
+   goto l22
+l21:
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704M
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704M/<init>()V
+l22:
+
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   aload_0
+   new org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/field/Test17/Test1704/Test1704Y/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+def:
+   return
+.end method

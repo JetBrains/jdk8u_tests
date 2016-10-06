@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_ClassTest_01"
+        date-of-creation="2005-01-28"
+    timeout="1"
+        >
+        <!--
+        -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.lang.ClassLoader"/>
+                    <TestedMethod name="public static ClassLoader getSystemClassLoader()"/>
+                    <TestedMethod name="public void setClassAssertionStatus(String className, boolean enabled)"/>
+                    <TestedMethod name="public void setDefaultAssertionStatus(boolean enabled)"/>
+                    <TestedMethod name="public void setPackageAssertionStatus(String packageName, boolean enabled)"/>
+                    <TestedMethod name="public Class&lt;?&gt; loadClass(String name) throws ClassNotFoundException"/>
+                    <TestedMethod name="protected final void setSigners(Class&lt;?&gt; c, Object[] signers)"/>
+                    <TestedMethod name="public InputStream getResourceAsStream(String name)"/>
+                    <TestedMethod name="protected Package getPackage(String name)"/>
+                    <TestedMethod name="protected Package definePackage(String name, String specTitle, String specVersion, String specVendor, String implTitle, String implVersion, String implVendor, URL sealBase)"/>
+                    <TestedMethod name="protected final Class&lt;?&gt; defineClass(String name, byte[] b, int off, int len, ProtectionDomain protectionDomain) throws ClassFormatError"/>
+                    
+                    <TestedClass name="java.lang.Class"/>
+                    <TestedMethod name="public boolean desiredAssertionStatus()"/>
+                    <TestedMethod name="public Object[] getSigners()"/>
+                
+                    <Description>
+                        Test ClassLoader.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_ClassTest_01.java"/>
+                <Modification date="2005-01-28" />
+                
+        <Runner ID="Runtime">        
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.F_ClassTest_01.F_ClassTest_01">
+            </Param>
+        </Runner>
+</Test>

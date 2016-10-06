@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_FieldTest_01"
+        date-of-creation="2005-02-25"
+        timeout="1"
+        >
+        <!--
+        -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.Object"/>
+            <TestedMethod name="public final Class&lt;? extends Object&gt; getClass()"/>
+            
+            <TestedClass name="java.lang.Class"/>
+            <TestedMethod name="public Field[] getDeclaredFields()"/>
+            <TestedMethod name="public Field getDeclaredField(String name)"/>
+            <TestedMethod name="public String getName()"/>
+            
+            <TestedClass name="java.lang.reflect.Field"/>
+            <TestedMethod name="public Class&lt;?&gt; getDeclaringClass()"/>
+            <TestedMethod name="public String getName()"/>
+            <TestedMethod name="public int getModifiers()"/>
+            <TestedMethod name="public Class&lt;?&gt; getType()"/>
+            <TestedMethod name="public boolean equals(Object obj)"/>
+            <TestedMethod name="public int hashCode()"/>
+            <TestedMethod name="public String toString()"/>
+            <TestedMethod name="public Object get(Object obj)"/>
+            <TestedMethod name="public boolean getBoolean(Object obj)"/>
+            <TestedMethod name="public byte getByte(Object obj)"/>
+            <TestedMethod name="public char getChar(Object obj)"/>
+            <TestedMethod name="public short getShort(Object obj)"/>
+            <TestedMethod name="public int getInt(Object obj)"/>
+            <TestedMethod name="public long getLong(Object obj)"/>
+            <TestedMethod name="public float getFloat(Object obj)"/>
+            <TestedMethod name="public double getDouble(Object obj)"/>
+            <TestedMethod name="public void set(Object obj, Object value)"/>
+            <TestedMethod name="public void setBoolean(Object obj, boolean z)"/>
+            <TestedMethod name="public void setByte(Object obj, byte b)"/>
+            <TestedMethod name="public void setChar(Object obj, char c)"/>
+            <TestedMethod name="public void setShort(Object obj, short s)"/>
+            <TestedMethod name="public void setInt(Object obj, int i)"/>
+            <TestedMethod name="public void setLong(Object obj, long l)"/>
+            <TestedMethod name="public void setFloat(Object obj, float f)"/>
+            <TestedMethod name="public void setDouble(Object obj, double d)"/>
+            
+            <TestedClass name="java.lang.reflect.Modifier"/>
+            <TestedMethod name="public static boolean isPublic(int mod)"/>
+            <TestedMethod name="public static boolean isProtected(int mod)"/>
+            <TestedMethod name="public static boolean isPrivate(int mod)"/>
+            <TestedMethod name="public static boolean isTransient(int mod)"/>
+            <TestedMethod name="public static boolean isVolatile(int mod)"/>
+            <TestedMethod name="public static boolean isStatic(int mod)"/>
+            <TestedMethod name="public static boolean isFinal(int mod)"/>
+            <TestedMethod name="public static String toString(int mod)"/>
+            
+            <TestedClass name="java.lang.reflect.AccessibleObject"/>
+            <TestedMethod name="public static void setAccessible(AccessibleObject[] array, boolean flag)"/>
+            <TestedMethod name="public void setAccessible(boolean flag)"/>
+            
+            <TestedClass name="java.lang.String"/>
+            <TestedMethod name="public String trim()"/>
+            <TestedMethod name="public boolean equals(Object anObject)"/>
+            
+            <TestedClass name="java.lang.StringBuffer"/>
+            <TestedMethod name="public StringBuffer(String str)"/>
+            <TestedMethod name="public StringBuffer append(String str)"/>
+            <TestedMethod name="public String toString()"/>
+            
+            <TestedClass name="java.math.BigInteger"/>
+            <TestedMethod name="public static BigInteger valueOf(long val)"/>
+            <TestedMethod name="public BigInteger mod(BigInteger m)"/>
+            <TestedMethod name="public int intValue()"/>
+            
+            <Description>
+                Test for Field. 
+            </Description>
+        </APITestDescription>
+        
+        <Keyword name="functional"/>
+        <Source name="F_FieldTest_01.java"/>
+        <Modification date="2005-02-25" />
+        
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.reflect.F_FieldTest_01.F_FieldTest_01">
+            </Param>
+        </Runner>
+</Test>

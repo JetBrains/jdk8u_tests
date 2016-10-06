@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="WriterTest"
+    date-of-creation="2004-11-19"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.Writer"/>
+        
+        <Case ID="testWriteInt">
+               <TestedMethod name="protected Writer()"/>
+            <TestedMethod name="write(int)"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write(int) several times</Description>
+            <Expected>only lower bytes of int are written</Expected>
+        </Case>
+
+        <Case ID="testWriteNullArray">
+            <TestedMethod name="write(char[])"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write((char[]) null)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteNullString">
+            <TestedMethod name="write(String)"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write((String) null)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteArray">
+            <TestedMethod name="write(char[])"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write(char[])</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteString">
+            <TestedMethod name="write(String)"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write(String)</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteStringSlice">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write(String, int, int)</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteStringNegativeStart">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write(String, int &lt; 0, int)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringNegativeLength">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write(String, int, int &lt; 0)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringBigLength">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the Writer object</Precondition>
+            <Description>call write(String src, int start, int length ) 
+            such as start + length &gt; src.length()</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="WriterTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.Writer.WriterTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

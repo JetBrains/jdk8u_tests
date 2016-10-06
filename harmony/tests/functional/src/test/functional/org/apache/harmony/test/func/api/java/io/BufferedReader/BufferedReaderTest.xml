@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="BufferedReaderTest"
+    date-of-creation="2004-11-18"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.BufferedReader"/>
+        
+        <Case ID="testClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create the BufferedReader object</Precondition>
+            <Description>check that BufferedReaderReader.close() can be called</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testNullObjectInConstructor">
+            <TestedMethod name="BufferedReader(Reader)"/>
+            <Precondition></Precondition>
+            <Description>call constructor BufferedReader(null)</Description>
+            <Expected>NullPointerException</Expected>
+        </Case>
+
+        <Case ID="testReadChar">
+            <TestedMethod name="BufferedReader(Reader in, int sz)"/>
+            <TestedMethod name="public int read() "/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.read()</Description>
+            <Expected>no exception is thrown and proper value is returned</Expected>
+        </Case>
+
+        <Case ID="testReadChars0001">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[])</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testReadChars0002">
+            <TestedMethod name="BufferedReader(Reader in, int sz)"/>
+            <TestedMethod name="public int read(char[] cbuf, int off, int len)"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[], int start, int length)</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testReadChars0002">
+            <TestedMethod name="BufferedReader(Reader in, int sz)"/>
+            <TestedMethod name="public int read(char[] cbuf, int off, int len)"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[], int start, int length)</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testSkipNegative">
+            <TestedMethod name="BufferedReader(Reader in, int sz)"/>
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.skip(negative value)</Description>
+            <Expected>IllegalArgumentException is thrown</Expected>
+        </Case>
+
+        <Case ID="testSkip">
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.skip(arg) and BufferedReader.read() after it</Description>
+            <Expected>proper value is read</Expected>
+        </Case>
+
+        <Case ID="testReady">
+            <TestedMethod name="public boolean ready()"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.ready()</Description>
+            <Expected>return value is 'false'</Expected>
+        </Case>
+
+        <Case ID="testMarkSupported">
+            <TestedMethod name="public boolean markSupported()"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.markSupported()</Description>
+            <Expected>return value is 'true'</Expected>
+        </Case>
+
+        <Case ID="testMark">
+            <TestedMethod name="public void mark(int readAheadLimit)"/>
+            <Precondition>create a BufferedReader object</Precondition>
+            <Description>call BufferedReader.mark()</Description>
+            <Expected>general contract for Reader is kept</Expected>
+        </Case>
+
+        <Case ID="testReset">
+            <TestedMethod name="mark(int)"/>
+            <TestedMethod name="reset()"/>
+            <Precondition>create the BufferedReader object</Precondition>
+            <Description>read some amount of chars from it, then call mark(10), read next char from the stream,
+            read 9 chars, call reset() and read char from the stream again
+            </Description>
+            <Expected>chars read just after mark() and just after reset() are equal</Expected>
+        </Case>
+        
+        <Case ID="testBufferedRead0001">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a Reader object that signals of its end with ready() method and a 
+            wrapping BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[]) trying to read more chars from the underlying stream than it contains</Description>
+            <Expected>read(char[]) returns and buffer holds proper values</Expected>
+        </Case>
+
+        <Case ID="testBufferedRead0002">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a Reader object that signals of its end with the return value of read(char[]) and a 
+            wrapping BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[]) trying to read more chars from the underlying stream than it contains</Description>
+            <Expected>read(char[]) returns and buffer holds proper values</Expected>
+        </Case>
+
+        <Case ID="testBufferedRead0003">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a Reader object that returns '-1' in its first read(char[]) and a 
+            wrapping BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[])</Description>
+            <Expected>read(char[]) returns '-1'</Expected>
+        </Case>
+
+        <Case ID="testBufferedRead0004">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a Reader object and a wrapping BufferedReader object with buffer
+            size less than Reader can return</Precondition>
+            <Description>call BufferedReader.read(char[])</Description>
+            <Expected>BufferedReader reads from the underlying stream as many bytes as itsuffer size</Expected>
+        </Case>
+
+        <Case ID="testBufferedRead0005">
+            <TestedMethod name="public String readLine()"/>
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a Reader object and a wrapping BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[] buf) with buf.length more than BufferedReader 
+            buffer size and then drain the underlying Reader by calling Reader.read(char[] verylargebuffer)</Description>
+            <Expected>requested number of chars is read in the first read(char [])and no data is stored in 
+            BufferedReader (BufferedReader.ready() returns false in the end of the test)</Expected>
+        </Case>
+
+        <Case ID="testBufferedRead0005">
+            <TestedMethod name="public String readLine()"/>
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a Reader object and a wrapping BufferedReader object</Precondition>
+            <Description>call BufferedReader.read(char[] buf) with buf.length less than BufferedReader 
+            buffer size and then drain the underlying Reader by calling Reader.read(char[] verylargebuffer)</Description>
+            <Expected>requested number of chars is read in the first read(char []) and data is stored partly in 
+            BufferedReader (BufferedReader.ready() returns true in the end of the test)</Expected>
+        </Case>
+
+        <Case ID="testReadLine">
+            <TestedMethod name="public String readLine() throws IOException"/>
+            <Precondition>create a Reader object and a wrapping BufferedReader object</Precondition>
+            <Description>call BufferedReader.readLine() and tests that various sequences 
+            of chars produced by the underlying Reader are parsed to strings correctly and
+            various EOF marks from the underlying Reader affect BufferedReader properly</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testExceptionAfterClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create a Reader object and a wrapping BufferedReader object</Precondition>
+            <Description>call close() and read(), ready(), mark(0), reset() after it</Description>
+            <Expected>every method throws IOException</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="BufferedReaderTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.BufferedReader.BufferedReaderTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

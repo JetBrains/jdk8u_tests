@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../../test.dtd'>
+<Test
+    ID="Thread1011"
+    date-of-creation="2005-6-30"
+    timeout="1"
+    >
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.Thread"/>
+            <TestedMethod name="public Thread(Runnable target)"/>
+            <Description>
+The test is against the Thread1011 method. 
+It performs the following checks on the method.
+1) Allocates a new Thread object .
+2) Belongs to the Main Thread group.
+3) Has an automatically generated name.
+4) The priority of the newly created thread is set equal to the priority of the thread
+   creating it, that is, the currently running thread.
+5) The newly created thread is initially marked as being a daemon thread if and only if 
+   the thread creating it is currently marked as a daemon thread. 
+            </Description>
+            </APITestDescription>
+        <Source name="Thread1011.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.Thread.Thread.Thread10.Thread1011.Thread1011"/>
+        </Runner>
+</Test>

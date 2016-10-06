@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_ReferenceTest_01"
+    date-of-creation="2004-12-28"
+    timeout="1"
+    >
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.ref.PhantomReference"/>
+            <TestedMethod name="public PhantomReference(T referent, ReferenceQueue&lt;? super T&gt; q)"/>
+            <TestedMethod name="public T get()"/>
+            
+            <TestedClass name="java.lang.ref.SoftReference"/>
+            <TestedMethod name="public SoftReference(T referent, ReferenceQueue&lt;? super T&gt; q)"/>
+            <TestedMethod name="public SoftReference(T referent)"/>
+            <TestedMethod name="public T get()"/>
+            
+            <TestedClass name="java.lang.ref.WeakReference"/>
+            <TestedMethod name="public WeakReference(T referent, ReferenceQueue&lt;? super T&gt; q)"/>
+            <TestedMethod name="public WeakReference(T referent)"/>
+                        
+            <TestedClass name="java.lang.ref.ReferenceQueue"/>
+            <TestedMethod name="public ReferenceQueue()"/>
+            <TestedMethod name="public Reference&lt;? extends T&gt; poll()"/>
+            
+            <TestedClass name="java.lang.ref.Reference"/>
+            <TestedMethod name="public void clear()"/>
+            <TestedMethod name="public boolean isEnqueued()"/>
+            <TestedMethod name="public T get()"/>
+            <TestedMethod name="public boolean enqueue()"/>
+            
+            <TestedClass name="java.lang.String"/>
+            <TestedMethod name="public String(String original)"/>
+            <TestedMethod name="public boolean equals(Object anObject)"/>
+            
+            <TestedClass name="java.lang.Class"/>
+            <TestedMethod name="public boolean isInstance(Object obj)"/>
+            
+            <Description>
+                This test emulate work with reference objects. 1.Object are created 2.Invoke enqueue() and clear() for emulate GC. 3.Check that object was enqueued.
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>
+        <Source name="F_ReferenceTest_01.java"/>
+        <Modification date="2004-12-28" />
+
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.ref.F_ReferenceTest_01.F_ReferenceTest_01"></Param>
+        </Runner>
+</Test> 

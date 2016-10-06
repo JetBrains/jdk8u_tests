@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_SystemTest_02"
+    date-of-creation="2005-01-18"
+    timeout="1"
+    >    
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.System"/>
+            <TestedMethod name="public static Properties getProperties()"/>
+            <TestedMethod name="public static void setProperties(Properties props)"/>
+            <TestedMethod name="public static String getProperty(String key)"/>
+            <TestedMethod name="public static String setProperty(String key, String value)"/>
+            <TestedMethod name="public static String getProperty(String key, String def)"/>
+            
+            <TestedClass name="java.lang.Integer"/>
+            <TestedMethod name="public static String toString(int i)"/>
+            <TestedMethod name="public static Integer getInteger(String nm)"/>
+            <TestedMethod name="public static Integer getInteger(String nm, int val)"/>
+            <TestedMethod name="public static Integer getInteger(String nm, Integer val)"/>
+            <TestedMethod name="public int intValue()"/>
+            <TestedMethod name="public Integer(int value)"/>
+            
+            <TestedClass name="java.lang.Boolean"/>
+            <TestedMethod name="public static boolean getBoolean(String name)"/>
+            
+            <TestedClass name="java.lang.String"/>
+            <TestedMethod name="public boolean equals(Object anObject)"/>
+            
+            <TestedClass name="java.util.Properties"/>
+            <TestedMethod name="public Object setProperty(String key, String value)"/>
+            <TestedMethod name="public Enumeration&lt;?&gt; propertyNames()"/>
+            
+            <Description>
+                Test for system properties. For classes: System, Integer, Boolean.
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>    
+
+        <Source name="F_SystemTest_02.java"/>
+            
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.F_SystemTest_02.F_SystemTest_02">
+            </Param>
+        </Runner>
+        <Restriction name="OtherVMOnly"/>
+</Test>

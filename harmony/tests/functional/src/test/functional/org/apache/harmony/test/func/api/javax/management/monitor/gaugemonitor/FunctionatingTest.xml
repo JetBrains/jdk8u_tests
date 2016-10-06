@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test
+    ID="FunctionatingTest"
+        date-of-creation="2006-03-15"
+        timeout="2">
+        
+        
+    <APITestDescription>
+        <TestedClass name="javax.management.monitor.GaugeMonitor"/>
+        <TestedMethod name="public void setGranularityPeriod(long period)"/>
+        <TestedMethod name="public void setNotifyHigh(boolean value)"/>
+        <TestedMethod name="public void setNotifyLow(boolean value)"/>
+        <TestedMethod name="public void setThresholds(Number highValue, Number lowValue)"/>
+        <TestedMethod name="public void start()"/>
+        <TestedMethod name="public void stop()"/>
+        
+        <TestedClass name="javax.management.NotificationBroadcasterSupport"/>
+        <TestedMethod
+            name="public void addNotificationListener(NotificationListener listener,NotificationFilter filter,Object handback)"/>
+            
+        <TestedClass name="javax.management.monitor.Monitor"/>
+        <TestedMethod name="public void addObservedObject(ObjectName object)"/>
+        <TestedMethod name="public void setObservedAttribute(String attribute)"/>
+        
+        <Description>
+            This test is intended to check the basic functionality of GaugeMonitor class.
+                 testLowHigh:
+                     The Sensor class represents monotonous function (of type double), which doesn’t reach boundary values.
+                  testIntPeriodic:
+                    The sensor class represents a periodic function (of type int to provide accurate comparations)
+                testRandomThree:
+                    The sensor class represents a random function which has three possible values.
+                testRandomFunction:
+                    The sensor class represents a random function with a specified range of values (F[t] is continuous)
+        </Description>
+    </APITestDescription>        
+        <Keyword name="functional"/>
+        <Source name="FunctionatingTest.java"/>        
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.monitor.gaugemonitor.FunctionatingTest">
+            </Param>
+        </Runner>
+        <Restriction name="OtherVMOnly"/>
+</Test>
+

@@ -1,0 +1,72 @@
+/*
+ *  Licensed to the Apache Software Foundation (ASF) under one or more
+ *  contributor license agreements.  See the NOTICE file distributed with
+ *  this work for additional information regarding copyright ownership.
+ *  The ASF licenses this file to You under the Apache License, Version 2.0
+ *  (the "License"); you may not use this file except in compliance with
+ *  the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+magic = xCAFEBABE
+minor_version = 3
+major_version = 45
+constant_pool_count = 13
+constant_pool {
+  /* #1 */ Method = #9 #5
+  /* #2 */ Class = #8
+  /* #3 */ UTF8 = "java/lang/Object"
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ NameAndType = #4 #7
+  /* #6 */ UTF8 = "Code"
+  /* #7 */ UTF8 = "()V"
+  /* #8 */ UTF8 = "org/apache/harmony/test/func/reg/vm/btest4037/Test4037"
+  /* #9 */ Class = #3
+  /* #10 */ UTF8 = "ConstantValue"
+  /* #11 */ long = 1
+}
+access_flags = PUBLIC SUPER  // x21
+this_class = #2
+super_class = #9  // "java/lang/Object"
+interfaces_count = 0
+fields_count = 0
+methods_count = 1
+methods {
+  method {
+    access_flag = PUBLIC  // x01
+    name_index = #4  // "<init>"
+    descriptor_index = #7  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 25
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:      aload_0
+          1:      invokespecial #1
+          4:      return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+          attributes {
+              attribute ConstantValue {
+                  attribute_name_index = #10
+                  attribute_length = 2
+                  constantvalue_index = #11 
+              } 
+          }
+        }
+      }
+  }
+}
+ 
+attributes_count = 0 

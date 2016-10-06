@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test
+    ID="Finalize"
+        date-of-creation="2006-04-22"
+        timeout="2">
+        
+        
+        <Description>
+            Tests lazyexc optimization of JIT compiler.
+            Checks that lazyexc isn't performed if exception class implements finalize() method which has side-effect.
+            Test case details:
+            Test throws and catches TestException in a loop.
+            TestException class implements finalize() method 
+            which changes the value of the static boolean test class field from 'false' to 'true'.
+            System.runFinalization() method is called after the loop.
+            Checks by the class field value that finalize() method execution was executed, 
+            which means that TestException object was created, i.e. lazyexc wasn’t performed.
+        </Description>
+    
+        <Keyword name="functional"/>
+        <Keyword name="hlo"/>
+        
+        <Source name="Finalize.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.jit.HLO.lazyexc.Finalize.Finalize">
+            </Param>
+        </Runner>
+</Test>

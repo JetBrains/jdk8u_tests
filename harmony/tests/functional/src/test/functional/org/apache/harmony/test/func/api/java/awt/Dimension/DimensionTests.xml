@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<!--
+-->
+
+<Test
+    ID="DimensionTests"
+    date-of-creation="2005-05-24"
+    timeout="1"
+    >
+
+    
+    
+
+    <APITestDescription>
+        <TestedClass name="java.awt.Dimension"/>
+
+        <Case ID="test">
+            <TestedMethod name="public boolean equals(Object obj)"/>
+            <TestedMethod name="public double getHeight()"/>
+            <TestedMethod name="public Dimension getSize()"/>
+            <TestedMethod name="public double getWidth()"/>
+            <TestedMethod name="public int hashCode()"/>
+            <TestedMethod name="public void setSize(Dimension d)"/>
+            <TestedMethod name="public void setSize(double width, double height)"/>
+            <TestedMethod name="public void setSize(int width, int height)"/>
+            <TestedMethod name="public String toString()"/>
+
+
+            <Description>A few objects of class Dimension are created by variouse creation type
+                         And its properties compared by variouse methods. </Description>
+            <Expected> Properties of identical objects are identical</Expected>
+
+
+        </Case>
+
+    </APITestDescription>
+
+    <Keyword name="functional"/>
+    <!--    <Keyword name = "gui"/>  -->
+
+
+    <Source name="DimensionTests.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.Dimension.DimensionTests">
+        </Param>
+    </Runner>
+</Test>

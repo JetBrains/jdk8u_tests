@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="DefaultCaretTest"
+    date-of-creation="2005-06-03"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.text.DefaultCaret"/>
+
+        <Case ID="testConstructor">
+            <TestedMethod name="public DefaultCaret()"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testAdjustVisibility">
+            <TestedMethod name="protected void adjustVisibility(Rectangle nloc)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testDamage">
+            <TestedMethod name="protected void damage(Rectangle r)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testFocusGained">
+            <TestedMethod name="public void focusGained(FocusEvent e)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testFocusLost">
+            <TestedMethod name="public void focusLost(FocusEvent e)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testComponent">
+            <TestedMethod name="public void install(JTextComponent c)"/>
+            <TestedMethod name="protected final JTextComponent getComponent()"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testDot">
+            <TestedMethod name="public int getDot()"/>
+            <TestedMethod name="public void setDot(int dot)"/>
+            <TestedMethod name="public void moveDot(int dot)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testGetMark">
+            <TestedMethod name="public int getMark()"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testMouseEvents">
+            <TestedMethod name="public void mouseClicked(MouseEvent e)"/>
+            <TestedMethod name="public void mousePressed(MouseEvent e)"/>
+            <TestedMethod name="public void mouseReleased(MouseEvent e)"/>
+            <TestedMethod name="public void mouseEntered(MouseEvent e)"/>
+            <TestedMethod name="public void mouseExited(MouseEvent e)"/>
+            <TestedMethod name="public void mouseDragged(MouseEvent e)"/>
+            <TestedMethod name="public void mouseMoved(MouseEvent e)"/>
+            <TestedMethod name="protected void positionCaret(MouseEvent e)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testPaint">
+            <TestedMethod name="public void paint(Graphics g)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testRepaint">
+            <TestedMethod name="protected final void repaint()"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testBlinkRate">
+            <TestedMethod name="public int getBlinkRate()"/>
+            <TestedMethod name="public void setBlinkRate(int rate)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testVisible">
+            <TestedMethod name="public void setVisible(boolean e)"/>
+        
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+
+    </MulticaseTestDescription>
+    
+    <Keyword name="gui"/>
+    <Keyword name="functional"/>
+    <Source name="DefaultCaretTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.text.DefaultCaret.DefaultCaretTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>    
+</Test> 

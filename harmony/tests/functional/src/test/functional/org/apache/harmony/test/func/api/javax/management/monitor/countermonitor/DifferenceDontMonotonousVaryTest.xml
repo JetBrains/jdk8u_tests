@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test ID="DifferenceDontMonotonousVaryTest" date-of-creation="2006-03-10"
+    timeout="2">
+    
+    
+    <APITestDescription>
+        <TestedClass name="javax.management.monitor.CounterMonitor" />
+        <TestedMethod
+            name="public Number getThreshold(ObjectName object)" />
+        <TestedMethod
+            name="public void setGranularityPeriod(long period)" />
+        <TestedMethod name="public void setInitThreshold(Number value)" />
+        <TestedMethod name="public void setNotify(boolean value)" />
+        <TestedMethod
+            name="public void setDifferenceMode(boolean value)" />
+        <TestedMethod
+            name="public void setDifferenceMode(boolean value)" />
+        <TestedMethod name="public void start()" />
+
+        <TestedClass name="javax.management.monitor.Monitor" />
+        <TestedMethod
+            name="public void addObservedObject(ObjectName object)" />
+        <TestedMethod
+            name="public void setObservedAttribute(String attribute)" />
+
+        <TestedClass
+            name="javax.management.NotificationBroadcasterSupport" />
+        <TestedMethod
+            name="public void addNotificationListener(NotificationListener listener,NotificationFilter filter,Object handback)" />
+        <Description>
+            In this test Counter generates a random sequence of numbers,
+            which is monotonous and difference between consequent values
+            if from 1/2*THRESHOLD to 3/2*THRESHOLD. 1. MBean server is
+            started; CounterMonitor and Counter MBeans are registered.
+            2. CounterMonitor is configured to difference mode. 3.
+            NotificationListener is added to CounterMonitor. 4. Counter
+            is started in a separate thread, CounterMonitor is
+            activated. 5. NotificationListener checks that proper
+            notification is received and threshold is actually reached.
+        </Description>
+    </APITestDescription>
+    <Keyword name="functional" />
+    <Source name="DifferenceTest.java" />
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.monitor.countermonitor.DifferenceTest">
+            <Option name="-isMonotonous" value="false" />
+            <Option name="-isVary" value="true" />
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly" />
+</Test>
+

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_StringTest_03"
+    date-of-creation="2004-11-22"
+    timeout="1"
+    >    
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.String"/>
+            <TestedMethod name="public String()"/>
+            <TestedMethod name="public String(String original)"/>
+            <TestedMethod name="public int length()"/>
+            <TestedMethod name="public char[] toCharArray()"/>
+            <TestedMethod name="public boolean equals(Object anObject)"/>
+            <TestedMethod name="public static String valueOf(char c)"/>
+            <TestedMethod name="public String[] split(String regex)"/>
+
+            <TestedClass name="java.io.File"/>
+            <TestedMethod name="public File(String pathname)"/>
+            <TestedMethod name="public String getName()"/>
+
+            <TestedClass name="java.io.FileReader"/>
+            <TestedMethod name="public FileReader(String fileName) throws FileNotFoundException"/>
+
+            <TestedClass name="java.io.LineNumberReader"/>
+            <TestedMethod name="public LineNumberReader(Reader in)"/>
+            <TestedMethod name="public String readLine() throws IOException"/>
+            
+            <TestedClass name="java.io.BufferedReader"/>
+            <TestedMethod name="public boolean ready()"/>        
+            <TestedMethod name="public void close()"/>    
+
+            <TestedClass name="java.lang.Throwable"/>
+            <TestedMethod name="public void printStackTrace(PrintStream s)"/>
+
+            <Description>
+                This is the scenario test of some String methods
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>    
+
+        <Source name="F_StringTest_03.java"/>
+            
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.F_StringTest_03.F_StringTest_03">
+                
+                <Option name="reate configuration: OK
+tests were selected: OK (total 1)
+tests were run: OK
+tests total    1
+  passed    0
+  failed    1
+  error        0
+  mode error    0
+  unknown    0
+done. See the run report in the directory
+    results"/>
+                <Option value="re"/>
+            </Param>
+        </Runner>
+</Test>

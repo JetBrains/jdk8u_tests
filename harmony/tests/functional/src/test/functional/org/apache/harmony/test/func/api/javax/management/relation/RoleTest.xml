@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test ID="RoleTest" date-of-creation="2005-11-01"    timeout="1">
+
+    <MulticaseTestDescription>
+        <TestedClass name="javax.management.relation.RelationService"/>
+        <Case ID="testRoleLists">
+        
+            <TestedMethod name="public Integer checkRoleReading(String roleName, String relationTypeName)"/>
+            <TestedMethod name="public Integer checkRoleWriting(Role role, String relationTypeName, Boolean initializationFlag)"/>
+            <TestedMethod name="public RoleResult getAllRoles(String relationId)"/>
+            <TestedMethod name="public RoleResult setRoles(String relationId, RoleList roleList)"/>
+        
+            <TestedClass name="javax.management.relation.Role"/>
+            <TestedMethod name="public String getRoleName()"/>
+            <TestedMethod name="public List getRoleValue()"/>
+            <TestedMethod name="public void setRoleName(String name)"/>
+            <TestedMethod name="public void setRoleValue(List roleValue)"/>
+            
+            <TestedClass name="javax.management.relation.RoleUnresolved"/>
+            <TestedMethod name="public String getRoleName()"/>
+            <TestedMethod name="public List getRoleValue()"/>
+            <TestedMethod name="public void setRoleName(String name)"/>
+            <TestedMethod name="public void setRoleValue(List roleValue)"/>    
+            <TestedMethod name="public int getProblemType()"/>
+            <TestedMethod name="public void setProblemType(int problemType)"/>
+            
+            <TestedClass name="javax.management.relation.RoleStatus"/>
+            <TestedMethod name="public static boolean isRoleStatus(int roleStatus)"/>
+    
+            <Description>
+                a. Create a relation
+                b. Create 8 roles
+                c. Change name for the first role
+                d. For the second role set a role value with more ObjectNames than the maximum expected cardinality
+                f. For the third role set a role value with less ObjectNames than the minimum expected cardinality
+                g. For the fourth role set a role value including the ObjectName of a MBean not registered in the MBean Server.
+                h. Fifth role is not readable
+                i. Sixth role is not writable
+                j. For the seventh role set a role value including the ObjectName of a MBean not of the class expected for that role.
+                k. Sets the roles in the relation.
+                l. Verify All Role States By checkRoleReading And checkRoleWriting Methods.
+                m. Verify RoleResult list is correct.
+                
+            </Description>
+        </Case>
+        <Case ID="testLikeUnit">
+        
+            <TestedMethod name="public void createRelation(String relationId, String relationTypeName, RoleList roleList)"/>
+            <TestedMethod name="public void createRelationType(String relationTypeName, RoleInfo[] roleInfo)"/>
+            <TestedMethod name="public void addRelation(ObjectName relationObjectName)"/>
+            <TestedMethod name="public void addRelationType(RelationType relationType)"/>
+            
+            <Description>
+                Verifies Relation and Relation Type construction
+            </Description>
+        </Case>
+        <Case ID="testGetSet">
+        
+            <TestedMethod name="public List getRole(String relationId, String roleName) "/>
+            <TestedMethod name="public void setRole(String relationId, Role role)"/>
+                        
+            <Description>
+                a. Create a relation
+                 b. Create a not readable and not writable role
+                c. Check that we cant read and write role value
+                d. Additional Verifying for getRole And SetRole Methods
+                
+            </Description>
+        </Case>
+        
+    </MulticaseTestDescription>    
+    <Keyword name="functional" />
+    <Source name="RoleTest.java" />
+    <Source name="Unit.java" />
+    <Source name="UnitMBean.java" />
+    
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.relation.RoleTest" />
+    </Runner>
+    <Restriction name="OtherVMOnly" />
+</Test>

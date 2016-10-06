@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="NotificationFilterSupportTest" date-of-creation="2005-06-06"
+    timeout="1">
+
+    
+
+    
+
+    <APITestDescription>
+        <TestedClass name="javax.management.NotificationFilterSupport" />
+        <TestedMethod name="public Vector getEnabledTypes() " />
+        <TestedMethod
+            name="public boolean isNotificationEnabled(Notification notification) " />
+        <TestedMethod name="public void NotificationFilterSupport() " />
+        <TestedMethod name="public void disableAllTypes() " />
+        <TestedMethod name="public void disableType(String prefix) " />
+        <TestedMethod
+            name="public void enableType(String prefix) throws IllegalArgumentException " />
+
+        <Description>
+            Similar to AttributeChangeNotificationFilterTest but uses
+            NotificationFilterSupport as notification filter.
+
+            1. Enable type "say".
+
+            2. Invoke operation sayHello.
+
+            3. Verify that notification has been received.
+
+            4. Verify that the method enableType() throws
+            IllegalArgumentException when the prefix parameter is null.
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="NotificationFilterSupportTest.java" />
+    <Source name="share/Hello.java" />
+    <Source name="share/HelloMBean.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.NotificationFilterSupportTest" />
+    </Runner>
+    
+    <Restriction name="OtherVMOnly" />
+</Test>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="DefaultButtonModelTest"
+    date-of-creation="2005-05-05"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.DefaultButtonModel"/>
+
+        <Case ID="testStaticFields">
+            <TestedMethod name="public static final int ARMED"/> 
+            <TestedMethod name="public static final int ENABLED"/>
+            <TestedMethod name="public static final int PRESSED"/>
+            <TestedMethod name="public static final int ROLLOVER"/>
+            <TestedMethod name="public static final int SELECTED"/>
+
+            <Precondition></Precondition>
+            <Description>test that values of the static fields are equal to numbers from spec</Description>
+            <Expected></Expected>
+        </Case>
+
+
+        <Case ID="testEnabled">
+            <TestedMethod name="protected void fireStateChanged()"/>
+            <Precondition>create a child of DefaultButtonModel instrumented with logging
+            with public fireStateChanged() method</Precondition>
+            <Description>call fireStateChanged()</Description>
+            <Expected>no more methods are called</Expected>
+        </Case>
+
+        <Case ID="testActionCommand">
+            <TestedMethod name="public String getActionCommand()"/>
+            <TestedMethod name="public void setActionCommand(String actionCommand)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call getActionCommand() and setActionCommand(...) several times</Description>
+            <Expected>
+             - getActionCommand() returns null by default
+             - getActionCommand() and setActionCommand() do not call any additional methods
+             - getActionCommand() returns what was set by setActionCommand()
+             </Expected>
+        </Case>
+        
+        <Case ID="testMnemonic">
+            <TestedMethod name="public int getMnemonic()"/>
+            <TestedMethod name="public void setMnemonic(int key)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call getMnemonic() and setMnemonic(...) several times</Description>
+            <Expected>
+             - getMnemonic() returns 0 by default
+             - getMnemonic() doesn't call any additional methods
+             - setMnemonic(..) calls firePropertyChange()
+             - getMnemonic() returns what was set by setMnemonic()
+             </Expected>
+        </Case>
+        
+        <Case ID="testConstructor">
+            <TestedMethod name="public DefaultButtonModel()"/>
+            
+            <Precondition></Precondition>
+            <Description>create a child of DefaultButtonModel instrumented with logging</Description>
+            <Expected>
+                          constructor calls setEnabled(true) 
+            </Expected>
+        </Case>
+
+        <Case ID="testArmed">
+            <TestedMethod name="public boolean isArmed()"/>
+            <TestedMethod name="public void setArmed(boolean b)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call isArmed() and setArmed() several times</Description>
+            <Expected>
+               - isArmed() returns false by default
+               - isArmed() doesn't call any additional methods
+               - setArmed(...) calls isArmed()
+               - setArmed(!isArmed()) causes call of fireStateChanged() 
+            </Expected>
+        </Case>
+
+        <Case ID="testArmed">
+            <TestedMethod name="public boolean isArmed()"/>
+            <TestedMethod name="public void setArmed(boolean b)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call isArmed() and setArmed() several times</Description>
+            <Expected>
+               - isArmed() returns false by default
+               - isArmed() doesn't call any additional methods
+               - setArmed(...) calls isArmed()
+               - setArmed(!isArmed()) causes call of fireStateChanged() 
+            </Expected>
+        </Case>
+
+        <Case ID="testEnabled">
+            <TestedMethod name="public boolean isEnabled()"/>
+            <TestedMethod name="public void setEnabled(boolean b)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call isEnabled() and setEnabled() several times</Description>
+            <Expected>
+               - isEnabled() returns true by default
+               - isEnabled() doesn't call any additional methods
+               - setEnabled(...) calls isArmed()
+               - setEnabled(!isEnabled()) causes call of fireStateChanged() 
+            </Expected>
+        </Case>
+
+        <Case ID="testPressed">
+            <TestedMethod name="public boolean isPressed()"/>
+            <TestedMethod name="public void setPressed(boolean b)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call isPressed() and setPressed(...) several times</Description>
+            <Expected>
+               - isPressed() returns false by default
+               - isPressed() doesn't call any additional methods
+               - setPressed(...) calls isPressed()
+               - setPressed(!isPressed()) causes call of fireStateChanged() 
+               - setPressed(!isPressed()) calls sequences depend on value returned by isArmed()
+            </Expected>
+        </Case>
+
+        <Case ID="testRollover">
+            <TestedMethod name="public boolean isRollover()"/>
+            <TestedMethod name="public void setRollover(boolean b)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call isRollover() and setRollover(...) several times</Description>
+            <Expected>
+               - isRollover() returns false by default
+               - isRollover() doesn't call any additional methods
+               - setRollover(...) calls isRollover()
+               - setRollover(!isRollover()) causes call of fireStateChanged() 
+            </Expected>
+        </Case>
+
+        <Case ID="testSelected">
+            <TestedMethod name="public boolean isSelected()"/>
+            <TestedMethod name="public void setSelected(boolean b)"/>
+            
+            <Precondition>create a child of DefaultButtonModel instrumented with logging</Precondition>
+            <Description>call isSelected() and setSelected(...) several times</Description>
+            <Expected>
+               - isSelected() returns false by default
+               - isSelected() doesn't call any additional methods
+               - setSelected(...) calls isSelected()
+               - setSelected(!isSelected()) causes call of fireStateChanged() and fireItemStateChanged()
+            </Expected>
+        </Case>
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>    
+    <Keyword name="gui"/>    
+    <Source name="DefaultButtonModelTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.DefaultButtonModel.DefaultButtonModelTest">
+        </Param>
+    </Runner>
+</Test> 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test
+    ID="CmpOfAdd"
+        date-of-creation="2006-07-17"
+        timeout="1">
+        
+        
+        <Description>
+            Tests branch simplification pass of JIT compiler.
+            Tests that following simplifications are performed correctly:
+            x GTE (y+1)  ->  x GT y
+            (x+1) GT y  ->  x GTE y
+            x GT (y+(-1))  ->  x GTE y
+            (x+(-1)) GTE y  ->  x GT y
+            GT means greater, GTE means greater or equal.
+        </Description>
+    
+        <Keyword name="functional"/>
+        <Keyword name="hlo"/>
+        
+        <Source name="CmpOfAdd.java"/>
+        <Runner ID="MultiCase">
+            <Param name="toRun" value="org.apache.harmony.test.func.jit.HLO.simplify.simplifyBranch.CmpOfAdd.CmpOfAdd">
+            </Param>
+        </Runner>
+</Test>

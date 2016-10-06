@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test
+    ID="GetterSetterTest"
+        date-of-creation="2006-03-03"
+        timeout="2">
+        
+        
+    <APITestDescription>
+        <TestedClass name="javax.management.monitor.CounterMonitor"/>
+        <TestedMethod name="public void setGranularityPeriod(long period)"/>
+        <TestedMethod name="public void setInitThreshold(Number value)"/>
+        <TestedMethod name="public void setModulus(Number value)"/>
+        <TestedMethod name="public void setOffset(Number value)"/>
+        <TestedMethod name="public void setNotify(boolean value)"/>
+        <TestedMethod name="public void setDifferenceMode(boolean value)"/>
+        <TestedMethod name="public Number getThreshold(ObjectName object)"/>
+        <TestedMethod name="public Number getInitThreshold()"/>
+        <TestedMethod name="public boolean getNotify()"/>
+        <TestedMethod name="public boolean getDifferenceMode()"/>
+        <TestedMethod name="public Number getModulus()"/>
+        <TestedMethod name="public Number getOffset()"/>
+        <TestedMethod name="public void start()"/>
+        
+        <TestedClass name="javax.management.NotificationBroadcasterSupport"/>
+        <TestedMethod
+            name="public void addNotificationListener(NotificationListener listener,NotificationFilter filter,Object handback)"/>
+            
+        <TestedClass name="javax.management.monitor.Monitor"/>
+        <TestedMethod name="public void addObservedObject(ObjectName object)"/>
+        <TestedMethod name="public long getGranularityPeriod()"/>
+        <TestedMethod name="public void setObservedAttribute(String attribute)"/>
+        <Description>
+            This test is intended to test the functionality
+            of CounterMonitor (and superclasses) getter and setter methods.
+            It calls consequently each setter method and then checks
+            that the value returned by getter method is the same.
+            There are three categories of values passed to each setter
+            method during test: common intermediate values, boundary values
+            (such as Long.MAX_VALUE) and invalid value (nulls or negatives).
+            Invalid values are passed to method as parameters to check
+            that corresponding exception is raised.
+        </Description>
+    </APITestDescription>        
+        <Keyword name="functional"/>
+        <Source name="GetterSetterTest.java"/>        
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.monitor.countermonitor.GetterSetterTest">
+
+            </Param>
+        </Runner>
+        <Restriction name="OtherVMOnly"/>
+</Test>
+

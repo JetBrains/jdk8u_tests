@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="InputStreamTest"
+    date-of-creation="2004-11-12"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.InputStream"/>
+
+        <Case ID="testClose">
+            <TestedMethod name="public InputStream()"/>
+            <TestedMethod name="close()"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>check that InputStream.close() can be called</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testAvailable">
+            <TestedMethod name="public InputStream()"/>
+            <TestedMethod name="public int available()"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>check that InputStream.available() can be called</Description>
+            <Expected>InputStream.available() returns 0</Expected>
+        </Case>
+
+        <Case ID="testMarkSupported">
+            <TestedMethod name="public InputStream()"/>
+            <TestedMethod name="public boolean markSupported()"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>check that InputStream.markSupported() can be called</Description>
+            <Expected>InputStream.markSupported() returns false</Expected>
+        </Case>
+
+        <Case ID="testReset">
+            <TestedMethod name="public InputStream()"/>
+            <TestedMethod name="reset()"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>check that InputStream.reset() can be called</Description>
+            <Expected>InputStream.reset() throws IOException if markSupported() is false and doesn't throw otherwise</Expected>
+        </Case>
+
+        <Case ID="testMark">
+            <TestedMethod name="public InputStream()"/>
+            <TestedMethod name="mark(int)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>check that InputStream.mark() can be called</Description>
+            <Expected>InputStream.mark() throws no exception</Expected>
+        </Case>
+
+        <Case ID="testReadBytes">
+            <TestedMethod name="public final int read(byte[] b)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>check that InputStream.read(byte[]) can be called</Description>
+            <Expected>InputStream.read(byte[]) returns expected value</Expected>
+        </Case>
+
+        <Case ID="testReadBytesSlice">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>check that InputStream.read(byte[] buf, int offset, int len) can be called</Description>
+            <Expected>InputStream.read(byte[] buf, int offset, int len) returns expected value</Expected>
+        </Case>
+
+        <Case ID="testReadBytesNull">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>call InputStream.read(null, int, int)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0001">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>call InputStream.read(byte[], int &lt; 0, int)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0002">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>call InputStream.read(byte[], int, int &lt; 0)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0003">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>call InputStream.read(byte[] buf, int offset, int len); buf.length &lt; offset + len</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testReadBytesException0001">
+            <TestedMethod name="public final int read(byte[] b)"/>
+            <Precondition>create the InputStream object with method read() that always throws IOException()</Precondition>
+            <Description>call InputStream.read(byte[])</Description>
+            <Expected>IOException is thrown</Expected>
+        </Case>
+
+        <Case ID="testReadBytesException0002">
+            <TestedMethod name="public final int read(byte[] b)"/>
+            <Precondition>create the InputStream object with method read() that returns 
+                 a few bytes and then throws IOException()</Precondition>
+            <Description>call InputStream.read(byte[])</Description>
+            <Expected>IOException is not thrown, number of bytes read before the exception returned 
+            and those bytes are stored in the array</Expected>
+        </Case>
+        
+        <Case ID="testSkip">
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>call InputStream.skip(3)</Description>
+            <Expected>it returns 3 and next byte read from the stream has a proper value</Expected>
+        </Case>
+
+        <Case ID="testReset0001">
+            <TestedMethod name="mark(int)"/>
+            <TestedMethod name="reset()"/>
+            <Precondition>applicable for streams with markSupported(). create the InputStream object</Precondition>
+            <Description>read some amount of bytes from it, then call mark(10), read next byte from the stream,
+            read less than 10 bytes, call reset() and read byte from the stream again
+            </Description>
+            <Expected>bytes read just after mark() and just after reset() are equal</Expected>
+        </Case>
+
+        <Case ID="testReset0002">
+            <TestedMethod name="mark(int)"/>
+            <TestedMethod name="reset()"/>
+            <Precondition>applicable for streams with markSupported(). create the InputStream object</Precondition>
+            <Description>read some amount of bytes from it, then call mark(10), read next byte from the stream,
+            read 9 bytes, call reset() and read byte from the stream again
+            </Description>
+            <Expected>bytes read just after mark() and just after reset() are equal</Expected>
+        </Case>
+
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="InputStreamTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.InputStream.InputStreamTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

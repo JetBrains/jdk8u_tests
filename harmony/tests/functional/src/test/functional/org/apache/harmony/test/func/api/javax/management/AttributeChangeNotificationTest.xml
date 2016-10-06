@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="AttributeChangeNotificationTest" date-of-creation="2005-06-06"
+    timeout="1">
+
+    
+
+    
+
+    <APITestDescription>
+        <TestedClass
+            name="javax.management.AttributeChangeNotification" />
+        <TestedMethod name="public Object getNewValue() " />
+        <TestedMethod name="public Object getOldValue() " />
+        <TestedMethod name="public String getAttributeName() " />
+        <TestedMethod name="public String getAttributeType() " />
+        <TestedMethod
+            name="public void AttributeChangeNotification(Object source, long sequenceNumber, long timeStamp, String msg, String attributeName, String attributeType, Object oldValue, Object newValue) " />
+
+        <Description>
+            1. Create MBean server.
+
+            2. Register HelloMBean with the server.
+
+            3. Add notification listener to the registered MBean with
+            String handback object and without notification filter. The
+            test class implements NotificationListener, so it is the
+            notification listener.
+
+            4. Change Name attribute of the MBean.
+
+            5. Wait until a notification is received.
+
+            6. If the notification has not been received in 3 seconds it
+            is considered that the test is failed.
+
+            7. Verify that AttributeChangeNotification object has been
+            received.
+
+            8. Verify that received handback object is valid.
+
+            9. Verify that all getters of the received notification
+            object return expected values.
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="AttributeChangeNotificationTest.java" />
+    <Source name="share/Hello.java" />
+    <Source name="share/HelloMBean.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.AttributeChangeNotificationTest" />
+    </Runner>
+    
+    <Restriction name="OtherVMOnly" />
+</Test>

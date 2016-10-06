@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="BufferedReaderThreadTest"
+    date-of-creation="2004-12-24"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.BufferedReader"/>
+        
+        <Case ID="testReadInt">
+            <TestedMethod name="public int read() "/>
+            <Precondition>create a reader that returns some amount of bytes one by one in cycle 
+            and a wrapping BufferedReader</Precondition>
+            <Description>create a number of threads reading from the BufferedReader using read()</Description>
+            <Expected>bytes read equal to bytes produced by the reader</Expected>
+        </Case>
+
+        <Case ID="testReadChars0001">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a reader that returns some amount of bytes one by one in cycle
+            and a wrapping BufferedReader</Precondition>
+            <Description>create a number of threads reading from the BufferedReader using read(char[])</Description>
+            <Expected>bytes read equal to bytes produced by the reader</Expected>
+        </Case>
+
+        <Case ID="testReadChars0002">
+            <TestedMethod name="public int read(char[] cbuf, int off, int len)"/>
+            <Precondition>create a reader that returns some amount of bytes one by one in cycle
+            and a wrapping BufferedReader</Precondition>
+            <Description>create a number of threads reading from the BufferedReader using 
+            read(char[], int, int)</Description>
+            <Expected>bytes read equal to bytes produced by the reader</Expected>
+        </Case>
+
+        <Case ID="testSkip">
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create a reader that returns some amount of bytes one by one in cycle
+            and a wrapping BufferedReader</Precondition>
+            <Description>create a number of threads calling skip(1) on BufferedReader many times</Description>
+            <Expected>after threads finish their work next byte read from the underlying reader has expected value</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="BufferedReaderThreadTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.BufferedReader.BufferedReaderThreadTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test>

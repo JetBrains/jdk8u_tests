@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_ReflectionTest_02"
+    date-of-creation="2004-12-03"
+    timeout="1"
+    >
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.System"/>
+            <TestedMethod name="public static String getProperty(String key)"/>
+            
+            <TestedClass name="java.lang.Object"/>
+            <TestedMethod name="public final Class&lt;? extends Object&gt; getClass()"/>
+            <TestedMethod name="public boolean equals(Object obj)"/>
+            
+            <TestedClass name="java.lang.Class"/>
+            <TestedMethod name="public ClassLoader getClassLoader()"/>
+            <TestedMethod name="public static Class&lt;?&gt; forName(String name, boolean initialize, ClassLoader loader) throws ClassNotFoundException"/>
+            <TestedMethod name="public T newInstance() throws InstantiationException, IllegalAccessException"/>
+            <TestedMethod name="public Field getField(String name)"/>
+            <TestedMethod name="public Field getDeclaredField(String name)"/>
+            <TestedMethod name="public Constructor&lt;T&gt; getConstructor(Class... parameterTypes) throws NoSuchMethodException, SecurityException"/>
+            <TestedMethod name="public Constructor&lt;T&gt; getDeclaredConstructor(Class... parameterTypes) throws NoSuchMethodException, SecurityException"/>
+            <TestedMethod name="public Method getMethod(String name, Class... parameterTypes)"/>
+            <TestedMethod name="public Method getDeclaredMethod(String name, Class... parameterTypes)"/>
+            
+            <TestedClass name="java.lang.reflect.Field"/>
+            <TestedMethod name="public Object get(Object obj)"/>
+            <TestedMethod name="public void set(Object obj, Object value)"/>
+            <TestedMethod name="public int getInt(Object obj)"/>
+            
+            <TestedClass name="java.lang.reflect.Constructor"/>
+            <TestedMethod name="public T newInstance(Object... initargs) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException"/>
+            
+            <TestedClass name="java.lang.reflect.AccessibleObject"/>
+            <TestedMethod name="public boolean isAccessible()"/>
+            <TestedMethod name="public void setAccessible(boolean flag)"/>
+            
+            <TestedClass name="java.lang.reflect.Method"/>
+            <TestedMethod name="public Object invoke(Object obj, Object... args)"/>
+        
+            <Description>
+                Manipulating Objects.
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>
+        <Source name="F_ReflectionTest_02.java"/>
+        <Modification date="2004-12-08" />
+
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.reflect.F_ReflectionTest_02.F_ReflectionTest_02"></Param>
+        </Runner>
+</Test> 

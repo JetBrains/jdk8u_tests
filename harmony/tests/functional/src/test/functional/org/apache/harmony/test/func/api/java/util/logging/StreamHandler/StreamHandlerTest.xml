@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="StreamHandlerTest"
+    date-of-creation="2005-09-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.logging.StreamHandler"/>
+
+        <Case ID="testSetGetEncoding">
+            <TestedMethod name="public StreamHandler()"/>
+            <TestedMethod name="public void setEncoding(String encoding)"/>
+            <Precondition>create an instance of StreamHandler</Precondition>
+            <Description>sets different valid encoding and checks if they are
+            corrent with calls of getEncoding()
+            </Description>
+            <Expected>0</Expected>
+        </Case>
+        
+        <Case ID="testSetOutputStream">
+            <TestedMethod name="protected void setOutputStream(OutputStream out)"/>
+            <Precondition>create MyStreamHandler class extending StreamHandler class,
+            that implements public method setOutputStream(OutputStream)</Precondition>
+            <Description>creates output stream, sets this output stream to the handler,
+            loggs into that stream and checks if the message is really logged into the
+            proper stream.
+            </Description>
+            <Expected>0</Expected>
+        </Case>
+        
+        <Case ID="testFlush">
+            <TestedMethod name="public void flush()"/>
+            <Precondition>None</Precondition>
+            <Description>create ByteArrayOutputStream, writes into it
+            and checks if no message is logged, calls flush and checks
+            it again - now buffered message can be read.
+            </Description>
+            <Expected>0</Expected>
+        </Case>
+        
+        <Case ID="testIsLoggable">
+            <TestedMethod name="public boolean isLoggable(LogRecord record)"/>
+            <Precondition>None</Precondition>
+            <Description>Checks if isLoggable() returns false if no streams are available.
+            Checks if isLoggable() returns correct values with different kinds of levels.
+            </Description>
+            <Expected>0</Expected>
+        </Case>
+        
+        <Case ID="testPublish">
+            <TestedMethod name="public void publish(LogRecord record)"/>
+            <Precondition>None</Precondition>
+            <Description>Creates a stream and handler associated with this stream.
+            Loggs records with different levels and reads the input stream,
+            checking if the message is published or not depending on log level.
+            </Description>
+            <Expected>0</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="logging_01.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.logging.Handler.logging_01">
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

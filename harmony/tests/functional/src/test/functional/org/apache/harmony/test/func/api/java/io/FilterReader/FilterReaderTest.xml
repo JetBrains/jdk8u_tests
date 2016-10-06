@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="FilterReaderTest"
+    date-of-creation="2004-11-18"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.FilterReader"/>
+
+        <Case ID="testConstructor">
+            <TestedMethod name="protected FilterReader(Reader in)"/>
+            <Precondition></Precondition>
+            <Description>create an instance of a child of FilterReader class with null argument - NPE id thrown. 
+            Create an instance of a child of FilterReader class with StringReader as argument - 
+            'in' field in this object == constructor argument</Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create the FilterReader object</Precondition>
+            <Description>check that FilterReaderReader.close() can be called</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testNullObjectInConstructor">
+            <TestedMethod name="FilterReader(Reader)"/>
+            <Precondition></Precondition>
+            <Description>call constructor FilterReader(null)</Description>
+            <Expected>NullPointerException</Expected>
+        </Case>
+
+        <Case ID="testReadChars0001">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create a FilterReader object</Precondition>
+            <Description>call FilterReader.read(char[])</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testSkip">
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create a FilterReader object</Precondition>
+            <Description>call FilterReader.skip(arg) and FilterReader.read() after it</Description>
+            <Expected>proper value is read</Expected>
+        </Case>
+
+        <Case ID="testReady">
+            <TestedMethod name="public boolean ready()"/>
+            <Precondition>create a FilterReader object</Precondition>
+            <Description>call FilterReader.ready()</Description>
+            <Expected>return value is 'false'</Expected>
+        </Case>
+
+        <Case ID="testMarkSupported">
+            <TestedMethod name="public boolean markSupported()"/>
+            <Precondition>create a FilterReader object</Precondition>
+            <Description>call FilterReader.markSupported()</Description>
+            <Expected>return value is 'true'</Expected>
+        </Case>
+
+        <Case ID="testMark">
+            <TestedMethod name="public void mark(int readAheadLimit)"/>
+            <Precondition>create a FilterReader object</Precondition>
+            <Description>call FilterReader.mark()</Description>
+            <Expected>general contract for Reader is kept</Expected>
+        </Case>
+
+        <Case ID="testReset">
+            <TestedMethod name="mark(int)"/>
+            <TestedMethod name="reset()"/>
+            <Precondition>create the FilterReader object</Precondition>
+            <Description>read some amount of chars from it, then call mark(10), read next char from the stream,
+            read 9 chars, call reset() and read char from the stream again
+            </Description>
+            <Expected>chars read just after mark() and just after reset() are equal</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="FilterReaderTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.FilterReader.FilterReaderTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

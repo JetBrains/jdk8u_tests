@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test  ID="ConnectorServerTest"  date-of-creation="2006-06-12" timeout="30">
+    
+    
+    
+    <MulticaseTestDescription>
+    
+        <TestedClass name="javax.management.remote.JMXConnectorServerMBean"/>
+        
+        <Case ID="testRMIConnectorServer">
+            <TestedMethod name="public void start() throws IOException"/>
+            <TestedMethod name="public void stop() throws IOException" />
+            <TestedMethod name="public boolean isActive()" />
+            <TestedMethod name="public String[] getConnectionIds()" />
+            <TestedMethod name="public JMXServiceURL getAddress()" /> 
+            <TestedMethod name="public Map getAttributes()" />          
+            <TestedMethod name="public JMXConnector toJMXConnector(Map env)" />
+                            throws IOException
+        <Description>
+            Test perfom operation with connector server through RMI protocol
+        </Description>
+        </Case>
+        
+        <Case ID="testIIOPConnectorServer">
+            <TestedMethod name="public void start() throws IOException"/>
+            <TestedMethod name="public void stop() throws IOException" />
+            <TestedMethod name="public boolean isActive()" />
+            <TestedMethod name="public String[] getConnectionIds()" />
+            <TestedMethod name="public JMXServiceURL getAddress()" /> 
+            <TestedMethod name="public Map getAttributes()" />          
+            <TestedMethod name="public JMXConnector toJMXConnector(Map env)" />
+                            throws IOException
+        <Description>
+            Test perfom operation with connector server through RMI protocol
+        </Description>
+        </Case>
+            <Case ID="testJMXMPConnectorServer">
+            <TestedMethod name="public void start() throws IOException"/>
+            <TestedMethod name="public void stop() throws IOException" />
+            <TestedMethod name="public boolean isActive()" />
+            <TestedMethod name="public String[] getConnectionIds()" />
+            <TestedMethod name="public JMXServiceURL getAddress()" /> 
+            <TestedMethod name="public Map getAttributes()" />          
+            <TestedMethod name="public JMXConnector toJMXConnector(Map env)" />
+                            throws IOException
+        <Description>
+            Test perfom operation with connector server through RMI protocol
+        </Description>
+        </Case>
+            <Case ID="testHTTPConnectorServer">
+            <TestedMethod name="public void start() throws IOException"/>
+            <TestedMethod name="public void stop() throws IOException" />
+            <TestedMethod name="public boolean isActive()" />
+            <TestedMethod name="public String[] getConnectionIds()" />
+            <TestedMethod name="public JMXServiceURL getAddress()" /> 
+            <TestedMethod name="public Map getAttributes()" />          
+            <TestedMethod name="public JMXConnector toJMXConnector(Map env)" />
+                            throws IOException
+        <Description>
+            Test perfom operation with connector server through RMI protocol
+        </Description>
+        </Case>
+        
+    </MulticaseTestDescription>    
+    
+    <Source name="ConnectorServerTest.java"/>
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.remote.ConnectorServerTest">           
+    </Param>
+</Runner>
+</Test>

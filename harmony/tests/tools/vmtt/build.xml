@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<project name="VMTT" basedir="." default="Default">
+	<description>VM testing tool build script</description>
+
+	<property name="log.file" location="${basedir}/../vmtt.build.log" />
+	<property name="xerces" location="${basedir}/xercesImpl.jar" />
+		
+	<property name="VMTT.verbose" value="false" />
+
+	<property name="VMTT" location="${basedir}" />
+	<property name="VMTT.dest" location="${basedir}/../vmtt.dest" />
+	<property name="VMTT.name" value="vmtt" />
+	<property name="VMTT.jar" location="${VMTT.dest}/bin/vmtt.jar" />
+	<property name="VMTT.zip.prefix" value="vmtt" />
+	
+	<property name="no.docs" value="true" />
+	
+	<record name="${log.file}" />
+	
+	<echo message="xerces=${xerces}"/>
+
+
+	<!-- Default target -->
+	<target name="Default" depends="doc, Jar, ZipVMTT">
+		<description>
+				Load default properties
+		</description>
+	</target>
+
+
+	<!-- doc target -->
+	<target name="doc" unless="no.docs">
+		<description>VM testing tool documentation.</description>
+		<javadoc destdir="${VMTT.dest}/docs/javadoc" version="true" windowtitle="VM testing tool javadoc" verbose="${VMTT.verbose}">
+			<fileset dir="${VMTT}">
+				<include name="**/*.java" />
+			</fileset>
+		</javadoc>
+		<copy todir="${VMTT.dest}" file="${VMTT}/README.TXT" />
+		<copy todir="${VMTT.dest}/doc">
+			<fileset dir="${VMTT}/doc">
+				<include name="ccode_file_format.htm"/>
+                                <include name="userguide.txt"/>
+			</fileset>
+		</copy>
+	</target>
+
+			
+	<!-- Jar target -->
+	<target name="Jar" depends="Compile_core">
+		<description>
+				Create distribution.
+		</description>
+		<mkdir dir="${VMTT.dest}/bin" />
+		<jar destfile="${VMTT.jar}" basedir="${VMTT.dest}" index="true" includes="org/**">
+		    <manifest>
+		      <attribute name="Main-Class" value="org.apache.harmony.vmtt.VMTT"/>
+		    </manifest>
+		</jar>
+	</target>
+
+
+	<!-- Compile_core target -->
+	<target name="Compile_core">
+		<description>
+				Compile VM testing tool classes.
+		</description>
+		<mkdir dir="${VMTT.dest}" />
+		<javac destdir="${VMTT.dest}" srcdir="${VMTT}" includes="**/*.java" nowarn="yes">
+		</javac>
+	</target>
+
+
+	<!-- ZipVMTT target -->
+	<target name="ZipVMTT">
+		<zip destfile="${VMTT.dest}/${VMTT.name}.zip" >
+			<zipfileset dir="${VMTT.dest}" includes="doc/** bin/** readme.txt" prefix="${VMTT.zip.prefix}" />
+		</zip>
+	</target>
+
+	
+	<!-- clean target -->
+	<target name="clean">
+		<delete includeEmptyDirs="true">
+			<fileset dir="${VMTT}" includes="**/**.class"/>
+			<fileset dir="${VMTT.dest}"/>
+		</delete>
+	</target>
+
+</project>
+

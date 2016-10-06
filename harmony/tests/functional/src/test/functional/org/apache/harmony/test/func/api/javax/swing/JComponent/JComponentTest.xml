@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="JComponentTest"
+    date-of-creation="2005-03-18"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.JComponent"/>
+
+        <Case ID="testStaticFields">
+            <TestedMethod name="public static final String TOOL_TIP_TEXT_KEY"/>
+            <TestedMethod name="public static final int UNDEFINED_CONDITION"/>
+            <TestedMethod name="public static final int WHEN_ANCESTOR_OF_FOCUSED_COMPONENT"/>
+            <TestedMethod name="public static final int WHEN_FOCUSED"/>
+            <TestedMethod name="public static final int WHEN_IN_FOCUSED_WINDOW"/>
+            <Precondition></Precondition>
+            <Description>test that all static fields are present and some of them (WHEN...)
+                    are not equal to each other</Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testConstructorSequence">
+            <TestedMethod name="public JComponent()"/>
+            <Precondition></Precondition>
+            <Description>creates a direct descendant of JComponent instrumented with logging using default constructor</Description>
+            <Expected>proper sequence of methods with proper parameters is called (awt.Component.addFocusListener, 
+            isManagingFocus,  awt.Component.setLocale and firePropertyChange)</Expected>
+        </Case>
+
+        <Case ID="testFields">
+            <TestedMethod name="protected AccessibleContext accessibleContext"/>
+            <TestedMethod name="protected EventListenerList listenerList"/>
+            <TestedMethod name="protected ComponentUI ui"/>
+            <Precondition></Precondition>
+            <Description>creates a direct descendant of JComponent that exposes its protected fields via getters</Description>
+            <Expected>accessibleContext, listenerList and ui are not null</Expected>
+        </Case>
+
+        <Case ID="testAddNotify">
+            <TestedMethod name="void addNotify()"/>
+            <Precondition>creates a direct descendant of JComponent instrumented with logging and adds it 
+            to a window</Precondition>
+            <Description>call addNotify()</Description>
+            <Expected>proper sequence of methods with proper parameters is called (awt.Component.getToolkit, 
+            awt.Container.invalidate, awt.Component.getFont, awt.Component.getParent, firePropertyChange, 
+            getNextFocusableComponent)</Expected>
+        </Case>
+        
+        <Case ID="testRemoveNotify">
+            <TestedMethod name="void removeNotify()"/>
+
+            <Precondition>creates a direct descendant of JComponent instrumented with logging, 
+            adds it to a window, calls addNotify()</Precondition>
+            <Description>call removeNotify()</Description>
+            <Expected>proper sequence of methods with proper parameters is called 
+            (awt.Component.isFocusOwner, awt.Component.hasFocus, awt.Component.getInputContext, 
+            awt.Component.getParent, firePropertyChange and getNextFocusableComponent)</Expected>
+        </Case>
+
+        <Case ID="testContains">
+            <TestedMethod name="public boolean contains(int x, int y)"/>
+
+            <TestedClass name="java.awt.Component"/>
+            <TestedMethod name="public void setLocation(int x, int y)"/>
+
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call contains(0, 0), setLocation(-1, -1)</Description>
+            <Expected>proper sequences of methods with proper parameters are called 
+            and expected results are returned
+            (awt.Component.inside is called in contains(), false returned; 
+            awt.Component.move, awt.Component.setBounds, reshape, awt.Component.isShowing
+            are called inside of setLocation)</Expected>
+        </Case>
+
+        <Case ID="testEnabled">
+            <TestedMethod name="void setEnabled(boolean b)"/>
+
+            <TestedClass name="java.awt.Component"/>
+            <TestedMethod name="boolean isEnabled()"/>
+            <TestedMethod name="void enable()"/>
+            <TestedMethod name="void disable()"/>
+
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call isEnabled(), setEnabled(false), isEnabled(), disable(), isEnabled(),
+            enable(), isEnabled()</Description>
+            <Expected>proper sequences of methods with proper parameters are called 
+            and expected results are returned:
+            - isEnabled() doesn't call any additinal public/protected methods 
+            - first call of isEnabled() returns true
+            - setEnabled(false) calls isEnabled, awt.Component.enable, disable, isEnabled, 
+                    awt.Component.isFocusOwner, awt.Component.hasFocus, firePropertyChange (boolean version), 
+                    awt.Component.repaint, repaint
+            - second isEnabled() returns false
+            - setEnabled(true) calls isEnabled, awt.Component.enable, disable, isEnabled,
+                    firePropertyChange (boolean verion), awt.Component.repaint, repaint
+            - second isEnabled() returns true
+            - disable() calls isEnabled, awt.Component.isFocusOwner, awt.Component.hasFocus
+            - third isEnabled() returns false
+            - enable() calls isEnabled
+            - fourth isEnabled() returns true
+            </Expected>
+        </Case>
+        
+        <Case ID="testActionMap">
+            <TestedMethod name="void setActionMap(ActionMap m)"/>  
+            <TestedMethod name="public final ActionMap getActionMap()"/>  
+
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call setActionMap(ActionMap m), getActionMap() several times</Description>
+            <Expected>no additional methods of JComponent are called and actionmap is rewritten
+            every time even if new actionmap is equal() to old one
+             </Expected>
+        </Case>
+        
+        <Case ID="testInputMap">
+            <TestedMethod name="public final InputMap getInputMap()"/>  
+            <TestedMethod name="public final void setInputMap(int condition, InputMap map)"/>  
+
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call setInputMap(int condition, InputMap m), getInputMap() several times</Description>
+            <Expected>no additional methods of JComponent are called and inputnmap is rewritten
+            every time even if new actionmap is equal() to old one. getInputmap() should return what was set 
+            using setActionMap(JComponent.WHEN_FOCUSED, InputMap)
+             </Expected>
+        </Case>
+        
+
+        <Case ID="testInputVerifier">
+            <TestedMethod name="public InputVerifier getInputVerifier()"/>  
+            <TestedMethod name="public void setInputVerifier(InputVerifier inputVerifier)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getInputVerifier() and setInputVerifier(InputVerifier inputVerifier) 
+            several times</Description>
+            <Expected>default inputVerifier is null, setInputVerifier() calls firePropertychange, 
+            getInputverifier returns what was set by setInputVerifier()</Expected>
+        </Case>
+        
+        <Case ID="testVerifyInputWhenFocusTarget">
+            <TestedMethod name="public boolean getVerifyInputWhenFocusTarget()"/>  
+            <TestedMethod name="public void setVerifyInputWhenFocusTarget(boolean verifyInputWhenFocusTarget)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getVerifyInputWhenFocusTarget() and 
+            setVerifyInputWhenFocusTarget(boolean verifyInputWhenFocusTarget) 
+            several times</Description>
+            <Expected>
+            - getVerifyInputWhenFocusTarget() returns true by default
+            - setVerifyInputWhenFocusTarget(boolean) causes firePropertyChange
+            - getVerifyInputWhenFocusTarget() returns what was set by setVerifyInputWhenFocusTarget(boolean)
+            </Expected>
+        </Case>
+
+        <Case ID="testDoubleBuffered">
+            <TestedMethod name="public boolean isDoubleBuffered()"/>  
+            <TestedMethod name="public void setDoubleBuffered(boolean aFlag)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call isDoubleBuffered() and setDoubleBuffered(boolean aFlag) 
+            several times</Description>
+            <Expected>
+            - isDoubleBuffered() returns false by default
+            - setDoubleBuffered(boolean) doesn't call any additional methods
+            - isDoubleBuffered() returns what was set by setDoubleBuffered(boolean)
+            </Expected>
+        </Case>
+        
+        <Case ID="testToolTipText">
+            <TestedMethod name="public String getToolTipText()"/>  
+            <TestedMethod name="public void setToolTipText(String text)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getToolTipText() and setToolTipText(String text) 
+            several times</Description>
+            <Expected>
+            - getToolTipText() returns null by default
+            - setToolTipText(String) calls firePropertyChange and some other events
+            </Expected>
+        </Case>
+
+        <Case ID="testAlignmentX">
+            <TestedMethod name="public float getAlignmentX()"/>  
+            <TestedMethod name="public void setAlignmentX(float alignmentX)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getAlignmentX() and setAlignmentX(float alignmentX)
+            several times</Description>
+            <Expected>
+            - getAlignmentX() returns Component.CENTER_ALIGNMENT by default
+            - setAlignmentX(float x) doesn't call any additional methods
+            - setAlignmentX(float x) sets alignment to 0 if x is &lt; 0 and to 1 if x is &gt; 1
+            - setAlignmentX(float x) sets alignment to NaN if x is NaN
+            </Expected>
+        </Case>
+
+        <Case ID="testAlignmentY">
+            <TestedMethod name="public float getAlignmentY()"/>  
+            <TestedMethod name="public void setAlignmentY(float alignmentY)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getAlignmentY() and setAlignmentY(float alignmentY)
+            several times</Description>
+            <Expected>
+            - getAlignmentY() returns Component.CENTER_ALIGNMENT by default
+            - setAlignmentY(float y) doesn't call any additional methods
+            - setAlignmentY(float y) sets alignment to 0 if y is &lt; 0 and to 1 if y is &gt; 1
+            - setAlignmentY(float y) sets alignment to NaN if y is NaN
+            </Expected>
+        </Case>
+
+        <Case ID="testAlignmentY">
+            <TestedMethod name="public float getAlignmentY()"/>  
+            <TestedMethod name="public void setAlignmentY(float alignmentY)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getAlignmentY() and setAlignmentY(float alignmentY)
+            several times</Description>
+            <Expected>
+            - getAlignmentY() returns Component.CENTER_ALIGNMENT by default
+            - setAlignmentY(float y) doesn't call any additional methods
+            - setAlignmentY(float y) sets alignment to 0 if y is &lt; 0 and to 1 if y is &gt; 1
+            - setAlignmentY(float y) sets alignment to NaN if y is NaN
+            </Expected>
+        </Case>
+        
+        <Case ID="testBorder">
+            <TestedMethod name="public Border getBorder()"/>  
+            <TestedMethod name="public void setBorder(Border border)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getBorder() and setBorder(Border border)
+            several times</Description>
+            <Expected>
+            - getBorder() returns null by default
+            - setBorder(Border b) calls firePropertyChange and some other methods
+            - getBorder() returns what was set by setBorder()
+            </Expected>
+        </Case>
+
+        <Case ID="testClientProperty">
+            <TestedMethod name="public final void putClientProperty(Object key, Object value)"/>  
+            <TestedMethod name="public final Object getClientProperty(Object key)"/>  
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call putClientProperty(Object key, Object value) and getClientProperty(Object key)
+            several times</Description>
+            <Expected>
+            - getClientProperty() returns null for a key that wasn't set
+            - setClientProperty calls firePropertyChange 
+            - getClientProperty() returns what was set by setClientProperty()
+            </Expected>
+        </Case>
+
+        <Case ID="testLocale">
+            <TestedMethod name="public static Locale getDefaultLocale()"/>  
+            <TestedMethod name="public static void setDefaultLocale(Locale l)"/>
+            <TestedClass name="java.awt.Component"/>
+            <TestedMethod name="public Locale getLocale()"/>
+            <TestedMethod name="public void setLocale(Locale l)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call getLocale() on a newly created component - it is expected to return 
+            value equal to JComponent.getDefaultLocale(). After setLocale() it should return 
+            the value that was set. After JComponent.setDefaultLocale(..) created components' locale
+            is the new default locale.</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testHeightWidth">
+            <TestedMethod name="public int getHeight()"/>  
+            <TestedMethod name="public int getWidth()"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its methods getHeight() and getWidth()</Description>
+            <Expected>both return 0 and don't call any additional methods</Expected>
+        </Case>
+
+        <Case ID="testXY">
+            <TestedMethod name="public int getX()"/>  
+            <TestedMethod name="public int getY()"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its methods getX() and getY()</Description>
+            <Expected>both return 0 and don't call any additional methods</Expected>
+        </Case>
+
+        <Case ID="testManagingFocus">
+            <TestedMethod name="public boolean isManagingFocus()"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method isManagingFocus()</Description>
+            <Expected>it returns false and doesn't call any additional methods</Expected>
+        </Case>
+
+        <Case ID="testOptimizedDrawing">
+            <TestedMethod name="public boolean isOptimizedDrawingEnabled()"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method isOptimizedDrawingEnabled()</Description>
+            <Expected>it returns true and doesn't call any additional methods</Expected>
+        </Case>
+
+        <Case ID="testOpaque">
+            <TestedMethod name="public boolean isOpaque()"/>
+            <TestedMethod name="public void setOpaque(boolean isOpaque)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its methods isOpaque() and setOpaque(boolean)</Description>
+            <Expected>
+            - isOpaque() returns false by default
+            - setOpaque(boolean) calls firePropertyChange(...)
+            </Expected>
+        </Case>
+
+        <Case ID="testIsValidateRoot">
+            <TestedMethod name="public boolean isValidateRoot()"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method isValidateRoot()</Description>
+            <Expected>it returns false and doesn't call any additional methods</Expected>
+        </Case>
+
+        <Case ID="testPaintImmediately">
+            <TestedMethod name="public void paintImmediately(int x, int y, int w, int h)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method paintImmediately(...)</Description>
+            <Expected>it calls isShowing()</Expected>
+        </Case>
+
+        <Case ID="testRepaint">
+            <TestedMethod name="public void repaint(long tm, int x, int y, int width, int height)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method repaint(...)</Description>
+            <Expected>certain sequences of calls happen when getWidth() method of the component
+            returns 0 and not 0</Expected>
+        </Case>
+        
+        <Case ID="testRequestFocusInWindow">
+            <TestedMethod name="public boolean requestFocusInWindow()"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method requestFocusInWindow()</Description>
+            <Expected>certain sequences of calls is produced</Expected>
+        </Case>
+
+        <Case ID="testRequestFocus">
+            <TestedMethod name="public void requestFocus()"/>
+            <TestedMethod name="public boolean requestFocus(boolean temporary)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its methods requestFocus(), requestFocus(boolean)</Description>
+            <Expected>
+            - certain sequences of calls is produced
+            - requestFocus(false) returns false</Expected>
+        </Case>
+
+        <Case ID="testReshape">
+            <TestedMethod name="public void reshape(int x, int y, int w, int h)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method reshape(...)</Description>
+            <Expected>certain sequence of calls happens</Expected>
+        </Case>
+
+        <Case ID="testRevalidate">
+            <TestedMethod name="public void revalidate()"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call its method revalidate()</Description>
+            <Expected>certain sequence of calls happens</Expected>
+        </Case>
+
+        <Case ID="testSetUI">
+            <TestedMethod name="protected void setUI(ComponentUI newUI)"/>
+            <TestedClass name="javax.swing.UIManager"/>
+            <TestedMethod name="public static ComponentUI getUI(JComponent target)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description></Description>
+            <Expected>
+            - calling UIManager.getUI(..) on that component returns null
+            - calling setUI() on it calls firePropertyChange() and some other methods
+            </Expected>
+        </Case>
+
+        <Case ID="testSetVisible">
+            <TestedMethod name="public void setVisible(boolean aFlag)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call setVisible(true) and setVisible(false)</Description>
+            <Expected>certain sequences of calls happen</Expected>
+        </Case>
+
+        <Case ID="testSetVisible">
+            <TestedMethod name="public void setVisible(boolean aFlag)"/>
+            
+            <Precondition>create a direct descendant of JComponent instrumented with logging</Precondition>
+            <Description>call setVisible(true) and setVisible(false)</Description>
+            <Expected>certain sequences of calls happen</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name="gui"/>    
+    <Keyword name="functional"/>    
+    <Source name="JComponentTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.JComponent.JComponentTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

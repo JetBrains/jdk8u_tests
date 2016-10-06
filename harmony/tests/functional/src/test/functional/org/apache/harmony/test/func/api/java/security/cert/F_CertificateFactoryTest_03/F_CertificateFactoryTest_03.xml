@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_CertificateFactoryTest_03"
+    date-of-creation="2005-10-17"
+    timeout="1"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.cert.CertStoreSpi"/>
+                    <TestedMethod name="public CertStoreSpi(CertStoreParameters params) throws InvalidAlgorithmParameterException"/>
+
+                    <TestedClass name="java.security.cert.CertPathBuilderSpi"/>
+                    <TestedMethod name="public CertPathBuilderSpi()"/>
+
+                    <TestedClass name="java.security.cert.CertificateFactorySpi"/>
+                    <TestedMethod name="public CertificateFactorySpi()"/>
+
+                    <TestedClass name="java.security.cert.CertificateFactory"/>
+                    <TestedMethod name="public static final CertificateFactory getInstance(String type, Provider provider) throws CertificateException"/>
+                    <TestedMethod name="public final Provider getProvider()"/>
+                    <TestedMethod name="public final Certificate generateCertificate(InputStream inStream) throws CertificateException"/>
+
+                    <TestedClass name="java.security.cert.CollectionCertStoreParameters"/>
+                    <TestedMethod name="public CollectionCertStoreParameters(Collection&lt;?&gt; collection)"/>
+
+                    <TestedClass name="java.security.cert.CertStore"/>
+                    <TestedMethod name="protected CertStore(CertStoreSpi storeSpi, Provider provider, String type, CertStoreParameters params)"/>
+
+                    <TestedClass name="java.security.cert.TrustAnchor"/>
+                    <TestedMethod name="public TrustAnchor(X509Certificate trustedCert, byte[] nameConstraints)"/>
+
+                    <TestedClass name="java.security.cert.X509CertSelector"/>
+                    <TestedMethod name="public X509CertSelector()"/>
+                    <TestedMethod name="public void setSubjectPublicKey(PublicKey key)"/>
+                    <TestedMethod name="public void setSubject(X500Principal subject)"/>
+
+                    <TestedClass name="java.security.cert.PKIXBuilderParameters"/>
+                    <TestedMethod name="public PKIXBuilderParameters(Set&lt;TrustAnchor&gt; trustAnchors, CertSelector targetConstraints) throws InvalidAlgorithmParameterException"/>
+
+                    <TestedClass name="java.security.cert.PKIXParameters"/>
+                    <TestedMethod name="public void addCertStore(CertStore store)"/>
+                    <Testedmethod name="public void setRevocationEnabled(boolean val)"/>
+
+                    <TestedClass name="java.security.cert.CertPathBuilder"/>
+                    <TestedMethod name="protected CertPathBuilder(CertPathBuilderSpi builderSpi, Provider provider, String algorithm)"/>
+                    <TestedMethod name="public final CertPathBuilderResult build(CertPathParameters params) throws CertPathBuilderException, InvalidAlgorithmParameterException"/>
+
+                    <TestedClass name="java.security.cert.PKIXCertPathBuilderResult"/>
+                    <TestedMethod name="public CertPath getCertPath()"/>                
+            
+                    <Description>
+                        Checks mechanism of SPI implementation of various engines.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_CertificateFactoryTest_03.java"/>
+                <Modification date="2005-10-12" />
+            
+                
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator"/>
+                   <Option name="-Dqe.class=$TestSuiteClassRoot"/>
+                   <Option name="-Dqe.src=$TestSuiteTestRoot"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.cert.F_CertificateFactoryTest_03.F_CertificateFactoryTest_03">
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorcert_test.cert"/>
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorca_root.cert"/>
+                </Param>
+        </Runner>
+
+        <Restriction name="OtherVMOnly"/>
+</Test>

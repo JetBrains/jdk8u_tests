@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="run.api.text.tests" default="run.api.text" basedir=".">
+
+    <description> Runs all tests from api/text </description>
+
+    <target name="run.api.text">
+
+        <run-pjava-test test="api.text.BreakIterator_AllLocales" 
+                        args="${api.text.BreakIterator_AllLocales.iterations}"/>
+
+        <run-pjava-test test="api.text.CollationElementIteratorTest" 
+                        args="${api.text.CollationElementIteratorTest.n_threads}
+                              ${api.text.CollationElementIteratorTest.iterations}"/>
+
+        <run-pjava-test test="api.text.CollationKeyTest_ArrHash" 
+                        args="${api.text.CollationKeyTest_ArrHash.n_threads}
+                              ${api.text.CollationKeyTest_ArrHash.iterations}"/>
+
+        <run-pjava-test test="api.text.CollationKeyTest" 
+                        args="${api.text.CollationKeyTest.n_threads}
+                              ${api.text.CollationKeyTest.iterations}"/>
+                              
+        <run-pjava-test test="api.text.DecimalFormat_Locales" 
+                        args="${api.text.DecimalFormat_Locales.n_threads}
+                              ${api.text.DecimalFormat_Locales.iterations}"/>
+
+        <run-pjava-test test="api.text.getAvailableLocales_Coll" 
+                        args="${api.text.getAvailableLocales_Coll.iterations}"/>
+
+        <run-pjava-test test="api.text.getAvailableLocals_RBC" 
+                        args="${api.text.getAvailableLocals_RBC.n_threads}
+                              ${api.text.getAvailableLocals_RBC.iterations}"/>
+
+        <run-pjava-test test="api.text.getSentenceInstance_check" 
+                        args="${api.text.getSentenceInstance_check.n_threads}
+                              ${api.text.getSentenceInstance_check.iterations}"/>
+
+        <run-pjava-test test="api.text.getSentenceInstance" 
+                        args="${api.text.getSentenceInstance.n_threads}
+                              ${api.text.getSentenceInstance.iterations}"/>
+
+    </target>
+
+</project>

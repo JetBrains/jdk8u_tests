@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="ActionMapTest"
+    date-of-creation="2005-04-07"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.ActionMap"/>
+
+        <Case ID="testInit">
+            <TestedMethod name="public ActionMap()"/>
+            <Precondition> none </Precondition>
+            <Description>creates a new AbstractAction object and check its init state</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+
+
+        <Case ID="testSize">
+            <TestedMethod name="public int size()"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testParent01">
+            <TestedMethod name="public ActionMap getParent()"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description>1. sets a parent, then tries to get back the parent
+                     2. sets other parent, checks its
+                     3. tries to clear parent </Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testParent01">
+            <TestedMethod name="public void setParent(ActionMap map)"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description>1. sets a parent, then tries to get back the parent
+                     2. sets other parent, checks its
+                     3. tries to clear parent </Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+
+        <Case ID="testGetPut01">
+            <TestedMethod name="public Action get(Object key)"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+        <Case ID="testGetPut01">
+            <TestedMethod name="public void put(Object key, Action action)"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+
+        <Case ID="testRemove">
+            <TestedMethod name="public void remove(Object key)"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testClear">
+            <TestedMethod name="public void clear()"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testKeys">
+            <TestedMethod name="public Object[] keys()"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testAllKeys">
+            <TestedMethod name="public Object[] allKeys()"/>
+            <Precondition>creates an  ActionMap object</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>
+    <Keyword name="gui"/>
+
+    <Source name="ActionMapTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.ActionMap.ActionMapTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

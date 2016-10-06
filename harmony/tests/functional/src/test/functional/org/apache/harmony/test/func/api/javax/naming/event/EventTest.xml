@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test
+    ID="EventTest"
+    date-of-creation="2005-03-11"
+    timeout="1">
+        
+        
+
+        <MulticaseTestDescription>
+            
+            <Case ID="testObjectAdded">
+                <TestedClass name="javax.naming.event.NamingEvent"/>
+                <TestedMethod name="public NamingEvent(EventContext source,
+                   int type,
+                   Binding newBd,
+                   Binding oldBd,
+                   Object changeInfo)"/>
+                 <TestedMethod name="public int getType()"/>
+                 <TestedMethod name="public Binding getOldBinding()"/>
+                 <TestedMethod name="public Binding getNewBinding()"/>
+                 <TestedMethod name="public void dispatch(NamingListener listener)"/>    
+                 <TestedMethod name="public EventContext getEventContext()"/>                 
+                <Description>
+                    Bind new object: name="Test", obj="Test Object". 
+                     Verify that:
+                         NamespaceChangeListener.objectAdded() method invoked
+                         NamingEvent.getNewBinding().getObject().equals("Test Object")
+                         NamingEvent.getNewBinding().getName().equals("Test")
+                         NamingEvent.getOldBinding() == null
+                </Description>
+            </Case>
+            
+            <Case ID="testObjectRemoved">
+                <Description>
+                    Bind new object: name="Test", obj="Test Object". 
+                     unbind("Test").
+                     Verify that:
+                         NamespaceChangeListener.objectRemoved() method invoked
+                         NamingEvent.getNewBinding() == null
+                         NamingEvent.getOldBinding().getObject().equals("Test Object")
+                         NamingEvent.getOldBinding().getName().equals("Test")
+                </Description>
+            </Case>
+            
+            <Case ID="testObjectRenamed">
+                <Description>
+                    Bind new object: name="Test", obj="Test Object". 
+                     rename("Test", "Test(renamed)").
+                     Verify that:
+                         NamespaceChangeListener.objectRenamed() method invoked
+                         NamingEvent.getNewBinding().getName().equals("Test(renamed)")
+                         NamingEvent.getNewBinding().getObject().equals("Test Object")
+                         NamingEvent.getOldBinding().getName().equals("Test")
+                         NamingEvent.getOldBinding().getObject().equals("Test Object")
+                </Description>
+            </Case>
+            
+            <Case ID="testObjectChanged">
+                <Description>
+                    Bind new object: name="Test", obj="Test Object". 
+                     rebind("Test", "New Test Object").
+                     Verify that:
+                        ObjectChangeListener.objectChanged() method invoked
+                        NamingEvent.getNewBinding().getName().equals("Test")
+                        NamingEvent.getNewBinding().getObject().equals("New Test Object")
+                        NamingEvent.getOldBinding().getName().equals("Test")
+                        NamingEvent.getOldBinding().getObject().equals("Test Object")
+                </Description>
+            </Case>
+            
+            <Case ID="testNamingExceptionThrown">
+                <Description>
+                    Invoke ctx.getSchema("Test").
+                    Verify that:
+                        NamingExceptionEvent.namingExceptionThrown() method invoked
+                        NamingExceptionEvent.getException().getMessage().equals("Ok")
+                </Description>
+            </Case>
+            
+        </MulticaseTestDescription>
+        
+        <Keyword name="functional"/>
+
+        <Source name="EventTest.java"/>
+        <Runner ID="MultiCase">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.javax.naming.event.EventTest"/>
+        </Runner>
+        
+        <Restriction name="OtherVMOnly"/> 
+</Test>
+

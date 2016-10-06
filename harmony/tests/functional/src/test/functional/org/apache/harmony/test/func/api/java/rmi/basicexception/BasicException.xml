@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test ID="BasicException" date-of-creation="2004-12-21" timeout="1">
+    
+    
+    <APITestDescription>
+        <TestedClass name="java.rmi.registry.Registry" />
+        <TestedMethod name="void rebind(String name, Remote obj)" />
+        <TestedMethod name="void unbind(String name)" />
+        <TestedClass name="java.rmi.registry.LocateRegistry" />
+        <TestedMethod
+            name="public static Registry createRegistry(int port)" />
+        <TestedMethod name="public static Registry getRegistry()" />
+        <TestedClass name="java.rmi.server.RemoteStub" />
+        <TestedClass name="java.rmi.ServerException" />
+        <Description>
+            Name: BasicExceptionTest
+
+            Purpose: Test basic RMI exceptions
+
+            Under test:
+
+            java.rmi.registry.LocateRegistry,
+            java.rmi.registry.Registry, java.rmi.server.RemoteStub,
+            java.rmi.server.UnicastRemoteObject,
+            java.rmi.AccessException, java.rmi.RemoteException,
+            java.rmi.RMISecurityException, RMI runtime
+
+            Test purpose: test basic RMI exceptions
+
+            Test design:
+
+            1. Server part creates and exports a remote object which has
+            4 remote methods each of which throws (in the throws clause
+            and/or in the body) an exception.
+
+            2. Client part calls the remote methods and checks, that
+            appropriate exception is caught (with the same detail
+            message).
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="BasicExceptionTest.java" />
+    <Source name="OtherVMTest.java" />
+    <Source name="OtherVMTestInterface.java" />
+    <Source name="ServerImpl.java" />
+    <Source name="SInterface.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.java.rmi.basicexception.BasicExceptionTest">
+        </Param>
+    </Runner>
+</Test>
+
+
+
+
+

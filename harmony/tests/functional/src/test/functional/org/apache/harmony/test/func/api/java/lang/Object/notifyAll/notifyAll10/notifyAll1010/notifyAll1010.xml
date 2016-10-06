@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../../test.dtd'>
+<Test
+    ID="notifyAll1010"
+    date-of-creation="2005-6-30"
+    timeout="1"
+    >
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.Object"/>
+            <TestedMethod name="public final void notifyAll()"/>
+            <Description>
+The test is against notifyAll1010 method.
+
+For testing purposes two threads are waiting on synchronized "naObjects[1]" object. 
+A waiting thread may be waked up with the "naObjects[1].notify" from the main thread,
+after that it increments the value of the "nCounts[i]" variable.
+
+The test performs the following checks on the notifyAll1010 method.
+1) The method throws "IllegalMonitorStateException"
+   if the current thread is not the owner of this object's monitor.
+2) The method wakes up both threads that are waiting on this object's monitor.
+            </Description>
+            </APITestDescription>
+        <Source name="notifyAll1010.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.Object.notifyAll.notifyAll10.notifyAll1010.notifyAll1010"/>
+        </Runner>
+</Test>

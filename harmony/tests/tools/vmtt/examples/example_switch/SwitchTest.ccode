@@ -1,0 +1,196 @@
+/*
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.    
+*/
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 50
+
+constant_pool_count = 16
+
+constant_pool {
+  /* #1 */ Method = #3 #13
+  /* #2 */ Class = #14
+  /* #3 */ Class = #15
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ UTF8 = "()V"
+  /* #6 */ UTF8 = "Code"
+  /* #7 */ UTF8 = "LineNumberTable"
+  /* #8 */ UTF8 = "foo"
+  /* #9 */ UTF8 = "(I)V"
+  /* #10 */ UTF8 = "StackMapTable"
+  /* #11 */ UTF8 = "SourceFile"
+  /* #12 */ UTF8 = "SwitchTest.java"
+  /* #13 */ NameAndType = #4 #5
+  /* #14 */ UTF8 = "SwitchTest"
+  /* #15 */ UTF8 = "java/lang/Object"
+}
+
+access_flags = x21  // PUBLIC SUPER 
+
+this_class = #2  // "SwitchTest"
+
+super_class = #3  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #4  // "<init>"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 29
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #7  // "LineNumberTable"
+                attribute_length = 6
+                line_number_table_length = 1
+                line_number_table {
+                    // start_pc line_number
+                    0 19
+                }
+              }
+            }
+        }
+      }
+  }
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #8  // "foo"
+    descriptor_index = #9  // "(I)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 206
+          max_stack = 3
+          max_locals = 4
+          code_length = 104
+          code asm {
+          0:	iload_1
+          1:	istore_2
+          2:	iload_1
+          3:	tableswitch {
+            	1: 29
+            	2: 38
+            	3: 44
+            	4: 53
+            	default: 56
+            	}
+          32:	iinc 1 1
+          35:	iinc 1 12
+          38:	goto 21
+          41:	iinc 1 -1
+          44:	goto 15
+          47:	iload_1
+          48:	iconst_2
+          49:	iadd
+          50:	iload_1
+          51:	bipush 123
+          53:	imul
+          54:	iadd
+          55:	istore_1
+          56:	iinc 1 1
+          59:	iload_1
+          60:	istore_3
+          61:	iload_3
+          62:	lookupswitch {
+             	1: 26
+             	65535: 32
+             	default: 41
+             	}
+          88:	iinc 1 1
+          91:	goto 12
+          94:	iload_1
+          95:	iconst_2
+          96:	iadd
+          97:	iload_1
+          98:	bipush 123
+          100:	imul
+          101:	iadd
+          102:	istore_1
+          103:	return
+          }
+          exception_table_length = 0
+          attributes_count = 2
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #7  // "LineNumberTable"
+                attribute_length = 62
+                line_number_table_length = 15
+                line_number_table {
+                    // start_pc line_number
+                    0 22
+                    2 23
+                    32 25
+                    35 26
+                    38 27
+                    41 29
+                    44 30
+                    47 32
+                    56 34
+                    59 37
+                    61 38
+                    88 40
+                    91 41
+                    94 43
+                    103 46
+                }
+              }
+              attribute {  // unknown attribute or wrong name_index
+                x00 x0A x00 x00 x00 x10 x00 x08 
+                xFFFFFFFC x00 x20 x01 x08 x05 x08 x02 
+                xFFFFFFFC x00 x1C x01 x05 x08 
+              }
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #11  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #12  // "SwitchTest.java"
+  }
+}

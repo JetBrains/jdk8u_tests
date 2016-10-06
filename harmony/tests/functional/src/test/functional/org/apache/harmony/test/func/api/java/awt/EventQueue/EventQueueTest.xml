@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="EventQueueTest"
+    date-of-creation="2005-005-30"
+    timeout="3"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.EventQueue"/>
+        <Case ID="testEventQueue_dispatchEvent">
+            <TestedMethod name="protected void dispatchEvent(AWTEvent event)"/>
+            <Precondition>Create EventQueue</Precondition>
+            <Description>Simply dipatching an event to object</Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testDialog_setTitle">
+            <TestedMethod name="public void postEvent(AWTEvent theEvent)"/>
+            <Precondition>Create EventQueue</Precondition>
+            <Description>We are posting an event with the same ID and 
+              event source, this whould source Component's coalesceEvents 
+              method be called.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testEventQueue_isDispatchThread">
+            <TestedMethod name="public static boolean isDispatchThread()"/>
+            <TestedMethod name="public static void invokeLater(Runnable runnable)"/>
+            <Precondition>Create EventQueue</Precondition>
+            <Description>Call method on AWT EventQueue's dispatch thread and 
+              a simple (current tests) thread.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testEventQueue_getPeekEvent">
+            <TestedMethod name="public AWTEvent getNextEvent()"/>
+            <TestedMethod name="public AWTEvent peekEvent()"/>
+            <Precondition>Create EventQueue</Precondition>
+            <Description>Call method on AWT EventQueue's dispatch thread and 
+              a simple (current tests) thread.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="Functional"/>    
+    <Keyword name="GUI"/>
+    <Source name="EventQueueTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.EventQueue.EventQueueTest">
+            <Option name="-paintTimeout" value="$paintTimeout"/>
+        </Param>
+    </Runner>
+</Test> 

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<Test ID="Naming_RMI" date-of-creation="2005-03-03" timeout="1">
+
+    <APITestDescription>
+
+        <TestedClass name="javax.naming.InitialContext" />
+
+        <TestedMethod name="public InitialContext()" />
+
+        <TestedMethod
+            name="public Object addToEnvironment(String propName, Object propVal)" />
+
+        <TestedMethod
+            name="public String composeName(String name, String prefix)" />
+
+        <TestedMethod name="public Hashtable&lt;?,?&gt; getEnvironment()" />
+
+        <TestedMethod name="public String getNameInNamespace()" />
+
+        <TestedMethod
+            name="public NameParser getNameParser(String name)" />
+
+        <TestedMethod name="NamingEnumeration&lt;NameClassPair&gt; list(String name)" />
+
+        <TestedMethod
+            name="NamingEnumeration&lt;Binding&gt; listBindings(String name)" />
+
+        <TestedMethod name="public Object lookup(String name)" />
+
+        <TestedMethod name="public Object lookupLink(String name)" />
+
+        <TestedMethod
+            name="public Object removeFromEnvironment(String propName)" />
+
+        <Description>
+            This test is similar to the JNDI/LDAP tests, but it uses RI
+            RMI Service Provider. HelloImpl class is a simple remote
+            object with only one remote method - sayHello(). This test
+            tests all methods, supported by Naming Service provider.
+            Supported methods: lookup() lookupLink() bind() rebind()
+            unbind() rename() list() listBindings() getNameParser()
+            getNameInNamespace() composeName() addToEnvironment()
+            removeFromEnvironment() close() getReference()
+        </Description>
+
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="NamingTest.java" />
+
+    <Runner ID="Runtime">
+
+        <Option name="-cp" value="$TestSuiteClassRoot$PathSeparator$TestSuiteLibRoot$FileSeparatorjndi$FileSeparatorproviders.jar" />
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.naming.NamingTest">
+            <Option name="xmlPath"
+                value="org/apache/harmony/test/func/api/javax/naming/share/jndiRMITest.xml" />
+            <Option name="testName" value="regular" />
+
+        </Param>
+
+    </Runner>
+
+    <Restriction name="OtherVMOnly" />
+
+</Test>
+
+
+
+
+

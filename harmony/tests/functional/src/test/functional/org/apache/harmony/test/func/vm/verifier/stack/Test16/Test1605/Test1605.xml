@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test ID="stackTest1605" date-of-creation="2005-10-17" timeout="1">
+    
+    
+    <Description>
+        Tests situation described at qa verifier TestPlan, page16. Case
+        "new", twentieth position.
+    </Description>
+
+    <Source name="Test1605.j" />
+    <Source name="Test1605B.jj" />
+    <Source name="Test1605C.jj" />
+    <Source name="Test1605E.jj" />
+    <Source name="Test1605F.jj" />
+    <Source name="Test1605H.jj" />
+    <Source name="Test1605J.jj" />
+    <Source name="Test1605K.jj" />
+    <Source name="Test1605L.jj" />
+    <Source name="Test1605N.jj" />
+    <Source name="Test1605O.jj" />
+    <Source name="Test1605P.jj" />
+    <Source name="Test1605R.jj" />
+    <Source name="Test1605X.jj" />
+    <Source name="Test1605Y.jj" />
+    <Source name="Test1605Z.jj" />
+    <Source name="Test1605Ver.jj" />
+    <Source name="../control_flow_graph_16.gif" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.vm.verifier.stack.Test16.Test1605.Test1605" />
+    </Runner>
+</Test>

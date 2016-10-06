@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="MatcherTest"
+    date-of-creation="2005-09-02"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.regex.Matcher"/>
+        
+        <Case ID="testStartEnd">
+            <TestedMethod name="public boolean find()"/>    
+            <TestedMethod name="public boolean find(int start)"/>    
+            <TestedMethod name="public Matcher reset()"/>
+            <TestedMethod name="public int start()"/>
+            <TestedMethod name="public int end()"/>
+            <TestedClass name="java.util.regex.Pattern"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public Matcher matcher(CharSequence input)"/>
+            
+            <Precondition></Precondition>
+            <Description>A string with 4 commas. Matcher - comma. Execute find() 0..5 times, after each 
+            of find() sequence, call reset(), find() and start()</Description>
+            <Expected>Each time the position of the first comma is returned</Expected>
+           </Case>
+        <Case ID="testReplaceAll">
+            <TestedMethod name="public String replaceAll(String replacement)"/>    
+            <TestedMethod name="public String group()"/>    
+            <TestedClass name="java.util.regex.Pattern"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public Matcher matcher(CharSequence input)"/>
+
+            <Precondition></Precondition>
+            <Description>try replaceall with misc patterns against misc strings</Description>
+            <Expected>expected value is returned; no group() is allowed after replaceAll()</Expected>
+           </Case>
+        <Case ID="testPattern">
+            <TestedMethod name="public Pattern pattern()"/>    
+            <TestedClass name="java.util.regex.Pattern"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public Matcher matcher(CharSequence input)"/>
+
+            <Precondition>create many Matchers</Precondition>
+            <Description>call pattern() on each of them</Description>
+            <Expected>pattern() returns the pattern that produced that matcher</Expected>
+           </Case>
+        <Case ID="testMatches">
+            <TestedMethod name="public boolean matches()"/>    
+            <TestedClass name="java.util.regex.Pattern"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public Matcher matcher(CharSequence input)"/>
+
+            <Precondition>create many Matchers</Precondition>
+            <Description>call matches() on each of them</Description>
+            <Expected>expected value is returned</Expected>
+           </Case>
+        <Case ID="testMatches">
+            <TestedMethod name="public boolean matches()"/>    
+            <TestedClass name="java.util.regex.Pattern"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public Matcher matcher(CharSequence input)"/>
+
+            <Precondition>create many Matchers</Precondition>
+            <Description>call matches() on each of them</Description>
+            <Expected>expected value is returned</Expected>
+           </Case>
+        <Case ID="testAppendReplacement">
+            <TestedMethod name="public boolean find()"/>    
+            <TestedMethod name="public Matcher appendReplacement(StringBuffer sb, String replacement)"/>                
+            <TestedMethod name="public StringBuffer appendTail(StringBuffer sb)"/>
+            
+            <TestedClass name="java.util.regex.Pattern"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public Matcher matcher(CharSequence input)"/>
+
+            <Precondition>create Matchers</Precondition>
+            <Description>call find(), appendReplacement(), appendTail() on them</Description>
+            <Expected>behaviour according to spec</Expected>
+           </Case>
+        <Case ID="testGroup">
+            <TestedMethod name="public int groupCount()"/>
+            <TestedMethod name="public String group()"/>    
+            <TestedMethod name="public String group(int group)"/>                
+            
+            <TestedClass name="java.util.regex.Pattern"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public Matcher matcher(CharSequence input)"/>
+
+            <Precondition>create a matcher</Precondition>
+            <Description>call find() on it a few times</Description>
+            <Expected>group() == group(0) each time and group(int i) return 
+            expected value each time</Expected>
+           </Case>
+       
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="MatcherTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.regex.Matcher.MatcherTest">
+        </Param>
+    </Runner>
+    <!--Restriction name="OtherVMOnly"/-->
+</Test> 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="FrameTest"
+    date-of-creation="2005-04-04"
+    timeout="5"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.Frame"/>
+        <Case ID="testFrame_appearance">
+            <TestedMethod name="public Frame(String title)"/>        
+            <TestedMethod name="public Frame(String title, GraphicsConfiguration gc)"/>
+            <TestedMethod name="public Image getIconImage()"/>
+            <TestedMethod name="public void setTitle(String title)"/>
+            <TestedMethod name="public String getTitle()"/>
+            <TestedMethod name="public void setResizable(boolean resizable)"/>
+            <TestedMethod name="public boolean isResizable()"/>
+            <TestedMethod name="public boolean isUndecorated()"/>
+            <TestedMethod name="public void setUndecorated(boolean undecorated)"/>
+            <Precondition>Create frame</Precondition>
+            <Description>In this test we simply set the corresponding properties (title,
+             resizable, etc.) and check whether they are really set via getXxxxx methods
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name="Functional"/>
+    <Keyword name="GUI"/>
+        
+    <Source name="FrameTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.Frame.FrameTest">
+            <Option name="-reference" value="$ReferenceRuntime"/>
+            <Option name="-usedCP" value="$CP"/>
+            <Option name="-paintTimeout" value="$paintTimeout"/>
+        </Param>
+    </Runner>
+</Test>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="DefaultHighlighterTest"
+    date-of-creation="2005-06-03"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.text.DefaultHighlighter"/>
+
+
+        <Case ID="testConstructor">
+            <TestedMethod name="public DefaultHighlighter()"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testHighlight">
+            <TestedMethod name="public void install(JTextComponent c)"/>
+            <TestedMethod name="public Highlighter.Highlight[] getHighlights()"/>
+            <TestedMethod name="public Highlighter.Highlight[] getHighlights()"/>
+            <TestedMethod name="public Object addHighlight(int p0, int p1, Highlighter.HighlightPainter p)"/>
+            <TestedMethod name="public void changeHighlight(Object tag, int p0, int p1)"/>
+            <TestedMethod name="public void removeHighlight(Object tag)"/>
+            <TestedMethod name="public void removeAllHighlights()"/>
+            
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testPaint">
+            <TestedMethod name="public void paint(Graphics g)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testInstall">
+            <TestedMethod name="public void install(JTextComponent c)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testLayeredHighlights">
+            <TestedMethod name="public void install(JTextComponent c)"/>
+            <TestedMethod name="public void install(JTextComponent c)"/>
+            <TestedMethod name="public Object addHighlight(int p0, int p1, Highlighter.HighlightPainter p)"/>
+            <TestedMethod name="public void paintLayeredHighlights(Graphics g, int p0, int p1, Shape viewBounds, JTextComponent editor, View view)"/>
+            <TestedMethod name="public void setDrawsLayeredHighlights(boolean newValue)"/>
+            <TestedMethod name="public boolean getDrawsLayeredHighlights()"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>
+    <Keyword name="gui"/>    
+    <Source name="DefaultHighlighterTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.text.DefaultHighlighter.DefaultHighlighterTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>    
+</Test> 

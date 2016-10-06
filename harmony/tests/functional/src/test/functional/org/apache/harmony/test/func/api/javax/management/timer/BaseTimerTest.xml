@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+    
+
+<Test  ID="BaseTimerTest"  date-of-creation="2005-11-11" timeout="10">
+    
+    
+        <MulticaseTestDescription>
+        <TestedClass name="javax.management.timer.Timer"/>
+        
+        <Case ID="testBaseChk">
+            <TestedMethod name="public void start()"/>
+            <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+               <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. install the timer service and a notification listener
+             3. Starting the timer service check that notification mechanism works properly
+             4. Adding 10 notifications at 1 millsecond intervals
+           </Description>
+        </Case>
+        <Case ID="testRemoveNotifications">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding notification
+             5. Removing notifications
+           </Description>
+        </Case>
+        <Case ID="testRemoveAllNotifications">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding couple notification
+             5. Removing all notifications
+           </Description>
+        </Case>
+        <Case ID="testaddNotificationParam1">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding notification with type = null 
+             5. Check that exception dose not thorwn
+           </Description>
+        </Case>
+        <Case ID="testaddNotificationParam2">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding notification with message = null 
+             5. Check that exception dose not thorwn
+           </Description>
+        </Case>
+        <Case ID="testaddNotificationParam3">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding notification with userData = null 
+             5. Check that exception dose not thorwn
+           </Description>
+        </Case>
+        <Case ID="testaddNotificationParam4">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding notification with Date = null
+             5. Check that thorwn IllegalArgumentException
+           </Description>
+        </Case>
+        <Case ID="testTimerNotificationIdentifier">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+               <TestedMethod name="public Date getDate(Integer id)"/>
+               <TestedMethod name="public Long getNbOccurences(Integer id)    "/>
+               <TestedMethod name="public Boolean getFixedRate(Integer id)"/>
+               <TestedMethod name="public String getNotificationMessage(Integer id)"/>
+               <TestedMethod name="public String getNotificationType(Integer id)"/>
+               <TestedMethod name="public Object getNotificationUserData(Integer id)"/>
+               <TestedMethod name="public Long getPeriod(Integer id)"/>
+               <TestedMethod name="public void removeNotification(Integer id)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding notification 
+             5. Check that tested methods work properly
+           </Description>
+        </Case>
+        <Case ID="testTimerNotificationIdentifier2">
+            <TestedMethod name="public void start()"/>
+               <TestedMethod name="public Integer addNotification(String type, String message, Object userData, Date date, long period, long nbOccurences, boolean fixedRate)"/>
+               <TestedMethod name="public Date getDate(Integer id)"/>
+               <TestedMethod name="public Long getNbOccurences(Integer id)    "/>
+               <TestedMethod name="public Boolean getFixedRate(Integer id)"/>
+               <TestedMethod name="public String getNotificationMessage(Integer id)"/>
+               <TestedMethod name="public String getNotificationType(Integer id)"/>
+               <TestedMethod name="public Object getNotificationUserData(Integer id)"/>
+               <TestedMethod name="public Long getPeriod(Integer id)"/>
+               <TestedMethod name="public void removeNotification(Integer id)"/>
+            <TestedMethod name="public void stop()"/>
+            <Description>
+             1. Create MBeanServers 
+             2. Install the timer service and a notification listener
+             3. Starting the timer service 
+             4. Adding notification 
+             5. Check that all mandatory exceptions are thorwn for tested methods
+           </Description>
+        </Case>
+    </MulticaseTestDescription>    
+    <Source name="BaseTimerTest.java"/>
+    <Source name="LibTimer.java"/>
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.timer.BaseTimerTest">
+    </Param>
+</Runner>
+</Test>

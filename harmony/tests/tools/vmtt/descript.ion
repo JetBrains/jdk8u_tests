@@ -1,0 +1,7 @@
+
+Distributive structure:
+
+		bin/		- scripts for running
+		doc/        - documentation (readme, ccode file format description)
+		examples/   - examples of usage VM testing tools
+		lib/		- VMTT libraries

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<Tests>
+    <Test name="regular">
+        <SysEnv>
+            <Param name="INITIAL_CONTEXT_FACTORY" heritable="false">
+                <Case
+                    value="com.sun.jndi.rmi.registry.RegistryContextFactory" />
+                <Case
+                    value="org.apache.harmony.jndi.provider.rmi.registry.RegistryContextFactory" />
+            </Param>
+            <Param name="PROVIDER_URL" value="rmi://localhost:1199" />
+        </SysEnv>
+        <!-- ===================== TestMethods ============================= -->
+        <TestMethods>
+            <Method name="testBind">
+                <Param name="name" type="java.lang.String">Hello</Param>
+                <Param name="object"
+                    type="org.apache.harmony.test.func.api.javax.naming.share.HelloImpl">
+                    Hello
+                </Param>
+            </Method>
+
+            <Method name="testLookup">
+                <Param name="name" type="java.lang.String">Hello</Param>
+                <Param name="object"
+                    type="org.apache.harmony.test.func.api.javax.naming.share.HelloImpl">
+                    Hello
+                </Param>
+            </Method>
+
+            <Method name="testLookupLink">
+                <Param name="name" type="java.lang.String">Hello</Param>
+                <Param name="object"
+                    type="org.apache.harmony.test.func.api.javax.naming.share.HelloImpl">
+                    Hello
+                </Param>
+            </Method>
+
+            <Method name="testAddProperty">
+                <Param name="ctxName" type="java.lang.String"></Param>
+                <Param name="propName" type="java.lang.String">
+                    TEST_PROP_NAME
+                </Param>
+                <Param name="propValue" type="java.lang.String">
+                    Simple value
+                </Param>
+            </Method>
+
+            <Method name="testRemoveFromEnvironment">
+                <Param name="ctxName" type="java.lang.String"></Param>
+                <Param name="propName" type="java.lang.String">
+                    TEST_PROP_NAME
+                </Param>
+                <Param name="propValue" type="java.lang.String">
+                    Simple value
+                </Param>
+            </Method>
+
+            <Method name="testList">
+                <Param name="name" type="java.lang.String"></Param>
+                <Param name="name" type="java.lang.String">Hello</Param>
+            </Method>
+
+            <Method name="testListBindings">
+                <Param name="name" type="java.lang.String"></Param>
+                <Param name="name" type="java.lang.String">Hello</Param>
+            </Method>
+
+            <Method name="testRebind">
+                <Param name="name" type="java.lang.String">Hello</Param>
+                <Param name="object"
+                    type="org.apache.harmony.test.func.api.javax.naming.share.HelloImpl">
+                    Hello 123
+                </Param>
+            </Method>
+
+            <Method name="testLookup">
+                <Param name="name" type="java.lang.String">Hello</Param>
+                <Param name="object"
+                    type="org.apache.harmony.test.func.api.javax.naming.share.HelloImpl">
+                    Hello 123
+                </Param>
+            </Method>
+
+            <Method name="testRename">
+                <Param name="name1" type="java.lang.String">
+                    Hello
+                </Param>
+                <Param name="name2" type="java.lang.String">
+                    Hello 123
+                </Param>
+            </Method>
+
+            <Method name="testLookup">
+                <Param name="name" type="java.lang.String">
+                    Hello 123
+                </Param>
+                <Param name="object"
+                    type="org.apache.harmony.test.func.api.javax.naming.share.HelloImpl">
+                    Hello 123
+                </Param>
+            </Method>
+
+            <Method name="testUnbind">
+                <Param name="name" type="java.lang.String">
+                    Hello 123
+                </Param>
+            </Method>
+        </TestMethods>
+    </Test>
+</Tests>

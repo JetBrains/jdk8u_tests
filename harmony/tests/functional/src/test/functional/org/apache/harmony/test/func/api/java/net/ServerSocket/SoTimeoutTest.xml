@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="SoTimeoutTest"
+    date-of-creation="2006-03-17"
+    timeout="1"
+    >
+
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="java.net.ServerSocket"/>
+        <Case ID="testSoTimeoutPositive">
+            <TestedMethod name="public void setSoTimeout(int timeout)" />
+            <TestedClass name="java.net.Socket" />
+            <TestedMethod name="public boolean isClosed()" />
+            <TestedMethod name="public boolean isConnected()" />
+            <TestedMethod name="public boolean isBound()" />
+            <Description>
+                Test if client could connect to serverSocket when timeout is set
+            </Description>
+        </Case>
+        <Case ID="testSoTimeoutInfinite">
+            <TestedMethod name="public void setSoTimeout(int timeout)" />
+            <TestedClass name="java.net.Socket" />
+            <TestedMethod name="public boolean isClosed()" />
+            <TestedMethod name="public boolean isConnected()" />
+            <TestedMethod name="public boolean isBound()" />
+            <Description>
+                Test if client could connect to serverSocket when timeout is set
+                to infinite and client delay is long enough
+            </Description>
+        </Case>
+        <Case ID="testSoTimeoutNegative">
+            <TestedMethod name="public void setSoTimeout(int timeout)" />
+            <TestedClass name="java.net.Socket" />
+            <TestedMethod name="public boolean isClosed()" />
+            <TestedMethod name="public boolean isConnected()" />
+            <TestedMethod name="public boolean isBound()" />
+            <Description>
+                Test if client could not connect to serverSocket when timeout is set
+                shorter that clien delay
+            </Description>
+        </Case>
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional" />
+    
+    <Source name="SoTimeoutTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.net.ServerSocket.SoTimeoutTest">
+        </Param>
+    </Runner>
+</Test> 

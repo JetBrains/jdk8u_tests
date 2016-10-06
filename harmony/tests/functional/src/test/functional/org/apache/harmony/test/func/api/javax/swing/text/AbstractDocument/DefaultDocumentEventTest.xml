@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="DefaultDocumentEventTest"
+    date-of-creation="2005-06-03"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.text.AbstractDocument$DefaultDocumentEvent"/>
+
+        <Case ID="testConstructor">
+            <TestedMethod name="public AbstractDocument.DefaultDocumentEvent(int offs, int len, DocumentEvent.EventType type)"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testAddEdit">
+            <TestedMethod name="public boolean addEdit(UndoableEdit anEdit)"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testAddEdit">
+            <TestedMethod name="public boolean addEdit(UndoableEdit anEdit)"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testGetChange">
+            <TestedMethod name="public DocumentEvent.ElementChange getChange(Element elem)"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testGetDocument">
+            <TestedClass name="javax.swing.text.AbstractDocument$AbstractElement"/>
+            <TestedMethod name="public Document getDocument()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testGetLength">
+            <TestedMethod name="public int getLength()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testGetOffset">
+            <TestedMethod name="public int getOffset()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testGetType">
+            <TestedMethod name="public DocumentEvent.EventType getType()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testIsSignificant">
+            <TestedMethod name="public boolean isSignificant()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testUndo">
+            <TestedMethod name="public void redo()"/>
+            <TestedMethod name="public void undo()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testRedo">
+            <TestedMethod name="public void redo()"/>
+            <TestedMethod name="public void undo()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>    
+    <Keyword name="gui"/>
+    <Source name="DefaultDocumentEventTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.text.AbstractDocument.DefaultDocumentEventTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>    
+</Test> 

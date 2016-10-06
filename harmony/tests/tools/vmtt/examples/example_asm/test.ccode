@@ -1,0 +1,168 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * Generated ccode file
+ * @author VMTT (Virtual Machine Testing Tools)
+ * @version 1.0
+ * @lastmod: Fri Jun 23 10:53:25 NOVST 2006
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 46
+
+constant_pool_count = 15
+
+constant_pool {
+  /* #1 */ Method = #3 #12
+  /* #2 */ Class = #13
+  /* #3 */ Class = #14
+  /* #4 */ UTF8 = "<init>"
+  /* #5 */ UTF8 = "()V"
+  /* #6 */ UTF8 = "Code"
+  /* #7 */ UTF8 = "LineNumberTable"
+  /* #8 */ UTF8 = "foo"
+  /* #9 */ UTF8 = "(I)V"
+  /* #10 */ UTF8 = "SourceFile"
+  /* #11 */ UTF8 = "test.java"
+  /* #12 */ NameAndType = #4 #5
+  /* #13 */ UTF8 = "test"
+  /* #14 */ UTF8 = "java/lang/Object"
+}
+
+access_flags = x21  // PUBLIC SUPER 
+
+this_class = #2  // "test"
+
+super_class = #3  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 0
+
+methods_count = 2
+
+methods {
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #4  // "<init>"
+    descriptor_index = #5  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 29
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #7  // "LineNumberTable"
+                attribute_length = 6
+                line_number_table_length = 1
+                line_number_table {
+                    // start_pc line_number
+                    0 1
+                }
+              }
+            }
+        }
+      }
+  }
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #8  // "foo"
+    descriptor_index = #9  // "(I)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #6  // "Code"
+          attribute_length = 110
+          max_stack = 3
+          max_locals = 3
+          code_length = 62
+          code asm {
+          0:	iload_1
+          1:	tableswitch {
+            	1: 31
+            	2: 40
+            	3: 46
+            	4: 55
+            	default: 58
+            	}
+          32:	iinc 1 1
+          35:	iinc 1 12
+          38:	goto 21
+          41:	iinc 1 -1
+          44:	goto 15
+          47:	iload_1
+          48:	iconst_2
+          49:	iadd
+          50:	iload_1
+          51:	bipush 123
+          53:	imul
+          54:	iadd
+          55:	istore_1
+          56:	iinc 1 1
+          59:	iload_1
+          60:	istore_2
+          61:	return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #7  // "LineNumberTable"
+                attribute_length = 30
+                line_number_table_length = 7
+                line_number_table {
+                    // start_pc line_number
+                    0 4
+                    32 5
+                    41 6
+                    47 7
+                    56 8
+                    59 10
+                    61 11
+                }
+              }
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #10  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #11  // "test.java"
+  }
+}

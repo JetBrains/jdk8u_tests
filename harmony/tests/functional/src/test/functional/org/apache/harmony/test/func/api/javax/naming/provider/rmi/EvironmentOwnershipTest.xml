@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="EvironmentOwnershipTest" date-of-creation="2005-07-14"
+    timeout="1">
+    
+    
+
+    <MulticaseTestDescription>
+        <Case ID="testDefaultEnv">
+            <Description>
+                Create RegistryContext with some environment. Get
+                environment from the context, make sure it's identical
+                to original one, but is another object.
+            </Description>
+        </Case>
+
+        <Case ID="testAddRemove">
+            <Description>
+                Create context, using some environment object, add
+                property to the context environment, make sure the
+                environment object not changed. Remove property, make
+                sure the method removeFromEnvironment() returns valid
+                object, verify that the property has been removed from
+                the context environment.
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="EvironmentOwnershipTest.java" />
+    <Runner ID="MultiCase">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.naming.provider.rmi.EvironmentOwnershipTest">
+        </Param>
+    </Runner>
+    
+    <Restriction name="OtherVMOnly" />
+    
+</Test>
+

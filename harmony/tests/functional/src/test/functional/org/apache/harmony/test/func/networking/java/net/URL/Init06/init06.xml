@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="init06"
+    date-of-creation="2004-11-16"
+    timeout="1"
+    >    
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.net.URL"/>
+            <TestedMethod name="URL(URL context, String spec)"/>
+            
+            <Description>
+                        creates URL from some string and uses this URL as Context for the further steps.
+                        Creates URL using this Context and the random File.
+                        If this File is the empty string, we should get Context as right URL.
+                        Othewise this method gets the scheme from the Context (protocol, port, host) 
+                        and replaces the File part (if any) with File.
+                        Tests if replacement is correct.
+            </Description>
+            </APITestDescription>
+        <Keyword name="functional"/>    
+
+        <Source name="init06.java"/>
+            
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.networking.java.net.URL.Init06.init06"/>
+        </Runner>
+</Test>

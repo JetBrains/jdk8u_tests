@@ -1,0 +1,801 @@
+<html>
+<head>
+<title>Test Harness README page</title>
+<style>
+</style>
+</head>
+<body>
+<a name="up"></a>
+<p>
+<center>
+    <h1>README FILE</h1>
+</center>
+
+
+<ol>
+    <li><a href="#goal">Goal of this document</a></li>
+    <li><a href="#description">Description of product</a></li>
+    <li><a href="#configuration">Configuration files</a>
+        <ul>
+            <li><a href="#cfg_env">cfg_env.xml</a></li>
+            <li><a href="#cfg_ts">cfg_ts.xml</a></li>
+            <li><a href="#cfg_test">&quot;test_name&quot;.xml</a></li>
+        </ul>
+    </li>
+    <li><a href="#plugins">Default plugins</a></li>
+    <li><a href="#launch">Instruction for product launch </a></li>
+    <li><a href="#env_var">How to pass the environment variables into the tests</a></li>
+    <li><a href="#example">Examples</a>
+        <ul>
+            <li><a href="#ex_cfg_env">cfg_env.xml</a></li>
+            <li><a href="#ex_cfg_ts">cfg_ts.xml</a></li>
+            <li><a href="#ex_cfg_test">&quot;test_name&quot;.xml</a></li>
+        </ul>
+    </li>
+    <li><a href="#howto">How to</a>
+        <ul>
+            <li><a href="#howtoreport">create report without test run (based on previous results)</a></li>
+            <li><a href="#howtotest">use TH for tests running</a></li>
+            <li><a href="#howtojunit">use TH for JUnit tests running </a></li>
+        </ul>
+    </li>
+</ol>
+
+<a name="goal"><h3>Goal.</h3></a>
+    <p>
+    This document describes what is Test Harness tool and how to use it.
+<u><a href="#up">up</a></u>
+
+<a name="description"><h3>Description.</h3></a>
+    <p>
+    Test Harness tool (TH) is a product for tests execution . It has flexible 
+    and configurable settings. TH consists of core, data and plugins. TH core 
+    is the "Main" class, Configuration module, Dispatcher module and micro 
+    core to execute tests on remote hosts.
+
+    <p>
+    There are some plugins in TH product: 
+    <ul>
+        <li> TestFinder plugin, finds test in pointed directories and passes it to the parser;</li>
+        <li> ResFinder plugin, finds results of testing and passes it to the parser;</li>
+        <li> Selector plugin, selects tests for execution according to defined parameters;</li>
+        <li> Storage plugin, saves testing results into a file and/or passes it to Reporter;</li>
+        <li> Reporter plugin, generates reports;</li>
+        <li> Logger plugin, writes log messages into the log (stream out, file etc.);</li>
+        <li> ExecUnit plugin, executes tests.</li>
+    </ul>
+Note, this plugins can be redefined by user for proper test suite.<br>
+<u><a href="#up">up</a></u>
+
+<a name="configuration"><h3>Configuration.</h3></a>
+    <p>
+    Important note: Configuration files must have ASCII coding. The <strong>xercesImpl.jar</strong> 
+    is needed for parsing xml files. You must point location <strong>xercesImpl.jar</strong> and 
+    <strong>th.jar</strong> in "classpath" variable to run tests (see example below in the
+    &quot;<a name="launch0">Instruction for product launch.</a>&quot; section).
+
+    <p>
+    There are two main configuration .xml files for the whole test suite and one description 
+    .xml file for every test.
+
+    <p>
+    Main configuration files are:
+    <ul>
+        <li>    cfg_env.dtd - file, where the general structure of xml file is defined, thus 
+            cfg_env.xml file must correspond with this structure.</li>
+        <li>    <a href="#cfg_env">cfg_env.xml</a> - this file contains the general settings for 
+            TH launching.</li>
+        <li>    cfg_ts.dtd - file, where the structure of testsuite&nbsp; .xml file is 
+            defined, thus cfg_ts.xml file must correspond with this structure.</li>
+        <li>    <a href="#cfg_ts">cfg_ts.xml</a> - this file contains test suite settings.</li>
+    </ul>
+
+    <p>
+    Test description files are:
+    <ul>
+        <li>    test.dtd - file, where the structure of &lt;testname&gt;.xml file is defined,  
+            thus &lt;testname&gt;.xml file must correspond with this structure. &lt;Testname&gt;.xml 
+            file is kind of test description.</li>
+        <li>    &lt;Testname&gt;<a href="#cfg_test">.xml</a> - file contains the test settings. &lt;Testname&gt;
+             must be the same as the test class name.</li>
+    </ul>
+<u><a href="#up">up</a></u>
+
+<h4>Configuration files details:</h4>
+    <p>
+    <a name="cfg_env"><b>cfg_env.xml:</b></a>
+    <dl>
+
+    <dt><i>&lt;property&gt;</i>
+        <dd>common properties for TH:
+        <dl>
+            <dt><i>TestSuiteRoot</i>
+                <dd>- directory of test suite. It consists of three subdirectories:
+                <ol type="a">
+                    <li>    <i>bin</i> - contains test classes&nbsp; and libraries required for execution</li>
+                    <li>    <i>config</i> - contains test suite configuration files - 
+                        cfg_ts.dtd, cfg_ts.xml, java.policy</li>
+                    <li>    <i>src</i> - contents sources of test and sources of plugins, 
+                        which are specific for this suite</li>
+                </ol>
+Note, if the structure of the test suite differ from pointed the next properties can be used (if needed) to describe the structure:
+                <ul>
+                    <li>    <i>TestSuiteTestRoot</i> - path to the test description (if exist)/ sources</li>
+                    <li>    <i>TestSuiteClassRoot</i> - path to the executable part of tests</li>
+                    <li>    <i>TestSuiteConfigRoot</i> - path to the configuration files for the suite</li>
+                    <li>    <i>TestSuiteLibRoot</i> - path to the libraries</li>
+                </ul>
+
+            </dd></dt>
+            <dt><i>TestResultRoot</i>
+                <dd>    directory for testing results,<br>
+                    for example - C:\results\TEST_BASE\today
+            </dd></dt>
+            <dt><i>TestedRuntime</i>
+                <dd>    location of Java runtime file,<br>
+                    for example - C:\jrockit-j2sdk1.4.2_04\bin\java.exe
+            </dd></dt>
+            <dt><i>TestedCompile</i>
+                <dd>    location of compiler,<br>
+                    for example - C:\jrockit-j2sdk1.4.2_04\bin\javac.exe
+            </dd></dt>
+            <dt><i>ReferenceRuntime</i>
+                <dd>    location of Java runtime reference ,<br>
+                    for example - C:\java\bin\java.exe
+                </dd></dt>
+            <dt><i>TempStorage</i>
+                <dd>    temporary directory,<br>
+                    for example - C:\tmp
+            </dd></dt>
+            <dt><i>GenTimeout</i>
+                <dd>    timeout<br>
+                    for example - 100 (means 100 sec)
+            <dt><i>LogLevel</i>
+                <dd>    level of the Logger (java.util.logging.Level), ALL | CONFIG | FINE | FINER | FINEST | INFO | OFF | SEVERE | WARNING<br>
+                    for example - INFO (default). The level of output stream details for tests.
+            </dd></dt>
+        </dl>
+    </dd></dt>
+
+    <dt><i>&lt;execution&gt;</i>
+        <dd>contains modes for test execution:
+        <ol type="a">
+            <li>    <i>exec</i> - SAME/OTHER, SAME means that tests and TH are executed in the same 
+                Java machine, OTHER - different JVM</li>
+            <li>    <i>location</i> - LOCAL/REMOTE, LOCAL means that tests are executed on the local 
+                machine, REMOTE means the execution on the remote machine</li>
+            <li>    <i>concurrent</i> - 1-N, the number of tests to execute at the same time</li>
+            <li>    <i>syncChanneHost</i> - the host to run the server which provides the synchronize channel possibility (at present time the "localhost" supported only)</li>
+            <li>    <i>syncChannePort</i> - the port number to run the sync channel server (default value is 21001)</li>
+            <li>    <i>generalVMOption</i> - the string with options to pass to VM for all tests</li>
+            <li>    <i>bootClassPath</i> - the value to set the class path for boot class loader, usually -Xbootclasspath/a:$CP or something like that. The harness add nothing to this string.</li>
+        </ol>
+    </dd></dt>
+
+    <dt><i>&lt;run-remote&gt;</i>
+        <dd>list of parameters for remote execution
+            <dl><dt><i>&lt;host&gt;</i>
+                <dd>host where MCore and waiting command must be launched or already are launched/<dd>
+                <dl>
+                    <dt><i>&lt;name&gt;</i><dd>name of the host where MCore was launched</dd></dt>
+                    <dt><i>&lt;port&gt;</i><dd>port number where TH/MCore expect a connection</dd></dt>
+                    <dt><i>&lt;mode&gt;</i><dd>client/server mode for the MCore launched</dd></dt>
+                    <dt><i>&lt;run&gt;</i><dd>true/false should the TH tries to run the MCore. Note, now it works for the local host only.</dd></dt>
+                </dl>
+            </dt></dl>
+
+    <dt><i>&lt;totest&gt;</i><dd>list of subsuites for execution
+        <dl><dt><i>&lt;subsuite&gt;</i><dd>the full name of subsuite for TestFinder module</dd></dt></dl>
+    </dd></dt>
+
+    <dt><i>&lt;plugin-list&gt;</i>
+        <dd>default list of plugins
+        <dl>
+            <dt>    <i>&lt;plugin&gt;</i>
+                <dd>    plugin name and plugin class name. Class can be 
+                    substituted by class from cfg_ts.xml file
+            <dt>    <i>&lt;parameter&gt;</i>
+                <dd>    parameter for plugin<br>
+                    <dl>
+                    <dt>    <i>&lt;value&gt;</i>
+                        <dd>values of parameters, every value has name and content</dd>
+                    </dt></dl>
+                <ul>
+                <li>    <i>Logger</i>       - plugin, required for execution test logging, by default without parameters</li>
+                <li>    <i>TestFinder</i>   - plugin, required&nbsp; for tests finding, by default without parameters</li>
+                <li>    <i>ResFinder</i>    - plugin, required&nbsp; for results finding,&nbsp; by default without parameters</li>
+                <li>    <i>Selector</i>     - plugin, required&nbsp; for selecting tests for execution, by default without parameters</li>
+                <li>    <i>Storage</i>      - plugin, required for saving results of testing, by default without parameters</li>
+                <li>    <i>ExecUnit</i>     - plugin, required&nbsp; for execution units, by default without parameters</li>
+                <li>    <i>Reporter</i>     - plugin, required&nbsp; for making reports, it has at least 1 default parameter with 4 
+                        possible values:
+                        <ol type="a">
+                        <li>    "passed"    = 104</li>
+                        <li>    "failed"    = 105</li>
+                        <li>    "error"     = 106</li>
+                        <li>    "moderror"  = 107 (test does not support current configuration)</li>
+                        </ol>
+                </ul>
+            <p>
+            NOTE: All names of plugins are reserved, because it's parsed by 
+            TH. <i>&quot;ExecUnit&quot;</i> is also reserved name for execution 
+            units parameters .</p>
+            </dd></dt>
+        </dl>
+    </dd></dt>
+    </dl>
+<u><a href="#up">up</a></u>
+
+<hr><a name="cfg_ts"><b>cfg_ts.xml:</b></a>
+    <dl>
+        <dt><i>&lt;mapping&gt;</i>
+            <dd>    the list of the mapping runners to class that executes test. Runners must have names corresponding with names
+                for ExecUnit plugin from env_cfg.xml file
+            <dl>
+                <dt><i>&lt;runner-mapping&gt;</i>
+                    <dd>    name and corresponding class name of runner </dd>
+            </dt></dl>
+        </dd></dt>
+        <dt><i>&lt;plugin-list&gt;</i>
+            <dd>user's plugins list, specific for this test suite
+            <dl>
+                <dt><i>&lt;plugin&gt;</i>
+                    <dd>    plugin with the own class of realization and 
+                        parameters, which can redefine&nbsp; the same named plugin,
+                        defined in cfg_env.xml.
+                </dt>
+            </dl>
+        </dd></dt>
+        <dt><i>&lt;property-list&gt;</i>
+            <dd>list of the test suite properties
+            <dl>
+                <dt><i>&lt;property&gt;</i>
+                    <dd>    name and value of test suite property
+            </dl>
+        </dd></dt>
+    </dl>
+<u><a href="#up">up</a></u>
+
+<hr><a name="cfg_test"><b>&lt;testname&gt;.xml:</b></a>
+    <dl>
+        <dt><i>ID</i>
+            <dd>    name of test (the last syllable of full test name)</dd>
+        </dt>
+        <dt><i>date-of-creation</i>
+            <dd>    date of creation for this test YYYY-MM-DD</dd>
+        </dt>
+            <dt><i>timeout</i>
+            <dd>    timeout factor, to multiply GetTimeout (from cfg.env.xml) 
+                by it to calculate the real timeout for this test.<br>
+                for example:
+                <pre>   &lt;Test ID="test1" date-of-creation="2004-10-10" timeout="1"&gt;</pre>
+            </dd>
+        </dt>
+        <dt><i>&lt;Copyright&gt;</i>
+            <dd>    tag for copyright information, must be at least one, for example:
+                <pre>   &lt;Copyright value="xxxx"/&gt;</pre>
+            </dd>
+        </dt>
+        <dt><i>&lt;Author&gt;</i>
+            <dd>    tag for information about author, should be at least one, for example:
+                <pre>   &lt;Author value="AuthorName"/&gt;</pre>
+            </dd>
+        </dt>
+        <dt><i>description</i>
+            <dd>    there are three types of test and three types of description accordingly. 
+                The description must be only one of the following:<br>
+                <dl>
+                    <dt><i>&lt;MulticaseTestDescription&gt;</i>
+                        <dd>    description of multicase test, for example:
+        <pre>   &lt;MulticaseTestDescription&gt;
+        &lt;TestedClass name="java.lang.Byte"/&gt;
+        &lt;Case ID="testByteValue0001"&gt;
+            &lt;TestedMethod name="public byte byteValue()"/&gt;
+            &lt;Precondition&gt;create the Byte(123) object&lt;/Precondition&gt;
+            &lt;Description&gt;checks that Byte(123).byteValue() returns the 123&lt;/Description&gt;
+            &lt;Expected&gt;the values are equals&lt;/Expected&gt;
+        &lt;/Case&gt;
+        &lt;Case ID="testByteValue0002"&gt;
+            &lt;TestedMethod name="public byte byteValue()"/&gt;
+            &lt;Precondition&gt;create the Byte(-123) object&lt;/Precondition&gt;
+            &lt;Description&gt;checks that Byte(-123).byteValue() returns the -123&lt;/Description&gt;
+            &lt;Expected&gt;the values are equals&lt;/Expected&gt;
+        &lt;/Case&gt;
+        &lt;Case ID="testValueOf0001"&gt;
+            &lt;TestedMethod name="public static Byte valueOf(String s) throws NumberFormatException"/&gt;
+            &lt;Precondition&gt;&lt;/Precondition&gt;
+            &lt;Description&gt;checks that Byte.valueOf("123") returns the same object as Byte(123)&lt;/Description&gt;
+            &lt;Expected&gt;the values are equals&lt;/Expected&gt;
+        &lt;/Case&gt;
+        &lt;Case ID="testValueOf0002"&gt;
+            &lt;TestedMethod name="public static Byte valueOf(String s) throws NumberFormatException"/&gt;
+            &lt;Precondition&gt;&lt;/Precondition&gt;
+            &lt;Description&gt;checks that Byte.valueOf("-123") returns the same object as Byte(-123)&lt;/Description&gt;
+            &lt;Expected&gt;the values are equals&lt;/Expected&gt;
+        &lt;/Case&gt;
+    &lt;/MulticaseTestDescription&gt;
+        </pre>
+                    </dd></dt>
+                    <dt><i>&lt;APITestDescription&gt;</i>
+                        <dd>    description of API test, for example:
+        <pre>   &lt;APITestDescription&gt;
+        &lt;TestedClass name="java.lang.Boolean"/&gt;
+        &lt;TestedMethod name="public boolean booleanValue()"/&gt;
+        &lt;Description&gt;
+            This is a test for the booleanValue() method.
+            This method checks that the boolean value for Boolean('TRUE') is true and the value Boolean('false') is false.
+        &lt;/Description&gt;
+    &lt;/APITestDescription&gt;</pre>
+                    </dd></dt>
+                    <dt><i>&lt;Description&gt;</i>
+                        <dd>    description of simple test, for example:
+        <pre>   &lt;Description&gt;mega description&lt;/Description&gt;
+        </pre>
+                    </dd></dt>
+                </dl>
+            </dd></dt>
+            <dt><i>&lt;Keyword&gt;</i>
+                <dd>    tag for keyword, using by Selector module for 
+                    include into or exclude from the execution list, for example:
+                    <pre>   &lt;Keyword name="stress"/&gt;</pre>
+                </dd>
+            </dt>
+            <dt><i>&lt;Source&gt;</i>
+                <dd>    points to test source file, must be at least one, for example:
+                    <pre>   &lt;Source name="test1.java"/&gt;</pre>
+                </dd>
+            </dt>
+            <dt><i>&lt;Modification&gt;</i>
+                <dd>    contains date and author of the last test files modification, for example:
+                    <pre>   &lt;Modification date="2004-10-20" author="Author3"/&gt;</pre>
+                </dd>
+            </dt>
+            <dt><i>&lt;Runner&gt;</i>
+                <dd>    runner ID, options for execution and list of executors with proper options, for example:
+        <pre>   &lt;Runner ID="Runtime"&gt;
+        &lt;Option name="-D" value="qwerty"/&gt;
+        &lt;Param name="toRun" value="api.java.lang.Boolean.test.test1"&gt;
+            &lt;Option value="true"/&gt;
+        &lt;/Param&gt;
+        &lt;Param name="toRun" value="api.java.lang.Boolean.test.test2"&gt;
+            &lt;Option value="false"/&gt;
+            &lt;Option name="-cp" value="classpath"/&gt;
+        &lt;/Param&gt;
+    &lt;/Runner&gt;
+        </pre>
+                    Note, the interpretation of options before the first 'Param' depends on the execuiton unit (usually it interpreted as product options. VM, for example).<br>
+                    Also note, the any from 'name' or 'value' for options can be missed.
+                </dd>
+            </dt>
+            <dt><i>&lt;Resource&gt;</i>
+                <dd>    resources for test execution, for example:
+                    <pre>   &lt;Resource name="printer"/&gt;</pre>
+                </dd>
+            </dt>
+            <dt><i>&lt;Restriction&gt;</i>
+                <dd>    restrictions for test execution, for example:
+                    <pre>   &lt;Restriction name="SameVMOne"/&gt;</pre>
+                </dd>
+            </dt>
+    </dl>
+<u><a href="#up">up</a></u>
+
+<a name="plugins"><h3>Default Plug-ins</h3></a>
+<ul>
+    <li> TestFinder plugin. By default finds all .xml files in the &lt;root&gt;\src\tests directory and tries to parse them as test descriptions;</li>
+    <li> ResFinder plugin. By default finds all .xml files in the &lt;results&gt; directory and tries to parse them as test result descriptions;</li>
+    <li> Selector plugin. By default rejects all tests with unknown execution unit;</li>
+    <li> Storage plugin. By default saves testing results to .xml file and passes it to Reporter plugin;</li>
+    <li> Reporter plugin. By default generates reports in the .xml file (with a style sheet). Please, use the IE browser to see it;</li>
+    <li> Logger plugin. By default writes all messages to console;</li>
+    <li> ExecUnit plugins:</li>
+    <ul>
+        <li>Runtime - runs the single case tests (vm, for example) on the runtime pointed by TestedRuntime variable in the cfg_env.xml file. Return 'passed' result if all commands are passed. 
+        <li>RuntimeNegative - runs the single case tests (vm, for example) on the runtime pointed by TestedRuntime variable in the cfg_env.xml file. Return 'passed' result:
+            <ul>
+                <li>if exit value of process specified and exit value as expected</li>
+                <li>if output message (out+err) specified and ouput contains message as 
+                    <ul>
+                    <li>simple string (first check)</il>
+                    <li>output has string that match to specified pattern (second check)</il>
+                    </ul>
+                </li>
+                <li>both</li>
+                <li>if exit value of process is not zero and no exit value or output message specified</li>
+        <br>For example to check the exit code and message the following predefined parameters should be pointed (or any of it for single check):<pre>
+    &lt;Runner ID="RuntimeNegative"&gt;
+        &lt;Option name="runnerECode" value="12345"/&gt;
+        &lt;Option name="runnerEMsg" value="Hello word"/&gt;
+        &lt;Param name="toRun" value="test"/&gt;
+    &lt;/Runner></pre>
+
+            </ul> 
+        <li>MultiCase - runs the multicase test (api, for example) on the runtime pointed by TestedRuntime variable in the cfg_env.xml file. The test cases to run are defined through the reflection as methods that return the org.apache.harmony.share.Result type and whose name started from the word 'test'. Return 'passed' result if all commands are passed. 
+        <li>ComilerRuntime - compiles the pointed source on the compiler defined by TestedCompile variable in the cfg_env.xml file and tries to run the resulting class file on the defined ReferenceRuntime. Return 'passed' result if all commands are passed. 
+        <li>CompilerNegative - runs the compiler tests that  are not to be compiled on the compiler pointed by TestedCompile variable in the cfg_env.xml file. Return 'passed' result if last command is failed. 
+        <li>Execute - runs the user defined commands. Return 'passed' result if all commands are passed. 
+        <li>ExecuteNegative - runs the user defined commands. Return 'passed' result if last command is failed. 
+        <li>DistributedRunner - runs all command in parallel. Return 'passed' result if all commands are passed.<br>
+            To support the parallel run each &lt;Param&gt; may have the option with predefined name "vmParam" that will be passed to VM
+            to run this command only. 
+        <li>JPDARunner - the subclass of DistributedRunner. Add the JPDA specific parameters only. The other behavior is the same as DistributedRunner. 
+        <li>JUExec - run the test in the jUnit format. 
+
+    </ul>
+</ul>
+<u><a href="#up">up</a></u>
+
+<a name="launch"><h3>Instruction for product launch.</h3></a>
+    <p>
+    %JAVA_HOME%\java [-options] "org.apache.harmony.harness.Main" [-parameters]<br>
+    %JAVA_HOME%\java [-options] -jar th.jar [-parameters]
+
+    <p>
+    This is an example of run.bat file (located in the testsuite directory) for product launch:
+
+    <p>
+    ------------------<br>
+    #!sh<br>
+    <br>
+    TOOLS=C:/jrockit-j2sdk1.4.2_04/lib/tools.jar<br>
+    TESTBASE=I:<br>
+    ------------------<br>
+    java.exe -showversion -cp &quot;$TOOLS;$TESTBASE/xercesImpl.jar;$TESTBASE/th.jar&quot; 
+        org.apache.harmony.harness.Main -cfp &quot;usr.config&quot
+
+    <dl>
+        <dt>%JAVA_HOME%     
+            <dd>directory where Java is installed</dd></dt>
+        <dt>-options 
+            <dd>used Java options. Use help for more details, please.
+        <dt>-parameters     
+            <dd>aplied in command line parameters of TH. They can be (Use help for more details, please):
+            <dl>
+                <dt>-ln &lt;name&gt;    <dd>logger name</dd></dt>
+                <dt>-cn &lt;name&gt;    <dd>configurator name</dd></dt>
+                <dt>-cfp &lt;name&gt;   <dd>path to the configuration files</dd></dt>
+                <dt>-gui        <dd>GUI mode ("-gui"/"-batch")</dd></dt>
+                <dt>-subs       <dd>paths to the subsuites divided by space</dd></dt>
+                <dt>-logl &lt;val&gt;   <dd>harness log level: 0 - off, 1 - finest, 2 - finer, ... 7 - severe</dd></dt>
+                <dt>-include &quot;name1 name2...&quot;
+                            <dd>defines test or file names with the test list to include in this execution
+                <dt>-exclude &quot;name1 name2...&quot;
+                            <dd>defines test or file names with the test list to exclude from this execution
+                <dt>-version        <dd>print the harness version</dd></dt>     
+                <dt>-property &lt;name&gt; &lt;val&gt;
+                            <dd>defines new value for the configuration property
+                <dt>-execopt &lt;name&gt; &lt;val&gt;
+                            <dd>defines new value for the execution options
+            </dl>
+            </dd>
+        </dt>
+    </dl>
+<u><a href="#up">up</a></u>
+
+<a name="env_var"><h3>Passing the environment variable from configuration files to tests.</h3></a>
+
+    <p>
+    The TH uses the shell notation for the environment variable - '$'+"variable name".
+    In order to pass the value of some environment variable, needed to test compilation or execution 
+    (for example as an option value for java or javac options), it must be 
+    defined as an option of &quot;RunnerID&quot; parameter in the &lt;testname&gt;.xml file.
+    </p>
+
+    <p>
+    The following variable names are reserved in harness:
+    <ul>
+        <li>TestDirectory - full name of the path to the test description (test.xml)</li>
+        <li>FileSeparator - the system file separator character</li>
+        <li>PathSeparator - the system path separator character</li>
+        <li>CP - the current class path<br>
+            The class path is formed as<br> 
+            CP = TestSuiteClassRoot + TempStorage + all_jars_from_bin_lib + System.getProperty("java.class.path")
+        </li>
+    </ul>
+
+    <p>
+    Also other variables which are defined in cfg_env.xml and are common for the 
+    whole test suite are accessible. For the particular test you can define the 
+    compilation or execution option, using these variables.
+    </p>
+
+    <p>
+    For example, the line of &lt;testname&gt;.xml file:
+    
+        <pre>&lt;Option name="-cp" value="$TempStorage$PathSeparator$TestSuiteClassRoot"/&gt;</pre>
+    
+    may be decoded on windows platform; to
+    
+        <pre>-cp C:/tmp;C:/TEST_BASE/bin/classes</pre>
+
+    or:
+        <pre>&lt;Option name=&quot;-d&quot; value=&quot;$TempStorage&quot;/&gt;</pre>
+
+    may be decoded on windows platform; to
+        <pre>-d C:/tmp</pre>
+
+
+
+<a name="example"><h3>Examples of configuration files.</h3></a>
+
+    <p>
+    <a name="#test_dir">Structure of tests:</a>
+    <ul>
+        <li>TEST_BASE           - directory that contains test sources, classes and libraries.</li>
+        <li>TEST_BASE\bin\classes   - directory for classes.</li>
+        <li>TEST_BASE\bin\lib       - directory for libraries.</li>
+        <li>TEST_BASE\config        - directory for testsuite configuration files.</li>
+        <li>TEST_BASE\src\plugin\harness - directory for user's plugin source files.</li>
+        <li>TEST_BASE\src\test      - directory for test sources.</li>
+        <li>results         - directory for test execution results.</li>
+        <li>config          - directory for users configuration files.</li>
+    </ul>
+
+<u><a href="#up">up</a></u>
+
+    <p>
+    <a name="ex_cfg_env">*************************************  cfg_env.xml *************************************</a>
+    <pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE env_configuration SYSTEM "cfg_env.dtd"&gt;
+&lt;env_configuration&gt;
+
+    &lt;properties&gt;
+        &lt;property name="TestSuiteRoot"&gt;TEST_BASE&lt;/property&gt;
+        &lt;property name="TestResultRoot"&gt;results&lt;/property&gt;
+        &lt;property name="TestedRuntime"&gt;c:/jrockit-j2sdk1.4.2_04/bin/java.exe&lt;/property&gt;
+        &lt;property name="TestedCompile"&gt;c:/jrockit-j2sdk1.4.2_04/bin/javac.exe&lt;/property&gt;
+        &lt;property name="ReferenceRuntime"&gt;c:/jrockit-j2sdk1.4.2_04/bin/java.exe&lt;/property&gt;
+        &lt;property name="TempStorage"&gt;C:\tmp&lt;/property&gt;
+        &lt;property name="GenTimeout"&gt;500&lt;/property&gt;
+        &lt;property name="LogLevel"&gt;OFF&lt;/property&gt;
+    &lt;/properties&gt;
+    
+    &lt;execution&gt;
+        &lt;exec-mode name="exec"&gt;other&lt;/exec-mode&gt;
+        &lt;exec-mode name="location"&gt;local&lt;/exec-mode&gt;
+        &lt;exec-mode name="concurrent"&gt;1&lt;/exec-mode&gt;
+    &lt;/execution&gt;
+    
+    &lt;run-remote&gt;
+        &lt;host name="localhost"&gt;
+            &lt;port&gt;5678&lt;/port&gt;
+            &lt;mode&gt;passive&lt;/mode&gt;
+            &lt;run&gt;true&lt;/run&gt;
+        &lt;/host&gt;
+    &lt;/run-remote&gt;
+    
+    &lt;totest&gt;
+        &lt;subsuite name="lang"&gt;api&lt;/subsuite&gt;
+        &lt;subsuite name="jls"&gt;jls&lt;/subsuite&gt;
+    &lt;/totest&gt;
+
+    &lt;plugin-list&gt;
+        &lt;plugin name="Logger" class-name="org.apache.harmony.harness.plugins.THLogger"&gt;
+        &lt;/plugin&gt;
+        &lt;plugin name="TestFinder" class-name="org.apache.harmony.harness.plugins.TestFinder"&gt;
+        &lt;/plugin&gt;
+        &lt;plugin name="Selector" class-name="org.apache.harmony.harness.Selector"&gt;
+            &lt;parameter name="Runner"&gt;
+                &lt;value name="run"&gt;run&lt;/value&gt;
+                &lt;value name="compile"&gt;compile&lt;/value&gt;
+            &lt;/parameter&gt;
+        &lt;/plugin&gt;
+        &lt;plugin name="ExecUnit" class-name="org.apache.harmony.harness.ExecUnit"&gt;
+            &lt;parameter name="Runtime"&gt;
+                &lt;value name="host"&gt;localhost&lt;/value&gt;
+                &lt;value name="action"&gt;doit&lt;/value&gt;
+            &lt;/parameter&gt;
+            &lt;parameter name="CompileNegative"&gt;
+                &lt;value name="class-compiler"&gt;javac&lt;/value&gt;
+            &lt;/parameter&gt;
+            &lt;parameter name="CompileRuntime"&gt;
+                &lt;value name="class-compiler"&gt;c:/jrockit-j2sdk1.4.2_04/bin/javac.exe&lt;/value&gt;
+            &lt;/parameter&gt;
+            &lt;parameter name="DistributedRunner"&gt;
+                &lt;value name="host1"&gt;host1&lt;/value&gt;
+                &lt;value name="host2"&gt;host2&lt;/value&gt;
+            &lt;/parameter&gt;
+        &lt;/plugin&gt;
+        &lt;plugin name="Storage" class-name="org.apache.harmony.harness.plugins.StoreRes"&gt;
+        &lt;/plugin&gt;
+        &lt;plugin name="ResFinder" class-name="org.apache.harmony.harness.plugins.ResFinder"&gt;
+        &lt;/plugin&gt;
+        &lt;plugin name="Reporter" class-name="org.apache.harmony.harness.plugins.Reporter"&gt;
+            &lt;parameter name="write"&gt;
+                &lt;value name="over"&gt;true&lt;/value&gt;
+            &lt;/parameter&gt;
+            &lt;parameter name="status"&gt;
+                &lt;value name="passed"&gt;104&lt;/value&gt;
+                &lt;value name="failed"&gt;105&lt;/value&gt;
+                &lt;value name="error"&gt;106&lt;/value&gt;
+                &lt;value name="moderror"&gt;107&lt;/value&gt;
+            &lt;/parameter&gt;
+        &lt;/plugin&gt;
+    &lt;/plugin-list&gt;
+
+&lt;/env_configuration&gt;
+    </pre>
+<u><a href="#up">up</a></u>
+
+
+    <p>
+    <a name="ex_cfg_ts">*************************************   cfg_ts.xml **************************************</a>
+    <pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE ts_configuration SYSTEM "cfg_ts.dtd"&gt;
+&lt;ts_configuration&gt;
+
+    &lt;mapping&gt;
+        &lt;runner-mapping name="Runtime" class-name="org.apache.harmony.harness.plugins.Run"/&gt;
+        &lt;runner-mapping name="CompileNegative" class-name="org.apache.harmony.harness.plugins.Comp"/&gt;
+        &lt;runner-mapping name="CompileRuntime" class-name="org.apache.harmony.harness.plugins.CompRun"/&gt;
+        &lt;runner-mapping name="JUExec" class-name="org.apache.harmony.harness.plugins.JUExec"/&gt;
+    &lt;/mapping&gt;
+    
+&lt;/ts_configuration&gt;
+    </pre>
+<u><a href="#up">up</a></u>
+
+
+    <p>
+    <a name="ex_cfg_test">********************************** &lt;testname&gt;.xml ************************************</a>
+    <pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE Test SYSTEM "test.dtd"&gt;
+&lt;Test
+    ID="bValue_test"
+    date-of-creation="2004-10-10"
+    timeout="1.1"   &gt;
+    &lt;Copyright value="xxxx"/&gt;
+    &lt;Copyright value="somebody else"/&gt;
+    &lt;Author value="Author1"/&gt;
+    &lt;Author value="Author2"/&gt;
+    &lt;Description&gt;
+        mega description
+        mega description
+    &lt;/Description&gt;
+    &lt;Keyword name="stress"/&gt;
+    &lt;Source name="bValue.java"/&gt;
+    &lt;Modification date="2004-10-20" author="Author3"/&gt;
+    &lt;Runner ID="Runtime"&gt;
+        &lt;Option name="-showversion"/&gt;
+        &lt;Option name="-cp" value="classpath2"/&gt;
+        &lt;Param name="toRun" value="api.java.lang.Boolean.bValue.bValue"&gt;
+            &lt;Option value="true"/&gt;
+            &lt;Option name="-cp" value="classpath"/&gt;
+        &lt;/Param&gt;
+        &lt;Param name="toRun" value="api.java.lang.Boolean.bValue.bValue2"&gt;
+            &lt;Option value="false"/&gt;
+            &lt;Option name="-cp" value="classpath"/&gt;
+        &lt;/Param&gt;
+    &lt;/Runner&gt;
+    &lt;Resource name="printer"/&gt;
+    &lt;Restriction name="SameVMOne"/&gt;
+&lt;/Test&gt;
+    </pre>
+<u><a href="#up">up</a></u>
+
+
+<hr>
+<a name="howto"><a name="howtoreport"><h3>How to create report without test run (based on previous results):</h3></a></a>
+
+    <ol>
+        <li>    Define the directory with test run results (you should run tests before)</li>
+        <li>    Define the directory with configuration for this run</li>
+        <li>    Create "report.bat" file, for example:
+            <pre>
+    set TESTBASE=C:\HarnessTest
+    java.exe -cp "%TESTBASE%\xercesImpl.jar;%TESTBASE%\th.jar" org.apache.harmony.harness.ReportTool.Report -cfp "usr.config"</pre>
+
+            Or create "report.sh" shell file, for example:<pre>
+    #!sh
+    TESTBASE=C:/HarnessTest
+    java.exe -cp "$TESTBASE/xercesImpl.jar;$TESTBASE/th.jar" org.apache.harmony.harness..ReportTool.Report -cfp "usr.config"</pre>
+
+        </li>
+        <li>    Then execute report.bat or report.sh. See the result where pointed.</li>
+    </ol>
+
+<u><a href="#up">up</a></u>
+
+
+<hr>
+<a name="howtotest"><h3>How to use TH for tests running:</h3></a></a>
+
+    <ol>
+        <li>    Create test source .java file, for example, with method 
+            &quot;test(Logger, String[])&quot; 
+            that returns integer value:
+            <ul>
+                <li>104 - "passed"</li>
+                <li>105 - "failed"</li>
+                <li>106 - "moderror"</li>
+                <li>107 - "unknown error"</li>
+            </ul>
+        </li>
+        <li>    Then add method "public static void main(String[] args)" like below:
+            <pre>
+    public static void main(String[] args) {
+        System.exit(new <your_test_constructor>().test(Logger, args));
+    }</pre>
+
+        </li>
+        <li>    Create .xml file with description and parameters of the test. Put the 
+            source and .xml file of your test in the &lt;TESTBASE&gt;\test directory.
+        </li>
+        <li>    If you need, put required libraries into &lt;TESTBASE&gt;\bin\lib directory.</li>
+        <li>    If you need, put your plugin source file into TESTBASE\src\plugins directory.</li>
+        <li>    Create configuration files for environment, harness and testsuite and put 
+            them into usr.config , TESTBASE\config, and &lt;TESTBASE&gt;\test directories 
+            correspondingly.
+        </li>
+        <li>    Create "run.bat" file, for example:
+            <pre>
+    set TESTBASE=C:\HarnessTest
+    set TEST=%TESTBASE%\Test
+    java.exe -showversion -cp "%TESTBASE%\xercesImpl.jar;%TESTBASE%\th.jar" org.apache.harmony.harness.Main -cfp "usr.config"</pre>
+
+            Or create "run.sh" shell file, for example:<pre>
+    #!sh
+    TESTBASE=C:/HarnessTest
+    TEST=$TESTBASE/Test
+    java.exe -showversion -cp "$TESTBASE/xercesImpl.jar;$TESTBASE/th.jar" org.apache.harmony.harness.Main -cfp "usr.config"</pre>
+
+        </li>
+        <li>    Then execute run.bat or run.sh.</li>
+    </ol>
+
+<u><a href="#up">up</a></u>
+
+<hr><a name="howtojunit"><h3>How to use TH for JUnit tests running:</h3></a>
+    <ol>
+        <li>    Create JUnit test files. Put them into the source directory. 
+            Compiled source files and put them into the class directory.
+        </li>
+        <li>    Create configuration files for the environment, harness and 
+            testsuite, like above. Just point the JUExec module and its 
+            parameter (CLASSPATH: -cp="...") in the cfg_env.xml and obligatory 
+            JUExec mapping in cfg_ts.xml and change finder for JUnit tests. <br>
+            For example,
+            <ul type="disc">
+                <li>    in environment or testsuite configuration change finder:
+                    <pre>
+    &lt;plugin name="TestFinder" class-name="org.apache.harmony.harness.plugins.JUFinder"&gt;&lt;/plugin&gt;
+                    </pre>
+                </li>
+                <li>    and in test harness configuration make mapping for executor:
+                    <pre>
+    &lt;runner-mapping name="JUExec" class-name="org.apache.harmony.harness.plugins.JUExec"/&gt;
+                    </pre>
+                </li>
+            </ul>
+        </li>
+        <li>    Put required libraries into lib directory. You need &quot;junit.jar&quot; 
+            so you have to put it in your library directory.
+        </li>
+        <li>    Create "run.bat" file, for example:
+            <pre>
+    set TESTBASE=C:\HarnessTest
+    set TEST=%TESTBASE%\Test
+    java.exe -cp "%TESTBASE%\xercesImpl.jar;%TESTBASE%\junit.jar;%TESTBASE%\th.jar" org.apache.harmony.harness.Main -cfp "usr.config"</pre>
+
+            Or create "run.sh" shell file, for example:
+            <pre>
+    #!sh
+    TESTBASE=C:/HarnessTest
+    TEST=$TESTBASE/Test
+    java.exe -cp "$TESTBASE/xercesImpl.jar;$TESTBASE/junit.jar;$TESTBASE/th.jar" \
+        org.apache.harmony.harness.Main -cfp "usr.config"</pre> 
+
+        </li>
+        <li>    Then execute run.bat or run.sh.</li>
+        <li>    To analyse test results look at the <i>TestResultRoot</i> directory, 
+            which were defined in cfg_env.xml.
+        </li>
+    </ol>
+
+<u><a href="#up">up</a></u>
+
+</body>
+</html>

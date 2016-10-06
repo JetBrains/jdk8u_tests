@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_BigIntegerExtEuclidTest_01"
+    date-of-creation="2004-10-26"
+    timeout="1"
+    >
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.math.BigInteger"/>
+            <TestedMethod name="public BigInteger(String val)"/>
+            <TestedMethod name="public BigInteger(int signum, byte[] magnitude)"/>
+            <TestedMethod name="public static BigInteger valueOf(long val)"/>
+            <TestedMethod name="public BigInteger[] divideAndRemainder(BigInteger val)"/>
+            <TestedMethod name="public int compareTo(BigInteger val)"/>
+            <TestedMethod name="public BigInteger subtract(BigInteger val)"/>
+            <TestedMethod name="public BigInteger multiply(BigInteger val)"/>
+            <TestedMethod name="public BigInteger add(BigInteger val)"/>
+            <TestedMethod name="public BigInteger remainder(BigInteger val)"/>
+            
+            <Description>
+                This test use Extended Euclid algorithm for finding x and y for equation ax + by = 1 
+            </Description>
+        </APITestDescription>
+        <Keyword name="functional"/>
+        <Source name="F_BigIntegerExtEuclidTest_01.java"/>
+        <Modification date="2005-01-25" />
+
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.math.F_BigIntegerExtEuclidTest_01.F_BigIntegerExtEuclidTest_01">
+                <Option value="25"/>
+                <Option value="13"/>
+            </Param>
+        </Runner>
+</Test> 

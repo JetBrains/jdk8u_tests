@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="LinkedListTest"
+    date-of-creation="2005-10-04"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.LinkedList&lt;E&gt;"/>
+
+        <Case ID="testAdd">
+            <TestedMethod name="public void add(int index, E element)"/>
+            <TestedMethod name="public boolean add(E o)"/>
+            <TestedMethod name="public void addFirst(E o)"/>
+            <TestedMethod name="public void addLast(E o)"/>
+            <TestedMethod name="public Object[] toArray()"/>
+            <TestedMethod name="public void clear()"/>
+            <TestedMethod name="public E getLast()"/>
+            <TestedMethod name="public E getFirst()"/>
+            <TestedMethod name="public LinkedList()"/>
+            <TestedMethod name="public E get(int index)"/>
+            <TestedMethod name="public int size()"/>
+            <TestedMethod name="public boolean contains(Object o)"/>
+            <TestedMethod name="public int indexOf(Object o)"/>
+            <TestedMethod name="public int lastIndexOf(Object o)"/>            
+            <TestedClass name="java.util.AbstractList&lt;E&gt;"/>
+            <TestedMethod name="public boolean equals(Object o)"/> 
+            <Precondition>Array of random object</Precondition>
+            <Description>Add(by calling add(int index, Object element);add(Object o);addFirst(Object o);addLast(Object o)) object in LinkedList and checked that added is correct by calling size(),toArray(),getFirst(),getLast(),get(int index),contains(Object o),indexOf(Object o),lastIndexOf(Object o)"</Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testToArray">
+            <TestedMethod name="public &lt;T&gt; T[] toArray(T[] a)"/>
+            <Precondition>Array of random object</Precondition>
+            <Description>Call toArray on LinkedList and checked that returned array is correct"</Description>
+            <Expected></Expected>
+        </Case>                
+
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>
+    <Source name="LinkedListTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.linkedList.LinkedListTest">
+        </Param>
+    </Runner>
+</Test> 

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="ManifestTest"
+    date-of-creation="2004-02-22"
+    timeout="1"
+    >
+
+    
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.jar.Manifest"/>
+        
+        <Case ID="testManifest_clear_clone_equals">
+            <TestedMethod name="Object clone()"/>
+            <Precondition>create a non-empty manifest</Precondition>
+            <Description>make sure that it is equal() to a manifest produced with clone() and
+            after we clear cloned manifest they (first one and its clone) are not equal</Description>
+            <Expected>behaviour according to spec</Expected>
+        </Case>
+        
+        <Case ID="testManifest_getAttributes_getMainAttributes">         
+            <TestedMethod name="Attributes     getAttributes(String)"/>
+            <TestedMethod name=" Attributes getMainAttributes()"/>
+            
+            <Precondition>create an empty manifest</Precondition>
+            <Description>Test whether inserted items exist, and whether 
+            thier values are correct.</Description>
+            <Expected>behaviour according to spec</Expected>
+        </Case>
+        
+        
+        <Case ID="testDefaultConstructor">
+            <TestedMethod name="Manifest() "/>
+            <TestedMethod name="public Map&lt;String,Attributes&gt; getEntries()"/>
+            <TestedMethod name="Attributes getMainAttributes()"/>
+            
+            <Precondition>create an empty manifest</Precondition>
+            <Description>test that is equal to another empty manifest, getEntries().isEmpty() == true and
+            getMainAttributes().isEmpty() == true
+            </Description>
+            <Expected>behaviour according to spec</Expected>
+        </Case>
+
+        <Case ID="testConstructorBadInputStream">
+            <TestedMethod name="Manifest(InputStream is)"/>
+            <Precondition></Precondition>
+            <Description>try to initialize manifest from InputStream that contains incorrect data</Description>
+            <Expected>exception is thrown</Expected>
+        </Case>
+
+        <Case ID="testConstructorInputStream">
+            <TestedMethod name="Manifest(InputStream is)"/>
+            <TestedMethod name="public Map&lt;String,Attributes&gt; getEntries()"/>
+            <TestedMethod name="Attributes getMainAttributes()"/>
+
+            <Precondition>create manifest from InputStream</Precondition>
+            <Description></Description>
+            <Expected>its entries (returned by  getEntries()) and arrtibutes (returned by getMainAttributes()) 
+            return expected values</Expected>
+        </Case>
+        
+        <Case ID="testRead_InputStream">         
+            <TestedMethod name="read(InputStream)"/>
+            <Precondition>create an empty manifest</Precondition>
+            <Description>Read additional entries as well as thier
+            duplicates BUT with different values. Spec reads that 
+            "The entry names and attributes read will be merged
+             in with the current manifest entries"</Description>
+            <Expected>behaviour according to spec</Expected>
+        </Case>
+        
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="ManifestTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.jar.Manifest.ManifestTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

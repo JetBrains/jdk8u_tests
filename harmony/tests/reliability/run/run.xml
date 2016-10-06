@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="run.reliability.tests" default="run" basedir=".">
+
+    <description>Run reliability testsuite </description>
+
+    <condition property="exe" value=".exe" else="">
+        <os family="windows"/>
+    </condition>
+
+    <!-- path to the tested runtime -->
+    <property name="jvm.under.test" location="${java.home}/bin/java${exe}" /> 
+
+    <property name="jvm.args" value="-Xmx256m" /> 
+
+    <condition property="no.jvm.found">
+        <not>
+            <available file="${jvm.under.test}"/>
+        </not>
+    </condition>
+
+    <!-- This VM option may be needed as well: -Djava.security.policy= [...]/config/java.policy	 -->
+
+    <!-- specify directory where tests can create their working files -->
+    <property name="work.dir" location="../work" />
+    <mkdir dir="${work.dir}"/>
+    	
+    <!-- specify directory where tests can store their output -->
+    <property name="report.dir" location="../report" />
+    <mkdir dir="${report.dir}"/>
+
+    <!-- each test will be executed in a cycle ~test.duration seconds -->
+    <property name="test.duration" value="1200" /> 
+
+    <!-- executed test's process will be killed after test.timeout milliseconds -->
+    <property name="test.timeout" value="2400000" /> 
+
+    <!-- if set to "true", stops test execution after first failure. If set to 
+         "false", then tests will continue to run  -->
+    <property name="stop.after.fail" value="false"/> 
+
+    <!-- Path to a file with test-specific settings -->
+    <property name="config.file" location="run.normal.mode.settings.xml"/> 
+	
+    <!-- Path to a common exclude file  --> 
+    <property name="exclude.file" location="exclude"/> 
+    <property file="${exclude.file}"/>
+
+    <!-- architecture name, ${hy.platform} definition -->
+    <property name="properties.file" location="../../../scripts/properties.xml" />
+    <import file="${properties.file}"/>
+
+    <!-- Path to a platform exclude file  --> 
+    <property name="platform.exclude.file" location="exclude.${hy.platform}" />
+    <property file="${platform.exclude.file}"/>    
+
+    <!-- a path to the root of the suite - i.e. directory under which there is src/ subdirectory -->
+    <property name="test.root.dir" location=".." /> 
+
+    <property name="test.source.dir" location="${test.root.dir}/src/java" />
+
+    <!-- change this path to point to clasees/ directory if it differs from default -->    
+    <property name="test.classes.dir" location="${test.root.dir}/deploy/classes" />
+
+  	<property name="test.class.path" location="${test.classes.dir}" />
+
+	
+    <property name="test.package.base" value="org.apache.harmony.test.reliability" />
+
+    <property name="test.runner.class" value="${test.package.base}.share.ReliabilityTestStarter" />
+
+    <property name="class.name.opt" value="-testClassName" />
+
+    <property name="test.duration.opt" value="-testTimeOut ${test.duration}" /> 
+	
+    <property name="test.mode.opt" value="-testReliabilityMode longrunning" />
+
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+	<classpath>
+	    <pathelement location="ant-contrib.jar" />
+	</classpath>
+    </taskdef>
+	
+	
+    <!-- Macrodefinition launching Plain Java test -->
+    <macrodef name="run-pjava-test">
+        <attribute name="test"/>
+        <attribute name="classname" default="${test.runner.class}"/>
+        <attribute name="classpath" default=""/>
+        <attribute name="expected-code" default="104"/>
+        <attribute name="vmarg" default="${jvm.args}"/>
+        <attribute name="args" default=""/>
+        <element name="java-element" optional="true"/>
+        <sequential>
+        <if>
+            <isset property="no.jvm.found"/>
+        <then>	
+            <fail>Could not locate jvm executable to test, please, set "jvm.under.test" property.</fail>
+        </then>
+        </if>	
+
+	<if>
+	    <not>
+		<isset property="@{test}"/>
+	    </not>
+	    <then>								       
+            <echo message="Running test: @{test}"/>
+        	<java jvm="${jvm.under.test}"
+                  classname="@{classname}"
+                  resultproperty="@{test}.res.code"
+            	  output="${report.dir}/@{test}.txt"
+                  fork="yes"
+                  timeout="${test.timeout}">
+                <java-element/>
+                <jvmarg line="@{vmarg}" />
+                <arg line="${test.mode.opt} ${test.duration.opt} ${class.name.opt}
+                	    ${test.package.base}.@{test} @{args}" />
+                <classpath>
+                    <pathelement path="${test.class.path}"/>
+                    <pathelement path="@{classpath}"/>
+                </classpath>
+            </java>
+							        		
+	    <condition property="failed"
+		value="true">    
+		<not>
+		    <equals arg1="${@{test}.res.code}" arg2="@{expected-code}"/>
+		</not>
+	    </condition> 
+	    
+	    <condition property="failures.@{test}" 
+		value="0"                     
+		else="1">                    
+		<equals arg1="${@{test}.res.code}" arg2="@{expected-code}"/> 
+	    </condition>          
+	 
+	    <replace file="${report.dir}/@{test}.txt" token="&lt;" value="LT" />
+	    <replace file="${report.dir}/@{test}.txt" token="&gt;" value="GT" /> 
+	    <replace file="${report.dir}/@{test}.txt" token="&amp;" value=" AMP" />
+	    <!--replace file="${report.dir}/@{test}.txt" token=":" value=";" /--> 
+	    
+	    <loadfile property="@{test}.tmp.out" srcFile="${report.dir}/@{test}.txt" />
+	    
+	    <if>
+		<equals arg1="${@{test}.res.code}" arg2="@{expected-code}"/> 
+		<then>		
+<echo file="${report.dir}/TEST-${test.package.base}.@{test}.xml"><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" name="@{test}" tests="1" time="0.01">
+<testcase classname="@{test}" name="test" time="0.1"/> 
+<system-out><![CDATA[@out]!]></system-out> 
+</testsuite>]]> 
+</echo>
+        	    <!--loadfile property="@{test}.tmp.out" srcFile="${report.dir}/@{test}.txt" /--> 
+		    <if>
+			<isset property="@{test}.tmp.out"/> 
+		    <then>	
+	        	<replace file="${report.dir}/TEST-${test.package.base}.@{test}.xml" token="@out]!" value="${@{test}.tmp.out}]" />
+		    </then>
+		    <else>
+			<replace file="${report.dir}/TEST-${test.package.base}.@{test}.xml" token="@out]!" value="]" /> 
+		    </else>
+		    </if>	
+		</then>
+		<else>
+<echo file="${report.dir}/TEST-${test.package.base}.@{test}.xml"><![CDATA[<?xml version="1.0" encoding="UTF-8" ?> 
+<testsuite errors="0" failures="1" name="@{test}" tests="1" time="0.01"> 
+<testcase classname="@{test}" name="test" time="0.1"><error message="FAILED"> @@@d </error></testcase> 
+</testsuite>]]> 
+</echo> 
+
+<!--system-out><![CDATA[]]></system-out--> 
+
+		    <!--loadfile property="@{test}.tmp.out" srcFile="${report.dir}/@{test}.txt" /--> 
+		    <if>                            
+			<isset property="@{test}.tmp.out"/>
+		    <then>                          
+			<replace file="${report.dir}/TEST-${test.package.base}.@{test}.xml" token="@@@d" value="${@{test}.tmp.out}" />
+		    </then>                         
+		    <else>                          
+			<replace file="${report.dir}/TEST-${test.package.base}.@{test}.xml" token="@@@d" value="" /> 
+		    </else>
+		    </if>
+																										    
+		</else>
+	    </if>
+
+	    <!--replace file="${report.dir}/TEST-${test.package.base}.@{test}.xml" token="@fff" value="${failures.@{test}}" /> 
+	    <replace file="${report.dir}/TEST-${test.package.base}.@{test}.xml" token="@eee" value="${errormessage.@{test}}" /--> 
+			
+            <!--loadfile property="@{test}.tmp.out" srcFile="${report.dir}/@{test}.txt" />
+	    <replace file="${report.dir}/TEST-${test.package.base}.@{test}.xml" token="@out]!" value="${@{test}.tmp.out}]" /-->
+																										    				
+	    <!--echo message="failed: ${failed}"/-->
+	    
+	    <!--echo message="failures: ${failures.@{test}}"/-->
+	     										      					    
+            <fail>
+Test '@{test}' FAILED! (${@{test}.res.code} exit code, instead of expected @{expected-code})
+See ${report.dir}/@{test}.txt file for details.
+                <condition>
+                    <and>
+                    <istrue value="${stop.after.fail}"/>
+                    <not>
+                        <equals arg1="${@{test}.res.code}" arg2="@{expected-code}"/>
+                    </not>
+                    </and>
+                </condition>
+            </fail>
+     	    </then>
+	    <else>
+		<!--echo message="Test @{test} is skipped (excluded)"/--> 
+	    </else>
+	</if>
+        </sequential>
+    </macrodef>
+
+	
+	<import file="${config.file}"/>
+	
+	<import file="run.api.nio.xml" />
+	<import file="run.api.zip.xml"/>
+	<import file="run.api.kernel.xml"/>
+	<import file="run.api.text.xml"/>
+	<import file="run.api.io.xml"/>
+	<import file="run.api.net.xml"/>
+	<import file="run.vm.xml"/>
+	<import file="run.api.util.xml"/>
+	<import file="run.api.security.xml"/>
+	<import file="run.api.serialization.xml"/>
+
+    <target name="run" depends="run.api.zip, run.api.kernel, 
+    				run.api.text, run.api.nio, 
+    				run.api.io, run.api.net, run.vm, run.api.util, run.api.security, run.api.serialization"/>
+
+    <fail message="There were test failures" if="failed"/>
+    <target name="clean">
+        <delete dir="${work.dir}" />
+        <delete dir="${report.dir}" />
+    </target>
+	
+</project>

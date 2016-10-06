@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_WeakReferenceTest_05"
+    date-of-creation="2005-11-09"
+    timeout="10"
+    >
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.ref.WeakReference"/>
+            <TestedMethod name="public WeakReference(T referent, ReferenceQueue&lt;? super T&gt; q)"/>
+            
+            <TestedClass name="java.lang.ref.ReferenceQueue"/>
+            <TestedMethod name="public Reference&lt;? extends T&gt; poll()"/>
+            
+            
+            <TestedClass name="java.lang.String"/>
+            <TestedMethod name="public String(String original)"/>
+            
+            <Description>
+                            This tests WeakReference object and ReferenceQueue. 1.Create Object. Put into WeakReference. 2 Create array of WeakReferences, put each element into next element as referent. 3.Invoked gc(). 4. Check if the 1st element is enqueued. 5. Clear whole array except last element. 6. Invoke gc(). Check if at least one reference object is enqueued.
+               </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>
+        <Source name="F_WeakReferenceTest_05.java"/>
+        <Modification date="2005-08-16" />
+
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.ref.F_WeakReferenceTest_05.F_WeakReferenceTest_05"></Param>
+        </Runner>
+               <Restriction name="OtherVMOnly"/>
+</Test> 

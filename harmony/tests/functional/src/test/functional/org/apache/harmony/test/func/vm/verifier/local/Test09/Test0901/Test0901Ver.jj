@@ -1,0 +1,90 @@
+;  Licensed to the Apache Software Foundation (ASF) under one or more
+;  contributor license agreements.  See the NOTICE file distributed with
+;  this work for additional information regarding copyright ownership.
+;  The ASF licenses this file to You under the Apache License, Version 2.0
+;  (the "License"); you may not use this file except in compliance with
+;  the License.  You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+;  Unless required by applicable law or agreed to in writing, software
+;  distributed under the License is distributed on an "AS IS" BASIS,
+;  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;  See the License for the specific language governing permissions and
+;  limitations under the License.
+;
+;
+;
+
+.class public org/apache/harmony/test/func/vm/verifier/local/Test09/Test0901/Test0901Ver
+.super java/lang/Object
+
+;
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokespecial java/lang/Object/<init>()V
+   return
+.end method
+
+;
+; test method
+.method public test()V
+   .limit stack 4
+   .limit locals 5
+
+   new org/apache/harmony/test/func/vm/verifier/local/Test09/Test0901/Test0901E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test09/Test0901/Test0901E/<init>()V
+   astore 3 ; E
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   astore 4 ; Object
+
+; store 0 to localvariable2
+   sipush 0
+   istore_2
+
+; push short, E, short
+   sipush 10
+   aload 3 ; E
+   sipush 10
+
+lab:
+   iinc 2 1 ; localvariable2++
+   pop
+   invokevirtual org/apache/harmony/test/func/vm/verifier/local/Test09/Test0901/Test0901B/test()V
+   pop
+
+   iload_2
+   tableswitch 1
+        l1 ; if 1 jump to l1
+        l2 ; if 2 jump to l2
+        l3 ; if 3 jump to l3
+     default: def ; jump to def
+
+l1:
+; push float, E, float
+   fconst_1
+   aload 3 ; E
+   fconst_1
+   goto lab
+
+l2:
+; push Object, E, Object
+   aload 4 ; Object
+   aload 3 ; E
+   aload 4 ; Object
+   goto lab
+
+l3:
+; push E, E, E
+   aload 3 ; E
+   aload 3 ; E
+   aload 3 ; E
+   goto lab
+
+def:
+   return
+.end method

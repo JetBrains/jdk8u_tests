@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="MBeanServerNotificationTest" date-of-creation="2005-07-19"
+    timeout="1">
+
+    
+
+    
+
+    <APITestDescription>
+        <TestedClass name="javax.management.MBeanServerNotification" />
+        <TestedMethod name="public ObjectName getMBeanName() " />
+        <TestedMethod
+            name="public void MBeanServerNotification(String type, Object source, long sequenceNumber, ObjectName objectName) " />
+
+        <Description>
+            1. Create MBean server
+
+            2. Add notification listener to receive
+            MBeanServerNotifications.
+
+            3. Register HelloMBean.
+
+            4. Verify that REGISTRATION_NOTIFICATION is received.
+
+            5. Unregister HelloMBean.
+
+            6. Verify that UNREGISTRATION_NOTIFICATION is received.
+
+            7. Test the constructor and the getMBeanName() method.
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="MBeanServerNotificationTest.java" />
+    <Source name="share/Hello.java" />
+    <Source name="share/HelloMBean.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.MBeanServerNotificationTest" />
+    </Runner>
+    
+    <Restriction name="OtherVMOnly" />
+</Test>

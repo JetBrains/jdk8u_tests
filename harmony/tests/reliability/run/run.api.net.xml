@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="run.api.net.tests" default="run.api.net" basedir=".">
+
+    <description> Runs all tests from api/net </description>
+
+    <target name="run.api.net">
+
+        <run-pjava-test test="api.net.JarUrlConnectionTest" 
+                        args="${api.net.JarUrlConnectionTest.n_threads}"/>
+
+        <run-pjava-test test="api.net.HttpConnectionTest" 
+                        args="${api.net.HttpConnectionTest.URLs}"/>
+
+        <run-pjava-test test="api.net.DatagramTest" 
+                        args="${api.net.DatagramTest.n_sender_threads} "/>
+
+        <run-pjava-test test="api.net.MultiConnectTest" 
+                        args="${api.net.MultiConnectTest.n_threads} 
+                              ${api.net.MultiConnectTest.n_ports}"/>
+
+        <run-pjava-test test="api.net.SingleConnectTest" 
+                        args="${api.net.SingleConnectTest.n_threads}"/>
+
+        <run-pjava-test test="api.net.NetClient" 
+                        args="${api.net.NetClient.n_clients} 
+                              ${test.source.dir}/org/apache/harmony/test/reliability/api/net/auxiliary
+                              ${api.net.NetClient.port}
+                              ${api.net.NetClient.n_threads}
+                              Test.out"/>
+	</target>
+
+</project>

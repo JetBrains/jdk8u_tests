@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_SecureRandomTest_02"
+    date-of-creation="2004-12-27"
+    timeout="20"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.SecureRandom"/>
+                    <TestedMethod name="public byte[] generateSeed(int numBytes)"/>
+                    <TestedMethod name="public static SecureRandom getInstance(String algorithm, Provider provider) throws NoSuchAlgorithmException"/>
+                    <TestedMethod name="public static SecureRandom getInstance(String algorithm) throws NoSuchAlgorithmException"/>
+                    <TestedMethod name="public void setSeed(byte[] seed)"/>
+                    <TestedMethod name="public void nextBytes(byte[] bytes)"/>
+
+                    <TestedClass name="java.security.Security"/>
+                    <TestedMethod name="public static Provider[] getProviders()"/>
+                    <TestedMethod name="public static int insertProviderAt(Provider provider, int position)"/>
+                    <TestedMethod name="public static String getProperty(String key)"/>
+
+
+                    <TestedClass name="java.security.Provider"/>
+                    <TestedMethod name="public void putAll(Map&lt;?,?&gt; t)"/>
+
+                    <TestedClass name="java.security.SecureRandomSpi"/>    
+                    <TestedMethod name="public SecureRandomSpi()"/>
+                    
+                    <Description>
+                        Check SPI mechanism by example of SecureRandomSPI implementation.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_SecureRandomTest_02.java"/>
+                <Modification date="2004-12-28" />
+                
+            <Runner ID="Runtime">                
+                <Option name="-Djava.security.policy=$TestDirectory$FileSeparatorauxiliary$FileSeparatorSecureRandomTest.policy"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_SecureRandomTest_02.F_SecureRandomTest_02">
+                </Param>
+            </Runner>
+        <Restriction name="OtherVMOnly"/>
+</Test>

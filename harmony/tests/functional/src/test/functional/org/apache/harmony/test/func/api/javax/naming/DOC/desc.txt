@@ -1,0 +1,93 @@
+#  Licensed to the Apache Software Foundation (ASF) under one or more
+#  contributor license agreements.  See the NOTICE file distributed with
+#  this work for additional information regarding copyright ownership.
+#  The ASF licenses this file to You under the Apache License, Version 2.0
+#  (the "License"); you may not use this file except in compliance with
+#  the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+JNDI Tests Description
+
+Test designs can be found in the following xml files:
+directory\JNDI_DNS_SP.xml
+directory\JNDI_SUN_DNS_SP.xml
+directory\provider\dns\CompositeNamesInUnsupportedMethodsTest.xml
+directory\provider\dns\DnsTest1.xml
+directory\provider\dns\UnsupportedMethodsTest.xml
+ldap\JNDI_SUN_LDAP_SP_basicauth.xml
+ldap\JNDI_SUN_LDAP_SP_simpleauth.xml
+ldap\JNDI_SUN_LDAP_SP_sslauth.xml
+event\EventTest.xml
+Naming_RMI.xml
+
+Information about test execution contained in the “<Runner…” section of each xml file.
+For example, the following:
+<Runner ID="Runtime">
+<Param name="toRun" value="org.apache.harmony.test.func.api.javax.naming.directory.JNDITest">
+
+                        <Option name="vmParam" value="-cp"/>
+
+                        <Option name="vmParam" value="$TestSuiteRoot$FileSeparatorbin$FileSeparatorclasses$PathSeparator$TestSuiteRoot$FileSeparatorbin$FileSeparatorlib$FileSeparatorjndi$FileSeparatorproviders.jar"/>
+
+                        <Option name="xmlPath" value="org/apache/harmony/test/func/api/javax/naming/share/jndiLDAPTest.xml"/>
+                        <Option name="testName" value="simple"/>
+                        <Option name="PROVIDER_URL" value="$LDAP_PROVIDER_URL"/>
+            </Param>
+</Runner>
+means, that the test should be executed with the following command:
+java.exe -cp qa\bin\classes; qa\bin\lib\jndi\providers.jar org.apache.harmony.test.func.api.javax.naming.directory.JNDITest xmlPath org/apache/harmony/test/func/api/javax/naming/share/jndiLDAPTest.xml testName simple PROVIDER_URL ldap://localhost/dc=example,dc=com
+
+Where xmlPath parameter value - org/apache/harmony/test/func/api/javax/naming/share/jndiLDAPTest.xml is a path to the xml file, which contains information, required for the test, testName – the name of the test, described in the xml. 
+
+The tests JNDI_DNS_SP.xml, JNDI_SUN_DNS_SP.xml, JNDI_SUN_LDAP_SP_basicauth.xml, JNDI_SUN_LDAP_SP_simpleauth.xml, JNDI_SUN_LDAP_SP_sslauth.xml use the same java code: directory\JNDITest.java.
+Depending on the command line arguments JNDITest class parses corresponding xml file.
+This file contains information about JNDI context environment parameters, bindings and binding attributes, methods of the JNDITest class which should be invoked, method parameters.
+
+Consider  share\jndiLDAPTest.xml.
+
+<Test name="simple" extends="basic">… means, that the name of this test is “simple” and this test derives all xml elements (which haven’t heritable="false" attribute) from the “basic” test.
+
+Section
+<SysEnv>
+            <Param name="INITIAL_CONTEXT_FACTORY" value="com.sun.jndi.ldap.LdapCtxFactory"/>
+            <Param name="PROVIDER_URL" value="ldap://localhost/dc=example,dc=com" heritable="false"/>
+            <Param name="SECURITY_AUTHENTICATION" value="none" heritable="false"/>
+            <Param name="SECURITY_PRINCIPAL" value="cn=admin,dc=example,dc=com"/>
+            <Param name="SECURITY_CREDENTIALS" value="secret"/>
+</SysEnv>
+means, that created initial context should contain parameters, described above.
+
+Section
+<Context name="ou=TestCtx" parent="" Id="ctx1">
+<Attributes ignoreCase="true">
+                        <Attribute name="objectClass" ordered="false">
+                                   <Value>top</Value>
+                                   <Value>organizationalUnit</Value>                            
+                        </Attribute>
+                                               
+                        <Attribute name="ou" ordered="false">
+                                   <Value>TestCtx</Value>
+                        </Attribute>
+            </Attributes>
+</Context>
+describes JNDI LDAP context - ou=TestCtx.
+
+Section 
+<Method name="testLookup">
+            <Description>
+                        Lookup for binding "ctx1" in the initial context.
+                        Fails if NamingException is thrown or retrieved binding 
+                        is differ from described in the xml.
+            </Description>
+                                               
+<Param name="name" type="java.lang.String">ou=TestCtx</Param>
+            <Param name="result" type="java.lang.String">ctx1</Param>
+</Method>
+means, that the method testLookup(String name, String result) of the JNDITest class should be invoked with the following parameters: testLookup(“ou=TestCtx”, ” ctx1”).

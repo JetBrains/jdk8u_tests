@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="PrintWriterTest"
+    date-of-creation="2004-12-14"
+    timeout="1"
+    >
+
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.PrintWriter"/>
+        <Case ID="testClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call close()</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testFlush">
+            <TestedMethod name="flush()"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call flush()</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testWriteInt">
+            <TestedMethod name="write(int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(int) several times</Description>
+            <Expected>only lower bytes of int are written</Expected>
+        </Case>
+
+        <Case ID="testWriteNullArray">
+            <TestedMethod name="write(char[])"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write((char[]) null)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteNullString">
+            <TestedMethod name="write(String)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write((String) null)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteArray">
+            <TestedMethod name="write(char[])"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(char[])</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteString">
+            <TestedMethod name="write(String)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(String)</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteArraySlice">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(char[], int, int)</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteStringSlice">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(String, int, int)</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteArrayNegativeStart">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(char[], int &lt; 0, int)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteArrayNegativeLength">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(char[], int, int &lt; 0)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteArrayBigLength">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(char[] buf, int start, int length ) 
+            such as start + length &gt; buf.length</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringNegativeStart">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(String, int &lt; 0, int)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringNegativeLength">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(String, int, int &lt; 0)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringBigLength">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create the PrintWriter object</Precondition>
+            <Description>call write(String src, int start, int length ) 
+            such as start + length &gt; src.length()</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testOutField">
+            <TestedMethod name="PrintWriter(Writer)"/>
+            <Precondition>create a Writer object and wrapping descendant of PrintWriter that exposes 
+            protected 'out' field using public getOut() method</Precondition>
+            <Description>call new descendant(Writer)</Description>
+            <Expected>descendant.getOut() == constructor argument</Expected>
+        </Case>
+
+        <Case ID="testWriterNoAutoFlush">
+            <TestedMethod name="PrintWriter(Writer, boolean autoFlush)"/>
+            <Precondition>create a Writer object and wrapping PrintWriter with autoFlush == false</Precondition>
+            <Description>write something to PrintWriter</Description>
+            <Expected>no data in the underlying writer</Expected>
+        </Case>
+
+        <Case ID="testWriterAutoFlush">
+            <TestedMethod name="PrintWriter(Writer, boolean autoFlush)"/>
+            <TestedMethod name="public void print(String s)"/>
+            <TestedMethod name="public void println()"/>
+            <TestedMethod name="public void println(char[] x)"/>
+            <TestedMethod name="public void println(String s)"/>
+            <TestedMethod name="public void println(Object o)"/>
+            <TestedMethod name="public void print(String s)"/>
+            <Precondition>create a Writer object and wrapping PrintWriter with autoFlush == true</Precondition>
+            <Description>write misc data to PrintWriter</Description>
+            <Expected>data is flushed to the underlying writer when expected and cached when expected, too</Expected>
+        </Case>
+
+        <Case ID="testOutputStreamNoAutoFlush">
+            <TestedMethod name="PrintWriter(OutputStream)"/>
+            <TestedMethod name="PrintWriter(OutputStream, boolean autoFlush)"/>
+            <Precondition>create an OutputStream object and wrapping PrintWriter with autoFlush == false</Precondition>
+            <Description>write something to PrintWriter</Description>
+            <Expected>no data in the underlying stream</Expected>
+        </Case>
+
+        <Case ID="testWriterAutoFlush">
+            <TestedMethod name="PrintWriter(Writer, boolean autoFlush)"/>
+            <Precondition>create a Writer object and wrapping PrintWriter with autoFlush == true</Precondition>
+            <Description>write misc data to PrintWriter</Description>
+            <Expected>data is flushed to the underlying stream when expected and cached when expected, too</Expected>
+        </Case>
+
+        <Case ID="testCheckError">
+            <TestedMethod name="public boolean checkError()"/>
+            <Precondition>create a Writer object and wrapping PrintWriter</Precondition>
+            <Description>call checkError() (1), close underlying writer, call checkError() (2), write 
+            something to the PrintWriter, call checkError() (3)</Description>
+            <Expected>checkError() (1) returns false, checkError() (2) returns false, 
+            checkError() (3) returns true</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="PrintWriterTest.java"/>
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.PrintWriter.PrintWriterTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-generalVMOption" value="$generalVMOption"/>                                                
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

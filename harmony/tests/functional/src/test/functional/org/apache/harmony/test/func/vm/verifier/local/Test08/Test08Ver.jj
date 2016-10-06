@@ -1,0 +1,108 @@
+;  Licensed to the Apache Software Foundation (ASF) under one or more
+;  contributor license agreements.  See the NOTICE file distributed with
+;  this work for additional information regarding copyright ownership.
+;  The ASF licenses this file to You under the Apache License, Version 2.0
+;  (the "License"); you may not use this file except in compliance with
+;  the License.  You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+;  Unless required by applicable law or agreed to in writing, software
+;  distributed under the License is distributed on an "AS IS" BASIS,
+;  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;  See the License for the specific language governing permissions and
+;  limitations under the License.
+;
+;
+;
+
+.class public org/apache/harmony/test/func/vm/verifier/local/Test08/Test08Ver
+.super java/lang/Object
+
+;
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokespecial java/lang/Object/<init>()V
+   return
+.end method
+
+;
+; test method
+.method public test()V
+   .limit stack 2
+   .limit locals 9
+
+   new org/apache/harmony/test/func/vm/verifier/local/Test08/Test08C
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test08/Test08C/<init>()V
+   astore 2 ; C
+   new org/apache/harmony/test/func/vm/verifier/local/Test08/Test08D
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test08/Test08D/<init>()V
+   astore 3 ; D
+   new org/apache/harmony/test/func/vm/verifier/local/Test08/Test08E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test08/Test08E/<init>()V
+   astore 4 ; E
+   new org/apache/harmony/test/func/vm/verifier/local/Test08/Test08G
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test08/Test08G/<init>()V
+   astore 5 ; G
+   new org/apache/harmony/test/func/vm/verifier/local/Test08/Test08K
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test08/Test08K/<init>()V
+   astore 6 ; K
+   new org/apache/harmony/test/func/vm/verifier/local/Test08/Test08L
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test08/Test08L/<init>()V
+   astore 7 ; L
+   new org/apache/harmony/test/func/vm/verifier/local/Test08/Test08M
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test08/Test08M/<init>()V
+   astore 8 ; M
+
+   iconst_1
+   ifeq D
+   iconst_1
+   ifeq E
+   iconst_1
+   ifeq G
+   iconst_1
+   ifeq K
+   iconst_1
+   ifeq L
+   iconst_1
+   ifeq M
+   aload 2 ; C
+   goto lab
+
+D:
+   aload 3 ; D
+   goto lab
+
+E:
+   aload 4 ; E
+   goto lab
+
+G:
+   aload 5 ; G
+   goto lab
+
+K:
+   aload 6 ; K
+   goto lab
+
+L:
+   aload 7 ; L
+   goto lab
+
+M:
+   aload 8 ; M
+   goto lab
+
+lab:
+   invokevirtual org/apache/harmony/test/func/vm/verifier/local/Test08/Test08B/test()V
+
+   return
+.end method

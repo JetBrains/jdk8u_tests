@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="LocationTest"  date-of-creation="2004-24-12" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.Introspector"/>
+        <Case ID="testFindBeanInfoInPackageOfBean">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector finds BeanInfo in package of bean. 
+                Step-by-step decoding: 
+                    - Create a bean. 
+                    - Create beanInfo in package of the bean and redefine getPropertyDescriptors() method. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean). 
+                    - Verify that getPropertyDescriptors() of returned beanInfo and getPropertyDescriptors() 
+                     of beanInfo created in item#2 return the same.            
+            </Description>
+        </Case>
+        <Case ID="testSequenceOfSearch">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass)"/>
+            <TestedMethod name="public static void setBeanInfoSearchPath(String[] path)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector finds beanInfo first in package of bean and then in search path. 
+                Step-by-step decoding: 
+                    - Create a bean. 
+                    - Create beanInfo#1 for given bean in package of the bean and redefine 
+                     getPropertyDescriptors() for given bean method. 
+                    - Create beanInfo#2 in no-package of the bean and redefine getPropertyDescriptors() 
+                     method. 
+                    - Set search path to package of beanInfo#2. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean). 
+                    - Verify that getPropertyDescriptors()of returned beanInfo and getPropertyDescriptors() 
+                     of beanInfo#1 return the same. 
+                    - Verify that getPropertyDescriptors() of beanInfo#2 wasn't invoke.            
+            </Description>
+        </Case>        
+        <Case ID="testUseOnlyImmediateBeanInfo">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector doesn't use beanInfo of parent bean, if there is beanInfo of immediate 
+                 bean. 
+                Step-by-step decoding: 
+                    - Create a bean#1. 
+                    - Create bean#2, which extends bean#1. 
+                    - Create beanInfo for two beans and redefine getPropertyDescriptors() method. Bean and 
+                     corresponding beanInfo are in one package. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean#2). 
+                    - Verify that getPropertyDescriptors() of returned beanInfo and getPropertyDescriptors() 
+                     of beanInfo#2 return the same. 
+                    - Verify that getPropertyDescriptors() of beanInfo#1 wasn't invoke.            
+            </Description>
+        </Case>        
+        <Case ID="testIgnoreImmidiateBeanInfo">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass, int flags)"/>
+            <TestedMethod name="public static void setBeanInfoSearchPath(String[] path)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector doesn't use immediate beanInfo and uses parent beanInfo, if 
+                 IGNORE_IMMEDIATE_BEANINFO flag was used to get beanInfo. 
+                Step-by-step decoding: 
+                    - Create a bean. 
+                    - Create bean#2, which extends bean#1. 
+                    - Create beanInfo for two beans and redefine getPropertyDescriptors() method. Bean and 
+                     corresponding beanInfo are in one package. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean#2,
+                     IGNORE_IMMEDIATE_BEANINFO). 
+                    - Verify that getPropertyDescriptors()of returned beanInfo and getPropertyDescriptors() 
+                     of created beanInfo#1 return the same. 
+                    - Verify that getPropertyDescriptors() of created beanInfo#2 wasn't invoke.            
+            </Description>
+        </Case>        
+        <Case ID="testIgnoreAllBeanInfo">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass, int flags)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector ignores all beanInfo, if IGNORE_ALL_BEANINFO flag was used to get 
+                 beanInfo. 
+                Step-by-step decoding: 
+                    - Create a bean. Create getter and setter methods of property in given bean. 
+                    - Create beanInfo in package of bean and redefine getPropertyDescriptors() method. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean,IGNORE_ALL_BEANINFO). 
+                    - Verify that getPropertyDescriptors() of beanInfo created in item#2 wasn't invoke. 
+                    - Verify that getPropertyDescriptors() of returned beanInfo returns introspected 
+                     properties.            
+            </Description>
+        </Case>        
+        <Case ID="testCacheBeanInfo">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector caches BeanInfo. 
+                Step-by-step decoding: 
+                    - Create a bean. 
+                    - Create beanInfo in package of the bean and redefine getPropertyDescriptors() method. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean) and invoke 
+                     getPropertyDescriptors() on returned beanInfo. 
+                    - Verify that getPropertyDescriptors() method of beanInfo was invoked. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean) and invoke 
+                     getPropertyDescriptors() on returned beanInfo. 
+                    - Verify that getPropertyDescriptors() method of beanInfo was not invoked. 
+                    - Verify that references of two returned beanInfo are the same.            
+            </Description>
+        </Case>        
+        <Case ID="testFlushCaches">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass)"/>
+            <TestedMethod name="public static void flushCaches()"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that flushCaches() method of Introspector flushes all caches. 
+                Step-by-step decoding: 
+                    - Create a bean. 
+                    - Create beanInfo in package of the bean and redefine getPropertyDescriptors() method. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean) and invoke 
+                     getPropertyDescriptors() on returned beanInfo. 
+                    - Verify that getPropertyDescriptors() method of beanInfo was invoked. 
+                    - Flush cache. 
+                    - Repeat item#3. 
+                    - Verify that references of two beanInfo aren't the same. 
+                    - Verify that getPropertyDescriptors() method of beanInfo was invoked.            
+            </Description>
+        </Case>        
+        <Case ID="testSearchPath">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass)"/>
+            <TestedMethod name="public static void setBeanInfoSearchPath(String[] path)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector finds BeanInfo in no-package of bean, if there isn't beanInfo in package of 
+                 bean and search path was set to package of beanInfo. 
+                Step-by-step decoding: 
+                    - Create a bean. 
+                    - Create beanInfo in no-package of the bean and redefine getPropertyDescriptors() 
+                     method. 
+                    - Create search path consisting of three packages: In first package there is beanInfo for 
+                     other bean. In second package there is beanInfo for given bean. In third package there isn't any 
+                     beanInfo at all. 
+                    - Set search path. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean). 
+                    - Verify that getPropertyDescriptors() of returned beanInfo and getPropertyDescriptors() 
+                     of beanInfo created in item#2 return the same. 
+                    - Verify that no other getPropertyDescriptors() methods of other beanInfo were invoked.            
+            </Description>
+        </Case>        
+        <Case ID="testStopClassIsParentBean">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass, Class&lt;?&gt; stopClass)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that Introspector stops introspection of bean, if it encounters stop class. 
+                Step-by-step decoding: 
+                    - Create a bean#1. 
+                    - Create beanInfo for bean#1 and redefine getPropertyDescriptors() method. Beans and 
+                     corresponding beanInfo are in one package. 
+                    - Create bean#2, which extends bean#1 and has getter and setter methods of two 
+                     properties. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean#2,bean#1), bean#1 is stop 
+                     class. 
+                    - Verify that getPropertyDescriptors() returns only introspected properties on bean#1. 
+                    - Verify that getPropertyDescriptors() of beanInfo created for bean#1 wasn't invoke.            
+            </Description>
+        </Case>        
+        <Case ID="testStopClassIsNotParentBean">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass, int flags)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that getBeanInfo(Class beanClass, Class stopClass) method introspects a bean, as if 
+                 getBeanInfo(Class beanClass) method introspects the bean, if stopClass isn't parent, child and the 
+                 same bean. 
+                Step-by-step decoding: 
+                    - Create a bean#1. 
+                    - Create another bean#2, which isn't parent, child of bean. 
+                    - Create beanInfo in package of the bean#1 and redefine getPropertyDescriptors() 
+                     method. 
+                    - Get beanInfo using method Introspector.getBeanInfo(bean#1,bean#2). 
+                    - Verify that getPropertyDescriptors() of returned beanInfo and getPropertyDescriptors() 
+                     of beanInfo created in item#3 return the same.            
+            </Description>
+        </Case>        
+        <Case ID="testFlushFromCaches">
+            <TestedMethod name="public static BeanInfo getBeanInfo(Class&lt;?&gt; beanClass)"/>
+            <TestedMethod name="public static void flushFromCaches(Class&lt;?&gt; clz)"/>
+            <TestedMethod name="public static void setBeanInfoSearchPath(String[] path)"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public SimpleBeanInfo()"/>                        
+            <Description>
+                Verify that flushFromCaches(bean1) method of Introspector deletes beanInfo only for bean1 from 
+                 cache. 
+                Step-by-step decoding: 
+                    - Create a bean#1. 
+                    - Create beanInfo in package of the bean#1 and redefine getPropertyDescriptors() 
+                     method. 
+                    - Get beanInfo#1 using method Introspector.getBeanInfo(bean#1) and invoke 
+                     getPropertyDescriptors() on returned beanInfo. 
+                    - Create a bean#2. 
+                    - Create beanInfo in package of the bean#2 and redefine getPropertyDescriptors() 
+                     method. 
+                    - Get beanInfo#2 using method Introspector.getBeanInfo(bean#2) and invoke 
+                     getPropertyDescriptors() on returned beanInfo. 
+                    - Verify that getPropertyDescriptors() methods of beanInfo for bean#1 and for bean#2 
+                     were invoked. 
+                    - Invoke flushFromCaches(bean#1). 
+                    - Get beanInfo#3 using method Introspector.getBeanInfo(bean#1) and invoke 
+                     getPropertyDescriptors() on returned beanInfo. 
+                    - Verify that references of beanInfo#1 and beanInfo#3 aren't the same. 
+                    - Verify that getPropertyDescriptors() method of beanInfo for bean#1 was invoked. 
+                    - Get beanInfo#4 using method Introspector.getBeanInfo(bean#2) and invoke 
+                     getPropertyDescriptors() on returned beanInfo. 
+                    - Verify that references of beanInfo#2 and beanInfo#4 are the same. 
+                    - Verify that getPropertyDescriptors() method of beanInfo for bean#2 wasn't invoked.            
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="LocationTest.java"/>
+
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.introspector.location.LocationTest"/>
+    </Runner>
+</Test>

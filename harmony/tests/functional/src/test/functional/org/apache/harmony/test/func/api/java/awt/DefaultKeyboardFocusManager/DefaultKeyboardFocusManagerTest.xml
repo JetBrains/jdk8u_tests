@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="DefaultKeyboardFocusManagerTest"
+    date-of-creation="2005-05-26"
+    timeout="3"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.DefaultKeyboardFocusManager"/>
+        <Case ID="testDefaultKeyboardFocusManager_keyEvent">\
+            <TestedMethod name="public DefaultKeyboardFocusManager()"/>
+            <TestedMethod name="public boolean dispatchKeyEvent(KeyEvent e)"/>
+            <TestedMethod name="public boolean postProcessKeyEvent(KeyEvent e)"/>                        
+            <Precondition>Create DefaultKeyboardFocusManager</Precondition>
+            <Description>Instance of a class which is inherited from
+             DefaultKeyboardFocusManager is created. After this  the dispatchEvent()
+             method is called. 
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        
+        
+        <Case ID="testDefaultKeyboardFocusManager_processKeyEvent">
+            <TestedMethod name="public void processKeyEvent(Component focusedComponent, KeyEvent e)"/>                        
+            <Precondition>Create DefaultKeyboardFocusManager</Precondition>
+            <Description>First we find out whether there are available focus
+             traversal keys. If we find at least one, we send one event using
+             processKeyEvent() to traverse focus forward, and one to traverse focus
+             backward
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        
+        <Case ID="testDefaultKeyboardFocusManager_dispatchEvent">
+            <TestedMethod name="public boolean dispatchEvent(AWTEvent e)"/>        
+            <Precondition>Create DefaultKeyboardFocusManager</Precondition>
+            <Description>We check the returned value of this method. First after trying
+             to dispatch the FocusEvent and then KeyEvent. In both cases the return value
+             must be true.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+    </MulticaseTestDescription>
+    
+    <Keyword name="Functional"/>    
+    
+    <Source name="DefaultKeyboardFocusManagerTest.java"/>
+
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.DefaultKeyboardFocusManager.DefaultKeyboardFocusManagerTest">
+        <Option name="-paintTimeout" value="$paintTimeout"/>
+    </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 
+

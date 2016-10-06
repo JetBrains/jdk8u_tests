@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="JTextComponentInteractiveTest"
+    date-of-creation="2005-05-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.text.JTextComponent"/>
+        
+        <Case ID="testJTextComponent_cut_copy_paste">
+            <TestedMethod name="public void cut()"/>
+            <TestedMethod name="public void copy()"/>
+            <TestedMethod name="public void paste()"/>
+            
+            <Precondition>Create frame with three JTextComponent objects.
+            </Precondition>
+            <Description>
+            Try cut from empty clipboard.
+            Try copy from empty clipboard.
+            Try paste from empty clipboard.
+            Cut some text from one component and paste it into another.
+            Check some alternative cut/copy/paste sequence with free clipboard and without cleaning.
+            </Description>
+            <Expected>
+            Cut/copy/paste do nothing for empty clipboard.
+            Right results for cut/copy/paste operations.
+            </Expected>
+        </Case>
+    </MulticaseTestDescription>                
+    
+    <Keyword name = "functional"/>
+    <Keyword name = "gui"/>
+    <Keyword name = "interactive"/>
+        
+    <Source name="JTextComponentInteractiveTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.text.JTextComponent.JTextComponentInteractiveTest">
+        <Option name="-paintTimeout" value="$paintTimeout"/>
+        <Option name="-reference" value="$ReferenceRuntime"/>
+        <Option name="-usedCP" value="$CP"/>
+        </Param>
+    </Runner>
+</Test> 

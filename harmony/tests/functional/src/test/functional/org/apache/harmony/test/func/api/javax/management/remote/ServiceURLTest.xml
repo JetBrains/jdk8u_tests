@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test  ID="ServiceURLTest"  date-of-creation="2006-04-02" timeout="60">
+    
+    
+    
+    <MulticaseTestDescription>
+    
+        <TestedClass name="javax.management.remote.JMXServiceURL"/>
+            <Case ID="testCorrectServiceURLAddressProtocolName">
+            <TestedMethod name="JMXServiceURL(String protocol, String host, int port)"/>
+            <Description>
+            Check that protocol name composed of ASCII characters
+            </Description>
+        </Case>
+        
+        <Case ID="testIncorrectServiceURLAddressProtocol">
+            <TestedMethod name="JMXServiceURL(String protocol, String host, int port)"/>
+            <Description>
+            Check that if protocol name composed of ASCII characters thrown then MalformedURLException
+            </Description>
+        </Case>
+        
+        <Case ID="testCorrectServiceURLAddressHostName">
+            <TestedMethod name="JMXServiceURL(String protocol, String host, int port)"/>
+            <Description>
+            Check that host name syntaxes the same as as defined in RFC 2609
+            </Description>
+        </Case>
+        <Case ID="testIncorrectServiceURLAddressHostName">
+            <TestedMethod name="JMXServiceURL(String protocol, String host, int port)"/>
+            <Description>
+            Check if that host name syntaxes dose not the same as as defined in RFC 2609 then thrown MalformedURLException
+            </Description>
+        </Case>
+
+            <Case ID="testCorrectServiceURLAddressForm">
+            <TestedMethod name="JMXServiceURL(String serviceURL)"/>
+            <Description>
+            Check that service address syntaxes the same as as defined in RFC 2609
+            </Description>
+        </Case>
+        
+        <Case ID="testIncorrectServiceURLAddressForm">
+            <TestedMethod name="JMXServiceURL(String serviceURL)"/>
+            <Description>
+            Check if service address syntaxes dose not the same as as defined in RFC 2609 then thrown MalformedURLException
+            </Description>
+        </Case>
+        
+       <Case ID="testIncorrectServiceURLAddressURLPath">
+            <TestedMethod name="JMXServiceURL(String protocol, String host, int port, String urlPath)"/>
+            <Description>
+            Check if URL path syntaxes dose not the same as as defined in RFC 2609 then thrown MalformedURLException
+            </Description>
+        </Case>
+        
+        <Case ID="testCorrectServiceURLAddressURLPath">
+            <TestedMethod name="JMXServiceURL(String protocol, String host, int port, String urlPath)"/>
+            <Description>
+            Check that URL path syntaxes the same as as defined in RFC 2609
+            </Description>
+        </Case>
+        
+        <Case ID="testIncorrectServiceURLAddressSeparator">
+            <TestedMethod name="JMXServiceURL(String protocol, String host, int port, String urlPath)"/>
+            <Description>
+            Check if syntaxes of address separator dose not the same as as defined in RFC 2609 then thrown MalformedURLException
+            </Description>
+        </Case>
+
+        
+    </MulticaseTestDescription>    
+    <Source name="ServiceURLTest.java"/>
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.remote.ServiceURLTest">           
+    </Param>
+</Runner>
+</Test>

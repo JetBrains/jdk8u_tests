@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="RectangleTest"
+    date-of-creation="2005-05-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.Rectangle"/>
+        
+        <Case ID="testRectangle_init">
+            <TestedMethod name="public Rectangle()"/>
+            
+            <Precondition>Create default Rectangle object.</Precondition>
+            <Description>Check that fields are default.</Description>
+            <Expected>The fields are default.</Expected>
+            
+        </Case>
+        <Case ID="testRectangle_init_ii">
+            <TestedMethod name="public Rectangle(int width, int height)"/>
+
+            <Precondition>Create the Rectangle object with specific width and 
+            height.
+            </Precondition>
+            <Description>Check expect width and height.</Description>
+            <Expected>Expected width and height.</Expected>
+        </Case>
+        <Case ID="testRectangle_init_iiii">
+            <TestedMethod name="public Rectangle(int x, int y, int width, int height)"/>
+
+            <Precondition>Create the Rectangle object with specific width and 
+            height.
+            </Precondition>
+            <Description>Check expected width and height.</Description>
+            <Expected>Expected width and height.</Expected>
+        </Case>
+        <Case ID="testRectangle_init_rectangle">
+            <TestedMethod name="public Rectangle(Rectangle r)"/>
+
+            <Precondition>Create Rectangle object, based on 
+            another specific Rectangle object.</Precondition>
+            <Description>Check that Rectangles' fields are same.
+            </Description>
+            <Expected>Same fields.</Expected>
+        </Case>
+        <Case ID="testRectangle_equal">
+            <TestedMethod name="public boolean equals(Object obj)"/>
+
+            <Precondition>Create two equal Rectangles. 
+            Later change fields values for one Rectangle object.
+            </Precondition>
+            <Description>
+            Check that 'equals' for null pointer return false.
+            Check that 'equals' for incoming 'String object' return false.
+            Check that same Rectangles are equal.
+            Check that different Rectangles are not equal.
+            </Description>
+            <Expected>
+            Equals for null pointer returned false.
+            Equals for 'String object' returned false.
+            Same Rectangles are equal.
+            Different Rectangles are not equal.
+            </Expected>
+        </Case>
+        <Case ID="testRectangle_setBounds_iiii">
+            <TestedMethod name="public void setBounds(int x, int y, int width, int height)"/>
+    
+            <Precondition>Set the specific bounds by random integer values.
+            </Precondition>
+            <Description>Check expected bounds.</Description>
+            <Expected>Expected bounds.</Expected>
+        </Case>
+        <Case ID="testRectangle_setBounds_rectangle">
+            <TestedMethod name="public void setBounds(Rectangle r)"/>
+            
+            <Precondition>Set bounds by specific Rectangle.</Precondition>
+            <Description>Check expected bounds.</Description>
+            <Expected>Expected bounds.</Expected>
+        </Case>
+        <Case ID="testRectangle_getBounds">
+            <TestedMethod name="public Rectangle getBounds()"/>
+            
+            <Precondition>Set specific bounds.</Precondition>
+            <Description>Check expected bounds.</Description>
+            <Expected>Expected bounds.</Expected>
+        </Case>
+        <Case ID="testRectangle_getYXWH()">
+            <TestedMethod name="public double getX()"/>
+            <TestedMethod name="public double getY()"/>
+            <TestedMethod name="public double getWidth()"/>
+            <TestedMethod name="public double getHeight()"/>
+            
+            <Precondition>Create Rectangle with specific fields.</Precondition>
+            <Description>
+            Check expected y coordinate.
+            Check expected x coordinate.
+            Check expected width.
+            Check expected height.
+            </Description>
+            <Expected>
+            Expected x,y,width, height, returned by Rectangle.getY(), Rectangle.getX(), 
+            Rectangle.getWidth(), Rectangle.getHeight().
+            </Expected>
+        </Case>
+        <Case ID="testRectangle_isEmpty">
+            <TestedMethod name="public boolean isEmpty()"/>
+            
+            <Precondition>Create empty and nonempty Rectangles.</Precondition>
+            <Description>
+            Check Rectangles for emptiness.
+            </Description>
+            <Expected>
+            Empty Rectangle is empty, nonempty Rectangle is nonempty.
+            </Expected>
+        </Case>
+        <Case ID="testRectangle_move">
+            <TestedMethod name="public void move(int x, int y)"/>
+            
+            <Precondition>Create and move Rectangle.</Precondition>
+            <Description>Check new x,y coordinates values.</Description>
+            <Expected>Expected x,y coordinates values.</Expected>
+        </Case>
+        <Case ID="testRectangle_getSize">
+            <TestedMethod name="public Dimension getSize()"/>
+            
+            <Precondition>Create specific Rectangle.</Precondition>
+            <Description>Check expected size.
+            </Description>
+            <Expected>Returned size is the same as specified.
+            </Expected>
+        </Case>
+        <Case ID="testRectangle_setLocation_ii">
+            <TestedMethod name="public void setLocation(int x,int y)"/>
+
+            <Precondition>Create Rectangle and set specific location.</Precondition>
+            <Description>Check expected fields values.
+            </Description>
+            <Expected>Expected fields values.</Expected>
+        </Case>        
+        <Case ID="testRectangle_reshape">
+            <TestedMethod name="public void reshape(int x, int y, int width, int height)"/>
+
+            <Precondition>Create Rectangle and reshape it using specific values.
+            </Precondition>
+            <Description>Check that fields' values are equal to specific values.
+            </Description>
+            <Expected>Equals.</Expected>
+        </Case>        
+        <Case ID="testRectangle_translate">
+            <TestedMethod name="public void translate(int x, int y)"/>
+
+            <Precondition>Create Rectangle and translate it by specific values.
+            </Precondition>
+            <Description>Check that fields' values are equal to specific values.</Description>
+            <Expected>Equals.</Expected>
+        </Case>
+        <Case ID="testRectangle_union">
+            <TestedMethod name="public Rectangle union(Rectangle r)"/>
+            <Precondition>Create two specific Rectangles.</Precondition>
+            <Description>Check union of them.</Description>
+            <Expected>Expected union values for two specific Rectangles.
+            </Expected>
+        </Case>        
+        <Case ID="testRectangle_intersects">
+            <TestedMethod name="public boolean intersects(Rectangle r)"/>
+            <Precondition>Create two Rectangles.</Precondition>
+            <Description>Check intersection for them.</Description>
+            <Expected>Expected 'intersects' values for two specific Rectangles.
+            </Expected>
+        </Case>
+        <Case ID="testRectangle_intersection">
+            <TestedMethod name="public Rectangle intersection(Rectangle r)"/>
+            <Precondition>Create two Rectangles.</Precondition>
+            <Description>Check intersection of them.</Description>
+            <Expected>Expected 'intersects' values for two specific Rectangles.
+            </Expected>
+        </Case>
+        <Case ID="testRectangle_init_dim">
+            <TestedMethod name="public Rectangle(Dimension d)"/>
+            <Precondition>Create specific Dimension. Create Rectangle 
+            by the Dimension</Precondition>
+            <Description>Check that width, height for Rectangle and Dimension
+            object are equal.</Description>
+            <Expected>Equal width, height.</Expected>
+        </Case>
+        <Case ID="testRectangle_init_point_dim">
+            <TestedMethod name="public Rectangle(Point p, Dimension d)"/>
+            <Precondition>Create Rectangle by specific Point and Dimension.
+            </Precondition>
+            <Description>
+            Check that x,y coordinates are equal for Point and Rectangle.
+            Check that width,height are equal for Dimension and Rectangle.
+            </Description>
+            <Expected>Equals values.</Expected>
+        </Case>
+
+        <Case ID="testRectangle_add">
+            <TestedMethod name="public void add(int newx, int newy)"/>
+            <TestedMethod name="public void add(Point pt)"/>
+            <TestedMethod name="public void add(Rectangle r)"/>                        
+
+            <Precondition>Create specific Rectangle object. 
+            Additional points and rectangle to the Rectangle object.</Precondition>
+            <Description>Check that points and rectangle 
+            are inside the new Rectangle</Description>
+            <Expected>Points and rectangle are inside.</Expected>
+        </Case>
+
+        <Case ID="testRectangle_contains_ii">
+            <TestedMethod name="public boolean contains(int x, int y)"/>
+            <Precondition>Create specific Rectangle object.</Precondition>
+            <Description>Check several points. (inside, outside)
+            </Description>
+            <Expected>Outside points are outside.
+            Inside points are inside. </Expected>
+        </Case>
+
+        <Case ID="testRectangle_contains_point">
+            <TestedMethod name="public boolean contains(Point p)"/>
+            <Precondition>Create specific Rectangle object.</Precondition>
+            <Description>Check several points. (inside, on border,outside)
+            </Description>
+            <Expected>Outside points are outside.
+            Inside points are inside. </Expected>        </Case>
+        <Case ID="testRectangle_setLocation_point">
+            <TestedMethod name="public void setLocation(Point p)"/>
+            <Precondition>Create Rectangle. Move it to specific point.
+            </Precondition>
+            <Description>Check that new x,y values correct.</Description>
+            <Expected>Correct x,y values.</Expected>
+        </Case>
+
+        <Case ID="testRectamgle_setRect_dddd">
+            <TestedMethod name="public void setRect(double x, double y, double width, double height)"/>
+            <Precondition>Create default Rectangle object. Set specific bounds.</Precondition>
+            <Description>Check expected bounds.</Description>
+            <Expected>Expected bounds.</Expected>
+        </Case>
+        <Case ID="testRectamgle_setSize_ii">
+            <TestedMethod name="public void setSize(int width, int height)"/>
+            <Precondition>Create default Rectangle. Set specific size.
+            </Precondition>
+            <Description>Check expected size.</Description>
+            <Expected>Expected size.</Expected>
+        </Case>
+        <Case ID="testRectamgle_setSize_dim">
+            <TestedMethod name="public void setSize(Dimension d)"/>
+            <Precondition>Create default Rectangle. Size is set in accordance 
+            with dimension object.
+            </Precondition>
+            <Description>Check expected size.</Description>
+            <Expected>Expected size.</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name = "functional"/>
+    <Keyword name = "gui"/>
+    
+    <Source name="RectangleTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.Rectangle.RectangleTest">
+        </Param>
+    </Runner>
+</Test> 

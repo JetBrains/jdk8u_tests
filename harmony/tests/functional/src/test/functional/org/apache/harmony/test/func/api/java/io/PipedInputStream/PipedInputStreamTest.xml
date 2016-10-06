@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="PipedInputStreamTest"
+    date-of-creation="2004-11-30"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.PipedInputStream"/>
+
+        <Case ID="testClose">
+            <TestedMethod name="PipedInputStream(PipedOutputStream pos)"/>
+            <TestedMethod name="close()"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.close()</Description>
+            <Expected>close() of the underlying stream is called</Expected>
+        </Case>
+
+        <Case ID="testAvailable">
+            <TestedMethod name="PipedInputStream(PipedOutputStream pos)"/>
+            <TestedMethod name="public int available()"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.available()</Description>
+            <Expected>0 returned</Expected>
+        </Case>
+
+        <Case ID="testMarkSupported">
+            <TestedMethod name="PipedInputStream(PipedOutputStream pos)"/>
+            <TestedClass name="java.io.InputStream"/>
+            <TestedMethod name="public boolean markSupported()"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.markSupported()</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReset">
+            <TestedClass name="java.io.InputStream"/>
+            <TestedMethod name="reset()"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.reset()</Description>
+            <Expected>stream behaves as specified in API</Expected>
+        </Case>
+
+        <Case ID="testMark">
+            <TestedClass name="java.io.InputStream"/>
+            <TestedMethod name="public void mark(int readlimit)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.mark()</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testReadByte">
+            <TestedMethod name="public int read() "/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.read()</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes">
+            <TestedClass name="java.io.InputStream"/>
+            <TestedMethod name="public int read(byte[] b)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.read(byte[])</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytesSlice">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.read(byte[] buf, int offset, int len)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytesNull">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.read(null, int, int)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0001">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.read(byte[], int &lt; 0, int)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0002">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.read(byte[], int, int &lt; 0)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0003">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.read(byte[] buf, int offset, int len); buf.length &lt; offset + len</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testSkip">
+            <TestedClass name="java.io.InputStream"/>
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create PipedInputStream/PipedOutputStream pair</Precondition>
+            <Description>call PipedInputStream.skip(3)</Description>
+            <Expected>proper values are read after that</Expected>
+        </Case>
+
+        <Case ID="testSkip">
+            <TestedMethod name="protected void receive(int b)"/>
+            <Precondition></Precondition>
+            <Description>create PipedInputStream/PipedOutputStream pair . PipedInputStream is specially prepared  - 
+            it copies bytes passed to receive(int) to an array</Description>
+            <Expected>after reading some bytes expected number of bytes is stored in that array</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="PipedInputStreamTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.PipedInputStream.PipedInputStreamTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        
+        </Param>
+    </Runner>
+</Test> 

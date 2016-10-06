@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+<Test
+    ID="LookAndFeelTest"
+    date-of-creation="2005-05-14"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.LookAndFeel"/>
+
+        <Case ID="testInit">
+            <TestedMethod name="public LookAndFeel()"/>
+            <Precondition> none </Precondition>
+            <Description>It tries create a new LookAndFeel object </Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+
+        <Case ID="testLoadKeyBindings">
+            <TestedMethod name="public static void loadKeyBindings(InputMap retMap, Object[] keys)"/>
+            <Precondition>none</Precondition>
+            <Description>
+            
+            </Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testMakeInputMap">
+            <TestedMethod name="public static InputMap makeInputMap(Object[] keys)"/>
+            <Precondition>none</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testMakeComponentInputMap">
+            <TestedMethod name="public static ComponentInputMap makeComponentInputMap(JComponent c, Object[] keys)"/>
+            <Precondition>none</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+        <Case ID="testInitialize">
+            <TestedMethod name="public void uninitialize()"/>
+            <Precondition>none</Precondition>
+            <Description>Nothing is doing. This is just a hook for subclasses</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+        <Case ID="testMakeIcon">
+            <TestedMethod name="public static Object makeIcon(Class&lt;?&gt; baseClass, String gifFile)"/>
+            <Precondition>none</Precondition>
+            <Description></Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+                
+        
+
+
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>
+    <Keyword name="gui"/>
+    
+    <Source name="LookAndFeelTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.LookAndFeel.LookAndFeelTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="logging_03"
+    date-of-creation="2005-08-29"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.logging.Logger"/>
+
+        <Case ID="testInitLogging">
+            <TestedMethod name="public static Logger getLogger(String name, String resourceBundleName)"/>
+            <Precondition>None</Precondition>
+            <Description>creates an instance of Logger using the
+            static method getLogger(String, String) with specified logger name and 
+            bundle name.
+            Checks if the logger name and bundle name are correct.
+            </Description>
+            <Expected>0</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="logging_03.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.logging.Logger.logging_03">
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

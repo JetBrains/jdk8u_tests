@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test
+    ID="ImplementationOfAllMethodsInListenerFalse"
+    date-of-creation="2004-12-21"
+    timeout="1"
+    >   
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.beans.EventHandler"/>
+             <TestedMethod name="public EventHandler(Object target, String action, String eventPropertyName, String listenerMethodName)"/>
+             <TestedMethod name="public static &lt;T&gt; T create(Class&lt;T&gt; listenerInterface, Object target, String action, String eventPropertyName, String listenerMethodName)"/>
+             <TestedMethod name="public Object invoke(Object proxy, Method method, Object[] arguments)"/>
+            <Description>
+                Purpose: verify that all methods of listener are implemented. 
+                Step-by-step encoding: 
+                    - Listener interface is created with two method. 
+                    - Create event for listener. 
+                    - Create class which has a method without parameter. 
+                    - Invoke create(listener,class from previous item,name of the method created in previous 
+                     item) method. 
+                    - Invoke one of implemented methods of listener thru EventHandler.invoke(..) method. 
+                    - Verify that method of class created in item#3 is invoked. 
+                    - Invoke other implemented methods of listener thru EventHandler.invoke(..) method. 
+                    - Verify that method of class created in item#3 is invoked.                         
+            </Description>
+            </APITestDescription>
+        <Keyword name="functional"/>
+        <Source name="ImplementationOfAllMethodsInListenerTest.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.eventhandler.ImplementationOfAllMethodsInListenerTest">
+            <Option name="invokeByTypeCasting" value="false"/>
+            </Param>
+        </Runner>
+</Test>
+

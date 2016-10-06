@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="FileChannelTest"
+    date-of-creation="2005-09-05"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.nio.channels.FileChannel"/>
+
+        <Case ID="testLockAndTryLock">        
+            <TestedMethod name="protected FileChannel()"/>        
+            <TestedMethod name="public final FileLock lock()"/>
+            <TestedMethod name="public abstract FileLock lock(long position,long size,boolean shared)"/>
+            <TestedMethod name="public final FileLock tryLock()"/>                  
+            <TestedMethod name="public abstract FileLock tryLock(long position,long size,boolean shared)"/>
+            <TestedMethod name="public final FileLock tryLock()"/>                              
+            <TestedClass name="java.io.FileInputStream"/>
+            <TestedMethod name="public FileChannel getChannel()"/>
+            <TestedClass name="java.io.FileOutputStream"/>
+            <TestedMethod name="public FileChannel getChannel()"/>            
+            <TestedClass name="java.io.RandomAccessFile"/>                        
+            <TestedMethod name="public FileChannel getChannel()"/>
+            <Precondition>
+                created 3 FileChannel : 
+                    only for reading: fcr = new RandomAccessFile(String,"r").getChannel(); 
+                    only for writing: fcw = new FileOutputStream(String).getChannel() 
+                    for reading and writing: fc = new RandomAccessFile(String,"rw").getChannel(); 
+            </Precondition>
+            <Description> 
+                Call File(String).delete() and check that we can't do this, because exists don`t close Channel on this file.
+                Call fcr.lock() and check that throws NonWritableChannelException, because FileChannel wasn't open for write.
+                Call fcw.lock(0L, Long.MAX_VALUE, true) and check that throws NonReadableChannelException, because FileChannel wasn't open for read.
+                Call fc.lock(), than call fcw.tryLock() and check that throws OverlappingFileLockException, because FileChannel is locked.
+                Call fcr.read(ByteBuffer)and check that throws IOException, because file is locked.
+                Call fcr.write(ByteBuffer)and check that throws IOException, because file is locked.
+                Call fc.close(), thah call fc.close() and check that throws ClosedChannelException, because FileChannel is closed.          
+            </Description>
+            <Expected></Expected>
+        </Case>
+       
+        <Case ID="testLock">
+            <TestedMethod name="public final FileLock lock()"/>
+            <TestedMethod name="public abstract FileLock lock(long position,long size,boolean shared)"/>
+            <TestedMethod name="public final FileLock tryLock()"/>                  
+            <TestedMethod name="public abstract FileLock tryLock(long position,long size,boolean shared)"/>
+            <TestedClass name="java.nio.channels.FileLock;"/>
+            <TestedMethod name="public abstract void release()"/>                        
+            <Precondition>Create FileChannel for reading and writing with fc = new RandomAccessFile(String, "rw").getChannel().</Precondition>
+            <Description>
+                Start one thread, where call fc.lock(), than start sekond thread, where call fc.lock(), and check that in first thread throws OverlappingFileLockException.
+                Call FileLock.release() and check that FileLock.isValid() is false after that.
+                Check that throws OverlappingFileLockException, when another thread is already blocked in this method and is attempting to lock an overlapping region
+                Check that thread can locked a region, when another thread is already blocked in this method and is attempting to lock an not overlapping region
+            </Description>
+            <Expected></Expected>
+        </Case>
+        
+       
+        <Case ID="testRead">
+            <TestedMethod name="public abstract int read(ByteBuffer dst)"/>
+            <TestedClass name="java.io.FileInputStream"/>
+            <TestedMethod name="public FileChannel getChannel()"/>
+            <Precondition>Create FileChannel with FileInputStream(String).getChannel()</Precondition>
+            <Description>Call FileChannel.read(ByteBuffer) and check that had read normal information from file</Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testWrite">
+            <TestedMethod name="public abstract int write(ByteBuffer src)"/>
+            <TestedClass name="java.io.FileOutputStream"/>
+            <TestedMethod name="public FileChannel getChannel()"/>            
+            <Precondition>Create FileChannel with FileOutputStream(String).getChannel()</Precondition>
+            <Description>Call FileChannel.write(ByteBuffer) and check that had written normal information to file</Description>
+            <Expected></Expected>
+        </Case>
+
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>
+    <Source name="FileChannelTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.nio.channels.fileChannel.FileChannelTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_SignatureTest_01"
+    date-of-creation="2004-12-16"
+    timeout="1"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.Signature"/>
+                    <TestedMethod name="public static Signature getInstance(String algorithm) throws NoSuchAlgorithmException"/>
+                    <TestedMethod name="public final void initSign(PrivateKey privateKey) throws InvalidKeyException"/>
+                    <TestedMethod name="public final void update(byte b) throws SignatureException"/>
+                    <TestedMethod name="public final void update(byte[] data) throws SignatureException"/>
+                    <TestedMethod name="public final void initVerify(PublicKey publicKey) throws InvalidKeyException"/>
+                    <TestedMethod name="public final byte[] sign() throws SignatureException"/>
+                    <TestedMethod name="public final boolean verify(byte[] signature) throws SignatureException"/>
+
+                    <Description>
+                        Check mechanism of signing and verification of digital signatures.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_SignatureTest_01.java"/>
+                <Modification date="2004-12-16" />
+                
+        <!--Runner ID="Execute">
+            <Param name="toRun" value="$TestedCompile">
+                <Option name="-d" value="$TempStorage"/>
+                <Option name="-classpath" value="$TestSuiteClassRoot$PathSeparator"/>
+                <Option name="$TestDirectory$FileSeparatorF_SignatureTest_01.java"/>
+                
+            </Param>
+            <Param name="toRun" value="$TestedRuntime">
+                <Option name="-cp" value="$TestSuiteClassRoot$PathSeparator"/>
+                <Option value="$BOOT_CLASS_PATH"/>
+                <Option name="org.apache.harmony.test.func.api.java.security.F_SignatureTest_01.F_SignatureTest_01"/>
+                <Option value="1024"/>
+                <Option value="RSA"/>
+                <Option value="MD5withRSA"/>
+                <Option value="The quick brown fox jumped over the lazy dog."/>
+            </Param>
+        </Runner-->
+            <Runner ID="Runtime">                
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_SignatureTest_01.F_SignatureTest_01">
+                <Option value="1024"/>
+                </Param>
+            </Runner>
+
+
+</Test>

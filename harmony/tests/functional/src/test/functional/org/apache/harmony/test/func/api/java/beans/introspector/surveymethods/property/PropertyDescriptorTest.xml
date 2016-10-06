@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="PropertyDescriptorTest"  date-of-creation="2004-24-12" timeout="1">
+    
+    
+    <MulticaseTestDescription>        
+        <TestedClass name="java.beans.SimpleBeanInfo"/>
+        <Case ID="testComplexTypeOfProperty"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public Class&lt;?&gt; getPropertyType()"/>
+            <Description>
+                Verify class type of property. 
+                Step-by-step decoding: 
+                    - Create bean which has setter and getter methods of string property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that type of property is string.            
+            </Description>            
+        </Case>
+        <Case ID="testPrimitiveTypeOfProperty"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public Class&lt;?&gt; getPropertyType()"/>
+            <Description>
+                Verify primitive type of property. 
+                Step-by-step decoding: 
+                    - Create bean which has setter and getter methods of boolean property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that type of property is boolean.            
+            </Description>            
+        </Case>
+        <Case ID="testReadMethodOfBooleanPropertyBeginsWithIs"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getReadMethod()"/>
+            <Description>
+                Verify, that getReadMethod() method returns first read method of boolean property, which begins 
+                 with "is". 
+                Step-by-step decoding: 
+                    - Create bean which has two getter method of boolean property, which begins with "is" 
+                     and with "get". 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getReadMethod() of PropertyDescriptor returns read method of boolean 
+                     property which begins with "is".            
+            </Description>            
+        </Case>
+        <Case ID="testCombineReadAndWriteMethods"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getWriteMethod()"/>
+            <Description>
+                Verify, that Introspector sets read and write methods of one PropertyDescriptors. 
+                Step-by-step decoding: 
+                    - Create bean which has getter and setter methods of property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getWriteMethod() of PropertyDescriptor returns write method of property. 
+                    - Verify that getReadMethod() of PropertyDescriptor returns read method of property.            
+            </Description>            
+        </Case>
+        <Case ID="testReadMethodOfBooleanPropertyBeginsWithGet"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getReadMethod()"/>
+            <Description>
+                Verify, that Introspector method returns a read method of boolean property, which begins with 
+                 "get". 
+                Step-by-step decoding: 
+                    - Create bean which has getter method of boolean property, which begins with "get". 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getReadMethod() of PropertyDescriptor returns read method of boolean 
+                     property.            
+            </Description>            
+        </Case>
+        <Case ID="testUppercaseProperty"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getReadMethod()"/>
+            <Description>
+                Verify, that Introspector finds property, which name consists of uppercase letters. 
+                Step-by-step decoding: 
+                    - Create bean which has getter method of property, which name is "get"+ uppercase 
+                     letters. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getReadMethod() of PropertyDescriptor returns read method of property.            
+            </Description>            
+        </Case>
+        <Case ID="testEquals"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public boolean equals(Object obj)"/>            
+            <Description>
+                Verify that PropertyDescriptor.equals(..) method returns true if 2 PropertyDescriptor's are the 
+                 same. 
+                Step-by-step decoding: 
+                    - Create bean which has setter and getter method of property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for given property by name. 
+                    - Invoke equals method from PropertyDescriptor, where the same PropertyDescriptor is 
+                     parameter of equals method. 
+                    - Verify that returned value is true.            
+            </Description>            
+        </Case>
+        <Case ID="testGetIndexedReadMethod"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.IndexedPropertyDescriptor"/>
+            <TestedMethod name="public Method getIndexedReadMethod()"/>
+            <Description>
+                Verify that Introspector attaches indexed read method to PropertyDescriptor. 
+                Step-by-step decoding: 
+                    - Create bean which has setter, getter, indexed setter, indexed getter methods of 
+                     property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that found PropertyDescriptor is IndexedPropertyDescriptor. 
+                    - Verify that getIndexedReadMethod() of IndexedPropertyDescriptor returns indexed read 
+                     method of the indexed property.            
+            </Description>            
+        </Case>
+        <Case ID="testGetIndexedWriteMethod"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.IndexedPropertyDescriptor"/>
+            <TestedMethod name="public Method getIndexedWriteMethod()"/>
+            <TestedMethod name="public Class&lt;?&gt; getIndexedPropertyType()"/>
+            <Description>
+                Verify that Introspector attaches indexed write method to PropertyDescriptor. 
+                Step-by-step decoding: 
+                    - Create bean which has setter, getter, indexed setter, indexed getter methods of 
+                     property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that found PropertyDescriptor is IndexedPropertyDescriptor. 
+                    - Verify that getIndexedWriteMethod() of IndexedPropertyDescriptor returns indexed 
+                     write method of indexed property.            
+            </Description>            
+        </Case>
+        <Case ID="testOnlyIndexedSetter"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.IndexedPropertyDescriptor"/>
+            <TestedMethod name="public Method getIndexedWriteMethod()"/>
+            <Description>
+                Verify that getIndexedWriteMethod() of IndexedPropertyDescriptor returns indexed write method 
+                 of indexed property, if there is only indexed write method. 
+                Step-by-step decoding: 
+                    - Create bean which has only indexed setter methods of property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that found PropertyDescriptor is IndexedPropertyDescriptor. 
+                    - Verify that getIndexedWriteMethod() of IndexedPropertyDescriptor returns indexed 
+                     write method of indexed property.            
+            </Description>            
+        </Case>
+        <Case ID="testOnlyIndexedGetter"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.IndexedPropertyDescriptor"/>
+            <TestedMethod name="public Method getIndexedReadMethod()"/>
+            <Description>
+                Verify that getIndexedReadMethod() of IndexedPropertyDescriptor returns indexed read method 
+                 of indexed property, if there is only indexed read method. 
+                Step-by-step decoding: 
+                    - Create bean which has only indexed getter method of property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that the PropertyDescriptor is IndexedPropertyDescriptor. 
+                    - Verify that getIndexedReadMethod() of IndexedPropertyDescriptor returns indexed read 
+                     method of indexed property.            
+            </Description>            
+        </Case>
+        <Case ID="testQuantityOfProperties"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <Description>
+                Verify quantity of found properties. 
+                Step-by-step decoding: 
+                    - Create bean which has setter and getter methods of property#1; setter, getter, indexed 
+                     setter, indexed getter methods of indexed property#2; only getter methods of property#3; only 
+                     setter method of property#4. 
+                    - Introspect bean. 
+                    - Verify that quantity of found properties is 5. (One property from Object class).            
+            </Description>            
+        </Case>
+        <Case ID="testOnlyGetterMethod"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getReadMethod()"/>
+            <Description>
+                Verify, that Introspector finds a property with only getter method. 
+                Step-by-step decoding: 
+                    - Create bean which has only getter method of a property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getReadMethod() of PropertyDescriptor returns read method of the property.            
+            </Description>            
+        </Case>
+        <Case ID="testGetReadMethodOfIndexedPropertyDescriptor"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getReadMethod()"/>
+            <Description>
+                Verify that getReadMethod() returns read method of indexed property. 
+                Step-by-step decoding: 
+                    - Create bean which has setter, getter, indexed setter, indexed getter methods of 
+                     property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getReadMethod() of IndexedPropertyDescriptor returns indexed read method 
+                     of the indexed property.            
+            </Description>            
+        </Case>
+        <Case ID="testGetWriteMethodOfIndexedPropertyDescriptor"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getWriteMethod()"/>
+            <Description>
+                Verify that getWriteMethod() returns write method of indexed property. 
+                Step-by-step decoding: 
+                    - Create bean which has setter, getter, indexed setter, indexed getter methods of 
+                     property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getWriteMethod() of IndexedPropertyDescriptor returns indexed write 
+                     method of the indexed property.            
+            </Description>            
+        </Case>
+        <Case ID="testOnlySetterMethod"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <TestedClass name="java.beans.PropertyDescriptor"/>
+            <TestedMethod name="public java.lang.reflect.Method getWriteMethod()"/>
+            <Description>
+                Verify, that Introspector finds a property with only setter method. 
+                Step-by-step decoding: 
+                    - Create bean which has only setter method of a property. 
+                    - Introspect bean. 
+                    - Find PropertyDescriptor for the property by name of property. 
+                    - Verify that getWriteMethod() of PropertyDescriptor returns write method of the 
+                     property.            
+            </Description>            
+        </Case>
+        <Case ID="testWrongSetterMethod"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <Description>
+                Verify, that Introspector doesn't find property which setter method returns a value. 
+                Step-by-step decoding: 
+                    - Create bean which has public setter method which returns value. 
+                    - Introspect bean. 
+                    - Verify that there isn't given property in list of found properties.            
+            </Description>            
+        </Case>
+        <Case ID="testWrongGetterMethod"> 
+            <TestedMethod name="public MethodDescriptor[] getMethodDescriptors()"/>
+            <Description>
+                Verify, that Introspector doesn't find property which getter method has a parameter. 
+                Step-by-step decoding: 
+                    - Create bean which has public getter method, which has a parameter. 
+                    - Introspect bean. 
+                    - Verify that there isn't given property in list of found properties.            
+            </Description>            
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="PropertyDescriptorTest.java"/>
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.introspector.surveymethods.property.PropertyDescriptorTest"/>
+    </Runner>
+</Test>

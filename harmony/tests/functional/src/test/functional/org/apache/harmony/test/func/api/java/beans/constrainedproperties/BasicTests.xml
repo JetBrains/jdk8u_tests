@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="BasicTests"  date-of-creation="2004-10-06" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.VetoableChangeSupport"/>
+        <Case ID="testGetVetoableChangeListeners01">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public void addVetoableChangeListener(VetoableChangeListener listener)"/>        
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners()"/>
+            <Description>
+            Verify that getVetoableChangeListeners() method returns listener registered for all properties. 
+            Step-by-step encoding: register a listener for all properties. Verify that 
+            getVetoableChangeListeners() method returns the listener.</Description>
+        </Case>
+        <Case ID="testGetVetoableChangeListeners02">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public void addVetoableChangeListener(String propertyName, VetoableChangeListener listener)"/>        
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners(String propertyName)"/>
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners(String propertyName)"/>
+            <TestedMethod name="public void fireVetoableChange (String, int, int)"/>
+            <Description>
+                Verify that getVetoableChangeListeners(String selectedPropertyName) method returns listener  registered for selected property. 
+                Step-by-step encoding: register a listener for selected properties. Verify that 
+                getVetoableChangeListeners(String selectedPropertyName) method returns the listener.
+            </Description>
+        </Case>
+        <Case ID="testGetVetoableChangeListeners03">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners()"/>
+            <Description>
+                Verify that by default getVetoableChangeListeners() method returns empty array.
+            </Description>
+        </Case>
+        <Case ID="testGetVetoableChangeListeners04">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners(String propertyName)"/>
+            <Description>
+                Verify that by default getVetoableChangeListeners(String propertyName) method returns empty array.
+            </Description>
+        </Case>
+        <Case ID="testGetVetoableChangeListeners05">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners(String propertyName)"/>
+            <TestedClass name="java.beans.VetoableChangeListenerProxy"/>
+            <TestedMethod name="public VetoableChangeListenerProxy(String propertyName, VetoableChangeListener listener)"/> 
+            <TestedMethod name="public void vetoableChange(PropertyChangeEvent evt)"/>              
+            <TestedMethod name="public String getPropertyName()"/>
+            <Description>
+                Verify that if a listener have been registered for selected property, then 
+                 getVetoableChangeListeners() method returns VetoableChangeListenerProxy, which is a wrapper 
+                 for the registered listener. 
+                Step-by-step encoding: 
+                    - Register a listener for selected properties. 
+                    - Invoke getVetoableChangeListeners() method. 
+                    - Verify that returned value is VetoableChangeListenerProxy object. 
+                    - Verify that getListener() of VetoableChangeListenerProxy object returns registered 
+                     listener. 
+                    - Verify that getPropertyName() of VetoableChangeListenerProxy object returns a name of 
+                     selected property.
+            </Description>
+        </Case>
+        <Case ID="testFireVetoableChange01">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners(String propertyName)"/>
+            <TestedMethod name="public void fireVetoableChange(String propertyName, Object oldValue, Object newValue) "/>
+            <Description>
+                Verify that no event is fired if old and new values are equal. 
+                Step-by-step encoding: register a listener for selected properties. Call fireVetoableChange method 
+                 for selected property with the same old and new values. Verify that no event is fired.
+            </Description>
+        </Case>        
+        <Case ID="testFireVetoableChange02">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners(String propertyName)"/>
+            <TestedMethod name="public void fireVetoableChange(PropertyChangeEvent evt) "/>
+            <TestedClass name="java.beans.PropertyChangeEvent"/>
+            <TestedMethod name="public PropertyChangeEvent(Object source, String propertyName, Object oldValue, Object newValue)"/>
+            <Description>
+                Verify that listener is notified when fireVetoableChange(PropertyChangeEvent evt) method is 
+                 invoked. 
+                Step-by-step encoding: create PropertyChangeEvent, register a listener for selected properties, 
+                 invoked fireVetoableChange method for selected property. Verify that listener is notified.
+            </Description>
+        </Case>        
+        <Case ID="testFireVetoableChange03">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public void fireVetoableChange(String propertyName, boolean oldValue, boolean newValue) "/>
+            <Description>
+                Verify that listener is notified when fireVetoableChange(String propertyName, boolean oldValue, 
+                 boolean newValue) method is invoked. 
+                Step-by-step encoding: register a listener for selected properties, invoked fireVetoableChange 
+                 method for selected property. Verify that listener is notified.
+            </Description>
+        </Case>
+        <Case ID="testFireVetoableChange04">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public void addVetoableChangeListener(VetoableChangeListener listener)"/>                                
+            <TestedMethod name="public void fireVetoableChange(String propertyName, boolean oldValue, boolean newValue) "/>
+            <Description>
+                Verify that listener is notified when fireVetoableChange(String propertyName, int oldValue, int 
+                 newValue) method is invoked. 
+                Step-by-step encoding: register a listener for selected properties, invoked fireVetoableChange 
+                 method for selected property. Verify that listener is notified.
+            </Description>
+        </Case>
+        <Case ID="testHasListeners01">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public void addVetoableChangeListener(VetoableChangeListener listener)"/>                                
+            <TestedMethod name="public boolean hasListeners(String propertyName)"/>
+            <Description>
+                Verify that hasListeners method returns true if there are any listeners for a specific property. 
+                Step-by-step encoding: register a listener for selected property. Verify that hasListeners(String 
+                 selectedPropertyName) method returns the listener.
+            </Description>
+        </Case>
+        <Case ID="testHasListeners02">
+            <TestedMethod name="public VetoableChangeSupport(Object sourceBean)"/>
+            <TestedMethod name="public boolean hasListeners(String propertyName)"/>
+            <Description>
+                Verify that hasListeners method returns true if there are any listeners for a specific property. 
+                Step-by-step encoding: register a listener for selected property. Verify that hasListeners(String 
+                 selectedPropertyName) method returns the listener.
+            </Description>
+        </Case>
+        <Case ID="testPropagationId">
+            <TestedClass name="java.beans.PropertyChangeEvent"/>
+            <TestedMethod name="public PropertyChangeEvent(Object source, String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public Object getPropagationId()"/>
+            <TestedMethod name="public void setPropagationId(Object propagationId)"/>
+            <Description>
+                Verify that getPropagationId() of PropertyChangeEvent class returns propagationId. 
+                Step-by-step encoding: set propagationId. Verify that getPropagationId() method returns 
+                 PropagationId.
+            </Description>
+        </Case>
+        <Case ID="testSerialisation">
+            <TestedMethod name="public void addVetoableChangeListener(String propertyName, VetoableChangeListener listener)"/>                    
+            <TestedMethod name="public VetoableChangeListener[] getVetoableChangeListeners(String propertyName)"/>        
+            <TestedClass name="java.beans.PropertyChangeEvent"/>
+            <TestedMethod name="public PropertyChangeEvent(Object source, String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="public Object getPropagationId()"/>
+            <TestedMethod name="public void setPropagationId(Object propagationId)"/>
+            <Description>
+                Verify that when one serializes VetoableChangeSupport class, all serializable listeners are serialized 
+                 and non-serializable listeners aren't serialize. 
+                Step-by-step encoding: 
+                    - Add serializable listener#0 to all properties. 
+                    - Add non-serializable listener#1 to certain property#1. 
+                    - Add serializable listener#2 to certain property#2. 
+                    - Verify that getVetoableChangeListeners() method returns massive consisting of two 
+                     listeners. Verify that first listener is listener#0. 
+                    - Verify that getVetoableChangeListeners(property#1) returns empty massive. 
+                    - Verify that getVetoableChangeListeners(property#2) returns listener#2.
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="BasicTests.java"/>
+
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.constrainedproperties.BasicTests"/></Runner>
+</Test>

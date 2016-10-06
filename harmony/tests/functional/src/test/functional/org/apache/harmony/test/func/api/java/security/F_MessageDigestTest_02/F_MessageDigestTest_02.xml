@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_MessageDigestTest_02"
+        date-of-creation="2004-10-25"
+        timeout="10"
+        >
+        <!--
+        -->
+            
+                
+                <APITestDescription>
+
+                    <TestedClass name="java.security.Provider"/>
+                    <TestedMethod name="protected Provider(String name, double version, String info)"/>
+                    <TestedMethod name="public String getName()"/>
+                    <TestedMethod name="public double getVersion()"/>
+                    <TestedMethod name="public String getInfo()"/>
+                    <TestedMethod name="public void clear()"/>
+                    <TestedMethod name="public Object put(Object key, Object value)"/>
+
+                    <TestedClass name="java.security.MessageDigest"/>
+                    <TestedMethod name="public static MessageDigest getInstance(String algorithm, Provider provider) throws NoSuchAlgorithmException"/>
+
+                    <TestedClass name="java.security.MessageDigestSpi"/>
+                    <TestedMethod name="public MessageDigestSpi()"/>
+
+                    <Description>
+                        Check SPI mechanism on example of MessageDigestSPI implementation.
+                    </Description>
+
+                </APITestDescription>
+
+                <Keyword name="functional"/>
+                <Source name="F_MessageDigestTest_02.java"/>
+                <Modification date="2004-10-25" />
+
+            <Runner ID="Runtime">                
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_MessageDigestTest_02.F_MessageDigestTest_02">
+                </Param>
+            </Runner>
+            <Restriction name="OtherVMOnly"/>
+
+</Test>

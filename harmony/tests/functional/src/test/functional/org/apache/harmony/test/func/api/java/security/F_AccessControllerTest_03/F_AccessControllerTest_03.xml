@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_AccessControllerTest_03"
+    date-of-creation="2004-11-18"
+    timeout="1"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.AccessController"/>
+                    <TestedMethod name="public static AccessControlContext getContext()"/>
+                    <TestedMethod name="public static &lt;T&gt; T doPrivileged(PrivilegedAction&lt;T&gt; action, AccessControlContext context)"/>
+
+                    <TestedClass name="java.security.AccessControlContext"/>
+                    <TestedMethod name="public AccessControlContext(AccessControlContext acc, DomainCombiner combiner)"/>
+                    <TestedMethod name="public DomainCombiner getDomainCombiner()"/>
+
+                    <TestedClass name="java.security.ProtectionDomain"/>
+                    <TestedMethod name="public final CodeSource getCodeSource()"/>
+
+                    <TestedClass name="java.security.BasicPermission"/>
+                    <TestedMethod name="public BasicPermission(String name, String actions)"/>
+
+                    <Description>
+                        Check AccessController security mechanism.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_AccessControllerTest_03.java"/>
+                <Modification date="2004-11-24" />
+                
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator$TestDirectory$FileSeparatorauxiliary$FileSeparatorAccessTestClass.jar"/>
+                   <Option name="-Djava.security.policy=$TestDirectory$FileSeparatorauxiliary$FileSeparatorAccessControllerTest3.policy"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_AccessControllerTest_03.F_AccessControllerTest_03">
+                <Option value="user.name"/>
+            </Param>
+        </Runner>
+
+        <Restriction name="OtherVMOnly"/>
+</Test>

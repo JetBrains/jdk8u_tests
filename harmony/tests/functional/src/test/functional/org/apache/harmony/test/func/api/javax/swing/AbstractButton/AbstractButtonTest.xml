@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="AbstractButtonTest"
+    date-of-creation="2005-04-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.AbstractButton"/>
+
+        <Case ID="testCheckHorizontalKey">
+            <TestedMethod name="protected int checkHorizontalKey(int key, String exception)"/>
+            <Precondition>create a child of AbstractButton</Precondition>
+            <Description>call its method checkHorizontalKey() with various parameters</Description>
+            <Expected>no exception when parameters are valid and IllegalArgumentException when they are not</Expected>
+        </Case>
+
+        <Case ID="testCheckVerticalKey">
+            <TestedMethod name="protected int checkVerticalKey(int key, String exception)"/>
+            <Precondition>create a child of AbstractButton</Precondition>
+            <Description>call its method checkVerticalKey() with various parameters</Description>
+            <Expected>no exception when parameters are valid and IllegalArgumentException when they are not</Expected>
+        </Case>
+
+        <Case ID="testConfigurePropertiesFromAction">
+            <TestedMethod name="protected void configurePropertiesFromAction(Action a)"/>
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call its method configurePropertiesFromAction() with null and non-null parameters</Description>
+            <Expected>certain sequences of events happen in both cases</Expected>
+        </Case>
+        
+        <Case ID="testCreateActionPropertyChangeListener">
+            <TestedMethod name="protected PropertyChangeListener createActionPropertyChangeListener(Action a)"/>
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call its method createActionPropertyChangeListener()
+             with null and non-null parameters</Description>
+            <Expected>no more methods are called in both cases 
+            and returned values are not equal to null</Expected>
+        </Case>
+
+        <Case ID="testCreateChangeListener">
+            <TestedMethod name="protected ChangeListener createChangeListener()"/>
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call its method createChangeListener()</Description>
+            <Expected>no more methods are called and returned value is not equal to null</Expected>
+        </Case>
+
+        <Case ID="testActionCommand">
+            <TestedMethod name="public String getActionCommand()"/>
+            <TestedMethod name="public void setActionCommand(String actionCommand)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description></Description>
+            <Expected>
+            - getActionCommand() returns empty string by default
+            - setActionCall(null) is accepted
+            - getActionCommand() and setActionCommand(..)  produce a certain sequence of events
+            </Expected>
+        </Case>
+
+        <Case ID="testAction">
+            <TestedMethod name="public void setAction(Action a)"/>
+            <TestedMethod name="public Action getAction()"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call setAction(null) and setAction(non-null action)</Description>
+            <Expected>getAction() returns what was set by setAction(..) and setAction(..) produces
+            a certain sequence of events</Expected>
+        </Case>
+
+        <Case ID="testDisplayedMnemonicIndex">
+            <TestedMethod name="public int getDisplayedMnemonicIndex()"/>
+            <TestedMethod name="public void setDisplayedMnemonicIndex(int index)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getDisplayedMnemonicIndex() and setDisplayedMnemonicIndex(...) several times</Description>
+            <Expected>
+            - getDefaultMnemonicIndex() returns -1 by default
+            - setDisplayedMnemonicIndex(0) throws IllegalArgumentException if button text is empty
+            - setDisplayedMnemonicIndex(0) calls a certain sequence of events if button text is not empty
+            
+            </Expected>
+        </Case>
+
+        <Case ID="testHorizontalAlignment">
+            <TestedMethod name="public int getHorizontalAlignment()"/>
+            <TestedMethod name="public void setHorizontalAlignment(int alignment)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getHorizontalAlignment() and setHorizontalAlignment(...) several times</Description>
+            <Expected>
+            - getHorizontalAlignment() returns SwingConstants.RIGHT or SwingConstants.CENTER  by default
+            - getHorizontalAlignment() doesn't call any more methods internally
+            - setHorizontalAlignment(..) calls a certain sequences of events
+            </Expected>
+        </Case>
+        
+        <Case ID="testHorizontalTextPosition">
+            <TestedMethod name="public int getHorizontalTextPosition()"/>
+            <TestedMethod name="public void setHorizontalTextPosition(int textPosition)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getHorizontalTextPosition() and setHorizontalTextPosition(...) several times</Description>
+            <Expected>
+            - getHorizontalTextPosition() returns SwingConstants.RIGHT or SwingConstants.CENTER  by default
+            - getHorizontalTextPosition() doesn't call any more methods internally
+            - setHorizontalTextPosition(..) calls a certain sequences of events
+            </Expected>
+        </Case>
+
+        <Case ID="testIcon">
+            <TestedMethod name="public Icon getIcon()"/>
+            <TestedMethod name="public void setIcon(Icon defaultIcon)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getIcon() and setIcon(...) several times</Description>
+            <Expected>
+            - getIcon() returns null  by default
+            - setIcon(...) calls a certain sequences of events
+            - getIcon() returns what was set by setIcon(..)
+            </Expected>
+        </Case>
+        
+        <Case ID="testIconTextGap">
+            <TestedMethod name="public int getIconTextGap()"/>
+            <TestedMethod name="public void setIconTextGap(int iconTextGap)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getIconTextGap() and setIconTextGap(...) several times</Description>
+            <Expected>
+            - getIconTextGap() returns 4  by default
+            - 0, -1, Integer.MAX_VALUE accepted as setIconTextGap(...) parameters (no exception)
+            - setIconTextGap(..) calls a certain sequence of events
+            </Expected>
+        </Case>
+        
+        <Case ID="testMnemonic">
+            <TestedMethod name="public int getMnemonic()"/>
+            <TestedMethod name="public void setMnemonic(int mnemonic)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getMnemonic() and setMnemomic(...) several times</Description>
+            <Expected>
+            - getMnemonic() returns 0 by default
+            - setMnemonic(...) calls certain sequences of events in cases when mnemonic key exists in button text
+              and doesn't exist
+            - getMnemonic() returns what was set by setMnemonic() 
+            </Expected>
+        </Case>
+
+        <Case ID="testModel">
+            <TestedMethod name="public ButtonModel getModel()"/>
+            <TestedMethod name="public void setModel(ButtonModel newModel)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getModel() and setModel(...) several times</Description>
+            <Expected>
+            - getModel() doesn't call any methods internally
+            - setModel(...) calls a certain sequence of events
+            - getModel() returns what was set by setModel() 
+            </Expected>
+        </Case>
+
+        <Case ID="testMultiClickThreshhold">
+            <TestedMethod name="public long getMultiClickThreshhold()"/>
+            <TestedMethod name="public void setMultiClickThreshhold(long threshhold)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getMultiClickThreshhold() and setMultiClickThreshhold(...) several times</Description>
+            <Expected>
+            - getMultiClickThreshhold() returns 0 by default
+            - getMultiClickThreshhold(), setMultiClickThreshhold(...)  don't call any additional methods
+            - setMultiClickThreshhold(-1) throws IllegalArgumentException
+            - setModel(Long.MAX_VALUE) passes
+            </Expected>
+        </Case>
+        
+        <Case ID="testPressedIcon">
+            <TestedMethod name="public Icon getPressedIcon()"/>
+            <TestedMethod name="public void setPressedIcon(Icon defaultIcon)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getIcon() and setIcon(...) several times</Description>
+            <Expected>
+            - getPressedIcon() returns null  by default
+            - setPressedIcon(...) calls certain sequences of events when button pressed and not pressed
+            - getPressedIcon() returns what was set by setPressedIcon(..)
+            </Expected>
+        </Case>
+
+        <Case ID="testText">
+            <TestedMethod name="public String getText()"/>
+            <TestedMethod name="public void setText(String text)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getText() and setText(...) several times</Description>
+            <Expected>
+            - getText() returns ''  by default
+            - setTextIcon(...) calls certain sequences of events in different cases (text contains mnemonic key,
+                 text is equal to the current text, etc)
+            - getText() returns what was set with setText()
+            </Expected>
+        </Case>
+        
+        <Case ID="testUI">
+            <TestedMethod name="public ButtonUI getUI()"/>
+            <TestedMethod name="public void setUI(ButtonUI ui)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getUI() and setUI(...) several times</Description>
+            <Expected>
+            - getUI() returns null  by default
+            - setUI(...) calls certain sequences of events in different cases (current ui is null,
+                 new ui is equal to the current ui, etc)
+            - getUI() returns what was set with setUI()
+            </Expected>
+        </Case>
+
+        <Case ID="testVerticalAlignment">
+            <TestedMethod name="public int getVerticalAlignment()"/>
+            <TestedMethod name="public void setVerticalAlignment(int alignment)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getVerticalAlignment() and setVerticalAlignment(...) several times</Description>
+            <Expected>
+            - getVerticalAlignment() returns SwingConstants.CENTER  by default
+            - getVerticalAlignment() doesn't call any more methods internally
+            - setVerticalAlignment(..) calls a certain sequences of events
+            </Expected>
+        </Case>
+        
+        <Case ID="testVerticalTextPosition">
+            <TestedMethod name="public int getVerticalTextPosition()"/>
+            <TestedMethod name="public void setVerticalTextPosition(int textPosition)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call getVerticalTextPosition() and setVerticalTextPosition(...) several times</Description>
+            <Expected>
+            - getVerticalTextPosition() returns SwingConstants.CENTER  by default
+            - getVerticalTextPosition() doesn't call any more methods internally
+            - setVerticalTextPosition(..) calls a certain sequences of events
+            </Expected>
+        </Case>
+
+        <Case ID="testConstructor">
+            <TestedMethod name="public AbstractButton()"/>
+            
+            <Precondition></Precondition>
+            <Description>create a child of AbstractButton instrumented with logging</Description>
+            <Expected>
+            a certain sequence of methods called inside constructor
+            </Expected>
+        </Case>
+
+        <Case ID="testBorderPainted">
+            <TestedMethod name="public boolean isBorderPainted()"/>
+            <TestedMethod name="public void setBorderPainted(boolean b)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call isBorderPainted() and setBorderPainted(boolean b) several times</Description>
+            <Expected>
+            - isBorderPainted() returns true by default
+            - isBorderPainted() doesn't call any methods internally
+            - setBorderPainted(..) calls certain sequences of events when new value of the property
+              is equal to the old one and when it is not equal
+            </Expected>
+        </Case>
+
+        <Case ID="testContentAreaFilled">
+            <TestedMethod name="public boolean isContentAreaFilled()"/>
+            <TestedMethod name="public void setContentAreaFilled(boolean b)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call isContentAreaFilled() and setContentAreaFilled(boolean b) several times</Description>
+            <Expected>
+            - isContentAreaFilled() returns true by default
+            - isContentAreaFilled() doesn't call any methods internally
+            - setContentAreaFilled(..) calls certain sequences of events when new value of the property
+              is equal to the old one and when it is not equal
+            </Expected>
+        </Case>
+
+        <Case ID="testFocusPainted">
+            <TestedMethod name="public boolean isFocusPainted()"/>
+            <TestedMethod name="public void setFocusPainted(boolean b)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call isFocusPainted() and setFocusPainted(boolean b) several times</Description>
+            <Expected>
+            - isFocusPainted() returns true by default
+            - isFocusPainted() doesn't call any methods internally
+            - setFocusPainted(..) calls certain sequences of events when new value of the property
+              is equal to the old one and when it is not equal
+            </Expected>
+        </Case>
+
+        <Case ID="testRolloverEnabled">
+            <TestedMethod name="public boolean isRolloverEnabled()"/>
+            <TestedMethod name="public void setRolloverEnabled(boolean b)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call isRolloverEnabled() and setRolloverEnabled(boolean b) several times</Description>
+            <Expected>
+            - isRolloverEnabled() returns true by default
+            - isRolloverEnabled() doesn't call any methods internally
+            - setRolloverEnabled(..) calls certain sequences of events when new value of the property
+              is equal to the old one and when it is not equal
+            </Expected>
+        </Case>
+
+        <Case ID="testEnabled">
+            <TestedClass name="java.awt.Component"/>
+            <TestedMethod name="public boolean isEnabled()"/>
+            <TestedMethod name="public void setEnabled(boolean b)"/>
+            
+            <Precondition>create a child of AbstractButton instrumented with logging</Precondition>
+            <Description>call isEnabled() and setEnabled(boolean b) several times</Description>
+            <Expected>
+            - isEnabled() returns true by default
+            - isEnabled() doesn't call any methods internally
+            - setEnabled(..) calls certain sequences of events when new value of the property
+              is equal to the old one and when it is not equal
+            </Expected>
+        </Case>
+
+    </MulticaseTestDescription>
+
+    <Keyword name="gui"/>    
+    <Keyword name="functional"/>    
+    <Source name="AbstractButtonTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.AbstractButton.AbstractButtonTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

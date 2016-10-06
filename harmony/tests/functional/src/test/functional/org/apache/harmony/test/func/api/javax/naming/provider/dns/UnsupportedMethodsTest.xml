@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="UnsupportedMethodsTest" date-of-creation="2005-02-22"
+    timeout="1">
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="javax.naming.directory.InitialDirContext" />
+
+        <Case ID="test*">
+            <TestedMethod
+                name="public void bind(Name name, Object obj, Attributes attrs)" />
+            <TestedMethod
+                name="public void bind(String name, Object obj, Attributes attrs)" />
+            <TestedMethod
+                name="public DirContext createSubcontext(Name name, Attributes attrs)" />
+            <TestedMethod
+                name="public DirContext createSubcontext(String name, Attributes attrs)" />
+            <TestedMethod name="public DirContext getSchema(Name name)" />
+            <TestedMethod
+                name="public DirContext getSchema(String name)" />
+            <TestedMethod
+                name="public DirContext getSchemaClassDefinition(Name name)" />
+            <TestedMethod
+                name="public DirContext getSchemaClassDefinition(String name)" />
+            <TestedMethod
+                name="public void modifyAttributes(Name name, int mod_op, Attributes attrs)" />
+            <TestedMethod
+                name="public void modifyAttributes(Name name, ModificationItem[] mods)" />
+            <TestedMethod
+                name="public void modifyAttributes(String name, int mod_op, Attributes attrs)" />
+            <TestedMethod
+                name="public void modifyAttributes(String name, ModificationItem[] mods)" />
+            <TestedMethod
+                name="public void rebind(Name name, Object obj, Attributes attrs)" />
+            <TestedMethod
+                name="public void rebind(String name, Object obj, Attributes attrs)" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(Name name, Attributes matchingAttributes)" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(Name name, Attributes matchingAttributes, String[] attributesToReturn)" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(Name name, String filterExpr, Object[] filterArgs, SearchControls cons)" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(Name name, String filter, SearchControls cons)" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(String name, Attributes matchingAttributes)" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(String name, Attributes matchingAttributes, String[] attributesToReturn)" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(String name, String filterExpr, Object[] filterArgs, SearchControls cons) throws NamingException" />
+            <TestedMethod
+                name="public NamingEnumeration&lt;SearchResult&gt; search(String name, String filter, SearchControls cons)" />
+            
+            <TestedClass name="javax.naming.InitialContext" />
+            <TestedMethod
+                name="public void rebind(Name name, Object obj)" />
+            <TestedMethod
+                name="public void rebind(String name, Object obj)" />
+            <TestedMethod
+                name="public void bind(Name name, Object obj)" />
+            <TestedMethod
+                name="public void bind(String name, Object obj)" />            
+            <TestedMethod name="public void unbind(Name name)" />
+            <TestedMethod name="public void unbind(String name)" />    
+            <TestedMethod
+                name="public Context createSubcontext(String name)" />
+            <TestedMethod
+                name="public Context createSubcontext(Name name)" />
+            <TestedMethod
+                name="public Context createSubcontext(String name)" />
+            <TestedMethod
+                name="public void rename(Name oldName, Name newName)" />
+            <TestedMethod
+                name="public void destroySubcontext(Name name)" />
+            <TestedMethod
+                name="public void destroySubcontext(String name)" />
+                
+                
+            <Description>
+Test design.
+
+Verify that the following methods throws OperationNotSupportedException.
+
+1.    bind(Name name, Object obj)
+2.    bind(String name, Object obj)
+3.    bind(Name name, Object obj, Attributes attrs)
+4.    bind(String name, Object obj, Attributes attrs)
+5.    createSubcontext(Name name)
+6.    createSubcontext(String name)
+7.    createSubcontext(Name name, Attributes attrs)
+8.    createSubcontext(String name, Attributes attrs)
+9.    destroySubcontext(Name name)
+10.    destroySubcontext(String name)
+11.    getSchema(Name name)
+12.    getSchema(String name)
+13.    getSchemaClassDefinition(Name name)
+14.    getSchemaClassDefinition(String name)
+15.    modifyAttributes(Name name, int mod_op, Attributes attrs)
+16.    modifyAttributes(Name name, ModificationItem[] mods)
+17.    modifyAttributes(String name, int mod_op, Attributes attrs)
+18.    modifyAttributes(String name, ModificationItem[] mods)
+19.    rebind(Name name, Object obj)
+20.    rebind(String name, Object obj)
+21.    rebind(Name name, Object obj, Attributes attrs)
+22.    rebind(String name, Object obj, Attributes attrs)
+23.    search(Name name, Attributes matchingAttributes)
+24.    search(Name name, Attributes matchingAttributes, String[] attributesToReturn)
+25.    search(Name name, String filterExpr, Object[] filterArgs, SearchControls cons)
+26.    search(Name name, String filter, SearchControls cons)
+27.    search(String name, Attributes matchingAttributes)
+28.    search(String name, Attributes matchingAttributes, String[] attributesToReturn)
+29.    public NamingEnumeration&lt;SearchResult&gt; search(String name, String filterExpr, Object[] filterArgs, SearchControls cons) throws NamingException
+30.    search(String name, String filter, SearchControls cons)
+31.    rename(Name oldName, Name newName)
+32.    rename(String oldName, String newName)
+33.    unbind(Name name)
+34.    unbind(String name)
+            </Description>
+        </Case>
+
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>
+
+    <Source name="UnsupportedMethodsTest.java" />
+    <Runner ID="MultiCase">
+        <Option name="-cp" value="$TestSuiteClassRoot$PathSeparator$TestSuiteLibRoot$FileSeparatorjndi$FileSeparatorproviders.jar" />
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.naming.provider.dns.UnsupportedMethodsTest">
+            <Option name="PROVIDER_URL" value="$DNS_PROVIDER_URL" />
+        </Param>
+    </Runner>
+
+    <Restriction name="OtherVMOnly" />
+</Test>
+

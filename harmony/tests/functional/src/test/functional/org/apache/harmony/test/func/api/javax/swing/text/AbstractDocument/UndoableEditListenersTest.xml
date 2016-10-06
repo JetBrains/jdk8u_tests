@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="UndoableEditListenersTest"
+    date-of-creation="2005-06-03"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.text.AbstractDocument"/>
+
+        <Case ID="testAddRemove">
+            <TestedMethod name="public UndoableEditListener[] getUndoableEditListeners()"/>
+            <TestedMethod name="public void addUndoableEditListener(UndoableEditListener listener)"/>
+            <TestedMethod name="public void removeUndoableEditListener(UndoableEditListener listener)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testGetUndoableEditListeners">
+            <TestedMethod name="public UndoableEditListener[] getUndoableEditListeners()"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testFire">
+            <TestedMethod name="public void addUndoableEditListener(UndoableEditListener listener)"/>
+            <TestedMethod name="protected void fireUndoableEditUpdate(UndoableEditEvent e)"/>
+            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>    
+    <Keyword name="gui"/>    
+    <Source name="UndoableEditListenersTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.text.AbstractDocument.UndoableEditListenersTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>    
+</Test> 

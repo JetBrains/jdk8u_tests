@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_ProxyTest_01"
+        date-of-creation="2005-03-11"
+        timeout="1"
+        >
+        <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.Object"/>
+            <TestedMethod name="public final Class&lt;? extends Object&gt; getClass()"/>
+            
+            <TestedClass name="java.lang.Class"/>
+            <TestedMethod name="public Field getField(String name) throws NoSuchFieldException, SecurityException"/>                        
+            <TestedMethod name="public Constructor&lt;T&gt; getConstructor(Class... parameterTypes) throws NoSuchMethodException, SecurityException"/>
+            
+            <TestedClass name="java.lang.reflect.Constructor"/>
+            <TestedMethod name="public T newInstance(Object... initargs) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException"/>
+            
+            <TestedClass name="java.lang.reflect.Proxy"/>
+            <TestedMethod name="protected Proxy(InvocationHandler h)"/>
+            <TestedMethod name="public static Class&lt;?&gt; getProxyClass(ClassLoader loader, Class&lt;?&gt;... interfaces) throws IllegalArgumentException"/>
+            <TestedMethod name="public static Object newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h) throws IllegalArgumentException"/>
+            <TestedMethod name="public static boolean isProxyClass(Class&lt;?&gt; cl)"/>
+            <TestedMethod name="public static InvocationHandler getInvocationHandler(Object proxy) throws IllegalArgumentException"/>
+            
+            <TestedClass name="java.lang.reflect.UndeclaredThrowableException"/>
+            <TestedMethod name="public UndeclaredThrowableException(Throwable undeclaredThrowable)"/>
+            <TestedMethod name="public UndeclaredThrowableException(Throwable undeclaredThrowable, String s)"/>
+            <TestedMethod name="public Throwable getUndeclaredThrowable()"/>
+            <TestedMethod name="public Throwable getCause()"/>
+            
+            <!--TestedClass name="java.lang.reflect.Member"/>
+            <TestedMethod name="public Class getDeclaringClass()"/>
+            <TestedMethod name="public String getName()"/>
+            <TestedMethod name="public int getModifiers()"/-->
+            
+            <TestedClass name="java.lang.reflect.Method"/>
+            <TestedMethod name="public Object invoke(Object obj, Object... args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException"/>            
+                        
+            <TestedClass name="java.lang.String"/>
+            <TestedMethod name="public String trim()"/>
+            <TestedMethod name="public boolean equals(Object anObject)"/>
+            <TestedMethod name="public char charAt(int index)"/>            
+            <!--TestedClass name="java.lang.CharSequence"/-->
+            <TestedMethod name="public int length()"/>
+            <TestedMethod name="public char charAt(int index)"/>
+            <TestedMethod name="public CharSequence subSequence(int start, int end)"/>
+            
+            <TestedClass name="java.lang.StringBuffer"/>
+            <TestedMethod name="public StringBuffer(String str)"/>
+            <TestedMethod name="public StringBuffer append(String str)"/>
+            <TestedMethod name="public StringBuffer append(char c)"/>
+            <TestedMethod name="public String toString()"/>
+            
+            <Description>
+                Test for Proxy. 
+            </Description>
+        </APITestDescription>
+        
+        <Keyword name="scenario"/>
+        <Source name="F_ProxyTest_01.java"/>
+        <Modification date="2005-03-11" />
+        
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.reflect.F_ProxyTest_01.F_ProxyTest_01">
+            </Param>
+        </Runner>
+</Test>

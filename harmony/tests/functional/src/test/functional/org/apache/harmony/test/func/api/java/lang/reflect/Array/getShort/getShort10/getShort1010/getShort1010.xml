@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../../../test.dtd'>
+<Test
+    ID="getShort1010"
+    date-of-creation="2005-6-30"
+    timeout="1"
+    >
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.reflect.Array"/>
+            <TestedMethod name="public static short getShort(Object array, int index)"/>
+            <Description>
+The test is against the getShort1010 method. 
+It performs the following checks on the method.
+1) The method returns expected values.
+2) The NullPointerException gets thrown if the specified object is null.
+3) The ArrayIndexOutOfBoundsException gets thrown if 
+   the specified index argument is greater than or equal to the length of the specified array.
+4) The ArrayIndexOutOfBoundsException gets thrown if the specified index argument is negative.
+5) The IllegalArgumentException gets thrown if the specified object is not an array.
+            </Description>
+            </APITestDescription>
+        <Source name="getShort1010.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.reflect.Array.getShort.getShort10.getShort1010.getShort1010"/>
+        </Runner>
+</Test>

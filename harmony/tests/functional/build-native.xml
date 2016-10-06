@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="QA-func-build_native" default="build.native">
+    <description>
+        Functional test suite - build native part
+    </description>
+
+    <property environment="env"/>
+
+    <property name="cpptasks.jar"      location="${depends}/cpptasks-1.0b3.jar" />
+    <property name="test.java.include" location="${env.JAVA_HOME}/include" />
+    <property name="bin.lib"           location="${bin}/lib" />
+    <property name="bin.obj.dir"       location="${bin.lib}/obj" />
+
+    <property name="compiler.win" value="msvc" />
+    <property name="compiler.linux" value="gcc" />
+    <condition property="compiler" value="${compiler.win}" else="${compiler.linux}">
+        <os family="windows" />
+    </condition>
+    <condition property="test.java.include.OS" value="${test.java.include}/win32" 
+                                                else="${test.java.include}/linux">
+        <os family="windows" />
+    </condition>
+
+    <target name="build.native" depends="depends-check-cpptasks">           
+        <mkdir dir="${bin.obj.dir}" />
+
+        <taskdef resource="cpptasks.tasks">
+            <classpath>
+                <pathelement location="${cpptasks.jar}"/>
+            </classpath>
+        </taskdef>
+        <typedef resource="cpptasks.types">
+            <classpath>
+                <pathelement location="${cpptasks.jar}"/>
+            </classpath>
+        </typedef>
+
+        <subant target="post_build" inheritall="false" >
+            <property name="compiler" value="${compiler}"/>
+            <property name="bin.lib" value="${bin.lib}"/>
+            <property name="bin.obj.dir" value="${bin.obj.dir}"/>
+            <property name="test.java.include" value="${test.java.include}"/>
+            <property name="test.java.include.OS" value="${test.java.include.OS}"/>
+            <dirset dir="${src.test}/functional/org/apache/harmony/test/func" >
+                <include name="reg"/>
+                <include name="jit/HLO"/>
+                <include name="vm/cli"/>
+            </dirset>
+        </subant>
+    </target>
+
+    <!-- check that external tools and libs are in depends/ dir -->
+    <target name="depends-check-cpptasks">
+        <fail>
+          <condition>
+              <not>
+                <available file="${cpptasks.jar}" type="file"/>
+              </not>
+          </condition>
+ERROR: Can not find cpptasks : '${cpptasks.jar}'
+        </fail>
+
+    </target>
+
+    <!-- macro for use in tests' build.xml definitions -->
+    <macrodef name="c-compile">
+        <attribute name="library.name"/>
+        <attribute name="src.dir"/>
+        <element name="cc-elements" implicit="true" optional="true"/>
+        <sequential>
+            <cc name="${compiler}"
+                outfile="${bin.lib}/@{library.name}"
+                objdir="${bin.obj.dir}"
+                outtype="shared">
+
+                <includepath path="@{src.dir}" />
+                <includepath path="${test.java.include}" />
+                <includepath path="${test.java.include.OS}" />
+                <fileset dir="@{src.dir}">
+                    <include name="**/*.c" />
+                    <include name="**/*.cpp" />
+                </fileset>
+
+                <cc-elements />
+            </cc>
+        </sequential>
+    </macrodef>
+
+</project>
+

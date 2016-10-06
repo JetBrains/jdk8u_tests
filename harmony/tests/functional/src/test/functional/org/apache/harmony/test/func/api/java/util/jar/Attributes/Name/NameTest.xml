@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="NameTest"
+    date-of-creation="2005-03-10"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.jar.Attributes$Name"/>
+
+        <Case ID="testInit">
+            <TestedMethod name="public Attributes.Name(String name)"/>
+            <Precondition></Precondition>
+            <Description>try to call Attributes.Name(...) on misc strings</Description>
+            <Expected>objects are created or exception is thrown according to spec</Expected>
+        </Case>
+
+        <Case ID="testEquals">
+            <TestedMethod name="public boolean equals(Object o)"/>
+            <Precondition></Precondition>
+            <Description>create some instances of Attributes.Name and compare them using equals()</Description>
+            <Expected>Attributes.Name is insensitive to the case of the string in the constructor argument</Expected>
+        </Case>
+        
+        <Case ID="testHashCode">
+            <TestedMethod name="public int hashCode()"/>
+            <Precondition></Precondition>
+            <Description>create some instances of Attributes.Name and compare their hashcodes</Description>
+            <Expected>hashCodes are equal if attributes names are equal</Expected>
+        </Case>
+        
+
+        <Case ID="testStaticFields">
+            <TestedMethod name="public static final Attributes.Name CLASS_PATH"/>
+            <TestedMethod name="public static final Attributes.Name CONTENT_TYPE"/>
+            <TestedMethod name="public static final Attributes.Name EXTENSION_INSTALLATION"/>
+            <TestedMethod name="public static final Attributes.Name EXTENSION_LIST"/>
+            <TestedMethod name="public static final Attributes.Name EXTENSION_NAME"/>
+            <TestedMethod name="public static final Attributes.Name IMPLEMENTATION_TITLE"/>
+            <TestedMethod name="public static final Attributes.Name IMPLEMENTATION_URL"/>
+            <TestedMethod name="public static final Attributes.Name IMPLEMENTATION_VENDOR"/>
+            <TestedMethod name="public static final Attributes.Name IMPLEMENTATION_VENDOR_ID"/>
+            <TestedMethod name="public static final Attributes.Name IMPLEMENTATION_VERSION"/>
+            <TestedMethod name="public static final Attributes.Name MAIN_CLASS"/>
+            <TestedMethod name="public static final Attributes.Name MANIFEST_VERSION"/>
+            <TestedMethod name="public static final Attributes.Name SEALED"/>
+            <TestedMethod name="public static final Attributes.Name SIGNATURE_VERSION"/>
+            <TestedMethod name="public static final Attributes.Name SPECIFICATION_TITLE"/>
+            <TestedMethod name="public static final Attributes.Name SPECIFICATION_VENDOR"/>
+            <TestedMethod name="public static final Attributes.Name SPECIFICATION_VERSION"/>
+
+
+            <Precondition></Precondition>
+            <Description>compare all static fields with null</Description>
+            <Expected>none of them is null</Expected>
+        </Case>
+    
+        <Case ID="testToString">
+            <TestedMethod name="public String toString()"/>
+            <Precondition>create some instances of Attributes.Name</Precondition>
+            <Description>call toString() on each them</Description>
+            <Expected>resulted string equals to constructor argument</Expected>
+        </Case>
+    
+    
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="NameTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.jar.Attributes.Name.NameTest">
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

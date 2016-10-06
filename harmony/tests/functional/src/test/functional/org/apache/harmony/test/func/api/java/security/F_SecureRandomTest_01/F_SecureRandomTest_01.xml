@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_SecureRandomTest_01"
+    date-of-creation="2004-10-14"
+    timeout="10"
+    >
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.security.SecureRandom"/>
+            <TestedMethod name="public static SecureRandom getInstance(String algorithm, Provider provider) throws NoSuchAlgorithmException"/>
+            <TestedMethod name="public final Provider getProvider()"/>
+            <TestedMethod name="public static byte[] getSeed(int numBytes)"/>
+            <TestedMethod name="public byte[] generateSeed(int numBytes)"/>
+            <TestedMethod name="public void setSeed(long seed)"/>
+            <TestedMethod name="public void setSeed(byte[] seed)"/>
+
+            <Description>
+                This test emulate work PRNG from SecureRandom.
+                Estimation of uniform distribution of random numbers PRNG through criterion Pirsona.
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>
+        <Source name="F_SecureRandomTest_01.java"/>
+        <Modification date="2004-10-22" />
+
+        <!--Runner ID="CompileRuntime">
+            <Param name="toCompile" value="$TestDirectory\F_SecureRandomTest_01.java"/>
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_SecureRandomTest_01.F_SecureRandomTest_01"/>
+    </Runner-->
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_SecureRandomTest_01.F_SecureRandomTest_01"/>
+        </Runner>
+
+        <Restriction name="OtherVMOnly"/>
+
+</Test> 

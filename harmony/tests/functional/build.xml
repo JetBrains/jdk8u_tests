@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="QA-func" default="build-n-run">
+    <description>
+        Functional test suite build
+    </description>
+
+    <condition property="exe" value=".exe" else="">
+        <os family="windows"/>
+    </condition>
+
+	<property name="src.test" location="src/test" />
+	<property name="depends" location="depends" />
+	<property name="bin"           location="bin" />
+	<property name="bin.classes"   location="${bin}/classes" />
+	<property name="bin.lib"       location="${bin}/lib" />
+        <property name="tests.reports" location="${bin}/report" />
+        <property name="test.java.cmd" location="${java.home}/bin/java${exe}" />
+        <property name="debug_info"    value="on"/>
+
+	<property name="harness.jar" location="${depends}/th.jar" />
+	<property name="harness.main" value="org.apache.harmony.harness.Main" />
+
+	<property name="jasmin.jar" location="${depends}/jasmin.jar" />
+	<property name="vmtt.jar" location="${depends}/vmtt.jar" />
+	<!--property name="junit.jar" location="${depends}/junit.jar" /-->
+
+	<property name="jpda-framework" location="${depends}/jpda-framework" />
+	<property name="jpda-fr-package" value="org/apache/harmony/jpda/tests/framework" />
+	<property name="svn-URL" value="http://svn.apache.org/repos/asf/harmony/enhanced" />
+
+	<target name="build-n-run" depends="build,run-tests" />
+
+	<target name="build" depends="compile_jpda,compile_java,compile_ccode,build.native,post_compile">
+		<description>
+			Prepare binaries for test run
+		</description>
+	</target>
+
+    <import file="build-native.xml"/>
+
+    <!-- Build test classes from jasmine sources -->
+	<target name="compile_jj" depends="depends-check" >
+		<mkdir dir="${bin.classes}" />
+		<apply executable="${java.home}/bin/java" 
+		       parallel="yes" 
+		       maxparallel="110"
+		       verbose="true"
+		       output="${bin}/jasmin.log"
+		       error="${bin}/jasmin.log"
+		       append="true"
+		       failonerror="true"
+		       skipemptyfilesets="true">
+			<arg value="-jar" />
+			<arg value="${jasmin.jar}" />
+			<arg value="-d" />
+			<arg value="${bin.classes}" />
+			<fileset dir="${src.test}" includes="**/*.j, **/*.jj" />
+		</apply>
+	</target>
+
+    <!-- Build test classes from ccode sources -->
+	<target name="compile_ccode" depends="depends-check,compile_share" >
+		<mkdir dir="${bin.classes}" />
+		<apply executable="${java.home}/bin/java" 
+		       dir="${bin.classes}"
+		       parallel="false" 
+		       verbose="true"
+		       output="${bin}/vmtt.log"
+		       error="${bin}/vmtt.log"
+		       append="true"
+		       failonerror="true"
+		       skipemptyfilesets="true">
+			<arg value="-cp" />
+			<arg value="${bin.classes}${path.separator}${vmtt.jar}" />
+			<arg value="org.apache.harmony.test.share.VMTTwrapper" />
+			<arg value="-C" />
+			<arg value="-d." />
+			<fileset dir="${src.test}/functional/org/apache/harmony/test/func/reg"
+			         includes="**/*.ccode" />
+		</apply>
+	</target>
+
+    <!-- Build support classes -->
+	<target name="compile_share" depends="depends-check" >
+		<mkdir dir="${bin.classes}" />
+		<javac destdir="${bin.classes}" 
+		       srcdir="${depends}/jpda-framework" 
+		       includes="**/*.java" 
+		       debug="true" 
+		       source="1.5" 
+		       target="1.5">
+			<classpath>
+				<pathelement location="${bin.classes}" />
+				<pathelement location="${harness.jar}" />
+			</classpath>
+		</javac>
+		<javac destdir="${bin.classes}" 
+		       srcdir="${src.test}/share" 
+		       includes="**/*.java" 
+		       debug="true" 
+		       source="1.4" 
+		       target="1.4">
+			<classpath>
+				<pathelement location="${bin.classes}" />
+				<pathelement location="${harness.jar}" />
+				<pathelement location="${vmtt.jar}" />
+			</classpath>
+		</javac>
+	</target>
+
+    <!-- Build jpda test classes with debug info -->
+	<target name="compile_jpda" depends="compile_share">
+		<javac destdir="${bin.classes}" 
+		       srcdir="${src.test}/functional" 
+		       includes="**/jpda/**/*.java" 
+		       debug="true" 
+		       source="1.4" 
+		       target="1.4">
+			<classpath>
+				<pathelement location="${bin.classes}" />
+				<pathelement location="${harness.jar}" />
+			</classpath>
+		</javac>
+	</target>
+
+    <!-- Build test classes from java sources -->
+	<target name="compile_java" depends="compile_share,compile_jj">
+		       <!--  -->
+		<javac destdir="${bin.classes}" 
+		       srcdir="${src.test}/functional" 
+		       includes="**/*.java" 
+		       excludes="**/jpda/**/*.java,**/test/func/api/**/*.java,**/btest2795/*.java,**/btest5940/*.java,**/btest5655/*.java"
+		       debug="${debug_info}" 
+		       source="1.4" 
+		       target="1.4">
+			<classpath>
+				<pathelement location="${bin.classes}" />
+				<pathelement location="${harness.jar}" />
+				<fileset dir="${src.test}">
+					<include name="**/auxiliary/**/*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+		       <!--  -->
+		<javac destdir="${bin.classes}" 
+		       srcdir="${src.test}/functional/org/apache/harmony/test/func/api" 
+		       includes="**/*.java"
+		       excludes="**/JMXRemoteProfilesTest.java"
+		       debug="${debug_info}" 
+		       source="1.4" 
+		       target="1.4">
+			<classpath>
+				<pathelement location="${bin.classes}" />
+				<pathelement location="${harness.jar}" />
+				<fileset dir="${src.test}/functional/org/apache/harmony/test/func/api">
+					<include name="**/auxiliary/**/*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+    <!-- Build specific files and make post-compile actions -->
+
+    <target name="post_compile" depends="gen_beans_ser,gen_rmi_support,modify_classes">
+        <jar destfile="${src.test}/functional/org/apache/harmony/test/func/vm/cli/jar/Test.jar" basedir="${bin.classes}" includes="CommonTest.class">
+            <manifest>
+                <attribute name="Main-Class" value="CommonTest"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="-chk_post_compile" depends="compile_java">
+        <available property="gen_ser_jar" 
+                file="${bin.classes}/org/apache/harmony/test/func/api/java/beans/beans/SerializeBeans.class" type="file" />
+    </target>
+
+    <target name="gen_beans_ser" depends="-chk_post_compile" if="gen_ser_jar" >
+        <mkdir dir="${bin.lib}" />
+        <java classname="org.apache.harmony.test.func.api.java.beans.beans.SerializeBeans">
+              <arg value="${bin.classes}" />
+              <classpath>
+                  <pathelement location="${bin.classes}" />
+              </classpath>
+        </java>
+        <jar jarfile="${bin.lib}/ser.jar"
+             basedir="${bin.classes}"
+             includes="org/apache/harmony/test/func/api/java/beans/beans/*.ser" />
+        <!-- delete serialized files -->
+        <delete>
+            <fileset dir="${bin.classes}/org/apache/harmony/test/func/api/java/beans"
+                     includes="*.ser" />
+        </delete>
+    </target>
+
+    <target name="gen_rmi_support" depends="-chk_post_compile">
+
+        <property name="rmic.src.list" value="**/java/rmi/**/*Impl.class, **/rmi/**/Server.class, **/rmi/**/Server2.class, **/rmi/**/Server3.class, **/javax/naming/HelloImpl.class"/>
+        <!-- Put your list of sources of files of share which should be compiled via rmic here -->
+        <!-- property name="rmic.share.src.list" value="**/rmi/**/TestParameter1.class, **/rmi/**/TestParameter2.class, **/rmi/**/TestParameter4.class" /-->
+        <!-- Put needed stub version for rmic here -->
+        <property name="rmic.stub.version" value="1.2"/>
+
+        <!-- Put the way for rmi jar here relatively bin/lib -->
+        <property name="rmi.jar.path" value="${bin.lib}/rmisup/rmisup"/>
+        <property name="rmi.jar.name" value="${rmi.jar.path}/rmisup.jar"/>
+        <!-- Put the list of files which should be included into the jar -->
+        <property name="rmi.jar.list" value="**/rmi/**/Server3333333_Stub.class"/>
+
+        <!-- Prepare classes for rmi tests-->
+        <!--rmic stubversion="${rmic.stub.version}" base="${bin.classes}" includes="**/java/rmi/**/*Impl.class" >
+            <classpath>
+                <pathelement location="${qa.built.bin.classes}" />
+                <pathelement location="${qa.harness.jar}" />
+                <pathelement location="${qa.tools.path}" />
+            </classpath>
+        </rmic-->
+        <rmic stubversion="${rmic.stub.version}" base="${bin.classes}" includes="${rmic.src.list}" >
+            <classpath>
+                <pathelement location="${bin.classes}" />
+                <pathelement location="${harness.jar}" />
+                <!--pathelement location="${qa.tools.path}" /-->
+            </classpath>
+        </rmic>
+        <mkdir dir="${rmi.jar.path}" />
+        <jar jarfile="${rmi.jar.name}"
+             basedir="${bin.classes}" includes="${rmi.jar.list}" />
+    </target>
+
+    <!--  depends="-chk_post_compile" -->
+    <target name="modify_classes" >
+		<javac destdir="${bin.classes}" 
+		       srcdir="${src.test}/functional/org/apache/harmony/test/func/reg" 
+		       includes="jit/btest2795/Btest2795_*.java,vm/btest5655/Btest5655.java,vm/btest5655/Btest5655_test.java"
+		       debug="${debug_info}" 
+		       source="1.4" 
+		       target="1.4">
+			<classpath>
+				<pathelement location="${bin.classes}" />
+				<pathelement location="${harness.jar}" />
+			</classpath>
+		</javac>
+
+        <delete quiet="false" >
+            <fileset dir="${bin.classes}/org/apache/harmony/test/func/reg"
+                     includesfile="build.del_classes.list" />
+        </delete>
+
+        <!-- ignore failures because rebuild is failed on these moves -->
+        <mkdir dir="${bin.classes}/org/apache/harmony/test/func/reg/vm/btest3349/tmp" />
+        <move file="${bin.classes}/org/apache/harmony/test/func/reg/vm/btest3349/Test3349.class" 
+             todir="${bin.classes}/org/apache/harmony/test/func/reg/vm/btest3349/tmp" failonerror="false"/>
+
+        <mkdir dir="${bin.classes}/org/apache/harmony/test/func/reg/vm/btest4253/aaa" />
+        <move file="${bin.classes}/org/apache/harmony/test/func/reg/vm/btest4253/test.class" 
+             todir="${bin.classes}/org/apache/harmony/test/func/reg/vm/btest4253/aaa" failonerror="false"/>
+
+		<javac destdir="${bin.classes}"
+		       srcdir="${src.test}/functional/org/apache/harmony/test/func/reg"
+		       debug="${debug_info}" 
+		       source="1.5"
+		       target="1.5">
+			<classpath>
+				<pathelement location="${bin.classes}" />
+				<pathelement location="${harness.jar}" />
+			</classpath>
+			<include name="jit/btest2795/Interface2795.java"/>
+			<include name="jit/btest2795/Abstract2795.java"/>
+            <include name="vm/btest1962/Btest1962_c.java" />
+            <include name="vm/btest5655/Btest5655_intf.java" />
+		</javac>
+
+		<apply executable="${java.home}/bin/java" 
+		       parallel="yes" 
+		       maxparallel="110"
+		       verbose="true"
+		       output="${bin}/jasmin.log"
+		       error="${bin}/jasmin.log"
+		       append="true"
+		       failonerror="true"
+		       skipemptyfilesets="true">
+			<arg value="-jar" />
+			<arg value="${jasmin.jar}" />
+			<arg value="-d" />
+			<arg value="${bin.classes}" />
+			<fileset dir="${src.test}/functional/org/apache/harmony/test/func/reg" 
+			         includes="vm/btest4217/testB.j" />
+		</apply>
+    </target>
+
+
+    <!-- execute tests -->
+    <target name="run-tests" depends="check-test-java,test-jre-vm-info,set-vm-specific">
+        <mkdir dir="${tests.reports}" />
+
+        <property name="qa.ref-java" value="-property ReferenceRuntime ${java.home}/bin/java${exe}" />
+        <property name="qa.java" value="-property TestedRuntime ${test.java.cmd}" />
+        <property name="qa.user.cfg" value="-cfp ${basedir}/config" />
+        <property name="qa.reports" value="-property TestResultRoot ${tests.reports}" />
+        <property name="qa.tmp" value="-property TempStorage ${tests.reports}/temp" />
+        <property name="qa.run" value="${qa.user.cfg} ${qa.reports} ${qa.tmp} ${qa.java} ${qa.ref-java}" />
+        <property name="qa.test" value="-property TestSuiteTestRoot ${src.test}" />
+        <property name="qa.class" value="-property TestSuiteClassRoot ${bin.classes}" />
+        <property name="qa.lib" value="-property TestSuiteLibRoot ${bin.lib}" />
+        <property name="qa.suite" value="-property TestSuiteRoot ${basedir} ${qa.class} ${qa.lib}" />
+        <property name="qa.exclude" value="-exclude ${basedir}/config/func_exclude.file" />
+        <property name="qa.non-int" value="-execopt Selector:exclude:Keyword interactive" />
+        <property name="qa.jit-opts" value="" />
+        <property name="qa.select" value="${qa.non-int} ${qa.exclude}" />
+        <property name="qa.subs" value="-subs functional" />
+
+        <echo message="Running tests" />
+        <echo message="run options are: -version -logl 6 -failonerror ${qa.run} ${qa.suite} ${qa.select} ${qa.subs} ${qa.jit-opts}" />
+        <java fork="yes" classname="${harness.main}" dir="${tests.reports}"
+               output="${tests.reports}/th.log" 
+               error="${tests.reports}/th.error"
+               failonerror="true"
+               >
+            <classpath>
+                <pathelement location="${bin.classes}" />
+                <pathelement location="${depends}/th"  />
+                <pathelement location="${harness.jar}" />
+            </classpath>
+
+            <arg line="-version -logl 6 -failonerror ${qa.run} ${qa.suite} ${qa.select} ${qa.subs} ${qa.jit-opts}" />
+        </java>
+    </target>
+
+    <target name="test-jre-vm-info" depends="-get-test-vm-output">
+        <!-- Add other runtime names here -->
+        <condition property="test.vm.name" value="ri" >
+            <contains string="${test.vm.info.tmp}" substring="HotSpot"/>
+        </condition>
+        <condition property="test.vm.name" value="jr" >
+            <contains string="${test.vm.info.tmp}" substring="JRockit"/>
+        </condition>
+        <!-- FIXME current behavior relies on the fact that J9 VM doesn't
+             support -version parameter -->
+        <condition property="test.vm.name" value="drl" else="ibm" >
+            <contains string="${test.vm.info.tmp}" substring="harmony" />
+        </condition>
+        <echo message="test.vm.name = ${test.vm.name}" />
+    </target>
+
+    <target name="-get-test-vm-output" if="test.java.cmd">
+        <exec executable="${test.java.cmd}" failifexecutionfails="false">
+            <arg value="-version" />
+            <redirector outputproperty="test.vm.info.tmp"/>
+        </exec>
+    </target>
+
+    <target name="set-vm-specific" depends="-get-test-vm-output">
+        <!-- Add params for other runtimes  here -->
+        <condition property="qa.non-int" 
+            value="-execopt Selector:exclude:Keyword interactive -execopt Selector:exclude:Keyword drlvmOnly -execopt Selector:exclude:Keyword harmonyOnly" >
+            <or>
+                <contains string="${test.vm.name}" substring="ri"/>
+                <contains string="${test.vm.name}" substring="jr"/>
+            </or>
+        </condition>
+        <condition property="qa.jit-opts" 
+            value="-execopt OptSwitch -server -execopt JetSwitch -server -execopt ServerSwitch -server -execopt ServerStaticSwitch -server -execopt ClientSwitch -client -execopt AssertSwitch -Dnon=non" >
+            <or>
+                <contains string="${test.vm.name}" substring="ri"/>
+                <contains string="${test.vm.name}" substring="jr"/>
+            </or>
+        </condition>
+    </target>
+
+    <target name="chk-cp">
+        <java fork="yes" classname="test.SysProp" dir="${tests.reports}"
+               >
+            <classpath>
+                <pathelement location="${bin.classes}" />
+                <pathelement location="${harness.jar}" />
+                <pathelement location="h:/bin" />
+            </classpath>
+        </java>
+    </target>
+
+    <!-- check that java executable file is availabe -->
+	<target name="check-test-java">
+        <fail>
+          <condition>
+              <not>
+                <available file="${test.java.cmd}" type="file"/>
+              </not>
+          </condition>
+ERROR: Can not find java : '${test.java.cmd}'
+        </fail>
+	</target>
+
+
+    <!-- check that external tools and libs are in depends/ dir -->
+	<target name="depends-check">
+        <fail>
+          <condition>
+              <not>
+                <available file="${harness.jar}" type="file"/>
+              </not>
+          </condition>
+ERROR: Can not find Harness : '${harness.jar}'
+        </fail>
+
+        <fail>
+          <condition>
+              <not>
+                <available file="${jasmin.jar}" type="file"/>
+              </not>
+          </condition>
+ERROR: Can not find Jasmin : '${jasmin.jar}'
+        </fail>
+
+        <fail>
+          <condition>
+              <not>
+                <available file="${vmtt.jar}" type="file"/>
+              </not>
+          </condition>
+ERROR: Can not find VMTT  : '${vmtt.jar}'
+        </fail>
+
+        <fail>
+          <condition>
+              <not>
+                <available file="${jpda-framework}/${jpda-fr-package}" type="dir"/>
+              </not>
+          </condition>
+ERROR: Can not find JPDA test framework : '${jpda-framework}/${jpda-fr-package}'
+        </fail>
+	</target>
+
+    <!-- fetch external sources into depends/ dir -->
+	<target name="fetch-depends">
+        <mkdir dir="${jpda-framework}" />
+        <exec executable="svn" dir="${jpda-framework}" failonerror="true">
+            <arg line="checkout"/>
+            <arg line="${svn-URL}/java/trunk/jdktools/modules/jpda/src/test/java/${jpda-fr-package} " />
+            <arg line="${jpda-fr-package}" />
+        </exec>
+	</target>
+
+    <!-- clean created files; depends on definition of the 'bin' -->
+    <target name="clean">
+        <delete includeEmptyDirs="true" dir="${bin}"/>
+    </target>
+
+</project>
+

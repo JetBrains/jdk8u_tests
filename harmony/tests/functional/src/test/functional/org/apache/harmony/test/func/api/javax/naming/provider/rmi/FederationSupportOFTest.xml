@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="FederationSupportOFTest" date-of-creation="2005-07-04"
+    timeout="1">
+    
+    
+
+    <MulticaseTestDescription>
+        <Case ID="test*">
+            <Description>
+                For this test simple implementation of the Context
+                interface - SimpleCtx is used. Also, the test uses simple 
+                implementation of the ObjectFactory - SimpleObjectFactory.
+                The method getObjectInstance() of the SimpleObjectFactory 
+                always returns an instance of SimpleCtx.
+                
+                Test design:
+                1. Create an instance of initial context 
+                   (own RMI SP is used as service provider) - ctx. 
+                   Environment property java.naming.factory.object points to 
+                   the SimpleObjectFactory.
+                2. Bind simple remote object to the name "Hello" in the RMI registry.
+                3. Invoke ctx.lookup("Hello/there").
+                4. Verify that the method getObjectInstance() of the 
+                   SimpleObjectFactory invoked. This method should return 
+                   new instance of SimpleCtx.
+                5. Verify that the method lookup("there") of the  
+                   SimpleCtx invoked. This method should return "Ok".
+                6. Verify that the method ctx.lookup("Hello/there") returns "Ok".
+                7. Perform above operations with other methods of the 
+                   initial context (bind, rebind, unbind etc.).
+            </Description>
+        </Case>
+
+    </MulticaseTestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="FederationSupportOFTest.java" />
+    <Runner ID="MultiCase">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.naming.provider.rmi.FederationSupportOFTest">
+        </Param>
+    </Runner>
+
+    <Restriction name="OtherVMOnly" />
+</Test>
+

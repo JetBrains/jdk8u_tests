@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="EventSetDescriptorTest"  date-of-creation="2004-24-12" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.EventSetDescriptor"/>
+        <Case ID="testTypeOfListener">
+            <TestedMethod name="public Class&lt;?&gt; getListenerType()"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getListenerType() returns type of listener. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify type of listener using getListenerType() of EventSetDescriptor.            
+            </Description>
+        </Case>
+        <Case ID="testGetName">
+            <TestedClass name="java.beans.FeatureDescriptor"/>
+            <TestedMethod name="public String getName()"/>
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getName() returns a name of event. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getName() returns a name of event.            
+            </Description>
+        </Case>
+        <Case ID="testGetDisplayName">
+            <TestedClass name="java.beans.FeatureDescriptor"/>
+            <TestedMethod name="public String getDisplayName()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getDisplayName() returns a name of event. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getDisplayName() returns a name of event.            
+            </Description>
+        </Case>
+        <Case ID="testListenerMethods">
+            <TestedClass name="java.beans.FeatureDescriptor"/>
+            <TestedMethod name="public String getDisplayName()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getListenerMethods() returns correct listener methods. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener which has two fire methods. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getListenerMethods returns two fire methods of listener.        
+            </Description>
+        </Case>        
+        <Case ID="testListenerMethods">
+            <TestedMethod name="public Method getGetListenerMethod()"/>        
+            <TestedMethod name="public Method[] getListenerMethods()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>    
+            <Description>
+                Verify that getListenerMethods() returns correct listener methods. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener which has two fire methods. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getListenerMethods returns two fire methods of listener.        
+            </Description>
+        </Case>        
+        <Case ID="testListenerMethodDescriptors">
+            <TestedMethod name="public MethodDescriptor[] getListenerMethodDescriptors()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getListenerMethodDescriptors() returns correct listener method descriptors. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener which has two fire methods. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getListenerMethodDescriptors returns two fire methods of listener.    
+            </Description>
+        </Case>            
+        <Case ID="testAddListenerMethod">
+            <TestedMethod name="public Method getAddListenerMethod()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getAddListenerMethod() of EventSetDescriptor returns correct "add listener method". 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getAddListenerMethod method returns correct "add listener method".    
+            </Description>
+        </Case>    
+        <Case ID="testGetListenerMethod">
+            <TestedMethod name="public Method[] getListenerMethods()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getGetListenerMethod() of EventSetDescriptor returns correct "get listener method". 
+                 Signature of "get listener method" is not describe in specification. It is supposed that signature of 
+                 "get listener method" is get EventListenerTypes. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getAddListenerMethod method returns correct "add listener method".    
+            </Description>
+        </Case>    
+        <Case ID="testRemoveListenerMethod">
+            <TestedMethod name="public Method getRemoveListenerMethod()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that getRemoveListenerMethod() returns correct "remove listener method". 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that getRemoveListenerMethod() method returns correct "remove listener 
+                     method".    
+            </Description>
+        </Case>    
+        <Case ID="testMulticastEventSource">
+            <TestedMethod name="public boolean isUnicast()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                If bean is multicast event source, verify it using isUnicast() method. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that isUnicast method returns false.    
+            </Description>
+        </Case>                                    
+        <Case ID="testIsInDefaultEventSet">
+            <TestedMethod name="public boolean isInDefaultEventSet()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>            
+            <Description>
+                Verify that isInDefaultEventSet() method of EventSetDescriptor returns true. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that isInDefaultEventSet() method returns true.    
+            </Description>
+        </Case>                                    
+        <Case ID="testUnicastEventSource">
+            <TestedMethod name="public boolean isUnicast()"/>    
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>
+            <Description>
+                If bean is unicast event source, verify it using isUnicast() method. 
+                Step-by-step encoding: 
+                    - Create bean which has standard unicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that isUnicast method returns true.    
+            </Description>
+        </Case>                                    
+        <Case ID="testQuantityOfEvents">
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>
+            <Description>
+                Verify quantity of found events. 
+                Step-by-step encoding: 
+                    - Create bean which has standard unicast methods for adding, getting and removing 
+                     listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that quantity of found EventSetDescriptor's is 1.    
+            </Description>
+        </Case>                                    
+        <Case ID="testOnlyAddAndRemoveMethod">
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>
+            <Description>
+                Verify, that no exception is thrown when bean has only methods for adding and removing listener. 
+                Step-by-step encoding: 
+                    - Create bean which has standard multicast methods for adding and removing listener. 
+                    - Create listener. 
+                    - Create event for listener. 
+                    - Introspect bean. 
+                    - Verify that no exception is thrown .    
+            </Description>
+        </Case>        
+        <Case ID="testWrongNameOfAddListenerMethod">
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>
+            <Description>
+                Verify that Introspector doesn't find an event, which has wrong name of addListenerMethod. 
+                Step-by-step encoding: 
+                    - Create bean which has wrong name of addListenerMethod: addFeredListener, Fered 
+                     instead of Fred. 
+                    - Create listener: FredListener. 
+                    - Create FredEvent for listener. 
+                    - Introspect bean. 
+                    - Verify that Introspector doesn't find event.    
+            </Description>
+        </Case>        
+        <Case ID="testWrongParameterOfAddListenerMethod">
+            <TestedClass name="java.beans.SimpleBeanInfo"/>
+            <TestedMethod name="public EventSetDescriptor[] getEventSetDescriptors()"/>
+            <Description>
+                Verify that Introspector doesn't find an event, which has wrong parameter of addListenerMethod. 
+                Step-by-step encoding: 
+                    - Create bean, which has wrong parameter of addListenerMethod: FredListenerr. 
+                    - Create listener: FredListener. 
+                    - Create FredEvent for listener. 
+                    - Introspect bean. 
+                    - Verify that Introspector doesn't find event.    
+            </Description>
+        </Case>                
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="EventSetDescriptorTest.java"/>
+
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.introspector.surveymethods.events.EventSetDescriptorTest"/>
+    </Runner>
+</Test>

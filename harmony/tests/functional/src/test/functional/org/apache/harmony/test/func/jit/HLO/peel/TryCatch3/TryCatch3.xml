@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+<Test
+    ID="TryCatch3"
+        date-of-creation="2006-06-21"
+        timeout="1">
+        
+        
+        <Description>
+            Tests loop peeling optimization pass of JIT compiler.
+            Tests that if loop has a nested ‘try…catch’ region and ‘try’ is invariant, 
+            but ‘catch’ is not, then ‘try…catch’ block isn’t hoisted outside the loop.
+        </Description>
+    
+        <Keyword name="functional"/>
+        <Keyword name="hlo"/>
+        
+        <Source name="TryCatch3.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.jit.HLO.peel.TryCatch3.TryCatch3">
+            </Param>
+        </Runner>
+</Test>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="CharBufferTest2"
+    date-of-creation="2005-09-05"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.nio.CharBuffer"/>
+
+        <Case ID="testCreateCharBuffer">
+            <TestedMethod name="public static CharBuffer wrap(char[] array)"/>
+            <Precondition>Create array of random char</Precondition>
+            <Description>Create CharBuffer with wrap(char[])</Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testWrap">
+            <TestedMethod name="public static CharBuffer wrap(char[] array)"/>
+            <Precondition>Create array of random char</Precondition>
+            <Description>Create CharBuffer with wrap(char[]) and check it's capacity, position, limit, arrayOffset and existence of backing array()</Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testWrap2">
+            <TestedMethod name="public static CharBuffer wrap(char[] array,int offset,int length)"/>
+            <Precondition>Create array of random char</Precondition>
+            <Description>Create CharBuffer with wrap(char[] array,int offset,int length) and check it's capacity, position, limit, arrayOffset and existence of backing array(). Tested that IndexOutOfBoundsException throw when offset + length > length of array</Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testArrayOffset">
+            <TestedMethod name="public final int arrayOffset()"/>
+            <TestedMethod name="public abstract CharBuffer asReadOnlyBuffer()"/>            
+            <Precondition>Create CharBuffer with: wraping array of random char and with allocate.</Precondition>
+            <Description>Check arrayOffset(), when create CharBuffer with: wraping array of random char and allocate. Check that ReadOnlyBufferException, when we call CharBuffer.asReadOnlyBuffer().arrayOffset()</Description>
+            <Expected>arrayOffset = 0</Expected>
+        </Case>
+
+        <Case ID="testHasArray">
+            <TestedMethod name="public final boolean hasArray()"/>
+            <Precondition>Create CharBuffer with: wraping array of random char and with allocate. </Precondition>
+            <Description>Check hasArray(), when create CharBuffer with: wraping array of random char and allocate.</Description>
+            <Expected>hasArray() = true</Expected>
+        </Case>
+        
+        <Case ID="testGet">
+            <TestedMethod name="public CharBuffer get(char[] dst)"/>
+            <Precondition>Create CharBuffer with wraping array of random char</Precondition>
+            <Description>Check that throws BufferOverflowException - If there are fewer than length characters remaining in this buffer .  Called get(char[]) check length, position and back array.</Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testGet2">
+            <TestedMethod name="public CharBuffer get(char[] dst,int offset,int length)"/>
+            <Precondition>Create CharBuffer with wraping array of random char</Precondition>
+            <Description>Check that throws BufferOverflowException - If there are fewer than length characters remaining in this buffer .Check that throws IndexOutOfBoundsException - If the preconditions on the offset and length parameters do not hold. Called get(char[],int,int) check length, position and back array.</Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testPut">
+            <TestedMethod name="public CharBuffer put(char[] src,int offset,int length)"/>
+            <Precondition>Create CharBuffer with wraping array of random char</Precondition>
+            <Description>Check that throws BufferOverflowException - If there is insufficient space in this buffer. 
+                         Check that throws IndexOutOfBoundsException - If the preconditions on the offset and length parameters do not hold. 
+                         Check that throws ReadOnlyBufferException - If this buffer is read-only.
+                         Called get(char[],int,int) check length, position and back array.</Description>
+            <Expected></Expected>
+        </Case>       
+        
+        <Case ID="testLength">
+            <TestedMethod name="public final int length()"/>
+            <Precondition>Create CharBuffer with wraping array of random char</Precondition>
+            <Description>Check that length() returned limit() - position()</Description>
+            <Expected></Expected>
+        </Case>        
+
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>
+    <Source name="CharBufferTest2.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.nio.charBuffer.CharBufferTest2">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

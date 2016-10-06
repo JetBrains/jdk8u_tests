@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="DecimalFormatTest"
+    date-of-creation="2005-02-07"
+    timeout="1"
+    >   
+        
+        
+        <APITestDescription>
+        
+            <TestedClass name="java.text.DecimalFormat" />
+            <TestedMethod name="DecimalFormat(String, DecimalFormatSymbols)" />
+            <TestedMethod name="setPositivePrefix(String)" />
+            <TestedMethod name="StringBuffer format(long number, StringBuffer result, FieldPosition fieldPosition)" />
+            <TestedMethod name="setDecimalSeparatorAlwaysShown(boolean)" />
+            <TestedMethod name="setNegativePrefix(String)" />
+            <TestedMethod name="StringBuffer format(double number, StringBuffer toAppendTo, FieldPosition status)" />
+            <TestedMethod name="setMinimumFractionDigits(int)" />
+            <TestedMethod name="setGroupingSize(int)" />
+            <TestedMethod name="setMaximumFractionDigits(int)" />
+            <TestedMethod name="setMaximumIntegerDigits(int)" />
+            <TestedMethod name="String getPositivePrefix()" />
+            <TestedMethod name="setMinimumIntegerDigits(int)" />
+            <TestedMethod name="setDecimalFormatSymbols(DecimalFormatSymbols)" />
+            <TestedMethod name="setNegativeSuffix(String)" />
+            <TestedMethod name="int getGroupingSize()" />
+            <TestedMethod name="String getNegativePrefix()" />
+            <TestedMethod name="Number parse(String text, ParsePosition pos)" />
+            <TestedMethod name="setMultiplier(int)" />
+            <TestedMethod name="String getNegativeSuffix()" />
+            <TestedMethod name="int getMultiplier()" />
+            <TestedMethod name="DecimalFormatSymbols getDecimalFormatSymbols()" />
+            <TestedMethod name="void applyPattern(String pattern)" />
+            
+            <TestedClass name="java.text.DecimalFormatSymbols" />
+            <TestedMethod name="DecimalFormatSymbols(Locale)" />
+            <TestedMethod name="Object clone()" />
+            <TestedMethod name="setPatternSeparator(char)" />
+            <TestedMethod name="setPercent(char)" />
+            <TestedMethod name="String getInfinity()" />
+            <TestedMethod name="setZeroDigit(char)" />
+            <TestedMethod name="String getInternationalCurrencySymbol()" />
+            <TestedMethod name="setPerMill(char)" />
+            <TestedMethod name="char getDigit()" />
+            <TestedMethod name="char getGroupingSeparator()" />
+            <TestedMethod name="setInternationalCurrencySymbol(String)" />
+            <TestedMethod name="setMonetaryDecimalSeparator(char)" />
+            <TestedMethod name="setDecimalSeparator(char)" />
+            <TestedMethod name="String getNaN()" />
+            <TestedMethod name="char getZeroDigit()" />
+            <TestedMethod name="char getPercent()" />
+            <TestedMethod name="char getPatternSeparator()" />
+            <TestedMethod name="setCurrencySymbol(String)" />
+            <TestedMethod name="setDigit(char)" />
+            <TestedMethod name="char getPerMill()" />
+            <TestedMethod name="setGroupingSeparator(char)" />
+            <TestedMethod name="char getDecimalSeparator()" />
+            <TestedMethod name="setMinusSign(char)" />
+            <TestedMethod name="setInfinity(String)" />
+            <TestedMethod name="char getMinusSign()" />
+            <TestedMethod name="String getCurrencySymbol()" />
+            <TestedMethod name="char getMonetaryDecimalSeparator()" />
+            <TestedMethod name="setNaN(String)" />
+            
+            <TestedClass name="java.text.FieldPosition" />
+            <TestedMethod name="setEndIndex(int)" />
+            <TestedMethod name="setBeginIndex(int)" />
+            
+            <TestedClass name="java.text.NumberFormat" />
+            <TestedMethod name="boolean isGroupingUsed()" />
+            <TestedMethod name="setGroupingUsed(boolean)" />
+            <TestedMethod name="int getMaximumIntegerDigits()" />
+            <TestedMethod name="setMinimumIntegerDigits(int)" />
+            <TestedMethod name="int getMinimumIntegerDigits()" />
+            <TestedMethod name="int getMinimumFractionDigits()" />
+            <TestedMethod name="int getMaximumFractionDigits()" />
+            <TestedMethod name="static NumberFormat getIntegerInstance(Locale inLocale)" />
+            <TestedMethod name="Number parse(String source)" />
+            <TestedMethod name="setMaximumIntegerDigits(int)" />
+            <TestedMethod name="String format(double number)" />
+            <TestedMethod name="String format(long number)" />
+            <TestedMethod name="setMinimumFractionDigits(int)" />
+            <TestedMethod name="setMaximumFractionDigits(int)" />
+            <TestedMethod name="boolean isParseIntegerOnly()" />
+            <TestedMethod name="setParseIntegerOnly(boolean)" />
+
+            <TestedClass name="java.text.Collator"/>
+            <TestedMethod name="public static Collator getInstance(Locale desiredLocale)"/>
+            
+            <Description>
+                Tests various instances of java.text.NumberFormat class 
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional" />
+        <Source name="DecimalFormatTest.java"/>
+            
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.text.DecimalFormat.DecimalFormatTest"/>
+        </Runner>
+        
+        <Restriction name="OtherVMOnly"/>
+</Test>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test  ID="ConnectorClientTest"  date-of-creation="2006-06-12" timeout="30">
+    
+    
+    
+    <MulticaseTestDescription>
+    
+        <TestedClass name="javax.management.remote.JMXConnector"/>
+        
+        <Case ID="testRMIConnectorClient">
+            <TestedMethod name="public void addConnectionNotificationListener(NotificationListener listener, NotificationFilter filter, Object handback)"/>
+            <TestedMethod name="public MBeanServerConnection getMBeanServerConnection() throws IOException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener listener) throws ListenerNotFoundException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener l, NotificationFilter f, Object handback) throws ListenerNotFoundException" />
+            <TestedMethod name="public void close() throws IOException" />
+            <TestedMethod name="public void connect() throws IOException" />
+            <TestedMethod name="public void connect(Map env)" /> 
+            <TestedMethod name="public String getConnectionId() throws IOException" />          
+        <Description>
+        Test perfom operation with connector client through RMI protocol
+        </Description>
+        </Case>
+        
+       <Case ID="testIIOPConnectorClient">
+            <TestedMethod name="public void addConnectionNotificationListener(NotificationListener listener, NotificationFilter filter, Object handback)"/>
+            <TestedMethod name="public MBeanServerConnection getMBeanServerConnection() throws IOException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener listener) throws ListenerNotFoundException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener l, NotificationFilter f, Object handback) throws ListenerNotFoundException" />
+            <TestedMethod name="public void close() throws IOException" />
+            <TestedMethod name="public void connect() throws IOException" />
+            <TestedMethod name="public void connect(Map env)" /> 
+            <TestedMethod name="public String getConnectionId() throws IOException" />          
+        <Description>
+       Test perfom operation with connector client through IIOP protocol
+           </Description>
+        </Case>
+        
+        <Case ID="testJMXMPConnectorClient">
+            <TestedMethod name="public void addConnectionNotificationListener(NotificationListener listener, NotificationFilter filter, Object handback)"/>
+            <TestedMethod name="public MBeanServerConnection getMBeanServerConnection() throws IOException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener listener) throws ListenerNotFoundException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener l, NotificationFilter f, Object handback) throws ListenerNotFoundException" />
+            <TestedMethod name="public void close() throws IOException" />
+            <TestedMethod name="public void connect() throws IOException" />
+            <TestedMethod name="public void connect(Map env)" /> 
+            <TestedMethod name="public String getConnectionId() throws IOException" />          
+        <Description>
+       Test perfom operation with connector client through JMXMP protocol
+        </Description>
+        </Case>
+        
+        <Case ID="testHTTPConnectorClient">
+            <TestedMethod name="public void addConnectionNotificationListener(NotificationListener listener, NotificationFilter filter, Object handback)"/>
+            <TestedMethod name="public MBeanServerConnection getMBeanServerConnection() throws IOException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener listener) throws ListenerNotFoundException" />
+            <TestedMethod name="public void removeConnectionNotificationListener(NotificationListener l, NotificationFilter f, Object handback) throws ListenerNotFoundException" />
+            <TestedMethod name="public void close() throws IOException" />
+            <TestedMethod name="public void connect() throws IOException" />
+            <TestedMethod name="public void connect(Map env)" /> 
+            <TestedMethod name="public String getConnectionId() throws IOException" />          
+        <Description>
+        Test perfom operation with connector client through HTTP protocol
+        </Description>
+        </Case>
+        
+    </MulticaseTestDescription>    
+    <Source name="ConnectorClientTest.java"/>
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.remote.ConnectorClientTest">           
+    </Param>
+</Runner>
+</Test>

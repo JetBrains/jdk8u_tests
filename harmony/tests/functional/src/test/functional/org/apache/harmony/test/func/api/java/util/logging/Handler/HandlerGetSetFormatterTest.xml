@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="HandlerGetSetFormatterTest"
+    date-of-creation="2005-09-07"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.logging.Handler"/>
+
+        <Case ID="testSetGetFormatter">
+            <TestedMethod name="public void setFormatter(Formatter newFormatter)"/>
+            <TestedMethod name="public Formatter getFormatter()"/>
+            <Precondition>Create the class formatterHandler extending Handler and
+            myFormatter class extending Formatter class. Implement methods 
+            myFormatter.format(LogRecord) and formatterHandler.publish(LogRecord)</Precondition>
+            <Description>creates new handler, formatter, logRecord; redirect System.out to own PrintStream.
+            sets new Formatter for the handler and checks if all methods (publish, format, getFormatter work
+            correctly and published message is formatted properly).
+            Then set the default SimpleFormatter to the handler and does the same.
+            </Description>
+            <Expected>0</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="HandlerGetSetFormatterTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.logging.Handler.HandlerGetSetFormatterTest">
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

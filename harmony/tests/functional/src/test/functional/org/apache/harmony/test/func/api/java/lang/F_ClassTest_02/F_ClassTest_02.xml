@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_ClassTest_02"
+        date-of-creation="2005-04-08"
+    timeout="1"
+        >
+        <!--
+        -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.lang.Class"/>
+                    <TestedMethod name="public Class[] getDeclaredClasses() throws SecurityException"/>
+                    <TestedMethod name="public int getModifiers()"/>
+                    <TestedMethod name="public String toString()"/>
+                    
+                    <TestedClass name="java.lang.StringBuffer"/>
+                    <TestedMethod name="public StringBuffer()"/>
+                    <TestedMethod name="public StringBuffer append(String str)"/>
+                    <TestedMethod name="public String toString()"/>
+                    
+                    <TestedClass name="java.lang.reflect.Modifier"/>
+                    <TestedMethod name="public static boolean isInterface(int mod)"/>
+                
+                    <Description>
+                        Test ClassLoader.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_ClassTest_02.java"/>
+                <Modification date="2005-04-08" />
+                
+        <Runner ID="Runtime">        
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.F_ClassTest_02.F_ClassTest_02">
+            </Param>
+        </Runner>
+</Test>

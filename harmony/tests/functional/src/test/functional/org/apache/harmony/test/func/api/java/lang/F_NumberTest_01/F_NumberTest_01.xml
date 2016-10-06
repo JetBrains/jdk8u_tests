@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_NumberTest_01"
+    date-of-creation="2004-11-19"
+    timeout="10"
+    >
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.Double"/>
+            <TestedMethod name="public Double(String s)"/>
+            <TestedMethod name="public double doubleValue()"/>
+            
+            <TestedClass name="java.lang.Number"/>
+            <TestedMethod name="public Number()"/>
+            
+            <TestedClass name="java.lang.Integer"/>
+            <TestedMethod name="public double doubleValue()"/>
+            <TestedMethod name="public Integer(int value)"/>
+            
+            <TestedClass name="java.lang.Float"/>
+            <TestedMethod name="public Float(String s)"/>
+            <TestedMethod name="public double doubleValue()"/>
+        
+            <Description>
+                This test parse string of numbers(byte, int, long).
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>
+        <Source name="F_NumberTest_01.java"/>
+        <Modification date="2005-02-02" />
+
+        <Runner ID="Runtime">                
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.F_NumberTest_01.F_NumberTest_01"></Param>
+        </Runner>
+</Test> 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="CharsetEncoderTest"
+    date-of-creation="2006-03-10"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.nio.charset.CharsetEncoder"/>
+        
+        <Case ID="testConstructor">
+             <TestedMethod name="protected CharsetEncoder(Charset cs, float averageCharsPerByte, float maxCharsPerByte)"/>
+             <TestedMethod name="protected CharsetEncoder(Charset cs, float averageCharsPerByte, float maxCharsPerByte, byte[] replacement)"/>
+            <Precondition></Precondition>
+            <Description>create an instance of a child of CharsetEncoder class with various parameters - nulls, not nulls, negative, etc</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testEncode">
+             <TestedMethod name="public final CoderResult encode(CharBuffer in, ByteBuffer out, boolean endOfInput)"/>
+            <TestedMethod name="public final CoderResult flush(ByteBuffer out)"/>
+            <Precondition></Precondition>
+            <Description>write data to file using FileChannel and ByteBuffer, encoded from CharBuffer, 
+            then flush after everything is finished</Description>
+            <Expected>API conformance and that data is really written (check using FileInputStream)</Expected>
+        </Case>
+        
+        <Case ID="testIsLegalReplacement">
+             <TestedMethod name="public boolean isLegalReplacement(byte[] repl)"/>
+            <Precondition></Precondition>
+            <Description>create encoder for UTF-8 and pass various byte arrays to it for check</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+
+    </MulticaseTestDescription>
+
+
+    <Keyword name="functional"/>    
+    
+    <Source name="CharsetEncoderTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.nio.charset.CharsetEncoder.CharsetEncoderTest">
+        </Param>
+    </Runner>
+</Test> 

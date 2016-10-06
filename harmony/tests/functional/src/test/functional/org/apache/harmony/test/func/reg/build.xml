@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="QA-func-build_native_reg" default="post_build">
+
+    <target name="post_build" > 
+        <echo message="Basedir = ${basedir}" />
+        <c-compile library.name="Btest1485" src.dir="vm/btest1485" />
+        <c-compile library.name="Btest2539" src.dir="vm/btest2539" />
+        <c-compile library.name="Btest3010" src.dir="vm/btest3010" />
+        <c-compile library.name="Btest4673" src.dir="vm/btest4673" />
+        <c-compile library.name="Btest5097" src.dir="vm/btest5097" />
+        <c-compile library.name="Btest5118" src.dir="vm/btest5118" />
+        <c-compile library.name="Btest5217" src.dir="vm/btest5217" />
+        <c-compile library.name="Btest5440" src.dir="vm/btest5440" />
+        <c-compile library.name="Btest5542" src.dir="vm/btest5542" />
+        <c-compile library.name="Btest5590" src.dir="vm/btest5590" />
+        <c-compile library.name="Btest5615" src.dir="vm/btest5615" />
+        <c-compile library.name="Btest5940" src.dir="vm/btest5940" />
+        <c-compile library.name="Btest6080" src.dir="vm/btest6080" />
+        <c-compile library.name="Btest6158" src.dir="vm/btest6158" />
+        <c-compile library.name="Btest6205" src.dir="vm/btest6205" />
+        <c-compile library.name="Btest6353" src.dir="vm/btest6353" />
+        <c-compile library.name="Btest6486" src.dir="vm/btest6486" />
+        <c-compile library.name="Btest6819" src.dir="vm/btest6819" />
+        <c-compile library.name="Btest6954" src.dir="vm/btest6954" />
+        <c-compile library.name="Btest7006" src.dir="vm/btest7006" />
+        <c-compile library.name="Btest7108" src.dir="vm/btest7108" />
+        <c-compile library.name="Btest7157" src.dir="vm/btest7157" />
+        <c-compile library.name="Btest7394" src.dir="vm/btest7394" />
+        <c-compile library.name="Btest7414" src.dir="vm/btest7414" />
+        <c-compile library.name="Btest7494" src.dir="vm/btest7494" />
+        <c-compile library.name="Btest7579" src.dir="vm/btest7579" />
+        <c-compile library.name="Btest10305" src.dir="vm/btest10305" />
+    </target>
+</project>
+

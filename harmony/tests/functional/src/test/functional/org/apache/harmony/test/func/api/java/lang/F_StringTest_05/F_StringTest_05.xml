@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_StringTest_05"
+    date-of-creation="2004-12-14"
+    timeout="1"
+    >    
+    <!--
+    -->
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.String"/>
+            <TestedMethod name="public String(char[] value)"/>
+            <TestedMethod name="public char[] toCharArray()"/>
+            <TestedMethod name="public boolean equals(Object anObject)"/>
+    
+            <TestedClass name="java.lang.StringBuffer"/>
+            <TestedMethod name="public StringBuffer()"/>
+            <TestedMethod name="public StringBuffer(String str)"/>
+    
+            <TestedClass name="java.lang.Character"/>
+            <TestedMethod name="public Character(char value)"/>
+            <TestedMethod name="public static String toString(char c)"/>
+            <TestedMethod name="public String toString()"/>
+    
+            <TestedClass name="java.util.HashMap"/>
+            <TestedMethod name="public HashMap()"/>
+            <TestedMethod name="public boolean containsKey(Object key)"/>
+            <TestedMethod name="public V get(Object key)"/>
+            <TestedMethod name="public V put(K key, V value)"/>
+            <TestedMethod name="public Set&lt;K&gt; keySet()"/>
+            <TestedMethod name="public int size()"/>
+            
+            <!--TestedClass name="java.util.Set"/>
+            <TestedMethod name="Iterator&lt;E&gt; iterator()"/>
+    
+            <TestedClass name="java.util.Iterator"/>
+            <TestedMethod name="public boolean hasNext()"/>
+            <TestedMethod name="E next()"/-->
+    
+            <TestedClass name="java.lang.Integer"/>
+            <TestedMethod name="public Integer(String s) throws NumberFormatException"/>
+            <TestedMethod name="public int intValue()"/>
+    
+            <TestedClass name="java.lang.Object"/>
+            <TestedMethod name="public String toString()"/>
+    
+            <TestedClass name="java.io.File"/>
+            <TestedMethod name="public File(String pathname)"/>
+            <TestedMethod name="public String getName()"/>
+    
+            <TestedClass name="java.io.FileReader"/>
+            <TestedMethod name="public FileReader(String fileName) throws FileNotFoundException"/>
+    
+            <TestedClass name="java.io.FileInputStream"/>
+            <TestedMethod name="public FileInputStream(String name) throws FileNotFoundException"/>
+            <TestedMethod name="public int available() throws IOException"/>
+            <TestedMethod name="public int read(byte[] b) throws IOException"/>
+            <TestedMethod name="public void close()"/>
+    
+            <TestedClass name="java.lang.Throwable"/>
+            <TestedMethod name="public void printStackTrace(PrintStream s)"/>
+    
+            <Description>
+                This is the scenario test of some String methods
+            </Description>
+        </APITestDescription>
+
+        <Keyword name="functional"/>    
+
+        <Source name="F_StringTest_05.java"/>
+            
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.F_StringTest_05.F_StringTest_05">
+                <Option name="$TestDirectory$FileSeparatorauxiliary$FileSeparatorsource.xml"/>
+            </Param>
+        </Runner>
+</Test>

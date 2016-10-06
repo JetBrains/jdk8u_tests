@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="SocketTest"
+    date-of-creation="2006-03-17"
+    timeout="1"
+    >
+
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="java.net.Socket"/>
+        <Case ID="testConnectTimeout">
+            <TestedMethod name="public boolean isConnected()" />
+            <TestedMethod name="public boolean isBound()" />
+            <TestedMethod name="public void bind(SocketAddress bindpoint)" />
+            <TestedMethod name="public void connect(SocketAddress endpoint, int timeout)" />
+            <Description>
+                Trying to connect to remote host with timeout 1 millisecond 
+                and watch for SocketTimeoutException
+            </Description>
+        </Case>
+        <Case ID="testSetTimeout">
+            <TestedMethod name="public boolean isConnected()" />
+            <TestedMethod name="public void connect(SocketAddress endpoint)" />
+            <TestedMethod name="public void setSoTimeout(int timeout)" />
+            <TestedMethod name="public int getSoTimeout()" />
+            <Description>
+                Set timeout on read operation and check if SocketTimeoutException 
+                is thrown
+            </Description>
+        </Case>
+        <Case ID="testInputShutdown">
+            <TestedMethod name="public boolean isInputShutdown()" />
+            <TestedMethod name="public boolean isOutputShutdown()" />
+            <TestedMethod name="public void shutdownInput()" />
+            <TestedMethod name="public void shutdownOutput()" />
+            <TestedMethod name="public boolean isClosed()" />
+            <TestedMethod name="public void close()" />
+            <Description>
+                Shut down input and output of the socket and check
+                is*Shutdown() results
+            </Description>
+        </Case>
+        
+        <Case ID="testSetTcpNodelay">
+            <TestedMethod name="public void setTcpNoDelay(boolean on)
+                   throws SocketException" />
+            <TestedMethod name="public boolean getTcpNoDelay()" />
+            <Description>
+                Check if getTcpNoDelay() is same as was setTcpNodaley() before
+            </Description>
+        </Case>
+        
+        <Case ID="testConnectConstructor">
+            <TestedMethod name="public Socket(String host, int port)" />
+            <Description>
+                Create socket via Socket(String, int) constructor and check
+                if it is already connected
+            </Description>
+        </Case>
+
+        <Case ID="testSocketImplConstructor">
+            <TestedMethod name="public Socket(SocketImpl impl)" />
+            <Description>
+                Create socket via Socket(SocketImpl) constructor and check
+                if calls to socket is forwarded to underlying socketImpl
+                In essence, only one call is checked, since this is 
+                the constructor test
+            </Description>
+        </Case>
+        
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional" />
+    
+    <Source name="SocketTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.net.Socket.SocketTest">
+        </Param>
+    </Runner>
+</Test> 

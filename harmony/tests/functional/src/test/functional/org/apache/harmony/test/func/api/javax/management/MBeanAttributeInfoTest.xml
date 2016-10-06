@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="MBeanAttributeInfoTest" date-of-creation="2005-07-20"
+    timeout="1">
+
+    
+
+    
+
+    <APITestDescription>
+        <TestedClass name="javax.management.MBeanAttributeInfo/" />
+        <TestedMethod name="public Object clone() " />
+        <TestedMethod name="public String getType() " />
+        <TestedMethod name="public boolean equals(Object o) " />
+        <TestedMethod name="public boolean isIs() " />
+        <TestedMethod name="public boolean isReadable() " />
+        <TestedMethod name="public boolean isWritable() " />
+        <TestedMethod name="public int hashCode() " />
+        <TestedMethod
+            name="public void MBeanAttributeInfo(String name, String description, Method getter, Method setter) throws IntrospectionException " />
+        <TestedMethod
+            name="public void MBeanAttributeInfo(String name, String type, String description, boolean isReadable, boolean isWritable, boolean isIs) throws IllegalArgumentException " />
+
+        <Description>
+            Tests all functionality that the class MBeanAttributeInfo
+            should provide according to the specification.
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="MBeanAttributeInfoTest.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.MBeanAttributeInfoTest" />
+    </Runner>
+
+    <Restriction name="OtherVMOnly" />
+</Test>

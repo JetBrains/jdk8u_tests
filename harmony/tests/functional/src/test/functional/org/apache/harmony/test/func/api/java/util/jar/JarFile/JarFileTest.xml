@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="JarFileTest"
+    date-of-creation="2005-03-05"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.jar.JarFile"/>
+        
+        <Case ID="testJarFile_getEntry">
+            <TestedMethod name="ZipEntry getEntry(String)"/>    
+            <Precondition>create a jar file in the reference JVM</Precondition>
+            <Description>The correctness of the generic getSize() and getName() methods
+            of the returned JarEntry object is verified</Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+       </Case>
+       
+       <Case ID="testJarFile_getJarEntry">
+            <TestedMethod name="JarEntry getJarEntry(String)"/>
+            <Precondition>create a jar file in the reference JVM</Precondition>
+            <Description>The correctness of the generic getSize() and getName() methods
+            of the returned JarEntry object is verified</Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+       </Case>
+       
+       <Case ID="testJarFile_entries">
+            <TestedMethod name="public Enumeration&lt;JarEntry&gt; entries()"/>
+            <Precondition>create a jar file in the reference JVM</Precondition>
+            <Description>JarOutputStream is filled with randomly generated entries.
+            In the next block, all entries are being stored in Enumeration. The total number
+            of entries in Enumeration is checked.</Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+     </Case>
+     
+     <Case ID="testJarFile_getInputStream">
+            <TestedMethod name="InputStream getInputStream(ZipEntry)"/>
+            <Precondition>create a jar file in the reference JVM</Precondition>
+            <Description>Number of returned bytes and correctness of returned
+            data is checked</Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+      </Case>
+
+     <Case ID="testJarFile_getManifest">
+            <TestedMethod name="Manifest getManifest()"/>
+            <Precondition>create a jar file in the reference JVM</Precondition>
+            <Description>The correctness of Manifest attributes is checked
+            in varous ways </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+       </Case>
+
+     <Case ID="testBasic">
+            <TestedMethod name="JarEntry getJarEntry(String s)"/>
+            <Precondition>create a jar file in the reference JVM</Precondition>
+            <Description>create JarFile on this file and call getJarEntry(entry name) on it</Description>
+            <Expected>jar entry is found, its name is what expected and its size is correct</Expected>
+     </Case>
+       
+      <Case ID="testJarEntryZipEntry">
+            <TestedMethod name="JarEntry getJarEntry(String s)"/>
+            <TestedMethod name="ZipEntry getEntry(String s)"/>
+            <Precondition>create a jar file in the reference JVM</Precondition>
+            <Description>create JarFile on this file and call getJarEntry(entry name), 
+            getEntry(entry name) on it</Description>
+            <Expected>jar/zip entry is found and  its name is what expected 
+            (or not found if name is incorrect)</Expected>
+     </Case>
+
+      <Case ID="testEntries">
+            <TestedMethod name="public Enumeration&lt;JarEntry&gt; entries()"/>
+            <Precondition>create some 'gold' jar files in the reference JVM</Precondition>
+            <Description>create JarFile on these files and call getEntries() on them</Description>
+            <Expected>returned Enumerations contain expected values</Expected>
+     </Case>
+
+      <Case ID="testNullManifest">
+            <TestedMethod name="Manifest getManifest()"/>
+            <Precondition>create a 'gold' jar file with null manifest in the reference JVM</Precondition>
+            <Description>create JarFile on that file and call its getManifest()</Description>
+            <Expected>null</Expected>
+     </Case>
+
+      <Case ID="testNullManifest">
+            <TestedMethod name="Manifest getManifest()"/>
+            <Precondition>create a 'gold' jar file with non-null manifest in the reference JVM</Precondition>
+            <Description>create JarFile on that file and call its getManifest()</Description>
+            <Expected>manifest.getEntries() contains expected values</Expected>
+     </Case>
+
+      <Case ID="testConstructorFileVerifyMode">
+            <TestedMethod name="public JarFile(File file, boolean verify, int mode)"/>
+            <Precondition>create a 'gold' jar file with non-null manifest in the reference JVM</Precondition>
+            <Description>try to open it using JarFile(File file, boolean verify, int mode)</Description>
+            <Expected>API conformance</Expected>
+     </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="JarFileTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.jar.JarFile.JarFileTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

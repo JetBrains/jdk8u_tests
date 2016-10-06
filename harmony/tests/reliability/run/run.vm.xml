@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="run.vm.tests" default="run.vm" basedir=".">
+
+    <description> Runs all tests from vm/ </description>
+
+    <target name="run.vm" depends="run.vm.stack, run.vm.classloading, run.vm.finalization, run.vm.exceptions, run.vm.gc"/>
+
+    <target name="run.vm.classloading">
+
+        <run-pjava-test test="vm.classloading.DelegationModelTest" 
+                        args="${vm.classloading.DelegationModelTest.n_threads} ${test.classes.dir}"/>
+
+        <run-pjava-test test="vm.classloading.MultiThreadedLoading" 
+                        args="${vm.classloading.MultiThreadedLoading.n_threads} ${test.classes.dir}"/>
+
+        <run-pjava-test test="vm.classloading.ClassUnloadingTest" 
+                        args="${test.classes.dir} ${vm.classloading.ClassUnloadingTest.n_classes}
+                              ${vm.classloading.ClassUnloadingTest.n_threads}"/>
+
+        <run-pjava-test test="vm.classloading.ClassAttributesTest" 
+                        args="${vm.classloading.ClassUnloadingTest.n_threads}"/>
+
+        <run-pjava-test test="vm.classloading.ClassReflectionTest" 
+                        args="${vm.classloading.ClassReflectionTest.n_threads}"/>
+
+        <run-pjava-test test="vm.classloading.ClassCastTest" args=""/>
+
+
+	</target>
+
+    <target name="run.vm.finalization">
+
+        <run-pjava-test test="vm.finalization.FinalizeResourceOrientedTest" 
+                        args="${vm.finalization.FinalizeResourceOrientedTest.n_threads} ${test.classes.dir} ${work.dir}"/>
+
+        <run-pjava-test test="vm.finalization.FinalizeThrowRestoreTest" 
+                        args="${vm.finalization.FinalizeThrowRestoreTest.n_threads}"/>
+
+        <run-pjava-test test="vm.finalization.ArrayElemFinalizationTest"/>
+	</target>
+
+    <target name="run.vm.gc">
+
+        <run-pjava-test test="vm.gc.WeakRefsTest" 
+                        args="${vm.gc.WeakRefsTest.n_threads}"/>
+
+        <run-pjava-test test="vm.gc.GCTest" 
+                        args="${vm.gc.GCTest.n_threads}"/>
+
+	</target>
+
+    <target name="run.vm.stack">
+
+        <run-pjava-test test="vm.stack.StackFramesRestoreTest" 
+                        args="${vm.stack.StackFramesRestoreTest.n_threads} ${test.classes.dir}"/>
+
+        <run-pjava-test test="vm.stack.StackUnwindTest" 
+                        args="${vm.stack.StackUnwindTest.n_threads} ${vm.stack.StackUnwindTest.n_iters}"/>
+
+	</target>
+
+    <target name="run.vm.exceptions">
+	
+        <run-pjava-test test="vm.exceptions.ExceptionsTest"
+				        args="${vm.exceptions.ExceptionsTest.n_threads} 
+				        	${vm.exceptions.ExceptionsTest.depth}"/>
+	</target>
+
+</project>

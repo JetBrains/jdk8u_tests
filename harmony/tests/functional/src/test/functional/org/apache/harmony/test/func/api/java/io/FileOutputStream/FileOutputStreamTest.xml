@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="FileOutputStreamTest"
+    date-of-creation="2004-12-01"
+    timeout="1"
+    >
+
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.FileOutputStream"/>
+        
+        <Case ID="testClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>check that close() can be called</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testFlush">
+            <TestedClass name="java.io.OutputStream"/>
+            <TestedMethod name="public void flush()"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>check that flush() can be called</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testWrite0001">
+            <TestedMethod name="public void write(byte[] b, int off, int len)"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>write byte array to the stream</Description>
+            <Expected>array is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteNull">
+            <TestedMethod name="public void write(byte[] b, int off, int len)"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>write null to the stream</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteSlice">
+            <TestedMethod name="write(byte[], int, int)"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>write a slice of byte array to the stream</Description>
+            <Expected>array slice is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteByte">
+            <TestedMethod name="public void write(int b)"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>write a byte to the stream</Description>
+            <Expected>byte is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteIndexOutOfBounds0001">
+            <TestedMethod name="write(byte[] bytes, int offset, int length)"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>try to write a piece of array starting from negative offset</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteIndexOutOfBounds0002">
+            <TestedMethod name="write(byte[] bytes, int offset, int length)"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>try to write a piece of array with negative length</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteIndexOutOfBounds0003">
+            <TestedMethod name="write(byte[] bytes, int offset, int length)"/>
+            <Precondition>create the FileOutputStream object</Precondition>
+            <Description>try to write a piece of array that exceeds array length</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+        
+        <Case ID="testOpenDirectory">
+            <TestedMethod name="FileOutputStream(File)"/>
+            <TestedMethod name="FileOutputStream(File, boolean)"/>
+            <Precondition></Precondition>
+            <Description>try to open FileOutputStream to directory</Description>
+            <Expected>FileNotFoundException is thrown</Expected>
+        </Case>
+
+        <Case ID="testDoubleOpen">
+            <TestedMethod name="FileOutputStream(String)"/>
+            <TestedMethod name="public void write(int b)"/>
+            <Precondition>open two FileOutputStreams pointing to one directory</Precondition>
+            <Description>write data to them and close both</Description>
+            <Expected>only data from the second one is written</Expected>
+        </Case>
+        
+        <Case ID="testFileDescriptor">
+            <TestedMethod name="FileOutputStream(FileDescriptor)"/>
+            <Precondition>open a FileOutputStream and another one using FileDescriptor 
+            from the first one</Precondition>
+            <Description>write data to them and close both</Description>
+            <Expected>all data is written in proper order</Expected>
+        </Case>
+
+        <Case ID="testChannelNotNull">
+            <TestedMethod name="public FileChannel getChannel()"/>
+            <Precondition>open a FileOutputStream</Precondition>
+            <Description>call getChaannel()</Description>
+            <Expected>non-null value</Expected>
+        </Case>
+
+        <Case ID="testReadonly">
+            <TestedMethod name="FileOutputStream(String)"/>
+            <TestedMethod name="FileOutputStream(String, boolean)"/>
+            <Precondition></Precondition>
+            <Description>try to open FileOutputStream to read-only file</Description>
+            <Expected>FileNotFoundException is thrown</Expected>
+        </Case>
+
+        <Case ID="testAppend">
+            <TestedMethod name="FileOutputStream(String)"/>
+            <TestedMethod name="FileOutputStream(String, boolean)"/>
+            <Precondition></Precondition>
+            <Description>open FileOutputStream in appending and non-appending mode</Description>
+            <Expected>appending mode erases file contents</Expected>
+        </Case>
+
+        <Case ID="testFinalize">
+            <TestedMethod name="FileOutputStream(File)"/>
+            <TestedMethod name="protected void finalize()"/>
+            <Precondition></Precondition>
+            <Description>open FileOutputStream, write 2 bytes to it  , don't close it, remove reference to it, call
+            System.gc() 50 times</Description>
+            <Expected>after write() file.length() returns 0, in the end of test - 2</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="FileOutputStreamTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.FileOutputStream.FileOutputStreamTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-generalVMOption" value="$generalVMOption"/>                                                
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

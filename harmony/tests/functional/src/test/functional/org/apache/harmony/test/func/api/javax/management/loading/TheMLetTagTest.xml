@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+    
+
+<Test  ID="TheMLetTagTest"  date-of-creation="2005-11-11" timeout="10">
+    
+    
+    <MulticaseTestDescription>
+            <TestedClass name="javax.management.loading.MLet"/>
+            <Case ID="testBaseChk">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                    Test for mandatory: Tags CODE, ARCHIVE, NAME
+                </Description>
+            </Case>
+            
+            <Case ID="testSerChk">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                 Test for mandatory: Tags OBJECT, ARCHIVE, NAME                
+                </Description>
+            </Case>
+            
+            <Case ID="testAllTags">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Test for mandatory: Tags CODE, ARCHIVE, NAME, CODEBASE and arglist
+                </Description>
+            </Case>
+            
+            <Case ID="testCODEAndOBJECT">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Test for mandatory: Tags CODE, OBJECT.
+                   Exception should be thrown if it is exist in conf mlet text file
+                </Description>
+            </Case>
+
+            <Case ID="testUnexpCfg">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Exception should be thrown if in conf mlet text file exist unexpected end of file
+                </Description>
+            </Case>
+          <Case ID="testMissArc">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                 Exception should be thrown if in conf mlet text file absence mandatory ARCHIVE tag
+                </Description>
+            </Case>
+            
+            <Case ID="testOutOfEnd">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Exception should be thrown if in conf mlet text file out of end
+                </Description>
+            </Case>
+            
+            <Case ID="testEmptyConf">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Exception should be thrown if in conf mlet text is empty
+                </Description>
+            </Case>
+            
+            <Case ID="testListOfMlets">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Test for mandatory: Tags CODE, ARCHIVE, NAME, CODEBASE and arglist 
+                Check that mlet service work properly with list of remote classes
+                </Description>
+            </Case>
+
+            <Case ID="testMletsComments">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                 Test for mandatory: Tags CODE, ARCHIVE, NAME
+                 Check that mlet service work properly with comments in mlet text conf file 
+                </Description>
+            </Case>
+
+            <Case ID="testWrongListOfMlets">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Test for mandatory: Tags CODE, OBJECT, ARCHIVE, NAME, CODEBASE and arglist
+                Exception should be thrown if in conf mlet text file list of mlets
+                </Description>
+            </Case>
+
+            <Case ID="testWrongListOfCalsses">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Test for mandatory: Tags CODE, OBJECT, ARCHIVE, NAME, CODEBASE and arglist
+                Exception should be thrown if in conf mlet text file list of remote classes
+                </Description>
+            </Case>
+
+            <Case ID="testMissCode">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Exception should be thrown if in conf mlet text file absence mandatory CODE tag
+                </Description>
+            </Case>
+
+            <Case ID="testNoconf">
+                <TestedMethod name="Set getMBeansFromURL(URL url)"/>
+                <Description>
+                Exception should be thrown if conf mlet text file not a conf mlet file
+                </Description>
+            </Case>
+    </MulticaseTestDescription>    
+    <Source name="TheMLetTagTest.java"/>
+    <Runner ID="MultiCase">
+    <Param name="toRun" value="org.apache.harmony.test.func.api.javax.management.loading.TheMLetTagTest">           
+    <Option value="$TEST_HTTP_TOMCAT_HOST:$TEST_HTTP_TOMCAT_PORT" />
+    </Param>
+</Runner>
+<Restriction name="OtherVMOnly" />
+</Test>

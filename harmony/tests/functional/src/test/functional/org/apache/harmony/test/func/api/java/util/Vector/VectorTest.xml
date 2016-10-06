@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="VectorTest"
+    date-of-creation="2005-10-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.Vector&lt;E&gt;"/>
+
+        <Case ID="testAdd">
+            <TestedMethod name="public boolean add(E o)"/>        
+            <TestedMethod name="public void add(int index, E element)"/>
+            <TestedMethod name="public int size()"/>
+            <TestedMethod name="public int capacity()"/>
+            <TestedMethod name="public Object[] toArray()"/>
+            <TestedMethod name="public void clear()"/>
+            <TestedMethod name="public E firstElement()"/>
+            <TestedMethod name="public E lastElement()"/>
+            <TestedMethod name="public Vector()"/>
+            <TestedMethod name="public E get(int index)"/>
+            <TestedMethod name="public boolean contains(Object elem)"/>
+            <TestedMethod name="public int indexOf(Object elem)"/>
+            <TestedMethod name="public int lastIndexOf(Object elem)"/>            
+            <Precondition>Array of random object</Precondition>
+            <Description>Add object in Vector and checked that added is correct by calling size(),capacity(),toArray(),firstElement(),lastElement(),get(int index),contains(Object o),indexOf(Object o),lastIndexOf(Object o)"</Description>
+            <Expected></Expected>
+        </Case>
+       
+        <Case ID="testToArray">
+            <TestedMethod name="public &lt;T&gt; T[] toArray(T[] a)"/>
+            <TestedMethod name="public void copyInto(Object[] anArray)"/>            
+            <Precondition>Array of random object</Precondition>
+            <Description>Call toArray on Vector and checked that returned array is correct"</Description>
+            <Expected></Expected>
+        </Case>                
+        
+        <Case ID="testSet">
+            <TestedMethod name="public E set(int index, E element)"/>
+            <TestedMethod name="public int size()"/>            
+            <TestedMethod name="public boolean contains(Object elem)"/>
+            <TestedMethod name="public E get(int index)"/>
+            <Precondition>Array of random object</Precondition>
+            <Description>Call set and checked that set wroeked correct by calling size(),get(int index),contains(Object o)</Description>
+            <Expected></Expected>
+        </Case>                        
+
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>
+    <Source name="VectorTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.Vector.VectorTest">
+        </Param>
+    </Runner>
+</Test> 

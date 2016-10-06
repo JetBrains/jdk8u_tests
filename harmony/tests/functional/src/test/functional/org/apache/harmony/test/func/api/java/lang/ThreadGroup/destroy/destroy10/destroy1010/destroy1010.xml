@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../../test.dtd'>
+<Test
+    ID="destroy1010"
+    date-of-creation="2005-6-30"
+    timeout="1"
+    >
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.lang.ThreadGroup"/>
+            <TestedMethod name="public final void destroy()"/>
+            <Description>
+The test is against destroy1010 method.
+For testing purposes ThreadGroups to test are organized in three groups:
+- single group,
+- parent and child,
+- parent and two childs.
+The test performs the following checks on ThreadGroups that are not set to daemon.
+1) If ThreadGroup has a thread not started yet
+   the method results in IllegalThreadStateException.
+2) If ThreadGroup has only died threads and its childs are destroyed
+   the method does not result in IllegalThreadStateException. 
+3) If ThreadGroup is already dstroyed
+   the method results in IllegalThreadStateException.
+4) If a parent ThreadGroup has only died threads but child(s) has not died yet
+   the method results in IllegalThreadStateException.
+            </Description>
+            </APITestDescription>
+        <Source name="destroy1010.java"/>
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.ThreadGroup.destroy.destroy10.destroy1010.destroy1010"/>
+        </Runner>
+</Test>

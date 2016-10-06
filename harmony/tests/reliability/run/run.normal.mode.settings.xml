@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="run.normal.mode.settings">
+
+    <description>Set of properties/test parameters for reliability tests</description>
+
+
+<!-- api.kernel.args.AppVMCLParamTest -->
+
+		<!-- maximum number of application parameters passed to exec()-ed java appplication, 
+		     muliplied by 10 - is a maximum size of one parameter (number of chars in one parameter).
+		  -->
+	    <property name="api.kernel.args.AppVMCLParamTest.max_n_app_params" value="2" />
+
+		<!-- VM oprtions with which to start application, ":" is a separator -->
+	    <property name="api.kernel.args.AppVMCLParamTest.vm_opts" value=":-Xmx256m:-Xms128m" />
+
+<!-- api.kernel.args.ExecEnvTest -->
+
+ 		<!-- maximum number of environment variables passed to exec(), muliplied by
+		     10 is a maximum size of one variable value (number of chars in one variable). -->
+	    <property name="api.kernel.args.ExecEnvTest.max_n_env_vars" value="2" />
+
+<!-- api.kernel.args.VMCLPropertiesTest -->
+
+		<!-- maximum number of runtime properties passed to exec()-ed runtime, muliplied by
+		     10 is a maximum size of one property (number of chars in one property). -->
+	    <property name="api.kernel.args.VMCLPropertiesTest.max_n_properties" value="2" />
+
+		<!-- VM oprtions with which start application, ":" is a separator -->
+	    <property name="api.kernel.args.VMCLPropertiesTest.prop_test_vm_opts" value=":-Xmx256m:-Xms128m" />
+
+<!-- api.kernel.exec.RunExec -->
+
+		<!-- the number of simultaneously executed runtime.exec() -->
+	    <property name="api.kernel.exec.RunExec.num_execs" value="5" />
+
+		<!-- number of threads in each exec()-ed application -->
+    	<property name="api.kernel.exec.RunExec.num_threads" value="2" />
+
+<!-- api.kernel.hooks.AddRmPropertiesHooksTest -->
+
+		<!-- the number of properties to set/get/remove -->
+		<property name="api.kernel.hooks.AddRmPropertiesHooksTest.n_properties" value="1000" />
+
+		<!-- number of hooks to add/remove -->
+	    <property name="api.kernel.hooks.AddRmPropertiesHooksTest.n_hooks" value="100" />
+
+<!-- api.kernel.object.ObjectCloneTest -->
+
+		<!-- number of iterations to call/initialize in a cycle in one iteration
+		     and number of clones -->
+	    <property name="api.kernel.object.ObjectCloneTest.n_iterations" value="1000" />
+
+<!-- api.kernel.object.ObjectFinalizeTest -->
+
+		<!-- number of internal iterations -->
+	    <property name="api.kernel.object.ObjectFinalizeTest.n_iterations" value="10000" />
+
+<!-- api.kernel.object.ObjectGetclassHashcodeTest -->
+
+		<!-- number of internal iterations -->
+	    <property name="api.kernel.object.ObjectGetclassHashcodeTest.n_iterations" value="10000" />
+
+<!-- api.kernel.pckg.PackageGetTest -->
+
+		<!-- number of internal iterations -->
+	    <property name="api.kernel.pckg.PackageGetTest.n_iterations" value="10000" />
+
+<!-- api.kernel.thread.Calculation.CalcTest -->
+
+		<!-- number of tasks which calculate factorial -->
+	    <property name="api.kernel.thread.Calculation.CalcTest.tasks" value="20" />
+
+		<!-- argument factorial function -->
+	    <property name="api.kernel.thread.Calculation.CalcTest.depth" value="10" />
+
+<!-- api.kernel.thread.ThreadSuspendResume.ThreadSuspendResume -->
+
+		<!-- number of threads to start in test -->
+	    <property name="api.kernel.thread.ThreadSuspendResume.ThreadSuspendResume.n_threads" value="30" />
+
+		<!-- number of suspend/resum iterations -->
+	    <property name="api.kernel.thread.ThreadSuspendResume.ThreadSuspendResume.n_iters" value="20" />
+
+<!-- api.kernel.management.SystemResourceOrientedTest -->
+
+		<!-- number of threads to start in test -->
+	    <property name="api.kernel.management.SystemResourceOrientedTest.n_threads" value="30" />
+
+		<!-- number of iterations -->
+	    <property name="api.kernel.management.SystemResourceOrientedTest.n_iters" value="20" />
+
+		<!-- number of iterations -->
+	    <property name="api.kernel.management.SystemResourceOrientedTest.n_loadedClasses" value="1000" />
+
+<!-- api.kernel.thread.LifeSimulationTest.Life -->
+
+	    <property name="api.kernel.thread.LifeSimulationTest.Life.max_creatures" value="100" />
+	    <property name="api.kernel.thread.LifeSimulationTest.Life.max_age" value="100" />
+	    <property name="api.kernel.thread.LifeSimulationTest.Life.start_health" value="100" />
+	    <property name="api.kernel.thread.LifeSimulationTest.Life.total_food" value="10000" />
+
+<!-- api.kernel.thread.RecursiveThreadTest.RecursiveTest -->
+
+        <!-- depth of recursion of threads -->
+	    <property name="api.kernel.thread.RecursiveThreadTest.RecursiveTest.recursion_depth" value="100" />
+	    
+	    <!-- size of Object array for each thread -->
+	    <property name="api.kernel.thread.RecursiveThreadTest.RecursiveTest.array_size" value="1000" />
+
+<!-- api.kernel.thread.Synchronization.SynchroTest -->
+
+	    <!-- number of iterations to run each thread -->
+	    <property name="api.kernel.thread.Synchronization.SynchroTest.iterations" value="10" />
+
+<!-- api.kernel.thread.Synchronization.SynchroTest2 -->
+
+	    <!-- number of threads -->
+	    <property name="api.kernel.thread.Synchronization.SynchroTest2.threads" value="25" />
+
+	    <!-- length of series -->
+	    <property name="api.kernel.thread.Synchronization.SynchroTest2.serial" value="5" />
+
+<!-- api.kernel.thread.ThreadArrayTest.ThreadArrayTest -->
+
+	    <!-- number of threads -->
+	    <property name="api.kernel.thread.ThreadArrayTest.ThreadArrayTest.threads" value="20" />
+
+	    <!-- how times each thread starts -->
+	    <property name="api.kernel.thread.ThreadArrayTest.ThreadArrayTest.starts" value="200" />
+
+
+<!-- api.kernel.thread.ThreadKill.ThreadKillTest -->
+
+	    <!-- number of threads -->
+	    <property name="api.kernel.thread.ThreadKill.ThreadKillTest.threads" value="50" />
+
+	    <!-- number of internal iterations/cycles -->
+	    <property name="api.kernel.thread.ThreadKill.ThreadKillTest.iterations" value="10" />
+
+<!-- api.kernel.thread.VolatileVariableTest.DekkerTest -->
+
+	    <!-- number of iterations to run critical region in each thread -->
+	    <property name="api.kernel.thread.VolatileVariableTest.DekkerTest.iterations" value="20" />
+
+<!-- api.kernel.thread.VolatileVariableTest.PetersonTest -->
+
+	    <!-- number of iterations to run critical region in each thread -->
+	    <property name="api.kernel.thread.VolatileVariableTest.PetersonTest.iterations" value="20" />
+
+<!-- api.kernel.thread.WeakReferenceandThreadTest.WeakReferenceandThreadTest -->
+
+	    <!-- number of starting threads -->
+	    <property name="api.kernel.thread.WeakReferenceandThreadTest.WeakReferenceandThreadTest.threads" value="50" />
+
+	    <!-- number of attemps to call GC -->
+	    <property name="api.kernel.thread.WeakReferenceandThreadTest.WeakReferenceandThreadTest.gc_attempts" value="20" />
+
+
+<!-- api.zip.ZipEntryIterateThreadingTest -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.zip.ZipEntryIterateThreadingTest.n_threads" value="100" />
+
+
+<!-- api.zip.AdlerCRC32Test -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.zip.AdlerCRC32Test.iterations" value="10" />
+
+	    <!-- byte arrays size to update Adler32 with -->
+	    <property name="api.zip.AdlerCRC32Test.buf_size" value="10000" />
+
+<!-- api.zip.GZipInOutStreamTest -->
+
+	    <!-- number of GZIPOutputStreams to write successively into one FileOutputStream -->
+	    <property name="api.zip.GZipInOutStreamTest.n_entries" value="5" />
+
+<!-- api.zip.InflDeflGetResetTest -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.zip.InflDeflGetResetTest.iterations" value="5" />
+
+	    <!-- maximum byte array size to deflate/inflate -->
+	    <property name="api.zip.InflDeflGetResetTest.buf_size" value="10000" />
+
+<!-- api.zip.ZipInOutStreamTest -->
+
+	    <!-- number of nesting zip entry -->
+	    <property name="api.zip.ZipInOutStreamTest.n_entries" value="5" />
+
+<!-- api.zip.ZlibDeflaterTest -->
+
+	    <!-- number of iterations to call/initialize a new compressor in a cycle -->
+	    <property name="api.zip.ZlibDeflaterTest.iterations" value="500" />
+
+<!-- api.zip.ZlibDefsetDictionaryTest -->
+
+	    <!-- number of iterations to call/initialize a preset dictionary  
+	         for compression in a cycle -->
+	    <property name="api.zip.ZlibDefsetDictionaryTest.iterations" value="100" />
+
+<!-- api.zip.ZlibTest -->
+
+	    <!-- number of deflating/inflating threads to run in parallel -->
+	    <property name="api.zip.ZlibTest.n_threads" value="10" />
+
+	    <!-- number of bytes to read from the file -->
+	    <property name="api.zip.ZlibTest.n_bytes" value="30000" />
+
+	    <!-- number of deflating/inflating iterations each thread does -->
+	    <property name="api.zip.ZlibTest.iterations" value="10" />
+
+<!-- api.zip.ZlibTestStrategyLevel -->
+
+	    <!-- size of byte buffer to initialize for Delfation/Inflation -->
+	    <property name="api.zip.ZlibTestStrategyLevel.buf_size" value="1024" />
+
+<!-- api.zip.ZlibTestVariableLength -->
+
+	    <!-- size of byte buffer to initialize for Delfation/Inflation -->
+	    <property name="api.zip.ZlibTestVariableLength.buf_size" value="100000" />
+
+	    <!-- number of internal Deflate/Inflate iterations -->
+	    <property name="api.zip.ZlibTestVariableLength.iterations" value="10" />
+
+<!-- api.utilConcurrentTest -->
+
+	    <!-- number of threads to start -->
+	    <property name="api.util.ConcurrentTest.n_entries" value="30" />
+
+<!-- api.text.BreakIterator_AllLocales -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.text.BreakIterator_AllLocales.iterations" value="5" />
+
+<!-- api.text.CollationElementIteratorTest -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.text.CollationElementIteratorTest.n_threads" value="10" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.text.CollationElementIteratorTest.iterations" value="5" />
+
+<!-- api.text.CollationKeyTest_ArrHash -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.text.CollationKeyTest_ArrHash.n_threads" value="5" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.text.CollationKeyTest_ArrHash.iterations" value="5" />
+
+<!-- api.text.CollationKeyTest -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.text.CollationKeyTest.n_threads" value="10" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.text.CollationKeyTest.iterations" value="10" />
+
+<!-- api.text.DecimalFormat_Locales -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.text.DecimalFormat_Locales.n_threads" value="5" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.text.DecimalFormat_Locales.iterations" value="5" />
+
+<!-- api.text.getAvailableLocales_Coll -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.text.getAvailableLocales_Coll.iterations" value="20" />
+
+<!-- api.text.getAvailableLocals_RBC -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.text.getAvailableLocals_RBC.n_threads" value="2" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.text.getAvailableLocals_RBC.iterations" value="2" />
+
+<!-- api.text.getSentenceInstance_check -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.text.getSentenceInstance_check.n_threads" value="20" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.text.getSentenceInstance_check.iterations" value="20" />
+
+<!-- api.text.getSentenceInstance -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.text.getSentenceInstance.n_threads" value="20" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.text.getSentenceInstance.iterations" value="20" />
+
+<!-- api.nio.charset.CharsetSyncCacheTest -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.nio.charset.CharsetSyncCacheTest.n_threads" value="20" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.nio.charset.CharsetSyncCacheTest.iterations" value="5" />
+
+<!-- api.nio.charset.ContainsTest -->
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.nio.charset.ContainsTest.iterations" value="10" />
+
+<!-- api.nio.charset.DecodingModesTest -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.nio.charset.DecodingModesTest.iterations" value="10" />
+
+<!-- api.nio.charset.EncDecTest -->
+
+	    <!-- number of threads to be run in parallel -->
+	    <property name="api.nio.charset.EncDecTest.n_threads" value="1" />
+
+	    <!-- number of iterations in each thread -->
+	    <property name="api.nio.charset.EncDecTest.iterations" value="1" />
+
+<!-- api.nio.charset.EncodingModesTest -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.nio.charset.EncodingModesTest.iterations" value="2" />
+
+<!-- api.nio.charset.WrongCharsetNameTest -->
+
+	    <!-- number of internal iterations -->
+	    <property name="api.nio.charset.WrongCharsetNameTest.iterations" value="5" />
+
+<!-- api.nio.channels.filechannel.ChannelWriteTest -->
+
+	    <!-- number of threads to run in parallel -->
+	    <property name="api.nio.channels.filechannel.ChannelWriteTest.n_threads" value="10" />
+
+	    <!-- size of each byte buffer -->
+	    <property name="api.nio.channels.filechannel.ChannelWriteTest.buffer_size" value="1000" />
+
+	    <!-- number of internal iterations -->
+	    <property name="api.nio.channels.filechannel.ChannelWriteTest.iterations" value="10" />
+
+	    <!-- size of ByteBuffer array to write in single write(ByteBuffer[]) -->
+	    <property name="api.nio.channels.filechannel.ChannelWriteTest.n_buffers" value="100" />
+
+<!-- api.nio.channels.filechannel.FileChannelMapTest -->
+
+	    <!-- number of threads to run in parallel -->
+	    <property name="api.nio.channels.filechannel.FileChannelMapTest.n_threads" value="30" />
+
+	    <!-- byte offset within the Test.out file to begin mapping from -->
+	    <property name="api.nio.channels.filechannel.FileChannelMapTest.offset" value="512" />
+
+	    <!-- number of internal iterations -->
+	    <property name="api.nio.channels.filechannel.FileChannelMapTest.iterations" value="50" />
+
+
+<!-- api.nio.channels.filechannel.MappedByteBufferForceTest -->
+
+	    <!-- number of threads to run in parallel -->
+	    <property name="api.nio.channels.filechannel.MappedByteBufferForceTest.n_threads" value="10" />
+
+	    <!-- number of internal iterations -->
+	    <property name="api.nio.channels.filechannel.MappedByteBufferForceTest.iterations" value="10" />
+
+<!-- api.nio.buffers.ByteBufferallocateDirectTest -->
+
+	    <!-- number of internal direct byte buffer allocate iterations  -->
+	    <property name="api.nio.buffers.ByteBufferallocateDirectTest.iterations" value="300" />
+
+	    <!-- byte buffer size to allocate directly -->
+	    <property name="api.nio.buffers.ByteBufferallocateDirectTest.buffer_size" value="10000" />
+
+<!-- api.nio.buffers.ByteBufferallocateTest -->
+
+	    <!-- number of internal iterations  -->
+	    <property name="api.nio.buffers.ByteBufferallocateTest.iterations" value="10" />
+
+	    <!-- byte buffer size -->
+	    <property name="api.nio.buffers.ByteBufferallocateTest.buffer_size" value="20000" />
+
+<!-- api.nio.buffers.ByteBufferCompactTest -->
+
+	    <!-- number of internal iterations  -->
+	    <property name="api.nio.buffers.ByteBufferCompactTest.iterations" value="200" />
+
+<!-- api.nio.buffers.ByteBufferPutBufferTest -->
+
+	    <!-- number of internal iterations  -->
+	    <property name="api.nio.buffers.ByteBufferPutBufferTest.iterations" value="100" />
+
+	    <!-- byte buffer size -->
+	    <property name="api.nio.buffers.ByteBufferPutBufferTest.buffer_size" value="20000" />
+
+<!-- api.nio.buffers.CharBufferSliceTest -->
+
+	    <!-- number of internal iterations  -->
+	    <property name="api.nio.buffers.CharBufferSliceTest.iterations" value="200" />
+
+<!-- api.nio.buffers.CharBufferWrapGetTest -->
+
+	    <!-- number of internal iterations  -->
+	    <property name="api.nio.buffers.CharBufferWrapGetTest.iterations" value="200" />
+
+<!-- api.nio.buffers.CharBufferWrapTest -->
+
+	    <!-- number of internal iterations  -->
+	    <property name="api.nio.buffers.CharBufferWrapTest.iterations" value="200" />
+
+<!-- api.nio.buffers.DoubleBufferWrapGetTest -->
+
+	    <!-- number of iterations to call/initialize one wrap/put/get in a cycle  -->
+	    <property name="api.nio.buffers.DoubleBufferWrapGetTest.iterations" value="100" />
+
+	    <!-- size of allocated buffer -->
+	    <property name="api.nio.buffers.DoubleBufferWrapGetTest.buffer_size" value="200" />
+
+<!-- api.nio.buffers.FloatBufferWrapGetTest -->
+
+	    <!-- number of iterations to call/initialize one wrap/put/get in a cycle  -->
+	    <property name="api.nio.buffers.FloatBufferWrapGetTest.iterations" value="100" />
+
+	    <!-- size of allocated buffer -->
+	    <property name="api.nio.buffers.FloatBufferWrapGetTest.buffer_size" value="200" />
+
+<!-- api.nio.buffers.IntBufferWrapGetTest -->
+
+	    <!-- number of iterations to call/initialize one wrap/put/get in a cycle  -->
+	    <property name="api.nio.buffers.IntBufferWrapGetTest.iterations" value="100" />
+
+	    <!-- size of allocated buffer -->
+	    <property name="api.nio.buffers.IntBufferWrapGetTest.buffer_size" value="200" />
+
+<!-- api.nio.buffers.LongBufferWrapGetTest -->
+
+	    <!-- number of iterations to call/initialize one wrap/put/get in a cycle  -->
+	    <property name="api.nio.buffers.LongBufferWrapGetTest.iterations" value="100" />
+
+	    <!-- size of allocated buffer -->
+	    <property name="api.nio.buffers.LongBufferWrapGetTest.buffer_size" value="200" />
+
+<!-- api.nio.buffers.ShortBufferWrapGetTest -->
+
+	    <!-- number of iterations to call/initialize one wrap/put/get in a cycle  -->
+	    <property name="api.nio.buffers.ShortBufferWrapGetTest.iterations" value="100" />
+
+	    <!-- size of allocated buffer -->
+	    <property name="api.nio.buffers.ShortBufferWrapGetTest.buffer_size" value="200" />
+
+<!-- api.io.IOTest -->
+
+	    <!-- number of files to work with  -->
+	    <property name="api.io.IOTest.n_files" value="50" />
+
+
+<!-- api.net.MultiConnectTest -->
+
+	    <!-- number of simultaneously executed clients  -->
+	    <property name="api.net.MultiConnectTest.n_threads" value="10" />
+
+	    <!-- port to use  -->
+	    <property name="api.net.MultiConnectTest.n_ports" value="1000" />
+
+<!-- api.net.SingleConnectTest -->
+
+	    <!-- number of simultaneously executed clients  -->
+	    <property name="api.net.SingleConnectTest.n_threads" value="400" />
+
+<!-- api.serialization.SerializableClassesTest -->
+
+	    <!-- number of simultaneously executed serialize threads -->
+	    <property name="api.serialization.SerializableClassesTest.n_threads" value="3" />
+
+	    <!-- number of simultaneously executed deserialize threads -->
+	    <property name="api.serialization.SerializableClassesTest.n_subthreads" value="10" />
+
+<!-- api.net.NetClient -->
+
+	    <!-- number of simultaneously executed clients  -->
+	    <property name="api.net.NetClient.n_clients" value="10" />
+
+	    <!-- port to use  -->
+	    <property name="api.net.NetClient.port" value="8000" />
+
+	    <!-- number of threads to run  -->
+	    <property name="api.net.NetClient.n_threads" value="5" />
+
+<!-- api.net.DatagramTest -->
+
+	    <!-- number of sender threads  -->
+	    <property name="api.net.DatagramTest.n_sender_threads" value="30" />
+
+<!-- api.net.JarUrlConnectionTest -->
+
+	    <!-- Number of threads to start  -->
+	    <property name="api.net.JarUrlConnectionTest.n_threads" value="100" />
+
+<!-- api.net.HttpConnectionTest -->
+
+	    <!-- URLs to scan  -->
+	    <property name="api.net.HttpConnectionTest.URLs" value="" />
+
+<!-- vm.classloading.ClassUnloadingTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.classloading.ClassUnloadingTest.n_threads" value="100" />
+	
+	    <!-- number of class each thread should load by custom classloader -->
+	    <property name="vm.classloading.ClassUnloadingTest.n_classes" value="150" />
+
+<!-- vm.classloading.ClassAttributesTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.classloading.ClassAttributesTest.n_threads" value="8" />
+
+<!-- vm.classloading.DelegationModelTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.classloading.DelegationModelTest.n_threads" value="10" />
+
+<!-- vm.classloading.MultiThreadedLoading -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.classloading.MultiThreadedLoading.n_threads" value="30" />
+
+<!-- vm.classloading.ClassReflectionTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.classloading.ClassReflectionTest.n_threads" value="8" />
+
+<!-- vm.exceptions.ExceptionsTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.exceptions.ExceptionsTest.n_threads" value="100" />
+
+	    <!-- the length of handler's chain (recursion depth) -->
+	    <property name="vm.exceptions.ExceptionsTest.depth" value="150" />
+
+<!-- vm.finalization.FinalizeResourceOrientedTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.finalization.FinalizeResourceOrientedTest.n_threads" value="10" />
+
+<!-- vm.finalization.FinalizeThrowRestoreTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.finalization.FinalizeThrowRestoreTest.n_threads" value="10" />
+
+<!-- vm.gc.GCTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.gc.GCTest.n_threads" value="32" />
+
+<!-- vm.gc.WeakRefsTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.gc.WeakRefsTest.n_threads" value="32" />
+
+
+<!-- vm.stack.StackFramesRestoreTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.stack.StackFramesRestoreTest.n_threads" value="10" />
+
+<!-- vm.stack.StackUnwindTest -->
+
+	    <!-- number of running in parallel threads  -->
+	    <property name="vm.stack.StackUnwindTest.n_threads" value="100" />
+
+	    <!-- number of iterations in every thread  -->
+	    <property name="vm.stack.StackUnwindTest.n_iters" value="1000" />
+	
+</project>

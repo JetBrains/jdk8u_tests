@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="KeyboardFocusManagerTest"
+    date-of-creation="2005-04-04"
+    timeout="4"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.KeyboardFocusManager"/>
+        <Case ID="testKeyboardFocusManager_addKeyEventPostProcessor">
+            <TestedMethod name="public void addKeyEventPostProcessor(KeyEventPostProcessor processor)"/>        
+            <Precondition>Create KeyboardFocusManager</Precondition>
+            <Description>The custom KeyboardFocusManager is created and added to an instance of 
+            DefaultKeyboardFocusManager. Right after this a KeyEvent is dispatched to DefaultKeyboardFocusManager
+            thus KeyboardFocusManager#postProcessKeyEvent method must be implicitly called
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testKeyboardFocusManager_clearGlobalFocusOwner">            
+            <TestedMethod name="public void clearGlobalFocusOwner()"/>
+            <Precondition>Create KeyboardFocusManager</Precondition>
+            <Description>We set focus on a button then call KeyboardFocusManager#clearGlobalFocusOwner()
+              and use Robot to see if the button has been clicked.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testKeyboardFocusManager_propertyChange">            
+            <TestedMethod name="protected void firePropertyChange(String propertyName, Object oldValue, Object newValue)"/>
+            <TestedMethod name="protected void fireVetoableChange(String propertyName, Object oldValue, Object newValue)"/>
+            <Precondition>Create KeyboardFocusManager</Precondition>
+            <Description>Quote from spec" 'A "PropertyChange" event gets fired whenever a bean changes a 
+              "bound" property. You can register a PropertyChangeListener with a source 
+              bean so as to be notified of any bound property updates.'
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testKeyboardFocusManager_getProperties">
+            <TestedMethod name="public KeyboardFocusManager()"/>
+            <TestedMethod name="public Window getActiveWindow()"/>
+            <TestedMethod name="public Container getCurrentFocusCycleRoot()"/>
+            <TestedMethod name="public static KeyboardFocusManager getCurrentKeyboardFocusManager()"/>
+            <TestedMethod name="public static void setCurrentKeyboardFocusManager(KeyboardFocusManager newManager)"/>
+            <TestedMethod name="public Component getFocusOwner()"/>
+            <TestedMethod name="public Window getFocusedWindow()"/>
+            <TestedMethod name="protected Window getGlobalActiveWindow()"/>
+            <TestedMethod name="protected void setGlobalActiveWindow(Window activeWindow)"/>
+            <TestedMethod name="public void setGlobalCurrentFocusCycleRoot(Container newFocusCycleRoot)"/>
+            <TestedMethod name="protected void setGlobalFocusOwner(Component focusOwner)"/>
+            <TestedMethod name="protected void setGlobalFocusedWindow(Window focusedWindow)"/>
+            <TestedMethod name="protected void setGlobalPermanentFocusOwner(Component permanentFocusOwner)"/>            
+            <Precondition>Create KeyboardFocusManager</Precondition>
+            <Description> Most of these methods are simply checked in a standard way, werst setXXX
+            method is called, afterwards its getXXX equivalent is called. In some cases, when there
+            is no exact getXXX equivalent we call most closer getXXX equivalent e.g.
+            setGlobalFocusedWindow() -  getFocusedWindow()
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testKeyboardFocusManager_getKeyProperties">            
+            <TestedMethod name="public Set&lt;AWTKeyStroke&gt; getDefaultFocusTraversalKeys(int id)"/>
+            <TestedMethod name="public void setDefaultFocusTraversalKeys(int id, Set&lt;? extends AWTKeyStroke&gt; keystrokes)"/>
+            <TestedMethod name="public final void redispatchEvent(Component target, AWTEvent e)"/>
+            <Precondition>Create KeyboardFocusManager</Precondition>
+            <Description>We retrieve one kind of focus traversal keys using getDefaultFocusTraversalKeys
+            and then trying to set them but with other id using setDefaultFocusTraversalKeys. We also check 
+            the validity of moving focus from one component to another using redispatchEvent.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testKeyboardFocusManager_focusTraversalPolicy">            
+            <TestedMethod name="public FocusTraversalPolicy getDefaultFocusTraversalPolicy()"/>
+            <TestedMethod name="public void setDefaultFocusTraversalPolicy(FocusTraversalPolicy defaultPolicy)"/>
+            <Precondition>Create KeyboardFocusManager</Precondition>
+            <Description>
+            Standard getXXXX setXXX check.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+    </MulticaseTestDescription>
+    
+    <Keyword name="Functional"/>    
+    <Keyword name="GUI"/>
+    
+    <Source name="KeyboardFocusManagerTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.KeyboardFocusManager.KeyboardFocusManagerTest">
+            <Option name="-paintTimeout" value="$paintTimeout"/>
+        </Param>
+    </Runner>
+</Test> 

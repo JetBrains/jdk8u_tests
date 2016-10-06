@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="run.api.nio.tests" default="run.api.nio" basedir=".">
+
+    <description> Runs all tests from api/nio </description>
+
+    <target name="run.api.nio" depends="run.api.nio.charset, run.api.nio.channels, run.api.nio.buffers"/>
+
+   	<target name="run.api.nio.charset">
+
+        <run-pjava-test test="api.nio.charset.CharsetSyncCacheTest" 
+                        args="${api.nio.charset.CharsetSyncCacheTest.n_threads} 
+                              ${api.nio.charset.CharsetSyncCacheTest.iterations}"/>
+
+        <run-pjava-test test="api.nio.charset.ContainsTest" 
+                        args="${api.nio.charset.ContainsTest.iterations}"/>
+   		
+        <run-pjava-test test="api.nio.charset.DecodingModesTest" 
+                        args="${api.nio.charset.DecodingModesTest.iterations}"/>
+   		
+        <run-pjava-test test="api.nio.charset.EncDecTest" 
+                        args="${api.nio.charset.EncDecTest.n_threads} 
+                              ${api.nio.charset.EncDecTest.iterations}"/>
+
+   		<run-pjava-test test="api.nio.charset.EncodingModesTest" 
+                        args="${api.nio.charset.EncodingModesTest.iterations}"/>
+
+   		<run-pjava-test test="api.nio.charset.WrongCharsetNameTest" 
+                        args="${api.nio.charset.WrongCharsetNameTest.iterations}"/>
+   		
+   	</target>
+
+   	<target name="run.api.nio.channels">
+   		
+        <run-pjava-test test="api.nio.channels.filechannel.ChannelFIOSTest" args="${work.dir}"/>	
+
+        <run-pjava-test test="api.nio.channels.filechannel.ChannelWriteTest" 
+        				args="${api.nio.channels.filechannel.ChannelWriteTest.n_threads}
+			        	${api.nio.channels.filechannel.ChannelWriteTest.buffer_size}
+			        	${api.nio.channels.filechannel.ChannelWriteTest.iterations}
+			        	${api.nio.channels.filechannel.ChannelWriteTest.n_buffers}"/>
+
+        <run-pjava-test test="api.nio.channels.filechannel.CopyFilesTest" args="${work.dir}"/>	
+
+        <run-pjava-test test="api.nio.channels.filechannel.FileChannelMapTest" 
+        				args="${api.nio.channels.filechannel.FileChannelMapTest.n_threads}
+			        	${test.source.dir}/org/apache/harmony/test/reliability/api/nio/channels/filechannel/auxiliary
+			        	${api.nio.channels.filechannel.FileChannelMapTest.offset}
+        				Test.out
+			        	${api.nio.channels.filechannel.FileChannelMapTest.iterations}"/>
+
+        <run-pjava-test test="api.nio.channels.filechannel.FileChannelThrSafetyTest" args="${work.dir}"/>
+
+        <run-pjava-test test="api.nio.channels.filechannel.MappedByteBufferForceTest" 
+        				args="${api.nio.channels.filechannel.MappedByteBufferForceTest.n_threads}
+			        	${test.source.dir}/org/apache/harmony/test/reliability/api/nio/channels/filechannel/auxiliary
+        				Test.out
+			        	${api.nio.channels.filechannel.MappedByteBufferForceTest.iterations}"/>
+	</target>
+
+   	<target name="run.api.nio.buffers">
+
+   		<run-pjava-test test="api.nio.buffers.ByteBufferallocateDirectTest" 
+        				args="${api.nio.buffers.ByteBufferallocateDirectTest.iterations}
+			        	${api.nio.buffers.ByteBufferallocateDirectTest.buffer_size}"/>
+
+   		<run-pjava-test test="api.nio.buffers.ByteBufferallocateTest" 
+        				args="${api.nio.buffers.ByteBufferallocateTest.iterations}
+			        	${api.nio.buffers.ByteBufferallocateTest.buffer_size}"/>
+   		
+        <run-pjava-test test="api.nio.buffers.ByteBufferCompactTest" 
+        				args="${api.nio.buffers.ByteBufferCompactTest.iterations}"/>
+
+        <run-pjava-test test="api.nio.buffers.ByteBufferPutBufferTest" 
+        				args="${api.nio.buffers.ByteBufferPutBufferTest.iterations}
+			        	${api.nio.buffers.ByteBufferPutBufferTest.buffer_size}"/>
+
+        <run-pjava-test test="api.nio.buffers.CharBufferSliceTest" 
+        				args="${api.nio.buffers.CharBufferSliceTest.iterations}"/>
+
+        <run-pjava-test test="api.nio.buffers.CharBufferWrapGetTest" 
+        				args="${api.nio.buffers.CharBufferWrapGetTest.iterations}"/>
+
+        <run-pjava-test test="api.nio.buffers.CharBufferWrapTest" 
+        				args="${api.nio.buffers.CharBufferWrapTest.iterations}"/>
+
+        <run-pjava-test test="api.nio.buffers.DoubleBufferWrapGetTest" 
+        				args="${api.nio.buffers.DoubleBufferWrapGetTest.iterations}
+			        	${api.nio.buffers.DoubleBufferWrapGetTest.buffer_size}"/>
+
+        <run-pjava-test test="api.nio.buffers.FloatBufferWrapGetTest" 
+        				args="${api.nio.buffers.FloatBufferWrapGetTest.iterations}
+			        	${api.nio.buffers.FloatBufferWrapGetTest.buffer_size}"/>
+
+        <run-pjava-test test="api.nio.buffers.IntBufferWrapGetTest" 
+        				args="${api.nio.buffers.IntBufferWrapGetTest.iterations}
+			        	${api.nio.buffers.IntBufferWrapGetTest.buffer_size}"/>
+
+        <run-pjava-test test="api.nio.buffers.LongBufferWrapGetTest" 
+        				args="${api.nio.buffers.LongBufferWrapGetTest.iterations}
+			        	${api.nio.buffers.LongBufferWrapGetTest.buffer_size}"/>
+
+        <run-pjava-test test="api.nio.buffers.ShortBufferWrapGetTest" 
+        				args="${api.nio.buffers.ShortBufferWrapGetTest.iterations}
+			        	${api.nio.buffers.ShortBufferWrapGetTest.buffer_size}"/>
+
+   	</target>
+   		
+	
+	
+</project>
+
+

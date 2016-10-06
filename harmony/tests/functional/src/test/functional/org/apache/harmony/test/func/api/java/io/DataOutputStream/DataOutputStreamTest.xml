@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="DataOutputStreamTest"
+    date-of-creation="2004-12-07"
+    timeout="1"
+    >
+
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.DataOutputStream"/>
+        
+        <Case ID="testClose">
+            <TestedMethod name="DataOutputStream(OutputStream out)"/>
+            <TestedClass name="java.io.FilterOutputStream"/>
+            <TestedMethod name="public void close() throws IOException"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>call DataOutputStream.close()</Description>
+            <Expected>underlying stream is flushed and closed</Expected>
+        </Case>
+
+        <Case ID="testFlush">
+            <TestedMethod name="flush()"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>call DataOutputStream.flush()</Description>
+            <Expected>underlying stream is flushed</Expected>
+        </Case>
+
+        <Case ID="testWrite0001">
+            <TestedClass name="java.io.FilterOutputStream"/>
+            <TestedMethod name="public void write(byte[] b)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write byte array to the stream</Description>
+            <Expected>array is written to the underlying stream properly</Expected>
+        </Case>
+
+        <Case ID="testWriteNull">
+            <TestedClass name="java.io.FilterOutputStream"/>
+            <TestedMethod name="public void write(byte[] b)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write null to the DataOutputStream</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteSlice">
+            <TestedMethod name="write(byte[], int, int)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write a slice of byte array to the DataOutputStream</Description>
+            <Expected>array slice is written properly to the underlying stream</Expected>
+        </Case>
+
+        <Case ID="testWriteByte">
+            <TestedMethod name="public void write(int b)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write a byte to the DataOutputStream</Description>
+            <Expected>byte is written properly to the underlying stream</Expected>
+        </Case>
+
+        <Case ID="testWriteIndexOutOfBounds0001">
+            <TestedMethod name="write(byte[] bytes, int offset, int length)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream objectt</Precondition>
+            <Description>try to write a piece of array starting from negative offset</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteIndexOutOfBounds0002">
+            <TestedMethod name="write(byte[] bytes, int offset, int length)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>try to write a piece of array with negative length</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteIndexOutOfBounds0003">
+            <TestedMethod name="write(byte[] bytes, int offset, int length)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>try to write a piece of array that exceeds array length</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteIndexOutOfBounds0003">
+            <TestedMethod name="write(byte[] bytes, int offset, int length)"/>
+            <Precondition>create the OutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>try to write a piece of array that exceeds array length</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteBoolean">
+            <TestedMethod name="writeBoolean(boolean)"/>
+            <TestedMethod name="public final int size()"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write 'true' and 'false' to DataOutputStream</Description>
+            <Expected>'false' is written as '0' and 'true' as '1' and DataOutputStream size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteByte0001">
+            <TestedMethod name="writeByte(int)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write array of int one by one to DataOutputStream using writeByte()</Description>
+            <Expected>content of ByteArrayOutputStream is equal to what was written and DataOutputStream 
+            size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteShort">
+            <TestedMethod name="writeShort(int)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write array of int one by one to DataOutputStream using writeShort()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteChar">
+            <TestedMethod name="writeChar(int)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write array of int one by one to DataOutputStream using writeChar()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteInt">
+            <TestedMethod name="writeInt(int)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write array of int one by one to DataOutputStream using writeInt()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteLong">
+            <TestedMethod name="writeLong(long)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write array of long one by one to DataOutputStream using writeLong()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteFloat">
+            <TestedMethod name="writeFloat(float)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write array of float one by one to DataOutputStream using writeFloat()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteDouble">
+            <TestedMethod name="writeDouble(double)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write array of double one by one to DataOutputStream using writeDouble()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() changes properly</Expected>
+        </Case>
+
+        <Case ID="testWriteBytes">
+            <TestedMethod name="writeBytes(String)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write a String to DataOutputStream using writeBytes()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() equals to written string length</Expected>
+        </Case>
+
+        <Case ID="testWriteChars">
+            <TestedMethod name="writeChars(String)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write a String to DataOutputStream using writeChars()</Description>
+            <Expected>content of ByteArrayOutputStream is correct and DataOutputStream 
+            size() equals to 2 * written string length</Expected>
+        </Case>
+
+        <Case ID="testWriteUTF">
+            <TestedMethod name="writeUTF(String)"/>
+            <Precondition>create the ByteArrayOutputStream object and wrapping DataOutputStream object</Precondition>
+            <Description>write some Strings to DataOutputStream using writeUTF()</Description>
+            <Expected>content of ByteArrayOutputStream and DataOutputStream size() are correct</Expected>
+        </Case>
+
+        <Case ID="testWriteUTF0001">
+            <TestedMethod name="writeUTF(String)"/>
+            <Precondition></Precondition>
+            <Description>for every character from 0 to 65535 write a string containing 
+            only this char to DataOutputStream, read bytes back into string using DataInputStream</Description>
+            <Expected>strings are equal</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="DataOutputStreamTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.DataOutputStream.DataOutputStreamTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

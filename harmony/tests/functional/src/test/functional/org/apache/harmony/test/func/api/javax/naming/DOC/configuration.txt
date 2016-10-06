@@ -1,0 +1,71 @@
+#  Licensed to the Apache Software Foundation (ASF) under one or more
+#  contributor license agreements.  See the NOTICE file distributed with
+#  this work for additional information regarding copyright ownership.
+#  The ASF licenses this file to You under the Apache License, Version 2.0
+#  (the "License"); you may not use this file except in compliance with
+#  the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+Installing Tomcat and BIND DNS server.
+
+unzip share\sync\misc\mow\jndi_files.zip -d C:\tmp
+cd C:\tmp\jndi_files
+mv dist\jakarta-tomcat-5.0.28 C:\dist
+
+Install BIND DNS server (http://www.isc.org/sw/bind/). Windows distribution can be found in the dist\bind directory.
+Open configure.bat in your favorite text editor.
+Set BIND_HOME environment variable = “location where bind has been installed”
+Set TOMCAT_IP=”this computer ip address”
+Execute configure.bat
+
+cd C:\dist\jakarta-tomcat-5.0.28\bin
+startup.bat
+cd %BIND_HOME%\bin
+named –f 
+named –f –p  5353 –c  ..\etc\named2.conf
+
+Installing OpenLDAP server.
+
+Install OpenLDAP server (http://www.openldap.org). 
+cp –r files/ldap/* /etc/openldap/
+/usr/sbin/slapd -h "ldap:/// ldaps:///"
+cd /etc/openldap
+ldapadd –H ldap://localhost -x -D "cn=admin,dc=example,dc=com" -W –f test.bdb.  Password – ‘secret’
+ldapsearch -x -H ldap://localhost -b "dc=example,dc=com"
+The output should look like:
+# extended LDIF
+#
+# LDAPv3
+# base <dc=example,dc=com> with scope sub
+# filter: (objectclass=*)
+# requesting: ALL
+#
+
+# example.com
+dn: dc=example,dc=com
+objectClass: dcObject
+objectClass: organization
+o: Example Company
+dc: example
+
+# search result
+search: 2
+result: 0 Success
+
+# numResponses: 2
+# numEntries: 1
+
+
+Configuring harness.
+
+Open cfg_env.xml in text editor.
+Add two lines into the <execution> section:
+<exec-mode name="DNS_PROVIDER_URL">dns://[BIND host]/example.com</exec-mode>
+<exec-mode name="LDAP_PROVIDER_URL">ldap://[OpenLDAP host]/dc=example, dc=com</exec-mode>

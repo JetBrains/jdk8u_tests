@@ -1,0 +1,6 @@
+1;;;true
+2;user2;;true
+3;user3;password3;false
+4;user4;longpassword4;true
+5;user5;password5;true
+-1;user6;password6;true

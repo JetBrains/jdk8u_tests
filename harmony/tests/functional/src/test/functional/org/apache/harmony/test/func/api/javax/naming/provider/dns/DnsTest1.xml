@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="DnsTest1"
+    date-of-creation="2005-02-21"
+    timeout="1">
+        
+        
+
+        <MulticaseTestDescription>
+            <TestedClass name="javax.naming.directory.InitialDirContext"/>
+            
+            <Case ID="testGetAttributes**">
+                <TestedMethod name="public Attributes getAttributes(String name)"/>
+                <Description>
+For this test two DNS servers are used. One of the servers (dns://127.0.0.1:5353) is responsible for zone com and another one (dns://127.0.0.1:53) for example.com.
+
+1.      Get attributes, associated with host example.com:
+
+1.1.  Create initial context:
+Hashtable&lt;?,?&gt; env = new Hashtable();
+env.put(DirContext.INITIAL_CONTEXT_FACTORY, "org.apache.harmony.jndi.provider.dns.DNSContextFactory");
+env.put(DirContext.PROVIDER_URL, "dns://127.0.0.1:5353 dns://127.0.0.1");
+DirContext ctx = new InitialDirContext(env);
+
+1.2.  ctx.getAttributes("example.com"). This method should retrieve a=A: 198.175.96.33
+
+2.      Get attributes, associated with host example.com. This method should retrieve A, NS and SOA attributes. 
+
+3.      Get attributes, associated with host host1.example.com. This method should retrieve txt=TXT: "test", a=A: 10.0.0.1, hinfo=HINFO: OS Windows XP, OS Linux SuSe 9.2, CPU Pentium 3.0 GHz, mx=MX: 10 host1.example.com. attributes. 
+
+4.      Perform above tests, but with initial context, created in the following way:
+Hashtable&lt;?,?&gt; env = new Hashtable();
+env.put(DirContext.INITIAL_CONTEXT_FACTORY, "org.apache.harmony.jndi.provider.dns.DNSContextFactory");
+env.put(DirContext.PROVIDER_URL, "dns://:5353 dns://:53");
+DirContext ctx = new InitialDirContext(env);
+
+5.      Perform above tests, but with initial context, created in the following way:
+DirContext ctx = new InitialDirContext();
+ctx.addToEnvironment(DirContext.INITIAL_CONTEXT_FACTORY, org.apache.harmony.jndi.provider.dns.DNSContextFactory);
+ctx.addToEnvironment(DirContext.PROVIDER_URL, "dns://127.0.0.1:5353 dns://127.0.0.1:53");
+                </Description>
+            </Case>    
+            
+            <Case ID="testFaultyConfiguration">
+                <TestedMethod name="InitialDirContext(Hashtable&lt;?,?&gt; environment)"/>
+                <Description>
+Create initial context with faulty configuration:
+(DirContext.PROVIDER_URL, "dns://127.0.0.1:5353 dns://127.0.0.1:53/example.com").
+In this case ConfigurationException should be thrown.
+                </Description>
+            </Case>
+        </MulticaseTestDescription>
+        
+        <Keyword name="functional"/>
+
+        <Source name="DnsTest1.java"/>
+        <Runner ID="MultiCase">
+            <Option name="-cp" value="$TestSuiteClassRoot$PathSeparator$TestSuiteLibRoot$FileSeparatorjndi$FileSeparatorproviders.jar"/>
+            <Param name="toRun" value="org.apache.harmony.test.func.api.javax.naming.provider.dns.DnsTest1">
+                <Option name="PROVIDER_URL" value="$DNS_PROVIDER_URL"/>
+            </Param>
+        </Runner>
+        
+        <Restriction name="OtherVMOnly"/> 
+</Test>
+

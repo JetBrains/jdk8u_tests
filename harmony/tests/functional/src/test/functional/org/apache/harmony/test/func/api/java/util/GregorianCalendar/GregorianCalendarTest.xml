@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="GregorianCalendarTest"
+    date-of-creation="2006-14-03"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+
+        <Case ID="testComputeFields">
+            <TestedClass name="java.util.GregorianCalendar"/>
+            <TestedMethod name="protected void computeFields()"/>
+            <TestedClass name="java.util.Calendar"/>
+            <TestedMethod name="public final void clear()"/>
+            <TestedMethod name="public final boolean isSet(int field)"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testComputeTime">
+            <TestedClass name="java.util.GregorianCalendar"/>
+            <TestedMethod name="protected void computeTime()"/>            
+            <TestedClass name="java.util.Calendar"/>
+            <TestedMethod name="protected void complete()"/>
+            <TestedMethod name="public final void clear()"/>
+            <TestedMethod name="public final boolean isSet(int field)"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+         <TestedClass name="java.util.Calendar"/>
+        
+        <Case ID="testCalendarConstructor">
+            <TestedMethod name="protected Calendar(TimeZone zone, Locale aLocale)"/>
+            <TestedMethod name="public TimeZone getTimeZone()"/>
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+        
+        <Case ID="testIsSet">
+            <TestedMethod name="protected Calendar()"/>
+            <TestedMethod name="public final void clear()"/>
+            <TestedMethod name="public void set(int field, int value)"/>
+            <TestedMethod name="public final boolean isSet(int field)"/>            
+            <Precondition></Precondition>
+            <Description></Description>
+            <Expected></Expected>
+        </Case>
+
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>
+    <Source name="GregorianCalendarTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.GregorianCalendar.GregorianCalendarTest">
+        </Param>
+    </Runner>
+</Test> 

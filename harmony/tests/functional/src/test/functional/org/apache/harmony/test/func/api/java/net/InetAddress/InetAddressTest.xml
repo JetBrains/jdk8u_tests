@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test ID="InetAddressTest" date-of-creation="2005-04-11"
+    timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.net.InetSocketAddress" />
+        <Case ID="testUnicastAddress">
+            <TestedMethod
+                name="public InetSocketAddress(String host, int port)" />
+            <TestedMethod
+                name="public InetSocketAddress(InetAddress address, int port)" />
+            <TestedMethod
+                name="public java.net.InetAddress getAddress()" />
+            <TestedMethod name="public int getPort()" />
+            <TestedMethod name="public InetSocketAddress(int port)" />
+            <TestedMethod name="public boolean isUnresolved()" />
+            <TestedMethod name="public String getHostName()" />
+            <Description>
+                Test unicast InetSocketAddress(java.lang.String, int)
+                constructor.
+            </Description>
+        </Case>
+        <Case ID="testWildcardAddress">
+            <TestedMethod name="public int getPort()" />
+            <TestedMethod name="public InetSocketAddress(int port)" />
+            <TestedMethod name="public String getHostName()" />
+            <Description>
+                Test wildcard InetSocketAddress#InetSocketAddress(int)
+                constructor. Verify that InetSocketAddress.getHostName()
+                returns "0.0.0.0".
+            </Description>
+        </Case>
+        <Case ID="testIncorrectHostName">
+            <TestedMethod
+                name="public InetSocketAddress(String host, int port)" />
+            <TestedMethod name="public boolean isUnresolved()" />
+            <Description>Negative test: incorrect host.</Description>
+        </Case>
+        <Case ID="testInetAddressConstructor">
+            <TestedMethod
+                name="public InetSocketAddress(String host, int port)" />
+            <TestedMethod
+                name="public InetSocketAddress(InetAddress address, int port)" />
+            <TestedMethod
+                name="public java.net.InetAddress getAddress()" />
+            <TestedMethod name="public int getPort()" />
+            <TestedMethod name="public InetSocketAddress(int port)" />
+            <TestedMethod name="public boolean isUnresolved()" />
+            <Description>
+                Test InetSocketAddress(InetAddress, int) constructor.
+            </Description>
+        </Case>
+        <Case ID="testGetByAddress">
+            <TestedClass name="java.net.InetAddress" />
+            <TestedMethod
+                name="public static java.net.InetAddress getByAddress(String hostname, byte[] address)" />
+            <TestedMethod name="public String getHostName()" />
+            <Description>
+                Test InetAddress#getByAddress(java.lang.String, byte[])
+                method and InetAddress#getHostName() method.
+            </Description>
+        </Case>
+    </MulticaseTestDescription>
+    <Keyword name="functional" />
+    <Source name="InetAddressTest.java" />
+    <Restriction name="OtherVMOnly"/> 
+    <Runner ID="MultiCase">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.java.net.InetAddress.InetAddressTest">
+            <Option value="example.com" />
+            <Option value="43564" />
+        </Param>
+    </Runner>
+</Test>

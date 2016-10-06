@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test ID="BasicNamingTest" date-of-creation="2005-01-11" timeout="1">
+    
+    
+    <APITestDescription>
+        <TestedClass name="java.rmi.Naming" />
+        <TestedMethod
+            name="public static void bind(String name, Remote obj)" />
+        <TestedMethod
+            name="public static void rebind(String name, Remote obj)" />
+        <TestedMethod name="public static void unbind(String name)" />
+        <TestedMethod name="public static Remote lookup(String name)" />
+        <TestedClass name="java.rmi.AlreadyBoundException" />
+        <TestedClass name="java.rmi.NotBoundException" />
+        <TestedClass name="java.rmi.ConnectException" />
+        <Description>
+            Name: BasicNamingTest
+
+            Purpose: test java.rmi.Naming basic functionality including
+            exceptions.
+
+            Under test: java.rmi.Naming, java.rmi.AlreadyBoundException,
+            java.rmi.NotBoundException java.rmi.ConnectException RMI
+            runtime
+
+            Test design:
+
+            Server and client are started. Then o1, o2, o3, o4 remote
+            objects at server and n1, n2, n3, n4 strings both at server
+            and at client are created. Then the following actions are
+            tried to perform:
+
+            Server:
+
+            bind(n1,o1);
+
+            run rmiregistry
+
+            bind(n1,o1);
+
+            bind(n2,o2);
+
+            bind(n1,o2);
+
+            bind(n3,o1);
+
+            rebind(n1,o3);
+
+            bind(n4,o4);
+
+            unbind(n4);
+
+            Client (starts working after all those actions at server
+            complete):
+
+            o1=lookup(n1);
+
+            o2=lookup(n2);
+
+            o3=lookup(n3);
+
+            o4=lookup(n4);
+
+            call o1.some_method();
+
+            call o2.some_method();
+
+            call o3.some_method();
+
+
+            It is verified, that result of every action is correct
+            (wrong actions cause proper exception, right actions don't
+            cause any exception and remote method calls return correct
+            result (which accords proper remote object which should be
+            binded to that name)).
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="BasicNamingTest.java" />
+    <Source name="OtherVMTest.java" />
+    <Source name="OtherVMTestInterface.java" />
+    <Source name="ServerImpl.java" />
+    <Source name="SInterface.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.java.rmi.basicnaming.BasicNamingTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly" />
+</Test>
+
+
+
+
+

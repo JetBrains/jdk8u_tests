@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+
+<!--
+-->
+
+<Test
+    ID="AffineTransformTests"
+    date-of-creation="2005-05-24"
+    timeout="1"
+    >
+
+    
+    
+
+    <APITestDescription>
+        <TestedClass name="java.awt.geom.AffineTransform"/>
+
+        <Case ID="test">
+            <TestedMethod name="public Object clone()"/>
+            <TestedMethod name="public void concatenate(AffineTransform Tx)"/>
+            <TestedMethod name="public AffineTransform createInverse()"/>
+            <TestedMethod name="public Point2D deltaTransform(Point2D ptSrc, Point2D ptDst)"/>
+            <TestedMethod name="public boolean equals(Object obj)"/>
+            <TestedMethod name="public double getDeterminant()"/>
+            <TestedMethod name="public void getMatrix(double[] flatmatrix)"/>
+            <TestedMethod name="public static AffineTransform getRotateInstance(double theta)"/>
+            <TestedMethod name="public static AffineTransform getRotateInstance(double theta, double x, double y)"/>
+            <TestedMethod name="public static AffineTransform getScaleInstance(double sx, double sy)"/>
+            <TestedMethod name="public double getScaleX()"/>
+            <TestedMethod name="public double getScaleY()"/>
+            <TestedMethod name="public static AffineTransform getShearInstance(double shx, double shy)"/>
+            <TestedMethod name="public double getShearX() "/>
+            <TestedMethod name="public double getShearY() "/>
+            <TestedMethod name="public static AffineTransform getTranslateInstance(double tx, double ty)"/>
+            <TestedMethod name="public double getTranslateX()"/>
+            <TestedMethod name="public double getTranslateY()"/>
+            <TestedMethod name="public int getType()"/>
+            <TestedMethod name="public int hashCode()"/>
+            <TestedMethod name="public void inverseTransform(double[] srcPts, int srcOff, double[] dstPts, int dstOff, int numPts)"/>
+            <TestedMethod name="public Point2D inverseTransform(Point2D ptSrc, Point2D ptDst)"/>
+            <TestedMethod name="public boolean isIdentity()"/>
+            <TestedMethod name="public void preConcatenate(AffineTransform Tx)"/>
+            <TestedMethod name="public void rotate(double theta)"/>
+            <TestedMethod name="public void setToIdentity()"/>
+            <TestedMethod name="public void setToRotation(double theta)"/>
+            <TestedMethod name="public void setToTranslation(double tx, double ty)"/>
+            <TestedMethod name="public void setTransform(AffineTransform Tx)"/>
+            <TestedMethod name="public void setTransform(double m00, double m10, double m01, double m11, double m02, double m12)"/>
+            <TestedMethod name="public String toString()"/>
+            <TestedMethod name="public void translate(double tx, double ty)"/>
+
+            <Description>A few objects of class AffineTransform are created by various creation type.
+                         And its properties compared by various methods. </Description>
+            <Expected> Properties of identical objects are identical</Expected>
+
+        </Case>
+
+    </APITestDescription>
+
+    <Keyword name="functional"/>
+    <!--    <Keyword name = "gui"/>  -->
+
+
+    <Source name="AffineTransformTests.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.geom.AffineTransform.AffineTransformTests">
+        </Param>
+    </Runner>
+
+    <Restriction name="OtherVMOnly"/>
+
+</Test>

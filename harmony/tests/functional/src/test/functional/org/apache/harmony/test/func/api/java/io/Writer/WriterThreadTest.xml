@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="WriterThreadTest"
+    date-of-creation="2004-12-22"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.Writer"/>
+        
+        <Case ID="testWrite0001">
+            <TestedMethod name="write(int)"/>
+            <Precondition>create a Writer object and start three threads</Precondition>
+            <Description>every thread writes its unique char to the writer 1000000 times</Description>
+            <Expected>stream contains 1000000 copies of each character</Expected>
+        </Case>
+
+        <Case ID="testWriteArray">
+            <TestedMethod name="write(char[])"/>
+            <Precondition>create a Writer object and start three threads</Precondition>
+            <Description>every thread writes its unique byte array to the writer 1000000 times 
+            using write(char[])</Description>
+            <Expected>stream contains expected number of copies of each character</Expected>
+        </Case>
+
+        <Case ID="testWriteString">
+            <TestedMethod name="write(String)"/>
+            <Precondition>create a Writer object and start three threads</Precondition>
+            <Description>every thread writes its unique string to the writer 1000000 times 
+            using write(String)</Description>
+            <Expected>stream contains expected number of copies of each character</Expected>
+        </Case>
+
+        <Case ID="testWriteString">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object and start three threads</Precondition>
+            <Description>every thread writes its unique string to the writer 1000000 times 
+            using write(String)</Description>
+            <Expected>stream contains expected number of copies of each character</Expected>
+        </Case>
+
+        <Case ID="testLockField">
+            <TestedMethod name="write(char[])"/>
+            <TestedMethod name="write(String)"/>
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object with synchronized(lock) in write(char[], int, int) using 
+            Writer(lock)</Precondition>
+            <Description>obtain lock on this 'lock' object in main thread, start some threads trying to 
+            write to that writer and make some time-consuming
+            stuff in th synchronized section</Description>
+            <Expected>no data is written to the Writer in the end of the critical section but all required
+            data is in the stream after all threads finich their work</Expected>
+        </Case>
+
+        <Case ID="testLockField0001">
+            <TestedMethod name="Writer(Object lock)"/>
+            <TestedMethod name="write(char[])"/>
+            <TestedMethod name="write(String)"/>
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object without in write(char[], int, int) using 
+            Writer(lock)</Precondition>
+            <Description>obtain lock on this 'lock' object in main thread, start some threads trying to 
+            write to that writer and make some time-consuming
+            stuff in th synchronized section</Description>
+            <Expected>only data from threads that use write(char[]), write(char[], int, int) is written to the Writer
+            in the end of the critical section but all required
+            data is in the stream after all threads finich their work</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="WriterThreadTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.Writer.WriterThreadTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="PatternTest"
+    date-of-creation="2005-09-02"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.util.regex.Pattern"/>
+        
+        <Case ID="testCompile">
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            
+            <Precondition></Precondition>
+            <Description>call compile() on each of a set of patterns</Description>
+            <Expected>exception is not thrown on correct patterns and is thrown
+            on incorrect ones</Expected>
+           </Case>
+
+        <Case ID="testCompileFlags">
+            <TestedMethod name="public static Pattern compile(String regex, int flags)"/>
+            
+            <Precondition></Precondition>
+            <Description>call compile() on each of a set of patterns with random values of flags</Description>
+            <Expected>exception is not thrown on correct patterns and is thrown
+            on incorrect ones. The value of flag doesn't affect throwing of exceptions</Expected>
+           </Case>
+           
+        <Case ID="testFlags">
+            <TestedMethod name="public static Pattern compile(String regex, int flags)"/>
+            <TestedMethod name="public int flags()"/>
+            
+            <Precondition></Precondition>
+            <Description>call compile() a random set of patterns and flags</Description>
+            <Expected>flags() of resulted pattern return value that was in compile(), 
+            no matter if it consists of valid regex flags or has some extra bits</Expected>
+           </Case>
+
+        <Case ID="testPattern">
+            <TestedMethod name="public static Pattern compile(String regex, int flags)"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public String pattern()"/>
+            
+            <Precondition></Precondition>
+            <Description>call compile() a random set of patterns and flags</Description>
+            <Expected>pattern() of resulted pattern return value that was in compile()</Expected>
+           </Case>
+
+        <Case ID="testSplit">
+            <TestedMethod name="public static Pattern compile(String regex, int flags)"/>
+            <TestedMethod name="public static Pattern compile(String regex)"/>
+            <TestedMethod name="public String[] split(CharSequence input)"/>
+            <TestedMethod name="public String[] split(CharSequence input, int limit)"/>
+            <TestedMethod name="public static final int CANON_EQ"/>
+            <TestedMethod name="public static final int CASE_INSENSITIVE"/>
+            <TestedMethod name="public static final int COMMENTS"/>
+            <TestedMethod name="public static final int DOTALL"/>
+            <TestedMethod name="public static final int MULTILINE"/>
+            <TestedMethod name="public static final int UNICODE_CASE"/>
+            <TestedMethod name="public static final int UNIX_LINES"/>                                                                        
+
+            <Precondition></Precondition>
+            <Description>The test case constsists of two parts:
+            1. Split a string against misc patterns compiled without flags with misc limits
+            2. Split a string against patterns compiled with one string but with different flags</Description>
+            <Expected>API conformance in all cases</Expected>
+           </Case>
+
+        <Case ID="testMatches">
+            <TestedMethod name="public static boolean matches(String regex, CharSequence input)"/>
+
+            <Precondition></Precondition>
+            <Description>Call matches() on a set of strings and patterns</Description>
+            <Expected>expected values returned</Expected>
+           </Case>
+
+           
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="PatternTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.regex.Pattern.PatternTest">
+        </Param>
+    </Runner>
+    <!--Restriction name="OtherVMOnly"/-->
+</Test> 

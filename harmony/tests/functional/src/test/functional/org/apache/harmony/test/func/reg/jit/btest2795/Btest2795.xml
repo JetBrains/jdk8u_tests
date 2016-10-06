@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!--
+-->
+
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<Test ID="Btest2795"
+    date-of-creation="2005-08-26"
+    timeout="10" >
+
+    
+    
+
+    <Description>
+        (VM does not throw an InstantiationError)
+            
+        Please, note that you need to compile Abstract2795 and 
+        Interface2795 classes after you compiled Test2795_1 and Test2795_2
+        classes to reproduce the failure.
+    </Description>
+
+    <Keyword name="regression"/>
+    <Keyword name="opt"/>
+
+    <Source name="Btest2795_1.java"/>
+    <Source name="Btest2795_1.java"/>
+    <Source name="Abstract2795.java"/>
+    <Source name="Interface.java"/>
+    <Source name="makefile"/>
+
+    <Runner ID="ExecuteRegression">
+        <Param name="toRun" value="crash">
+            <Option name="~opt"/>
+            <Option name="org.apache.harmony.test.func.reg.jit.btest2795.Btest2795_1"/>
+        </Param>
+
+        <Param name="toRun" value="crash">
+            <Option name="~opt"/>
+            <Option name="org.apache.harmony.test.func.reg.jit.btest2795.Btest2795_2"/>
+        </Param>
+    </Runner>
+
+</Test>

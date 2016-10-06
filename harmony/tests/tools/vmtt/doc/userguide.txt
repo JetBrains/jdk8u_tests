@@ -1,0 +1,60 @@
+How to run "Virtual Machine Testing Tools"
+                                  
+Use vmtt.cmd script for Windows platform and vmtt.sh script for Unix platform.
+To take the help information run script without parameteres:
+
+Usage: vmtt [options] <file | directory>
+
+  -A                    Assemble asm file
+  -D                    Disassemble class file
+  -C                    Code ccode file
+  -E[code_type]         Decode class file
+                        code_type: asm - represents code as assembler
+                                   bin - represents code as binary
+                        -E option equals to -Easm option
+  -d<directory>         Specify where to place generated files
+  -o<file>              Place the output into <file>
+  -r                    Process files of the specified directory recursively
+  -x<extensions>        Set extensions list for file procesing
+
+Example: vmtt -Easm -r -dC:\tests\vm -x.class.classX.classXX bin_dir
+
+
+Action options:
+	-A to assemble JASM file to the class file (not implemented yet);
+	-D to dissasemble class file to the JASM file (not implemented yet);
+	-C to code ccode file to the class file;
+	-E to decode class file to the ccode file. This option has
+	   extended state: -E[code_type]. code_type points how to represent
+	   code of decoded methods. If code_type equals to 'asm' then code of
+	   methods will be represented as assembler. If code_type equals to 'bin'
+	   then code will be represented in binary. If code_type doesn't set then
+	   VMTT will use default value 'asm' for -E option.
+
+Other options:
+	-d<directory> specify destination directory of generated files;
+	-o<file> option set output file;
+	-r process files in directory recursively if the directory is set as a 
+           source;
+	-x<extensions> set extension list of source files. This option
+	               should be used if the user wants to process files with
+	               non-standard extensions. By default VMTT processes only known
+	               format files with standard extensions (*.class, *.ccode), 
+                       but the user can set custom extensions.
+
+	               For example: user wrote some tests for testing VM
+	                            which have standard extensions .ccode, but
+	                            the user also wrote help files for tests and 
+                                    these files have non-standard extensions .hccode. 
+                                    Now the user wants to build tests which are 
+                                    located in c:\testbase directory
+
+	                            vmtt -C -r -x.ccode.hccode c:\testbase
+
+	-Dforce_majorversion=<classfile_version> set major version of generated 
+	classfiles. VMTT will ignore "major_version" value in .ccode files if 
+	force_majorversion VM argument is specified.
+
+	-Dforce_minorversion=<classfile_version> set minor version of generated 
+	classfiles. VMTT will ignore "minor_version" value in .ccode files if 
+	force_minorversion VM argument is specified.

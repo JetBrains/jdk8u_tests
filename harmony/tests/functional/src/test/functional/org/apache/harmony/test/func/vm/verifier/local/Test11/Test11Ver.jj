@@ -1,0 +1,110 @@
+;  Licensed to the Apache Software Foundation (ASF) under one or more
+;  contributor license agreements.  See the NOTICE file distributed with
+;  this work for additional information regarding copyright ownership.
+;  The ASF licenses this file to You under the Apache License, Version 2.0
+;  (the "License"); you may not use this file except in compliance with
+;  the License.  You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+;  Unless required by applicable law or agreed to in writing, software
+;  distributed under the License is distributed on an "AS IS" BASIS,
+;  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;  See the License for the specific language governing permissions and
+;  limitations under the License.
+;
+;
+;
+
+.class public org/apache/harmony/test/func/vm/verifier/local/Test11/Test11Ver
+.super java/lang/Object
+
+;
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokespecial java/lang/Object/<init>()V
+   return
+.end method
+
+;
+; test method
+.method public test()V
+   .limit stack 4
+   .limit locals 9
+
+   new org/apache/harmony/test/func/vm/verifier/local/Test11/Test11E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test11/Test11E/<init>()V
+   astore 3 ; E
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   astore 4 ; Object
+   new java/lang/Thread
+   dup
+   invokespecial java/lang/Thread/<init>()V
+   astore 5 ; Thread
+   new java/lang/String
+   dup
+   invokespecial java/lang/String/<init>()V
+   astore 6 ; String
+   new org/apache/harmony/test/func/vm/verifier/local/Test11/Test11D
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/local/Test11/Test11D/<init>()V
+   astore 7 ; D
+
+; store 0 to localvariable2
+   sipush 0
+   istore_2
+
+; push Object, E, Object
+   aload 4 ; Object
+   aload 3 ; E
+   aload 4 ; Object
+
+lab:
+   iinc 2 1 ; localvariable2++
+   pop
+   invokevirtual org/apache/harmony/test/func/vm/verifier/local/Test11/Test11B/test()V
+   pop
+
+   iload_2
+   tableswitch 1
+        l1 ; if 1 jump to l1
+        l2 ; if 2 jump to l2
+        l3 ; if 3 jump to l3
+     default: def ; jump to def
+
+l1:
+; push Thread, E, Thread
+   aload 5 ; Thread
+   aload 3 ; E
+   aload 5 ; Thread
+   goto lab
+
+l2:
+; push String, E, String
+   aload 6 ; String
+   aload 3 ; E
+   aload 6 ; String
+   goto lab
+
+l3:
+; push E, E or D, E
+   aload 3 ; E
+
+   iconst_1
+   ifeq l4
+   aload 3 ; E
+   goto l5
+l4:
+   aload 7 ; D
+l5:
+
+   aload 3 ; E
+   goto lab
+
+def:
+   return
+.end method

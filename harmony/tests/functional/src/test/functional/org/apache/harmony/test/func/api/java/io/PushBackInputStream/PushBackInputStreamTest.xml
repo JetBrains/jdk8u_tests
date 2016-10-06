@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="PushBackInputStreamTest"
+    date-of-creation="2004-12-15"
+    timeout="1"
+    >
+
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.PushbackInputStream"/>
+        <Case ID="testClose">
+            <TestedMethod name="PushbackInputStream(InputStream in)"/>
+            <TestedMethod name="public void close()"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.close()</Description>
+            <Expected>underlying stream is closed</Expected>
+        </Case>
+        
+        <Case ID="testAvailable">
+            <TestedMethod name="PushbackInputStream(InputStream in)"/>
+            <TestedMethod name="public int available()"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.available()</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testMarkSupported">
+            <TestedMethod name="public boolean markSupported()"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.markSupported()</Description>
+            <Expected>'false' returned</Expected>
+        </Case>
+
+        <Case ID="testReset">
+            <TestedClass name="java.io.FilterInputStream"/>
+            <TestedMethod name="public void reset()"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.reset()</Description>
+            <Expected>stream behaves as specified in API</Expected>
+        </Case>
+
+        <Case ID="testMark">
+            <TestedMethod name="public void mark(int readlimit)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.mark(int)</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testReadByte">
+            <TestedMethod name="public int read()"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read()</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes">
+            <TestedClass name="java.io.FilterInputStream"/>
+            <TestedMethod name="public int read(byte[] b)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read(byte[])</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytesSlice">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read(byte[] buf, int offset, int len)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytesNull">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read(null, int, int)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0001">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read(byte[], int &lt; 0, int)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0002">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read(byte[], int, int &lt; 0)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytes0003">
+            <TestedMethod name="public int read(byte[] b, int off, int len)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read(byte[] buf, int offset, int len); buf.length &lt; offset + len</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytesException0001">
+            <TestedClass name="java.io.FilterInputStream"/>
+            <TestedMethod name="public int read(byte[] b)"/>
+            <Precondition>create the InputStream object with method read() that always throws IOException()
+             and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.read(byte[])</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testReadBytesException0002">
+            <TestedClass name="java.io.FilterInputStream"/>
+            <TestedMethod name="public int read(byte[] b)"/>
+            <Precondition>create the InputStream object with method read() that returns 
+                 a few bytes and then throws IOException()  and wrapping PushBackInputStream
+            </Precondition>
+            <Description>call PushBackInputStream.read(byte[])</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+        
+        <Case ID="testSkip">
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.skip(3)</Description>
+            <Expected>same effect as without wrapping stream</Expected>
+        </Case>
+
+        <Case ID="testUnreadBeforeRead">
+            <TestedMethod name="public void unread(int b)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread(int)</Description>
+            <Expected>next read() returns value that was unread()-ed</Expected>
+        </Case>
+        
+        <Case ID="testUnreadBeforeRead0001">
+            <TestedMethod name="public void unread(byte[] b)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread(byte[])</Description>
+            <Expected>next few read()'s return values that were unread()-ed</Expected>
+        </Case>
+
+        <Case ID="testFields">
+            <TestedMethod name="public int read()"/>
+            <TestedMethod name="public void unread(int b)"/>
+            <Precondition>create the InputStream object and wrapping descendant of PushBackInputStream that exposes 
+            its protected fields (pos, buf) via public getters</Precondition>
+            <Description>call PushBackInputStream.read() and unread() and watch those fields</Description>
+            <Expected>predicted behaviour</Expected>
+        </Case>
+
+        <Case ID="testAvailable0001">
+            <TestedMethod name="public int available()"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread() and available() several times</Description>
+            <Expected>available() is equal to number of bytes unread()-ed plus available() of the underlying stream</Expected>
+        </Case>
+
+        <Case ID="testSkip0001">
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create the InputStream object with skip() that throws IOException and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread() and skip() several times</Description>
+            <Expected>skip() throws an exception when there are not enough bytes unread()-ed and doesn't throw otherwise</Expected>
+        </Case>
+
+        <Case ID="testUnread">
+            <TestedMethod name="public void unread(int b)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream with buffer size == 2</Precondition>
+            <Description>call PushBackInputStream.unread() 3 times</Description>
+            <Expected>first 2 unread()s pass and the third throws IOException</Expected>
+        </Case>
+
+        <Case ID="testUnread0001">
+            <TestedMethod name="public void unread(byte[] b)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread(byte[] arr), arr length == 2, call unread() 3 times </Description>
+            <Expected>first 2 unread()s return data from buf and the third one - 
+            data from the underlying stream</Expected>
+        </Case>
+
+        <Case ID="testUnread0002">
+            <TestedMethod name="public void unread(byte[] b, int i1, int i2)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread(byte[] arr, int start, int length), length == 2, call unread() 3 times </Description>
+            <Expected>first 2 unread()s return correct data from buf and the third one - 
+            data from the underlying stream</Expected>
+        </Case>
+
+        <Case ID="testUnreadBytesNull">
+            <TestedMethod name="public void unread(byte[] b)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread(null)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testUnreadBytes0001">
+            <TestedMethod name="public void unread(byte[] b, int i1, int i2)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread(byte[], -1, 1)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testUnreadBytes0002">
+            <TestedMethod name="public void unread(byte[] b, int i1, int i2)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream</Precondition>
+            <Description>call PushBackInputStream.unread(byte[], 0, -1)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testUnreadBytes0003">
+            <TestedMethod name="public void unread(byte[] b, int i1, int i2)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream with buf = 2</Precondition>
+            <Description>call PushBackInputStream.unread(byte[1], 0, 5)</Description>
+            <Expected>IOException is thrown</Expected>
+        </Case>
+
+        <Case ID="testUnreadBytes0004">
+            <TestedMethod name="public void unread(byte[] b, int i1, int i2)"/>
+            <Precondition>create the InputStream object and wrapping PushBackInputStream with buf = 20</Precondition>
+            <Description>call PushBackInputStream.unread(byte[1], 0, 5)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testConstructorException">
+            <TestedMethod name="public PushbackInputStream(InputStream is, int bufsize)"/>
+            <Precondition>create the InputStream object</Precondition>
+            <Description>call new PushBackInputStream(InputStream, int bufsize) with bufsize == 0 and -1</Description>
+            <Expected>IllegalArgumentException is thrown in both cases</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="PushBackInputStreamTest.java"/>
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.PushBackInputStream.PushBackInputStreamTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_EncodedKeySpecTest_01"
+    date-of-creation="2005-09-01"
+    timeout="1"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.spec.EncodedKeySpec"/>
+                    <TestedMethod name="public EncodedKeySpec(byte[] encodedKey)"/>
+                    <TestedMethod name="public byte[] getEncoded()"/>
+
+                    <TestedClass name="java.security.KeyPairGenerator"/>
+                    <TestedMethod name="public static KeyPairGenerator getInstance(String algorithm) throws NoSuchAlgorithmException"/>
+                    <TestedMethod name="public KeyPair generateKeyPair()"/>
+
+                    <TestedClass name="java.security.KeyPair"/>
+                    <TestedMethod name="public PrivateKey getPrivate()"/>
+                    <TestedMethod name="public PublicKey getPublic()"/>
+
+                    <TestedClass name="java.security.KeyFactory"/>
+                    <TestedMethod name="public static KeyFactory getInstance(String algorithm) throws NoSuchAlgorithmException"/>
+                    <TestedMethod name="public final PrivateKey generatePrivate(KeySpec keySpec) throws InvalidKeySpecException"/>
+                    <TestedMethod name="public final PublicKey generatePublic(KeySpec keySpec) throws InvalidKeySpecException"/>
+            
+                    <TestedClass name="java.security.spec.PKCS8EncodedKeySpec"/>
+                    <TestedMethod name="public PKCS8EncodedKeySpec(byte[] encodedKey)"/>
+                    
+                    <TestedClass name="java.security.spec.X509EncodedKeySpec"/>
+                    <TestedMethod name="public X509EncodedKeySpec(byte[] encodedKey)"/>
+
+                    <TestedClass name="javax.crypto.Cipher"/>
+                    <TestedMethod name="public static final Cipher getInstance(String transformation) throws NoSuchAlgorithmException, NoSuchPaddingException"/>
+                    <TestedMethod name="public final void init(int opmode, Key key) throws InvalidKeyException"/>
+                    <TestedMethod name="public final byte[] doFinal(byte[] input) throws IllegalBlockSizeException, BadPaddingException"/>
+
+                    <Description>
+                        Check construction of EncodedKeySpec object based on encoded key material.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_EncodedKeySpecTest_01.java"/>
+                <Modification date="2005-09-01" />
+            
+                
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot"/>
+                   <Option name="-Dqe.class=$TestSuiteClassRoot"/>
+                   <Option name="-Dqe.src=$TestSuiteTestRoot"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.spec.F_EncodedKeySpecTest_01.F_EncodedKeySpecTest_01"/>
+        </Runner>
+
+        <Restriction name="OtherVMOnly"/>
+</Test>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="FileReaderTest"
+    date-of-creation="2004-12-02"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.FileReader"/>
+        
+        <Case ID="testClose">
+            <TestedClass name="java.io.InputStreamReader"/>
+            <TestedMethod name="public void close()"/>
+            <Precondition>create the FileReader object</Precondition>
+            <Description>check that FileReader.close() can be called</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testReadChar">
+            <TestedClass name="java.io.InputStreamReader"/>
+            <TestedMethod name="public int read()"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call FileReader.read()</Description>
+            <Expected>no exception is thrown and proper value is returned</Expected>
+        </Case>
+
+        <Case ID="testReadChars0001">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf) "/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call FileReader.read(char[])</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testReadChars0002">
+            <TestedClass name="java.io.InputStreamReader"/>
+            <TestedMethod name="public int read(char[] cbuf, int offset, int length)"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call FileReader.read(char[], int start, int length)</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testReadChars0002">
+            <TestedClass name="java.io.InputStreamReader"/>
+            <TestedMethod name="public int read(char[] cbuf, int offset, int length)"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call read(char[], int start, int length)</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testSkipNegative">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call skip(negative value)</Description>
+            <Expected>IllegalArgumentException is thrown</Expected>
+        </Case>
+        
+        <Case ID="testFileNotFoundException">
+            <TestedMethod name="public FileReader(File file)"/>
+            <TestedMethod name="public FileReader(String fileName)"/>
+            <Precondition></Precondition>
+            <Description>try to open nonexistent file and dir for reading</Description>
+            <Expected>FileNotFoundException is thrown</Expected>
+        </Case>
+        
+
+        <Case ID="testSkip">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public long skip(long n)"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call skip(arg) and Reader.read() after it</Description>
+            <Expected>proper value is read</Expected>
+        </Case>
+
+        <Case ID="testReady">
+            <TestedClass name="java.io.InputStreamReader"/>
+            <TestedMethod name="public boolean ready() throws IOException"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call ready()</Description>
+            <Expected>return value is 'true'</Expected>
+        </Case>
+
+        <Case ID="testMarkSupported">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public boolean markSupported()"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call markSupported()</Description>
+            <Expected>return value is 'false'</Expected>
+        </Case>
+
+        <Case ID="testMark">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public void mark(int readAheadLimit)"/>
+            <Precondition>create a FileReader object</Precondition>
+            <Description>call mark()</Description>
+            <Expected>IOException is thrown</Expected>
+        </Case>
+
+        <Case ID="testFileDescriptor">
+            <TestedMethod name="FileReader(FileDescriptor)"/>
+            <Precondition>create FileInputStream and FileReader using its descriptor</Precondition>
+            <Description>read data from the stream and from the reader</Description>
+            <Expected>data is read properly</Expected>
+        </Case>
+
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="FileReaderTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.FileReader.FileReaderTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-generalVMOption" value="$generalVMOption"/>                                              
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

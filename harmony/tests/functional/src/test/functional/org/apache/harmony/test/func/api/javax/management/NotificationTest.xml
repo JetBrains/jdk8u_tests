@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="NotificationTest" date-of-creation="2005-06-06" timeout="1">
+
+    
+
+    
+
+    <APITestDescription>
+        <TestedClass name="javax.management.Notification" />
+        <TestedMethod name="public Object getUserData() " />
+        <TestedMethod name="public String getMessage() " />
+        <TestedMethod name="public String getType() " />
+        <TestedMethod name="public String toString() " />
+        <TestedMethod name="public long getSequenceNumber() " />
+        <TestedMethod name="public long getTimeStamp() " />
+        <TestedMethod
+            name="public void Notification(String type, Object source, long sequenceNumber) " />
+        <TestedMethod
+            name="public void Notification(String type, Object source, long sequenceNumber, String message) " />
+        <TestedMethod
+            name="public void Notification(String type, Object source, long sequenceNumber, long timeStamp) " />
+        <TestedMethod
+            name="public void Notification(String type, Object source, long sequenceNumber, long timeStamp, String message) " />
+        <TestedMethod
+            name="public void setSequenceNumber(long sequenceNumber) " />
+        <TestedMethod name="public void setSource(Object source) " />
+        <TestedMethod name="public void setTimeStamp(long timeStamp) " />
+        <TestedMethod name="public void setUserData(Object userData) " />
+
+        <Description>
+            1. Create MBean server
+
+            2. Register HelloMBean with the server.
+
+            3. Add notification listener to the registered MBean.
+
+            4. Invoke operation seyHello.
+
+            5. Verify that Notification object has been received.
+
+            6. Verify that received handback object is valid.
+
+            7. Verify that all getters of the received notification
+            object return expected values.
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="NotificationTest.java" />
+    <Source name="share/Hello.java" />
+    <Source name="share/HelloMBean.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.NotificationTest" />
+    </Runner>
+    
+    <Restriction name="OtherVMOnly" />
+</Test>

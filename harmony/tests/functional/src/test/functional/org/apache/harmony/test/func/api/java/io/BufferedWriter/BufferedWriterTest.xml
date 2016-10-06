@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="BufferedWriterTest"
+    date-of-creation="2004-11-19"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.BufferedWriter"/>
+        
+        <Case ID="testClose">
+             <TestedMethod name="BufferedWriter(Writer out)"/>
+            <TestedMethod name="close()"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>write some data to BufferedWriter and close it</Description>
+            <Expected>data is written to the underlying Writer, the latter is closed 
+            and flush() of the underlying Writer is not called before close()</Expected>
+        </Case>
+
+        <Case ID="testFlush">
+             <TestedMethod name="BufferedWriter(Writer out)"/>
+            <TestedMethod name="flush()"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>write some data to BufferedWriter and flush it</Description>
+            <Expected>data is written to the underlying Writer and the latter is flushed</Expected>
+        </Case>
+
+        <Case ID="testWriteInt">
+             <TestedMethod name="BufferedWriter(Writer out)"/>
+            <TestedMethod name="write(int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(int) several times and flush() then</Description>
+            <Expected>only lower bytes of int are written</Expected>
+        </Case>
+
+        <Case ID="testWriteNullArray">
+               <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(char[] cbuf)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write((char[]) null)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteNullString">
+               <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(String str)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write((String) null)</Description>
+            <Expected>NullPointerException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteArray">
+               <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(char[] cbuf)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(char[]) and flush() then</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteString">
+               <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(String str)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(String) and flush()</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteArraySlice">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(char[], int, int) and flush()</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteStringSlice">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(String, int, int) and flush()</Description>
+            <Expected>data is written properly</Expected>
+        </Case>
+
+        <Case ID="testWriteArrayNegativeStart">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(char[], int &lt; 0, int)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteArrayNegativeLength">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(char[], int, int &lt; 0)</Description>
+            <Expected>No exception is thrown, no data is written</Expected>
+        </Case>
+
+        <Case ID="testWriteArrayBigLength">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(char[] buf, int start, int length ) 
+            such as start + length &gt; buf.length</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringNegativeStart">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(String, int &lt; 0, int)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringNegativeLength">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(String, int, int &lt; 0)</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+
+        <Case ID="testWriteStringBigLength">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(String src, int start, int length ) 
+            such as start + length &gt; src.length()</Description>
+            <Expected>IndexOutOfBoundsException is thrown</Expected>
+        </Case>
+        
+        <Case ID="testNewLine">
+            <TestedMethod name="newLine()"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter</Precondition>
+            <Description>call write(String), newLine(), write(String) and flush() </Description>
+            <Expected>contents of the underlying stream is first string + value of 
+            'line.separator' property + second string</Expected>
+        </Case>
+
+        <Case ID="testBufferedOutput0001">
+             <TestedMethod name="BufferedWriter(Writer out, int sz)"/>
+            <TestedMethod name="write(int)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter with size = 10</Precondition>
+            <Description>call write(int) and flush() </Description>
+            <Expected>the underlying Writer contains no data after write() and 1 char after flush()</Expected>
+        </Case>
+
+        <Case ID="testBufferedOutput0002">
+               <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(char[] cbuf)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter with size = 10</Precondition>
+            <Description>call write(char[2]) and flush() </Description>
+            <Expected>the underlying Writer contains no data after write() and 2 chars after flush()</Expected>
+        </Case>
+
+        <Case ID="testBufferedOutput0003">
+             <TestedMethod name="BufferedWriter(Writer out, int sz)"/>
+               <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(char[] cbuf)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter with size = 10</Precondition>
+            <Description>call write(char[15])</Description>
+            <Expected>the underlying Writer contains 15 bytes</Expected>
+        </Case>
+
+        <Case ID="testBufferedOutput0004">
+             <TestedMethod name="BufferedWriter(Writer out, int sz)"/>
+               <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(String str)"/>
+            <Precondition>create a Writer object and wrapping BufferedWriter with size = 10</Precondition>
+            <Description>call write(2-char String) and flush()</Description>
+            <Expected>the underlying Writer contains no data after write() and 2 chars after flush()</Expected>
+        </Case>
+
+        <Case ID="testExceptionAfterClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create a Writer object, wrapping BufferedWriter and close the latter</Precondition>
+            <Description>call flush(), newLine(), write(char[]), write(int), write(String)</Description>
+            <Expected>every method throws IOException</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="BufferedWriterTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.BufferedWriter.BufferedWriterTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

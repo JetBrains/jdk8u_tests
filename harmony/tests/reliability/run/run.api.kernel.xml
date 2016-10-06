@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="run.api.kernel.tests" default="run.api.kernel" basedir=".">
+
+   <description> Runs all tests from api/kernel </description>
+
+
+   <target name="run.api.kernel" depends="run.api.kernel.args, run.api.kernel.exec, run.api.kernel.hooks,
+    							run.api.kernel.object, run.api.kernel.pckg, run.api.kernel.string, 
+								run.api.kernel.thread, run.api.kernel.throwable, 
+                                                                        run.api.kernel.management, run.api.kernel.compiler" />
+
+
+   <target name="run.api.kernel.args">
+
+        <run-pjava-test test="api.kernel.args.AppVMCLParamTest" args="${api.kernel.args.AppVMCLParamTest.max_n_app_params} 
+ 				       ${jvm.under.test} ${api.kernel.args.AppVMCLParamTest.vm_opts} ${test.classes.dir}" />
+
+        <run-pjava-test test="api.kernel.args.ExecEnvTest" args="${api.kernel.args.ExecEnvTest.max_n_env_vars} 
+        					${jvm.under.test} ${test.classes.dir}" />
+
+        <run-pjava-test test="api.kernel.args.VMCLPropertiesTest" 
+	                args="${api.kernel.args.VMCLPropertiesTest.max_n_properties} ${jvm.under.test} 
+	                      ${api.kernel.args.VMCLPropertiesTest.prop_test_vm_opts} ${test.classes.dir}" />
+   </target>
+
+
+   <target name="run.api.kernel.exec">
+   
+        <run-pjava-test test="api.kernel.exec.RunExec" args="${api.kernel.exec.RunExec.num_execs} 
+        					${api.kernel.exec.RunExec.num_threads} ${test.classes.dir} ${jvm.under.test} ${test.classes.dir}" />
+
+   </target>
+
+
+   <target name="run.api.kernel.hooks">
+
+        <run-pjava-test test="api.kernel.hooks.AddRmPropertiesHooksTest"
+                      	args="${api.kernel.hooks.AddRmPropertiesHooksTest.n_properties} 
+   	                    ${api.kernel.hooks.AddRmPropertiesHooksTest.n_hooks}"/>
+
+        <run-pjava-test test="api.kernel.hooks.AddRmShtdwnHooksTest" args="${jvm.under.test} ${test.classes.dir}" />
+
+        <run-pjava-test test="api.kernel.hooks.ShtdwnHooksCornerCaseTest" args="${jvm.under.test} ${test.classes.dir}" />
+
+   </target>
+
+
+   <target name="run.api.kernel.object">
+
+        <run-pjava-test test="api.kernel.object.ObjectCloneTest" args="${api.kernel.object.ObjectCloneTest.n_iterations}" />
+
+        <run-pjava-test test="api.kernel.object.ObjectFinalizeTest" args="${api.kernel.object.ObjectFinalizeTest.n_iterations}" />
+
+        <run-pjava-test test="api.kernel.object.ObjectGetclassHashcodeTest" args="${api.kernel.object.ObjectGetclassHashcodeTest.n_iterations}" />
+
+   </target>
+
+
+   <target name="run.api.kernel.compiler">
+
+        <run-pjava-test test="api.kernel.compiler.JitCompilerTest" args="" />
+
+   </target>
+
+   <target name="run.api.kernel.pckg">
+
+        <run-pjava-test test="api.kernel.pckg.PackageGetTest" args="${api.kernel.pckg.PackageGetTest.n_iterations}" />
+
+   </target>
+
+
+   <target name="run.api.kernel.string">
+
+        <run-pjava-test test="api.kernel.string.InsensitiveTest"/>
+
+        <run-pjava-test test="api.kernel.string.InternTest" />
+
+        <run-pjava-test test="api.kernel.string.InternThreadingTest" />
+
+        <run-pjava-test test="api.kernel.string.StringInternTest"/>
+
+   </target>
+
+
+   <target name="run.api.kernel.management">
+
+        <run-pjava-test test="api.kernel.management.SystemResourceOrientedTest" 
+        				args="${api.kernel.management.SystemResourceOrientedTest.n_threads} 
+		                ${api.kernel.management.SystemResourceOrientedTest.n_iters} ${test.classes.dir}
+                                ${api.kernel.management.SystemResourceOrientedTest.n_loadedClasses}"/> 
+
+   </target>
+
+   <target name="run.api.kernel.thread">
+
+        <run-pjava-test test="api.kernel.thread.ExcptHandlerTest.ExcptHandlerTest" /> 
+
+        <run-pjava-test test="api.kernel.thread.ThreadLocalTest.ThreadLocalTest" /> 
+
+        <run-pjava-test test="api.kernel.thread.StackTraceTest.StackTraceTest" /> 
+        
+        <run-pjava-test test="api.kernel.threadgroup.EnumerateTest" /> 
+
+        <run-pjava-test test="api.kernel.thread.ThreadSuspendResume.ThreadSuspendResume" 
+        				args="${api.kernel.thread.ThreadSuspendResume.ThreadSuspendResume.n_threads} 
+		                ${api.kernel.thread.ThreadSuspendResume.ThreadSuspendResume.n_iters}" /> 
+
+        <run-pjava-test test="api.kernel.thread.Calculation.CalcTest" 
+        				args="${api.kernel.thread.Calculation.CalcTest.tasks} 
+		                ${api.kernel.thread.Calculation.CalcTest.depth}" /> 
+
+        <run-pjava-test test="api.kernel.thread.LifeSimulationTest.Life"
+		                args="${api.kernel.thread.LifeSimulationTest.Life.max_creatures} 
+		                ${api.kernel.thread.LifeSimulationTest.Life.max_age} 
+		                ${api.kernel.thread.LifeSimulationTest.Life.start_health} 
+		                ${api.kernel.thread.LifeSimulationTest.Life.total_food}" />
+ 
+        <run-pjava-test test="api.kernel.thread.RecursiveThreadTest.RecursiveTest"
+		                args="${api.kernel.thread.RecursiveThreadTest.RecursiveTest.recursion_depth} 
+		                ${api.kernel.thread.RecursiveThreadTest.RecursiveTest.array_size}" />
+
+        <run-pjava-test test="api.kernel.thread.Synchronization.SynchroTest" 
+                        args="${api.kernel.thread.Synchronization.SynchroTest.iterations}" />
+
+        <run-pjava-test test="api.kernel.thread.Synchronization.SynchroTest2" 
+	                    args="${api.kernel.thread.Synchronization.SynchroTest2.threads} 
+	                    ${api.kernel.thread.Synchronization.SynchroTest2.serial}" />
+
+        <run-pjava-test test="api.kernel.thread.ThreadArrayTest.ThreadArrayTest" 
+	                    args="${api.kernel.thread.ThreadArrayTest.ThreadArrayTest.threads} 
+	                    ${api.kernel.thread.ThreadArrayTest.ThreadArrayTest.starts}" />
+ 
+        <run-pjava-test test="api.kernel.thread.ThreadKill.ThreadKillTest" 
+	                    args="${api.kernel.thread.ThreadKill.ThreadKillTest.threads} 
+	                    ${api.kernel.thread.ThreadKill.ThreadKillTest.iterations}" />
+
+        <run-pjava-test test="api.kernel.thread.VolatileVariableTest.DekkerTest" 
+	                    args="${api.kernel.thread.VolatileVariableTest.DekkerTest.iterations}" />
+
+         <run-pjava-test test="api.kernel.thread.VolatileVariableTest.PetersonTest" 
+	                    args="${api.kernel.thread.VolatileVariableTest.PetersonTest.iterations}" />
+
+        <run-pjava-test test="api.kernel.thread.WeakReferenceandThreadTest.WeakReferenceandThreadTest" 
+	                    args="${api.kernel.thread.WeakReferenceandThreadTest.WeakReferenceandThreadTest.threads} 
+	                    ${api.kernel.thread.WeakReferenceandThreadTest.WeakReferenceandThreadTest.gc_attempts}" />
+
+   </target>
+
+
+   <target name="run.api.kernel.throwable">
+
+        <run-pjava-test test="api.kernel.throwable.StackTraceExcptsTest" />
+
+   </target>
+
+ 
+</project>

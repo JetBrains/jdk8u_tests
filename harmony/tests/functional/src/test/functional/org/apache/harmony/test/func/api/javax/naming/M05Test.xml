@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="M05Test" date-of-creation="2005-08-26" timeout="1">
+
+    
+
+    
+
+    <MulticaseTestDescription>
+        <Case ID="testNameNotFoundException">
+            <TestedClass name="javax.naming.NameNotFoundException" />
+            <TestedMethod name="public NameNotFoundException()" />
+            <Description></Description>
+        </Case>
+
+        <Case ID="testNamingException">
+            <TestedClass name="javax.naming.NamingException" />
+            <TestedMethod name="public NamingException()" />
+            <Description></Description>
+        </Case>
+
+        <Case ID="testNamingExceptionString">
+            <TestedClass name="javax.naming.NamingException" />
+            <TestedMethod name="public NamingException(String)" />
+            <Description></Description>
+        </Case>
+
+        <Case ID="testReferenceString">
+            <TestedClass name="javax.naming.Reference" />
+            <TestedMethod name="public Reference(String)" />
+            <Description></Description>
+        </Case>
+
+        <Case ID="testReferenceStringStringString">
+            <TestedClass name="javax.naming.Reference" />
+            <TestedMethod
+                name="public Reference(String, String, String)" />
+            <Description></Description>
+        </Case>
+
+        <Case ID="testGetStateToBind">
+            <TestedClass name="javax.naming.spi.NamingManager" />
+            <TestedMethod
+                name="public Object getStateToBind (Object, Name, Context, Hashtable&lt;?, ?&gt;)" />
+            <Description></Description>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="M05Test.java" />
+
+    <Runner ID="MultiCase">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.naming.M05Test" />
+    </Runner>
+</Test>
+
+
+
+
+

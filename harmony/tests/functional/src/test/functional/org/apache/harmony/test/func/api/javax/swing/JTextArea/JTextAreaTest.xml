@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="JTextAreaTest"
+    date-of-creation="2005-05-31"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.JTextArea"/>
+
+        <Case ID="testJTextArea1">
+            <TestedMethod name="public JTextArea()"/>
+            
+            <Precondition></Precondition>
+            <Description>create a child of JTextArea and checks its class type</Description>
+            <Expected>
+                        the result should be JTextArea class instance
+            </Expected>
+        </Case>
+
+        <Case ID="testJTextArea2">
+            <TestedMethod name="public JTextArea(Document doc, String text, 
+                int rows, int columns)"/>
+            
+            <Precondition></Precondition>
+            <Description>create a child of JTextArea and checks its class type,
+                Document, text, rows and columns values</Description>
+            <Expected>
+                        the result should be JTextArea class instance,
+                        getColumns() should return columns value,
+                        getRaws() should return rows value, 
+                        getDocument() should return doc value,
+                        getText() should return text value
+            </Expected>
+        </Case>
+
+
+        <Case ID="testgetUIClassID">
+            <TestedMethod name="public String getUIClassID()"/>
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>call getUIClassID()</Description>
+            <Expected>no more methods are called</Expected>
+        </Case>
+
+        <Case ID="testcreateDefaultModel">
+            <TestedMethod name="protected Document createDefaultModel()"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging
+                with public method createDefaultModel</Precondition>
+            <Description>call createDefaultModel()</Description>
+            <Expected>do not call any additional methods,
+                the type of returned object is Document
+            </Expected>
+        </Case>
+        
+        <Case ID="testsetColumns">
+            <TestedMethod name="public void setColumns(int columns)"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>call setColumns(int columns) several times</Description>
+            <Expected>do not call any additional methods,
+                IllegalArgumentException is thrown if columns &lt; 0
+            </Expected>
+        </Case>
+
+        <Case ID="testgetColumns">
+            <TestedMethod name="public int getColumns()"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>call setColumns(int columns) and getColumns() several times</Description>
+            <Expected>do not call any additional methods,
+                returns values which were set by setColumns(int columns)
+            </Expected>
+        </Case>
+
+        <Case ID="testgetColumnsWidth">
+            <TestedMethod name="protected int getColumnWidth()"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging
+                with public method getColumnsWidth()</Precondition>
+            <Description>call getColumnsWidth()</Description>
+            <Expected>do not call any additional methods
+            </Expected>
+        </Case>
+
+        <Case ID="testgetPreferredSize">
+            <TestedMethod name="public Dimension getPreferredSize()"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>call getPreferredSize()</Description>
+            <Expected>do not call any additional methods,
+                check if the returned value has correct type
+            </Expected>
+        </Case>
+
+        <Case ID="testsetFont">
+            <TestedMethod name="public void setFont(Font f)"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>create a new Font instance "f" and call setFont(f)</Description>
+            <Expected>do not call any additional methods
+            </Expected>
+        </Case>
+
+        <Case ID="testgetLineWrap">
+            <TestedMethod name="public boolean getLineWrap()"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>call getLineWrap() and setLineWrap(boolean wrap)
+                </Description>
+            <Expected>do not call any additional methods,
+                    default wrap value should be false,
+                    getLineWrap() should return true afrer call setLineWrap(true)
+            </Expected>
+        </Case>
+
+        <Case ID="testgetPreferredScrollableViewportSize">
+            <TestedMethod name="public Dimension getPreferredScrollableViewportSize()"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>call getPreferredScrollableViewportSize()
+                </Description>
+            <Expected>do not call any additional methods,
+                the returned value class should be Dimension
+            </Expected>
+        </Case>
+
+        <Case ID="testgetWrapStyleWord">
+            <TestedMethod name="public boolean getWrapStyleWord()"/>
+            
+            <Precondition>create a child of JTextArea instrumented with logging</Precondition>
+            <Description>call getWrapStyleWord() and setWrapStyleWord(boolean word)
+                </Description>
+            <Expected>do not call any additional methods,
+                the default value should be false,
+                getWrapStyleWord() should return true afrer call setWrapStyleWord(true)
+            </Expected>
+        </Case>
+
+    </MulticaseTestDescription>
+    
+    <Keyword name="functional"/>    
+    <Source name="JTextAreaTest.java"/>
+
+    <Runner ID="Runtime">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.JTextArea.JTextAreaTest">
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

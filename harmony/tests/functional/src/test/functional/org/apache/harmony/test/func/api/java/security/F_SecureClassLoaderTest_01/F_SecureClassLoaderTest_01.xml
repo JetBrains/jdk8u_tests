@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_SecureClassLoaderTest_01"
+        date-of-creation="2004-10-14"
+    timeout="1"
+        >
+        <!--
+        -->
+            
+                
+                
+
+                <APITestDescription>
+                    <TestedClass name="java.security.ProtectionDomain"/>
+                    <TestedMethod name="public final CodeSource getCodeSource()"/>
+
+                    <TestedClass name="java.security.Policy"/>
+                    <TestedMethod name="public static Policy getPolicy()"/>
+                    <TestedMethod name="public PermissionCollection getPermissions(ProtectionDomain domain)"/>
+                    <TestedMethod name="public boolean implies(ProtectionDomain domain, Permission permission)"/>
+
+                    <TestedClass name="java.security.CodeSource"/>
+                    <TestedMethod name="public final Certificate[] getCertificates()"/>
+
+                    <TestedClass name="java.security.SecureClassLoader"/>
+                    <TestedMethod name="protected SecureClassLoader()"/>
+                    
+                    <Description>
+                        Check SecureClassLoader mechanism.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_SecureClassLoaderTest_01.java"/>
+                <Modification date="2004-10-14" />
+                
+        <!--Runner ID="Execute">
+            <Param name="toRun" value="$TestedCompile">
+                <Option name="-d" value="$TempStorage"/>
+                <Option name="-classpath" value="$TestSuiteClassRoot"/>
+                <Option name="$TestDirectory$FileSeparatorF_SecureClassLoaderTest_01.java"/>
+            </Param>
+            <Param name="toRun" value="$TestedRuntime">
+                <Option name="-cp" value="$TempStorage$PathSeparator$TestSuiteClassRoot$PathSeparator$TestDirectory/auxiliary/helloworld.jar"/>
+                <Option value="$BOOT_CLASS_PATH"/>
+                        <Option name="-Djava.security.manager"/>
+                        <Option name="-Djava.security.policy=$TestDirectory/auxiliary/java.policy"/>
+                <Option name="org.apache.harmony.test.func.api.java.security.F_SecureClassLoaderTest_01.F_SecureClassLoaderTest_01"/>
+                <Option name="$TestDirectory/auxiliary"/>
+                <Option value="helloworld.HelloWorldJar"/>
+            </Param>
+        </Runner-->
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TempStorage$PathSeparator$TestSuiteClassRoot"/>
+                  <Option name="-Djava.security.policy=$TestDirectory$FileSeparatorauxiliary$FileSeparatorjava.policy"/>
+                  <Option name="-Dqe.src=$TestSuiteTestRoot"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.F_SecureClassLoaderTest_01.F_SecureClassLoaderTest_01">
+                    <Option value="helloworld.HelloWorldJar"/>
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorhelloworld.jar"/>
+                </Param>
+        </Runner>
+        <Restriction name="OtherVMOnly"/>
+
+</Test>

@@ -1,0 +1,61 @@
+//  Licensed to the Apache Software Foundation (ASF) under one or more
+//  contributor license agreements.  See the NOTICE file distributed with
+//  this work for additional information regarding copyright ownership.
+//  The ASF licenses this file to You under the Apache License, Version 2.0
+//  (the "License"); you may not use this file except in compliance with
+//  the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+//grant codeBase "file:///${qe.class}${/}-" {
+grant codeBase "file:///${qe.class}/-" {
+	permission java.net.SocketPermission "localhost:12345", "resolve";
+	permission java.lang.RuntimePermission "setSecurityManager";
+};
+
+grant codeBase "file:///${qe.src}${/}org${/}apache${/}harmony${/}test${/}func${/}api${/}java${/}security${/}F_AccessControllerTest_01${/}auxiliary${/}SimpleServerSocket.jar" {
+//grant codeBase "file:///${qe.src}${/}org${/}apache${/}harmony${/}test${/}func${/}api${/}java${/}security${/}f_accesscontrollertest_01${/}auxiliary${/}simpleserversocket.jar" {
+//grant codeBase "file:///c:/eclipse/workspace/qa/src/test/org/apache/harmony/test/func/api/java/security/f_accesscontrollertest_01/auxiliary/simpleserversocket.jar" {
+	permission java.net.SocketPermission "localhost:12345", "listen";
+	permission java.net.SocketPermission "localhost:12345", "resolve";
+	permission java.net.SocketPermission "localhost:1024-", "accept";
+	permission java.net.SocketPermission "localhost:1024-", "resolve";
+};	
+
+grant codeBase "file:///${qe.src}${/}org${/}apache${/}harmony${/}test${/}func${/}api${/}java${/}security${/}F_AccessControllerTest_01${/}auxiliary${/}SocketConnector.jar" {
+//grant codeBase "file:///${qe.src}${/}org${/}apache${/}harmony${/}test${/}func${/}api${/}java${/}security${/}f_accesscontrollertest_01${/}auxiliary${/}socketconnector.jar" {
+//grant codeBase "file:///c:/eclipse/workspace/qa/src/test${/}org${/}apache${/}harmony${/}test${/}func${/}api${/}java${/}security${/}f_accesscontrollertest_01${/}auxiliary${/}socketconnector.jar" {
+	permission java.net.SocketPermission "localhost:12345", "connect";
+	permission java.net.SocketPermission "localhost:12345", "resolve";
+};
+
+// this permission is required on Linux while closing a socket. 
+grant {
+	permission java.util.PropertyPermission "os.name", "read";
+	permission java.lang.RuntimePermission "getProtectionDomain";	
+	permission java.security.SecurityPermission "getPolicy";
+};
+
+//for Linux
+grant codeBase "file:${qe.class}/-" {
+	permission java.net.SocketPermission "localhost:12345", "resolve";
+	permission java.lang.RuntimePermission "setSecurityManager";
+};
+
+grant codeBase "file:${qe.src}${/}org${/}apache${/}harmony${/}test${/}func${/}api${/}java${/}security${/}F_AccessControllerTest_01${/}auxiliary${/}SimpleServerSocket.jar" {
+	permission java.net.SocketPermission "localhost:12345", "listen";
+	permission java.net.SocketPermission "localhost:12345", "resolve";
+	permission java.net.SocketPermission "localhost:1024-", "accept";
+	permission java.net.SocketPermission "localhost:1024-", "resolve";
+};	
+
+grant codeBase "file:${qe.src}${/}org${/}apache${/}harmony${/}test${/}func${/}api${/}java${/}security${/}F_AccessControllerTest_01${/}auxiliary${/}SocketConnector.jar" {
+	permission java.net.SocketPermission "localhost:12345", "connect";
+	permission java.net.SocketPermission "localhost:12345", "resolve";
+};

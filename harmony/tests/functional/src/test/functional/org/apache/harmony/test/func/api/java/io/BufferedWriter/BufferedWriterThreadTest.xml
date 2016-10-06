@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="BufferedWriterThreadTest"
+    date-of-creation="2004-12-22"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.BufferedWriter"/>
+        
+        <Case ID="testExceptionAfterClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create a Writer object and a wrapping BufferedWriter and start two threads</Precondition>
+            <Description>one of threads closes the BufferedWriter and the other tries to write to it</Description>
+            <Expected>IOException is thrown in attempt to write</Expected>
+        </Case>
+        
+        <Case ID="testWrite0001">
+            <TestedMethod name="write(int)"/>
+            <Precondition>create a Writer object and a wrapping BufferedWriter and start three threads</Precondition>
+            <Description>every thread writes its unique char to the writer 1000000 times</Description>
+            <Expected>underlying writer contains 1000000 copies of each character</Expected>
+        </Case>
+
+        <Case ID="testWriteArray">
+            <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(char[] cbuf)"/>
+            <Precondition>create a Writer object and a wrapping BufferedWriter and start three threads</Precondition>
+            <Description>every thread writes its unique byte array to the BufferedWriter 1000000 times 
+            using write(char[])</Description>
+            <Expected>underlying writer contains expected number of copies of each character</Expected>
+        </Case>
+
+        <Case ID="testWriteString">
+            <TestedClass name="java.io.Writer"/>
+            <TestedMethod name="public void write(String str)"/>
+            <Precondition>create a Writer object and a wrapping BufferedWriter and start three threads</Precondition>
+            <Description>every thread writes its unique string to the BufferedWriter 1000000 times 
+            using write(String)</Description>
+            <Expected>underlying writer contains expected number of copies of each character</Expected>
+        </Case>
+
+        <Case ID="testWriteArraySlice">
+            <TestedMethod name="write(char[], int, int)"/>
+            <Precondition>create a Writer object and a wrapping BufferedWriter and start three threads</Precondition>
+            <Description>every thread writes its unique byte array to the BufferedWriter 1000000 times 
+            using write(char[], int, int)</Description>
+            <Expected>underlying writer contains expected number of copies of each character</Expected>
+        </Case>
+
+        <Case ID="testWriteString">
+            <TestedMethod name="write(String, int, int)"/>
+            <Precondition>create a Writer object and a wrapping BufferedWriter and start three threads</Precondition>
+            <Description>every thread writes its unique string to the BufferedWriter 1000000 times 
+            using write(String)</Description>
+            <Expected>underlying writer contains expected number of copies of each character</Expected>
+        </Case>
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="BufferedWriterThreadTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.BufferedWriter.BufferedWriterThreadTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

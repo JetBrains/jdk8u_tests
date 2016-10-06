@@ -1,0 +1,203 @@
+/*
+    Copyright 2005-2006 The Apache Software Foundation or its licensors, as applicable
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+/**
+ * Generated ccode file
+ * @author VMTT (Virtual Machine Testing Tools)
+ * @version 1.0
+ * @lastmod: Fri Jun 23 10:52:44 NOVST 2006
+ */
+
+magic = xCAFEBABE
+
+minor_version = 0
+
+major_version = 46
+
+constant_pool_count = 34
+
+constant_pool {
+  /* #1 */ Method = #7 #19
+  /* #2 */ Field = #20 #21
+  /* #3 */ Field = #6 #22
+  /* #4 */ Method = #23 #24
+  /* #5 */ String = #25
+  /* #6 */ Class = #26
+  /* #7 */ Class = #27
+  /* #8 */ UTF8 = "helloWorld"
+  /* #9 */ UTF8 = "Ljava/lang/String;"
+  /* #10 */ UTF8 = "<init>"
+  /* #11 */ UTF8 = "()V"
+  /* #12 */ UTF8 = "Code"
+  /* #13 */ UTF8 = "LineNumberTable"
+  /* #14 */ UTF8 = "main"
+  /* #15 */ UTF8 = "([Ljava/lang/String;)V"
+  /* #16 */ UTF8 = "<clinit>"
+  /* #17 */ UTF8 = "SourceFile"
+  /* #18 */ UTF8 = "example.java"
+  /* #19 */ NameAndType = #10 #11
+  /* #20 */ Class = #28
+  /* #21 */ NameAndType = #29 #30
+  /* #22 */ NameAndType = #8 #9
+  /* #23 */ Class = #31
+  /* #24 */ NameAndType = #32 #33
+  /* #25 */ UTF8 = "Hello World"
+  /* #26 */ UTF8 = "example"
+  /* #27 */ UTF8 = "java/lang/Object"
+  /* #28 */ UTF8 = "java/lang/System"
+  /* #29 */ UTF8 = "out"
+  /* #30 */ UTF8 = "Ljava/io/PrintStream;"
+  /* #31 */ UTF8 = "java/io/PrintStream"
+  /* #32 */ UTF8 = "println"
+  /* #33 */ UTF8 = "(Ljava/lang/String;)V"
+}
+
+access_flags = x21  // PUBLIC SUPER 
+
+this_class = #6  // "example"
+
+super_class = #7  // "java/lang/Object"
+
+interfaces_count = 0
+
+interfaces {
+}
+
+fields_count = 1
+
+fields {
+  field {
+    access_flag = x0A  // PRIVATE STATIC 
+    name_index = #8  // "helloWorld"
+    descriptor_index = #9  // "Ljava/lang/String;"
+    attributes_count = 0
+  }
+}
+
+methods_count = 3
+
+methods {
+  method {
+    access_flag = x01  // PUBLIC 
+    name_index = #10  // "<init>"
+    descriptor_index = #11  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 29
+          max_stack = 1
+          max_locals = 1
+          code_length = 5
+          code asm {
+          0:	aload_0
+          1:	invokespecial #1  // "java/lang/Object" "<init>" "()V"
+          4:	return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #13  // "LineNumberTable"
+                attribute_length = 6
+                line_number_table_length = 1
+                line_number_table {
+                    // start_pc line_number
+                    0 2
+                }
+              }
+            }
+        }
+      }
+  }
+  method {
+    access_flag = x09  // PUBLIC STATIC 
+    name_index = #14  // "main"
+    descriptor_index = #15  // "([Ljava/lang/String;)V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 38
+          max_stack = 2
+          max_locals = 1
+          code_length = 10
+          code asm {
+          0:	getstatic #2  // "java/lang/System" "out" "Ljava/io/PrintStream;"
+          3:	getstatic #3  // "example" "helloWorld" "Ljava/lang/String;"
+          6:	invokevirtual #4  // "java/io/PrintStream" "println" "(Ljava/lang/String;)V"
+          9:	return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #13  // "LineNumberTable"
+                attribute_length = 10
+                line_number_table_length = 2
+                line_number_table {
+                    // start_pc line_number
+                    0 7
+                    9 8
+                }
+              }
+            }
+        }
+      }
+  }
+  method {
+    access_flag = x08  // STATIC 
+    name_index = #16  // "<clinit>"
+    descriptor_index = #11  // "()V"
+    attributes_count = 1
+      attributes {
+        attribute Code {
+          attribute_name_index = #12  // "Code"
+          attribute_length = 30
+          max_stack = 1
+          max_locals = 0
+          code_length = 6
+          code asm {
+          0:	ldc #5
+          2:	putstatic #3  // "example" "helloWorld" "Ljava/lang/String;"
+          5:	return
+          }
+          exception_table_length = 0
+          attributes_count = 1
+            attributes {
+              attribute LineNumberTable {
+                attribute_name_index = #13  // "LineNumberTable"
+                attribute_length = 6
+                line_number_table_length = 1
+                line_number_table {
+                    // start_pc line_number
+                    0 4
+                }
+              }
+            }
+        }
+      }
+  }
+}
+
+attributes_count = 1
+attributes {
+  attribute SourceFile {
+    attribute_name_index = #17  // "SourceFile"
+    attribute_length = 2
+    sourcefile_index = #18  // "example.java"
+  }
+}

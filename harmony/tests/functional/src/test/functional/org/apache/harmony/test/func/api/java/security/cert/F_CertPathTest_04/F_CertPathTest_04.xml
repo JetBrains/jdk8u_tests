@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<Test
+    ID="F_CertPathTest_04"
+    date-of-creation="2005-10-04"
+    timeout="1"
+    >
+    <!--
+    -->
+            
+                
+                <APITestDescription>
+                    <TestedClass name="java.security.cert.CertificateFactory"/>
+                    <TestedMethod name="public static final CertificateFactory getInstance(String type) throws CertificateException"/>
+                    <TestedMethod name="public final Collection&lt;? extends Certificate&gt; generateCertificates(InputStream inStream) throws CertificateException"/>
+                    <Testedmethod name="public final CertPath generateCertPath(List&lt;? extends Certificate&gt; certificates) throws CertificateException"/>
+                    <TestedMethod name="public final Iterator&lt;String&gt; getCertPathEncodings()"/>
+                    <TestedMethod name="public final CertPath generateCertPath(InputStream inStream, String encoding) throws CertificateException"/>
+
+                    <TestedClass name="java.security.cert.X509CertSelector"/>
+                    <TestedMethod name="public X509CertSelector()"/>
+                    <TestedMethod name="public void setSubject(X500Principal subject)"/>
+                    <TestedMethod name="public void setIssuer(X500Principal issuer)"/>
+
+                    <TestedClass name="java.security.KeyStore"/>
+                    <TestedMethod name="public static KeyStore getInstance(String type) throws KeyStoreException"/>
+                    <TestedMethod name="public static final String getDefaultType()"/>
+                    <TestedMethod name="public final void load(InputStream stream, char[] password) throws IOException, NoSuchAlgorithmException, CertificateException"/>
+
+                    <TestedClass name="java.security.cert.PKIXParameters"/>
+                    <TestedMethod name="public PKIXParameters(KeyStore keystore) throws KeyStoreException, InvalidAlgorithmParameterException"/>
+                    <TestedMethod name="public void setDate(Date date)"/>
+                    <TestedMethod name="public void setTargetCertConstraints(CertSelector selector)"/>
+                    <TestedMethod name="public void setExplicitPolicyRequired(boolean val)"/>
+                    <TestedMethod name="public void setRevocationEnabled(boolean val)"/>
+
+                    <TestedClass name="java.security.cert.CertPathValidator"/>
+                    <TestedMethod name="public static CertPathValidator getInstance(String algorithm) throws NoSuchAlgorithmException"/>
+                    <TestedMethod name="public static final String getDefaultType()"/>
+                    <TestedMethod name="public final CertPathValidatorResult validate(CertPath certPath, CertPathParameters params) throws CertPathValidatorException, InvalidAlgorithmParameterException"/>
+
+                    <TestedClass name="java.security.cert.PKIXCertPathValidatorResult"/>
+                    <TestedMethod name="public PublicKey getPublicKey()"/>
+                    <TestedMethod name="public TrustAnchor getTrustAnchor()"/>
+
+                    <TestedClass name="java.security.cert.TrustAnchor"/>
+                    <TestedMethod name="public final X509Certificate getTrustedCert()"/>
+
+                    <TestedClass name="java.security.cert.X509Certificate"/>
+                    <TestedMethod name="public X500Principal getIssuerX500Principal()"/>
+                    <TestedMethod name="public X500Principal getSubjectX500Principal()"/>
+            
+                    <Description>
+                        Checks CertPath validation.
+                    </Description>
+                </APITestDescription>
+                
+                <Keyword name="functional"/>
+                <Source name="F_CertPathTest_04.java"/>
+                <Modification date="2005-10-04" />
+            
+                
+        <Runner ID="Runtime">
+                <Option name="-cp" value="$CP$PathSeparator$TestSuiteClassRoot$PathSeparator"/>
+                   <Option name="-Dqe.class=$TestSuiteClassRoot"/>
+                   <Option name="-Dqe.src=$TestSuiteTestRoot"/>
+                <Param name="toRun" value="org.apache.harmony.test.func.api.java.security.cert.F_CertPathTest_04.F_CertPathTest_04">
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorcert_test.cert"/>
+                    <Option value="$TestDirectory$FileSeparatorauxiliary$FileSeparatorcert_test.store"/>
+                </Param>
+        </Runner>
+
+        <Restriction name="OtherVMOnly"/>
+</Test>

@@ -1,0 +1,252 @@
+INTEL CONTRIBUTION TO APACHE HARMONY
+          December 10, 2006
+=====================================
+
+This archive contains the contribution to the Apache 
+Harmony project from Intel. The contribution consists 
+of the following component: 
+
+    - The reliability test suite
+
+The reliability test suite tests Java* run time for 
+ability to execute test scenarios for a certain amount 
+of time. The suite contains 72 tests, which cover mainly 
+API classes interacting with JVM or invoking native code. 
+The covered classes are from java.lang, java.util.zip, 
+java.nio.charset, java.text, java.nio, java.io, java.net 
+packages. Test-framework classes execute the tests in a 
+cycle in single instance of JVM for a certain amount of 
+time to reveal runtime's thread synchronization, memory 
+leakage or other issues.
+
+
+1. ARCHIVE CONTENTS
+-------------------
+
+The archive contains test source files, the building environment and 
+test running scripts.
+
+After extracting the archive, the following directories appear under 
+<EXTRACT_DIR>/reliability, where EXTRACT_DIR is the location of the
+archive content:
+
+  src      - Source files of the tests
+  run      - Test run scripts
+  
+
+2. TOOLS AND ENVIRONMENT VARIABLES REQUIRED FOR THE BUILD
+----------------------------------------------------------
+
+To build the Java* sources contained in the <EXTRACT_DIR>/reliability/src 
+directory, install and configure the following tools in the user 
+environment:
+
++ Apache Ant 	 - Build tool: Ant 1.6.5 or higher
+                   http://ant.apache.org
+
++ J2SDK 1.5.0    - J2SE* 1.5.0 compatible SDK, for example
+                   http://java.sun.com/javase/downloads/index.jsp
+
+  NOTE: 
+       + J2SDK 1.5.0 is used to run Ant scripts and compile tests sources.
+
+
+3. BUILDING TESTS
+-----------------
+
+1. Verify the values for the following environment variables:
+
+   + PATH must contain the path to the Ant bin/ directory.
+
+   + JAVA_HOME must point to Java 2 SDK 1.5.0.
+      
+   NOTE: 
+        + All paths must be absolute. 
+
+4. Build tests.
+
+   4.1 Change the directory to <EXTRACT_DIR>/reliability. 
+  
+   4.2 Compile all tests sources by running: 
+
+       ant
+
+The build produces a set of reliability tests' class files placed 
+in the following directory tree structure:
+
+<EXTRACT_DIR>/reliability
+       |
+       +--- deploy
+                |
+                \--- classes   directory contains compiled tests classes
+       
+
+4. RUNNING TESTS
+----------------
+
+1. Verify the values for the following environment variables:
+
+   + PATH must contain the path to the Ant bin/ directory.
+
+   + JAVA_HOME must point to Java 2 SDK 1.5.0.
+      
+   NOTE: 
+        + All paths must be absolute.
+
+2. Check the following test run settings specified in 
+   the <EXTRACT_DIR>/reliability/run/run.xml file:
+
+   + jvm.under.test  - path to tested jvm executable file, for example,
+                       C:\harmony-hdk-r468731\jdk\jre\bin\java
+
+   + jvm.args        - blank space separated parameters for tested jvm, 
+                       for example, -Xmx128m, etc
+
+   + work.dir        - path to working directory where tests can store 
+                       created working files
+
+   + report.dir      - path to report directory where tests' output will 
+                       be stored in files
+
+   + test.duration   - value in seconds limiting each test execution time: 
+                       each test will be executed in a cycle for 
+                       ~ test.duration seconds
+
+   + test.timeout    - value in milliseconds limiting test's process 
+                       execution time, after the test.timeout elapsed 
+                       Ant will kill test's process and consider the test 
+                       failed. Typically, can be set to 
+                       1.5 * test.duration * 1000
+
+   + stop.after.fail - if 'false', a test failes and ant will continue 
+                       execution of other tests; if 'true', ant will stop 
+                       test execution after the first test failure
+
+   + config.file     - path to file with test-specific settings
+
+
+   NOTES:
+         + The majority of tests have one or more test-specific parameters.
+
+         + The <EXTRACT_DIR>/reliability/run/run.normal.mode.settings.xml file 
+           contains test-specific settings to execute tests in 
+           non-agressive mode, that is tests start not many threads to 
+           run in parallel, tests open/create not many files, etc.
+
+         + One can change test-specific settings to make tests more or less 
+           agressive.
+
+3. Run tests.
+
+   3.1 Change the directory to <EXTRACT_DIR>/reliability/run. 
+
+   3.2 Execute all tests by running:
+
+       ant -f run.xml
+
+   The structure of test run targets/dependencies is the following:
+
+    default
+       |
+       +--- run.api.zip                          - run all zip tests
+       |
+       +--- run.api.kernel                       - run all tests in the sub-targets:
+       |      |
+       |      +--- run.api.kernel.args           - run tests for passing 
+       |      |                                    arguments, properties, environment 
+       |      |                                    variables via exec()
+       |      +--- run.api.kernel.exec           - run Runtime.exec() test
+       |      |
+       |      +--- run.api.kernel.hooks          - run VM shutdown hooks tests
+       |      |
+       |      +--- run.api.kernel.object         - run tests for Object
+       |      |
+       |      +--- run.api.kernel.pckg           - run tests for Package
+       |      |
+       |      +--- run.api.kernel.string         - run tests for String
+       |      |
+       |      +--- run.api.kernel.thread         - run tests for Thread
+       |      |
+       |      \--- run.api.kernel.throwable      - run tests for Throwable
+       |
+       +--- run.api.text                         - run tests for java.text
+       |
+       +--- run.api.nio                          - run all tests in the sub-targets:
+       |      |
+       |      +--- run.api.nio.charset           - run tests for java.nio.Charset
+       |      |
+       |      +--- run.api.nio.channels          - run tests for java.nio.channels
+       |      |
+       |      \--- run.api.nio.buffers           - run tests for java.nio buffers
+       |       
+       +--- run.api.io                           - run test for io API
+       | 
+       +--- run.api.net                          - run test for networking API
+       |
+       \--- run.vm                               - run all tests in the sub-targets:
+              |
+              +--- run.vm.finalization           - run test Object finalization
+              |
+              \--- run.vm.exceptions             - run test for exception throwning
+
+   EXAMPLES:
+
+   + ant -f run.xml                         - runs all tests
+
+   + ant -f run.xml run.api.kernel          - runs only tests from 
+                                             <EXTRACT_DIR>/reliability/src/java/org/apache/harmony/test/reliability/api/kernel/
+
+   + ant -f run.xml run.api.kernel.thread   - runs only tests from 
+                                             <EXTRACT_DIR>/reliability/src/java/org/apache/harmony/test/reliability/api/kernel/thread/
+
+
+5. KNOWN ISSUES
+---------------
+
+1. Some tests can fail because of Ant's process timeout, when Ant 
+   kills test's process.
+   Usually, this can happen due to one of the following reasons:
+
+   + Test's last iteration takes much more time than the previous ones.
+
+   + Ant's process timeout, which is set in test.timeout property in the 
+     <EXTRACT_DIR>/reliability/run/run.xml file, is not big enough 
+     to complete even one test iteration.
+
+   To avoid the failure, use one of the following workarounds:
+
+   + Increase test.timeout value in the <EXTRACT_DIR>/reliability/run/run.xml file.
+
+   + Change test-specific settings in the 
+     <EXTRACT_DIR>/reliability/run/run.normal.mode.settings.xml file 
+     to make the test less agressive.
+
+2. At least three tests use Java* 1.5 language features or API:
+
+   + The test api.kernel.hooks.AddRmPropertiesHooksTest uses/tests 
+     the System.clearProperty(String) method.
+
+   + The test api.nio.channels.filechannel.FileChannelThrSafetyTest 
+     uses the Thread.getId() method.
+
+   + The test api.kernel.string.InsensitiveTest uses Java* 1.5 laguage features.
+
+
+6. TODO
+-------
+
+1. Add capability to run only one or several specified tests, 
+   other than all tests under certain target.
+
+2. Add capability to exclude tests from test run, other than 
+   comment corresponding test invocation lines in 
+   the <EXTRACT_DIR>/reliability/run/run.*.xml files.
+
+3. Make test.timeout automatically calculated as 1.5 * test.duration * 1000.
+
+
+7. DISCLAIMER AND LEGAL INFORMATION
+------------------------------------
+
+*) Other brands and names are the property of their respective owners.
+

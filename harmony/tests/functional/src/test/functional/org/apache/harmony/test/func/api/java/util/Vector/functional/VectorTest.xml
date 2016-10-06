@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+<Test
+    ID="VectorTest"
+    date-of-creation="2005-02-21"
+    timeout="1"
+    >
+        
+        
+        <APITestDescription>
+            <TestedClass name="java.util.Vector"/>
+            
+            <TestedMethod name="public void add(int index, E element)"/>
+            <TestedMethod name="public boolean add(E o)"/>
+            <TestedMethod name="public boolean addAll(Collection&lt;? extends E&gt; c)"/>
+            <TestedMethod name="public boolean addAll(int index, Collection&lt;? extends E&gt; c)"/>
+            <TestedMethod name="public void addElement(E obj)"/>
+            <TestedMethod name="public int capacity()"/>        
+            <TestedMethod name="clear()"/>
+            <TestedMethod name="Object clone()"/>
+            <TestedMethod name="public boolean contains(Object value)"/>
+            <TestedMethod name="public boolean containsAll(Collection&lt;?&gt; c)"/>
+            <TestedMethod name="copyInto(Object[])"/>
+            <TestedMethod name="public E elementAt(int index)"/>
+            <TestedMethod name="public Enumeration&lt;E&gt; elements()"/>
+            <TestedMethod name="ensureCapacity(int)"/>
+            <TestedMethod name="public boolean equals(Object obj)"/>
+            <TestedMethod name="public E firstElement()"/>
+            <TestedMethod name="public E get(int index)"/>
+            <TestedMethod name="public int hashCode()"/>
+            <TestedMethod name="public int indexOf(Object elem)"/>
+            <TestedMethod name="public int indexOf(Object elem, int index)"/>
+            <TestedMethod name="public void insertElementAt(E obj, int index)"/>
+            <TestedMethod name="public boolean isEmpty()"/>
+            <TestedMethod name="public E lastElement()"/>
+            <TestedMethod name="public int lastIndexOf(Object elem)"/>
+            <TestedMethod name="public int lastIndexOf(Object elem, int index)"/>
+            <TestedMethod name="public E remove(int index)"/>
+            <TestedMethod name="public boolean remove(Object o)"/>
+            <TestedMethod name="public boolean removeAll(Collection&lt;?&gt; c)"/>
+            <TestedMethod name="removeAllElements()"/>
+            <TestedMethod name="public boolean removeElement(Object obj)"/>       
+            <TestedMethod name="removeElementAt(int)"/>
+            <TestedMethod name="public boolean retainAll(Collection&lt;?&gt; c)"/>
+            <TestedMethod name="public E set(int index, E element)"/>
+            <TestedMethod name="public void setElementAt(E obj, int index)"/>
+            <TestedMethod name="setSize(int)"/>
+            <TestedMethod name="public int size()"/>
+            <TestedMethod name="public List&lt;E&gt; subList(int fromIndex, int toIndex)"/>
+            <TestedMethod name="public Object[] toArray()"/>
+            <TestedMethod name="public &lt;T&gt; T[] toArray(T[] a)"/>        
+            <TestedMethod name="public String toString()"/>
+            <TestedMethod name="trimToSize()"/>
+            
+            <Description>
+                This is the functional test for synchronized methods of Vector
+            </Description>
+        </APITestDescription>
+        <Keyword name="functional"/> 
+
+        <Source name="VectorTest.java"/>
+            
+        <Runner ID="Runtime">
+            <Param name="toRun" value="org.apache.harmony.test.func.api.java.util.Vector.functional.VectorTest"/>
+        </Runner>
+</Test>

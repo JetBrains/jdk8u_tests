@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="WindowTest"
+    date-of-creation="2005-04-04"
+    timeout="5"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.awt.Window"/>
+        
+        <Case ID="testWindow_addPropertyChangeListener">
+            <TestedMethod name="public void addPropertyChangeListener(PropertyChangeListener listener)"/>
+            <Precondition>create custom PropertyChangeListener</Precondition>
+            <Description>Then we change properties that are affected by default
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testWindowWindowStates">
+            <TestedMethod name="public void dispose()"/>
+            <TestedMethod name="public boolean getFocusableWindowState()"/>
+            <TestedMethod name="public Container getFocusCycleRootAncestor()"/>
+            <TestedMethod name="public void dispose()"/>                                    
+            <Precondition>Create window</Precondition>
+            <Description>This method simple checks boolean expressions like
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        
+        <Case ID="testWindow_getGraphicsConfiguration">
+            <TestedMethod name="public GraphicsConfiguration getGraphicsConfiguration()"/>          
+            <Precondition>Create window</Precondition>
+            <Description>This method returns the GraphicsConfiguration used by this Window
+            therefore this method can not return null.
+            The retrieved GraphicsConfiguration object is used to instantiate a new object 
+            of Window.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testWindow_getInputContext">
+            <TestedMethod name="public InputContext getInputContext()"/>
+            <Precondition>Create window</Precondition>
+            <Description>"A window always has an input context"-javadoc. This is why the
+             returned value cannot be null.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>
+        <Case ID="testWindow_getMostRecentFocusOwner">
+            <TestedMethod name="public Component getMostRecentFocusOwner()"/>
+    
+            <TestedClass name="java.awt.DefaultKeyboardFocusManager"/>
+            <TestedMethod name="public DefaultKeyboardFocusManager()"/>
+            
+            <Precondition>Create window</Precondition>
+            <Description>The following algorithm is used. Window's component gets focus, focus
+             gets cleared using clearGlobalFocusOwner(); afterwards getMostRecentFocusOwner()
+             is called and the returned value is verified.
+             DefaultKeyboardFocusManager() is used to clear all focus from the elements.
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>     
+        <Case ID="testWindow_processEvent">
+            <TestedMethod name="public void processEvent(AWTEvent e)"/>
+            <TestedMethod name="public void processWindowEvent(WindowEvent e)"/>            
+            <Precondition>Create window</Precondition>
+            <Description>A new window is created and enableEvents() is used in order to indicate
+            which events should be processed either by processEvent() or by 
+            processWindowEvent(WindowEvent e) method
+            </Description>
+            <Expected>The default behavior of methods as described in j2sdk-1_4_2-doc</Expected>
+        </Case>         
+
+        
+    </MulticaseTestDescription>
+    <Keyword name="Functional"/>
+    <Keyword name="GUI"/>
+        
+    <Source name="WindowTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.awt.Window.WindowTest">               
+            <Option name="-paintTimeout" value="$paintTimeout"/>
+        </Param>
+    </Runner>
+</Test> 

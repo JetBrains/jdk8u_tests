@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="QueryTest"
+   date-of-creation="2005-09-14" timeout="1">
+
+   
+
+   
+
+   <APITestDescription>
+       <TestedClass name="javax.management.Query" />
+       <TestedMethod name="public static AttributeValueExp attr(String className, String name) " />
+       <TestedMethod name="public static AttributeValueExp attr(String name) " />
+       <TestedMethod name="public static AttributeValueExp classattr() " />
+       <TestedMethod name="public static QueryExp and(QueryExp q1, QueryExp q2) " />
+       <TestedMethod name="public static QueryExp anySubString(AttributeValueExp a, StringValueExp s) " />
+       <TestedMethod name="public static QueryExp between(ValueExp v1, ValueExp v2, ValueExp v3) " />
+       <TestedMethod name="public static QueryExp eq(ValueExp v1, ValueExp v2) " />
+       <TestedMethod name="public static QueryExp finalSubString(AttributeValueExp a, StringValueExp s) " />
+       <TestedMethod name="public static QueryExp geq(ValueExp v1, ValueExp v2) " />
+       <TestedMethod name="public static QueryExp gt(ValueExp v1, ValueExp v2) " />
+       <TestedMethod name="public static QueryExp in(ValueExp val, ValueExp[] valueList) " />
+       <TestedMethod name="public static QueryExp initialSubString(AttributeValueExp a, StringValueExp s) " />
+       <TestedMethod name="public static QueryExp leq(ValueExp v1, ValueExp v2) " />
+       <TestedMethod name="public static QueryExp lt(ValueExp v1, ValueExp v2) " />
+       <TestedMethod name="public static QueryExp match(AttributeValueExp a, StringValueExp s) " />
+       <TestedMethod name="public static QueryExp not(QueryExp queryExp) " />
+       <TestedMethod name="public static QueryExp or(QueryExp q1, QueryExp q2) " />
+       <TestedMethod name="public static StringValueExp value(String val) " />
+       <TestedMethod name="public static ValueExp div(ValueExp value1, ValueExp value2) " />
+       <TestedMethod name="public static ValueExp minus(ValueExp value1, ValueExp value2) " />
+       <TestedMethod name="public static ValueExp plus(ValueExp value1, ValueExp value2) " />
+       <TestedMethod name="public static ValueExp times(ValueExp value1, ValueExp value2) " />
+       <TestedMethod name="public static ValueExp value(Number val) " />
+       <TestedMethod name="public static ValueExp value(boolean val) " />
+       <TestedMethod name="public static ValueExp value(double val) " />
+       <TestedMethod name="public static ValueExp value(float val) " />
+       <TestedMethod name="public static ValueExp value(int val) " />
+       <TestedMethod name="public static ValueExp value(long val) " />
+       <TestedMethod name="public void Query() " />
+
+       <Description>
+       </Description>
+   </APITestDescription>
+
+   <Keyword name="functional" />
+
+   <Source name="QueryTest.java" />
+
+   <Runner ID="Runtime">
+       <Param name="toRun"
+           value="org.apache.harmony.test.func.api.javax.management.QueryTest" />
+   </Runner>
+   
+   <Restriction name="OtherVMOnly" />
+</Test>

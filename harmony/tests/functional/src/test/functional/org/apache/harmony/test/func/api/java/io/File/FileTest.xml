@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="FileTest"
+    date-of-creation="2004-11-23"
+    timeout="1"
+    >
+
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.File"/>
+        
+        <Case ID="testConstructor0001">
+            <TestedMethod name="File(String)"/>
+            <Precondition></Precondition>
+            <Description>call File(String) with different string arguments</Description>
+            <Expected>no exception except NPE in File((String) null)</Expected>
+        </Case>
+
+        <Case ID="testConstructor0002">
+            <TestedMethod name="File(String, String)"/>
+            <Precondition></Precondition>
+            <Description>call File(String, String) with different string arguments</Description>
+            <Expected>no exception except NPE in File(String, (String) null)</Expected>
+        </Case>
+
+        <Case ID="testConstructor0003">
+            <TestedMethod name="File(File, String)"/>
+            <Precondition></Precondition>
+            <Description>call File(File, String) with different File and String arguments</Description>
+            <Expected>no exception except NPE in File(String, (String) null)</Expected>
+        </Case>
+
+        <Case ID="testConstructor0004">
+            <TestedMethod name="File(URI)"/>
+            <Precondition></Precondition>
+            <Description>call File(URI) with different URI arguments</Description>
+            <Expected>no exception except NPE in File((URI)null)</Expected>
+        </Case>
+
+        <Case ID="testReadNonexistent">
+            <TestedMethod name="public boolean canRead()"/>
+            <Precondition>generate a path that is unlikely to exist</Precondition>
+            <Description>call canRead()</Description>
+            <Expected>returns false</Expected>
+        </Case>
+
+        <Case ID="testReadNonexistent">
+            <TestedMethod name="public boolean canRead()"/>
+            <Precondition>generate a path that is unlikely to exist</Precondition>
+            <Description>call canRead()</Description>
+            <Expected>canRead() returns false</Expected>
+        </Case>
+
+        <Case ID="testCanWriteNonexistent">
+            <TestedMethod name="public boolean canWrite()"/>
+            <Precondition>generate a path that is unlikely to exist</Precondition>
+            <Description>call canWrite()</Description>
+            <Expected>canWrite() returns false</Expected>
+        </Case>
+
+        <Case ID="testCanRead">
+            <TestedMethod name="public boolean canRead()"/>
+            <Precondition>create a file using createTempFile()</Precondition>
+            <Description>call canRead()</Description>
+            <Expected>canRead() returns true</Expected>
+        </Case>
+
+        <Case ID="testCanWrite">
+            <TestedMethod name="public boolean canWrite()"/>
+            <Precondition>create a file using createTempFile()</Precondition>
+            <Description>call canWrite() - expected true, call setReadonly() - expected true, 
+            call canWrite() - expected false, create a FileWriter on tha file - expected IOException</Description>
+            <Expected>scenario is executed properly</Expected>
+        </Case>
+        
+        <Case ID="testCompareTo">
+            <TestedMethod name="public int compareTo(File pathname)"/>
+            <Precondition></Precondition>
+            <Description>create some files with predefined string arguments as constructor parameters and compare
+            them. also compare files to objects of other types and null</Description>
+            <Expected>behaviour according to API</Expected>
+        </Case>
+        
+        <Case ID="testCreateNewFile0001">
+            <TestedMethod name="public boolean createNewFile()"/>
+            <Precondition></Precondition>
+            <Description>generate a random file name in test dir, check that it doesn't exist, 
+            call createNewFile() - it must succeed; call exists() - should return true; call createNewFile()- 
+            should return false
+            </Description>
+            <Expected>scenario is executed properly</Expected>
+        </Case>
+
+        <Case ID="testCreateNewFile0002">
+            <TestedMethod name="public boolean createNewFile()"/>
+            <Precondition></Precondition>
+            <Description>generate a file name which is in non-existent directory</Description>
+            <Expected>createNewFile() fails</Expected>
+        </Case>
+
+        <Case ID="testCreateTempFileShortPrefix">
+            <TestedMethod name="public static File createTempFile(String prefix, String suffix, File directory) throws IOException"/>
+            <Precondition></Precondition>
+            <Description>call createTempFile(String, String, File) with first 
+            argument shorter than 3 symbols</Description>
+            <Expected>IllegalArgumentException is thrown</Expected>
+        </Case>
+
+        <Case ID="testCreateTempFileNonExistentDirectory">
+            <TestedMethod name="public static File createTempFile(String prefix, String suffix, File directory) throws IOException"/>
+            <Precondition></Precondition>
+            <Description>call createTempFile(String, String, File) third argument pointing to 
+            non-existent directory</Description>
+            <Expected>IOException is thrown</Expected>
+        </Case>
+
+        <Case ID="testCreateTempFile">
+            <TestedMethod name="public static File createTempFile(String prefix, String suffix, File directory) throws IOException"/>
+            <Precondition></Precondition>
+            <Description>create temp file using createTempFile()</Description>
+            <Expected>exists() on  it returns true and its name starts with the requested prefix and
+            ends with the requested suffix</Expected>
+        </Case>
+
+        <Case ID="testCreateTempFileNullSuffix">
+            <TestedMethod name="public static File createTempFile(String prefix, String suffix, File directory) throws IOException"/>
+            <Precondition></Precondition>
+            <Description>create temp file using createTempFile(String, null, File)</Description>
+            <Expected>exists() on  it returns true and its name starts with the requested prefix and
+            ends with ".tmp"</Expected>
+        </Case>
+
+        <Case ID="testDelete">
+            <TestedMethod name="public boolean delete()"/>
+            <Precondition></Precondition>
+            <Description>create temp file using createTempFile(String, String, File) - exists() must return true;
+            call delete() - must return true; call exists() - must return false(); call mkdir() - muts return true();
+            call exists() - must return true; call isDirectory() - must return true; call delete() - must return true;
+            call exists() - must return false; generate file name inside that dir (2 levels lower this directory) and
+            call mkdirs() - must return true; call delete() - must return false; call delete on create file 
+            hierarchy in proper order (from leaves to root) - all must return true</Description>
+            <Expected>scenario is executed properly</Expected>
+        </Case>
+
+        <Case ID="testEquals">
+            <TestedMethod name="public boolean equals(Object obj)"/>
+            <Precondition></Precondition>
+            <Description>create some files with predefined string arguments as constructor parameters and compare
+            them using equals(). case-sencitivity on various platforms is taken into account.
+            also compare files to objects of other types and null</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testExists">
+            <TestedMethod name="public boolean exists()"/>
+            <Precondition></Precondition>
+            <Description>check that temp dir exists and file created in temp dir using createTempDir also exists and
+            file made of empty string doesn't</Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testGetAbsolutePath">
+            <TestedMethod name="public String getAbsolutePath()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and 
+            tests if they are absolute or not</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testGetCanonicalPath">
+            <TestedMethod name="public String getCanonicalPath()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and 
+            compares their canonical paths</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+        <Case ID="testGetCanonicalFile">
+            <TestedMethod name="public File getCanonicalFile()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and 
+            compares their canonical files</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+
+        <Case ID="testGetName">
+            <TestedMethod name="public String getName()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            getName() returns what is expected</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testGetParent">
+            <TestedMethod name="public String getParent()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            getParent() returns what is expected</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testGetParentFile">
+            <TestedMethod name="public File getParentFile()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            getParentFile() returns what is expected</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testGetPath">
+            <TestedMethod name="public String getPath()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            getPath() returns what is expected</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testToString">
+            <TestedMethod name="public String toString()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            toString() returns what is expected</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testHashCode">
+            <TestedMethod name="public int hashCode()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters</Description>
+            <Expected>check that hashCode() for equal files return equal values and for files with paths that 
+            differ by one symbol only values differ</Expected>
+        </Case>
+
+        <Case ID="testIsAbsolute">
+            <TestedMethod name="public boolean isAbsolute()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            isAbsolute() returns what is expected</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testIsDirectory">
+            <TestedMethod name="public boolean isDirectory()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            isDirectory() returns what is expected. Temp dir and filesystem root are tested as well</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testIsFile">
+            <TestedMethod name="public boolean isFile()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            isFile() returns what is expected. Temp dir and filesystem root are tested as well</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testLength">
+            <TestedMethod name="public boolean isFile()"/>
+            <Precondition></Precondition>
+            <Description>creates files with various strings as constructor parameters and check that
+            isFile() returns what is expected. Temp dir and filesystem root are tested as well</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testLength">
+            <TestedMethod name="public long length()"/>
+            <Precondition></Precondition>
+            <Description>tests that length of nonexistent file is 0; length of newly created file is 0; 
+            after we write 4 bytes to it its length is 4</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testList">
+            <TestedMethod name="public String[] list()"/>
+            <Precondition></Precondition>
+            <Description>tests that list of nonexistent file is 'null'; after that create empty dir,
+            writes files there one by one and test that listing returns proper files</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testListFilter">
+            <TestedMethod name="public String[] list(FilenameFilter filter)"/>
+            <Precondition></Precondition>
+            <Description>tests that listing of nonexistent file using 'null' filter is 'null'; 
+            that listing of regular file using 'null' filter is 'null';
+            that listing of newly created directory using 'null' filter is an empty array;
+            that listing of non-null filter works properly</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testListFiles">
+            <TestedMethod name="public File[] listFiles()"/>
+            <Precondition></Precondition>
+            <Description>tests that list of nonexistent file is 'null'; after that create empty dir,
+            writes files there one by one and test that listing returns proper files</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testListFilesFilter">
+            <TestedMethod name="public File[] listFiles(FilenameFilter filter)"/>
+            <Precondition></Precondition>
+            <Description>tests that listing of nonexistent file using 'null' filter is 'null'; 
+            that listing of regular file using 'null' filter is 'null';
+            that listing of newly created directory using 'null' filter is an empty array;
+            that listing of non-null filter works properly</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testMkdir">
+            <TestedMethod name="public boolean mkdir()"/>
+            <Precondition></Precondition>
+            <Description>generate random file name, then tries to make a directory with this name,
+            test created file using isDirectory(); tries to mkdir() on file in non-existent directory - it must fail;
+            tries to make existing directory -  it must fail;
+            tries to call new File("").mkdir() - it must fail
+            </Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testMkdirs">
+            <TestedMethod name="public boolean mkdirs()"/>
+            <Precondition></Precondition>
+            <Description>generate random file name, then tries to make a directory with this name,
+            test created file using isDirectory(); tries to mkdirs() on file in non-existent directory - it must fail;
+            tries to make existing directory -  it must fail;
+            tries to call new File("").mkdirs() - it must fail
+            </Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testRenameTo">
+            <TestedMethod name="public boolean renameTo(File f)"/>
+            <Precondition></Precondition>
+            <Description>tests that renaming to null fails; self-renaming succeeds; renaming to file in non-existent 
+            directory fails; that file after renaming doesn't exist; renaming between plain file and directory fails;
+            renaming read-only files succeeds; renaming directories succeeds
+            </Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testLastModified">
+            <TestedMethod name="public long lastModified()"/>
+            <TestedMethod name="public boolean setLastModified(long time)"/>
+            <Precondition></Precondition>
+            <Description>tests that 'lastModified' of a newly created file or directory is 'now'; 
+            that setLastModified(long &gt;=0) succeeds and setLastModified(long &gt; 0) fails;
+            that lastModofied of a recently modified file or directory is 'now'</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testToURL">
+            <TestedMethod name="public URL toURL()"/>
+            <Precondition></Precondition>
+            <Description>tests that URL of files that are directories end with '/' and that characters that 
+            are not legal in URL are not escaped</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+
+        <Case ID="testToURL">
+            <TestedMethod name="public URL toURL()"/>
+            <Precondition></Precondition>
+            <Description>tests that URL of files that are directories end with '/' and that characters that 
+            are not legal in URL are not escaped</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+        <Case ID="testToURL">
+            <TestedMethod name="public URI toURI()"/>
+            <Precondition></Precondition>
+            <Description>tests that URI of files that are directories end with '/' and that characters that 
+            are not legal in URI are escaped</Description>
+            <Expected>API conformance</Expected>
+        </Case>
+        
+        <Case ID="testDeleteOnExit">
+            <TestedMethod name="public void deleteOnExit()"/>
+            <Precondition></Precondition>
+            <Description>creates trees of directories and files and markes some of them with 'deleteOnExit'</Description>
+            <Expected>files and directories are deleted on exit correctly</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="FileTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.File.FileTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-generalVMOption" value="$generalVMOption"/>                                              
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

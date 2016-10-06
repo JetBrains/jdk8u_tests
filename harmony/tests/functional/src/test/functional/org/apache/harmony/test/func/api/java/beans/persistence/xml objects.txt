@@ -1,0 +1,187 @@
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- array_object_empty-->
+<!-- empty array of object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <array length="10" class="java.lang.Object"></array>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- array_primitive_allDefined-->
+<!-- array of primitive type, all elements of the array are defined. 
+    Detail: return String array. All 2 elements are set. -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <array length="2" class="int">
+        <void index="0">
+            <int>2</int>
+        </void>
+        <void index="1">
+            <int>4</int>
+        </void>
+    </array>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- array_string_someDefined -->
+<!-- Return array of string type, some elements of the array are defined.
+    Detail: return String array. 2 element are set, other 8 elements are null. -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <array length="10" class="java.lang.String">
+        <void index="3">
+            <string>dsg</string>
+        </void>
+        <void index="4">
+            <string>dsf</string>
+        </void>
+    </array>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- boolean_ --><!-- Boolean object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <boolean>true</boolean>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- byte_ --><!-- Byte object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <byte>12</byte>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- character_ --><!-- Character object  -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <char>d</char>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- class_ --><!-- Class object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <class>java.lang.String</class>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- double_ --><!-- Double object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <double>3.575</double>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- float_ --><!-- Float object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <float>3.57</float>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- integer_ --><!-- Integer object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <int>3</int>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- long_ --><!-- Long object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <long>3</long>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- null_ --><!-- null object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <null />
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- object_properties_cross_reference -->
+<!-- Return object, which has cross-reference. 
+    Detail: return Bean2 object so that object of Bean3 has property which refers to Bean2 object,
+    which has property which refers to the same former Bean3 object. -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <object
+        class="org.apache.harmony.test.func.api.java.beans.persistence.beans.Bean4"
+        id="Bean40">
+        <void property="bean5">
+            <object
+                class="org.apache.harmony.test.func.api.java.beans.persistence.beans.Bean5">
+                <void property="bean4">
+                    <object idref="Bean40"></object>
+                </void>
+            </object>
+        </void>
+    </object>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- object_properties_noreference -->
+<!-- Return object, 2 of 4 properties of the object are set.
+    Detail: return Bean1 object, title and subTitle properties of the Bean1 object are set.  -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <object
+        class="org.apache.harmony.test.func.api.java.beans.persistence.beans.Bean1">
+        <void property="subTitle">
+            <string>Abcdef</string>
+        </void>
+        <void property="title">
+            <string>Abcdef</string>
+        </void>
+    </object>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- object_properties_reference -->
+<!-- Return object, values of 2 properties of this object are one object.
+    Detail: return Bean2 object so that Bean3 object is set as value title and subTitle properties of Bean2.  -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <object
+        class="org.apache.harmony.test.func.api.java.beans.persistence.beans.Bean2">
+        <void property="subTitle">
+            <object
+                class="org.apache.harmony.test.func.api.java.beans.persistence.beans.Bean3"
+                id="Bean30">
+            </object>
+        </void>
+        <void property="title">
+            <object idref="Bean30"></object>
+        </void>
+    </object>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- object_properties_reference_to_returnedObject -->
+<!-- Return object, which has property, value of which is returned object.
+    Detail: return Bean3 object so that value of bean3 property is returned bean. -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <object
+        class="org.apache.harmony.test.func.api.java.beans.persistence.beans.Bean3"
+        id="Bean30">
+        <void property="bean3">
+            <object idref="Bean30"></object>
+        </void>
+    </object>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- short_ --><!-- Short object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <short>23</short>
+</java>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- string_ --><!-- String object -->
+<java class="java.beans.XMLDecoder" version="1.4.2_04">
+    <string>Abc</string>
+</java>

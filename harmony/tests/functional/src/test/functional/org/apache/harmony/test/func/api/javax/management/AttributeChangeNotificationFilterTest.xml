@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<!--
+-->
+<Test ID="AttributeChangeNotificationFilterTest"
+    date-of-creation="2005-06-06" timeout="1">
+
+    
+
+    
+
+    <APITestDescription>
+        <TestedClass
+            name="javax.management.AttributeChangeNotificationFilter" />
+        <TestedMethod name="public Vector getEnabledAttributes() " />
+        <TestedMethod
+            name="public boolean isNotificationEnabled(Notification notification) " />
+        <TestedMethod
+            name="public void AttributeChangeNotificationFilter() " />
+        <TestedMethod name="public void disableAllAttributes() " />
+        <TestedMethod name="public void disableAttribute(String name) " />
+        <TestedMethod
+            name="public void enableAttribute(String name) throws IllegalArgumentException " />
+
+        <Description>
+            1. Create MBean server
+
+            2. Register HelloMBean with the server.
+
+            3. Add notification listener to the registered MBean with
+            AttributeChangeNotificationFilter.
+
+            4. Enable Name attribute change notifications to be sent to
+            the listener.
+
+            5. Change Name attribute of the MBean.
+
+            6. Verify that notification has been received.
+
+            7. Enable Attribute1.
+
+            8. Disable Name.
+
+            9. Change Name.
+
+            10. Verify that notification has not been received.
+
+            11. Enable Name
+
+            12. Verify that the getEnabledAttributes() method returns
+            the list containing Name and Attribute1.
+
+            13. Disable all attributes.
+
+            14. Change Name.
+
+            15. Verify that notification has not been received.
+
+            16. Verify that the method enableAttribute() throws
+            IllegalArgumentException when the attribute name parameter
+            is null.
+        </Description>
+    </APITestDescription>
+
+    <Keyword name="functional" />
+
+    <Source name="AttributeChangeNotificationFilterTest.java" />
+    <Source name="share/Hello.java" />
+    <Source name="share/HelloMBean.java" />
+
+    <Runner ID="Runtime">
+        <Param name="toRun"
+            value="org.apache.harmony.test.func.api.javax.management.AttributeChangeNotificationFilterTest" />
+    </Runner>
+    
+    <Restriction name="OtherVMOnly" />
+</Test>

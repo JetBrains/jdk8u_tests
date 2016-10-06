@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!--
+-->
+
+<!DOCTYPE Test SYSTEM '../../../../../../../../../test.dtd'>
+
+<Test ID="Btest5632"
+        date-of-creation="2005-11-14"
+        timeout="10"
+    >
+
+    
+    
+
+    <Description>
+        (vm crashes in some cases with enabled HLO 
+        if a method has nested 'for (;;)' loop)
+     
+        Please, note that this is reproducible with HLO enabled only.
+    </Description>
+
+    <Keyword name="regression"/>
+    <Keyword name="opt"/>
+    <Keyword name="hlo"/>
+
+    <Source name="Btest5632.java"/>
+
+    <Runner ID="ExecuteRegression">
+        <Param name="toRun" value="crash">
+            <Option name="~opt"/>
+            <Option name="~skipOff"/>
+            <Option name="~testName=org.apache.harmony.test.func.reg.jit.btest5632.Btest5632"/>
+        </Param>
+    </Runner>
+
+</Test>

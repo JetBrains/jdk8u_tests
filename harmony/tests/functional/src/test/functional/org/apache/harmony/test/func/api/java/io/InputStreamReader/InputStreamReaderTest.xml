@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="InputStreamReaderTest"
+    date-of-creation="2004-12-10"
+    timeout="1"
+    >
+
+    
+    
+
+    <MulticaseTestDescription>
+        <TestedClass name="java.io.InputStreamReader"/>
+        
+        <Case ID="testClose">
+            <TestedMethod name="close()"/>
+            <Precondition>create the InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.close()</Description>
+            <Expected>no exception</Expected>
+        </Case>
+
+        <Case ID="testReadChar">
+            <TestedMethod name="public int read() "/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.read()</Description>
+            <Expected>no exception is thrown and proper value is returned</Expected>
+        </Case>
+
+        <Case ID="testReadChars0001">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public int read(char[] cbuf)"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.read(char[])</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testReadChars0002">
+            <TestedMethod name="public int read(char[] cbuf, int off, int len)"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.read(char[], int start, int length)</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testReadChars0002">
+            <TestedMethod name="public int read(char[] cbuf, int off, int len)"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.read(char[], int start, int length)</Description>
+            <Expected>proper values are read</Expected>
+        </Case>
+
+        <Case ID="testSkipNegative">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public long skip(long l)"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.skip(negative value)</Description>
+            <Expected>IllegalArgumentException is thrown</Expected>
+        </Case>
+
+        <Case ID="testSkip">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public long skip(long l)"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.skip(arg) and InputStreamReader.read() after it</Description>
+            <Expected>proper value is read</Expected>
+        </Case>
+
+        <Case ID="testReady">
+            <TestedMethod name="public boolean ready() throws IOException"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.ready()</Description>
+            <Expected>return value is 'true'</Expected>
+        </Case>
+
+        <Case ID="testMarkSupported">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public boolean markSupported()"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.markSupported()</Description>
+            <Expected>return value is 'false'</Expected>
+        </Case>
+
+        <Case ID="testMark">
+            <TestedClass name="java.io.Reader"/>
+            <TestedMethod name="public void mark(int i)"/>
+            <Precondition>create an InputStreamReader object</Precondition>
+            <Description>call InputStreamReader.mark()</Description>
+            <Expected>IOException is thrown</Expected>
+        </Case>
+        
+        <Case ID="testConstructorCharset">
+            <TestedMethod name="public InputStreamReader(InputStream is, String s)"/>
+            <TestedMethod name="public InputStreamReader(InputStream is, Charset c)"/>
+            <Precondition></Precondition>
+            <Description>iterate Charset.availableCharsets(), try to create InputStreamReader 
+            with every charset, then create InputStreamReader with a non-existent charset name</Description>
+            <Expected>all existing charsets pass, UnsupportedEncodingException is thrown on 
+            a non-existing charset</Expected>
+        </Case>
+
+        <Case ID="testGetEncoding">
+            <TestedMethod name="public String getEncoding()"/>
+            <Precondition>create a few readers using InputStreamReader(InputStream, String) 
+            with misc charset names</Precondition>
+            <Description>call getEncoding()</Description>
+            <Expected>expected values (historical names) returned</Expected>
+        </Case>
+
+        <Case ID="testReadCharset">
+            <TestedMethod name="public InputStreamReader(InputStream is, String s)"/>
+            <TestedMethod name="public int read() "/>
+            <Precondition>create a few reader using InputStreamReader(InputStream, String) 
+            with misc charset names reading from gold files</Precondition>
+            <Description>call read() several times</Description>
+            <Expected>proper values returned</Expected>
+        </Case>
+        
+    </MulticaseTestDescription>
+
+    <Keyword name="functional"/>    
+    
+    <Source name="InputStreamReaderTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.io.InputStreamReader.InputStreamReaderTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-generalVMOption" value="$generalVMOption"/>                                              
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+    <Restriction name="OtherVMOnly"/>
+</Test> 

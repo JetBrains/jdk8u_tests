@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../../../test.dtd'>
+
+<Test
+    ID="MetalLookAndFeelTest"
+    date-of-creation="2005-05-06"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="javax.swing.plaf.metal.MetalLookAndFeel"/>
+        
+        <Case ID="testMetalLookAndFeel_allStaticGetters">
+            <TestedMethod name="public static FontUIResource getControlTextFont()"/>
+            <TestedMethod name="public static FontUIResource getSystemTextFont()"/>
+            <TestedMethod name="public static FontUIResource getUserTextFont()"/>
+            <TestedMethod name="public static FontUIResource getMenuTextFont()"/>
+            <TestedMethod name="public static FontUIResource getWindowTitleFont()"/>
+            <TestedMethod name="public static FontUIResource getSubTextFont()"/>
+            <TestedMethod name="public static ColorUIResource getDesktopColor()"/>
+            <TestedMethod name="public static ColorUIResource getFocusColor()"/>
+            <TestedMethod name="public static ColorUIResource getControl()"/>
+            <TestedMethod name="public static ColorUIResource getControlShadow()"/>
+            <TestedMethod name="public static ColorUIResource getControlDarkShadow()"/>
+            <TestedMethod name="public static ColorUIResource getControlHighlight()"/>
+            <TestedMethod name="public static ColorUIResource getPrimaryControl()"/>
+            <TestedMethod name="public static ColorUIResource getPrimaryControlShadow()"/>
+            <TestedMethod name="public static ColorUIResource getPrimaryControlDarkShadow()"/>
+            <TestedMethod name="public static ColorUIResource getPrimaryControlInfo()"/>
+            <TestedMethod name="public static ColorUIResource getPrimaryControlHighlight()"/>
+            <TestedMethod name="public static ColorUIResource getSystemTextColor()"/>
+            <TestedMethod name="public static ColorUIResource getControlTextColor()"/>
+            <TestedMethod name="public static ColorUIResource getInactiveControlTextColor()"/>
+            <TestedMethod name="public static ColorUIResource getInactiveSystemTextColor()"/>
+            <TestedMethod name="public static ColorUIResource getUserTextColor()"/>
+            <TestedMethod name="public static ColorUIResource getTextHighlightColor()"/>
+            <TestedMethod name="public static ColorUIResource getHighlightedTextColor()"/>
+            <TestedMethod name="public static ColorUIResource getWindowBackground()"/>
+            <TestedMethod name="public static ColorUIResource getWindowTitleBackground()"/>
+            <TestedMethod name="public static ColorUIResource getWindowTitleInactiveBackground()"/>
+            <TestedMethod name="public static ColorUIResource getWindowTitleInactiveForeground()"/>
+            <TestedMethod name="public static ColorUIResource getMenuBackground()"/>
+            <TestedMethod name="public static ColorUIResource getMenuForeground()"/>
+            <TestedMethod name="public static ColorUIResource getMenuSelectedBackground()"/>
+            <TestedMethod name="public static ColorUIResource getMenuSelectedForeground()"/>
+            <TestedMethod name="public static ColorUIResource getMenuDisabledForeground()"/>
+            <TestedMethod name="public static ColorUIResource getSeparatorBackground()"/>
+            <TestedMethod name="public static ColorUIResource getSeparatorForeground()"/>
+            <TestedMethod name="public static ColorUIResource getAcceleratorForeground()"/>
+            <TestedMethod name="public static ColorUIResource getAcceleratorForeground()"/>
+            
+            <Precondition></Precondition>
+            <Description>Check that all getters return not null.</Description>
+            <Expected>return not null.</Expected>
+        </Case>
+    </MulticaseTestDescription>             
+    
+    <Keyword name = "functional"/>
+    <Keyword name = "gui"/>
+        
+    <Source name="MetalLookAndFeelTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.javax.swing.plaf.metal.MetalLookAndFeel.MetalLookAndFeelTest">
+        </Param>
+    </Runner>
+</Test> 

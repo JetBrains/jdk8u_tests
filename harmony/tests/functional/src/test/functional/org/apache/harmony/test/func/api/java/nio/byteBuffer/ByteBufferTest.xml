@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!-- 
+-->
+
+
+<Test
+    ID="ByteBufferTest"
+    date-of-creation="2005-02-02"
+    timeout="1"
+    >
+
+    
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.nio.ByteBuffer"/>
+
+        <Case ID="testAllocate">
+            <TestedMethod name="public static ByteBuffer allocate(int capacity)"/>
+            <Precondition> none </Precondition>
+            <Description>allocate a buffer and check it's capacity, position, limit, arrayOffset and existence of backing array()</Description>
+            <Expected></Expected>
+        </Case>
+
+        <Case ID="testArray">
+            <TestedMethod name="public final byte[] array()"/>
+            <Precondition>allocate a ByteBuffer and fill it with random values</Precondition>
+            <Description>get backing array, test it's contents with buffer's one and check for corresponds each other</Description>
+            <Expected>correspond backing array contents to buffer's one</Expected>
+        </Case>
+
+        <Case ID="testArrayOffset">
+            <TestedMethod name="public final byte[] array()"/>
+            <Precondition>allocate a ByteBuffer and fill it with random values</Precondition>
+            <Description>get backing array's offset, and test it</Description>
+            <Expected>correspond backing array contents at the offset to buffer's one</Expected>
+        </Case>
+
+        <Case ID="testFlip">
+            <TestedClass name="java.nio.Buffer"/>
+            <TestedMethod name="public final Buffer flip()"/>
+            <Precondition>allocate a ByteBuffer and fill it with random values</Precondition>
+            <Description>call flip() and then check it's limit and position </Description>
+            <Expected>limit equals last position, new position equals zero</Expected>
+        </Case>
+
+        <Case ID="testRewind">
+            <TestedClass name="java.nio.Buffer"/>           
+            <TestedMethod name="public final Buffer rewind()"/>
+            <Precondition>allocate a ByteBuffer and fill it with random values</Precondition>
+            <Description>call rewind() and then check it's position </Description>
+            <Expected>position equals zero</Expected>
+        </Case>
+
+        <Case ID="testClear">
+            <TestedClass name="java.nio.Buffer"/>
+            <TestedMethod name="public final Buffer clear()"/>
+            <Precondition>allocate a ByteBuffer and fill it with random values</Precondition>
+            <Description>call clear() and then check it limit and position </Description>
+            <Expected>limit equals capacity, position equals zero</Expected>
+        </Case>
+
+
+
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>
+    <Source name="ByteBufferTest.java"/>
+
+    <Runner ID="MultiCase">
+        <Param name="toRun" value="org.apache.harmony.test.func.api.java.nio.byteBuffer.ByteBufferTest">
+                <Option name="-reference" value="$ReferenceRuntime"/>
+                <Option name="-tested" value="$TestedRuntime"/>
+                <Option name="-temp" value="$TempStorage"/>
+                <Option name="-usedCP" value="$CP"/>
+                <Option name="-bootCP" value="$bootClassPath"/>
+                <Option name="-atomic" value="$performance.tests.atomic"/>
+                <Option name="-sets" value="$performance.tests.sets"/>
+                <Option name="-mode" value="$performance.tests.mode"/>
+                <Option name="-threads" value="$qa.threads"/>
+        </Param>
+    </Runner>
+</Test> 

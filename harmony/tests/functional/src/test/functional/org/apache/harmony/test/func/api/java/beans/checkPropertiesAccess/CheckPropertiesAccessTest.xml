@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='../../../../../../../../../../test.xsl'?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE Test SYSTEM '../../../../../../../../../../test.dtd'>
+<!--
+-->
+
+<Test  ID="CheckPropertiesAccessTest"  date-of-creation="2004-24-12" timeout="1">
+    
+    
+    <MulticaseTestDescription>
+        <TestedClass name="java.beans.Introspector"/>
+        <Case ID="testIntrospectorSetBeanInfoSearchPath">
+            <TestedMethod name="public static void setBeanInfoSearchPath(String[] path)"/>
+            <Description>
+                Verify that setBeanInfoSearchPath method invokes SecurityManager.checkPropertiesAccess() method. 
+                Step-by-step encoding: 
+                    - Create class which extends SecurityManager and redefines. checkPropertiesAccess() so 
+                     that this method always throws SecurityException. 
+                    - Set security manager using System.setSecurityManager(securityManager) method. 
+                    - Invoke verified method. 
+                    - Verify that verified method throws security exception. 
+            </Description>            
+        </Case>
+        <Case ID="testPropertyEditorManagerRegisterEditor">
+            <TestedClass name="java.beans.PropertyEditorManager"/>
+            <TestedMethod name="public static void registerEditor(Class&lt;?&gt; targetType, Class&lt;?&gt; editorClass)"/>
+            <Description>
+                Verify that registerEditor method invokes SecurityManager.checkPropertiesAccess() method. 
+                Step-by-step encoding: 
+                    - Create class which extends SecurityManager and redefines. checkPropertiesAccess() so 
+                     that this method always throws SecurityException. 
+                    - Set security manager using System.setSecurityManager(securityManager) method. 
+                    - Invoke verified method. 
+                    - Verify that verified method throws security exception. 
+            </Description>            
+        </Case>
+        <Case ID="testPropertyEditorManagerSetEditorSearchPath">
+            <TestedClass name="java.beans.PropertyEditorManager"/>
+            <TestedMethod name="public static void setEditorSearchPath(String[] path)"/>
+            <Description>
+                Verify that setEditorSearchPath method invokes SecurityManager.checkPropertiesAccess() method. 
+                Step-by-step encoding: 
+                    - Create class which extends SecurityManager and redefines. checkPropertiesAccess() so 
+                     that this method always throws SecurityException. 
+                    - Set security manager using System.setSecurityManager(securityManager) method. 
+                    - Invoke verified method. 
+                    - Verify that verified method throws security exception. 
+            </Description>            
+        </Case>
+        <Case ID="testBeansSetDesignTime">
+            <TestedClass name="java.beans.Beans"/>
+            <TestedMethod name="public static void setDesignTime(boolean isDesignTime)"/>
+            <Description>
+                Verify that setDesignTime method invokes SecurityManager.checkPropertiesAccess() method. 
+                Step-by-step encoding: 
+                    - Create class which extends SecurityManager and redefines. checkPropertiesAccess() so 
+                     that this method always throws SecurityException. 
+                    - Set security manager using System.setSecurityManager(securityManager) method. 
+                    - Invoke verified method. 
+                    - Verify that verified method throws security exception. 
+            </Description>            
+        </Case>
+        <Case ID="testBeansSetGuiAvailable">
+            <TestedClass name="java.beans.Beans"/>
+            <TestedMethod name="public static void setGuiAvailable(boolean isGuiAvailable)"/>                        
+            <Description>
+                Verify that setGuiAvailable method invokes SecurityManager.checkPropertiesAccess() method. 
+                Step-by-step encoding: 
+                    - Create class which extends SecurityManager and redefines. checkPropertiesAccess() so 
+                     that this method always throws SecurityException. 
+                    - Set security manager using System.setSecurityManager(securityManager) method. 
+                    - Invoke verified method. 
+                    - Verify that verified method throws security exception. 
+            </Description>            
+        </Case>                        
+    </MulticaseTestDescription>
+    <Keyword name="functional"/>    
+    <Source name="checkPropertiesAccessTest.java"/>
+
+    <Runner ID="MultiCase">
+         <Param name="toRun" value="org.apache.harmony.test.func.api.java.beans.checkPropertiesAccess.CheckPropertiesAccessTest"/></Runner>
+</Test>

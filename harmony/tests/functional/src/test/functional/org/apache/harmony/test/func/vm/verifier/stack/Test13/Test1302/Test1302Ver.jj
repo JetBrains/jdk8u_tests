@@ -1,0 +1,280 @@
+;  Licensed to the Apache Software Foundation (ASF) under one or more
+;  contributor license agreements.  See the NOTICE file distributed with
+;  this work for additional information regarding copyright ownership.
+;  The ASF licenses this file to You under the Apache License, Version 2.0
+;  (the "License"); you may not use this file except in compliance with
+;  the License.  You may obtain a copy of the License at
+;
+;     http://www.apache.org/licenses/LICENSE-2.0
+;
+;  Unless required by applicable law or agreed to in writing, software
+;  distributed under the License is distributed on an "AS IS" BASIS,
+;  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;  See the License for the specific language governing permissions and
+;  limitations under the License.
+;
+;
+;
+
+.class public org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302Ver
+.super java/lang/Object
+
+;
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokespecial java/lang/Object/<init>()V
+   return
+.end method
+
+;
+; test method
+.method public test()V
+   .limit stack 6
+   .limit locals 3
+
+; store 0 to localvariable2
+   sipush 0
+   istore_2
+
+; push Object, E, Object, P, Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+
+lab:
+   iinc 2 1 ; localvariable2++
+   pop
+   invokevirtual org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302H/test()V
+   pop
+   invokevirtual org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302B/test()V
+   pop
+
+   iload_2
+   tableswitch 1
+        l1 ; if 1 jump to l1
+        l2 ; if 2 jump to l2
+        l3 ; if 3 jump to l3
+        l4 ; if 4 jump to l4
+        l5 ; if 5 jump to l5
+        l6 ; if 6 jump to l6
+        l7 ; if 7 jump to l7
+        l8 ; if 8 jump to l8
+        l9 ; if 9 jump to l9
+        l10 ; if 10 jump to l10
+     default: def ; jump to def
+
+l1:
+; push Thread, E, Thread, P, Thread
+   new java/lang/Thread
+   dup
+   invokespecial java/lang/Thread/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Thread
+   dup
+   invokespecial java/lang/Thread/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Thread
+   dup
+   invokespecial java/lang/Thread/<init>()V
+   goto lab
+
+l2:
+; push String, E, String, P, String
+   new java/lang/String
+   dup
+   invokespecial java/lang/String/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/String
+   dup
+   invokespecial java/lang/String/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/String
+   dup
+   invokespecial java/lang/String/<init>()V
+   goto lab
+
+l3:
+; push E, E, E, P, P
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   goto lab
+
+l4:
+; push Object, E, Object, P, Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l5:
+; push Object, E, Object, P, Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l6:
+; push Object, E, Object, P, Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l7:
+; push Object, E, Object, P, Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l8:
+; push Object, E, Object, P, Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+ 
+l9:
+; push Object, E, Object, P, Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+l10:
+; push Object, E or Object, Object, P , Object
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   iconst_1
+   ifeq l11
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302E/<init>()V
+   goto l12
+l11:
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+l12:
+
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   new org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P
+   dup
+   invokespecial org/apache/harmony/test/func/vm/verifier/stack/Test13/Test1302/Test1302P/<init>()V
+   new java/lang/Object
+   dup
+   invokespecial java/lang/Object/<init>()V
+   goto lab
+
+def:
+   return
+.end method
