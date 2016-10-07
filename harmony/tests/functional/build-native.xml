@@ -33,12 +33,23 @@
     <condition property="compiler" value="${compiler.win}" else="${compiler.linux}">
         <os family="windows" />
     </condition>
-    <condition property="test.java.include.OS" value="${test.java.include}/win32" 
-                                                else="${test.java.include}/linux">
+
+    <condition property="test.java.include.OS" value="${test.java.include}/win32">
         <os family="windows" />
     </condition>
 
-    <target name="build.native" depends="depends-check-cpptasks">           
+    <condition property="test.java.include.OS" value="${test.java.include}/linux">
+        <and>
+            <os name="linux"/>
+            <os family="unix"/>
+        </and>
+    </condition>
+
+    <condition property="test.java.include.OS" value="${test.java.include}/darwin">
+            <os family="mac"/>
+    </condition>
+
+    <target name="build.native" depends="depends-check-cpptasks">
         <mkdir dir="${bin.obj.dir}" />
 
         <taskdef resource="cpptasks.tasks">
