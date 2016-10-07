@@ -42,16 +42,16 @@
 			want to run the tests with reference implementation -->
 		<exec-mode name="XemSwitch"></exec-mode>
 
-		<exec-mode name="OptSwitch">-Xem:opt</exec-mode>
-		<exec-mode name="JetSwitch">-Xem:jet</exec-mode>
-		<exec-mode name="ServerSwitch">-Xem:server</exec-mode>
-		<exec-mode name="ServerStaticSwitch">-Xem:server_static</exec-mode>
-		<exec-mode name="ClientSwitch">-Xem:client</exec-mode>
+		<exec-mode name="OptSwitch">-XX:+AggressiveOpts</exec-mode>
+		<exec-mode name="JetSwitch">-Xcomp</exec-mode>
+		<exec-mode name="ServerSwitch">-server</exec-mode>
+		<exec-mode name="ServerStaticSwitch">-server</exec-mode>
+		<exec-mode name="ClientSwitch">-client</exec-mode>
 		<exec-mode name="IntSwitch">-Xint</exec-mode>
 
 		<!-- Assert dialog enabling/disabling switch. Please, make it empty if 
 			 you want to run the tests with reference implementation -->
-		<exec-mode name="AssertSwitch">-XX:vm.assert_dialog=false</exec-mode>
+		<exec-mode name="AssertSwitch">-disableassertions</exec-mode>
 
 		<exec-mode name="paintTimeout">4000</exec-mode>
 
