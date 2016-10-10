@@ -30,7 +30,7 @@
         <Modification date="2005-09-23" />
         <Runner ID="Execute">       
             <Param name="toRun" value="$TestedRuntime">
-                <Option name="-Xverbose:jni"/>
+                <Option name="-verbose:jni"/>
                 <Option value="-Djava.library.path=$TestSuiteLibRoot"/>
                 <Option name="-cp" value="$CP"/>
                 <Option name="TestJNI"/>

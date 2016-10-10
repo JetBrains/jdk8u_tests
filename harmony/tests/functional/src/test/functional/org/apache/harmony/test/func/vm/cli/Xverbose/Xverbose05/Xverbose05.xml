@@ -30,7 +30,7 @@
         <Modification date="2005-09-23" />
         <Runner ID="Execute">       
             <Param name="toRun" value="$TestedRuntime">
-                <Option name="-Xverbose:class"/>
+                <Option name="-verbose:class"/>
                 <Option name="-cp" value="$CP"/>
                 <Option name="CommonTest"/>
             </Param>        
