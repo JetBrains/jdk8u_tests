@@ -83,6 +83,7 @@ public class DatagramTest extends Test{
         for (int i = 0; i<numberOfThreads; i++){
             sthrds[i] = new sendRunner(this);
             if (failed == true){
+                log.add("Failed at creation of sendRunners");
                 return fail("FAILED");
             }
             sthrds[i].start();
@@ -91,6 +92,7 @@ public class DatagramTest extends Test{
         try {
             Thread.currentThread().sleep(TIME_FOR_ONE_ITERATION_TO_WORK * 60 * 1000);
         } catch (InterruptedException e1) {
+            log.add(e1);
             return fail("Main thread was interrupted");
         }
         stopThreads = true;
@@ -99,6 +101,7 @@ public class DatagramTest extends Test{
             try {
                 rthrds[i].join();
             } catch (InterruptedException e) {
+                log.add(e);
                 return fail("FAILED");
             }
         }
@@ -106,6 +109,7 @@ public class DatagramTest extends Test{
             try {
                 sthrds[i].join();
             } catch (InterruptedException e) {
+                log.add(e);
                 return fail("FAILED");
             }
         }
