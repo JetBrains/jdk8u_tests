@@ -205,7 +205,7 @@ class HttpServerStub extends Thread
                 int red = in.read(buf, 0, sizeOfMessage);
                 // The content is so big because otherwise the test is too fast and
                 // could exhaust all operating system sockets causing the failure 
-                content = "Content-Type:   text/html;charset=iso-8859-1\n\n<html>\n<body>\n";
+                content = "HTTP/1.1 200 OK\nContent-Type:   text/html;charset=iso-8859-1\n\n<html>\n<body>\n";
                 for (int l = 0; l < 2000; l++)
                 {
                     content += "<p>Hello, Word!\n";
