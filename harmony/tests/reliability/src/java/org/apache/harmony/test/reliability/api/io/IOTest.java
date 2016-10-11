@@ -270,8 +270,8 @@ public class IOTest  extends Test {
     /* Copy the content of zip files */
     protected boolean copyZipContent(String pathtoparentfiles, String chaildname,  int numfiles) {
 
-        BufferedWriter bufWriter = null;
-        BufferedReader bufReader = null;
+        BufferedOutputStream bufWriter = null;
+        BufferedInputStream bufReader = null;
         File parentFile, childFile;
         int singlCharacter;
         String fileName; 
@@ -290,8 +290,8 @@ public class IOTest  extends Test {
             }
 
             try {
-                bufReader = new BufferedReader(new FileReader(parentFile));
-                bufWriter = new BufferedWriter(new FileWriter(fileName));
+                bufReader = new BufferedInputStream(new FileInputStream(parentFile));
+                bufWriter = new BufferedOutputStream(new FileOutputStream(fileName));
                 while((singlCharacter = bufReader.read()) != -1) {
                     bufWriter.write(singlCharacter);
                 }
@@ -596,7 +596,7 @@ public class IOTest  extends Test {
     /* compress files to zip */ 
     protected boolean compressZip(String directory, String filenamezip, String withoutfilesextension, String[] listfiles) {
 
-        BufferedReader bufReader;
+        BufferedInputStream bufReader;
         FileOutputStream fos = null;
         CheckedOutputStream checkoutput = null;
         ZipOutputStream zos = null;
@@ -617,19 +617,16 @@ public class IOTest  extends Test {
             for(int i = 0; i < listfiles.length; i++) {
                 fileName = listfiles[i];
                 if(!fileName.endsWith(withoutfilesextension)) {
-                    bufReader = new BufferedReader(new FileReader(filedir + separator + listfiles[i]));
+                    bufReader = new BufferedInputStream(new FileInputStream(filedir + separator + listfiles[i]));
                     zos.putNextEntry(new ZipEntry(listfiles[i]));
                     int j;
                     while((j = bufReader.read()) != -1) {
                         zos.write(j);
                     }
+                    zos.closeEntry();
                     bufReader.close();
                 }
             }
-            zos.close();
-            fos.close();
-            checkoutput.close();
-
         } catch (FileNotFoundException e) {
             log.add("Read the "+ fileName + " file: Exception during test execution");
             log.add(e);
@@ -641,8 +638,8 @@ public class IOTest  extends Test {
             return false;
         } finally {
             try {
-                fos.close();
                 zos.close();
+                fos.close();
                 checkoutput.close();
             } catch (Exception e) {
                 log.add(e);
