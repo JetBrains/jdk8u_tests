@@ -18,7 +18,7 @@
  */
 package org.apache.harmony.test.func.reg.vm.btest3900;
 
-import java.util.logging.Logger; 
+import java.util.logging.Logger;
 import org.apache.harmony.share.MultiCase;
 import org.apache.harmony.share.Result;
 
@@ -34,67 +34,70 @@ public class Btest3900 extends MultiCase {
     }
 
     /**
-    * Tries to load specified class. 
+    * Tries to load specified class.
     * Returns passed if ClassFormatError was thrown.
     */
-    private Result classFormatTest(String className, String message) {
+    private Result classFormatTest(String className, String message, Class clazz) {
         Logger logger = Logger.global;
-        
+
         logger.info("Verify: " + message);
         try {
             Class cl = Class.forName(className);
             cl.newInstance();
             return failed("class loaded and instantiated");
-        } catch (ClassFormatError e) {
-            return passed("caught ClassFormatError (expected)");
+        } catch (Error e) {
+            if (e instanceof clazz)
+                return passed("caught: " + e + " (expected)");
+            else
+                return failed("caught " + e);
         } catch (Throwable e) {
             return failed("caught " + e);
         }
     }
-    
+
     public Result test_0C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_0C", 
-                "public private <init>");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_0C",
+                "public private <init>", VerifyError.class);
     }
 
     public Result test_1C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_1C", 
-                "public protected <init>");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_1C",
+                "public protected <init>", VerifyError.class);
     }
 
     public Result test_2C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_2C", 
-                "protected private <init>");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_2C",
+                "protected private <init>", VerifyError.class);
     }
 
     public Result test_3C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_3C", 
-                "public final  <init>");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_3C",
+                "public final  <init>", ClassFormatError.class);
     }
 
     public Result test_4C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_4C", 
-                "public static  <init>");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_4C",
+                "public static  <init>", ClassFormatError.class);
     }
 
     public Result test_5C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_5C", 
-                "public native  <init>");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_5C",
+                "public native  <init>", ClassFormatError.class);
     }
 
     public Result test_6C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_6C", 
-                "public synchronized  <init>");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_6C",
+                "public synchronized  <init>", ClassFormatError.class);
     }
 
     public Result test_7C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_7C", 
-                "public abstract <init> with code");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_7C",
+                "public abstract <init> with code", ClassFormatError.class);
     }
 
     public Result test_8C() {
-        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_8C", 
-                "public abstract <init> with empty body");
+        return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_8C",
+                "public abstract <init> with empty body", ClassFormatError.class);
     }
 
 }
