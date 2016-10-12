@@ -46,7 +46,7 @@ public class Btest3900 extends MultiCase {
             cl.newInstance();
             return failed("class loaded and instantiated");
         } catch (Error e) {
-            if (e instanceof clazz)
+            if (clazz.isInstance(e))
                 return passed("caught: " + e + " (expected)");
             else
                 return failed("caught " + e);
