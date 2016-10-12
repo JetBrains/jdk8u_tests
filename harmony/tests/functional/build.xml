@@ -319,7 +319,7 @@
         <property name="qa.class" value="-property TestSuiteClassRoot ${bin.classes}" />
         <property name="qa.lib" value="-property TestSuiteLibRoot ${bin.lib}" />
         <property name="qa.suite" value="-property TestSuiteRoot ${basedir} ${qa.class} ${qa.lib}" />
-        <property name="qa.exclude" value="-exclude ${basedir}/config/func_exclude.file" />
+        <property name="qa.exclude" value="-exclude ${basedir}/config/jb_func_exclude.file" />
         <property name="qa.non-int" value="-execopt Selector:exclude:Keyword interactive" />
         <property name="qa.jit-opts" value="" />
         <property name="qa.select" value="${qa.non-int} ${qa.exclude}" />
