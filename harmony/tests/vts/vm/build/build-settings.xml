@@ -92,11 +92,19 @@
             <os family="unix"/>
         </and>
     </condition>
+    <condition property="if.osx" value="true">
+        <and>
+            <os family="mac"/>
+        </and>
+    </condition>
     <condition property="pl_efl" value="Windows">
         <istrue value="${if.win}"/>
     </condition>
     <condition property="pl_efl" value="Linux">
         <istrue value="${if.linux}"/>
+    </condition>
+    <condition property="pl_efl" value="Mac OSX">
+        <istrue value="${if.osx}"/>
     </condition>
 
     <!-- Set architecture-->
@@ -171,7 +179,7 @@ depends.dir=depends
 depends.jars=${depends.dir}/jars
 depends.arch=${depends.dir}/arch
 depends.temp=${depends.dir}/temp
-mirror.base=http://mirrors.ibiblio.org/pub/mirrors/maven2
+mirror.base=http://central.maven.org/maven2
 
 xerces.impl.jar=${depends.jars}/xercesImpl.jar
 xerces.impl.url=${mirror.base}/xerces/xercesImpl/2.8.0/xercesImpl-2.8.0.jar

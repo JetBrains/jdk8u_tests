@@ -60,8 +60,18 @@
 		<property name="tmp.dir" location="${out.lib}/tmp"/>
 	</target>
 
+	<target name="osx.init" if="if.osx">
+		<property name="ext" value=".so"/>
+		<property name="pref" value="lib"/>
+		<property name="compiler.name" value="gcc"/>
+		<property name="add.option" value="-DLINUX -DPLATFORM_POSIX -fPIC"/>
+		<!--property name="out.lib" location="${vts.built}/bin/lib/lnx.${os.arch}"/-->
+		<property name="out.lib" location="${vts.built}/bin/lib"/>
+		<mkdir dir="${out.lib}"/>
+		<property name="tmp.dir" location="${out.lib}/tmp"/>
+	</target>
 
-	<target name="-mk.jni" depends="win.init,lnx.init"  description="compile jnitests library">
+	<target name="-mk.jni" depends="win.init,lnx.init,osx.init"  description="compile jnitests library">
 
 		<property name="jni.library.name" value="jnitests"/>
 		<mkdir dir="${tmp.dir}"/>
@@ -91,7 +101,8 @@
                                                                                                                               
                     <compilerarg value="-I${java.include}"/> 
                     <compilerarg value="-I${java.include}\win32" if="if.win"/>
-                    <compilerarg value="-I${java.include}/linux" if="if.linux"/> 
+                    <compilerarg value="-I${java.include}/linux" if="if.linux"/>
+					<compilerarg value="-I${java.include}/darwin" if="if.osx"/>
                     <compilerarg value="-I${jni.share}"/>
                     <compilerarg value="${add.option}"/>
 
@@ -185,6 +196,41 @@
 		</exec>
 	</target>
 
+	<target name="-compile.jvmti.lib.osx" depends="osx.init" description="compile cpp file to library" if="if.osx">
+
+		<mkdir dir="${tmp.dir}"/>
+		<echo message="File fullname: ${comp_file}"/>
+		<basename property="file.cpp" file="${comp_file}" suffix=".cpp"/>
+		<echo message="File name(cpp): ${file.cpp}"/>
+
+
+		<!--cc     name    = "${compiler.name}"
+			outfile = "${tmp.dir}/${file.cpp}"
+			objdir  = "${tmp.dir}"
+			outtype = "shared"
+			runtime = "${runtime.property}"
+			debug   = "on"
+                >
+
+			<fileset file="${comp_file}"/>
+			<fileset file="${jvmti.dir}/share/events.cpp"/>
+			<fileset file="${jvmti.dir}/share/utils.cpp"/>
+
+			<compilerarg value="-I${java.include}"/>
+			<compilerarg value="-I${java.include}\win32" if="if.win"/>
+			<compilerarg value="-I${java.include}/linux" if="if.linux"/>
+			<compilerarg value="-I${jvmti.share}"/>
+			<compilerarg value="${add.option}"/>
+
+		</cc-->
+
+		<!-- only g++ now supported as test compiler -->
+		<exec executable="g++" dir="${tmp.dir}" failonerror="false">
+			<arg line="-O1 -g -I${java.include} -I${java.include}/linux -I${jvmti.share} ${add.option}"/>
+			<arg line="-shared -o lib${file.cpp}${ext} ${comp_file} ${jvmti.dir}/share/events.cpp ${jvmti.dir}/share/utils.cpp"/>
+		</exec>
+	</target>
+
 	<target name="-compile.jvmti.lib.win" depends="win.init" description="compile cpp file to library" if="if.win">
 
 		<mkdir dir="${tmp.dir}"/>
@@ -207,7 +253,8 @@
                                                                                                                       
 			<compilerarg value="-I${java.include}"/> 
 			<compilerarg value="-I${java.include}\win32" if="if.win"/>
-			<compilerarg value="-I${java.include}/linux" if="if.linux"/> 
+			<compilerarg value="-I${java.include}/linux" if="if.linux"/>
+			<compilerarg value="-I${java.include}/linux" if="if.osx"/>
 			<compilerarg value="-I${jvmti.share}"/>
 			<compilerarg value="${add.option}"/>
 
@@ -231,7 +278,7 @@
         </exec>
     </target>
 
-	<target name="-mk.jvmti" depends="win.init,lnx.init" description="Compiling native parts for jvmti test">
+	<target name="-mk.jvmti" depends="win.init,lnx.init,osx.init" description="Compiling native parts for jvmti test">
 
 		<mkdir dir="${tmp.dir}"/>
 		<!-- compile files -->
