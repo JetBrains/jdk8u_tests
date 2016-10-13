@@ -16,7 +16,11 @@
 */
   
 #include <jni.h>
+#if defined(__MACH__)
+#include <stdlib.h>
+#else
 #include <malloc.h>
+#endif
 
 /*
  * Method: org.apache.harmony.vts.test.vm.jni.string_operations.NewStringUTFTest.nativeExecute([B)Ljava/lang/String;
