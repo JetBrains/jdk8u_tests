@@ -23,7 +23,7 @@
 
     <property environment="env"/>
 
-    <property name="cpptasks.jar"      location="${depends}/cpptasks-1.0b3.jar" />
+    <property name="cpptasks.jar"      location="${depends}/cpptasks.jar" />
     <property name="test.java.include" location="${env.JAVA_HOME}/include" />
     <property name="bin.lib"           location="${bin}/lib" />
     <property name="bin.obj.dir"       location="${bin.lib}/obj" />
