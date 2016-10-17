@@ -344,9 +344,9 @@ public class FilterStoreRes extends StoreRes {
             }
             resStore
                 .write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-                    + "<?xml-stylesheet type=\"text/xsl\" href=\""
-                    + path
-                    + "test.xsl\"?>\n"
+                    //+ "<?xml-stylesheet type=\"text/xsl\" href=\""
+                    //+ path
+                    //+ "test.xsl\"?>\n"
                     + "<TestRes>\n"
                     + "<property-list>\n\t<property-item name=\"OS\">"
                     + test.getTestedOS()
