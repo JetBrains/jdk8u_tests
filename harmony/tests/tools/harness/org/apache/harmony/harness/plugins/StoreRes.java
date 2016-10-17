@@ -620,9 +620,9 @@ public class StoreRes implements Storage {
                 .write("<?xml version=\""
                     + xmlVersion
                     + "\" encoding=\"UTF-8\"?>\n"
-                    + "<?xml-stylesheet type=\"text/xsl\" href=\""
-                    + path
-                    + "test.xsl\"?>\n"
+                    //+ "<?xml-stylesheet type=\"text/xsl\" href=\""
+                    //+ path
+                    //+ "test.xsl\"?>\n"
                     + "<TestRes>\n"
                     + "<property-list>\n\t<property-item name=\"OS\">"
                     + test.getTestedOS()
