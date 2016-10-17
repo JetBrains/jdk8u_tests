@@ -900,7 +900,8 @@ public class Main {
                             .add(
                                 Level.WARNING,
                                 methodLogPrefix
-                                    + "Possible incorrect value for test suite class root");
+                                    + cfgM.getTestSuiteRoot()
+                                        + File.separator + tmpVal + " - Possible incorrect value for test suite class root");
                     } else {
                         cfgM.setTestSuiteClassRoot(cfgM.getTestSuiteRoot()
                             + Constants.INTERNAL_FILE_SEP + tmpVal);
@@ -921,7 +922,8 @@ public class Main {
                             .add(
                                 Level.WARNING,
                                 methodLogPrefix
-                                    + "Possible incorrect value for test suite test root");
+                                        + cfgM.getTestSuiteRoot()
+                                        + File.separator + tmpVal + " - Possible incorrect value for test suite test root");
                     } else {
                         cfgM.setTestSuiteTestRoot(cfgM.getTestSuiteRoot()
                             + Constants.INTERNAL_FILE_SEP + tmpVal);
@@ -942,7 +944,8 @@ public class Main {
                             .add(
                                 Level.WARNING,
                                 methodLogPrefix
-                                    + "Possible incorrect value for test suite library root");
+                                        + cfgM.getTestSuiteRoot()
+                                        + File.separator + tmpVal + " - Possible incorrect value for test suite library root");
                     } else {
                         cfgM.setTestSuiteLibRoot(cfgM.getTestSuiteRoot()
                             + Constants.INTERNAL_FILE_SEP + tmpVal);
@@ -963,7 +966,8 @@ public class Main {
                             .add(
                                 Level.WARNING,
                                 methodLogPrefix
-                                    + "Possible incorrect value for test suite configuration root");
+                                        + cfgM.getTestSuiteRoot()
+                                        + File.separator + tmpVal + " - Possible incorrect value for test suite configuration root");
                     } else {
                         cfgM.setTestSuiteConfigRoot(cfgM.getTestSuiteRoot()
                             + Constants.INTERNAL_FILE_SEP + tmpVal);
