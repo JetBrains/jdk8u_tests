@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<Test
+	ID="MixedTest001"
+	date-of-creation="2005-10-17"
+	timeout="3"
+	>
+    <!--
+    Author:  Aleksander Budniy
+    Version: $Revision: 1.3 $
+    -->
+		<Copyright value="apache"/>
+		<Author value="Aleksander Budniy"/>
+		<Description>
+            This tests case exercises the JDWP agent under Thread and
+			ReferenceTypeIDs stressing. First, test loads very big number of classes
+			on debuggee side, creates separate thread and starts it vast number of
+			time. Each created thread is suspended on proper event, test sends
+			<code>ClassType.InvokeMethod</code> command for
+			<code>methodToInvoke</code> method without waiting a reply. Then test
+			runs <code>VirtualMachine.AllClasses</code> command and saves and
+			checks returned RefTypeIDs. Loads vast number of new classes, sends
+			<code>VirtualMachine.AllClasses</code> and compares returned by the
+			second AllClasses command RefTypeIDs with RefTypeIDs saved after the
+			first AllClasses command. Then checks if all RefTypeIDs have expected
+			SourceFile and signatures. Then checks replies for each
+			<code>ClassType.InvokeMethod</code> command.
+   		</Description>
+
+		<Keyword name="stress"/>
+		<Keyword name="jpda"/>
+		<Source name="MixedTest001.java"/>
+		<Source name="MixedDebuggee001.java"/>
+		<Modification date="2005-10-17" author="Aleksander Budniy"/>
+
+		<Runner ID="Runtime">
+			<Option name="-Djpda.settings.timeout=1200000"/>
+			<Param name="toRun" value="org.apache.harmony.test.stress.jpda.jdwp.scenario.MIXED001.MixedTest001">
+			</Param>
+		</Runner>
+</Test> 

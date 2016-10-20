@@ -1,0 +1,473 @@
+; Licensed to the Apache Software Foundation (ASF) under one
+; or more contributor license agreements.  See the NOTICE file
+; distributed with this work for additional information
+; regarding copyright ownership.  The ASF licenses this file
+; to you under the Apache License, Version 2.0 (the
+; "License"); you may not use this file except in compliance
+; with the License.  You may obtain a copy of the License at
+;
+;   http://www.apache.org/licenses/LICENSE-2.0
+;
+; Unless required by applicable law or agreed to in writing,
+; software distributed under the License is distributed on an
+; "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+; KIND, either express or implied.  See the License for the
+; specific language governing permissions and limitations
+; under the License.
+;    Licensed to the Apache Software Foundation (ASF) under one or more
+;    contributor license agreements.  See the NOTICE file distributed with
+
+.class public org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C
+.super java/lang/Object
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I0
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I1
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I2
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I3
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I4
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I5
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I6
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I7
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I8
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I9
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I10
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I11
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I12
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I13
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I14
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I15
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I16
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I17
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I18
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I19
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I20
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I21
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I22
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I23
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I24
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I25
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I26
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I27
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I28
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I29
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I30
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I31
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I32
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I33
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I34
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I35
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I36
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I37
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I38
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I39
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I40
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I41
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I42
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I43
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I44
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I45
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I46
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I47
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I48
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I49
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I50
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I51
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I52
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I53
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I54
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I55
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I56
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I57
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I58
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I59
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I60
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I61
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I62
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I63
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I64
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I65
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I66
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I67
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I68
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I69
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I70
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I71
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I72
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I73
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I74
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I75
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I76
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I77
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I78
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I79
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I80
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I81
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I82
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I83
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I84
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I85
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I86
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I87
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I88
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I89
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I90
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I91
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I92
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I93
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I94
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I95
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I96
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I97
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I98
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I99
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I100
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I101
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I102
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I103
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I104
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I105
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I106
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I107
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I108
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I109
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I110
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I111
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I112
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I113
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I114
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I115
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I116
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I117
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I118
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I119
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I120
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I121
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I122
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I123
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I124
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I125
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I126
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I127
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I128
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I129
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I130
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I131
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I132
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I133
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I134
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I135
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I136
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I137
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I138
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I139
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I140
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I141
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I142
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I143
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I144
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I145
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I146
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I147
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I148
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I149
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I150
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I151
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I152
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I153
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I154
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I155
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I156
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I157
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I158
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I159
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I160
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I161
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I162
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I163
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I164
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I165
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I166
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I167
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I168
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I169
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I170
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I171
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I172
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I173
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I174
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I175
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I176
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I177
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I178
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I179
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I180
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I181
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I182
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I183
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I184
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I185
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I186
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I187
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I188
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I189
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I190
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I191
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I192
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I193
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I194
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I195
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I196
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I197
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I198
+.implements org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_I199
+;
+
+.field private f0 I
+.field private f1 I
+.field private f2 I
+.field private f3 I
+.field private f4 I
+.field private f5 I
+.field private f6 I
+.field private f7 I
+.field private f8 I
+.field private f9 I
+.field private f10 I
+
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokenonvirtual java/lang/Object/<init>()V
+   return
+.end method
+
+.method public mPut0(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f0 I
+   return
+.end method
+.method public mPut1(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 1
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f1 I
+   return
+.end method
+
+.method public mPut2(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 2
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f2 I
+   return
+.end method
+
+.method public mPut3(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 3
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f3 I
+   return
+.end method
+
+.method public mPut4(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 4
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f4 I
+   return
+.end method
+
+
+.method public mPut5(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 5
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f5 I
+   return
+.end method
+
+.method public mPut6(I)V
+   aload_0
+    .limit stack 4
+    .limit locals 4
+   iload_1
+   sipush 6
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f6 I
+   return
+.end method
+
+.method public mPut7(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 7
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f7 I
+   return
+.end method
+
+.method public mPut8(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 8
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f8 I
+   return
+.end method
+
+.method public mPut9(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 9
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f9 I
+   return
+.end method
+
+.method public mPut10(I)V
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   iload_1
+   sipush 10
+   iadd
+   putfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f10 I
+   return
+.end method
+
+
+.method public mGet0(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f0 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet1(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f1 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet2(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f2 I
+   iload_1
+   iadd
+   ireturn
+   ireturn
+.end method
+
+.method public mGet3(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f3 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet4(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f4 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet5(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f5 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet6(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f6 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet7(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f7 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet8(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f8 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet9(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f9 I
+   iload_1
+   iadd
+   ireturn
+.end method
+
+.method public mGet10(I)I
+    .limit stack 4
+    .limit locals 4
+   aload_0
+   getfield org/apache/harmony/test/stress/classloader/share/SupIntfClasses/testIntfLmt_C/f10 I
+   iload_1
+   iadd
+   ireturn
+.end method
+

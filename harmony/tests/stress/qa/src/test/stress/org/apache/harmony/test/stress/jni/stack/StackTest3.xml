@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Vladimir Nenashev
+Version: $Revision: 1.6 $
+-->
+<Test
+	ID="StackTest3"
+        date-of-creation="2005-10-19"
+        timeout="3">
+    	<Copyright value="apache"/>
+        <Author value="Vladimir Nenashev"/>
+        <Description>
+		Java class calls its native method. Native method calls itself
+		with Call_Type_Method() JNI function specified number of times
+		(enough to cause stack oveflow). Then the method catches
+		the StackOverflowError and carries out some calculation
+		and returns the result to the top level (Java main method).
+		Parameters:
+			-arrSize - Length of arrays for calculations (7000 by default)
+			-attempts - Number of native method invocations from Java code (200 by default)
+        </Description>        
+        <Keyword name="stress"/>
+        <Source name="StackTest3.java"/>
+
+        <Runner ID="Runtime">
+            <Option value="-Dorg.apache.harmony.test.share.stress.ReliabilityRunner.params=
+					org.apache.harmony.test.stress.jni.stack.StackTest3 {}"/>
+		<Option value="-Dorg.apache.harmony.test.stress.jni.stack.share.STStackTest.fillMemory=0"/>
+			<Param name="toRun" value="org.apache.harmony.test.share.stress.ReliabilityRunner">
+			</Param>
+		</Runner>
+		<Restriction name="OtherVMOnly"/>
+</Test>

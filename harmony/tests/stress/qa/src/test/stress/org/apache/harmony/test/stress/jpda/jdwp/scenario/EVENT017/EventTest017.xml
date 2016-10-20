@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<Test
+	ID="EventTest017"
+	date-of-creation="2006-08-23"
+	timeout="1"
+	>
+    <!--
+    Author:  Anatoly Bondarenko
+    Version: $Revision: 1.3 $
+    -->
+		<Copyright value="apache"/>
+		<Author value="Anatoly Bondarenko"/>
+		<Description>
+         This test case exercises the JDWP agent when very big number of event
+         requests for THREAD_END event are sent.
+         The stage 1:
+          - Debuggee - creates some 'tested' threads.
+          - Test - sends requests for THREAD_END events for 'checked' threads,
+            which are the part of all 'tested' threads. For each 'checked' thread
+            big number of requests are sent.
+          - Debuggee - starts all 'tested' threads and fihishes them.
+          - Test - checks that all expected THREAD_END events for all requests
+            are received from JDWP agent: for each 'checked' thread big number
+            of THREAD_END events should be received. No any THREAD_END event 
+            should be received for 'tested' threads, for which requests were not sent. 
+          - Test - clear all requests for THREAD_END events for all 'checked' threads.
+         The stage 2:
+          - Debuggee - creates all 'tested' threads again.
+          - Test - sends requests for THREAD_END events for all 'checked' threads,
+            then cleares all sent requests for the some part of 'checked' threads.
+          - Debuggee - starts all 'tested' threads and fihishes them.
+          - Test - checks that only expected THREAD_END events for all active requests
+            are received from JDWP agent.
+          - Test - clear all active requests for THREAD_END events.
+         The stage 3:
+          - Debuggee - creates all 'tested' threads again.
+          - Test - sends requests for THREAD_END events for all 'checked' threads,
+            then cleares all sent requests for all 'checked' threads.
+          - Debuggee - starts all 'tested' threads and fihishes them.
+          - Test - checks that no any events except VM_DEATH event
+            are received from JDWP agent.
+   		</Description>
+
+		<Keyword name="stress"/>
+		<Keyword name="jpda"/>
+		<Source name="EventTest017.java"/>
+		<Source name="EventDebuggee017.java"/>
+		<Modification date="2006-08-23" author="Anatoly Bondarenko"/>
+
+		<Runner ID="Runtime">
+			<Option name="-Djpda.settings.timeout=300000"/>
+			<Param name="toRun" value="org.apache.harmony.test.stress.jpda.jdwp.scenario.EVENT017.EventTest017">
+			</Param>
+		</Runner>
+</Test> 

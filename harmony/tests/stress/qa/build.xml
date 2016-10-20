@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<project name="stress.build" default="run.tests">
+	<description> Building stress test suite </description>
+	
+	<import file="build-settings.xml"/>
+	
+	<!--
+	Set configuration.
+	-->
+	<condition property="if.win" value="true">
+		<os family="Windows"/>
+	</condition>
+	
+	<condition property="if.linux" value="true">
+		<and>
+			<os name="linux"/>
+			<os family="unix"/>
+		</and>
+	</condition>
+	
+	<condition property="if.x86_64" value="true">
+		<contains string="${os.arch}" substring="x86_64"/>
+	</condition>
+	
+	<condition property="if.x86" value="true">
+		<and>
+			<contains string="${os.arch}" substring="86"/>
+			<not>
+				<isset property="if.x86_64"/>
+			</not>
+		</and>
+	</condition>
+	
+	<condition property="build.osname" value="win" else="lnx">
+		<isset property="if.win"/>
+	</condition>
+	<condition property="compiler" value="${compiler.win}"
+		else="${compiler.linux}">
+		<isset property="if.win"/>
+	</condition>
+	<condition property="exe.extension" value=".exe" else="">
+		<isset property="if.win"/>
+	</condition>
+	<condition property="build.arch" value="ia32" else="em64t">
+		<isset property="if.x86"/>
+	</condition>
+	
+	<!--
+	Set DRLVM build location.
+	-->
+	<property name="configuration"
+		value="${build.osname}_${build.arch}_${compiler}"/>
+	<property name="vm.build.name"
+		value="${configuration}_${vm.build.arch}_${compiler}_${vm.config}"/>
+	<property name="vm.semis.dir"
+		value="${vm.base.dir}/build/${vm.build.name}/semis"/>
+	<property name="test.jre.home"
+		value="${vm.base.dir}/build/${vm.build.name}/deploy/jre"/>
+	
+	<condition property="vm.component_filename" value="${vm.component_name}.dll"
+		else="lib${vm.component_name}.so">
+		<isset property="if.win"/>
+	</condition>
+	
+	<!--
+	Download dependencies.
+	-->
+	<property file="depends.properties"/>
+	
+	<target name="get.all" description="Download" depends="get.punit">
+		
+		<mkdir dir="${cpptasks.dir}"/>
+		<download-one-file src="${cpptasks.url}" dest="${cpptasks.jar}"
+			md5="${cpptasks.md5}"/>
+		
+		<mkdir dir="${antcontrib.dir}"/>
+		<download-one-file src="${antcontrib.url}" dest="${antcontrib.jar}"
+			md5="${antcontrib.md5}"/>
+		
+		<mkdir dir="${jasmin.dir}"/>
+		<download-one-file src="${jasmin.url}" dest="${jasmin.zip}"
+			md5="${jasmin.md5}"/>
+		<unzip src="${jasmin.zip}" dest="${jasmin.dir}" overwrite="false">
+			<patternset includes="${jasmin.extract.pattern}"/>
+		</unzip>
+	</target>
+	
+	<target name="get.punit" description="P-unit checkout and build">
+		<mkdir dir="${punit.repository}"/>
+		<exec executable="svn" dir="${punit.repository}" failonerror="true">
+			<arg value="checkout"/>
+
+            <!-- workaround: changes after r278 are incompatible -->
+            <arg value="-r278"/>
+
+			<arg value="${punit.url}/punit"/>
+			<arg value="${punit.url}/punit.extension"/>
+		</exec>
+		<ant dir="${punit.dir}"/>
+		<ant dir="${punit.ext.dir}"/>
+	</target>
+	
+	<macrodef name="download-one-file">
+		<attribute name="src"/>
+		<attribute name="dest"/>
+		<attribute name="md5"/>
+		<sequential>
+			<echo>Checking @{dest}</echo>
+			<available file="@{dest}" type="file" property="@{dest}.exists"/>
+			<antcall target="get.file">
+				<param name="src" value="@{src}"/>
+				<param name="dest" value="@{dest}"/>
+			</antcall>
+			<checksum file="@{dest}" property="@{dest}.md5"/>
+			<condition property="@{dest}.md5.verified" value="true">
+				<equals arg1="${@{dest}.md5}" arg2="@{md5}"/>
+			</condition>
+			<antcall target="remove.file.if_bad">
+				<param name="dest" value="@{dest}"/>
+			</antcall>
+			<fail unless="@{dest}.md5.verified"> ... File @{dest} has incorrect md5
+				checksum. Expected: @{md5} found: ${@{dest}.md5} </fail>
+			<echo>Checksum verified (${@{dest}.md5.verified})</echo>
+		</sequential>
+	</macrodef>
+	
+	<target name="get.file" unless="${dest}.exists">
+		<echo>Fetching ${dest}</echo>
+		<get src="${src}" dest="${dest}" usetimestamp="true" verbose="true"/>
+	</target>
+	
+	<target name="remove.file.if_bad" unless="${dest}.md5.verified">
+		<delete file="${dest}"/>
+	</target>
+	
+	<!--
+	Run tests.
+	-->
+	<target name="run.tests" depends="check.config">
+		<replace file="${harness.cfg}">
+			<replacefilter token="#TestSuiteRoot#" value="${qa.location}"/>
+			<replacefilter token="#TestSuiteClassRoot#"
+				value="${qa.bin.classes}"/>
+			<replacefilter token="#TestSuiteLibRoot#" value="${qa.bin.lib}"/>
+			<replacefilter token="#TestResultRoot#"
+				value="${qa.location}_result"/>
+			<replacefilter token="#TestedRuntime#" value="${tested.runtime}"/>
+			<replacefilter token="#ReferenceRuntime#"
+				value="${reference.runtime}"/>
+			<replacefilter token="#TestedCompile#"
+				value="${java.home}/../bin/javac"/> <!-- not used -->
+			<replacefilter token="#TempStorage#"
+				value="${qa.location}_temporary/"/>
+		</replace>
+		
+		<java fork="yes" jvm="${production.runtime}" classname="${th.main}"
+			dir="${qa.location}" failonerror="true">
+			<classpath>
+				<pathelement location="${qa.bin.classes}"/>
+				<pathelement location="${qa.bin.lib}"/>
+				<pathelement location="${th.jar}"/>
+				<pathelement location="${junit.jar}"/>
+				<pathelement location="${punit.jar}"/>
+				<pathelement path="${punit.ext.jars}"/>
+			</classpath>
+			<arg value="-cfp"/>
+			<arg value="${harness.cfg}"/>
+			<arg value="-exclude"/>
+			<arg value="${qa.exclude.list}"/>
+			<!--<arg line="-logl 1" />-->
+			<arg line="-version -failonerror"/>
+		</java>
+	</target>
+	
+	<!--
+	Set ANT extensions.
+	-->
+	<target name="set.tasks">
+		<taskdef resource="net/sf/antcontrib/antlib.xml">
+			<classpath>
+				<pathelement location="${antcontrib.jar}"/>
+			</classpath>
+		</taskdef>
+		
+		<taskdef resource="cpptasks.tasks">
+			<classpath>
+				<pathelement location="${cpptasks.jar}"/>
+			</classpath>
+		</taskdef>
+		<typedef resource="cpptasks.types">
+			<classpath>
+				<pathelement location="${cpptasks.jar}"/>
+			</classpath>
+		</typedef>
+	</target>
+	
+	<!--
+	Build tests.
+	-->
+	<target name="clean">
+		<delete dir="${qa.bin}"/>
+	</target>
+	
+	<target name="update" depends="get.all, build.th, build.vmtt, build.qa"/>
+	
+	<target name="build.qa" depends="build.java, build.native"/>
+	
+	<target name="build.ccode" depends="set.tasks">
+		<mkdir dir="${qa.bin.classes}"/>
+		
+		<foreach target="compile.ccode" param="ccodesource" inheritall="true">
+			<path>
+				<fileset dir="${qa.src}" includes="**/*.ccode, **/*.ccodeh">
+					<depend targetdir="${qa.bin.classes}">
+						<mapper type="regexp" from="^(.*)\.ccodeh?$$"
+							to="\1.class"/>
+					</depend>
+				</fileset>
+			</path>
+		</foreach>
+	</target>
+	
+	<target name="build.jasmin">
+		<apply executable="${production.runtime}" dest="${qa.bin.classes}"
+			parallel="true" maxparallel="100" verbose="true"
+			skipemptyfilesets="true" failonerror="true"
+			failifexecutionfails="true">
+			<arg value="-jar"/>
+			<arg value="${jasmin.jar}"/>
+			<arg value="-d"/>
+			<arg value="${qa.bin.classes}"/>
+			<fileset dir="${qa.src}" includes="**/*.j, **/*.jj"/>
+			<mapper type="regexp" from="^(.*)\.jj?$$" to="\1.class"/>
+		</apply>
+	</target>
+	
+	<target name="build.java" depends="build.ccode, build.jasmin">
+        <!-- Tests should be compiled with debug information because otherwise JVMTI agent
+             cannot get line number and other debug info. This makes some tests fail, see HARMONY-5076 -->
+		<javac target="1.5" debug="true" srcdir="${qa.src}" destdir="${qa.bin.classes}">
+			<classpath>
+				<pathelement location="${th.jar}"/>
+				<pathelement location="${junit.jar}"/>
+				<pathelement location="${punit.jar}"/>
+                                <pathelement path="${punit.ext.jars}"/>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="build.native">
+		<mkdir dir="${qa.bin.lib}"/>
+		
+		<cc name="${compiler}" outfile="${qa.bin.lib}/${jni.library.name}"
+			objdir="${qa.bin.lib}" outtype="shared">
+			<fileset dir="${qa.src}">
+				<include name="**/*.c"/>
+				<include name="**/*.cpp"/>
+			</fileset>
+			<includepath path="${java.home}/../include"/>
+			<includepath path="${java.home}/../include/win32" if="if.win"/>
+			<includepath path="${java.home}/../include/linux" if="if.linux"/>
+		</cc>
+	</target>
+	
+	<target name="compile.ccode">
+		<dirname property="vmtt.class.file.dir" file="${ccodesource}"/>
+		<propertyregex property="vmtt.class.file.dir.rembs"
+			input="${vmtt.class.file.dir}" regexp="\\" replace="\/"
+			defaultValue="${vmtt.class.file.dir}"/>
+		<propertyregex property="vmtt.package"
+			input="${vmtt.class.file.dir.rembs}" regexp=".*?(\/org\/.*)"
+			select="\1" casesensitive="false"/>
+		
+		<echo
+			message="VMTT: ${ccodesource} -> ${qa.bin.classes}${vmtt.package}"/>
+		<mkdir dir="${qa.bin.classes}${vmtt.package}"/>
+		<java classpath="${vmtt.jar}" classname="${vmtt.main.class}"
+			failonerror="true">
+			<arg value="-C"/>
+			<arg value="-d${qa.bin.classes}${vmtt.package}"/>
+			<arg value="${ccodesource}"/>
+		</java>
+	</target>
+	
+	<target name="check.config">
+		<echo message="Configuration:         ${configuration}"/>
+		<echo message="VM build $${vm.config}: ${vm.config}"/>
+		
+		<available file="${test.jre.home}/bin/java${exe.extension}"
+			property="test.jre.exists"/>
+		
+		<condition property="tested.runtime"
+			value="${test.jre.home}/bin/java${exe.extension}"
+			else="${production.runtime}">
+			<isset property="test.jre.exists"/>
+		</condition>
+		
+		<echo>Tested Java runtime $${tested.runtime}: ${tested.runtime}</echo>
+		<exec executable="${tested.runtime}">
+			<arg value="-version"/>
+		</exec>
+		
+		<echo>Harness configuration file $${harness.cfg}: ${harness.cfg}</echo>
+		<available file="${harness.cfg}" type="file"
+			property="harness.cfg.exists"/>
+		<fail unless="harness.cfg.exists"
+			message="harness configuration file not found"/>
+		
+		<echo>Exclude file $${qa.exclude.list}: ${qa.exclude.list}</echo>
+		<available file="${qa.exclude.list}" type="file"
+			property="qa.exclude.list.exists"/>
+		<fail unless="qa.exclude.list.exists" message="exclude file not found"/>
+	</target>
+	
+	<!--
+	Build tools.
+	-->
+	<target name="build.th">
+		<mkdir dir="${th.dest}"/>
+		<javac target="1.5" debug="true" classpath="${junit.jar}"
+			destdir="${th.dest}">
+			<src path="${th.src}"/>
+			<src path="${share.src}"/>
+		</javac>
+		<jar destfile="${th.jar}" basedir="${th.dest}"/>
+	</target>
+	
+	<target name="build.vmtt">
+		<mkdir dir="${vmtt.dest}"/>
+		<javac target="1.5" srcdir="${vmtt.src}" destdir="${vmtt.dest}"/>
+		<jar destfile="${vmtt.jar}" basedir="${vmtt.dest}"/>
+	</target>
+	
+</project>
+
+

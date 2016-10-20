@@ -1,0 +1,134 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+grant {
+	permission java.lang.RuntimePermission "createClassLoader";
+	permission java.lang.RuntimePermission "getClassLoader";
+	permission java.lang.RuntimePermission "setContextClassLoader";
+	permission java.lang.RuntimePermission "setSecurityManager";	
+	permission java.lang.RuntimePermission "createSecurityManager";
+	permission java.lang.RuntimePermission "exitVM";
+	permission java.lang.RuntimePermission "shutdownHooks";
+	permission java.lang.RuntimePermission "setFactory";
+	permission java.lang.RuntimePermission "setIO";
+	permission java.lang.RuntimePermission "modifyThread";
+//	permission java.lang.RuntimePermission "stopThread";
+	permission java.lang.RuntimePermission "modifyThreadGroup";
+	permission java.lang.RuntimePermission "getProtectionDomain";
+	permission java.lang.RuntimePermission "readFileDescriptor";
+	permission java.lang.RuntimePermission "writeFileDescriptor";
+	permission java.lang.RuntimePermission "loadLibrary.FooBar.dll";
+	permission java.lang.RuntimePermission "accessClassInPackage.FooBar.FooBar";
+	permission java.lang.RuntimePermission "defineClassInPackage.FooBar.FooBar";
+	permission java.lang.RuntimePermission "accessDeclaredMembers";
+	permission java.lang.RuntimePermission "queuePrintJob";
+
+	permission java.io.FilePermission "<<ALL_FILES>>", "read";
+	permission java.io.FilePermission "<<ALL_FILES>>", "write";
+	permission java.io.FilePermission "<<ALL_FILES>>", "execute";
+	permission java.io.FilePermission "<<ALL_FILES>>", "delete";
+
+	permission java.io.SerializablePermission "enableSubclassImplementation";
+	permission java.io.SerializablePermission "enableSubstitution";
+
+	permission java.net.NetPermission "setDefaultAuthenticator";
+	permission java.net.NetPermission "requestPasswordAuthentication";
+	permission java.net.NetPermission "specifyStreamHandler";
+
+	permission java.net.SocketPermission "localhost:1024-", "connect";
+	permission java.net.SocketPermission "localhost:1024-", "resolve";
+	permission java.net.SocketPermission "localhost:1024-", "accept";
+//	permission java.net.SocketPermission "localhost:1024-", "listen";	                                                                  	
+
+	permission java.security.SecurityPermission "createAccessControlContext";
+	permission java.security.SecurityPermission "getDomainCombiner";
+	permission java.security.SecurityPermission "getPolicy";
+	permission java.security.SecurityPermission "setPolicy";
+	permission java.security.SecurityPermission "getProperty.policy.allowSystemProperty";
+	permission java.security.SecurityPermission "setProperty.policy.allowSystemProperty";
+	permission java.security.SecurityPermission "insertProvider.FooBarProvider";
+	permission java.security.SecurityPermission "removeProvider.FooBarProvider";
+	permission java.security.SecurityPermission "setSystemScope";
+	permission java.security.SecurityPermission "setIdentityPublicKey";
+	permission java.security.SecurityPermission "setIdentityInfo";
+	permission java.security.SecurityPermission "addIdentityCertificate";
+	permission java.security.SecurityPermission "removeIdentityCertificate";
+	permission java.security.SecurityPermission "printIdentity";
+	permission java.security.SecurityPermission "clearProviderProperties.FooBarProvider";
+	permission java.security.SecurityPermission "putProviderProperty.FooBarProvider";
+	permission java.security.SecurityPermission "removeProviderProperty.FooBarProvider";
+	permission java.security.SecurityPermission "getSignerPrivateKey";
+	permission java.security.SecurityPermission "setSignerKeyPair";
+
+//	permission java.util.PropertyPermission "java.version", "read";
+	permission java.util.PropertyPermission "java.version", "write";
+//	permission java.util.PropertyPermission "java.vendor", "read";
+	permission java.util.PropertyPermission "java.vendor", "write";
+//	permission java.util.PropertyPermission "java.vendor.url", "read";
+	permission java.util.PropertyPermission "java.vendor.url", "write";
+	permission java.util.PropertyPermission "java.home", "read";
+	permission java.util.PropertyPermission "java.home", "write";
+//	permission java.util.PropertyPermission "java.vm.specification.version", "read";
+	permission java.util.PropertyPermission "java.vm.specification.version", "write";
+//	permission java.util.PropertyPermission "java.vm.specification.vendor", "read";
+	permission java.util.PropertyPermission "java.vm.specification.vendor", "write";
+//	permission java.util.PropertyPermission "java.vm.specification.name", "read";
+	permission java.util.PropertyPermission "java.vm.specification.name", "write";
+//	permission java.util.PropertyPermission "java.vm.version", "read";
+	permission java.util.PropertyPermission "java.vm.version", "write";
+//	permission java.util.PropertyPermission "java.vm.vendor", "read";
+	permission java.util.PropertyPermission "java.vm.vendor", "write";
+//	permission java.util.PropertyPermission "java.vm.name", "read";
+	permission java.util.PropertyPermission "java.vm.name", "write";
+//	permission java.util.PropertyPermission "java.specification.version", "read";
+	permission java.util.PropertyPermission "java.specification.version", "write";
+//	permission java.util.PropertyPermission "java.specification.vendor", "read";
+	permission java.util.PropertyPermission "java.specification.vendor", "write";
+//	permission java.util.PropertyPermission "java.specification.name", "read";
+	permission java.util.PropertyPermission "java.specification.name", "write";
+//	permission java.util.PropertyPermission "java.class.version", "read";
+	permission java.util.PropertyPermission "java.class.version", "write";
+	permission java.util.PropertyPermission "java.class.path", "read";
+	permission java.util.PropertyPermission "java.class.path", "write";
+	permission java.util.PropertyPermission "java.library.path", "read";
+	permission java.util.PropertyPermission "java.library.path", "write";
+	permission java.util.PropertyPermission "java.io.tmpdir", "read";
+	permission java.util.PropertyPermission "java.io.tmpdir", "write";
+	permission java.util.PropertyPermission "java.compiler", "read";
+	permission java.util.PropertyPermission "java.compiler", "write";
+	permission java.util.PropertyPermission "java.ext.dirs", "read";
+	permission java.util.PropertyPermission "java.ext.dirs", "write";
+	permission java.util.PropertyPermission "os.name", "read";
+	permission java.util.PropertyPermission "os.name", "write";
+//	permission java.util.PropertyPermission "os.arch", "read";
+	permission java.util.PropertyPermission "os.arch", "write";
+//	permission java.util.PropertyPermission "os.version", "read";
+	permission java.util.PropertyPermission "os.version", "write";
+//	permission java.util.PropertyPermission "file.separator", "read";
+	permission java.util.PropertyPermission "file.separator", "write";
+//	permission java.util.PropertyPermission "path.separator", "read";
+	permission java.util.PropertyPermission "path.separator", "write";
+//	permission java.util.PropertyPermission "line.separator", "read";
+	permission java.util.PropertyPermission "line.separator", "write";
+	permission java.util.PropertyPermission "user.name", "read";
+	permission java.util.PropertyPermission "user.name", "write";
+	permission java.util.PropertyPermission "user.home", "read";
+	permission java.util.PropertyPermission "user.home", "write";
+	permission java.util.PropertyPermission "user.dir", "read";
+	permission java.util.PropertyPermission "user.dir", "write";
+};

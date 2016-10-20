@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Alexander D. Shipilov
+Version: $Revision: 1.4 $
+-->
+<Test
+	ID="StressSynchronizationTest06"
+        date-of-creation="2005-08-24"
+        timeout="1">
+    	<Copyright value="apache"/>
+        <Author value="Alexander D. Shipilov"/>
+        <Description>
+		Starting thread which initiates StackOverflowError during all time by means method recursive invocation.
+		Starting a lot of threads. Each thread tries to get unsynchronized access to object-synchronizer.
+		Every thread invokes method from object-synchronizer which normally returns int 1.
+		This result current thread writing to the array in the main thread in position
+		corresponding to the number of current thread. (By default array filled by 0).
+		Thus, after work of all threads, main thread has an array which normally should be filled by all 1.
+		Main thread checks it and, if not, returns fail with some logging information.
+		Input parameters:
+					-numThreads. Number of threads to be create.
+					-smallObjSize. Size of small padding objects.
+					-freeMem. Quantity of free memory in small objects.
+					-oOMEr. (on or off), OutOfMemoryError (low memory conditions).
+					-sOEr. (on or off), StackOverflowError (stack overflow conditions).
+					-synchUnsynchor. (synch, unsynch or both) synchronized or unsynchronized access.
+        </Description>        
+        <Keyword name="stress"/>
+        <Source name="../../../../StressSynchronizationTest.java"/>        
+        <Runner ID="Runtime">
+			<Param name="toRun" value="org.apache.harmony.test.stress.threads.StressSynchronizationTest">
+				<Option name="-numThreads" value="100"/>
+				<Option name="-smallObjSize" value="500"/>
+				<Option name="-freeMem" value="1000"/>
+				<Option name="-oOMEr" value="off"/>
+				<Option name="-sOEr" value="on"/>
+				<Option name="-synchUnsynchor" value="unsynch"/>
+			</Param>
+		</Runner>
+		<Restriction name="OtherVMOnly"/>
+</Test>
