@@ -530,7 +530,7 @@ public class Reporter implements Report {
             }
             file = new FileWriter(curFile);
             file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-                + "<?xml-stylesheet type='text/xsl' href='report.xsl'?>\n"
+                //+ "<?xml-stylesheet type='text/xsl' href='report.xsl'?>\n"
                 + "<Report>\n"
                 + "<property-list>\n\t<property-item name=\"date\">"
                 + new Date().toString()
