@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<Test
+	ID="EventTest015"
+	date-of-creation="2006-08-16"
+	timeout="1"
+	>
+    <!--
+    Author:  Anatoly Bondarenko
+    Version: $Revision: 1.3 $
+    -->
+		<Copyright value="apache"/>
+		<Author value="Anatoly Bondarenko"/>
+		<Description>
+         This test case exercises the JDWP agent when very big number of event
+         requests are sent, that should cause only one real event in debuggee 
+         but the test should receive very big number of events: one event by one request.
+         At first the test sends two sets of event requests: THREAD_START requests
+         and THREAD_END request for the same thread in debuggee. After
+         thread starts, the test expects to receive all expected THREAD_START events.
+         Then, after thread finishes, the test expects to receive all expected 
+         THREAD_END events.    
+   		</Description>
+
+		<Keyword name="stress"/>
+		<Keyword name="jpda"/>
+		<Source name="EventTest015.java"/>
+		<Source name="EventDebuggee015.java"/>
+		<Modification date="2006-08-16" author="Anatoly Bondarenko"/>
+
+		<Runner ID="Runtime">
+			<Option name="-Djpda.settings.timeout=300000"/>
+			<Param name="toRun" value="org.apache.harmony.test.stress.jpda.jdwp.scenario.EVENT015.EventTest015">
+			</Param>
+		</Runner>
+</Test> 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<project name="vm.settings">
+	<description> Stress build settings </description>
+	
+	<property name="root" location="${basedir}/.."/>
+	
+	<!-- Set test.jre.home to specify VM to run tests -->
+	<property name="production.runtime" value="${java.home}/../bin/java"/>
+	<property name="reference.runtime" location="${production.runtime}"/>
+	<!--<property name="tested.runtime" location="${production.runtime}" />-->
+	<property name="qa.location" location="${root}/qa"/>
+	
+	<!-- DO NOT EDIT SETTINGS BELOW -->
+	<!-- THEY ARE CALCULATED FROM SETTINGS ABOVE-->
+	<property name="harness.cfg" location="${qa.location}/config/cfg_env.xml"/>
+	<property name="qa.bin" location="${qa.location}/bin"/>
+	<property name="qa.config" location="${qa.location}/config"/>
+	<property name="qa.bin.classes" location="${qa.bin}/classes"/>
+	<property name="qa.bin.tools" location="${qa.bin}/tools"/>
+	<property name="qa.bin.lib" location="${qa.bin}/lib"/>
+	<property name="qa.src" location="${qa.location}/src/test/stress"/>
+	
+	<!-- Specify QA exclude list file name, relative to ${qa.location} -->
+	<property name="qa.exclude.list" value="config/exclude.file"/>
+	
+	<!-- Specify tool settings -->
+	<property name="th.src" location="${root}/../tools/harness"/>
+	<property name="share.src" location="${root}/../tools/share"/>
+	<property name="th.dest" location="${qa.bin.tools}/th.dest"/>
+	<property name="th.jar" location="${qa.bin.tools}/th.jar"/>
+	<property name="th.main" value="org.apache.harmony.harness.Main"/>
+	
+	<property name="vmtt.src" location="${root}/../tools/vmtt"/>
+	<property name="vmtt.dest" location="${qa.bin.tools}/vmtt.dest"/>
+	<property name="vmtt.jar" location="${qa.bin.tools}/vmtt.jar"/>
+	<property name="vmtt.main.class" value="org.apache.harmony.vmtt.VMTT"/>
+	
+	<!-- Specify base directory of DRLVM -->
+	<property name="vm.base.dir" location="${root}/drlvm/trunk"/>
+	<property name="vm.component_name" value="gc_mf"/>
+	
+	<!-- Specify build compiler and mode -->
+	<property name="vm.config" value="debug"/>
+	<property name="compiler.win" value="msvc"/>
+	<property name="compiler.linux" value="gcc"/>
+	<property name="jni.library.name" value="jnitests"/>
+	
+</project>
+

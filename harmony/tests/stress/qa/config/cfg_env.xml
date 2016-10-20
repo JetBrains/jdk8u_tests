@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE env_configuration SYSTEM "cfg_env.dtd">
+
+<env_configuration>
+
+    <properties>
+        <property name="TestSuiteRoot">#TestSuiteRoot#</property>
+        <property name="TestSuiteClassRoot">#TestSuiteClassRoot#</property>
+        <property name="TestSuiteLibRoot">#TestSuiteLibRoot#</property>
+        <property name="TestResultRoot">#TestResultRoot#</property>
+        <property name="TestedRuntime">#TestedRuntime#</property>
+        <property name="TestedCompile">#TestedCompile#</property>
+        <property name="ReferenceRuntime">#ReferenceRuntime#</property>
+        <property name="TempStorage">#TempStorage#</property>
+        <property name="GenTimeout">80</property>
+        <property name="LogLevel">INFO</property>
+    </properties>
+    
+    <execution>
+        <exec-mode name="exec">other</exec-mode>
+        <exec-mode name="location">local</exec-mode>
+        <exec-mode name="concurrent">1</exec-mode>
+        <exec-mode name="syncChannelHost">localhost</exec-mode>
+        <exec-mode name="syncChannelPort">9999</exec-mode>
+        <exec-mode name="generalVMOption">-showversion -Dorg.apache.harmony.test.share.stress.ReliabilityRunner.timeToWork=30 -Dorg.apache.harmony.test.share.stress.ReliabilityRunner.timeToAbort=30</exec-mode>
+        <exec-mode name="paintTimeout">4000</exec-mode>
+        <exec-mode name="bootClassPath">-Xbootclasspath/p:</exec-mode>        
+        <exec-mode name="generalEnv">HOME=${Env.HOME},SystemRoot=${Env.SystemRoot},Path=$TestSuiteLibRoot$PathSeparator${Env.Path},LD_LIBRARY_PATH=$TestSuiteLibRoot$PathSeparator${Env.LD_LIBRARY_PATH},DISPLAY=${Env.DISPLAY}</exec-mode>
+        <exec-mode name="EclipseHome">#EclipseHomePath#</exec-mode>
+    </execution>
+    
+    <totest>
+        <subsuite name="all"></subsuite>
+    </totest>
+
+    <plugin-list>
+        <plugin name="Logger" class-name="org.apache.harmony.harness.plugins.THLogger" />
+        <plugin name="TestFinder" class-name="org.apache.harmony.harness.plugins.TestFinder" />
+        <plugin name="ExecUnit" class-name="org.apache.harmony.harness.ExecUnit">
+            <parameter name="Runtime">
+                <value name="host">localhost</value>
+                <value name="tinyObjects">10000000</value>
+                <value name="smallObjects">10000000</value>
+                <value name="mediumObjects">10000000</value>
+                <value name="bigObjects">10000000</value>
+            </parameter>
+
+        </plugin>
+        <plugin name="Storage" class-name="org.apache.harmony.harness.plugins.StoreRes" />
+        <plugin name="ResFinder" class-name="org.apache.harmony.harness.plugins.ResFinder" />
+        <plugin name="Reporter" class-name="org.apache.harmony.harness.plugins.Reporter">
+            <parameter name="write">
+                <value name="over">true</value>
+            </parameter>
+            <parameter name="status">
+                <value name="passed">104</value>
+                <value name="failed">105</value>
+                <value name="error">106</value>
+                <value name="moderror">107</value>
+            </parameter>
+        </plugin>
+        <plugin name="Selector" class-name="org.apache.harmony.harness.Selector"/>
+
+    </plugin-list>
+
+</env_configuration>
+

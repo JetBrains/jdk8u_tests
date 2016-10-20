@@ -1,0 +1,60 @@
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+
+
+This file contains instructions for running StressLoadsRunner.
+
+
+Step 1: Make sure that org.apache.harmony.test.stress.misc.stressloads.StressLoadsRunner class and all classes to be run as stress loads are compiled
+        (there are corresponding .class files in proper directories). Standard Stress Loads classes are in
+	org.apache.harmony.test.stress.misc.stressloads package, however user can use any other classes to run (see below).
+
+Step 2: Create configuration file in following format:
+	Each line contains class name with optional parameters. At each line any text to the right of ';' symbol is ingored.
+	If specified class is a subclass of java.lang.Thread class parameters after class name are treated as constructor parameters
+	(NOTE: current version recognises int, float and java.lang.String parameter types). Otherwise, the parameter after clas name is the name
+	of the method that will be invoked. Method can be static method or instance method - instance is created anyway using default constructor.
+	Other parameters are treated as method parameters with limitations given above.
+
+Step 3: Run StressLoadsRunner class with one parameter: configuration file name. The wrapper creates an instance for each class which is a subclass
+	of java.lang.Thread class and starts a new thread with its start() method. If the class is not a sublcass of java.lang.Thread class wrapper
+	creates instance of special subclass of java.lang.Thread in which run() method calls specified method and the thread dies when method returns.
+	NOTE: All of the classes specified in cofiguration file must be in classpath.
+
+
+Example:
+
+
+Configuration file (ToRun.txt):
+
+; use ";" for comments
+;
+; if class to run is instance thread, use format:
+;class_name_with_package param1 param2 ...
+;
+; if class to run is not instance thread, use format:
+;class_name_with_package method_name param1 param2
+
+org.apache.harmony.test.stress.misc.stressloads.StressLoadsThread1a
+org.apache.harmony.test.stress.misc.stressloads.StressLoadsThread3
+org.apache.harmony.test.stress.misc.stressloads.StressLoadsThread4a
+org.apache.harmony.test.stress.misc.stressloads.StressLoadsThread6 200 800 1000 ; run test with params
+org.apache.harmony.test.stress.misc.stressloads.StressLoadRunner main ToRun.txt ;run class which is not a sublcass of java.lang.Thread
+
+Command line to run:
+
+>java -classpath <...> org.apache.harmony.test.stress.misc.stressloads.StressLoadsWrapper ToRun.txt

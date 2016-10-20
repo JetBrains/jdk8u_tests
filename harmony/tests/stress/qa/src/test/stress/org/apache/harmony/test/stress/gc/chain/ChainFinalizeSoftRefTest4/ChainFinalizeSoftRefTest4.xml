@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<Test
+	ID="ChainFinalizeSoftRefTest4"
+        date-of-creation="2006-02-06"
+        timeout="2"
+        >
+        <!--
+        Author:  Alexander Esin
+        Version: $Revision: 1.5 $
+        -->
+    	<Copyright value="apache"/>
+        <Author value="Alexander Esin"/>
+		<APITestDescription>
+			<TestedClass name="java.lang.ref.SoftReference"/>
+			<TestedMethod name="public SoftReference(T referent)"/>
+
+			<TestedClass name="java.lang.System"/>
+			<TestedMethod name="public static void gc()"/>
+        	<Description>
+                    Allocate memory by chain objects: each object of the class contains reference to the same class and to bytes array. Also finalize() function is defined for the objects. Allocation is performed in double loop. Inner loop contains allocation of this chain, also it is taken in the account that total size of the chain does not reach heap limit. At the end of the inner loop the head of the chain becomes solftly reachable and GC is called explicitly.  Check if OutOfMemoryError not thrown. Check if finalize() is invoked.
+        	</Description>
+		</APITestDescription>
+        
+        <Keyword name="stress"/>
+        <Source name="ChainTest.java"/>
+        <Modification date="2006-02-06" author="Alexander Esin"/>
+        <Runner ID="Runtime">
+                <Option name="-Xmx150m"/>
+               	<Option value="-Dorg.apache.harmony.test.share.stress.ReliabilityRunner.params=
+					org.apache.harmony.test.stress.gc.chain.ChainFinalizeSoftRefTest4.ChainTest {}"/>
+			<Param name="toRun" value="org.apache.harmony.test.share.stress.ReliabilityRunner">
+			</Param>
+		</Runner>
+ 	<Restriction name="OtherVMOnly"/>
+</Test>

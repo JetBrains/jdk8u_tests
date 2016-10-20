@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<Test
+	ID="S_AccessControllerTest_01"
+        date-of-creation="2004-12-17"
+        timeout="1"
+        >
+        <!--
+        Author:  Alexei S.Vaskin
+        Version: $Revision: 1.4 $
+        -->
+    	<Copyright value="apache"/>
+        <Author value="A.Vaskin"/>
+		<APITestDescription>
+			<TestedClass name="java.security.AccessController"/>
+			<TestedMethod name="public static Object doPrivileged(PrivilegedAction action, AccessControlContext context)"/>
+
+        <Description>
+        	Check ability of AccessController class to handle huge number of callers when making decision as to whether to grant access to controlled resources 
+        </Description>
+		</APITestDescription>
+        
+        <Keyword name="stress"/>
+        <Source name="S_AccessControllerTest_01.java"/>
+        <Modification date="2004-12-17" author="A.Vaskin"/>
+        
+        <Runner ID="Execute">
+			<Param name="toRun" value="$TestedCompile">
+				<Option name="-d" value="$TempStorage"/>
+				<Option name="-classpath" value="$TestSuiteClassRoot$PathSeparator"/>
+				<Option name="$TestDirectory$FileSeparatorS_AccessControllerTest_01.java"/>
+				
+			</Param>
+        	<Param name="toRun" value="$TestedRuntime">
+				<Option name="-cp" value="$TestSuiteClassRoot$PathSeparator"/>
+            	<Option name="-Djava.security.policy==$TestDirectory/auxiliary/SAccessControllerTest.policy"/>
+				<Option name="org.apache.harmony.test.stress.api.java.security.S_AccessControllerTest_01.S_AccessControllerTest_01"/>
+				<Option value="19500"/>
+			</Param>
+		</Runner>
+		<Restriction name="OtherVMOnly"/>
+</Test>
+

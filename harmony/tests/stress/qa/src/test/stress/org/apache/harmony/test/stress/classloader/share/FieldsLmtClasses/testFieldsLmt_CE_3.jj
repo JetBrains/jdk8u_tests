@@ -1,0 +1,53 @@
+; Licensed to the Apache Software Foundation (ASF) under one
+; or more contributor license agreements.  See the NOTICE file
+; distributed with this work for additional information
+; regarding copyright ownership.  The ASF licenses this file
+; to you under the Apache License, Version 2.0 (the
+; "License"); you may not use this file except in compliance
+; with the License.  You may obtain a copy of the License at
+;
+;   http://www.apache.org/licenses/LICENSE-2.0
+;
+; Unless required by applicable law or agreed to in writing,
+; software distributed under the License is distributed on an
+; "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+; KIND, either express or implied.  See the License for the
+; specific language governing permissions and limitations
+; under the License.
+;    Licensed to the Apache Software Foundation (ASF) under one or more
+;    contributor license agreements.  See the NOTICE file distributed with
+
+.class public org/apache/harmony/test/stress/classloader/share/FieldsLmtClasses/testFieldsLmt_CE_3
+.super org/apache/harmony/test/stress/classloader/share/FieldsLmtClasses/testFieldsLmt_C3
+;
+; standard initializer
+.method public <init>()V
+   aload_0
+   invokenonvirtual org/apache/harmony/test/stress/classloader/share/FieldsLmtClasses/testFieldsLmt_C3/<init>()V
+   return
+.end method
+.method public put()V
+    .limit stack 2
+    .limit locals 2
+    aload_0
+    sipush 555
+    putfield  org/apache/harmony/test/stress/classloader/share/FieldsLmtClasses/testFieldsLmt_CE_3/testF0 I
+    aload_0
+    sipush 333
+    putfield  org/apache/harmony/test/stress/classloader/share/FieldsLmtClasses/testFieldsLmt_CE_3/testF9999 I
+    return
+.end method
+.method public getFirst()I
+    .limit stack 2
+    .limit locals 2
+    aload_0
+    getfield  org/apache/harmony/test/stress/classloader/share/FieldsLmtClasses/testFieldsLmt_CE_3/testF0 I
+    ireturn
+.end method
+.method public getLast()I
+    .limit stack 2
+    .limit locals 2
+    aload_0
+    getfield  org/apache/harmony/test/stress/classloader/share/FieldsLmtClasses/testFieldsLmt_CE_3/testF9999 I
+    ireturn
+.end method

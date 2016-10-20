@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+<!DOCTYPE Test SYSTEM "test.dtd">
+<!--
+Author: Vera Y.Petrashkova
+Version: $Revision: 1.5 $
+-->
+<Test
+	ID="testManySupIntf2"
+        date-of-creation="2005-09-07"
+        timeout="1">
+    	<Copyright value="apache"/>
+        <Author value="Vera Y. Petrashkova"/>
+        <Description>
+			Start a lot of threads.
+			All of them run the following:
+				- load a class which implemens interface with more than 500 superinterfaces;
+				- verify fields values of this classes;
+			This verification is repeated several times.
+			Parameters: 0 - running mode
+			            1 - number of iterations for creating threads
+						2 - number of threads which are created
+						3 - package name of used classes in each thread running
+						4 - number of iterations for loading classes
+        </Description>        
+        <Keyword name="stress"/>
+        <Source name="testManySupIntf1.java"/>        
+        <Runner ID="Runtime">
+            <Option value="-Dorg.apache.harmony.test.share.stress.ReliabilityRunner.params=
+					org.apache.harmony.test.stress.classloader.MixThreads.SupIntf.testManySupIntf1 {}"/>
+            <Option value="-Dorg.apache.harmony.test.stress.classloader.MixThreads.SupIntf.testManySupIntf1.arg0=1"/>
+            <Option value="-Dorg.apache.harmony.test.stress.classloader.MixThreads.SupIntf.testManySupIntf1.arg1=2"/>
+            <Option value="-Dorg.apache.harmony.test.stress.classloader.MixThreads.SupIntf.testManySupIntf1.arg2=5"/>
+            <Option value="-Dorg.apache.harmony.test.stress.classloader.MixThreads.SupIntf.testManySupIntf1.arg3=org.apache.harmony.test.stress.classloader.share.SupIntfClasses"/>
+            <Option value="-Dorg.apache.harmony.test.stress.classloader.MixThreads.SupIntf.testManySupIntf1.arg4=10"/>
+		<Param name="toRun" value="org.apache.harmony.test.share.stress.ReliabilityRunner">
+		</Param>
+		</Runner>
+		<Restriction name="OtherVMOnly"/>
+</Test>

@@ -1,0 +1,108 @@
+; Licensed to the Apache Software Foundation (ASF) under one
+; or more contributor license agreements.  See the NOTICE file
+; distributed with this work for additional information
+; regarding copyright ownership.  The ASF licenses this file
+; to you under the Apache License, Version 2.0 (the
+; "License"); you may not use this file except in compliance
+; with the License.  You may obtain a copy of the License at
+; 
+;   http://www.apache.org/licenses/LICENSE-2.0
+; 
+; Unless required by applicable law or agreed to in writing,
+; software distributed under the License is distributed on an
+; "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+; KIND, either express or implied.  See the License for the
+; specific language governing permissions and limitations
+; under the License.
+
+;This is harness for stress tests
+; use ";" for comments
+;
+; if class to run is instance thread, use format:
+;class_name_with_package param1 param2 ...
+;
+; if class to run is not instance thread, use format:
+;class_name_with_package method_name param1 param2
+
+
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread1a
+;no params, throwing exceptions within method
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread1b
+;no params, throwing exceptions intra-method
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread1c
+;no params, throwing exceptions, deep unwinding
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread2 1000 ;small objects
+;1 param (int) length of int-array, allocating a lot of objects
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread2 10000 ;large objects
+;1 param (int) length of int-array, allocating a lot of objects
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread3
+;no params, creating a lot of threads. To avoid many threads creating after each creation invoking yield();
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread4a 10
+;1 param: (int) number of threads in each iteration
+;creating a lot of threads synchronizing on a shared object
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread4b 10
+;1 param: (int) number of threads in each iteration
+;creating a lot of threads synchronizing on a private object
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread5 10
+;1 param: (int) number of threads in each iteration
+;creating a lot of threads synchronizing via wait/notify methods
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread6 1000 2000 100
+;3 params: (int) number of classloaders, which are to be created "quickly",
+;          (int) total number of classloaders, which are to be created
+;	   (int) sleep time between classloaders creation (ms)
+;creating classloaders and loading classes using them
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread9
+;no params, doing computations without calls to native or library functions
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread10a
+;no params, causing NullPointerException
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread10b
+;no params, causing ArithmeticException
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread10c
+;no params, causing OutOfMemoryError by single huge object
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread11 20 1000
+;2 params: (int) number of frames to show in one iteration
+;	   (int) sleep time between iterations
+;Show frames.
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread12 200
+;1 param: (int) number of function recursion. Notice from wich deepness exception throws.
+;Throwing exception from deep nesting function.
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread13
+;no params, forcing gc
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread14 20
+;1 param: (int) number of threads in each iteration
+;Thread interruption
+
+org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread15
+;no params, suspend and resume
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread16a 20
+;1 param: (int) number of threads in each iteration
+;Thread synchronization.
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread16b 20
+;1 param: (int) number of threads in each iteration
+;Thread synchronization.
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread19
+;no params, creation of intern strings in a loop.
+
+;org.apache.harmony.test.stress.stressloads.threads.StressLoadsThread20
+;no params, creation of long chain of objects.
