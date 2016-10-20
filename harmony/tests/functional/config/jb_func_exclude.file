@@ -5,3 +5,6 @@ functional/org/apache/harmony/test/func/reg/vm/btest3502/Btest3502.xml
 
 # throws valid IllegalAccessError
 functional/org/apache/harmony/test/func/reg/vm/btest8748/Btest8748.xml
+
+# No installed printers
+functional.org.apache.harmony.test.func.api.javax.print.F_PrintTest_01
