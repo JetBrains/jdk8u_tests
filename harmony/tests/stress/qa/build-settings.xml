@@ -34,6 +34,8 @@
 	<property name="qa.bin" location="${qa.location}/bin"/>
 	<property name="qa.config" location="${qa.location}/config"/>
 	<property name="qa.bin.classes" location="${qa.bin}/classes"/>
+	<property name="qa.depends" location="${qa.location}/depends/jars"/>
+	<property name="qa.bin.tools.dest" location="${qa.depends}"/>
 	<property name="qa.bin.tools" location="${qa.bin}/tools"/>
 	<property name="qa.bin.lib" location="${qa.bin}/lib"/>
 	<property name="qa.src" location="${qa.location}/src/test/stress"/>
@@ -45,12 +47,12 @@
 	<property name="th.src" location="${root}/../tools/harness"/>
 	<property name="share.src" location="${root}/../tools/share"/>
 	<property name="th.dest" location="${qa.bin.tools}/th.dest"/>
-	<property name="th.jar" location="${qa.bin.tools}/th.jar"/>
+	<property name="th.jar" location="${qa.depends}/th.jar"/>
 	<property name="th.main" value="org.apache.harmony.harness.Main"/>
-	
+
 	<property name="vmtt.src" location="${root}/../tools/vmtt"/>
 	<property name="vmtt.dest" location="${qa.bin.tools}/vmtt.dest"/>
-	<property name="vmtt.jar" location="${qa.bin.tools}/vmtt.jar"/>
+	<property name="vmtt.jar" location="${qa.depends}/vmtt.jar"/>
 	<property name="vmtt.main.class" value="org.apache.harmony.vmtt.VMTT"/>
 	
 	<!-- Specify base directory of DRLVM -->

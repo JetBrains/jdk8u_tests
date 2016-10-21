@@ -35,7 +35,13 @@
 			<os family="unix"/>
 		</and>
 	</condition>
-	
+
+	<condition property="if.osx" value="true">
+		<and>
+			<os family="mac"/>
+		</and>
+	</condition>
+
 	<condition property="if.x86_64" value="true">
 		<contains string="${os.arch}" substring="x86_64"/>
 	</condition>
@@ -85,7 +91,7 @@
 	-->
 	<property file="depends.properties"/>
 	
-	<target name="get.all" description="Download" depends="get.punit">
+	<target name="get.all" description="Download">
 		
 		<mkdir dir="${cpptasks.dir}"/>
 		<download-one-file src="${cpptasks.url}" dest="${cpptasks.jar}"
@@ -101,21 +107,6 @@
 		<unzip src="${jasmin.zip}" dest="${jasmin.dir}" overwrite="false">
 			<patternset includes="${jasmin.extract.pattern}"/>
 		</unzip>
-	</target>
-	
-	<target name="get.punit" description="P-unit checkout and build">
-		<mkdir dir="${punit.repository}"/>
-		<exec executable="svn" dir="${punit.repository}" failonerror="true">
-			<arg value="checkout"/>
-
-            <!-- workaround: changes after r278 are incompatible -->
-            <arg value="-r278"/>
-
-			<arg value="${punit.url}/punit"/>
-			<arg value="${punit.url}/punit.extension"/>
-		</exec>
-		<ant dir="${punit.dir}"/>
-		<ant dir="${punit.ext.dir}"/>
 	</target>
 	
 	<macrodef name="download-one-file">
@@ -277,6 +268,7 @@
 			<includepath path="${java.home}/../include"/>
 			<includepath path="${java.home}/../include/win32" if="if.win"/>
 			<includepath path="${java.home}/../include/linux" if="if.linux"/>
+			<includepath path="${java.home}/../include/darwin" if="if.osx"/>
 		</cc>
 	</target>
 	
