@@ -1,0 +1,39 @@
+<project name="p-unit" default="jar" basedir=".">
+    <description>
+        p-unit build system
+    </description>
+  <!-- set global properties for this build -->
+  <property file="build.properties" />
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+  
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${bin}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <!-- Compile the java code from ${src} into ${bin} -->
+    <javac srcdir="${src}" destdir="${bin}"/>
+  </target>
+  
+  <target name="copy-resources">
+    <copy todir="${bin}">
+        <fileset dir="${src}">
+            <exclude name="**/*.java" />
+        </fileset>
+    </copy>
+  </target>
+  
+  <target name="jar" depends="compile, copy-resources">
+    <jar jarfile="${p-unit.jar}" basedir="${bin}"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="bin"/>
+    <delete file="${p-unit.jar}" />
+  </target>
+  
+</project>

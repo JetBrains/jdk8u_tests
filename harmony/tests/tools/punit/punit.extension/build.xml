@@ -1,0 +1,46 @@
+<project name="p-unit-extension" default="jar" basedir=".">
+    <description>
+        p-unit-extension build system
+    </description>
+  <!-- set global properties for this build -->
+  <property name="punit.dir" value="../punit" />
+  
+  <available file="${punit.dir}/build.properties" property="punit.present"/>
+  <fail message="Project punit is not present. Please check out punit (svn co https://p-unit.svn.sourceforge.net/svnroot/p-unit/trunk/punit)" 
+    unless="punit.present" />
+  
+  <property file="${punit.dir}/build.properties" />
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+  <property name="p-unit-extension.jar" value="p-unit-extension-${project.version}.jar"/>
+  
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${bin}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <!-- Compile the java code from ${src} into ${bin}-->
+    <javac srcdir="${src}" destdir="${bin}">
+    	<classpath>
+    		<pathelement path="${punit.dir}/${p-unit.jar}"/>
+            <fileset dir="lib">
+                <include name="**/*.jar" />
+            </fileset>
+    	</classpath>
+   	</javac>
+  </target>
+  
+  <target name="jar" depends="compile" >
+    <!-- Create the distribution directory -->
+    <jar jarfile="${p-unit-extension.jar}" basedir="${bin}"/>
+  </target>
+
+  <target name="clean">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${bin}"/>
+    <delete file="${p-unit-extension.jar}" />
+  </target>
+</project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="src" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+	<classpathentry path="/punit" exported="true" combineaccessrules="false" kind="src"/>
+	<classpathentry path="lib/jfreechart-1.0.5.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/jcommon-1.0.9.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/itext-2.0.2.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/junit-4.3.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="bin" kind="output"/>
+</classpath>
