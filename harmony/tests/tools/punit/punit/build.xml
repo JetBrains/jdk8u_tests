@@ -6,21 +6,23 @@
   <property file="build.properties" />
   <property name="src" location="src"/>
   <property name="bin" location="bin"/>
-  
+  <property name="dest" location="../../punit.dest"/>
+  <property name="p-unit.jar" value="${dest}/bin/p-unit-${project.version}.jar"/>
+
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp/>
     <!-- Create the build directory structure used by compile -->
-    <mkdir dir="${bin}"/>
+    <mkdir dir="${dest}"/>
   </target>
 
   <target name="compile" depends="init">
-    <!-- Compile the java code from ${src} into ${bin} -->
-    <javac srcdir="${src}" destdir="${bin}"/>
+    <!-- Compile the java code from ${src} into ${dest} -->
+    <javac srcdir="${src}" destdir="${dest}"/>
   </target>
   
   <target name="copy-resources">
-    <copy todir="${bin}">
+    <copy todir="${dest}">
         <fileset dir="${src}">
             <exclude name="**/*.java" />
         </fileset>
@@ -28,11 +30,11 @@
   </target>
   
   <target name="jar" depends="compile, copy-resources">
-    <jar jarfile="${p-unit.jar}" basedir="${bin}"/>
+    <jar jarfile="${p-unit.jar}" basedir="${dest}"/>
   </target>
 
   <target name="clean">
-    <delete dir="bin"/>
+    <delete dir="dest"/>
     <delete file="${p-unit.jar}" />
   </target>
   
