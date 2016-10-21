@@ -17,6 +17,7 @@ import org.punit.reporter.*;
 import org.punit.reporter.stream.console.*;
 import org.punit.suite.builder.*;
 import org.punit.type.*;
+import org.punit.type.Parameter;
 import org.punit.util.*;
 
 public abstract class AbstractRunner implements Runner {

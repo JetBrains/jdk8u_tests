@@ -11,6 +11,7 @@ import org.punit.events.EventListener;
 import org.punit.exception.*;
 import org.punit.runner.*;
 import org.punit.type.*;
+import org.punit.type.Parameter;
 import org.punit.util.*;
 import org.punit.watcher.*;
 
