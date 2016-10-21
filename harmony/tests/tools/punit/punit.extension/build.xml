@@ -12,18 +12,19 @@
   <property file="${punit.dir}/build.properties" />
   <property name="src" location="src"/>
   <property name="bin" location="bin"/>
-  <property name="p-unit-extension.jar" value="p-unit-extension-${project.version}.jar"/>
+  <property name="dest" location="../../punit.dest"/>
+  <property name="p-unit-extension.jar" value="${dest}/bin/p-unit-extension-${project.version}.jar"/>
   
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp/>
     <!-- Create the build directory structure used by compile -->
-    <mkdir dir="${bin}"/>
+    <mkdir dir="${dest}"/>
   </target>
 
   <target name="compile" depends="init">
-    <!-- Compile the java code from ${src} into ${bin}-->
-    <javac srcdir="${src}" destdir="${bin}">
+    <!-- Compile the java code from ${src} into ${dest}-->
+    <javac srcdir="${src}" destdir="${dest}">
     	<classpath>
     		<pathelement path="${punit.dir}/${p-unit.jar}"/>
             <fileset dir="lib">
@@ -35,12 +36,12 @@
   
   <target name="jar" depends="compile" >
     <!-- Create the distribution directory -->
-    <jar jarfile="${p-unit-extension.jar}" basedir="${bin}"/>
+    <jar jarfile="${p-unit-extension.jar}" basedir="${dest}"/>
   </target>
 
   <target name="clean">
     <!-- Delete the ${build} and ${dist} directory trees -->
-    <delete dir="${bin}"/>
+    <delete dir="${dest}"/>
     <delete file="${p-unit-extension.jar}" />
   </target>
 </project>
