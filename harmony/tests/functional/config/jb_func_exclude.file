@@ -67,6 +67,8 @@ functional/org/apache/harmony/test/func/api/java/security/auth/F_AuthPermissionT
 # Bugs in tests: 59 tests (+3 Linux)
 # H-2461
 functional/org/apache/harmony/test/func/reg/vm/btest4468/Btest4468.xml
+# H-4369
+functional/org/apache/harmony/test/func/api/java/awt/Window/WindowTest.xml
 # H-4373
 functional/org/apache/harmony/test/func/api/java/security/F_SignatureTest_01/F_SignatureTest_01.xml
 # H-4374
@@ -118,6 +120,12 @@ functional/org/apache/harmony/test/func/api/javax/swing/AbstractButton/AbstractB
 functional/org/apache/harmony/test/func/api/javax/swing/JButton/JButtonTest.xml
 functional/org/apache/harmony/test/func/api/javax/swing/JComponent/JComponentTest.xml
 
+# H-4366
+functional/org/apache/harmony/test/func/api/java/io/PipedInputStream/PipedInputStreamTest.xml
+# H-4437
+functional/org/apache/harmony/test/func/networking/java/net/URL/GetContent01/getContent01.xml
+functional/org/apache/harmony/test/func/networking/java/net/URL/GetContent02/getContent02.xml
+functional/org/apache/harmony/test/func/networking/java/net/URL/OpenStream01/openStream01.xml
 
 # These tests fail on Linux but pass on Windows. RI behaves the same.
 # H-4989.
@@ -169,3 +177,6 @@ functional/org/apache/harmony/test/func/api/javax/management/monitor/gaugemonito
 functional/org/apache/harmony/test/func/api/javax/management/monitor/gaugemonitor/DifferenceTestDouble.xml
 functional/org/apache/harmony/test/func/api/javax/management/monitor/gaugemonitor/ErrorNotificationsTest.xml
 functional/org/apache/harmony/test/func/api/javax/management/monitor/stringmonitor/ErrorTest.xml
+
+# Invalid test HARMONY-4867
+functional/org/apache/harmony/test/func/reg/vm/btest6572/Btest6572.xml
