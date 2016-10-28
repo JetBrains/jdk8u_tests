@@ -180,3 +180,7 @@ functional/org/apache/harmony/test/func/api/javax/management/monitor/stringmonit
 
 # Invalid test HARMONY-4867
 functional/org/apache/harmony/test/func/reg/vm/btest6572/Btest6572.xml
+
+# Issues reported to Oracle
+# https://bugs.openjdk.java.net/browse/JDK-8168655
+functional/org/apache/harmony/test/func/reg/vm/btest3932/Btest3932.xml
