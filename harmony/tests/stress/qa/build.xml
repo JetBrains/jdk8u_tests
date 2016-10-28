@@ -247,7 +247,6 @@
         <!-- Tests should be compiled with debug information because otherwise JVMTI agent
              cannot get line number and other debug info. This makes some tests fail, see HARMONY-5076 -->
 		<javac target="1.5" debug="true" srcdir="${qa.src}" destdir="${qa.bin.classes}">
-			<compilerarg line="-J-Xss4m"/>
 			<classpath>
 				<pathelement location="${th.jar}"/>
 				<pathelement location="${junit.jar}"/>
