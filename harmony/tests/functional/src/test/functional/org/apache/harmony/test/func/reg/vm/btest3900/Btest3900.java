@@ -67,7 +67,7 @@ public class Btest3900 extends MultiCase {
 
     public Result test_2C() {
         return classFormatTest("org.apache.harmony.test.func.reg.vm.btest3900.testInitFlags_2C",
-                "protected private <init>", VerifyError.class);
+                "protected private <init>", IllegalAccessException.class);
     }
 
     public Result test_3C() {
