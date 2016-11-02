@@ -29,6 +29,6 @@
 .end method
 .method public meth()V
     .limit stack 2
-    .limit locals 65536
+    .limit locals 65535
     return
 .end method

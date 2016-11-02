@@ -28,7 +28,7 @@
    return
 .end method
 .method public get()I
-    .limit stack 65536
+    .limit stack 65535
     .limit locals 1
     iconst_1
     ireturn
