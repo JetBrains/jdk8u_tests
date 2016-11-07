@@ -1,3 +1,8 @@
+# Failing tests.
+# Intermittently fails on HY as well
+functional/org/apache/harmony/test/func/jpda/jdwp/scenario/LV02/LV02Test.xml
+functional/org/apache/harmony/test/func/jpda/jdwp/scenario/LV03/LV03Test.xml
+
 # Failing tests. No submitted bugs neither in HY nor JDK
 functional/org/apache/harmony/test/func/api/java/security/F_SecureClassLoaderTest_02/F_SecureClassLoaderTest_02.xml
 
@@ -13,7 +18,7 @@ functional/org/apache/harmony/test/func/reg/vm/btest3502/Btest3502.xml
 functional/org/apache/harmony/test/func/reg/vm/btest8748/Btest8748.xml
 
 # No installed printers
-functional/org/apache/harmony/test/func/api/javax/print/F_PrintTest_01.xml
+functional/org/apache/harmony/test/func/api/javax/print/F_PrintTest_01/F_PrintTest_01.xml
 
 # FAILED on RI: 18 tests (+3 that pass on Harmony)
 # H-2607
@@ -117,6 +122,7 @@ functional/org/apache/harmony/test/func/api/javax/swing/text/AbstractDocument/Br
 functional/org/apache/harmony/test/func/api/javax/swing/text/AbstractDocument/AbstractElementTest.java
 functional/org/apache/harmony/test/func/api/javax/swing/text/AbstractDocument/LeafElementTest.java
 functional/org/apache/harmony/test/func/api/javax/swing/text/DefaultEditorKit/DefaultEditorKitTest.xml
+functional/org/apache/harmony/test/func/api/javax/swing/text/DefaultHighlighter/DefaultHighlighterTest.xml
 functional/org/apache/harmony/test/func/api/javax/swing/text/DefaultHighlighter/DefaultHighlightPainterTest.xml
 functional/org/apache/harmony/test/func/api/javax/swing/text/DefaultCaret/DefaultCaretTest.xml
 functional/org/apache/harmony/test/func/api/javax/swing/AbstractButton/AbstractButtonTest.xml
@@ -208,8 +214,8 @@ functional/org/apache/harmony/test/func/api/java/io/BufferedInputStream/Buffered
 functional/org/apache/harmony/test/func/reg/vm/btest6572/Btest6572.xml
 
 # the tests are invalid because they never leave the main loop
-functional/org/apache/harmony/test/func/reg/vm/btest5877/Btest5877_jet.xml
-functional/org/apache/harmony/test/func/reg/vm/btest5877/Btest5877_opt.xml
+functional/org/apache/harmony/test/func/reg/jit/btest5877/Btest5877_jet.xml
+functional/org/apache/harmony/test/func/reg/jit/btest5877/Btest5877_opt.xml
 
 # the test is outdated - Now it does not throw ClassNotFoundException
 functional/org/apache/harmony/test/func/reg/vm/btest5728/Btest5728.xml
@@ -223,11 +229,11 @@ functional/org/apache/harmony/test/func/vm/cli/Xbootclasspath/Xbootclasspath01/X
 # invalid test - incorrectly specified expected values
 # for 'y' and 'yyy' it expects two-digit-year format - actually it gets four-digit
 # see https://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html
-functional/org/apache/harmony/test/func/api/java/text/MessageFormat/MessageFormat.xml
+functional/org/apache/harmony/test/func/api/java/text/MessageFormat/MessageFormatTest.xml
 
 # invalid test - it does not release the stream\
 # and cannot delete the file associated with this stream
-functional/org/apache/harmony/test/func/api/java/io/InputStreamReader/InputStreamReader.xml
+functional/org/apache/harmony/test/func/api/java/io/InputStreamReader/InputStreamReaderTest.xml
 
 # long running tests - almost every time finished by time out
 functional/org/apache/harmony/test/func/api/java/security/F_SecureRandomTest_01/F_SecureRandomTest_01.xml
@@ -236,6 +242,7 @@ functional/org/apache/harmony/test/func/api/java/security/F_SecureRandomTest_02/
 # it looks like lazy classloading optimization - class not loaded yet,
 # but info about it is already requested
 # Harmony specific test
+functional/org/apache/harmony/test/func/reg/vm/btest5293/Btest5293.xml
 functional/org/apache/harmony/test/func/reg/vm/btest6572/Btest6572.xml
 functional/org/apache/harmony/test/func/reg/vm/btest7369/Btest7369.xml
 
@@ -251,3 +258,14 @@ functional/org/apache/harmony/test/func/reg/vm/btest6353/Btest6353.xml
 # the message "main method should be static"
 # Harmony specific test
 functional/org/apache/harmony/test/func/reg/vm/btest6607/Btest6607.xml
+
+# changed behaviour of Java since Java 5 - ClassFormatError is a valid exception in this case
+functional/org/apache/harmony/test/func/reg/vm/btest5399/Btest5399.xml
+
+# invalid test - the path to the resource was hardcoded
+functional/org/apache/harmony/test/func/reg/vm/btest7252/Btest7252.xml
+
+# Te test is invalid
+# According JLS 17.2.4
+# The thread may not reset its interrupt status and return normally from the call to wait.
+functional/org/apache/harmony/test/func/api/java/lang/Thread/isInterrupted/isInterrupted10/isInterrupted1010/isInterrupted1010.xml
