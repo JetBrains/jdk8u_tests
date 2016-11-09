@@ -260,7 +260,7 @@ functional/org/apache/harmony/test/func/reg/vm/btest6353/Btest6353.xml
 functional/org/apache/harmony/test/func/reg/vm/btest6607/Btest6607.xml
 
 # changed behaviour of Java since Java 5 - ClassFormatError is a valid exception in this case
-functional/org/apache/harmony/test/func/reg/vm/btest5399/Btest5399.xml
+functional/org/apache/harmony/test/func/reg/jit/btest5399/Btest5399.xml
 
 # invalid test - the path to the resource was hardcoded
 functional/org/apache/harmony/test/func/reg/vm/btest7252/Btest7252.xml
@@ -269,3 +269,39 @@ functional/org/apache/harmony/test/func/reg/vm/btest7252/Btest7252.xml
 # According JLS 17.2.4
 # The thread may not reset its interrupt status and return normally from the call to wait.
 functional/org/apache/harmony/test/func/api/java/lang/Thread/isInterrupted/isInterrupted10/isInterrupted1010/isInterrupted1010.xml
+
+# Compiling .j file jasmin reports the error "Invalid stack size"
+# for the line
+#   .limit stack 65536
+# modifying the line to
+#   .limit stack 65535
+# makes the test invalid
+functional/org/apache/harmony/test/func/reg/vm/btest4711/Btest4711.xml
+
+# Invalid test - exception is actualy thrown in native
+functional/org/apache/harmony/test/func/reg/vm/btest6080/Btest6080.xml
+
+# The Harness can correctly find native libraries on OSX
+functional/org/apache/harmony/test/func/reg/vm/btest6158/Btest6158.xml
+functional/org/apache/harmony/test/func/reg/vm/btest6205/Btest6205.xml
+
+# The test incorrectly calculate full name for libc on OSX
+functional/org/apache/harmony/test/func/api/java/lang/F_SystemTest_04/F_SystemTest_04.xml
+
+# The test registers AncestorListener twice and expects only one event to be handled
+functional/org/apache/harmony/test/func/api/javax/swing/JComponent/JComponentAncestorListenerTest.xml
+
+# The harness was not properly implemented to execute the following tests under Mac OS X
+functional/org/apache/harmony/test/func/reg/vm/btest1485/Btest1485.xml
+functional/org/apache/harmony/test/func/reg/vm/btest2539/Btest2539.xml
+functional/org/apache/harmony/test/func/reg/vm/btest3010/Btest3010.xml
+functional/org/apache/harmony/test/func/reg/vm/btest4673/Btest4673.xml
+functional/org/apache/harmony/test/func/reg/vm/btest5097/Btest5097.xml
+functional/org/apache/harmony/test/func/reg/vm/btest5440/Btest5440.xml
+functional/org/apache/harmony/test/func/reg/vm/btest5542/Btest5542.xml
+functional/org/apache/harmony/test/func/reg/vm/btest5615/Btest5615.xml
+functional/org/apache/harmony/test/func/reg/vm/btest6954/Btest6954.xml
+functional/org/apache/harmony/test/func/reg/vm/btest7006/Btest7006.xml
+functional/org/apache/harmony/test/func/reg/vm/btest7157/Btest7157.xml
+functional/org/apache/harmony/test/func/reg/vm/btest7394/Btest7394.xml
+functional/org/apache/harmony/test/func/reg/vm/btest7579/Btest7579.xml
