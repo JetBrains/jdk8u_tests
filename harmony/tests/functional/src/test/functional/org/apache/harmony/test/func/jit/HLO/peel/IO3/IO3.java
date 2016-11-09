@@ -62,7 +62,7 @@ public class IO3 extends Test{
         String os = System.getProperty("os.name").toLowerCase();
         if ((length == 6000000) && (os.indexOf("windows") >= 0)) return pass();
         else if ((length == 5000000) && (os.indexOf("linux") >= 0)) return pass();
-        else if ((length == 5000000) && (os.indexOf("Mac") >= 0)) return pass();
+        else if ((length == 5000000) && (os.indexOf("mac") >= 0)) return pass();
         else return fail("TEST FAILED: check if IO operation was " +
                     "incorrectly hoisted outside a loop");
     }

@@ -61,7 +61,7 @@
 	</target>
 
 	<target name="osx.init" if="if.osx">
-		<property name="ext" value=".so"/>
+		<property name="ext" value=".dylib"/>
 		<property name="pref" value="lib"/>
 		<property name="compiler.name" value="gcc"/>
 		<property name="add.option" value="-DLINUX -DPLATFORM_POSIX -fPIC"/>
