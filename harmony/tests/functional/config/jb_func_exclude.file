@@ -210,6 +210,9 @@ functional/org/apache/harmony/test/func/api/java/awt/KeyboardFocusManager/Keyboa
 functional/org/apache/harmony/test/func/api/java/io/FileInputStream/FileInputStreamThreadTest.xml
 functional/org/apache/harmony/test/func/api/java/io/BufferedInputStream/BufferedInputStreamThreadTest.xml
 
+# sync issue - to be excluded
+functional/org/apache/harmony/test/func/reg/jit/btest6668/Btest6668.xml
+
 # changed behaviour of Java since Java 5 - ClassFormatError is a valid exception in this case
 functional/org/apache/harmony/test/func/reg/vm/btest6572/Btest6572.xml
 
