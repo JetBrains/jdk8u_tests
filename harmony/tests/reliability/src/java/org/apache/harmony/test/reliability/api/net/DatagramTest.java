@@ -83,8 +83,7 @@ public class DatagramTest extends Test{
         for (int i = 0; i<numberOfThreads; i++){
             sthrds[i] = new sendRunner(this);
             if (failed == true){
-                log.add("Failed at creation of sendRunners");
-                return fail("FAILED");
+                return fail("FAILED at creation of sendRunners");
             }
             sthrds[i].start();
         }
@@ -102,7 +101,7 @@ public class DatagramTest extends Test{
                 rthrds[i].join();
             } catch (InterruptedException e) {
                 log.add(e);
-                return fail("FAILED");
+                return fail("FAILED: " + e.getMessage());
             }
         }
         for (int i = 0; i<numberOfThreads; i++){
@@ -110,12 +109,15 @@ public class DatagramTest extends Test{
                 sthrds[i].join();
             } catch (InterruptedException e) {
                 log.add(e);
-                return fail("FAILED");
+                return fail("FAILED: " + e.getMessage());
             }
         }
 
         if (failed == true){
-            return fail("FAILED");
+            if (sendRunner.failedException != null)
+                return fail("FAILED: " + sendRunner.failedException.getMessage());
+            else
+                return fail("FAILED");
         }
 
         return pass("OK");
@@ -186,6 +188,7 @@ class sendRunner extends Thread{
     Random rm = new Random();
     DatagramSocket ds = null;
     DatagramTest base = null;
+    volatile static Exception failedException;
     
     sendRunner(DatagramTest b){
         base = b;
@@ -194,6 +197,7 @@ class sendRunner extends Thread{
         } catch (SocketException e) {
             DatagramTest.stopThreads = true;
             DatagramTest.log.add("Failed to create DatagramSocket in " + getId() + " thread");
+            failedException = e;
             DatagramTest.failed = true;
         }
     }
@@ -208,6 +212,7 @@ class sendRunner extends Thread{
             } catch (UnknownHostException e) {
                 DatagramTest.stopThreads = true;
                 DatagramTest.log.add("Failed to create DatagramPacket in " + getId() + " thread, localhost, port " + port);
+                failedException = e;
                 DatagramTest.failed = true;
                 return;
             }
@@ -217,6 +222,7 @@ class sendRunner extends Thread{
             } catch (IOException e) {
                 DatagramTest.stopThreads = true;
                 DatagramTest.log.add("Failed to send packet in " + getId() + " thread, localhost, port " + port);
+                failedException = e;
                 DatagramTest.failed = true;
             }
         }
