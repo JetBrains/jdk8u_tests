@@ -124,8 +124,8 @@ public final class FilePermissionTest extends IOMultiCase {
         }
 
         if (File.separatorChar != '/') {
-            if (new FilePermission(Utils.TEMP_STORAGE + "/*", "read")
-                    .implies(new FilePermission(Utils.TEMP_STORAGE + "/a",
+            if (new FilePermission(Utils.TEMP_STORAGE + File.separatorChar + "*", "read")
+                    .implies(new FilePermission(Utils.TEMP_STORAGE + File.separatorChar + "a",
                             "read"))) {
                 return failed("case 6a failed");
             }
