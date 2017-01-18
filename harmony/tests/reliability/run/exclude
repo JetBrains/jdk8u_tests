@@ -62,3 +62,6 @@ api.kernel.pckg.PackageGetTest
 
 ## HARMONY-5532
 api.serialization.SerializableClassesTest
+
+# https://bugs.openjdk.java.net/browse/JDK-8167252
+api.nio.charset.ContainsTest
