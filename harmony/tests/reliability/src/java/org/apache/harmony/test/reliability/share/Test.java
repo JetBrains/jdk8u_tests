@@ -27,12 +27,12 @@ public abstract class Test {
     public static Log log = new Log();
 
     public int pass() {
-        return pass("PASSED");
+        return Result.PASS;
     }
 
     public int pass(String msg) {
         log.add(msg);
-        return Result.PASS;
+        return pass();
     }
 
     public int fail(String msg) {
