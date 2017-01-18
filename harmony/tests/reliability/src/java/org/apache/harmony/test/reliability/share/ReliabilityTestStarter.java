@@ -33,7 +33,9 @@ public class ReliabilityTestStarter extends Test{
         if (args == null) {
             return 0;            
         }
+        log.add("Test arguments:");
         for (int i = 0; i < args.length; i++) {
+            log.add("\t" + args[i]);
             if (args[i].equalsIgnoreCase("-testReliabilityMode")) {
                 testReliabilityModePosition = i;
                 testReliabilityMode = args[i + 1];
