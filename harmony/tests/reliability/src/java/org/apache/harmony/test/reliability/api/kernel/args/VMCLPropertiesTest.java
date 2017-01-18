@@ -104,10 +104,9 @@ public class VMCLPropertiesTest extends Test {
 
                 String[] cmdLine = createCmdLine(vmPath, vmOptions[i], vmProperties[j], appName, appParams[j]);
 
-                // for (int x = 0; x < cmdLine.length; ++x) {
-                // log.add(cmdLine[x] + " ");
-                // }
-                // log.add("");
+                for (int x = 0; x < cmdLine.length; ++x) {
+                    log.add("" + x + "." + cmdLine[x]);
+                }
 
                 try {
 
@@ -145,7 +144,7 @@ public class VMCLPropertiesTest extends Test {
             return fail("Failed");
         }
 
-        return pass("OK");
+        return pass();
     }
 
 
