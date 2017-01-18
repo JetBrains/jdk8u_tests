@@ -71,11 +71,12 @@ class AuxiliaryClass {
     
     void changeObj(String path) throws Exception {
         URL url = new URL("file://" + path + "/child.jar");
-        if (!new File(url.toURI()).exists()) {
+        // removing this lines because it rightfully throws IllegalArgumentException on Windows
+        //if (!new File(url.toURI()).exists()) {
             // TODO: remove this check?
-            throw new RuntimeException("TEST EXCEPTION: url file:/" + path
-                    + "/child.jar is not valid");
-        }
+        //    throw new RuntimeException("TEST EXCEPTION: url file:/" + path
+        //            + "/child.jar is not valid");
+        //}
         URLClassLoader loader = new URLClassLoader(new URL[] { url });
         Class child = loader.loadClass("org.apache.harmony.test.func." +
                 "jit.HLO.devirt.Runtime.RuntimeExtend1.Child");
