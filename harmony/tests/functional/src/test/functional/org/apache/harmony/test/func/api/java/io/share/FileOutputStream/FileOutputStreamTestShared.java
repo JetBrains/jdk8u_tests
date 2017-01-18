@@ -313,10 +313,13 @@ public class FileOutputStreamTestShared extends OutputStreamTestShared implement
        for(int i = 0; i < 50; ++i) {
            System.gc(); 
        }
-       
-       if(f.length() != 2) {
-           return failed("expected data to be written in finalize()");
-       }
+
+       // The garbage collector does not guarantee that any objects will be collected
+       // or that the finalizers will be called.
+       // So commenting out the following lines
+       //if(f.length() != 2) {
+       //    return failed("expected data to be written in finalize()");
+       //}
        
        return passed();
     }
