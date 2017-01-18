@@ -196,7 +196,8 @@ public class IOTest  extends Test {
         if(!renameFiles("file_from_zip","", "renamed_file_from_zip", listFiles)) {
             return fail("Rename file_from_zip.out files: Failed.");
         }
- 
+
+        log.add("Compare: " + path_to_files + separator + javaFileName + " with renamed_out_file");
         if(!compareFilesContent(temp, path_to_files + separator + javaFileName, "renamed_out_file")) {
             return fail("Check renamed_out_file files: Failed.");
         }
@@ -910,7 +911,15 @@ public class IOTest  extends Test {
                 }
  
                 if(!java.util.Arrays.equals(golden_file, checks_file)) {
-                    log.add("Checks the" + file_name + ":  failed");
+                    log.add(pathtogolden + ":");
+                    log.add("=====================");
+                    log.add(new String(golden_file));
+                    log.add("");
+                    log.add(listFiles[i] + ":");
+                    log.add("=====================");
+                    log.add(new String(checks_file));
+                    log.add("");
+                    log.add("");log.add("Checks the " + file_name + ":  failed");
                     return false;
                 }
             }
