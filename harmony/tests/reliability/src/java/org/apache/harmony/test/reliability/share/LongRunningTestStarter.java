@@ -42,6 +42,7 @@ public class LongRunningTestStarter extends Test {
             return 0;            
         }
 
+        log.add("Test arguments:");
         for (int i = 0; i < args.length; i++) {
             log.add("\t" + args[i]);
             if (args[i].equalsIgnoreCase("-testClassName")){
