@@ -95,18 +95,19 @@ public class DatagramTest extends Test{
             return fail("Main thread was interrupted");
         }
         stopThreads = true;
-        
-        for (int i = 0; i<NUMBER_OF_RECEIVERS; i++){
+
+        for (int i = 0; i<numberOfThreads; i++){
             try {
-                rthrds[i].join();
+                sthrds[i].join();
             } catch (InterruptedException e) {
                 log.add(e);
                 return fail("FAILED: " + e.getMessage());
             }
         }
-        for (int i = 0; i<numberOfThreads; i++){
+
+        for (int i = 0; i<NUMBER_OF_RECEIVERS; i++){
             try {
-                sthrds[i].join();
+                rthrds[i].join();
             } catch (InterruptedException e) {
                 log.add(e);
                 return fail("FAILED: " + e.getMessage());
