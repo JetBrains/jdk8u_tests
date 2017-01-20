@@ -75,7 +75,7 @@ public class PetersonTest extends Test {
             }
             // log.add("Status of thread " + i + ": is PASS");
         }
-        return pass("OK");
+        return pass();
 
     }
 
