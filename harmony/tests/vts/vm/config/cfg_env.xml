@@ -119,7 +119,7 @@ Version: $Revision: 1.3 $
 				<value name="host">www.qwerty</value>
 			</parameter>
 		</plugin>
-		<plugin name="Storage" class-name="org.apache.harmony.harness.plugins.StoreRes">
+		<plugin name="Storage" class-name="org.apache.harmony.harness.ReportTool.StoreResAsJU">
 		</plugin>
 		<plugin name="ResFinder" class-name="org.apache.harmony.harness.plugins.ResFinder">
 		</plugin>
