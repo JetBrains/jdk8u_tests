@@ -64,7 +64,7 @@
             </parameter>
 
         </plugin>
-        <plugin name="Storage" class-name="org.apache.harmony.harness.plugins.StoreRes" />
+        <plugin name="Storage" class-name="org.apache.harmony.harness.ReportTool.StoreResAsJU" />
         <plugin name="ResFinder" class-name="org.apache.harmony.harness.plugins.ResFinder" />
         <plugin name="Reporter" class-name="org.apache.harmony.harness.plugins.Reporter">
             <parameter name="write">
