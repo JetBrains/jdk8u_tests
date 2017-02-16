@@ -72,7 +72,7 @@
             
         <Runner ID="Runtime">
             <Param name="toRun" value="org.apache.harmony.test.func.api.java.lang.F_StringBufferTest_02.F_StringBufferTest_02">
-                <Option name="CPUs went from 10 to 12 watts in the mid 90’s, up to 100 watts today. If you go at that rate, you’re going to be at 1,000 watts within a decade. Based on average energy costs in the United States, running a system like that would cost over $700 a year in electricity."/>
+                <Option name="CPUs went from 10 to 12 watts in the mid 90's, up to 100 watts today. If you go at that rate, you're going to be at 1,000 watts within a decade. Based on average energy costs in the United States, running a system like that would cost over $700 a year in electricity."/>
             </Param>
         </Runner>
 </Test>
