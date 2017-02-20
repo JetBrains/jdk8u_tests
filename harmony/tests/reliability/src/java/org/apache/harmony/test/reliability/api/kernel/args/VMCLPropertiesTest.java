@@ -104,8 +104,9 @@ public class VMCLPropertiesTest extends Test {
 
                 String[] cmdLine = createCmdLine(vmPath, vmOptions[i], vmProperties[j], appName, appParams[j]);
 
+                log.add("");
                 for (int x = 0; x < cmdLine.length; ++x) {
-                    log.add("" + x + "." + cmdLine[x]);
+                    log.add(x + "." + cmdLine[x].replaceAll("[^\\p{ASCII}]","X"));
                 }
 
                 try {
