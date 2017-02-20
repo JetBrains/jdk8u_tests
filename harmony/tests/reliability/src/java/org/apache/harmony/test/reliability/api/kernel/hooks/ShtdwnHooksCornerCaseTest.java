@@ -152,8 +152,11 @@ public class ShtdwnHooksCornerCaseTest extends Test {
         // log.add("All hooks completed normally but one called Runtime.halt() while hook running. " +
         //        "Test passed?: " + status + "\n");
 
-        status = runApp(ObjectsCreatedInHooksFinalizedClass);
-        passed = passed & status;
+        //excluding this test case because it calls Runtime.runFinalizersOnExit which is actually deprecated
+        //https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html
+
+        //status = runApp(ObjectsCreatedInHooksFinalizedClass);
+        //passed = passed & status;
         // log.add("Hooks create objects. Were all objects finalized?: " + status + "\n");
 
         if (!passed) {
