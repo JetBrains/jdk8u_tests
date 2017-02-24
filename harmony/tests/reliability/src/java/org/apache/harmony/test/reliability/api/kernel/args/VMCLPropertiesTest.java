@@ -104,10 +104,10 @@ public class VMCLPropertiesTest extends Test {
 
                 String[] cmdLine = createCmdLine(vmPath, vmOptions[i], vmProperties[j], appName, appParams[j]);
 
-                log.add("");
-                for (int x = 0; x < cmdLine.length; ++x) {
-                    log.add(x + "." + cmdLine[x].replaceAll("[^\\p{ASCII}]","X"));
-                }
+                // for (int x = 0; x < cmdLine.length; ++x) {
+                // log.add(cmdLine[x] + " ");
+                // }
+                // log.add("");
 
                 try {
 
@@ -145,7 +145,7 @@ public class VMCLPropertiesTest extends Test {
             return fail("Failed");
         }
 
-        return pass();
+        return pass("OK");
     }
 
 
@@ -254,7 +254,7 @@ public class VMCLPropertiesTest extends Test {
                  
             while (true) {
                 char c = (char) r.nextInt(0xffff);
-                if (Character.isJavaIdentifierPart(c)) {
+                if (Character.isJavaIdentifierPart(c) && c != '\u02ba') {
                     ch[i] = c;
                     break;
                 }
