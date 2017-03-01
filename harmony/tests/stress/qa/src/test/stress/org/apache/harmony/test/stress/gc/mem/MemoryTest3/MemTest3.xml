@@ -38,7 +38,7 @@
         <Modification date="2005-11-30" author="Alexander Esin"/>
 
         <Runner ID="Runtime">
-        	<Option name="-Xmx160m"/>
+        	<Option name="-Xmx160m -XX:-UseGCOverheadLimit"/>
             <Option value="-Dorg.apache.harmony.test.share.stress.ReliabilityRunner.params=
 					org.apache.harmony.test.stress.gc.mem.MemoryTest3.MemoryTest {}"/>
 			<Param name="toRun" value="org.apache.harmony.test.share.stress.ReliabilityRunner">
