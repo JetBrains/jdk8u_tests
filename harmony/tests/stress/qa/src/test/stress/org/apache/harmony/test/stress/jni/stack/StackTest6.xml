@@ -48,6 +48,7 @@ Version: $Revision: 1.6 $
         <Source name="StackTest6.java"/>
 
         <Runner ID="Runtime">
+			<Option name="-XX:-UseGCOverheadLimit"/>
             <Option value="-Dorg.apache.harmony.test.share.stress.ReliabilityRunner.params=
 					org.apache.harmony.test.stress.jni.stack.StackTest6 {}"/>
 		<Option value="-Dorg.apache.harmony.test.stress.jni.stack.share.STStackTest.fillMemory=1"/>
