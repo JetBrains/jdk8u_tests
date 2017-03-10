@@ -495,7 +495,6 @@ directory.
               fork="yes" 
               dir="${vts.build.path}"
               classpath="{vts.built.bin.classes}:${vts.built.bin.lib}:${vts.harness.jar}:${xml.classpath}">
-            <arg value="-XX:+CreateMinidumpOnCrash"/>
             <arg line="-cfp ${vts.built.config} -exclude ${vts.built.config}/exclude.file -execopt exec other -execopt location local -execopt concurrent ${th.concurrency.other} -version -property TestResultRoot ${distrib.location}${f}${vts.zip.prefix}_results${f}result.Other -logl ${th.log.level}  -property TestedRuntime ${tested.runtime}"/>
         </java>
 
