@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="JPDA Build" default="build" basedir=".">
+    <description>Build for JPDA component</description>
+
+    <property name="hy.component" value="jdktools" />
+    <property name="hy.module" value="jpda" />
+    <property name="hy.target" location="${basedir}/../../target" />
+    <import file="${hy.target}/hdk/build/ant/properties.xml" />
+    <import file="${hy.hdk}/build/ant/depends.xml" />
+    <property file="../../make/depends.properties" />
+    <property file="${common.resources}/make/depends.properties" />
+
+    <target name="check-depends" unless="skip.java.build">
+        <check-one-file src="${jdt.jdi.jar.url}"
+                        dest="${jdt.jdi.jar}" />
+        <check-one-file src="${jdt.jdimodel.jar.url}"
+                        dest="${jdt.jdimodel.jar}" />
+        <check-one-file src="${icu.url}" dest="${icu.jar}" />
+        <check-one-file dest="${junit.jar}" src="${junit.jar.url}"/>
+        <check-one-file dest="${hamcrest-library.jar}"
+                        src="${hamcrest-library.jar.url}"/>
+    </target>
+
+    <target name="fetch-depends" unless="skip.java.build">
+        <fetch dep="jdt.jdi.jar"/>
+        <fetch dep="jdt.jdimodel.jar"/>
+        <fetch dep="icu"/>
+        <fetch dep="junit.jar"/>
+        <fetch dep="hamcrest-library.jar"/>
+    </target>
+
+    <target name="build"
+            depends="check-depends,
+                     -build-jar,-copy-jars,-build-native,
+                     -test-jar" />
+
+    <target name="test" depends="-test-module">
+        <fail message="Some tests failed">
+            <condition>
+                <or>
+                    <isset property="test.failures" />
+                    <isset property="test.errors" />
+                </or>
+            </condition>
+        </fail>
+    </target>
+
+    <!-- internal target for local and global test run sequence -->
+    <target name="-test-module" depends="build,-run-tests" />
+
+    <target name="clean" depends="-clean-java,-clean-native,-clean-test" />
+
+    <target name="-clean-java" unless="skip.java.build">
+        <echo message="Cleaning ${hy.module} classes" />
+
+        <delete file="${hy.jdk}/lib/jdtstub.jar" />
+        <delete file="${hy.jdk}/lib/jdtstub-src.jar" />
+
+        <delete includeemptydirs="true" failonerror="false">
+            <fileset dir="${hy.build.mod}/main" />
+            <fileset dir="${hy.build.mod}/test" />
+        </delete>
+    </target>
+
+    <target name="-clean-native" unless="skip.native.build"
+            depends="-clean-native-common,-clean-native-windows" />
+
+    <target name="-clean-native-common" unless="skip.native.build">
+        <echo message="Cleaning ${hy.module} natives" />
+        <make dir="src/main/native/jdwp/${hy.os.family}/agent"
+              target="clean">
+            <make-elements>
+                <arg line="TOOLSDLLPATH=${hy.jdk}/jre/bin/" />
+            </make-elements>
+        </make>
+
+        <make dir="src/main/native/jdwp/${hy.os.family}/transport/dt_socket"
+              target="clean">
+            <make-elements>
+                <arg line="TOOLSDLLPATH=${hy.jdk}/jre/bin/" />
+            </make-elements>
+        </make>
+    </target>
+
+    <target name="-clean-native-windows" if="is.windows"
+            unless="skip.native.build">
+        <make dir="src/main/native/jdwp/${hy.os.family}/transport/dt_shmem"
+              target="clean">
+            <make-elements>
+                <arg line="TOOLSDLLPATH=${hy.jdk}/jre/bin/" />
+            </make-elements>
+        </make>
+    </target>
+
+    <target name="-clean-test" unless="skip.test.build">
+        <delete dir="${tests.hdk.dir}" failonerror="false" />
+        <delete failonerror="false" dir="${hy.build.mod}/test"/>
+    </target>
+
+    <target name="-compile-java" unless="skip.java.build">
+        <echo message="Compiling ${hy.module} classes" />
+        <ensure-javac/>
+        <mkdir dir="${hy.build.mod}/java" />
+
+        <hy.javac sourcepath=""
+               srcdir="src/main/java"
+               destdir="${hy.build.mod}/java">
+
+            <!-- HDK class library -->
+            <classpath>
+                <fileset dir="${hy.hdk}/jdk/jre/lib/boot">
+                    <include name="**/*.jar" />
+                    <exclude name="**/*-src.jar" />
+                </fileset>
+            </classpath>
+
+            <classpath>
+                <pathelement path="${jdt.jdi.jar}"/>
+                <pathelement path="${jdt.jdimodel.jar}"/>
+            </classpath>
+        </hy.javac>
+    </target>
+
+    <!-- create jdtstub.jar to resolve JDI implementation dependency -->
+    <target name="-build-jar" unless="skip.java.build"
+            depends="-svn-info,-compile-java">
+        <mkdir dir="${hy.jdk}/lib" />
+
+        <hy.jar.bin destfile="${hy.jdk}/lib/jdtstub.jar"
+                    manifest="META-INF/MANIFEST.MF">
+            <fileset dir="${hy.build.mod}/java" />
+        </hy.jar.bin>
+
+        <hy.jar.src destfile="${hy.jdk}/lib/jdtstub-src.jar">
+            <fileset dir="src/main/java" />
+        </hy.jar.src>
+    </target>
+
+    <!-- copy all required jars with JDI implementation and dependent
+         classes -->
+    <target name="-copy-jars" unless="skip.java.build">
+        <mkdir dir="${hy.jdk}/lib" />
+        <copy todir="${hy.jdk}/lib" flatten="true">
+            <fileset file="${icu.jar}"/>
+            <fileset file="${jdt.jdimodel.jar}"/>
+        </copy>
+    </target>
+
+    <!-- Build native code -->
+    <target name="-build-native" unless="skip.native.build"
+            depends="-build-native-common,-build-native-windows" />
+
+    <target name="-build-native-common" unless="skip.native.build">
+        
+        <echo message="Compiling ${hy.module} natives" />
+
+        <!-- Build agent shared lib -->
+        <make dir="src/main/native/jdwp/${hy.os.family}/agent">
+            <make-elements>
+                <arg line="TOOLSDLLPATH=${hy.jdk}/jre/bin/" />
+            </make-elements>
+        </make>
+        
+        <!-- Build socket transport shared lib -->
+        <make dir="src/main/native/jdwp/${hy.os.family}/transport/dt_socket">
+            <make-elements>
+                <arg line="TOOLSDLLPATH=${hy.jdk}/jre/bin/" />
+            </make-elements>
+        </make>
+    </target>
+
+    <target name="-build-native-windows" if="is.windows"
+            unless="skip.native.build">
+        <!-- Build shared memory transport shared lib on Windows -->
+        <make dir="src/main/native/jdwp/${hy.os.family}/transport/dt_shmem">
+            <make-elements>
+                <arg line="TOOLSDLLPATH=${hy.jdk}/jre/bin/" />
+            </make-elements>
+        </make>
+
+    </target>
+
+    <target name="-test-jar" unless="skip.test.build"
+            depends="-svn-info,-compile-tests">
+        <mkdir dir="${tests.hdk.dir}" />
+
+        <copy file="make/run-test.xml" tofile="${tests.hdk.dir}/build.xml" />
+
+        <hy.jar.bin destfile="${tests.hdk.dir}/${hy.module}_tests.jar">
+            <fileset dir="${hy.build.mod}/test/api" />
+        </hy.jar.bin>
+ 
+        <mkdir dir="${tests.excludes.hdk.dir}"/>
+        <copy todir="${tests.excludes.hdk.dir}">
+            <fileset dir="make" includes="exclude*"/>
+            <filterchain>
+                <tokenfilter>
+                    <replaceregex pattern="\.java" replace="\.class" flags="g"/>
+                </tokenfilter>
+            </filterchain>
+        </copy>
+    </target>
+
+    <target name="-compile-tests" unless="skip.test.build">
+        <compile-tests description="${hy.module} tests">
+            <javac-elements>
+                <src>
+                    <pathelement location="src/test/java" />
+                </src>
+                <classpath>
+                    <pathelement path="${hy.jdk}/lib/tools.jar"/>
+                </classpath>
+                <!-- TOFIX: hy.javac debug="on" ? -->
+            </javac-elements>
+        </compile-tests>
+    </target>
+
+    <target name="-run-tests" depends="-test-jar">
+        <ant dir="${tests.hdk.dir}" target="test-module" />
+    </target>
+
+</project>
