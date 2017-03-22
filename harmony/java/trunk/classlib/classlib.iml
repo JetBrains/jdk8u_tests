@@ -31,6 +31,12 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/boot" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/unix" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/beans/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/java-internal" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/support/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
     </content>

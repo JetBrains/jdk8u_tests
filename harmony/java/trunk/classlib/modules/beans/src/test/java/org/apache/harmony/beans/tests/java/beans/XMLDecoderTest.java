@@ -109,7 +109,7 @@ public class XMLDecoderTest extends TestCase {
      * test XMLDecoder constructor with null inputStream argument
      */
     public void test_Constructor_NullInputStream_scenario1() {
-        XMLDecoder xmlDecoder = new XMLDecoder(null);
+        XMLDecoder xmlDecoder = new XMLDecoder((InputStream) null);
         assertNull(xmlDecoder.readObject());
         assertNull(xmlDecoder.getOwner());
         assertNotNull(xmlDecoder.getExceptionListener());
