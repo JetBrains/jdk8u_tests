@@ -5,6 +5,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/accessibility/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/accessibility/src/test/api/java/common" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/annotation/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/annotation/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/annotation/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/awt/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/windows" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/unix" isTestSource="false" />
