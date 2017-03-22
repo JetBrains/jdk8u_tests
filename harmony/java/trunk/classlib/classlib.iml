@@ -9,6 +9,11 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/annotation/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/annotation/src/test/java" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/archive/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/archive/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/archive/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/archive/src/test/java-internal" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/awt/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/windows" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/unix" isTestSource="false" />
