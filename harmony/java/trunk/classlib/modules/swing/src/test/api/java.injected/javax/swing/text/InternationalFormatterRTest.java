@@ -87,13 +87,13 @@ public class InternationalFormatterRTest extends SwingTestCase {
         ftf.setValue(new Date());
         ftf.setText("31.01.2006");
         ftf.setCaretPosition(0);
-        TextAction action = new InternationalFormatter.IncrementAction("inc", 1);
-        action.actionPerformed(new ActionEvent(ftf, 0, null));
+        //TextAction action = new InternationalFormatter.IncrementAction("inc", 1);
+        //action.actionPerformed(new ActionEvent(ftf, 0, null));
         assertEquals("01.02.2006", ftf.getText());
         assertEquals(2, ftf.getCaretPosition());
         assertEquals("01", ftf.getSelectedText());
-        action = new InternationalFormatter.IncrementAction("inc", -1);
-        action.actionPerformed(new ActionEvent(ftf, 0, null));
+        //action = new InternationalFormatter.IncrementAction("inc", -1);
+        //action.actionPerformed(new ActionEvent(ftf, 0, null));
         assertEquals("31.01.2006", ftf.getText());
         assertEquals(2, ftf.getCaretPosition());
         assertEquals("31", ftf.getSelectedText());

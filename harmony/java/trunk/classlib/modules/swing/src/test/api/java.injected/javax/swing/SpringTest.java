@@ -117,18 +117,10 @@ public class SpringTest extends SwingTestCase {
         }
         spring = Spring.minus(Spring.width(component));
         component.setMinimumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MIN_VALUE, spring.getMaximumValue());
-        } else {
-            assertEquals(-Integer.MAX_VALUE, spring.getMaximumValue());
-        }
+        assertEquals(-Integer.MAX_VALUE, spring.getMaximumValue());
         spring = Spring.minus(Spring.width(component));
         component.setMinimumSize(new Dimension(Integer.MIN_VALUE, Integer.MIN_VALUE));
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MAX_VALUE, spring.getMaximumValue());
-        } else {
-            assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
-        }
+        assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
     }
 
     public void testMinus_SizesCashing() throws Exception {
@@ -194,8 +186,8 @@ public class SpringTest extends SwingTestCase {
         assertEquals(315, spring1.getValue()); //314
         assertEquals(103, spring2.getValue()); //103
 
-        spring1 = Spring.constant(24, 81, 3 * Spring.TRIMMED_MAX_VALUE);
-        spring2 = Spring.constant(6, 25, Spring.TRIMMED_MAX_VALUE);
+        spring1 = Spring.constant(24, 81, 3 * Integer.MIN_VALUE);
+        spring2 = Spring.constant(6, 25, Integer.MIN_VALUE);
         spring = Spring.sum(spring1, spring2);
         spring.setValue(418);
         assertEquals(314, spring1.getValue()); //314
@@ -226,72 +218,37 @@ public class SpringTest extends SwingTestCase {
         checkStrains(Spring.constant(1, 1, 3), Spring.constant(1, 3, 1), 2, 1, 1);
         checkStrains(Spring.constant(1, 3, 1), Spring.constant(1, 1, 3), 4, 3, 1);
         checkStrains(Spring.constant(1, 1, 3), Spring.constant(1, 3, 1), 4, 1, 3);
-        if (isHarmony()) {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(1, 1, 3), 6,
-                         Spring.TRIMMED_MAX_VALUE + 3, 6 - Spring.TRIMMED_MAX_VALUE - 3);
-        } else {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(1, 1, 3), 6,
+        checkStrains(Spring.constant(1, 3, 1), Spring.constant(1, 1, 3), 6,
                          Spring.UNSET + 3, 6 - Spring.UNSET - 3);
-        }
         checkStrains(Spring.constant(1, 1, 3), Spring.constant(1, 3, 1), 6, 1, 5);
         checkStrains(Spring.constant(1, 3, 1), Spring.constant(0, 1, 3), 2, 2, 0);
         checkStrains(Spring.constant(0, 1, 3), Spring.constant(1, 3, 1), 2, 1, 1);
         checkStrains(Spring.constant(1, 3, 1), Spring.constant(0, 1, 3), 4, 3, 1);
         checkStrains(Spring.constant(0, 1, 3), Spring.constant(1, 3, 1), 4, 1, 3);
         checkStrains(Spring.constant(0, 3, 1), Spring.constant(1, 1, 3), 4, 3, 1);
-        if (isHarmony()) {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(0, 1, 3), 6,
-                         Spring.TRIMMED_MAX_VALUE + 3, 6 - Spring.TRIMMED_MAX_VALUE - 3);
-        } else {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(0, 1, 3), 6,
-                         Spring.UNSET + 3, 6 - Spring.UNSET - 3);
-        }
+        checkStrains(Spring.constant(1, 3, 1), Spring.constant(0, 1, 3), 6,
+                Spring.UNSET + 3, 6 - Spring.UNSET - 3);
         checkStrains(Spring.constant(0, 1, 3), Spring.constant(1, 3, 1), 6, 1, 5);
-        if (isHarmony()) {
-            checkStrains(Spring.constant(0, 3, 1), Spring.constant(1, 1, 3), 6,
-                         Spring.TRIMMED_MAX_VALUE + 3, 6 - Spring.TRIMMED_MAX_VALUE - 3);
-        } else {
-             checkStrains(Spring.constant(0, 3, 1), Spring.constant(1, 1, 3), 6,
-                          Spring.UNSET + 3, 6 - Spring.UNSET - 3);
-        }
+        checkStrains(Spring.constant(0, 3, 1), Spring.constant(1, 1, 3), 6,
+                Spring.UNSET + 3, 6 - Spring.UNSET - 3);
         checkStrains(Spring.constant(3, 1, 3), Spring.constant(1, 3, 1), 2, 1, 1);
-        if (isHarmony()) {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(3, 1, 3), 2,
-                         Spring.TRIMMED_MAX_VALUE + 3, 2 - Spring.TRIMMED_MAX_VALUE - 3);
-        } else {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(3, 1, 3), 2,
-                         Spring.UNSET + 3, 2 - Spring.UNSET - 3);
-        }
+        checkStrains(Spring.constant(1, 3, 1), Spring.constant(3, 1, 3), 2,
+                Spring.UNSET + 3, 2 - Spring.UNSET - 3);
         checkStrains(Spring.constant(3, 1, 3), Spring.constant(1, 3, 1), 4, 1, 3);
         checkStrains(Spring.constant(1, 3, 1), Spring.constant(3, 1, 3), 4, 3, 1);
         checkStrains(Spring.constant(3, 1, 3), Spring.constant(1, 3, 1), 6, 1, 5);
-        if (isHarmony()) {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(3, 1, 3), 6,
-                         Spring.TRIMMED_MAX_VALUE + 3, 6 - Spring.TRIMMED_MAX_VALUE - 3);
-        } else {
-            checkStrains(Spring.constant(1, 3, 1), Spring.constant(3, 1, 3), 6,
-                         Spring.UNSET + 3, 6 - Spring.UNSET - 3);
-        }
+        checkStrains(Spring.constant(1, 3, 1), Spring.constant(3, 1, 3), 6,
+                Spring.UNSET + 3, 6 - Spring.UNSET - 3);
         checkStrains(Spring.constant(2, 2, 5), Spring.constant(3), 3, 2, 1);
         checkStrains(Spring.constant(3), Spring.constant(2, 2, 5), 3, 3, 0);
         checkStrains(Spring.constant(2, 2, 5), Spring.constant(3), 5, 2, 3);
         checkStrains(Spring.constant(3), Spring.constant(2, 2, 5), 5, 3, 2);
         checkStrains(Spring.constant(2, 2, 5), Spring.constant(3), 7, 4, 3);
         checkStrains(Spring.constant(3), Spring.constant(2, 2, 5), 7, 3, 4);
-        if (isHarmony()) {
-            checkStrains(Spring.constant(2, 4, 3), Spring.constant(3, 1, 0), 2,
-                         Spring.TRIMMED_MAX_VALUE + 4, 2 - Spring.TRIMMED_MAX_VALUE - 4);
-        } else {
-            checkStrains(Spring.constant(2, 4, 3), Spring.constant(3, 1, 0), 2,
-                         Spring.UNSET + 4, 2 - Spring.UNSET - 4);
-        }
-        if (isHarmony()) {
-            checkStrains(Spring.constant(2, 4, 3), Spring.constant(3, 1, 0), 2,
-                         Spring.TRIMMED_MAX_VALUE + 4, 2 - Spring.TRIMMED_MAX_VALUE - 4);
-        } else {
-            checkStrains(Spring.constant(2, 4, 3), Spring.constant(3, 1, 0), 2,
-                         Spring.UNSET + 4, 2 - Spring.UNSET - 4);
-        }
+        checkStrains(Spring.constant(2, 4, 3), Spring.constant(3, 1, 0), 2,
+                Spring.UNSET + 4, 2 - Spring.UNSET - 4);
+        checkStrains(Spring.constant(2, 4, 3), Spring.constant(3, 1, 0), 2,
+                Spring.UNSET + 4, 2 - Spring.UNSET - 4);
         checkStrains(Spring.constant(2, 3, 4), Spring.constant(3, 1, 1), 2, 5, -3);
 
         if (isHarmony()) {
@@ -316,18 +273,10 @@ public class SpringTest extends SwingTestCase {
         component.setMaximumSize(new Dimension(Integer.MIN_VALUE, Integer.MIN_VALUE));
         spring1 = Spring.constant(4, 5, -6);
         spring = Spring.sum(spring1, spring2);
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MIN_VALUE - 6, spring.getMaximumValue());
-        } else {
-            assertEquals(Integer.MIN_VALUE - 6, spring.getMaximumValue());
-        }
+        assertEquals(Integer.MIN_VALUE - 6, spring.getMaximumValue());
         spring1 = Spring.constant(4, 5, Integer.MIN_VALUE);
         spring = Spring.sum(spring1, spring2);
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MIN_VALUE + Integer.MIN_VALUE, spring.getMaximumValue());
-        } else {
-            assertEquals(0, spring.getMaximumValue());
-        }
+        assertEquals(0, spring.getMaximumValue());
     }
 
     public void testSum_SizesCashing() throws Exception {
@@ -551,19 +500,11 @@ public class SpringTest extends SwingTestCase {
         spring1 = Spring.constant(6, 13, 24);
         spring2 = Spring.constant(11, 12, Integer.MAX_VALUE);
         spring = Spring.max(spring1, spring2);
-        if (isHarmony()) {
-            assertSizes(11, 13, Spring.TRIMMED_MAX_VALUE, 13, spring);
-        } else {
-            assertSizes(11, 13, Integer.MAX_VALUE, 13, spring);
-        }
+        assertSizes(11, 13, Integer.MAX_VALUE, 13, spring);
         spring1 = Spring.constant(6, 13, Integer.MAX_VALUE);
         spring2 = Spring.constant(11, 12, 13);
         spring = Spring.max(spring1, spring2);
-        if (isHarmony()) {
-            assertSizes(11, 13, Spring.TRIMMED_MAX_VALUE, 13, spring);
-        } else {
-            assertSizes(11, 13, Integer.MAX_VALUE, 13, spring);
-        }
+        assertSizes(11, 13, Integer.MAX_VALUE, 13, spring);
     }
 
     public void testMax_UNSET() throws Exception {
@@ -635,24 +576,12 @@ public class SpringTest extends SwingTestCase {
         component = new JTextField();
         spring = Spring.scale(Spring.width(component), 2f);
         spring.setValue(2147483642);
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MAX_VALUE, spring.getValue());
-        } else {
-            assertEquals(2147483647, spring.getValue());
-        }
+        assertEquals(2147483647, spring.getValue());
         component.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MAX_VALUE, spring.getMaximumValue());
-        } else {
-            assertEquals(2 * Short.MAX_VALUE, spring.getMaximumValue());
-        }
+        assertEquals(2 * Short.MAX_VALUE, spring.getMaximumValue());
         spring = Spring.scale(Spring.width(component), 2f);
         component.setMaximumSize(new Dimension(Integer.MIN_VALUE, Integer.MIN_VALUE));
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MIN_VALUE, spring.getMaximumValue());
-        } else {
-            assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
-        }
+        assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
         spring = Spring.scale(Spring.width(component), -2f);
         component.setMaximumSize(new Dimension(Integer.MIN_VALUE, Integer.MIN_VALUE));
         assertEquals(-8, spring.getMaximumValue());
@@ -801,11 +730,7 @@ public class SpringTest extends SwingTestCase {
         assertEquals(Short.MAX_VALUE, spring.getMaximumValue());
         spring = Spring.width(component);
         component.setMaximumSize(new Dimension(Integer.MIN_VALUE, Integer.MIN_VALUE));
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MIN_VALUE, spring.getMaximumValue());
-        } else {
-            assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
-        }
+        assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
     }
 
     public void testHeight() {
@@ -890,11 +815,7 @@ public class SpringTest extends SwingTestCase {
         assertEquals(Short.MAX_VALUE, spring.getMaximumValue());
         spring = Spring.height(component);
         component.setMaximumSize(new Dimension(Integer.MIN_VALUE, Integer.MIN_VALUE));
-        if (isHarmony()) {
-            assertEquals(Spring.TRIMMED_MIN_VALUE, spring.getMaximumValue());
-        } else {
-            assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
-        }
+        assertEquals(Integer.MIN_VALUE, spring.getMaximumValue());
     }
 
     public void testToString() {

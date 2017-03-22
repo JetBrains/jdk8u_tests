@@ -100,12 +100,7 @@ public class DefaultCaret_MultithreadedTest extends BasicSwingTestCase {
         ad.writeUnlock();
         waitForIdle();
         assertEquals(4, dc.getDot());
-        //dc.setAsynchronousMovement(true); //1.4.2
-        if (isHarmony()) {
-            dc.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-        } else {
-            dc.setAsynchronousMovement(true);
-        }
+        dc.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         newDot = 0;
         SwingUtilities.invokeAndWait(setDot);
         waitForIdle();

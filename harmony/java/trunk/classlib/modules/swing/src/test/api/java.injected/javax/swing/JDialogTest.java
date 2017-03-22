@@ -315,7 +315,7 @@ public class JDialogTest extends SwingTestCase {
         checkDialogCorrectness(dialog, "Test JDialog", false);
         assertTrue("owner is set", dialog.getOwner() == owner);
         // test with corrent owner, incorrect title
-        dialog = new JDialog(owner, null);
+        dialog = new JDialog(owner, (String) null);
         // title is not set, isModal() == false
         checkDialogCorrectness(dialog, null, false);
         assertTrue("owner is set", dialog.getOwner() == owner);
@@ -358,7 +358,7 @@ public class JDialogTest extends SwingTestCase {
         checkDialogCorrectness(dialog, "Test JDialog", false);
         assertTrue("owner is set", dialog.getOwner() == owner);
         // test with corrent owner, incorrect title
-        dialog = new JDialog(owner, null);
+        dialog = new JDialog(owner, (String) null);
         // title is not set, isModal() == false
         checkDialogCorrectness(dialog, null, false);
         assertTrue("owner is set", dialog.getOwner() == owner);

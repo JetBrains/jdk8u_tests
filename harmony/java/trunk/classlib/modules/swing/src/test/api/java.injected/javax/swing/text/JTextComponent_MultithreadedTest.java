@@ -98,11 +98,7 @@ public class JTextComponent_MultithreadedTest extends TestCase {
 
     private void setCaretsAlwaysUpdatePolicy() {
         DefaultCaret caret = (DefaultCaret) jtc.getCaret();
-        if (BasicSwingTestCase.isHarmony()) {
-            caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-        } else {
-            caret.setAsynchronousMovement(true);
-        }
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
     }
 
     public void testModelToView() throws Exception {

@@ -49,12 +49,6 @@ public class BasicLookAndFeelTest extends SwingTestCase {
         assertNull(lookAndFeelInstance().getDefaults());
     }
 
-    public void testCreateAudioAction() {
-        Action createAudioAction = lf.createAudioAction("-");
-        assertTrue(createAudioAction instanceof BasicLookAndFeel.AudioAction);
-        assertTrue(lf.createAudioAction("CheckBoxMenuItem.commandSound") instanceof BasicLookAndFeel.AudioAction);
-    }
-
     private LookAndFeel lookAndFeelInstance() {
         return new LookAndFeel() {
             @Override

@@ -340,24 +340,6 @@ public class DefaultTableColumnModelTest extends BasicSwingTestCase {
         assertEquals(1, model.getListeners(TableColumnModelListener.class).length);
     }
 
-    public void testPropertyChange() throws Exception {
-        TableColumn column = new TableColumn();
-        model.addColumn(column);
-        assertEquals(-1, model.totalColumnWidth);
-        assertEquals(75, model.getTotalColumnWidth());
-        column.setWidth(25);
-        assertEquals(-1, model.totalColumnWidth);
-        assertEquals(25, model.getTotalColumnWidth());
-        model.totalColumnWidth = 10;
-        model.propertyChange(new PropertyChangeEvent("source", TableColumn.WIDTH_PROPERTY, "a",
-                "b"));
-        assertEquals(-1, model.totalColumnWidth);
-        model.totalColumnWidth = 10;
-        model.propertyChange(new PropertyChangeEvent("source",
-                TableColumn.PREFERRED_WIDTH_PROPERTY, "a", "b"));
-        assertEquals(-1, model.totalColumnWidth);
-    }
-
     public void testValueChanged() throws Exception {
         TestTableColumnModelListener listener = new TestTableColumnModelListener();
         model.addColumnModelListener(listener);

@@ -43,12 +43,12 @@ public class RepaintManagerTest extends BasicSwingTestCase {
     protected void setUp() throws Exception {
         super.setUp();
         timeoutDelay = 10 * DEFAULT_TIMEOUT_DELAY;
-        dbMaxSize = RepaintManager.currentManager(null).getDoubleBufferMaximumSize();
+        dbMaxSize = RepaintManager.currentManager((JComponent) null).getDoubleBufferMaximumSize();
     }
 
     @Override
     protected void tearDown() throws Exception {
-        RepaintManager.currentManager(null).setDoubleBufferMaximumSize(dbMaxSize);
+        RepaintManager.currentManager((JComponent) null).setDoubleBufferMaximumSize(dbMaxSize);
         super.tearDown();
     }
 
@@ -57,7 +57,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertNotNull(inst1);
         RepaintManager inst2 = RepaintManager.currentManager(new Button());
         assertNotNull(inst2);
-        RepaintManager inst3 = RepaintManager.currentManager(null);
+        RepaintManager inst3 = RepaintManager.currentManager((JComponent) null);
         assertNotNull(inst3);
         assertTrue(inst1 == inst2);
         assertTrue(inst2 == inst3);
@@ -66,10 +66,10 @@ public class RepaintManagerTest extends BasicSwingTestCase {
     public void testSetCurrentManager() throws Exception {
         RepaintManager newInst = new RepaintManager();
         RepaintManager.setCurrentManager(newInst);
-        assertTrue(RepaintManager.currentManager(null) == newInst);
+        assertTrue(RepaintManager.currentManager((JComponent) null) == newInst);
         RepaintManager.setCurrentManager(null);
-        assertFalse(RepaintManager.currentManager(null) == newInst);
-        assertNotNull(RepaintManager.currentManager(null));
+        assertFalse(RepaintManager.currentManager((JComponent) null) == newInst);
+        assertNotNull(RepaintManager.currentManager((JComponent) null));
     }
 
     public void testAddRemoveInvalidComponent() throws Exception {
@@ -90,7 +90,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertFalse(rootPanel.isValid());
         SwingUtilities.invokeAndWait(new Runnable() {
                 public void run() {
-                    RepaintManager.currentManager(null).addInvalidComponent(controlled);
+                    RepaintManager.currentManager((JComponent) null).addInvalidComponent(controlled);
                 }
             });
         
@@ -107,7 +107,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertTrue(controlled.isValid());
         SwingUtilities.invokeAndWait(new Runnable() {
                 public void run() {
-                    RepaintManager.currentManager(null).addInvalidComponent(controlled);
+                    RepaintManager.currentManager((JComponent) null).addInvalidComponent(controlled);
                 }
             });
         assertTrue(controlled.isValid());
@@ -119,7 +119,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertFalse(controlled.isValid());
         SwingUtilities.invokeAndWait(new Runnable() {
                 public void run() {
-                    RepaintManager.currentManager(null).addInvalidComponent(controlled);
+                    RepaintManager.currentManager((JComponent) null).addInvalidComponent(controlled);
                 }
             });
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -134,8 +134,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertFalse(controlled.isValid());
         SwingUtilities.invokeAndWait(new Runnable() {
                 public void run() {
-                    RepaintManager.currentManager(null).addInvalidComponent(controlled);
-                    RepaintManager.currentManager(null).removeInvalidComponent(controlled);
+                    RepaintManager.currentManager((JComponent) null).addInvalidComponent(controlled);
+                    RepaintManager.currentManager((JComponent) null).removeInvalidComponent(controlled);
                 }
             });
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -150,8 +150,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertFalse(controlled.isValid());
         SwingUtilities.invokeAndWait(new Runnable() {
                 public void run() {
-                    RepaintManager.currentManager(null).addInvalidComponent(controlled);
-                    RepaintManager.currentManager(null).removeInvalidComponent(rootPanel);
+                    RepaintManager.currentManager((JComponent) null).addInvalidComponent(controlled);
+                    RepaintManager.currentManager((JComponent) null).removeInvalidComponent(rootPanel);
                 }
             });
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -162,7 +162,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertFalse(isValid.isOccurred());
         
         try { // Regression test for HARMONY-1725
-            RepaintManager.currentManager(null).addInvalidComponent(null);
+            RepaintManager.currentManager((JComponent) null).addInvalidComponent(null);
         } catch (NullPointerException e) {
             fail("Unexpected NullPointerException is thrown");
         }
@@ -190,8 +190,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         final Marker isValid = new Marker();
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addInvalidComponent(controlled);
-                RepaintManager.currentManager(null).validateInvalidComponents();
+                RepaintManager.currentManager((JComponent) null).addInvalidComponent(controlled);
+                RepaintManager.currentManager((JComponent) null).validateInvalidComponents();
                 isValid.setOccurred(controlled.isValid());
             }
         });
@@ -203,9 +203,9 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertFalse(controlled.isValid());
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addInvalidComponent(controlled);
-                RepaintManager.currentManager(null).removeInvalidComponent(rootPanel);
-                RepaintManager.currentManager(null).validateInvalidComponents();
+                RepaintManager.currentManager((JComponent) null).addInvalidComponent(controlled);
+                RepaintManager.currentManager((JComponent) null).removeInvalidComponent(rootPanel);
+                RepaintManager.currentManager((JComponent) null).validateInvalidComponents();
                 isValid.setOccurred(controlled.isValid());
             }
         });
@@ -222,25 +222,25 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         final Marker marker = new Marker();
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         assertEquals(new Rectangle(10, 10, 40, 40), marker.getAuxiliary());
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 200, 200);
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 200, 200);
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         assertEquals(new Rectangle(10, 10, 200, 200), marker.getAuxiliary());
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                RepaintManager.currentManager(null).addDirtyRegion(root, 20, 5, 40, 30);
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 20, 5, 40, 30);
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         assertEquals(new Rectangle(10, 5, 50, 45), marker.getAuxiliary());
@@ -257,9 +257,9 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         final Marker marker = new Marker();
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                RepaintManager.currentManager(null).markCompletelyDirty(root);
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                RepaintManager.currentManager((JComponent) null).markCompletelyDirty(root);
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         Rectangle dirtyRect = (Rectangle) marker.getAuxiliary();
@@ -267,9 +267,9 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).markCompletelyClean(root);
-                RepaintManager.currentManager(null).markCompletelyDirty(root);
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).markCompletelyClean(root);
+                RepaintManager.currentManager((JComponent) null).markCompletelyDirty(root);
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         Rectangle dirtyRect2 = (Rectangle) marker.getAuxiliary();
@@ -278,18 +278,18 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 20,
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 20,
                         Integer.MAX_VALUE, Integer.MAX_VALUE);
-                marker.setOccurred(RepaintManager.currentManager(null).isCompletelyDirty(root));
+                marker.setOccurred(RepaintManager.currentManager((JComponent) null).isCompletelyDirty(root));
             }
         });
         assertTrue(marker.isOccurred());
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                RepaintManager.currentManager(null).markCompletelyClean(root);
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                RepaintManager.currentManager((JComponent) null).markCompletelyClean(root);
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         assertEquals(new Rectangle(), marker.getAuxiliary());
@@ -305,33 +305,33 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         final Marker marker = new Marker();
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                marker.setOccurred(RepaintManager.currentManager(null).isCompletelyDirty(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                marker.setOccurred(RepaintManager.currentManager((JComponent) null).isCompletelyDirty(root));
             }
         });
         assertFalse(marker.isOccurred());
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 0, 0, 200, 200);
-                marker.setOccurred(RepaintManager.currentManager(null).isCompletelyDirty(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 0, 0, 200, 200);
+                marker.setOccurred(RepaintManager.currentManager((JComponent) null).isCompletelyDirty(root));
             }
         });
         assertFalse(marker.isOccurred());
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 0, 0,
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 0, 0,
                         Integer.MAX_VALUE, Integer.MAX_VALUE);
-                marker.setOccurred(RepaintManager.currentManager(null).isCompletelyDirty(root));
+                marker.setOccurred(RepaintManager.currentManager((JComponent) null).isCompletelyDirty(root));
             }
         });
         assertTrue(marker.isOccurred());
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).markCompletelyDirty(root);
-                marker.setOccurred(RepaintManager.currentManager(null).isCompletelyDirty(root));
+                RepaintManager.currentManager((JComponent) null).markCompletelyDirty(root);
+                marker.setOccurred(RepaintManager.currentManager((JComponent) null).isCompletelyDirty(root));
             }
         });
         assertTrue(marker.isOccurred());
@@ -347,8 +347,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         final Marker marker = new Marker();
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                Rectangle r1 = RepaintManager.currentManager(null).getDirtyRegion(root);
-                Rectangle r2 = RepaintManager.currentManager(null).getDirtyRegion(root);
+                Rectangle r1 = RepaintManager.currentManager((JComponent) null).getDirtyRegion(root);
+                Rectangle r2 = RepaintManager.currentManager((JComponent) null).getDirtyRegion(root);
                 marker.setAuxiliary(new Rectangle[] { r1, r2 });
             }
         });
@@ -359,8 +359,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         marker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         assertEquals(new Rectangle(10, 10, 40, 40), marker.getAuxiliary());
@@ -466,9 +466,9 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         final Marker marker = new Marker();
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                RepaintManager.currentManager(null).paintDirtyRegions();
-                marker.setAuxiliary(RepaintManager.currentManager(null).getDirtyRegion(root));
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                RepaintManager.currentManager((JComponent) null).paintDirtyRegions();
+                marker.setAuxiliary(RepaintManager.currentManager((JComponent) null).getDirtyRegion(root));
             }
         });
         assertEquals(new Rectangle(), marker.getAuxiliary());
@@ -483,8 +483,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         inner2PaintImmediatelyMarker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                RepaintManager.currentManager(null).paintDirtyRegions();
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                RepaintManager.currentManager((JComponent) null).paintDirtyRegions();
             }
         });
         assertEquals(new Rectangle(10, 10, 40, 40), rootPaintMarker.getAuxiliary());
@@ -504,8 +504,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         inner2PaintImmediatelyMarker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 5, 10, 20, 70);
-                RepaintManager.currentManager(null).paintDirtyRegions();
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 5, 10, 20, 70);
+                RepaintManager.currentManager((JComponent) null).paintDirtyRegions();
             }
         });
         assertEquals(new Rectangle(5, 10, 20, 70), rootPaintMarker.getAuxiliary());
@@ -525,9 +525,9 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         inner2PaintImmediatelyMarker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(root, 10, 10, 40, 40);
-                RepaintManager.currentManager(null).addDirtyRegion(inner1, 20, 25, 15, 10);
-                RepaintManager.currentManager(null).paintDirtyRegions();
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(root, 10, 10, 40, 40);
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(inner1, 20, 25, 15, 10);
+                RepaintManager.currentManager((JComponent) null).paintDirtyRegions();
             }
         });
         assertEquals(new Rectangle(10, 10, 45, 45), rootPaintMarker.getAuxiliary());
@@ -547,8 +547,8 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         inner2PaintImmediatelyMarker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(inner1, 10, 10, 20, 20);
-                RepaintManager.currentManager(null).paintDirtyRegions();
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(inner1, 10, 10, 20, 20);
+                RepaintManager.currentManager((JComponent) null).paintDirtyRegions();
             }
         });
         assertNull(rootPaintMarker.getAuxiliary());
@@ -568,9 +568,9 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         inner2PaintImmediatelyMarker.setAuxiliary(null);
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                RepaintManager.currentManager(null).addDirtyRegion(inner1, 10, 10, 20, 20);
-                RepaintManager.currentManager(null).addDirtyRegion(inner2, 5, 5, 10, 10);
-                RepaintManager.currentManager(null).paintDirtyRegions();
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(inner1, 10, 10, 20, 20);
+                RepaintManager.currentManager((JComponent) null).addDirtyRegion(inner2, 5, 5, 10, 10);
+                RepaintManager.currentManager((JComponent) null).paintDirtyRegions();
             }
         });
         assertNull(rootPaintMarker.getAuxiliary());
@@ -583,17 +583,17 @@ public class RepaintManagerTest extends BasicSwingTestCase {
     }
 
     public void testIsDoubleBufferingEnabled() throws Exception {
-        assertTrue(RepaintManager.currentManager(null).isDoubleBufferingEnabled());
-        RepaintManager.currentManager(null).setDoubleBufferingEnabled(false);
-        assertFalse(RepaintManager.currentManager(null).isDoubleBufferingEnabled());
+        assertTrue(RepaintManager.currentManager((JComponent) null).isDoubleBufferingEnabled());
+        RepaintManager.currentManager((JComponent) null).setDoubleBufferingEnabled(false);
+        assertFalse(RepaintManager.currentManager((JComponent) null).isDoubleBufferingEnabled());
     }
 
     public void testGetDoubleBufferMaximumSize() throws Exception {
         assertEquals(Toolkit.getDefaultToolkit().getScreenSize(), RepaintManager
-                .currentManager(null).getDoubleBufferMaximumSize());
+                .currentManager((JComponent) null).getDoubleBufferMaximumSize());
         Dimension bufferSize = new Dimension(100, 100);
-        RepaintManager.currentManager(null).setDoubleBufferMaximumSize(bufferSize);
-        assertEquals(bufferSize, RepaintManager.currentManager(null)
+        RepaintManager.currentManager((JComponent) null).setDoubleBufferMaximumSize(bufferSize);
+        assertEquals(bufferSize, RepaintManager.currentManager((JComponent) null)
                 .getDoubleBufferMaximumSize());
     }
 
@@ -601,57 +601,57 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         JPanel root = new JPanel();
         JFrame f = new JFrame();
         f.getContentPane().add(root);
-        assertNull(RepaintManager.currentManager(null).getOffscreenBuffer(root, 10, 10));
+        assertNull(RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10, 10));
         f.pack();
-        Image offscreenImage = RepaintManager.currentManager(null).getOffscreenBuffer(root, 10,
+        Image offscreenImage = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10,
                 10);
         assertNotNull(offscreenImage);
         assertEquals(10, offscreenImage.getWidth(f));
         assertEquals(10, offscreenImage.getHeight(f));
-        assertEquals(RepaintManager.currentManager(null).getOffscreenBuffer(root, 10, 10),
-                RepaintManager.currentManager(null).getOffscreenBuffer(root, 10, 10));
-        assertEquals(RepaintManager.currentManager(null).getOffscreenBuffer(f.getRootPane(),
-                10, 10), RepaintManager.currentManager(null).getOffscreenBuffer(root, 10, 10));
-        assertEquals(RepaintManager.currentManager(null).getOffscreenBuffer(f, 10, 10),
-                RepaintManager.currentManager(null).getOffscreenBuffer(root, 10, 10));
-        Image im10x10 = RepaintManager.currentManager(null).getOffscreenBuffer(root, 10, 10);
-        Image im10x20 = RepaintManager.currentManager(null).getOffscreenBuffer(root, 10, 20);
-        Image im20x10 = RepaintManager.currentManager(null).getOffscreenBuffer(root, 20, 10);
-        Image im20x20 = RepaintManager.currentManager(null).getOffscreenBuffer(root, 20, 20);
+        assertEquals(RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10, 10),
+                RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10, 10));
+        assertEquals(RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(f.getRootPane(),
+                10, 10), RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10, 10));
+        assertEquals(RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(f, 10, 10),
+                RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10, 10));
+        Image im10x10 = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10, 10);
+        Image im10x20 = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10, 20);
+        Image im20x10 = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 20, 10);
+        Image im20x20 = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 20, 20);
         assertNotSame(im10x10, im10x20);
         assertNotSame(im10x20, im20x10);
         assertNotSame(im10x10, im20x10);
         assertNotSame(im10x20, im20x20);
-        assertNotSame(im10x10, RepaintManager.currentManager(null).getOffscreenBuffer(root, 10,
+        assertNotSame(im10x10, RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10,
                 10));
-        assertSame(im20x20, RepaintManager.currentManager(null)
+        assertSame(im20x20, RepaintManager.currentManager((JComponent) null)
                 .getOffscreenBuffer(root, 10, 10));
-        assertSame(im20x20, RepaintManager.currentManager(null)
+        assertSame(im20x20, RepaintManager.currentManager((JComponent) null)
                 .getOffscreenBuffer(root, 20, 20));
-        assertSame(im20x20, RepaintManager.currentManager(null).getOffscreenBuffer(f, 20, 20));
-        assertSame(im20x20, RepaintManager.currentManager(null).getOffscreenBuffer(
+        assertSame(im20x20, RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(f, 20, 20));
+        assertSame(im20x20, RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(
                 new JButton(), 20, 20));
-        Image im30x20 = RepaintManager.currentManager(null).getOffscreenBuffer(root, 30, 20);
+        Image im30x20 = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 30, 20);
         assertNotSame(im20x20, im30x20);
-        assertSame(im30x20, RepaintManager.currentManager(null)
+        assertSame(im30x20, RepaintManager.currentManager((JComponent) null)
                 .getOffscreenBuffer(root, 20, 20));
-        assertNull(RepaintManager.currentManager(null)
+        assertNull(RepaintManager.currentManager((JComponent) null)
                 .getOffscreenBuffer(new JButton(), 50, 20));
-        assertNotSame(im30x20, RepaintManager.currentManager(null).getOffscreenBuffer(root, 20,
+        assertNotSame(im30x20, RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 20,
                 20));
-        offscreenImage = RepaintManager.currentManager(null).getOffscreenBuffer(root, 10000,
+        offscreenImage = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10000,
                 10000);
         assertNotNull(offscreenImage);
-        assertEquals(RepaintManager.currentManager(null).getDoubleBufferMaximumSize().width,
+        assertEquals(RepaintManager.currentManager((JComponent) null).getDoubleBufferMaximumSize().width,
                 offscreenImage.getWidth(f));
-        assertEquals(RepaintManager.currentManager(null).getDoubleBufferMaximumSize().height,
+        assertEquals(RepaintManager.currentManager((JComponent) null).getDoubleBufferMaximumSize().height,
                 offscreenImage.getHeight(f));
-        offscreenImage = RepaintManager.currentManager(null).getOffscreenBuffer(root, 10000,
+        offscreenImage = RepaintManager.currentManager((JComponent) null).getOffscreenBuffer(root, 10000,
                 10000);
         assertNotNull(offscreenImage);
-        assertEquals(RepaintManager.currentManager(null).getDoubleBufferMaximumSize().width,
+        assertEquals(RepaintManager.currentManager((JComponent) null).getDoubleBufferMaximumSize().width,
                 offscreenImage.getWidth(f));
-        assertEquals(RepaintManager.currentManager(null).getDoubleBufferMaximumSize().height,
+        assertEquals(RepaintManager.currentManager((JComponent) null).getDoubleBufferMaximumSize().height,
                 offscreenImage.getHeight(f));
         f.dispose();
     }
@@ -661,55 +661,55 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         JFrame f = new JFrame();
         f.getContentPane().add(root);
         f.pack();
-        Image offscreenImage = RepaintManager.currentManager(null).getVolatileOffscreenBuffer(
+        Image offscreenImage = RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(
                 root, 400, 400);
         assertNotNull(offscreenImage);
         assertEquals(400, offscreenImage.getWidth(f));
         assertEquals(400, offscreenImage.getHeight(f));
-        assertEquals(RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root, 400,
-                400), RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root, 400,
+        assertEquals(RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root, 400,
+                400), RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root, 400,
                 400));
-        assertEquals(RepaintManager.currentManager(null).getVolatileOffscreenBuffer(
-                f.getRootPane(), 400, 400), RepaintManager.currentManager(null)
+        assertEquals(RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(
+                f.getRootPane(), 400, 400), RepaintManager.currentManager((JComponent) null)
                 .getVolatileOffscreenBuffer(root, 400, 400));
-        assertEquals(RepaintManager.currentManager(null)
-                .getVolatileOffscreenBuffer(f, 400, 400), RepaintManager.currentManager(null)
+        assertEquals(RepaintManager.currentManager((JComponent) null)
+                .getVolatileOffscreenBuffer(f, 400, 400), RepaintManager.currentManager((JComponent) null)
                 .getVolatileOffscreenBuffer(root, 400, 400));
-        Image im400x400 = RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root,
+        Image im400x400 = RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root,
                 400, 400);
-        Image im400x420 = RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root,
+        Image im400x420 = RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root,
                 400, 420);
-        Image im420x400 = RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root,
+        Image im420x400 = RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root,
                 420, 400);
-        Image im420x420 = RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root,
+        Image im420x420 = RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root,
                 420, 420);
         assertNotSame(im400x400, im400x420);
         assertNotSame(im400x420, im420x400);
         assertNotSame(im400x420, im420x400);
         assertNotSame(im400x420, im420x420);
-        assertNotSame(im400x400, RepaintManager.currentManager(null)
+        assertNotSame(im400x400, RepaintManager.currentManager((JComponent) null)
                 .getVolatileOffscreenBuffer(root, 400, 400));
-        assertSame(im420x420, RepaintManager.currentManager(null).getVolatileOffscreenBuffer(
+        assertSame(im420x420, RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(
                 root, 400, 400));
-        assertSame(im420x420, RepaintManager.currentManager(null).getVolatileOffscreenBuffer(
+        assertSame(im420x420, RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(
                 root, 420, 420));
-        assertSame(im420x420, RepaintManager.currentManager(null).getVolatileOffscreenBuffer(f,
+        assertSame(im420x420, RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(f,
                 420, 420));
-        assertSame(im420x420, RepaintManager.currentManager(null).getVolatileOffscreenBuffer(
+        assertSame(im420x420, RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(
                 new JButton(), 420, 420));
-        Image im430x420 = RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root,
+        Image im430x420 = RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root,
                 430, 420);
         assertNotSame(im420x420, im430x420);
-        assertSame(im430x420, RepaintManager.currentManager(null).getVolatileOffscreenBuffer(
+        assertSame(im430x420, RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(
                 root, 420, 420));
-        assertSame(im430x420, RepaintManager.currentManager(null).getVolatileOffscreenBuffer(
+        assertSame(im430x420, RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(
                 root, 420, 420));
-        offscreenImage = RepaintManager.currentManager(null).getVolatileOffscreenBuffer(root,
+        offscreenImage = RepaintManager.currentManager((JComponent) null).getVolatileOffscreenBuffer(root,
                 10000, 10000);
         assertNotNull(offscreenImage);
-        assertEquals(RepaintManager.currentManager(null).getDoubleBufferMaximumSize().width,
+        assertEquals(RepaintManager.currentManager((JComponent) null).getDoubleBufferMaximumSize().width,
                 offscreenImage.getWidth(f));
-        assertEquals(RepaintManager.currentManager(null).getDoubleBufferMaximumSize().height,
+        assertEquals(RepaintManager.currentManager((JComponent) null).getDoubleBufferMaximumSize().height,
                 offscreenImage.getHeight(f));
         f.dispose();
     }

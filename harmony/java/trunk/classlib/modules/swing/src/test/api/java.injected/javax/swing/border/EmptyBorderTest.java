@@ -66,7 +66,7 @@ public class EmptyBorderTest extends SwingTestCase {
         int bottom = 111;
         int left = 345;
         int right = 345;
-        EmptyBorder border = new EmptyBorder(top, left);
+        EmptyBorder border = new EmptyBorder(top, left, bottom, right);
         assertEquals(border.getBorderInsets(), new Insets(top, left, bottom, right));
     }
 

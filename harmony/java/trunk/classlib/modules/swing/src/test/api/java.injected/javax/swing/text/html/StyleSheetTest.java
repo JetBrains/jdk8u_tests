@@ -794,27 +794,10 @@ public class StyleSheetTest extends BasicSwingTestCase {
         };
         final BoxPainter bp = ss.getBoxPainter(simple);
 
-        if (isHarmony()) {
-            assertFalse(borderStyle.isOccurred());
-            assertFalse(marginTop.isOccurred());
-            assertFalse(marginRight.isOccurred());
-            assertFalse(marginBottom.isOccurred());
-            assertFalse(marginLeft.isOccurred());
-            assertFalse(backgroundColor.isOccurred());
-            assertFalse(backgroundImage.isOccurred());
+        assertTrue(borderStyle.isOccurred());
 
-            bp.setView(null);
-
-            assertFalse(borderStyle.isOccurred());
-
-            assertFalse(backgroundColor.isOccurred());
-            assertFalse(backgroundImage.isOccurred());
-        } else {
-            assertTrue(borderStyle.isOccurred());
-
-            assertTrue(backgroundColor.isOccurred());
-            assertTrue(backgroundImage.isOccurred());
-        }
+        assertTrue(backgroundColor.isOccurred());
+        assertTrue(backgroundImage.isOccurred());
 
         assertTrue(marginTop.isOccurred());
         assertTrue(marginRight.isOccurred());
@@ -857,21 +840,8 @@ public class StyleSheetTest extends BasicSwingTestCase {
         ss.addCSSAttribute(simple, CSS.Attribute.BORDER_STYLE, "solid");
         final BoxPainter bp = ss.getBoxPainter(simple);
 
-        if (isHarmony()) {
-            assertFalse(borderStyle.isOccurred());
-            assertFalse(borderTopWidth.isOccurred());
-            assertFalse(borderRightWidth.isOccurred());
-            assertFalse(borderBottomWidth.isOccurred());
-            assertFalse(borderLeftWidth.isOccurred());
-
-            bp.setView(null);
-
-            assertFalse(borderStyle.isOccurred());
-            assertFalse(borderTopWidth.isOccurred());
-        } else {
-            assertTrue(borderStyle.isOccurred());
-            assertTrue(borderTopWidth.isOccurred());
-        }
+        assertTrue(borderStyle.isOccurred());
+        assertTrue(borderTopWidth.isOccurred());
         assertFalse(borderRightWidth.isOccurred());
         assertFalse(borderBottomWidth.isOccurred());
         assertFalse(borderLeftWidth.isOccurred());

@@ -381,9 +381,7 @@ public class JTreeTest extends SwingTestCase {
     }
 
     public void testGetAccessibleContext() {
-        assertNull(tree.accessibleContext);
         assertNotNull(tree.getAccessibleContext());
-        assertSame(tree.accessibleContext, tree.getAccessibleContext());
     }
 
     public void testGetToolTipTextMouseEvent() {

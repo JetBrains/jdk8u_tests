@@ -112,13 +112,6 @@ public class IconViewTest extends SwingTestCase {
         assertEquals(icon.getIconHeight(), view.getPreferredSpan(View.Y_AXIS), 0.1);
     }
 
-    public void testGetAlignment() {
-        assertEquals(View.ALIGN_CENTER, view.getAlignment(View.X_AXIS), 0.1);
-        assertEquals(View.ALIGN_RIGHT, view.getAlignment(View.Y_AXIS), 0.1);
-        assertEquals(View.ALIGN_CENTER, view.getAlignment(2), 0.1);
-        assertEquals(View.ALIGN_CENTER, view.getAlignment(-1), 0.1);
-    }
-
     public void testModelToView() throws BadLocationException {
         testExceptionalCase(new BadLocationCase() {
             @Override

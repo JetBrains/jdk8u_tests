@@ -293,7 +293,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         view.insertUpdate(docEvent, shape, null);
         if (BasicSwingTestCase.isHarmony()) {
             assertNotNull(factoryUsed);
-            assertSame(factoryUsed, view.viewFactory);
+            assertSame(factoryUsed, view.getViewFactory());
             assertEquals("javax.swing.text.WrappedPlainView$LineView", factoryUsed.create(root)
                     .getClass().getName());
         }
@@ -304,7 +304,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         view.removeUpdate(docEvent, shape, null);
         if (BasicSwingTestCase.isHarmony()) {
             assertNotNull(factoryUsed);
-            assertSame(factoryUsed, view.viewFactory);
+            assertSame(factoryUsed, view.getViewFactory());
         }
     }
 
@@ -313,7 +313,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         view.changedUpdate(docEvent, shape, null);
         if (BasicSwingTestCase.isHarmony()) {
             assertNotNull(factoryUsed);
-            assertSame(factoryUsed, view.viewFactory);
+            assertSame(factoryUsed, view.getViewFactory());
         }
     }
 

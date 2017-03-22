@@ -21,10 +21,7 @@
 
 package org.apache.harmony.security.tests.java.security.cert;
 
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.SignatureException;
+import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
@@ -179,7 +176,7 @@ public class CertificateTest extends TestCase {
                NoSuchProviderException,
                SignatureException {
         Certificate c1 = new MyCertificate("TEST_TYPE", testEncoding);
-        c1.verify(null, null);
+        c1.verify((PublicKey) null, (String) null);
     }
 
     /**

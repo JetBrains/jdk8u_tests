@@ -139,9 +139,6 @@ public class StyleSheet_BoxPainterTest extends BasicSwingTestCase {
         assertNotSame(attrs, va);
 
         bp = ss.getBoxPainter(view.getAttributes());
-        if (isHarmony()) {
-            bp.setView(view);
-        }
 
         // view argument has no effect
         assertEquals(11, bp.getInset(View.TOP, v), 0f);

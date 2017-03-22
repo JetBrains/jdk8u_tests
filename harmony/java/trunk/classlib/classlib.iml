@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <content url="file://$MODULE_DIR$/modules/awt/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/windows" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/windows" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/unix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/api/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/boot" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/unix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/common" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
     </content>
@@ -11,8 +20,30 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/unix" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/windows" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/misc/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/misc/src/main/java" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/modules/print/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/windows" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/print/src/test/api/java/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/common" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/modules/security/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/impl/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/api/java.injected" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/main/java/unix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/api/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/main/java/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/support/common/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/impl/java.injected" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/modules/swing/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/main/java/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/main/java/windows" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/test/api/java.injected" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/support/src">
-      <sourceFolder url="file://$MODULE_DIR$/support/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/support/src/test/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

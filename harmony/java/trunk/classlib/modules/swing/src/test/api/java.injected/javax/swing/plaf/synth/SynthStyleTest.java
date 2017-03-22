@@ -109,7 +109,6 @@ public class SynthStyleTest extends TestCase {
         Font newFont = new Font("Dialog", Font.BOLD, 15); //$NON-NLS-1$
         currentComponent.setFont(newFont);
         assertEquals(currentStyle.getFont(currentContext), newFont);
-        currentContext.setState(SynthConstants.DISABLED);
         assertEquals(currentStyle.getFont(currentContext), FONT_VALUE);
     }
 

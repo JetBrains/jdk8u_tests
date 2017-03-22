@@ -41,15 +41,6 @@ public class ColorTypeTest extends TestCase {
         assertFalse(ColorType.BACKGROUND.getID() == testCT.getID());
         assertFalse(testCT2.getID() == testCT.getID());
         assertTrue(testCT.getID() == testCT.getID());
-        assertSame(ColorType.calculateColorType("BACKGROUND"), //$NON-NLS-1$
-                ColorType.BACKGROUND);
-        assertSame(ColorType.calculateColorType("FOREGROUND"), //$NON-NLS-1$
-                ColorType.FOREGROUND);
-        assertSame(ColorType.calculateColorType("FOCUS"), ColorType.FOCUS); //$NON-NLS-1$
-        assertSame(ColorType.calculateColorType("TEXT_BACKGROUND"), //$NON-NLS-1$
-                ColorType.TEXT_BACKGROUND);
-        assertSame(ColorType.calculateColorType("TEXT_FOREGROUND"), //$NON-NLS-1$
-                ColorType.TEXT_FOREGROUND);
         assertEquals(ColorType.MAX_COUNT, 5);
     }
 }

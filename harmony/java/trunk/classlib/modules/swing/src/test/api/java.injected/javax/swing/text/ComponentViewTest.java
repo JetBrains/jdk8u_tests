@@ -329,57 +329,6 @@ public class ComponentViewTest extends SwingTestCase {
         }
     }
 
-    public void testGetAlignment() {
-        JComponent jc;
-        assertTrue(View.ALIGN_CENTER == view.getAlignment(View.X_AXIS));
-        assertTrue(View.ALIGN_CENTER == view.getAlignment(View.Y_AXIS));
-        assertTrue(View.ALIGN_CENTER == view.getAlignment(2));
-        assertTrue(View.ALIGN_CENTER == view.getAlignment(-1));
-        insertedComponent.setAlignmentX(0.3f);
-        insertedComponent.setAlignmentY(0.6f);
-        view.setParent(textPane.getUI().getRootView(textPane));
-        jc = (JComponent) view.getComponent();
-        assertEquals(jc.getAlignmentX(), view.getAlignment(View.X_AXIS), 0.001);
-        assertEquals(jc.getAlignmentY(), view.getAlignment(View.Y_AXIS), 0.001);
-        assertTrue(View.ALIGN_CENTER == view.getAlignment(2));
-        assertTrue(View.ALIGN_CENTER == view.getAlignment(-1));
-        jc.setAlignmentX(0.8f);
-        jc.setAlignmentY(0.9f);
-        if (isHarmony()) {
-            assertEquals(0.8f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(0.9f, view.getAlignment(View.Y_AXIS), 0.001);
-        } else {
-            assertEquals(0.3f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(0.6f, view.getAlignment(View.Y_AXIS), 0.001);
-        }
-        jc.setAlignmentX(0.9f);
-        jc.setAlignmentY(1.0f);
-        if (isHarmony()) {
-            assertEquals(0.9f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(1.0f, view.getAlignment(View.Y_AXIS), 0.001);
-        } else {
-            assertEquals(0.3f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(0.6f, view.getAlignment(View.Y_AXIS), 0.001);
-        }
-        view.setParent(null);
-        if (isHarmony()) {
-            assertEquals(0.9f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(1.0f, view.getAlignment(View.Y_AXIS), 0.001);
-        } else {
-            assertEquals(0.3f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(0.6f, view.getAlignment(View.Y_AXIS), 0.001);
-        }
-        ((JComponent) view.getComponent()).setAlignmentX(0.1f);
-        ((JComponent) view.getComponent()).setAlignmentY(0.2f);
-        if (isHarmony()) {
-            assertEquals(0.1f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(0.2f, view.getAlignment(View.Y_AXIS), 0.001);
-        } else {
-            assertEquals(0.3f, view.getAlignment(View.X_AXIS), 0.001);
-            assertEquals(0.6f, view.getAlignment(View.Y_AXIS), 0.001);
-        }
-    }
-
     public void testGetComponent() {
         assertNull(view.getComponent());
         assertNotNull(view.createComponent());

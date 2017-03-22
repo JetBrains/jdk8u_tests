@@ -958,7 +958,6 @@ public class DefaultEditorKit_Actions_MultithreadedTest extends BasicSwingTestCa
         assertEquals("delete-next", DefaultEditorKit.deleteNextCharAction);
         assertEquals("delete-previous", DefaultEditorKit.deletePrevCharAction);
         assertEquals("caret-down", DefaultEditorKit.downAction);
-        assertEquals("dump-model", DefaultEditorKit.dumpModelAction);
         assertEquals("caret-end", DefaultEditorKit.endAction);
         assertEquals("caret-end-line", DefaultEditorKit.endLineAction);
         assertEquals("__EndOfLine__", DefaultEditorKit.EndOfLineStringProperty);

@@ -213,18 +213,6 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         checkEmptyFormEnd(Tag.INPUT, null);
     }
     
-    public void testFormStart_Button() throws Exception {
-        if (isHarmony()) {
-            checkStandardFormStart(Tag.BUTTON, DefaultButtonModel.class);
-        }
-    }
-    
-    public void testFormEnd_Button() throws Exception {
-        if (isHarmony()) {
-            checkEmptyFormEnd(Tag.BUTTON, null);
-        }
-    }
-    
     public void testFormStart_SelectCombo1() throws Exception {
         checkStandardFormStart(Tag.SELECT, DefaultComboBoxModel.class);
     }
@@ -402,11 +390,7 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         final String label = "label";
         attr.addAttribute(HTML.Attribute.SELECTED, "true");
         attr.addAttribute(HTML.Attribute.VALUE, value);
-        if (isHarmony()) {
-            attr.addAttribute(HTML.Attribute.LABEL, label);
-        } else {
-            attr.addAttribute("label", label);
-        }
+        attr.addAttribute("label", label);
         action.start(Tag.OPTION, attr);
         assertEquals(2, model.getSize());
         assertNotNull(model.getElementAt(1));
@@ -434,76 +418,8 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertEquals(3, specAttr.getAttributeCount());
     }
     
-    public void testForm_OptionGroupAttributes() throws Exception {
-        if (!isHarmony()) {
-            return;
-        }
-        String text = "text";
-        SimpleAttributeSet attr = new SimpleAttributeSet();
-        attr.addAttribute("aaaa", "bbbb");
-        action = reader.new FormAction();
-        action.start(Tag.SELECT, attr);
-        ElementSpec spec = (ElementSpec)reader.parseBuffer.get(1);
-        final AttributeSet specAttr = spec.getAttributes();
-        assertEquals(3, specAttr.getAttributeCount());
-        assertSpec(spec, ElementSpec.ContentType, ElementSpec.OriginateDirection, 0, new char[] {' '});
-        Object contentModel = specAttr.getAttribute(StyleConstants.ModelAttribute);
-        assertNotNull(contentModel);
-        assertTrue(contentModel instanceof DefaultComboBoxModel);
-        DefaultComboBoxModel model = (DefaultComboBoxModel)contentModel;
-
-        final String value = "value";
-        final String label = "label";
-        attr.addAttribute(HTML.Attribute.SELECTED, "true");
-        attr.addAttribute(HTML.Attribute.LABEL, label);
-        action.start(Tag.OPTGROUP, attr);
-        assertEquals(1, model.getSize());
-        assertNotNull(model.getElementAt(0));
-        FormOption option = (FormOption)model.getElementAt(0);
-        assertFalse(option.isSelected());
-        assertEquals(label, option.getLabel());
-        assertNull(option.getValue());
-        reader.handleText(text.toCharArray(), 0);
-        assertEquals(1, model.getSize());
-        assertNotNull(model.getElementAt(0));
-        option = (FormOption)model.getElementAt(0);
-        assertFalse(option.isSelected());
-        assertEquals(label, option.getLabel());
-        assertNull(option.getValue());
-        assertEquals(0, option.getDepth());
-
-        attr.addAttribute(HTML.Attribute.SELECTED, "true");
-        attr.addAttribute(HTML.Attribute.VALUE, value);
-        attr.addAttribute(HTML.Attribute.LABEL, label);
-        action.start(Tag.OPTGROUP, attr);
-        assertEquals(2, model.getSize());
-        assertNotNull(model.getElementAt(1));
-        option = (FormOption)model.getElementAt(1);
-        assertFalse(option.isSelected());
-        assertEquals(label, option.getLabel());
-        assertNull(option.getValue());
-        reader.handleText(text.toCharArray(), 0);
-        assertEquals(2, model.getSize());
-        assertNotNull(model.getElementAt(1));
-        option = (FormOption)model.getElementAt(1);
-        assertFalse(option.isSelected());
-        assertEquals(label, option.getLabel());
-        assertNull(option.getValue());
-        assertEquals(1, option.getDepth());
-        action.end(Tag.OPTGROUP);
-        action.end(Tag.OPTGROUP);
-        action.end(Tag.SELECT);
-        assertEquals(3, specAttr.getAttributeCount());
-    }
-    
     public void testFormEnd_Option() throws Exception {
         checkEmptyFormEnd(Tag.OPTION, null);
-    }
-    
-    public void testFormEnd_Optgroup() throws Exception {
-        if (isHarmony()) {
-            checkEmptyFormEnd(Tag.OPTGROUP, null);
-        }
     }
     
     public void testFormStart_TextArea() throws Exception {
@@ -514,110 +430,6 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         checkEmptyFormEnd(Tag.TEXTAREA, null);
     }
     
-    public void testFormStart_FieldSet() throws Exception {
-        if (!isHarmony()) {
-            return;
-        }
-        String text = "text";
-        SimpleAttributeSet attr = new SimpleAttributeSet();
-        attr.addAttribute("aaaa", "bbbb");
-        action = reader.new FormAction();
-        action.start(Tag.FIELDSET, attr);
-        ElementSpec spec = (ElementSpec)reader.parseBuffer.get(1);
-        final AttributeSet specAttr = spec.getAttributes();
-        assertEquals(3, specAttr.getAttributeCount());
-        assertSpec(spec, ElementSpec.ContentType, ElementSpec.OriginateDirection, 0, new char[] {' '});
-        Object contentModel = specAttr.getAttribute(StyleConstants.ModelAttribute);
-        assertNotNull(contentModel);
-        assertTrue(contentModel instanceof FormFieldsetModel);
-    }
-    
-    public void testFormEnd_FieldSet() throws Exception {
-        if (isHarmony()) {
-            checkEmptyFormEnd(Tag.FIELDSET, null);
-        }
-    }
-    
-    public void testFormStartEnd_Legend_InsideFieldSet() throws Exception {
-        if (!isHarmony()) {
-            return;
-        }
-        String text1 = "text1";
-        String text2 = "text2";
-        SimpleAttributeSet attr = new SimpleAttributeSet();
-        attr.addAttribute("aaaa", "bbbb");
-        SimpleAttributeSet legendAttr1 = new SimpleAttributeSet();
-        legendAttr1.addAttribute("bbbb", "aaaa");
-        SimpleAttributeSet legendAttr2 = new SimpleAttributeSet();
-        legendAttr2.addAttribute("bb", "aa");
-        action = reader.new FormAction();
-        action.start(Tag.FIELDSET, attr);
-        ElementSpec spec = (ElementSpec)reader.parseBuffer.get(1);
-        final AttributeSet specAttr = spec.getAttributes();
-        assertEquals(3, specAttr.getAttributeCount());
-        assertSpec(spec, ElementSpec.ContentType, ElementSpec.OriginateDirection, 0, new char[] {' '});
-        Object contentModel = specAttr.getAttribute(StyleConstants.ModelAttribute);
-        assertNotNull(contentModel);
-        assertTrue(contentModel instanceof FormFieldsetModel);
-        FormFieldsetModel fieldSet = (FormFieldsetModel)contentModel;
-        assertNull(fieldSet.getLegend());
-        assertNull(fieldSet.getLegendAttributes());
-
-        action.start(Tag.LEGEND, legendAttr1);
-        reader.handleText(text1.toCharArray(), 0);
-        action.end(Tag.LEGEND);
-        assertEquals(text1, fieldSet.getLegend());
-        assertNotNull(fieldSet.getLegendAttributes());
-        assertEquals(2, fieldSet.getLegendAttributes().getAttributeCount());
-        checkAttributes(fieldSet.getLegendAttributes(), "bbbb", "aaaa");
-        checkAttributes(fieldSet.getLegendAttributes(), StyleConstants.NameAttribute, Tag.LEGEND);
-        assertNotSame(legendAttr1, fieldSet.getLegendAttributes());
-        
-        action.start(Tag.LEGEND, legendAttr2);
-        reader.handleText(text2.toCharArray(), 0);
-        action.end(Tag.LEGEND);
-        assertEquals(text1, fieldSet.getLegend());
-        assertNotNull(fieldSet.getLegendAttributes());
-        assertEquals(2, fieldSet.getLegendAttributes().getAttributeCount());
-        checkAttributes(fieldSet.getLegendAttributes(), StyleConstants.NameAttribute, Tag.LEGEND);
-        checkAttributes(fieldSet.getLegendAttributes(), "bbbb", "aaaa");
-    }
-    
-    public void testFormStartEnd_Legend_OutsideFieldSet() throws Exception {
-        if (!isHarmony()) {
-            return;
-        }
-        String text1 = "text1";
-        String text2 = "text2";
-        SimpleAttributeSet attr = new SimpleAttributeSet();
-        attr.addAttribute("aaaa", "bbbb");
-        action = reader.new FormAction();
-        action.start(Tag.FIELDSET, attr);
-        ElementSpec spec = (ElementSpec)reader.parseBuffer.get(1);
-        final AttributeSet specAttr = spec.getAttributes();
-        assertEquals(3, specAttr.getAttributeCount());
-        assertSpec(spec, ElementSpec.ContentType, ElementSpec.OriginateDirection, 0, new char[] {' '});
-        Object contentModel = specAttr.getAttribute(StyleConstants.ModelAttribute);
-        assertNotNull(contentModel);
-        assertTrue(contentModel instanceof FormFieldsetModel);
-        FormFieldsetModel fieldSet = (FormFieldsetModel)contentModel;
-        assertNull(fieldSet.getLegend());
-        assertNull(fieldSet.getLegendAttributes());
-        action.end(Tag.FIELDSET);
-
-        action.start(Tag.LEGEND, attr);
-        reader.handleText(text1.toCharArray(), 0);
-        action.end(Tag.LEGEND);
-        assertNull(fieldSet.getLegend());
-        assertNull(fieldSet.getLegendAttributes());
-    }
-    
-    public void testFormEnd_Legend() throws Exception {
-        if (isHarmony()) {
-            checkEmptyFormEnd(Tag.LEGEND, null);
-        }
-    }
-
     private void checkStandardInputStart(final String type, final Class modelClass) throws Exception {
         checkStandardFormStart(Tag.INPUT, modelClass, type, null);
     }

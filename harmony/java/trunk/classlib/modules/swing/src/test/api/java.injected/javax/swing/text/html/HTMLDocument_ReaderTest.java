@@ -952,12 +952,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
     public void testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec5() throws Exception {
         final Tag[] tags = HTML.getAllTags();
         Tag[] oddTags;
-        if (!isHarmony()) {
-            oddTags = new Tag[] {Tag.AREA, Tag.BASE, Tag.MAP, Tag.OPTION, Tag.PARAM, Tag.STYLE};
-        } else {
-            oddTags = new Tag[] {Tag.AREA, Tag.APPLET, Tag.IFRAME, Tag.LEGEND, Tag.COL, Tag.COLGROUP, Tag.SCRIPT, Tag.BASE, Tag.MAP, Tag.OPTION, Tag.OPTGROUP, Tag.PARAM, Tag.STYLE};
-        }
-        
+        oddTags = new Tag[]{Tag.AREA, Tag.BASE, Tag.MAP, Tag.OPTION, Tag.PARAM, Tag.STYLE};
         for (int i = 0; i < tags.length; i++) {
             final Tag tag = tags[i];
             if (foundInArray(oddTags, tag)) {

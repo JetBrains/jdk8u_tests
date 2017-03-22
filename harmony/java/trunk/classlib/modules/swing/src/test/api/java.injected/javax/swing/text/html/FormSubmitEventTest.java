@@ -21,9 +21,12 @@
 
 package javax.swing.text.html;
 
+import java.net.URL;
 import java.util.Arrays;
 
 import javax.swing.SwingTestCase;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.text.Element;
 
 public class FormSubmitEventTest extends SwingTestCase {
 
@@ -46,9 +49,9 @@ public class FormSubmitEventTest extends SwingTestCase {
 
         String data = "data";
         FormSubmitEvent.MethodType method = FormSubmitEvent.MethodType.GET;
-        FormSubmitEvent event = new FormSubmitEvent(new Object(), null, null,
-                                                    null, null, null,
-                                                    method, data);
+        FormSubmitEvent event = new FormSubmitEvent(new Object(), (HyperlinkEvent.EventType) null, (URL) null,
+                (Element) null, (String) null,
+                method, (String) data);
 
         assertSame(data, event.getData());
     }
@@ -60,9 +63,9 @@ public class FormSubmitEventTest extends SwingTestCase {
 
         String data = "data";
         FormSubmitEvent.MethodType method = FormSubmitEvent.MethodType.GET;
-        FormSubmitEvent event = new FormSubmitEvent(new Object(), null, null,
-                                                    null, null, null,
-                                                    method, data);
+        FormSubmitEvent event = new FormSubmitEvent(new Object(), (HyperlinkEvent.EventType) null, (URL) null,
+                (Element) null, (String) null,
+                method, (String) data);
 
         assertSame(method, event.getMethod());
     }
