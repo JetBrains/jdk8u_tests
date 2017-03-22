@@ -625,7 +625,7 @@ abstract class AbstractStringBuilder {
             return new String(value, 0, count);
         }
         shared = true;
-        return new String(0, count, value);
+        return new String(value);
     }
 
     /**

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/modules/luni/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/impl/common" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/common" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/unix" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/windows" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/support/src">
+      <sourceFolder url="file://$MODULE_DIR$/support/src/test/java" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="junit-4.3.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/depends/jars/jetty-6.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/depends/jars/jetty-util-6.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/depends/jars/servlet-api-2.5-6.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/depends/jars/xalan-2.7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

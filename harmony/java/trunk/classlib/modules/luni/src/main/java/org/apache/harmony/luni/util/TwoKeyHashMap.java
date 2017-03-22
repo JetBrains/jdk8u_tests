@@ -125,9 +125,9 @@ public class TwoKeyHashMap<E, K, V> extends AbstractMap<String, V> {
      * @param key2
      * @return
      */
-    public V remove(Object key1, Object key2) {
+    public boolean remove(Object key1, Object key2) {
         Entry<E, K, V> e = removeEntry(key1, key2);
-        return null != e ? e.value : null;
+        return null != e;
     }
 
     /**
