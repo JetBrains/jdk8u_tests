@@ -123,6 +123,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/impl/java.injected" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/api/java.injected" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/sound/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/sound/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/sound/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/swing/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/test/api/java.injected" isTestSource="true" />
