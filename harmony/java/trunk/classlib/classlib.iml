@@ -88,6 +88,13 @@
     <content url="file://$MODULE_DIR$/modules/misc/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/misc/src/main/java" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/nio/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/main/java/unix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/main/java/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/test/java/unix" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/test/java/windows" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/test/java/common" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/print/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/windows" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/common" isTestSource="false" />

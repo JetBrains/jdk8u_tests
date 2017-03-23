@@ -85,35 +85,6 @@ public class ServerSocketChannelTest extends TestCase {
     // Test for methods in abstract class.
     // -------------------------------------------------------------------
 
-    /*
-     * Test method for 'java.nio.channels.ServerSocketChannel.validOps()'
-     */
-    public void testValidOps() {
-        MockServerSocketChannel testMSChnlnull = new MockServerSocketChannel(
-                null);
-        MockServerSocketChannel testMSChnl = new MockServerSocketChannel(
-                SelectorProvider.provider());
-        assertEquals(SelectionKey.OP_ACCEPT, this.serverChannel.validOps());
-        assertEquals(SelectionKey.OP_ACCEPT, testMSChnl.validOps());
-        assertEquals(SelectionKey.OP_ACCEPT, testMSChnlnull.validOps());
-
-    }
-
-    /*
-     * Test method for 'java.nio.channels.ServerSocketChannel.open()'
-     */
-    public void testOpen() {
-        MockServerSocketChannel testMSChnl = new MockServerSocketChannel(null);
-        MockServerSocketChannel testMSChnlnotnull = new MockServerSocketChannel(
-                SelectorProvider.provider());
-        assertEquals(SelectionKey.OP_ACCEPT, testMSChnlnotnull.validOps());
-        assertNull(testMSChnl.provider());
-        assertNotNull(testMSChnlnotnull.provider());
-        assertNotNull(this.serverChannel.provider());
-        assertEquals(testMSChnlnotnull.provider(), this.serverChannel
-                .provider());
-    }
-
     // -------------------------------------------------------------------
     // Test for socket()
     // -------------------------------------------------------------------

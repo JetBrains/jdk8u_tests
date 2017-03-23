@@ -275,7 +275,7 @@ public class ChannelsTest extends TestCase {
         ReadableByteChannel readbc = this.fins.getChannel();
         assertEquals(this.fileSize, this.fins.available());
         assertTrue(readbc.isOpen());
-        InputStream testins = Channels.newInputStream(null);
+        InputStream testins = Channels.newInputStream((ReadableByteChannel) null);
         assertNotNull(testins);
 
         try {
@@ -324,7 +324,7 @@ public class ChannelsTest extends TestCase {
     public void testNewOutputStreamWritableByteChannel_InputNull()
             throws Exception {
         byte[] writebuf = new byte[this.testNum];
-        OutputStream testouts = Channels.newOutputStream(null);
+        OutputStream testouts = Channels.newOutputStream((WritableByteChannel) null);
         assertNotNull(testouts);
         try {
             testouts.write(writebuf);

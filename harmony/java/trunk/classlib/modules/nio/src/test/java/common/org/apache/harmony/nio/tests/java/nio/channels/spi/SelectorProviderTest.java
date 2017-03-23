@@ -17,6 +17,7 @@
 package org.apache.harmony.nio.tests.java.nio.channels.spi;
 
 import java.io.IOException;
+import java.net.ProtocolFamily;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.Pipe;
 import java.nio.channels.ServerSocketChannel;
@@ -94,6 +95,11 @@ public class SelectorProviderTest extends TestCase {
 
         public DatagramChannel openDatagramChannel() throws IOException {
             return null;
+        }
+
+        public DatagramChannel openDatagramChannel(ProtocolFamily family)
+                throws IOException {
+            throw new UnsupportedOperationException();
         }
 
         public Pipe openPipe() throws IOException {

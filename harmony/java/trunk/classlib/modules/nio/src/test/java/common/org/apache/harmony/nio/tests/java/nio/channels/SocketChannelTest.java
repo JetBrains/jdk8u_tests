@@ -115,36 +115,6 @@ public class SocketChannelTest extends TestCase {
     // Test for methods in abstract class.
     // -------------------------------------------------------------------
     /*
-     * Test method for 'java.nio.channels.SocketChannel.validOps()'
-     */
-    public void testValidOps() {
-        MockSocketChannel testMSChannel = new MockSocketChannel(null);
-        assertEquals(13, this.channel1.validOps());
-        assertEquals(13, testMSChannel.validOps());
-    }
-
-    /*
-     * Test method for 'java.nio.channels.SocketChannel.open()'
-     */
-    public void testOpen() throws IOException {
-        java.nio.ByteBuffer[] buf = new java.nio.ByteBuffer[1];
-        buf[0] = java.nio.ByteBuffer.allocateDirect(CAPACITY_NORMAL);
-        MockSocketChannel testMSChannel = new MockSocketChannel(null);
-        MockSocketChannel testMSChannelnotnull = new MockSocketChannel(
-                SelectorProvider.provider());
-        assertNull(testMSChannel.provider());
-        assertNotNull(testMSChannelnotnull.provider());
-        assertNotNull(this.channel1);
-        assertEquals(this.channel1.provider(), testMSChannelnotnull.provider());
-        try {
-            this.channel1.write(buf);
-            fail("Should throw NotYetConnectedException");
-        } catch (NotYetConnectedException e) {
-            // correct
-        }
-    }
-
-    /*
      * Test method for 'java.nio.channels.SocketChannel.open(SocketAddress)'
      */
     public void testOpenSocketAddress_Null() throws IOException {
@@ -156,122 +126,6 @@ public class SocketChannelTest extends TestCase {
             // correct
         }
         assertNull(channel1IP);
-    }
-
-    /*
-     * Test method for 'java.nio.channels.SocketChannel.read(ByteBuffer[])'
-     */
-    public void testReadByteBufferArray() throws IOException {
-        java.nio.ByteBuffer[] byteBuf = null;
-        MockSocketChannel testMSChannelnull = new MockSocketChannel(null);
-        MockSocketChannel testMSChannel = new MockSocketChannel(
-                SelectorProvider.provider());
-        ServerSocket testServer = new ServerSocket(Support_PortManager
-                .getNextPort());
-        try {
-            try {
-                this.channel1.read(byteBuf);
-                fail("Should throw NPE");
-            } catch (NullPointerException e) {
-                // correct
-            }
-            byteBuf = new java.nio.ByteBuffer[CAPACITY_NORMAL];
-            try {
-                this.channel1.read(byteBuf);
-                fail("Should throw NotYetConnectedException");
-            } catch (NotYetConnectedException e) {
-                // correct
-            }
-            long readNum = CAPACITY_NORMAL;
-            readNum = testMSChannel.read(byteBuf);
-            assertEquals(0, readNum);
-            readNum = CAPACITY_NORMAL;
-            readNum = testMSChannelnull.read(byteBuf);
-            assertEquals(0, readNum);
-        } finally {
-            testServer.close();
-        }
-    }
-
-    /*
-     * Test method for 'java.nio.channels.SocketChannel.read(ByteBuffer[])'
-     */
-    public void testReadByteBufferArray_BufNull() throws IOException {
-        java.nio.ByteBuffer[] byteBuf = null;
-        MockSocketChannel testMSChannelnull = new MockSocketChannel(null);
-        MockSocketChannel testMSChannel = new MockSocketChannel(
-                SelectorProvider.provider());
-        try {
-            this.channel1.read(byteBuf);
-            fail("Should throw NPE");
-        } catch (NullPointerException e) {
-            // correct
-        }
-        try {
-            testMSChannel.read(byteBuf);
-            fail("Should throw NPE");
-        } catch (NullPointerException e) {
-            // correct
-        }
-        try {
-            testMSChannelnull.read(byteBuf);
-            fail("Should throw NPE");
-        } catch (NullPointerException e) {
-            // correct
-        }
-    }
-
-    /*
-     * Test method for 'java.nio.channels.SocketChannel.write(ByteBuffer[])'
-     */
-    public void testWriteByteBufferArray() throws IOException {
-        java.nio.ByteBuffer[] byteBuf = null;
-        MockSocketChannel testMSChannelnull = new MockSocketChannel(null);
-        MockSocketChannel testMSChannel = new MockSocketChannel(
-                SelectorProvider.provider());
-        try {
-            this.channel1.write(byteBuf);
-            fail("Should throw NPE");
-        } catch (NullPointerException e) {
-            // correct
-        }
-        byteBuf = new java.nio.ByteBuffer[CAPACITY_NORMAL];
-        try {
-            this.channel1.write(byteBuf);
-            fail("Should throw NotYetConnectedException");
-        } catch (NotYetConnectedException e) {
-            // correct
-        }
-        testMSChannel.write(byteBuf);
-        testMSChannelnull.write(byteBuf);
-    }
-
-    /*
-     * Test method for 'java.nio.channels.SocketChannel.write(ByteBuffer[])'
-     */
-    public void testWriteByteBufferArray_BufNull() throws IOException {
-        java.nio.ByteBuffer[] byteBuf = null;
-        MockSocketChannel testMSChannelnull = new MockSocketChannel(null);
-        MockSocketChannel testMSChannel = new MockSocketChannel(
-                SelectorProvider.provider());
-        try {
-            this.channel1.write(byteBuf);
-            fail("Should throw NPE");
-        } catch (NullPointerException e) {
-            // correct
-        }
-        try {
-            testMSChannel.write(byteBuf);
-            fail("Should throw NPE");
-        } catch (NullPointerException e) {
-            // correct
-        }
-        try {
-            testMSChannelnull.write(byteBuf);
-            fail("Should throw NPE");
-        } catch (NullPointerException e) {
-            // correct
-        }
     }
 
     public void testSocket_BasicStatusBeforeConnect() throws IOException {
@@ -2578,18 +2432,6 @@ public class SocketChannelTest extends TestCase {
         
 
     /**
-     * @tests java.nio.channels.SocketChannel#read(ByteBuffer[])
-     */
-    public void test_read$LByteBuffer() throws IOException {
-        MockSocketChannel sc = new MockSocketChannel(null);
-        ByteBuffer [] byteBufferArray = { ByteBuffer.allocate(1), ByteBuffer.allocate(1)};
-        // Verify that calling read(ByteBuffer[]) leads to the method
-        // read(ByteBuffer[], int, int) being called with a 0 for the
-        // second parameter and targets.length as the third parameter.
-        sc.read(byteBufferArray);
-        assertTrue(sc.isReadCalled);
-    }
-    /**
      * @tests java.nio.channels.SocketChannel#read(ByteBuffer[],int,int)
      */  
     public void test_read$LByteBufferII_blocking() throws Exception {
@@ -2730,19 +2572,6 @@ public class SocketChannelTest extends TestCase {
         }
     } 
     
-    /**
-     * @tests java.nio.channels.SocketChannel#write(ByteBuffer[])
-     */
-    public void test_write$LByteBuffer() throws IOException {
-        MockSocketChannel sc = new MockSocketChannel(null);
-        ByteBuffer [] byteBufferArray = { ByteBuffer.allocate(1), ByteBuffer.allocate(1)};
-        // Verify that calling write(ByteBuffer[]) leads to the method
-        // write(ByteBuffer[], int, int) being called with a 0 for the
-        // second parameter and sources.length as the third parameter.
-        sc.write(byteBufferArray);
-        assertTrue(sc.isWriteCalled);
-    }
-
     /**
      * @tests java.nio.channels.SocketChannel#write(ByteBuffer[])
      */
@@ -3503,72 +3332,4 @@ public class SocketChannelTest extends TestCase {
         socket.setTrafficClass(10);
         channel1.write(buffer);
     }
-
-    class MockSocketChannel extends SocketChannel{
-        
-        private boolean isWriteCalled = false;
-        
-        private boolean isReadCalled = false;
-        
-        public MockSocketChannel(SelectorProvider provider){
-            super(provider);
-        }
-
-        public Socket socket() {
-            return null;
-        }
-
-        public boolean isConnected() {
-            return false;
-        }
-
-        public boolean isConnectionPending() {
-            return false;
-        }
-
-        public boolean connect(SocketAddress address) throws IOException {
-            return false;
-        }
-
-        public boolean finishConnect() throws IOException {
-            return false;
-        }
-
-        public int read(ByteBuffer target) throws IOException {
-            return 0;
-        }
-
-        public long read(ByteBuffer[] targets, int offset, int length) throws IOException {
-            // Verify that calling read(ByteBuffer[]) leads to the method
-            // read(ByteBuffer[], int, int) being called with a 0 for the
-            // second parameter and targets.length as the third parameter.
-            if(0 == offset && length == targets.length){
-                isReadCalled = true;
-            }
-            return 0;
-        }
-
-        public int write(ByteBuffer source) throws IOException {
-            return 0;
-        }
-
-        public long write(ByteBuffer[] sources, int offset, int length) throws IOException {
-            // Verify that calling write(ByteBuffer[]) leads to the method
-            // write(ByteBuffer[], int, int) being called with a 0 for the
-            // second parameter and sources.length as the third parameter.
-            if(0 == offset && length == sources.length){
-                isWriteCalled = true;
-            }
-            return 0;
-        }
-
-        protected void implCloseSelectableChannel() throws IOException {
-            // empty
-        }
-
-        protected void implConfigureBlocking(boolean blockingMode) throws IOException {
-            // empty            
-        }
-        
-    }   
 }
