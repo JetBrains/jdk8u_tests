@@ -106,6 +106,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/print/src/test/api/java/common" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/regex/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/regex/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/regex/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/security/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/main/java/unix" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/main/java/common" isTestSource="false" />
