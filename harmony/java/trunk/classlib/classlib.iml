@@ -81,6 +81,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/unix" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/windows" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/math/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/math/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/math/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/misc/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/misc/src/main/java" isTestSource="false" />
     </content>
