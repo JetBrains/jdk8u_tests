@@ -135,6 +135,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/test/api/java.injected" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/text/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/text/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/text/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/support/src">
       <sourceFolder url="file://$MODULE_DIR$/support/src/test/java" isTestSource="false" />
     </content>
