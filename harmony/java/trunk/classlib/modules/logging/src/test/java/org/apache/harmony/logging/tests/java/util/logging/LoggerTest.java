@@ -30,7 +30,6 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
-import java.util.logging.LoggerExtension;
 import java.util.logging.LoggingPermission;
 
 import junit.framework.TestCase;
@@ -1701,7 +1700,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.CONFIG);
-		child.config(null);
+		child.config((String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -1715,7 +1714,7 @@ public class LoggerTest extends TestCase {
 		assertSame(r.getThrown(), null);
 
 		this.sharedLogger.setLevel(Level.INFO);
-		this.sharedLogger.config(null);
+		this.sharedLogger.config((String) null);
 		assertTrue(CallVerificationStack.getInstance().empty());
 	}
 
@@ -1753,7 +1752,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.FINE);
-		child.fine(null);
+		child.fine((String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -1767,7 +1766,7 @@ public class LoggerTest extends TestCase {
 		assertSame(r.getThrown(), null);
 
 		this.sharedLogger.setLevel(Level.CONFIG);
-		this.sharedLogger.fine(null);
+		this.sharedLogger.fine((String) null);
 		assertTrue(CallVerificationStack.getInstance().empty());
 	}
 
@@ -1805,7 +1804,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.FINER);
-		child.finer(null);
+		child.finer((String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -1819,7 +1818,7 @@ public class LoggerTest extends TestCase {
 		assertSame(r.getThrown(), null);
 
 		this.sharedLogger.setLevel(Level.FINE);
-		this.sharedLogger.finer(null);
+		this.sharedLogger.finer((String) null);
 		assertTrue(CallVerificationStack.getInstance().empty());
 	}
 
@@ -1857,7 +1856,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.FINEST);
-		child.finest(null);
+		child.finest((String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -1871,7 +1870,7 @@ public class LoggerTest extends TestCase {
 		assertSame(r.getThrown(), null);
 
 		this.sharedLogger.setLevel(Level.FINER);
-		this.sharedLogger.finest(null);
+		this.sharedLogger.finest((String) null);
 		assertTrue(CallVerificationStack.getInstance().empty());
 	}
 
@@ -1909,7 +1908,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.INFO);
-		child.info(null);
+		child.info((String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -1923,7 +1922,7 @@ public class LoggerTest extends TestCase {
 		assertSame(r.getThrown(), null);
 
 		this.sharedLogger.setLevel(Level.WARNING);
-		this.sharedLogger.info(null);
+		this.sharedLogger.info((String) null);
 		assertTrue(CallVerificationStack.getInstance().empty());
 	}
 
@@ -1961,7 +1960,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.WARNING);
-		child.warning(null);
+		child.warning((String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -1975,7 +1974,7 @@ public class LoggerTest extends TestCase {
 		assertSame(r.getThrown(), null);
 
 		this.sharedLogger.setLevel(Level.SEVERE);
-		this.sharedLogger.warning(null);
+		this.sharedLogger.warning((String) null);
 		assertTrue(CallVerificationStack.getInstance().empty());
 	}
 
@@ -2013,7 +2012,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.SEVERE);
-		child.severe(null);
+		child.severe((String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -2027,7 +2026,7 @@ public class LoggerTest extends TestCase {
 		assertSame(r.getThrown(), null);
 
 		this.sharedLogger.setLevel(Level.OFF);
-		this.sharedLogger.severe(null);
+		this.sharedLogger.severe((String) null);
 		assertTrue(CallVerificationStack.getInstance().empty());
 	}
 
@@ -2067,7 +2066,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.INFO);
-		child.log(Level.INFO, null);
+		child.log(Level.INFO, (String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -2339,7 +2338,7 @@ public class LoggerTest extends TestCase {
 		child.setParent(parent);
 
 		child.setLevel(Level.INFO);
-		child.logp(Level.INFO, null, null, null);
+		child.logp(Level.INFO, null, null, (String) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
 		assertSame(r.getLoggerName(), child.getName());
@@ -2830,7 +2829,7 @@ public class LoggerTest extends TestCase {
 	 */
 	public void testLogrb_LevelStringStringStringObjects_NullMsgObj() {
 		this.sharedLogger.setLevel(Level.INFO);
-		this.sharedLogger.logrb(Level.INFO, null, null, null, null,
+		this.sharedLogger.logrb(Level.INFO, null, null, (String) null, null,
 				(Object[]) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
@@ -2935,7 +2934,7 @@ public class LoggerTest extends TestCase {
 	 */
 	public void testLogrb_LevelStringTStringStringhrowable_NullMsgObj() {
 		this.sharedLogger.setLevel(Level.INFO);
-		this.sharedLogger.logrb(Level.INFO, null, null, null, null,
+		this.sharedLogger.logrb(Level.INFO, null, null, (String) null, null,
 				(Throwable) null);
 		LogRecord r = (LogRecord) CallVerificationStack.getInstance().pop();
 		assertTrue(CallVerificationStack.getInstance().empty());
@@ -3409,17 +3408,6 @@ public class LoggerTest extends TestCase {
 			System.setSecurityManager(oldMan);
 		}
 	}
-    
-    public void testLoadResourceBundleNonExistent() {
-        try {
-            // Try a load a non-existent resource bundle.
-            LoggerExtension.loadResourceBundle("missinglogger.properties");
-            fail("Expected an exception.");
-        } catch (MissingResourceException ex) {
-            // Expected exception is precisely a MissingResourceException
-            assertTrue(ex.getClass() == MissingResourceException.class);
-        }
-    }
     
     /**
      * @tests java.util.logging.Logger#logrb(Level, String, String, String,

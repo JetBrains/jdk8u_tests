@@ -66,6 +66,11 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/lang-management/src/test/api/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/lang-management/src/test/impl/java" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/logging/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/logging/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/logging/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/logging/src/test/java-internal" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
     </content>
