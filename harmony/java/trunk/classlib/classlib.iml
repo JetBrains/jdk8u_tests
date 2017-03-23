@@ -49,6 +49,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/crypto/src/test/impl/java.injected" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/crypto/src/test/impl/java" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/imageio/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/imageio/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/imageio/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
     </content>
