@@ -57,6 +57,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/instrument/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/instrument/src/test/java" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/jndi/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/jndi/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/jndi/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
     </content>

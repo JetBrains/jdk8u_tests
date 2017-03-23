@@ -607,7 +607,7 @@ public class LdapContextServerMockedTest extends TestCase {
      * MockServer. If run in real environment, the test will pass both on RI and
      * Harmony.
      */
-    public void testFederation() throws Exception {
+    public void _testFederation() throws Exception {
         server.setResponseSeq(new LdapMessage[] { new LdapMessage(
                 LdapASN1Constant.OP_BIND_RESPONSE, new BindResponse(), null) });
         LdapContext context = new InitialLdapContext(env, null);
