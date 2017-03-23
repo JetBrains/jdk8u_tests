@@ -97,6 +97,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/nio_char/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/nio_char/src/test/java" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/prefs/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/prefs/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/prefs/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/print/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/windows" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/common" isTestSource="false" />
