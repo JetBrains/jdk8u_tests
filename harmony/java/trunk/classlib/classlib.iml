@@ -37,6 +37,10 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/support/java" isTestSource="true" />
     </content>
+    <content url="file://$MODULE_DIR$/modules/concurrent/src">
+      <sourceFolder url="file://$MODULE_DIR$/modules/concurrent/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules/concurrent/src/test/java" isTestSource="true" />
+    </content>
     <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
     </content>

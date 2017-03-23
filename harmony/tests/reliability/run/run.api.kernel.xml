@@ -112,7 +112,7 @@
 
         <run-pjava-test test="api.kernel.thread.ExcptHandlerTest.ExcptHandlerTest" /> 
 
-        <run-pjava-test test="api.kernel.thread.ThreadLocalTest.ThreadLocalTest" /> 
+        <run-pjava-test test="api.kernel.thread.ThreadLocalTest.ThreadLocalTest" />
 
         <run-pjava-test test="api.kernel.thread.StackTraceTest.StackTraceTest" /> 
         
