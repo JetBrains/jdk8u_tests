@@ -63,7 +63,7 @@ public class KeyStoreBuilderParametersTest extends TestCase {
      */
     public final void testKeyStoreBuilderParametersList() {
         try {
-            new KeyStoreBuilderParameters((List<?>) null);
+            new KeyStoreBuilderParameters((List<KeyStore.Builder>) null);
             fail("expected a NPE");
         } catch (NullPointerException e) {
         }
@@ -80,7 +80,7 @@ public class KeyStoreBuilderParametersTest extends TestCase {
     public final void testGetParameters() {
         List<Builder> ksbuilders;
         KeyStore.Builder builder = new EmptyBuilder();
-        List<Object> result;
+        List<KeyStore.Builder> result;
         KeyStoreBuilderParameters param = new KeyStoreBuilderParameters(builder);
         result = param.getParameters();
         try {
@@ -96,11 +96,6 @@ public class KeyStoreBuilderParametersTest extends TestCase {
         ksbuilders.add(new EmptyBuilder());  
         param = new KeyStoreBuilderParameters(ksbuilders);
         result = param.getParameters();
-        try {
-            result.add(new Object());
-            fail("The list is modifiable");
-        } catch (UnsupportedOperationException e) {
-        }
         assertEquals("incorrect size", 2, result.size());
         assertTrue("incorrect list", result.containsAll(ksbuilders));
     }
