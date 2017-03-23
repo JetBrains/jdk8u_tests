@@ -17,12 +17,9 @@
 
 package org.apache.harmony.sql.tests.java.sql;
 
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.DriverPropertyInfo;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 /**
  * Basic JDBC driver implementation to help with tests
@@ -129,5 +126,10 @@ public class TestHelper_Driver4 implements Driver {
     public boolean jdbcCompliant() {
         // Basic version here returns false
         return false;
+    }
+
+    @Override
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+        return null;
     }
 }

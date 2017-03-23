@@ -480,6 +480,13 @@ public class SerialClobTest extends TestCase {
         public void truncate(long len) throws SQLException {
 
         }
+
+        public void free() throws SQLException {
+        }
+
+        public Reader getCharacterStream(long pos, long length) throws SQLException {
+            return null;
+        }
     }
 
     static class MockAbnormalReader extends java.io.Reader {

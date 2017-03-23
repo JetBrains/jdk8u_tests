@@ -17,15 +17,10 @@
 
 package org.apache.harmony.sql.tests.java.sql;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.Savepoint;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.Executor;
 
 /**
  * Helper class for the java.sql tests - a skeleton class which implements the
@@ -138,6 +133,16 @@ public class TestHelper_Connection1 implements Connection {
         return null;
     }
 
+    @Override
+    public Clob createClob() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Blob createBlob() throws SQLException {
+        return null;
+    }
+
     public PreparedStatement prepareStatement(String sql) throws SQLException {
         return null;
     }
@@ -175,5 +180,80 @@ public class TestHelper_Connection1 implements Connection {
     }
 
     public void setTypeMap(Map<String, Class<?>> map) throws SQLException {
+    }
+
+    @Override
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        return null;
+    }
+
+    public boolean isWrapperFor(java.lang.Class<?> iface) throws java.sql.SQLException {
+        return false;
+    }
+
+    public Array createArrayOf(String typeName, Object[] elements) throws
+            SQLException {
+        return null;
+    }
+
+    @Override
+    public Struct createStruct(String typeName, Object[] attributes) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public void setSchema(String schema) throws SQLException {
+
+    }
+
+    @Override
+    public String getSchema() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public void abort(Executor executor) throws SQLException {
+
+    }
+
+    @Override
+    public void setNetworkTimeout(Executor executor, int milliseconds) throws SQLException {
+
+    }
+
+    @Override
+    public int getNetworkTimeout() throws SQLException {
+        return 0;
+    }
+
+    public void setClientInfo(String name, String value)
+            throws SQLClientInfoException {
+    }
+
+    public void setClientInfo(Properties properties)
+            throws SQLClientInfoException {
+    }
+
+    @Override
+    public String getClientInfo(String name) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Properties getClientInfo() throws SQLException {
+        return null;
+    }
+
+    public boolean isValid(int timeout) throws SQLException {
+        return false;
+    }
+
+    public NClob createNClob() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public SQLXML createSQLXML() throws SQLException {
+        return null;
     }
 }

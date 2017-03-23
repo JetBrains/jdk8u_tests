@@ -529,6 +529,13 @@ public class SerialBlobTest extends TestCase {
 
         }
 
+        public void free() {
+        }
+
+        public InputStream getBinaryStream(long pos, long length) throws SQLException {
+            return null;
+        }
+
     }
 
 }
