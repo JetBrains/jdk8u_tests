@@ -2,47 +2,35 @@
 <module version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <content url="file://$MODULE_DIR$/modules/accessibility/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/accessibility/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/accessibility/src/test/api/java/common" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/annotation/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/annotation/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/annotation/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/archive/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/archive/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/archive/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/archive/src/test/java-internal" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/auth/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/auth/src/main/java/common" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/modules/auth/src/main/java/windows" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/modules/auth/src/main/java/unix" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/auth/src/test/java/common" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/auth/src/test/java/unix" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/auth/src/test/java/windows" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/awt/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/windows" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/unix" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/windows" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/api/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/boot" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/awt/src/test/impl/unix" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/beans/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/java-internal" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/beans/src/test/support/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/concurrent/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/concurrent/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/concurrent/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/crypto/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/crypto/src/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/crypto/src/test/api/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/crypto/src/test/support/common/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/crypto/src/test/api/java.injected" isTestSource="true" />
@@ -50,26 +38,20 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/crypto/src/test/impl/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/imageio/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/imageio/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/imageio/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/instrument/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/instrument/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/instrument/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/jndi/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/jndi/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/jndi/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/lang-management/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/lang-management/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/lang-management/src/test/api/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/lang-management/src/test/impl/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/logging/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/logging/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/logging/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/modules/logging/src/test/java-internal" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/luni-kernel/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/luni-kernel/src/main/java" isTestSource="false" />
@@ -82,41 +64,31 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/luni/src/test/api/windows" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/math/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/math/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/math/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/misc/src">
       <sourceFolder url="file://$MODULE_DIR$/modules/misc/src/main/java" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/modules/nio/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/test/java/windows" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/nio/src/test/java/common" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/nio_char/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/nio_char/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/nio_char/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/prefs/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/prefs/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/prefs/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/print/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/windows" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/modules/print/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/print/src/test/api/java/common" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/regex/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/regex/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/regex/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/rmi/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/rmi/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/rmi/src/test/api/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/security/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/main/java/unix" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/modules/security/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/impl/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/api/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/support/common/java" isTestSource="true" />
@@ -124,23 +96,18 @@
       <sourceFolder url="file://$MODULE_DIR$/modules/security/src/test/api/java.injected" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/sound/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/sound/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/sound/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/sql/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/sql/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/sql/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/swing/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/main/java/common" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/swing/src/test/api/java.injected" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/text/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/text/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/text/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/modules/x-net/src">
-      <sourceFolder url="file://$MODULE_DIR$/modules/x-net/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/modules/x-net/src/test/impl/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/x-net/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/modules/x-net/src/test/api/java" isTestSource="true" />
