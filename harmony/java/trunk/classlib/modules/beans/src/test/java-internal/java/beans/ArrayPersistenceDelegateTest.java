@@ -27,12 +27,12 @@ import junit.framework.TestCase;
  */
 public class ArrayPersistenceDelegateTest extends TestCase {
 
-    private ArrayPersistenceDelegate pd = null;
+    private MetaData.ArrayPersistenceDelegate pd = null;
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        pd = new ArrayPersistenceDelegate();
+        pd = new MetaData.ArrayPersistenceDelegate();
     }
 
     @Override

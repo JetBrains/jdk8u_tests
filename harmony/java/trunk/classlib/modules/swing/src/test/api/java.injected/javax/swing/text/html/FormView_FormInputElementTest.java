@@ -36,12 +36,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SwingTestCase;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.Element;
-import javax.swing.text.JTextComponent;
-import javax.swing.text.StyleConstants;
-
-import org.apache.harmony.x.swing.Utilities;
+import javax.swing.text.*;
 
 public class FormView_FormInputElementTest extends SwingTestCase {
 
@@ -85,9 +80,6 @@ public class FormView_FormInputElementTest extends SwingTestCase {
             assertEquals(button.getPreferredSize(),
                     button.getMinimumSize());
 
-            //ACCESSKEY
-            checkButtonAccessKey("button_accesskey");
-
             //TITLE
             checkTitle("button_title");
 
@@ -119,9 +111,6 @@ public class FormView_FormInputElementTest extends SwingTestCase {
         // CHECKED
         checkChecked("checkbox_checked");
 
-        // ACCESSKEY
-        checkButtonAccessKey("checkbox_accesskey");
-
         // TITLE
         checkTitle("checkbox_title");
 
@@ -148,9 +137,6 @@ public class FormView_FormInputElementTest extends SwingTestCase {
         createFormViewWithParent("image_default");
         image = (JButton) formView.createComponent();
         assertEquals("", image.getText());
-
-        // ACCESSKEY
-        checkButtonAccessKey("image_accesskey");
 
         // TITLE
         checkTitle("image_title");
@@ -249,9 +235,6 @@ public class FormView_FormInputElementTest extends SwingTestCase {
         // CHECKED
         checkChecked("radio_checked");
 
-        // ACCESSKEY
-        checkButtonAccessKey("radio_accesskey");
-
         // SIZE
         checkButtonSize("radio_size");
 
@@ -307,9 +290,6 @@ public class FormView_FormInputElementTest extends SwingTestCase {
         assertEquals("reset_default", resetButton.getText());
         assertNull(resetButton.getToolTipText());
 
-        // ACCESSKEY
-        checkButtonAccessKey("reset_accesskey");
-
         // SIZE
         checkButtonSize("reset_size");
 
@@ -337,9 +317,6 @@ public class FormView_FormInputElementTest extends SwingTestCase {
         submitButton = (JButton) formView.createComponent();
         assertEquals("submit_default", submitButton.getText());
         assertNull(submitButton.getToolTipText());
-
-        // ACCESSKEY
-        checkButtonAccessKey("submit_accesskey");
 
         // SIZE
         checkButtonSize("submit_size");
@@ -506,16 +483,6 @@ public class FormView_FormInputElementTest extends SwingTestCase {
         createFormViewWithParent(id);
         togleButton = (JToggleButton) formView.createComponent();
         assertTrue(togleButton.isSelected());
-    }
-
-    private void checkButtonAccessKey(final String id) {
-        AbstractButton button;
-        if (isHarmony()) {
-            createFormViewWithParent(id);
-            button = (AbstractButton) formView.createComponent();
-            assertEquals(Utilities.keyCodeToKeyChar(button.getMnemonic()),
-            'U');
-        }
     }
 
     private void checkButtonAlign(final String id) {

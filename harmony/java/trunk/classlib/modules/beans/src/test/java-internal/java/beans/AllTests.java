@@ -30,8 +30,6 @@ public class AllTests {
         TestSuite suite = new TestSuite("Tests for org.apache.harmony.beans");
         // $JUnit-BEGIN$
         suite.addTestSuite(ArrayPersistenceDelegateTest.class);
-        suite.addTestSuite(ClassPersistenceDelegateTest.class);
-        suite.addTestSuite(StringPersistenceDelegateTest.class);
         // $JUnit-END$
         return suite;
     }

@@ -31,7 +31,6 @@ import java.rmi.registry.Registry;
 import java.rmi.server.RemoteObject;
 import java.rmi.server.UnicastRemoteObject;
 
-import org.apache.harmony.rmi.common.SubProcess;
 import org.apache.harmony.rmi.test.MyRemoteInterface1;
 import org.apache.harmony.rmi.test.TestObject;
 
@@ -86,196 +85,6 @@ public class DGCTest extends RMITestBase {
      */
     public DGCTest(String name) {
         super(name);
-    }
-
-    /**
-     * Test0
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    public void test0() throws Exception {
-        System.out.println("test0 starting");
-        test0(CONFIG_DIRECT_SOCKET, true,
-              CONFIG_DIRECT_SOCKET, true,
-              CONFIG_DIRECT_SOCKET, true);
-        System.out.println("test0 complete");
-    }
-
-    /**
-     * Test3
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    public void test3() throws Exception {
-        System.out.println("test3 starting");
-        test3(CONFIG_DIRECT_SOCKET, true);
-        System.out.println("test3 complete");
-    }
-
-    /**
-     * Test0
-     *
-     * @param   configServer
-     *          Server configuration to set environment for.
-     *
-     * @param   endorsedServer
-     *          If endorsedDirs and bootClassPath should be propagated to
-     *          server.
-     *
-     * @param   configClient
-     *          Client configuration to set environment for.
-     *
-     * @param   endorsedClient
-     *          If endorsedDirs and bootClassPath should be propagated to
-     *          client.
-     *
-     * @param   configRegistry
-     *          Registry configuration to set environment for.
-     *
-     * @param   endorsedRegistry
-     *          If endorsedDirs and bootClassPath should be propagated to
-     *          registry.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    private void test0(int configServer, boolean endorsedServer,
-            int configClient, boolean endorsedClient, int configRegistry,
-            boolean endorsedRegistry) throws Exception {
-        SubProcess registry = null;
-        SubProcess server = null;
-        SubProcess client = null;
-
-        try {
-            System.out.println("test0: creating registry");
-            registry = startProcess("org.apache.harmony.rmi.DGCTest",
-                    REGISTRY_ID, configRegistry, endorsedRegistry);
-            registry.pipeError();
-            System.out.println("test0: Expecting READY from registry");
-            registry.expect();
-            registry.pipeInput();
-
-            System.out.println("test0: starting server");
-            server = startProcess("org.apache.harmony.rmi.DGCTest",
-                    SERVER_ID_0, configServer, endorsedServer);
-            server.pipeError();
-            server.closeOutput();
-            System.out.println("test0: Expecting READY from server");
-            server.expect();
-
-            System.out.println("test0: starting client");
-            client = startProcess("org.apache.harmony.rmi.DGCTest",
-                    CLIENT_ID_0, configClient, endorsedClient);
-            client.pipeInput();
-            client.pipeError();
-            client.closeOutput();
-
-            System.out.println("test0: Expecting STARTED from server");
-            server.expect("TestObject.test1() started");
-            server.pipeInput();
-
-            System.out.println("test0: destroying registry");
-            registry.destroy();
-
-            System.out.println("test0: destroying client");
-            client.destroy();
-
-            System.out.println("test0: waiting for server to return");
-            assertEquals("Test server return", 0, server.waitFor());
-        } finally {
-            if (registry != null) {
-                registry.destroy();
-            }
-            if (client != null) {
-                client.destroy();
-            }
-            if (server != null) {
-                server.destroy();
-            }
-        }
-    }
-
-    /**
-     * Test3
-     *
-     * @param   config
-     *          Configuration to set environment for.
-     *
-     * @param   endorsed
-     *          If endorsedDirs and bootClassPath should be propagated to
-     *          test VM.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    private void test3(int config, boolean endorsed) throws Exception {
-        SubProcess server = null;
-
-        try {
-            System.out.println("test3: starting server");
-            server = startProcess("org.apache.harmony.rmi.DGCTest",
-                    SERVER_ID_3, config, endorsed);
-            server.pipeInput();
-            server.pipeError();
-            server.closeOutput();
-            assertEquals("Test server return", 0, server.waitFor());
-        } finally {
-            if (server != null) {
-                server.destroy();
-            }
-        }
-    }
-
-    /**
-     * Runs registry process, wait for READY and exits with export
-     * or stays on if input stream is closed.
-     *
-     * @param   config
-     *          Number of the configuration to run.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    private void runRegistry(int config) throws Exception {
-        System.err.println("Registry starting");
-        System.setSecurityManager(new RMISecurityManager());
-        setEnvironmentForConfig(config);
-        Registry reg = LocateRegistry.createRegistry(REGISTRY_PORT);
-        System.err.println("Registry initialized, telling READY to parent");
-        SubProcess.tellOut();
-        System.err.println("Expecting READY from parent");
-
-        try {
-            SubProcess.expectIn();
-            UnicastRemoteObject.unexportObject(reg, true);
-            System.err.println("Registry exiting");
-        } catch (EOFException e) {
-            System.err.println("EOFException caught, registry stays on");
-        }
-    }
-
-    /**
-     * Runs test server process.
-     *
-     * @param   config
-     *          Number of the configuration to run.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    private void runTestServer0(int config) throws Exception {
-        System.err.println("Test server started");
-        System.setSecurityManager(new RMISecurityManager());
-        setEnvironmentForConfig(config);
-        MyRemoteInterface1 obj = new TestObject();
-        UnicastRemoteObject.exportObject(obj, CUSTOM_PORT_4);
-        LocateRegistry.getRegistry().rebind(
-                TEST_STRING_1, RemoteObject.toStub(obj));
-        GCThread.create();
-        System.err.println("Test server initialized, telling READY to parent");
-        SubProcess.tellOut();
     }
 
     /**
@@ -381,11 +190,7 @@ public class DGCTest extends RMITestBase {
             DGCTest dgcTest = new DGCTest();
 
             try {
-                if (param == REGISTRY_ID) {
-                    dgcTest.runRegistry(config);
-                } else if (param == SERVER_ID_0) {
-                    dgcTest.runTestServer0(config);
-                } else if (param == CLIENT_ID_0) {
+                if (param == CLIENT_ID_0) {
                     dgcTest.runTestClient0(config);
                 } else if (param == SERVER_ID_3) {
                     dgcTest.runTestServer3(config);

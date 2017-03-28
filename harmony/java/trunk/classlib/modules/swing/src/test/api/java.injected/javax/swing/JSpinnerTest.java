@@ -36,7 +36,6 @@ import javax.swing.text.DateFormatter;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
 import org.apache.harmony.x.swing.StringConstants;
-import org.apache.harmony.x.swing.Utilities;
 
 public class JSpinnerTest extends BasicSwingTestCase {
     private JSpinner spinner;
@@ -258,15 +257,6 @@ public class JSpinnerTest extends BasicSwingTestCase {
         defaultEditor.getTextField().addPropertyChangeListener(pcc);
         spinner.setValue(new Integer(159));
         assertTrue(pcc.isChanged());
-    }
-
-    public void testDefaultEditor_LayoutSizes() {
-        DefaultEditor defaultEditor = (DefaultEditor) spinner.createEditor(abstractModel);
-        spinner.setEditor(defaultEditor);
-        assertEquals(defaultEditor.minimumLayoutSize(spinner), Utilities.addInsets(
-                defaultEditor.getTextField().getMinimumSize(), spinner.getInsets()));
-        assertEquals(defaultEditor.preferredLayoutSize(spinner), Utilities.addInsets(
-                defaultEditor.getTextField().getPreferredSize(), spinner.getInsets()));
     }
 
     public void testNumberEditor_NumberEditor() {

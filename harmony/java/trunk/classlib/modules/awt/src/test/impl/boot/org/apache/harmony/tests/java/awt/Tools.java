@@ -36,8 +36,6 @@ import java.util.Arrays;
 
 //import javax.imageio.ImageIO;
 
-import org.apache.harmony.awt.gl.MultiRectAreaOp;
-
 import junit.framework.Assert;
 
 public abstract class Tools {
@@ -615,86 +613,6 @@ public abstract class Tools {
 
         static final int BORDER = 30;
         static final Color colorBack = Color.white;
-
-        public static void save(org.apache.harmony.awt.gl.MultiRectArea area, String fileName) {
-            try {
-                FileWriter f = new FileWriter(fileName);
-                Rectangle[] rect = area.getRectangles();
-                for (Rectangle element : rect) {
-                    f.write(
-                            element.x + "," +
-                            element.y + "," +
-                            (element.width + element.x - 1) + "," +
-                            (element.height + element.y - 1) + "\n");
-                }
-                f.close();
-            } catch (IOException e) {
-                Assert.fail("Can''t write to file " + fileName);
-            }
-        }
-
-        public static org.apache.harmony.awt.gl.MultiRectArea load(String fileName) {
-            org.apache.harmony.awt.gl.MultiRectArea area = null;
-            try {
-                int[] buf = MultiRectAreaOp.createBuf(0);
-                int count = 1;
-
-                FileReader f = new FileReader(fileName);
-                StreamTokenizer t = new StreamTokenizer(f);
-                while(t.nextToken() != StreamTokenizer.TT_EOF) {
-                    if (t.ttype == StreamTokenizer.TT_NUMBER) {
-                        buf = MultiRectAreaOp.checkBufSize(buf, 1);
-                        buf[count++] = (int)t.nval;
-                    }
-                }
-                f.close();
-
-                int j = 0;
-                Rectangle[] rect = new Rectangle[(count - 1) / 4];
-                for(int i = 1; i < count; i += 4) {
-                    rect[j++] = new Rectangle(
-                            buf[i],
-                            buf[i + 1],
-                            buf[i + 2] - buf[i] + 1,
-                            buf[i + 3] - buf[i + 1] + 1);
-                }
-                area = new org.apache.harmony.awt.gl.MultiRectArea(rect);
-            } catch (IOException e) {
-                Assert.fail("Can''t read file " + fileName);
-            }
-            return area;
-        }
-
-        public static java.awt.image.BufferedImage createImage(org.apache.harmony.awt.gl.MultiRectArea area) {
-            return createImage(area, color);
-        }
-
-        public static java.awt.image.BufferedImage createImage(org.apache.harmony.awt.gl.MultiRectArea area, Color[] palette) {
-
-            // Calculate image border
-            Rectangle bounds = area.getBounds();
-            int width = bounds.x + bounds.width + BORDER;
-            int height = bounds.y + bounds.height + BORDER;
-
-            java.awt.image.BufferedImage img =
-                new java.awt.image.BufferedImage(
-                        width, height,
-                        java.awt.image.BufferedImage.TYPE_INT_RGB);
-
-            Graphics g = img.getGraphics();
-
-            // Background
-            g.setColor(colorBack);
-            g.fillRect(0, 0, img.getWidth(), img.getHeight());
-
-            Rectangle[] rect = area.getRectangles();
-            for(int i = 0; i < rect.length; i++) {
-                g.setColor(palette[i % palette.length]);
-                g.fillRect(rect[i].x, rect[i].y, rect[i].width, rect[i].height);
-            }
-            return img;
-        }
-
     }
 
 }

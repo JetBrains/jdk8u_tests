@@ -20,8 +20,6 @@
 
 package javax.print.attribute.standard;
 
-import org.apache.harmony.x.print.attributes.PPDMediaSizeName;
-
 import junit.framework.TestCase;
 
 @SuppressWarnings("static-access")
@@ -74,25 +72,6 @@ public class MediaSizeTest extends TestCase {
             MediaSize.findMedia(Integer.MAX_VALUE/4, Integer.MAX_VALUE/4, 1));
         assertEquals(msn3,
             MediaSize.findMedia(Float.MAX_VALUE, Float.MAX_VALUE, 1));
-    }
-
-    /*
-     * findMedia(float x, float y, int units) method testing.
-     * Tests that JIS_B0 is found as the biggest media from all 
-     * standard media sheets and ISO_A10 is found as the smallest 
-     * media from all standard media sheets. 
-     */
-    public final void testFindMedia1() {
-
-        assertTrue((MediaSizeName.JIS_B0 ==
-                MediaSize.findMedia(5000, 5000, MediaSize.MM)) ||
-                (PPDMediaSizeName.B0 ==
-                MediaSize.findMedia(5000, 5000, MediaSize.MM)));
-
-        assertTrue((MediaSizeName.ISO_A10 ==
-            MediaSize.findMedia(20, 20, MediaSize.MM)) ||
-            (PPDMediaSizeName.A10 ==
-            MediaSize.findMedia(20, 20, MediaSize.MM)));
     }
 
     /*

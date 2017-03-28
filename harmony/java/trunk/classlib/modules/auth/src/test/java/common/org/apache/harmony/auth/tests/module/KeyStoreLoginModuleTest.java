@@ -24,9 +24,8 @@ import java.util.Set;
 import javax.security.auth.Subject;
 import javax.security.auth.login.LoginException;
 
+import com.sun.security.auth.module.KeyStoreLoginModule;
 import junit.framework.TestCase;
-
-import org.apache.harmony.auth.module.KeyStoreLoginModule;
 
 import tests.support.resource.Support_Resources;
 

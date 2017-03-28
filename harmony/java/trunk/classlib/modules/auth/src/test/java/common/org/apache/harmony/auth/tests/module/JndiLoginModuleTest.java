@@ -30,9 +30,8 @@ import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 import javax.security.auth.login.LoginException;
 
+import com.sun.security.auth.module.JndiLoginModule;
 import junit.framework.TestCase;
-
-import org.apache.harmony.auth.module.JndiLoginModule;
 
 public class JndiLoginModuleTest extends TestCase {
 

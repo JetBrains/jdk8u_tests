@@ -22,6 +22,7 @@ import java.net.URL;
 import java.security.cert.Certificate;
 
 import junit.framework.TestCase;
+import sun.net.www.protocol.https.DefaultHostnameVerifier;
 
 /**
  * Tests for <code>HttpsURLConnection</code> class constructors and methods.

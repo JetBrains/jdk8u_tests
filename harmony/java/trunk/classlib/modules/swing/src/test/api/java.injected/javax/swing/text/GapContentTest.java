@@ -281,19 +281,4 @@ public class GapContentTest extends AbstractDocument_ContentTest {
         return -1000;
     }
 
-    public static List<?> getPositionList(final GapContent content) {
-        try {
-            Field f = content.getClass().getDeclaredField("gapContentPositions");
-            f.setAccessible(true);
-            ContentPositions gapContentPositions = (ContentPositions) f.get(content);
-            f = gapContentPositions.getClass().getSuperclass().getDeclaredField("positionList");
-            f.setAccessible(true);
-            return (List<?>) (f.get(gapContentPositions));
-        } catch (IllegalAccessException e) {
-            fail(e.getMessage());
-        } catch (NoSuchFieldException e) {
-            fail(e.getMessage());
-        }
-        return null;
-    }
 }

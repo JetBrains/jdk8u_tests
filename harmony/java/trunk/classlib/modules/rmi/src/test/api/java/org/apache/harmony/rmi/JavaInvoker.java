@@ -27,9 +27,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Vector;
 
-import org.apache.harmony.rmi.common.SubProcess;
-
-
 /**
  * Invoker for Virtual Machine.
  *
@@ -170,38 +167,4 @@ public final class JavaInvoker {
         return (String[]) args.toArray(new String[args.size()]);
     }
 
-    /**
-     * Invokes Java machine with configuration similar to the current one.
-     * The properties of current VM are extracted from system properties
-     * and passed to new VM.
-     *
-     * @param   options
-     *          Java options.
-     *
-     * @param   className
-     *          Name of the class to run.
-     *
-     * @param   params
-     *          Parameters to pass to the class.
-     *
-     * @param   useEndorsedDirs
-     *          If endorsed dirs (<code>-Djava.endorsed.dirs</code>)
-     *          from this VM should be applied.
-     *
-     * @param   useBootClassPath
-     *          If bootclasspath (<code>-Xbootclasspath</code>)
-     *          from this VM should be applied.
-     *
-     * @return  The process created.
-     *
-     * @throws  IOException
-     *          If some error occurs.
-     */
-    public static SubProcess invokeSimilar(String[] options, String className,
-            String[] params, boolean useEndorsedDirs, boolean useBootClassPath)
-            throws IOException {
-        // @ToDo: Rewrite with ProcessBuilder for Java 5.0.
-        return new SubProcess(createArgsArray(options, className, params,
-                useEndorsedDirs, useBootClassPath));
-    }
 }

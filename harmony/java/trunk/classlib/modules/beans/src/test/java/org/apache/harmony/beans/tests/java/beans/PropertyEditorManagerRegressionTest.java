@@ -54,23 +54,6 @@ public class PropertyEditorManagerRegressionTest extends TestCase {
                 editor.getClass());
     }
 
-    public void testFindEditorAccordingPath_2() throws Exception {
-        // Regression Harmony-1205
-        String newPath[] = new String[origPath.length + 1];
-        newPath[origPath.length] = "org.apache.harmony.beans.tests.support";
-        for (int i = 0; i < origPath.length; i++) {
-            newPath[i] = origPath[i];
-        }
-
-        PropertyEditorManager.setEditorSearchPath(newPath);
-
-        PropertyEditor editor = PropertyEditorManager.findEditor(Class
-                .forName("java.lang.String"));
-
-        assertEquals(org.apache.harmony.beans.editors.StringEditor.class,
-                editor.getClass());
-    }
-
     public void testFindEditorAccordingPath_3() throws Exception {
         // Regression Harmony-5477
         class TestClassLoader extends ClassLoader {

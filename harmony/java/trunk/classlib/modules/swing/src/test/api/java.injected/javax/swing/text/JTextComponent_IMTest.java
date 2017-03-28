@@ -31,8 +31,6 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.SwingTestCase;
-import org.apache.harmony.awt.text.ComposedTextParams;
-import org.apache.harmony.awt.text.PropertyNames;
 
 public class JTextComponent_IMTest extends SwingTestCase {
     JTextArea jta;
@@ -108,109 +106,6 @@ public class JTextComponent_IMTest extends SwingTestCase {
     private AttributedCharacterIterator getIterator(final String text, final Map<Attribute, Object> map) {
         attrString = new AttributedString(text, map);
         return attrString.getIterator();
-    }
-
-    private void setComposedText() {
-        String content = "12345";
-        iter = getIterator(content, putSegmentAttribute(map, Color.RED));
-        ime = getTextEvent(iter, 0, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(7, jta.getCaretPosition());
-        checkComposedTextParams(true, 7, 5);
-        assertEquals(initialContent + content, jta.getText());
-    }
-
-    private void checkComposedTextParams(final boolean shouldBe, final int start,
-            final int length) {
-        if (isHarmony()) {
-            Object value = doc.getProperty(PropertyNames.COMPOSED_TEXT_PROPERTY);
-            if (!shouldBe) {
-                if (value != null) {
-                    ComposedTextParams params = (ComposedTextParams) value;
-                    assertNull(params.getComposedText());
-                    assertEquals(0, params.getComposedTextLength());
-                }
-                return;
-            }
-            assertTrue(value instanceof ComposedTextParams);
-            ComposedTextParams params = (ComposedTextParams) value;
-            assertEquals(start, params.getComposedTextStart());
-            assertEquals(length, params.getComposedTextLength());
-            AttributedString text = params.getComposedText();
-            AttributedCharacterIterator iter1 = attrString.getIterator();
-            AttributedCharacterIterator iter2 = text.getIterator();
-            assertEquals(iter1.getAttributes(), iter2.getAttributes());
-            assertEquals(iter1.getRunStart(SEGMENT_ATTRIBUTE), iter2
-                    .getRunStart(SEGMENT_ATTRIBUTE));
-            assertEquals(Math.min(iter1.getRunLimit(SEGMENT_ATTRIBUTE), iter2.getEndIndex()),
-                    iter2.getRunLimit(SEGMENT_ATTRIBUTE));
-        }
-    }
-
-    public void testProcessItME_Caret() {
-        setComposedText();
-        for (int i = 0; i < 10; i++) {
-            int pos = Math.min(12, i + 7);
-            ime = getCaretEvent(null, 0, TextHitInfo.afterOffset(i), null);
-            jta.processInputMethodEvent(ime);
-            assertEquals(pos, jta.getCaretPosition());
-            ime = getCaretEvent(null, 0, TextHitInfo.beforeOffset(i), null);
-            jta.processInputMethodEvent(ime);
-            assertEquals(pos, jta.getCaretPosition());
-        }
-    }
-
-    public void testProcessIME_Text_NPE() {
-        String content = "12345";
-        iter = getIterator(content, putSegmentAttribute(map, Color.RED));
-        ime = getTextEvent(null, 0, null, null);
-        jta.processInputMethodEvent(ime);
-        checkComposedTextParams(false, 7, 5);
-    }
-
-    public void testProcessIME_Text() {
-        String content = "12345";
-        iter = getIterator(content, putSegmentAttribute(map, Color.RED));
-        ime = getTextEvent(iter, 0, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(7, jta.getCaretPosition());
-        checkComposedTextParams(true, 7, 5);
-        assertEquals(initialContent + content, jta.getText());
-        content = "abcdett";
-        iter = getIterator(content, putSegmentAttribute(map, Color.BLUE));
-        ime = getTextEvent(iter, 0, TextHitInfo.afterOffset(1), TextHitInfo.afterOffset(1));
-        jta.processInputMethodEvent(ime);
-        assertEquals(8, jta.getCaretPosition());
-        checkComposedTextParams(true, 7, 7);
-        assertEquals(initialContent + content, jta.getText());
-        //====================================================
-        content = "composite attributes";
-        Map<Attribute, Object> map1 = new HashMap<Attribute, Object>();
-        putSegmentAttribute(map1, Color.GRAY);
-        attrString = new AttributedString(content, map1);
-        attrString.addAttribute(SEGMENT_ATTRIBUTE, Color.YELLOW);
-        iter = attrString.getIterator();
-        ime = getTextEvent(iter, 0, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(7, jta.getCaretPosition());
-        checkComposedTextParams(true, 7, 20);
-        assertEquals(initialContent + content, jta.getText());
-        //====================================================
-        content = "fghij";
-        iter = getIterator(content, putSegmentAttribute(map, Color.BLACK));
-        ime = getTextEvent(iter, 5, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(12, jta.getCaretPosition());
-        checkComposedTextParams(false, 0, 0);
-        assertEquals(initialContent + content, jta.getText());
-        String lastCommited = content;
-        content = "finish";
-        iter = getIterator(content, putSegmentAttribute(map, Color.PINK));
-        ime = getTextEvent(iter, 2, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(14, jta.getCaretPosition());
-        checkComposedTextParams(true, 14, 4);
-        assertEquals(initialContent + lastCommited + content, jta.getText());
     }
 
     //InputMethodRequest tests==========================================
@@ -293,27 +188,6 @@ public class JTextComponent_IMTest extends SwingTestCase {
         ime = getTextEvent(iter, 2, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
         jta.processInputMethodEvent(ime);
         assertEquals(14, imr.getCommittedTextLength());
-    }
-
-    public void testGetInsertPositionOffset() {
-        setComposedText();
-        assertEquals(7, imr.getInsertPositionOffset());
-        iter = getIterator("finish", putSegmentAttribute(map, Color.PINK));
-        ime = getTextEvent(iter, 2, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(9, imr.getInsertPositionOffset());
-    }
-
-    public void testGetSelectedText() {
-        assertNull(imr.getSelectedText(null));
-        jta.select(2, 5);
-        checkIterator(imr.getSelectedText(null), 0, 0, 3);
-        jta.setCaretPosition(7);
-        setComposedText();
-        jta.select(9, 11);
-        checkIterator(imr.getSelectedText(null), 0, 0, 2);
-        jta.select(2, 10);
-        checkIterator(imr.getSelectedText(null), 0, 0, 8);
     }
 
     public void testDoubleCancelLatestCommittedText() {

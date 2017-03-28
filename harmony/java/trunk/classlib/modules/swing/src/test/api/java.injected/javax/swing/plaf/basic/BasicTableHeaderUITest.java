@@ -33,7 +33,6 @@ import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
-import org.apache.harmony.x.swing.Utilities;
 
 public class BasicTableHeaderUITest extends BasicSwingTestCase {
 
@@ -147,12 +146,6 @@ public class BasicTableHeaderUITest extends BasicSwingTestCase {
         assertEquals(mouseListenersCount, ui.header.getMouseListeners().length);
         assertEquals(mouseMotionListenersCount, ui.header.getMouseMotionListeners().length);
         assertNull(ui.mouseInputListener);
-    }
-
-    public void testInstallUninstallKeyboardActions() throws Exception {
-        ui.header = new JTableHeader();
-        ui.installKeyboardActions();
-        assertTrue(Utilities.isEmptyArray(ui.header.getActionMap().allKeys()));
     }
 
     public void testInstallKeyboardActions() throws Exception {

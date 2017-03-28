@@ -60,10 +60,6 @@ public class SSLSocketFunctionalTest extends TestCase {
         }
     }
 
-    public void testContextInitialized2() throws Throwable {
-        doTestSelfInteraction(JSSETestData.getContext());
-    }
-
     public void doTestInteraction(SSLContext context, SSLContext ctx_other)
             throws Throwable {
         SSLContext ctx1, ctx2;

@@ -22,22 +22,8 @@ package org.apache.harmony.awt.gl.render;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Transparency;
-import java.awt.color.ColorSpace;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.awt.image.ComponentColorModel;
-import java.awt.image.ComponentSampleModel;
-import java.awt.image.DataBuffer;
-import java.awt.image.DataBufferFloat;
-import java.awt.image.WritableRaster;
-
-import org.apache.harmony.awt.gl.MultiRectArea;
-import org.apache.harmony.awt.gl.image.OrdinaryWritableRaster;
-
 
 import junit.framework.TestCase;
 
@@ -559,30 +545,6 @@ public class JavaBlitterTest extends TestCase{
         for(int y = h/2; y < h; y++){
             for(int x = w/2; x < w; x++){
                 assertEquals(0xffffffff, dst.getRGB(x, y));
-            }
-        }
-    }
-
-    // PART II. Blitting to Different Rasters and Data Buffers
-
-    // Blitting from Buffered Image (INT RGB) to Custom Raster
-    // (Float Data Buffer)
-    public final void test_from_BuffImg_to_FloatDataBuffer(){
-        src = createImage(BufferedImage.TYPE_INT_RGB);
-
-        DataBufferFloat dbf = new DataBufferFloat(w * h * 3);
-        int offsets[] = new int[]{0,1,2};
-        ComponentSampleModel csm = new ComponentSampleModel(DataBuffer.TYPE_FLOAT,
-                w, h, 3, 3 * w, offsets);
-        WritableRaster wr = new OrdinaryWritableRaster(csm, dbf, new Point(0, 0));
-        ColorModel cm = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), false, false, Transparency.OPAQUE, DataBuffer.TYPE_FLOAT);
-        BufferedImage dst = new BufferedImage(cm, wr, cm.isAlphaPremultiplied(), null);
-        Graphics2D g2d = dst.createGraphics();
-        g2d.drawImage(src, 0, 0, null);
-
-        for(int y = 0; y < h; y++){
-            for(int x = 0; x < w; x++){
-                assertEquals(src.getRGB(x, y), dst.getRGB(x, y));
             }
         }
     }
@@ -1109,57 +1071,6 @@ public class JavaBlitterTest extends TestCase{
         for(int y = h/2; y < h; y++){
             for(int x = w/2; x < w; x++){
                 if(x < w/2 + w/4 && y < h/2 + h/4) {
-                    assertEquals(0xffffffff, dst.getRGB(x, y));
-                } else {
-                    assertEquals(0xff000000, dst.getRGB(x, y));
-                }
-            }
-        }
-
-    }
-
-    // Two Rectangles Clipping test
-    public final void test_TwoRectanglesClipping(){
-        src = createImage(BufferedImage.TYPE_INT_BGR);
-        dst = new BufferedImage(w, h, BufferedImage.TYPE_INT_BGR);
-        Graphics2D g2d = dst.createGraphics();
-        Rectangle rec[] = new Rectangle[]{new Rectangle(w/4, h/4, w/2, h/2),
-                new Rectangle(w/4 + w/2, h/4 + h/2, w/2, h/2)};
-        MultiRectArea mra = new MultiRectArea(rec);
-        g2d.setClip(mra);
-        g2d.drawImage(src, 0, 0, null);
-
-        for(int y = 0; y < h/2; y++){
-            for(int x = 0; x < w/2; x++){
-                if(x >= w/4 && y >= h/4) {
-                    assertEquals(0xffff0000, dst.getRGB(x, y));
-                } else {
-                    assertEquals(0xff000000, dst.getRGB(x, y));
-                }
-            }
-        }
-        for(int y = 0; y < h/2; y++){
-            for(int x = w/2; x < w; x++){
-                if(x < w/2 + w/4 && y >= h/4) {
-                    assertEquals(0xff00ff00, dst.getRGB(x, y));
-                } else {
-                    assertEquals(0xff000000, dst.getRGB(x, y));
-                }
-            }
-        }
-        for(int y = h/2; y < h; y++){
-            for(int x = 0; x < w/2; x++){
-                if(x >= w/4 && y < h/2 + h/4) {
-                    assertEquals(0xff0000ff, dst.getRGB(x, y));
-                } else {
-                    assertEquals(0xff000000, dst.getRGB(x, y));
-                }
-            }
-        }
-        for(int y = h/2; y < h; y++){
-            for(int x = w/2; x < w; x++){
-                if(x < w/2 + w/4 && y < h/2 + h/4 ||
-                        x >= w/2 + w/4 && y >= h/2 + h/4){
                     assertEquals(0xffffffff, dst.getRGB(x, y));
                 } else {
                     assertEquals(0xff000000, dst.getRGB(x, y));

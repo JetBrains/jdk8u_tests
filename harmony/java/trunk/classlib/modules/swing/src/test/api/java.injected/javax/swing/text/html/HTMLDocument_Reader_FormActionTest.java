@@ -30,9 +30,6 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.DefaultStyledDocument.ElementSpec;
 import javax.swing.text.html.HTML.Tag;
 
-import org.apache.harmony.x.swing.text.html.form.FormFieldsetModel;
-import org.apache.harmony.x.swing.text.html.form.FormOption;
-
 public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
 
     protected HTMLDocument.HTMLReader reader;
@@ -396,12 +393,7 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertNotNull(model.getElementAt(1));
         option = (Option)model.getElementAt(1);
         assertTrue(option.isSelected());
-        if (isHarmony()) {
-            assertEquals(label, option.getLabel());
-            assertEquals(0, ((FormOption)option).getDepth());
-        } else {
-            assertNull(option.getLabel());
-        }
+        assertNull(option.getLabel());
         assertEquals(value, option.getValue());
         reader.handleText(text.toCharArray(), 0);
         assertEquals(2, model.getSize());
@@ -409,9 +401,6 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         option = (Option)model.getElementAt(1);
         assertTrue(option.isSelected());
         assertEquals(value, option.getValue());
-        if (isHarmony()) {
-            assertEquals(0, ((FormOption)option).getDepth());
-        }
         assertEquals(text, option.getLabel());
         action.end(Tag.OPTION);
         action.end(Tag.SELECT);

@@ -26,10 +26,9 @@ import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.login.LoginException;
 
+import com.sun.security.auth.module.Krb5LoginModule;
 import junit.framework.TestCase;
 
-import org.apache.harmony.auth.module.Krb5LoginModule;
-import org.apache.harmony.auth.tests.internal.kerberos.v5.KerberosErrorMessageTest;
 import org.apache.harmony.auth.tests.support.TestUtils;
 
 public class Krb5LoginModuleTest extends TestCase {
@@ -120,28 +119,6 @@ public class Krb5LoginModuleTest extends TestCase {
         }
 
         //TODO: test reading config from configuration file 'krb5.conf'
-    }
-
-    /**
-     * @tests request ticket for absent user
-     */
-    public void test_login() throws Exception {
-
-        if (server != null) {
-            server.respond = KerberosErrorMessageTest.err_resp;
-        }
-
-        Krb5LoginModule module = new Krb5LoginModule();
-
-        options.put("principal", "no_such_user");
-
-        module.initialize(null, null, null, options);
-        try {
-            module.login();
-            fail("No expected LoginException");
-        } catch (LoginException e) {
-            System.out.println(e);
-        }
     }
 
     /**

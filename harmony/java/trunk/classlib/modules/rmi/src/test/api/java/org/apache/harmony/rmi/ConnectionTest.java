@@ -33,7 +33,6 @@ import java.rmi.registry.Registry;
 
 import java.rmi.server.RemoteObject;
 
-import org.apache.harmony.rmi.common.SubProcess;
 import org.apache.harmony.rmi.test.MyException;
 import org.apache.harmony.rmi.test.MyInvocationHandler;
 import org.apache.harmony.rmi.test.MyRemoteInterface;
@@ -74,101 +73,6 @@ public class ConnectionTest extends RMITestBase {
      */
     public ConnectionTest(String name) {
         super(name);
-    }
-
-    /**
-     * Tests direct socket RMI data exchange.
-     * with both server and client run on a single VM.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    public void testDirectSocket_SingleVM() throws Exception {
-        if (checkSocket("127.0.0.1", REGISTRY_PORT, TIMEOUT_TICK*3)) {
-            System.err.println("Registry DEFAULT port ("
-                               + REGISTRY_PORT + ") in use, skipping tests.");
-            return;
-        }
-        System.err.println("testDirectSocket_SingleVM starting");
-        testSingleVM(CONFIG_DIRECT_SOCKET, true);
-    }
-
-    /**
-     * Tests direct HTTP RMI data exchange
-     * with both server and client run on a single VM.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    public void testDirectHTTP_SingleVM() throws Exception {
-        if (checkSocket("127.0.0.1", REGISTRY_PORT, TIMEOUT_TICK*3)) {
-            System.err.println("Registry DEFAULT port ("
-                               + REGISTRY_PORT + ") in use, skipping tests.");
-            return;
-        }
-        System.err.println("testDirectHTTP_SingleVM starting");
-        testSingleVM(CONFIG_DIRECT_HTTP, true);
-    }
-
-    /**
-     * Tests proxy HTTP RMI data exchange
-     * with both server and client run on a single VM.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    public void testProxyHTTP_SingleVM() throws Exception {
-        if (checkProxy("testProxyHTTP_SingleVM")) {
-            System.err.println("testProxyHTTP_SingleVM starting");
-            testSingleVM(CONFIG_PROXY_HTTP, true);
-        }
-    }
-
-    /**
-     * Tests proxy HTTP-CGI RMI data exchange
-     * with both server and client run on a single VM.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    public void testProxyCGI_SingleVM() throws Exception {
-        if (checkProxy("testProxyCGI_SingleVM")) {
-            System.err.println("testProxyCGI_SingleVM starting");
-            testSingleVM(CONFIG_PROXY_CGI, true);
-        }
-    }
-
-    /**
-     * Tests RMI data exchange in one separate VM.
-     *
-     * @param   config
-     *          Configuration to set environment for.
-     *
-     * @param   endorsed
-     *          If endorsedDirs and bootClassPath
-     *          should be propagated to test VM.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    public void testSingleVM(int config, boolean endorsed) throws Exception {
-        SubProcess server = null;
-
-        try {
-            System.out.println("Starting test server");
-            server = startProcess("org.apache.harmony.rmi.ConnectionTest",
-                            CHILD_ID, config, endorsed);
-            server.pipeError();
-            server.closeOutput();
-            System.out.println("Expecting READY from server");
-            server.expect();
-            server.pipeInput();
-        } finally {
-            if (server != null) {
-                System.out.println("Destroying server");
-                server.destroy();
-            }
-        }
     }
 
     /**
@@ -364,31 +268,6 @@ public class ConnectionTest extends RMITestBase {
     }
 
     /**
-     * Runs test server process.
-     *
-     * @param   config
-     *          Number of the configuration to run.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    private void runTestSingle(int config) throws Exception {
-        try {
-            System.err.println("Test server started.");
-            System.setSecurityManager(new RMISecurityManager());
-            setEnvironmentForConfig(config);
-            initServer();
-            mainTestBody();
-            System.err.println("Test server complete.");
-            SubProcess.tellOut();
-        } finally {
-            System.err.println("Test server closing.");
-            unexportObjects();
-        }
-        System.err.println("Test server exiting.");
-    }
-
-    /**
      * Returns test suite for this class.
      *
      * @return  Test suite for this class.
@@ -397,47 +276,4 @@ public class ConnectionTest extends RMITestBase {
         return new TestSuite(ConnectionTest.class);
     }
 
-    /**
-     * Starts the testing from the command line.
-     *
-     * If first command line parameter exists, the test server is started
-     * instead. The parameter value is used as a suffix of the respective
-     * setEnvironmentXXX method that is called to setup the environment
-     * configuration.
-     *
-     * @param   args
-     *          Command line parameters.
-     */
-    public static void main(String args[]) {
-        switch (args.length) {
-        case 0:
-            // Run tests normally.
-            junit.textui.TestRunner.run(suite());
-            break;
-        case 2:
-            // Run child test server process.
-            String param = args[0];
-            int config = new Integer(args[1]).intValue();
-            ConnectionTest connectionTest = new ConnectionTest();
-
-            try {
-                if (param.equals(CHILD_ID)) {
-                    connectionTest.runTestSingle(config);
-                } else {
-                    System.err.println("Bad parameter: " + param);
-                    abort();
-                }
-            } catch (Exception e) {
-                System.err.print("Child process ("
-                        + param + ", " + config + ") failed: ");
-                e.printStackTrace();
-                abort();
-            }
-            break;
-        default:
-            System.err.println("Bad number of parameters: "
-                    + args.length + ", expected: 2.");
-            abort();
-        }
-    }
 }

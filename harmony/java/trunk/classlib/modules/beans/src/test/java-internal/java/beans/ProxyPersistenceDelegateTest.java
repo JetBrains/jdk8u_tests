@@ -25,11 +25,11 @@ import junit.framework.TestCase;
 
 public class ProxyPersistenceDelegateTest extends TestCase {
 
-    private ProxyPersistenceDelegate pd = null;
+    private MetaData.ProxyPersistenceDelegate pd = null;
 
     protected void setUp() throws Exception {
         super.setUp();
-        pd = new ProxyPersistenceDelegate();
+        pd = new MetaData.ProxyPersistenceDelegate();
     }
 
     protected void tearDown() throws Exception {

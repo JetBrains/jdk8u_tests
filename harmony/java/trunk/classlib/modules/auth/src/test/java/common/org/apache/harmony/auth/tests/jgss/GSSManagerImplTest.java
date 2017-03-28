@@ -19,7 +19,6 @@ package org.apache.harmony.auth.tests.jgss;
 
 import java.util.Arrays;
 
-import org.apache.harmony.auth.jgss.kerberos.KerberosUtils;
 import org.ietf.jgss.GSSManager;
 import org.ietf.jgss.GSSName;
 import org.ietf.jgss.Oid;
@@ -63,31 +62,6 @@ public class GSSManagerImplTest extends TestCase {
 		nameType = GSSName.NT_EXPORT_NAME;
 		mechs = gssManager.getMechsForName(nameType);
 		assertTrue(Arrays.equals(expectedMechs, mechs));
-
-		nameType = KerberosUtils.KRB5_PRINCIPAL_NAMETYPE;
-		mechs = gssManager.getMechsForName(nameType);
-		assertTrue(Arrays.equals(expectedMechs, mechs));
-	}
-	
-	public void testGetNamesForMech() throws Exception {
-		Oid kerberosMech = new Oid("1.2.840.113554.1.2.2");
-		Oid[] nameTypes = gssManager.getNamesForMech(kerberosMech);
-		Oid[] expectedNameTypes = new Oid[] { GSSName.NT_USER_NAME,
-				GSSName.NT_HOSTBASED_SERVICE, GSSName.NT_EXPORT_NAME,
-				KerberosUtils.KRB5_PRINCIPAL_NAMETYPE };
-		assertEquals(expectedNameTypes.length, nameTypes.length);
-		for (Oid expectedNameType : expectedNameTypes) {
-			boolean got = false;
-			for (Oid nameType : nameTypes) {
-				if (nameType.equals(expectedNameType)) {
-					got = true;
-					break;
-				}
-			}
-			if (!got) {
-				fail("Missing expected NameType " + expectedNameType);
-			}
-		}
 	}
 	
 	public void testCreateName() throws Exception {

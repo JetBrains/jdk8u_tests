@@ -33,8 +33,6 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import org.apache.harmony.rmi.common.SubProcess;
-
 import junit.framework.TestCase;
 
 
@@ -275,33 +273,6 @@ public abstract class RMITestBase extends TestCase {
         default:
             assert false : ("Bad config number: " + config);
         }
-    }
-
-    /**
-     * Starts process in a separate JVM.
-     *
-     * @param   className
-     *          Name of the class to run in process created.
-     *
-     * @param   id
-     *          Identifier of function to run (class specific).
-     *
-     * @param   config
-     *          Number of the configuration to run.
-     *
-     * @param   endorsed
-     *          If endorsedDirs and bootClassPath should be propagated.
-     *
-     * @return  Subprocess created.
-     *
-     * @throws  Exception
-     *          If some error occurs.
-     */
-    protected static SubProcess startProcess(String className,
-            String id, int config, boolean endorsed) throws Exception {
-        return JavaInvoker.invokeSimilar(null, className,
-                new String[] { id, Integer.toString(config) },
-                endorsed, endorsed);
     }
 
     /**
