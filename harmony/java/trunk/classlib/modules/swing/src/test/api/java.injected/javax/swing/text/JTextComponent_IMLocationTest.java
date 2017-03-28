@@ -19,11 +19,6 @@
  */
 package javax.swing.text;
 
-import sun.management.snmp.AdaptorBootstrap;
-
-import java.awt.Color;
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.event.InputMethodEvent;
 import java.awt.font.TextHitInfo;
 import java.awt.im.InputMethodRequests;
