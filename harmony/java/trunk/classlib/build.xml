@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="build-classlib" default="build" basedir=".">
+    <description>Build Classlib testsuite</description>
+
+    <property file="depends.properties" />
+    <property name="src.java" value="modules/awt/src;support/src" />
+    <property name="target.dir" value="deploy" />
+    <property name="result.dir" value="results" />
+    <property name="exclude.file" value="classlib_exclude.file" />
+
+    <target name="build" depends="run-unit-tests"/>
+
+    <target name="clean">
+        <delete dir="${target.dir}" />
+        <delete dir="${result.dir}" />
+        <delete verbose="true">
+            <fileset dir="${basedir}" includes="hs_err_*.log"/>
+        </delete>
+    </target>
+
+    <target name="compile-all" depends="clean">
+        <mkdir dir="${target.dir}/classes" />
+        <javac sourcepath=""
+               debug="true"
+               nowarn="on"
+               destdir="${target.dir}/classes">
+            <classpath>
+                <pathelement path="${target.dir}/classes"/>
+                <pathelement location="${junit.jar}"/>
+                <fileset dir="${depends.jars}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            <src>
+                <dirset dir=".">
+                    <include name="*"/>
+                </dirset>
+            </src>
+        </javac>
+    </target>
+
+    <target name="run-unit-tests" depends="compile-all">
+        <run-tests suite="accessibility"   location="modules/accessibility/src/test/api/java/common" />
+        <run-tests suite="annotation"      location="modules/annotation/src/test/java" />
+        <run-tests suite="archive"         location="modules/archive/src/test/java" />
+        <run-tests suite="archive"         location="modules/archive/src/test/java-internal" />
+        <run-tests suite="auth"            location="modules/auth/src/test/java/common" />
+        <run-tests suite="awt"             location="modules/awt/src/test/api/java" />
+        <run-tests suite="awt"             location="modules/awt/src/test/impl/boot" />
+        <run-tests suite="beans"           location="modules/beans/src/test/java" />
+        <run-tests suite="beans"           location="modules/beans/src/test/java-internal" />
+        <run-tests suite="concurrent"      location="modules/concurrent/src/test/java" />
+        <run-tests suite="crypto"          location="modules/crypto/src/test/api/java" />
+        <run-tests suite="crypto"          location="modules/crypto/src/test/impl/java" />
+        <run-tests suite="crypto"          location="modules/crypto/src/test/api/java.injected" />
+        <run-tests suite="imageio"         location="modules/imageio/src/test/java" />
+        <run-tests suite="instrument"      location="modules/instrument/src/test/java" />
+        <run-tests suite="jndi"            location="modules/jndi/src/test/java" />
+        <run-tests suite="lang-management" location="modules/lang-management/src/test/api/java" />
+        <run-tests suite="lang-management" location="modules/lang-management/src/test/impl/java" />
+        <run-tests suite="logging"         location="modules/logging/src/test/java" />
+        <run-tests suite="luni"            location="modules/luni/src/test/api/common" />
+        <run-tests suite="luni"            location="modules/luni/src/test/impl/common" />
+        <run-tests suite="math"            location="modules/math/src/test/java" />
+        <run-tests suite="nio"             location="modules/nio/src/test/java/common" />
+        <run-tests suite="nio_char"        location="modules/nio_char/src/test/java" />
+        <run-tests suite="prefs"           location="modules/prefs/src/test/java" />
+        <run-tests suite="print"           location="modules/print/src/test/api/java/common" />
+        <run-tests suite="regex"           location="modules/regex/src/test/java" />
+        <run-tests suite="rmi"             location="modules/rmi/src/test/api/java" />
+        <run-tests suite="security"        location="modules/security/src/test/impl/java" />
+        <run-tests suite="security"        location="modules/security/src/test/api/java" />
+        <run-tests suite="security"        location="modules/security/src/test/support/common/java" />
+        <run-tests suite="security"        location="modules/security/src/test/impl/java.injected" />
+        <run-tests suite="security"        location="modules/security/src/test/api/java.injected" />
+        <run-tests suite="sound"           location="modules/sound/src/test/java" />
+        <run-tests suite="sql"             location="modules/sql/src/test/java" />
+        <run-tests suite="swing"           location="modules/swing/src/test/api/java.injected" />
+        <run-tests suite="swing"           location="modules/swing/src/main/java" />
+        <run-tests suite="text"            location="modules/text/src/test/java" />
+        <run-tests suite="x-net"           location="modules/x-net/src/test/java" />
+        <run-tests suite="x-net"           location="modules/x-net/src/test/api/java" />
+        <run-tests suite="x-net"           location="modules/x-net/src/test/support/common/java" />
+        <run-tests suite="x-net"           location="modules/x-net/src/test/impl/java.injected" />
+
+    </target>
+
+    <macrodef name="run-tests">
+        <attribute name="location" />
+        <attribute name="suite" />
+        <sequential>
+            <echo message="Running @{suite}" />
+
+            <mkdir dir="${result.dir}/@{suite}" />
+            <junit fork="yes">
+                <classpath>
+                    <pathelement path="${target.dir}/classes"/>
+                    <pathelement location="${junit.jar}" />
+                    <fileset dir="${depends.jars}">
+                        <include name="**/*.jar" />
+                    </fileset>
+                </classpath>
+                <formatter type="xml" />
+                <batchtest fork="yes" todir="${result.dir}/@{suite}">
+                    <fileset dir="@{location}">
+                        <include name="**/*Test.java" />
+                        <!--<include name="support/src/**/*Test.java" />-->
+                        <excludesfile name="${exclude.file}" />
+                    </fileset>
+                </batchtest>
+            </junit>
+        </sequential>
+    </macrodef>
+</project>
