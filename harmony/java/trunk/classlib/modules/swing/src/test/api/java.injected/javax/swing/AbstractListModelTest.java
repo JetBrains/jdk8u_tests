@@ -24,25 +24,39 @@ import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
 public class AbstractListModelTest extends SwingTestCase {
-    private AbstractListModel model;
+    private MyAbstractListModel model;
 
     public AbstractListModelTest(final String name) {
         super(name);
     }
 
+    class MyAbstractListModel extends AbstractListModel {
+        private static final long serialVersionUID = 1L;
+
+        public Object getElementAt(final int index) {
+            return null;
+        }
+
+        public int getSize() {
+            return 0;
+        }
+
+        public void fireContentsChanged(Object source, int index0, int index1) {
+            super.fireContentsChanged(source, index0, index1);
+        }
+
+        public void fireIntervalAdded(Object source, int index0, int index1) {
+            super.fireIntervalAdded(source, index0, index1);
+        }
+
+        protected void fireIntervalRemoved(Object source, int index0, int index1) {
+            super.fireIntervalRemoved(source, index0, index1);
+        }
+    }
+
     @Override
     protected void setUp() throws Exception {
-        model = new AbstractListModel() {
-            private static final long serialVersionUID = 1L;
-
-            public Object getElementAt(final int index) {
-                return null;
-            }
-
-            public int getSize() {
-                return 0;
-            }
-        };
+        model = new MyAbstractListModel();
     }
 
     @Override

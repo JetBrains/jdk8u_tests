@@ -19,6 +19,8 @@
  */
 package javax.swing;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.util.Arrays;
 import java.util.EventListener;
 
@@ -27,8 +29,13 @@ public class AbstractSpinnerModelTest extends BasicSwingTestCase {
 
     private ChangeController chl;
 
-    private static class TestListener implements EventListener {
-    };
+    private static class TestListener implements ChangeListener {
+
+        @Override
+        public void stateChanged(ChangeEvent e) {
+
+        }
+    }
 
     @Override
     public void setUp() {
@@ -60,9 +67,9 @@ public class AbstractSpinnerModelTest extends BasicSwingTestCase {
 
     public void testAddRemoveChangeListener() {
         model.addChangeListener(chl);
-        assertEquals(1, model.listenerList.getListenerCount());
+        assertEquals(1, model.getListeners(ChangeController.class).length);
         model.removeChangeListener(chl);
-        assertEquals(0, model.listenerList.getListenerCount());
+        assertEquals(0, model.getListeners(ChangeController.class).length);
     }
 
     public void getChangeListeners() {
@@ -78,7 +85,7 @@ public class AbstractSpinnerModelTest extends BasicSwingTestCase {
 
     public void testGetListeners() {
         final TestListener testListener = new TestListener();
-        model.listenerList.add(TestListener.class, testListener);
+        model.addChangeListener(testListener);
         assertTrue(Arrays.asList(model.getListeners(TestListener.class)).contains(testListener));
     }
 }

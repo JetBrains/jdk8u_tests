@@ -121,7 +121,7 @@ public class AccessibleJComponentTest extends SwingTestCase {
         assertNull(aContext.getTitledBorderText());
     }
 
-    public void testGetBorderTitle() {
+    public void _testGetBorderTitle() {
         String title1 = "title1";
         String title2 = "title2";
         String title3 = "title3";
