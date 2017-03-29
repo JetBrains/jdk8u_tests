@@ -78,7 +78,6 @@ public class AccessibleContextTest extends TestCase {
                 propertyChangeListener.lastEvent.getPropertyName());
         assertEquals(name, propertyChangeListener.lastEvent.getNewValue());
         assertEquals(name, context.getAccessibleName());
-        assertEquals(name, context.accessibleName);
     }
 
     public void testSetGetAccessibleDescription() {
@@ -88,7 +87,6 @@ public class AccessibleContextTest extends TestCase {
                 propertyChangeListener.lastEvent.getPropertyName());
         assertEquals(description, propertyChangeListener.lastEvent.getNewValue());
         assertEquals(description, context.getAccessibleDescription());
-        assertEquals(description, context.accessibleDescription);
     }
 
     public void testSetGetAccessibleParent() {
@@ -106,7 +104,6 @@ public class AccessibleContextTest extends TestCase {
         };
         context.setAccessibleParent(parent);
         assertEquals(parent, context.getAccessibleParent());
-        assertEquals(parent, context.accessibleParent);
         assertNull(propertyChangeListener.lastEvent);
     }
 

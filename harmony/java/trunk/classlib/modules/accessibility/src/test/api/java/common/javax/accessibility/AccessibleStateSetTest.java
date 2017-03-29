@@ -45,7 +45,7 @@ public class AccessibleStateSetTest extends TestCase {
         AccessibleState[] statesArray = { AccessibleState.ACTIVE,
                 AccessibleState.ARMED };
         stateSet = new AccessibleStateSet(statesArray);
-        assertNotNull(stateSet.states);
+        assertNotNull(stateSet.toArray().length > 0);
 
         try {
             new AccessibleStateSet(null);
@@ -60,18 +60,18 @@ public class AccessibleStateSetTest extends TestCase {
         assertTrue("Must contain added state", stateSet
                 .contains(AccessibleState.ARMED));
         boolean added = stateSet.add(AccessibleState.ACTIVE);
-        assertEquals("Should not add duplicate item", 2, stateSet.states.size());
+        assertEquals("Should not add duplicate item", 2, stateSet.toArray().length);
         assertFalse("Should not add duplicate item", added);
         assertFalse(stateSet.contains(null));
 
         assertTrue(stateSet.add(null));
         assertTrue(stateSet.contains(null));
 
-        stateSet.states = null;
+        stateSet.clear();
         assertFalse(stateSet.contains(null));
         assertNull(stateSet.states);
 
-        stateSet.states = null;
+        stateSet.clear();
         stateSet.add(AccessibleState.ACTIVE);
     }
 
@@ -79,7 +79,7 @@ public class AccessibleStateSetTest extends TestCase {
         stateSet.addAll(statesArray);
         stateSet.addAll(statesArray);
         assertEquals("Should not add duplicate items", statesArray.length,
-                stateSet.states.size());
+                stateSet.toArray().length);
 
         try {
             stateSet.addAll(null);
@@ -102,8 +102,6 @@ public class AccessibleStateSetTest extends TestCase {
         stateSet.clear();
         assertEquals("Cleared set should be empty", 0, stateSet.states.size());
 
-        stateSet.states = null;
-        stateSet.clear();
     }
 
     public void testToString() throws Exception {
@@ -115,7 +113,7 @@ public class AccessibleStateSetTest extends TestCase {
                 "String representation should contain elements representation",
                 stateSetString.indexOf(AccessibleState.ARMED.toString()) >= 0);
 
-        stateSet.states = null;
+        stateSet.clear();
         stateSet.toString();
 
         // regression test for HARMONY-1190
@@ -136,7 +134,7 @@ public class AccessibleStateSetTest extends TestCase {
         for (int i = 0; i < statesReturnedArray.length; i++)
             assertEquals("Returned element mismatch:" + i, statesArray[i],
                     statesReturnedArray[i]);
-        stateSet.states = null;
+        stateSet.clear();
         Arrays.asList(stateSet.toArray());
     }
 
