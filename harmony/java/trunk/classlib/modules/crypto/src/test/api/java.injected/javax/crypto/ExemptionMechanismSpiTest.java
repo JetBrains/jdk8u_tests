@@ -56,7 +56,7 @@ public class ExemptionMechanismSpiTest extends TestCase {
             throws  ExemptionMechanismException,
             ShortBufferException, InvalidKeyException,
             InvalidAlgorithmParameterException {
-        ExemptionMechanismSpi emSpi = new MyExemptionMechanismSpi();
+        MyExemptionMechanismSpi emSpi = new MyExemptionMechanismSpi();
         int len = MyExemptionMechanismSpi.getLength();
         byte [] bbRes = emSpi.engineGenExemptionBlob();
         assertEquals("Incorrect length", bbRes.length, len);

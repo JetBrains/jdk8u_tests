@@ -86,13 +86,6 @@ public class SealedObjectTest extends TestCase {
      * NullPointerException is thrown in the case of null SealedObject.
      */
     public void testSealedObject2() throws Exception {
-        try {
-            new SealedObject(null);
-            fail("NullPointerException should be thrown in the case "
-                    + "of null SealedObject.");
-        } catch (NullPointerException e) {
-        }
-
         String secret = "secret string";
         Cipher cipher = new NullCipher();
         SealedObject so1 = new SealedObject(secret, cipher);
@@ -144,10 +137,6 @@ public class SealedObjectTest extends TestCase {
 
         assertEquals("The returned object does not equals to the "
                 + "original object.", secret, so.getObject(key));
-
-        assertTrue("The encodedParams field of SealedObject object "
-                + "should contain the encoded algorithm parameters.", Arrays
-                .equals(so.encodedParams, cipher.getParameters().getEncoded()));
     }
 
     /**

@@ -45,24 +45,24 @@ public class MyExemptionMechanismSpi  extends ExemptionMechanismSpi {
         return byteArrayLength;
     }
     @Override
-    protected byte[] engineGenExemptionBlob()
+    public byte[] engineGenExemptionBlob()
             throws ExemptionMechanismException {
         return new byte[byteArrayLength];
     }
 
     @Override
-    protected int engineGenExemptionBlob(byte[] output, int outputOffset)
+    public int engineGenExemptionBlob(byte[] output, int outputOffset)
             throws ShortBufferException, ExemptionMechanismException {
         return byteArrayLength;
     }
 
     @Override
-    protected int engineGetOutputSize(int inputLen) {
+    public int engineGetOutputSize(int inputLen) {
         return 10;
     }
 
     @Override
-    protected void engineInit(Key key) throws InvalidKeyException,
+    public void engineInit(Key key) throws InvalidKeyException,
             ExemptionMechanismException {
         if (key == null) {
             throw new InvalidKeyException("key is null");
@@ -73,7 +73,7 @@ public class MyExemptionMechanismSpi  extends ExemptionMechanismSpi {
     }
 
     @Override
-    protected void engineInit(Key key, AlgorithmParameters params)
+    public void engineInit(Key key, AlgorithmParameters params)
             throws InvalidKeyException, InvalidAlgorithmParameterException,
             ExemptionMechanismException {
         if (key == null) {
@@ -85,7 +85,7 @@ public class MyExemptionMechanismSpi  extends ExemptionMechanismSpi {
     }
 
     @Override
-    protected void engineInit(Key key, AlgorithmParameterSpec params)
+    public void engineInit(Key key, AlgorithmParameterSpec params)
             throws InvalidKeyException, InvalidAlgorithmParameterException,
             ExemptionMechanismException {
         if (key == null) {

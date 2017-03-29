@@ -55,8 +55,8 @@ public class CipherSpiTest extends TestCase {
      */
     public void testCipherSpiTests01() throws IllegalBlockSizeException,
             BadPaddingException, ShortBufferException {
-        
-        CipherSpi cSpi = new myCipherSpi();
+
+        myCipherSpi cSpi = new myCipherSpi();
         assertEquals("BlockSize is not 0", cSpi.engineGetBlockSize(), 0);
         assertEquals("OutputSize is not 0", cSpi.engineGetOutputSize(1), 0);
         byte[] bb = cSpi.engineGetIV();
@@ -83,7 +83,7 @@ public class CipherSpiTest extends TestCase {
      * Assertion: It throws UnsupportedOperationException if it is not overridden
      */
     public void testCipherSpi02() throws Exception {
-        CipherSpi cSpi = new myCipherSpi();
+        myCipherSpi cSpi = new myCipherSpi();
         try {
             cSpi.engineGetKeySize(null);
             fail("UnsupportedOperationException must be thrown");
@@ -96,7 +96,7 @@ public class CipherSpiTest extends TestCase {
      * Assertion: It throws UnsupportedOperationException if it is not overridden
      */
     public void testCipherSpi03() throws Exception {
-        CipherSpi cSpi = new myCipherSpi();
+        myCipherSpi cSpi = new myCipherSpi();
         try {
             cSpi.engineWrap(null);
             fail("UnsupportedOperationException must be thrown");
@@ -109,7 +109,7 @@ public class CipherSpiTest extends TestCase {
      * Assertion: It throws UnsupportedOperationException if it is not overridden
      */
     public void testCipherSpi04() throws Exception {
-        CipherSpi cSpi = new myCipherSpi();
+        myCipherSpi cSpi = new myCipherSpi();
         try {
             cSpi.engineUnwrap(new byte[0], "", 0);
             fail("UnsupportedOperationException must be thrown");
@@ -124,7 +124,7 @@ public class CipherSpiTest extends TestCase {
      * throws ShortBufferException is there is no space in output to hold result
      */
     public void testCipherSpi05() throws ShortBufferException {
-        CipherSpi cSpi = new myCipherSpi();
+        myCipherSpi cSpi = new myCipherSpi();
         byte[] bb = { (byte) 0, (byte) 1, (byte) 2, (byte) 3, (byte) 4,
                 (byte) 5, (byte) 6, (byte) 7, (byte) 8, (byte) 9, (byte) 10 };
         int pos = 5;
@@ -177,7 +177,7 @@ public class CipherSpiTest extends TestCase {
      */
     public void testCipherSpi06() throws BadPaddingException,
             ShortBufferException, IllegalBlockSizeException {
-        CipherSpi cSpi = new myCipherSpi();
+        myCipherSpi cSpi = new myCipherSpi();
         int len = 10;
         byte[] bbuf = new byte[len];
         for (int i = 0; i < bbuf.length; i++) {
@@ -235,11 +235,11 @@ class myCipherSpi extends CipherSpi {
             throws NoSuchPaddingException {
     }
 
-    protected int engineGetBlockSize() {
+    public int engineGetBlockSize() {
         return 0;
     }
 
-    protected int engineGetOutputSize(int inputLen) {
+    public int engineGetOutputSize(int inputLen) {
         return 0;
     }
 
@@ -265,7 +265,7 @@ class myCipherSpi extends CipherSpi {
             InvalidAlgorithmParameterException {
     }
 
-    protected byte[] engineUpdate(byte[] input, int inputOffset, int inputLen) {
+    public byte[] engineUpdate(byte[] input, int inputOffset, int inputLen) {
         if (initV.length < inputLen) {
             initV = new byte[inputLen];
         }
@@ -288,7 +288,7 @@ class myCipherSpi extends CipherSpi {
         return t;
     }
 
-    protected byte[] engineDoFinal(byte[] input, int inputOffset, int inputLen)
+    public byte[] engineDoFinal(byte[] input, int inputOffset, int inputLen)
             throws IllegalBlockSizeException, BadPaddingException {
         if (resV.length > inputLen) {
             byte[] bb = new byte[inputLen];
@@ -324,5 +324,18 @@ class myCipherSpi extends CipherSpi {
     throws ShortBufferException, IllegalBlockSizeException,
     BadPaddingException {
         return super.engineDoFinal(input, output);
+    }
+
+    public byte[] engineWrap(Key var1) throws IllegalBlockSizeException, InvalidKeyException {
+        return super.engineWrap(var1);
+    }
+
+    public Key engineUnwrap(byte[] var1, String var2, int var3) throws InvalidKeyException, NoSuchAlgorithmException
+    {
+        return super.engineUnwrap(var1, var2, var3);
+    }
+
+    public int engineGetKeySize(Key var1) throws InvalidKeyException {
+        return super.engineGetKeySize(var1);
     }
 }

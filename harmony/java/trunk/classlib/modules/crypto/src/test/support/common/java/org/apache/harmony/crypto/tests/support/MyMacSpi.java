@@ -38,12 +38,12 @@ public class MyMacSpi extends MacSpi {
    
     private int length = 0;
     @Override
-    protected int engineGetMacLength() {
+    public int engineGetMacLength() {
         return length;
     }
 
     @Override
-    protected void engineInit(Key key, AlgorithmParameterSpec params)
+    public void engineInit(Key key, AlgorithmParameterSpec params)
             throws InvalidKeyException, InvalidAlgorithmParameterException {
         if (params == null) {
             if (!(key instanceof SecretKeySpec)) {
@@ -64,7 +64,7 @@ public class MyMacSpi extends MacSpi {
     }
 
     @Override
-    protected byte[] engineDoFinal() {
+    public byte[] engineDoFinal() {
         return new byte[length];
     }
 

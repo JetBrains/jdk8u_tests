@@ -54,7 +54,7 @@ public class CipherOutputStreamTest extends TestCase {
     public void testCipherOutputStream() throws Exception {
         byte[] data = new byte[] { -127, -100, -50, -10, -1, 0, 1, 10, 50, 127 };
         TestOutputStream tos = new TestOutputStream();
-        CipherOutputStream cos = new CipherOutputStream(tos);
+        CipherOutputStream cos = new CipherOutputStream(tos, new NullCipher());
         cos.write(data);
         cos.flush();
         byte[] result = tos.toByteArray();
@@ -146,7 +146,7 @@ public class CipherOutputStreamTest extends TestCase {
     public void testFlush() throws Exception {
         byte[] data = new byte[] { -127, -100, -50, -10, -1, 0, 1, 10, 50, 127 };
         TestOutputStream tos = new TestOutputStream();
-        CipherOutputStream cos = new CipherOutputStream(tos);
+        CipherOutputStream cos = new CipherOutputStream(tos, new NullCipher());
         cos.write(data);
         cos.flush();
         byte[] result = tos.toByteArray();
@@ -162,7 +162,7 @@ public class CipherOutputStreamTest extends TestCase {
     public void testClose() throws Exception {
         byte[] data = new byte[] { -127, -100, -50, -10, -1, 0, 1, 10, 50, 127 };
         TestOutputStream tos = new TestOutputStream();
-        CipherOutputStream cos = new CipherOutputStream(tos);
+        CipherOutputStream cos = new CipherOutputStream(tos, new NullCipher());
         cos.write(data);
         cos.close();
         byte[] result = tos.toByteArray();

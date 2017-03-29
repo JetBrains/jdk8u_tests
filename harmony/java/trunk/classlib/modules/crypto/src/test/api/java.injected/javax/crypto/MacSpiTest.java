@@ -56,7 +56,7 @@ public class MacSpiTest extends TestCase {
      * Assertion: constructs MacSpi
      */
     public void testMacSpiTests01() throws Exception {
-        MacSpi mSpi = new MyMacSpi();
+        MyMacSpi mSpi = new MyMacSpi();
                 
         byte [] bb1 = {(byte)1, (byte)2, (byte)3, (byte)4, (byte)5};
         SecretKeySpec sks = new SecretKeySpec(bb1, "SHA1");        

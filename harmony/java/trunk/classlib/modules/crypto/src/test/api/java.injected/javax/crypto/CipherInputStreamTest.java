@@ -55,7 +55,7 @@ public class CipherInputStreamTest extends TestCase {
     public void testCipherInputStream() throws Exception {
         byte[] data = new byte[] { -127, -100, -50, -10, -1, 0, 1, 10, 50, 127 };
         TestInputStream tis = new TestInputStream(data);
-        CipherInputStream cis = new CipherInputStream(tis);
+        CipherInputStream cis = new CipherInputStream(tis, new NullCipher());
 
         for (int i = 0; i < data.length; i++) {
             if ((byte) cis.read() != data[i]) {
