@@ -36,7 +36,7 @@ import javax.swing.border.TitledBorder;
 
 public class BorderFactoryTest extends SwingTestCase {
     public void testStaticVariablesInitialization() {
-        assertTrue("Shared values are initialized", BorderFactory.emptyBorder != null);
+        assertTrue("Shared values are initialized", BorderFactory.createEmptyBorder() != null);
         assertTrue("Shared values are initialized", BorderFactory.sharedEtchedBorder != null);
         assertTrue("Shared values are initialized", BorderFactory.sharedLoweredBevel != null);
         assertTrue("Shared values are initialized", BorderFactory.sharedRaisedBevel != null);

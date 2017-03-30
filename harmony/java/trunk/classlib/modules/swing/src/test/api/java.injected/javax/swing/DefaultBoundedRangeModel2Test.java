@@ -104,7 +104,7 @@ public class DefaultBoundedRangeModel2Test extends SwingTestCase {
         assertEquals(changeListsners[0], listener3);
         assertEquals(changeListsners[1], listener2);
         assertEquals(changeListsners[2], listener1);
-        listeners = brm.listenerList.getListeners(ChangeListener.class);
+        listeners = brm.getListeners(ChangeListener.class);
         assertEquals(3, listeners.length);
         assertEquals(listeners[0], listener3);
         assertEquals(listeners[1], listener2);
@@ -172,8 +172,6 @@ public class DefaultBoundedRangeModel2Test extends SwingTestCase {
         brm.addChangeListener(listener3);
         brm.setValue(7);
         assertEquals("321initial", fireOrder);
-        assertEquals(listener.event, brm.changeEvent);
-        assertEquals(brm, brm.changeEvent.getSource());
     }
 
     public void testSetGetExtent() {
@@ -304,8 +302,6 @@ public class DefaultBoundedRangeModel2Test extends SwingTestCase {
         brm.setValueIsAdjusting(true);
         assertTrue(brm.getValueIsAdjusting());
         assertEquals("initial", fireOrder);
-        assertEquals(listener.event, brm.changeEvent);
-        assertEquals(brm, brm.changeEvent.getSource());
     }
 
     public void testToString() {

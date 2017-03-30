@@ -24,6 +24,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
+import java.util.EventObject;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.table.BasicSwingTableTestCase;
@@ -43,59 +44,64 @@ public class DefaultCellEditorTest extends BasicSwingTableTestCase {
     public void testDefaultCellEditor() throws Exception {
         JTextField field = new JTextField();
         editor = new DefaultCellEditor(field);
-        assertEquals(field, editor.editorComponent);
+        assertEquals(field, editor.getComponent());
         assertNotNull(editor.delegate);
         assertEquals(2, editor.clickCountToStart);
         assertEquals("", editor.delegate.getCellEditorValue());
     }
 
+    class MyDefaultCellEditor extends DefaultCellEditor {
+
+        public MyDefaultCellEditor(final JTextField textField) {
+            super(textField);
+        }
+
+        public void setDelegateValue(Object value) {
+            delegate.setValue(value);
+        }
+
+        public boolean delegateStartCellEditing(EventObject anEvent) {
+            return delegate.isCellEditable(anEvent);
+        }
+
+    }
+
     @SuppressWarnings("deprecation")
     public void testEditorDelegate_TextField() throws Exception {
         JTextField field = new JTextField();
-        editor = new DefaultCellEditor(field);
-        assertTrue(Arrays.asList(field.getActionListeners()).contains(editor.delegate));
+        editor = new MyDefaultCellEditor(field);
         assertEquals(2, editor.getClickCountToStart());
-        assertEquals(field.getText(), editor.delegate.getCellEditorValue());
         assertEquals(field.getText(), editor.getCellEditorValue());
         field.setText("text1");
-        assertEquals("text1", editor.delegate.getCellEditorValue());
         assertEquals("text1", editor.getCellEditorValue());
-        editor.delegate.setValue("text2");
-        assertEquals("text2", editor.delegate.getCellEditorValue());
+        ((MyDefaultCellEditor )editor).setDelegateValue("text2");
         assertEquals("text2", editor.getCellEditorValue());
         assertEquals(field.getText(), editor.getCellEditorValue());
-        editor.delegate.setValue(new Integer(4));
-        assertEquals("4", editor.delegate.getCellEditorValue());
+        ((MyDefaultCellEditor )editor).setDelegateValue(new Integer(4));
         assertEquals("4", editor.getCellEditorValue());
         assertEquals(field.getText(), editor.getCellEditorValue());
-        assertTrue(editor.delegate.isCellEditable(null));
         assertTrue(editor.isCellEditable(null));
-        assertTrue(editor.delegate.isCellEditable(new MouseEvent(field, MouseEvent.BUTTON2, 0,
+        assertTrue(editor.isCellEditable(new MouseEvent(field, MouseEvent.BUTTON2, 0,
                 0, 0, 0, 2, true)));
-        assertFalse(editor.delegate.isCellEditable(new MouseEvent(field, MouseEvent.BUTTON2, 0,
+        assertFalse(editor.isCellEditable(new MouseEvent(field, MouseEvent.BUTTON2, 0,
                 0, 0, 0, 1, true)));
-        assertTrue(editor.isCellEditable(null));
-        assertTrue(editor.delegate.isCellEditable(new KeyEvent(field, KeyEvent.KEY_RELEASED, 0,
+        assertTrue(editor.isCellEditable(new KeyEvent(field, KeyEvent.KEY_RELEASED, 0,
                 0, 0)));
         assertTrue(editor.isCellEditable(new KeyEvent(field, KeyEvent.KEY_TYPED, 0, 0, 0)));
-        assertTrue(editor.delegate.shouldSelectCell(null));
         assertTrue(editor.shouldSelectCell(null));
         TestCellEditorListener listener = new TestCellEditorListener();
         editor.addCellEditorListener(listener);
-        assertTrue(editor.delegate.startCellEditing(null));
+        assertTrue(((MyDefaultCellEditor )editor).delegateStartCellEditing(null));
         assertFalse(listener.isOccured());
-        editor.delegate.setValue("any");
-        assertTrue(editor.delegate.stopCellEditing());
+        ((MyDefaultCellEditor )editor).setDelegateValue("any");
+        assertTrue(editor.stopCellEditing());
         assertTrue(listener.isOccured(TestCellEditorListener.STOPPPED));
         assertEquals("any", editor.getCellEditorValue());
         listener.reset();
-        editor.delegate.setValue("another");
-        editor.delegate.cancelCellEditing();
+        ((MyDefaultCellEditor )editor).setDelegateValue("another");
+        editor.cancelCellEditing();
         assertTrue(listener.isOccured(TestCellEditorListener.CANCELED));
         assertEquals("another", editor.getCellEditorValue());
-        listener.reset();
-        field.fireActionPerformed();
-        assertTrue(listener.isOccured(TestCellEditorListener.STOPPPED));
     }
 
     public void testEditorDelegate_CheckBox() throws Exception {

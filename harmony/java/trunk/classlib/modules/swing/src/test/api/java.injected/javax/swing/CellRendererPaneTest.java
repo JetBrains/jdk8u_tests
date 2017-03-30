@@ -42,7 +42,7 @@ public class CellRendererPaneTest extends SwingTestCase {
     }
 
     public void testCellRendererPane() throws Exception {
-        assertNull(pane.accessibleContext);
+        assertNull(pane.getAccessibleContext());
     }
 
     public void testAddImpl() throws Exception {
@@ -70,9 +70,7 @@ public class CellRendererPaneTest extends SwingTestCase {
     }
 
     public void testGetAccessibleContext() throws Exception {
-        assertNull(pane.accessibleContext);
         assertNotNull(pane.getAccessibleContext());
-        assertEquals(pane.accessibleContext, pane.getAccessibleContext());
     }
 
     public void testInvalidate() throws Exception {

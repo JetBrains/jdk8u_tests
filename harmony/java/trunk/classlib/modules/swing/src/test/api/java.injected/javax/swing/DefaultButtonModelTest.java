@@ -71,12 +71,23 @@ public class DefaultButtonModelTest extends SwingTestCase {
         }
     };
 
+    class MyDefaultButtonModel extends DefaultButtonModel {
+
+        public void fireItemStateChanged(ItemEvent e) {
+            super.fireItemStateChanged(e);
+        }
+
+        public void fireStateChanged() {
+            super.fireStateChanged();
+        }
+    }
+
     protected DefaultButtonModel buttonModel;
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        buttonModel = new DefaultButtonModel();
+        buttonModel = new MyDefaultButtonModel();
     }
 
     @Override
@@ -355,13 +366,13 @@ public class DefaultButtonModelTest extends SwingTestCase {
         ConcreteItemListener listener2 = new ConcreteItemListener();
         buttonModel.addItemListener(listener1);
         buttonModel.addItemListener(listener2);
-        buttonModel.fireItemStateChanged(event1);
+        ((MyDefaultButtonModel )buttonModel).fireItemStateChanged(event1);
         assertEquals("event fired ", event1, listener1.eventHappened);
         assertEquals("event fired ", event1, listener2.eventHappened);
-        buttonModel.fireItemStateChanged(event2);
+        ((MyDefaultButtonModel )buttonModel).fireItemStateChanged(event2);
         assertEquals("event fired ", event2, listener1.eventHappened);
         assertEquals("event fired ", event2, listener2.eventHappened);
-        buttonModel.fireItemStateChanged(null);
+        ((MyDefaultButtonModel )buttonModel).fireItemStateChanged(null);
         assertNull("event fired ", listener1.eventHappened);
         assertNull("event fired ", listener2.eventHappened);
     }
@@ -375,13 +386,13 @@ public class DefaultButtonModelTest extends SwingTestCase {
         ConcreteActionListener listener2 = new ConcreteActionListener();
         buttonModel.addActionListener(listener1);
         buttonModel.addActionListener(listener2);
-        buttonModel.fireActionPerformed(event1);
+        ((MyDefaultButtonModel )buttonModel).fireActionPerformed(event1);
         assertEquals("event fired ", event1, listener1.eventHappened);
         assertEquals("event fired ", event1, listener2.eventHappened);
-        buttonModel.fireActionPerformed(event2);
+        ((MyDefaultButtonModel )buttonModel).fireActionPerformed(event2);
         assertEquals("event fired ", event2, listener1.eventHappened);
         assertEquals("event fired ", event2, listener2.eventHappened);
-        buttonModel.fireActionPerformed(null);
+        ((MyDefaultButtonModel )buttonModel).fireActionPerformed(null);
         assertNull("event fired ", listener1.eventHappened);
         assertNull("event fired ", listener2.eventHappened);
     }
@@ -407,7 +418,7 @@ public class DefaultButtonModelTest extends SwingTestCase {
         ConcreteChangeListener listener2 = new ConcreteChangeListener();
         buttonModel.addChangeListener(listener1);
         buttonModel.addChangeListener(listener2);
-        buttonModel.fireStateChanged();
+        ((MyDefaultButtonModel )buttonModel).fireStateChanged();
         event1 = listener1.eventHappened;
         assertTrue("event fired ", listener1.eventHappened != null);
         assertTrue("event fired ", listener2.eventHappened != null);
@@ -418,7 +429,7 @@ public class DefaultButtonModelTest extends SwingTestCase {
                 .getClass());
         assertEquals("event fired properly ", buttonModel, listener1.eventHappened.getSource());
         assertEquals("event fired properly ", buttonModel, listener2.eventHappened.getSource());
-        buttonModel.fireStateChanged();
+        ((MyDefaultButtonModel )buttonModel).fireStateChanged();
         event2 = listener1.eventHappened;
         assertTrue("event fired ", listener1.eventHappened != null);
         assertTrue("event fired ", listener2.eventHappened != null);
