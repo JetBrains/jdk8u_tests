@@ -69,7 +69,6 @@ public class AccessibleStateSetTest extends TestCase {
 
         stateSet.clear();
         assertFalse(stateSet.contains(null));
-        assertNull(stateSet.states);
 
         stateSet.clear();
         stateSet.add(AccessibleState.ACTIVE);
@@ -100,7 +99,7 @@ public class AccessibleStateSetTest extends TestCase {
     public void testClear() throws Exception {
 
         stateSet.clear();
-        assertEquals("Cleared set should be empty", 0, stateSet.states.size());
+        assertEquals("Cleared set should be empty", 0, stateSet.toArray().length);
 
     }
 

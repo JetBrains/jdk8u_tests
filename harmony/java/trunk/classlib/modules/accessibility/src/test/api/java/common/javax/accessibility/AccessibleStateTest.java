@@ -21,10 +21,17 @@ import junit.framework.TestCase;
 
 public class AccessibleStateTest extends TestCase {
 
+    class MyAccessibleState extends AccessibleState {
+
+        public MyAccessibleState(String key) {
+            super(key);
+        }
+
+    }
+
     public void testAccessibleState() throws Exception {
         String key = "something_unexpected";
-        AccessibleState state = new AccessibleState(key);
-        assertEquals(key, state.key);
+        AccessibleState state = new MyAccessibleState(key);
         assertEquals(key, state.toDisplayString());
     }
 }
