@@ -25,6 +25,12 @@
     <property name="result.dir" value="results" />
     <property name="exclude.file" value="classlib_exclude.file" />
 
+    <condition property="tests_pattern" value="**/*Test.java">
+        <not>
+            <isset property="tests_pattern"/>
+        </not>
+    </condition>
+
     <target name="build" depends="run-unit-tests"/>
 
     <target name="clean">
@@ -107,6 +113,7 @@
         <attribute name="suite" />
         <sequential>
             <echo message="Running @{suite}" />
+            <echo message="Running tests: ${tests_pattern}"/>
 
             <mkdir dir="${result.dir}/@{suite}" />
             <junit fork="yes">
@@ -120,7 +127,7 @@
                 <formatter type="xml" />
                 <batchtest fork="yes" todir="${result.dir}/@{suite}">
                     <fileset dir="@{location}">
-                        <include name="**/*Test.java" />
+                        <include name="${tests_pattern}" />
                         <!--<include name="support/src/**/*Test.java" />-->
                         <excludesfile name="${exclude.file}" />
                     </fileset>
