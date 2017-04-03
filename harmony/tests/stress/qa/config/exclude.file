@@ -1,4 +1,8 @@
-# H-4881 test issues Windows x86 32 bit 
+# The test throws OOME that affects ANT and test suite execution
+stress/org/apache/harmony/test/stress/gc/mem/Smallsize/SmallsizeTest4
+
+
+# H-4881 test issues Windows x86 32 bit
 stress/org/apache/harmony/test/stress/classloader/OneThread/SupIntf/testManySupIntf1.xml
 stress/org/apache/harmony/test/stress/exceptions/catcher/StackUnwindingInsideInitTests/StackUnwindingInsideInitTest7.xml
 stress/org/apache/harmony/test/stress/exceptions/catcher/StackUnwindingManyObjectsTests/StackUnwindingManyObjectsTest7.xml
