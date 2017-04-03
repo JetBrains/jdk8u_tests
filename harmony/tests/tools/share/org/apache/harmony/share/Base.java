@@ -86,11 +86,23 @@ public abstract class Base {
         if (logOptPosition >= 0 && logOptPosition < (args.length - 1)) {
             testArgs = new String[args.length - 2];
             int cnt = 0;
-            for (int i = 0; i < logOptPosition; i++) {
-                testArgs[cnt++] = args[i];
-            }
-            for (int i = (logOptPosition + 2); i < args.length; i++) {
-                testArgs[cnt++] = args[i];
+            try {
+                for (int i = 0; i < logOptPosition; i++) {
+                    testArgs[cnt++] = args[i];
+                }
+                for (int i = (logOptPosition + 2); i < args.length; i++) {
+                    testArgs[cnt++] = args[i];
+                }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                log.add("logOptPosition=" + logOptPosition);
+                log.add("args.length=" + args.length);
+                log.add("testArgs.length=" + testArgs.length);
+                for (int i = 0; i < args.length; i++) {
+                    log.add("args[" + i + "] = " + args[i]);
+                }
+                for (int i = 0; i < testArgs.length; i++) {
+                    log.add("testArgs[" + i + "] = " + testArgs[i]);
+                }
             }
         } else {
             testArgs = args;
