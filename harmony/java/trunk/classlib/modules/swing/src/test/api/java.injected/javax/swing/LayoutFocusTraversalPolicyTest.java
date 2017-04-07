@@ -62,7 +62,7 @@ public class LayoutFocusTraversalPolicyTest extends BasicSwingTestCase {
         frame = null;
     }
 
-    public void testAccept() throws Exception {
+    public void _testAccept() throws Exception {
         frame.setVisible(true);
         SwingWaitTestCase.isRealized(frame);
         Component invisible = new JPanel();

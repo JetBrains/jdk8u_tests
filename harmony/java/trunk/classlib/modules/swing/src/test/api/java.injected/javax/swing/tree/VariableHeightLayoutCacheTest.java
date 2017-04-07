@@ -315,7 +315,7 @@ public class VariableHeightLayoutCacheTest extends AbstractLayoutCacheTest {
     public void testSetNodeDimensionsNodeDimensions() {
     }
 
-    @Override
+    //@Override
     public void testIsFixedRowHeight() {
         assertFalse(cache.isFixedRowHeight());
     }

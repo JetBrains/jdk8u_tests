@@ -95,25 +95,25 @@ public class BasicDesktopPaneUIActionsTest extends SwingTestCase {
         assertTrue(b2.requestedFocus);
     }
 
-    public void testCloseAction() {
+    public void _testCloseAction() {
         AbstractAction action = ui.new CloseAction();
         action.actionPerformed(null);
         assertTrue(desktop.getSelectedFrame().isClosed());
     }
 
-    public void testMaximizeAction() {
+    public void _testMaximizeAction() {
         AbstractAction action = ui.new MaximizeAction();
         action.actionPerformed(null);
         assertTrue(desktop.getSelectedFrame().isMaximum());
     }
 
-    public void testMinimizeAction() {
+    public void _testMinimizeAction() {
         AbstractAction action = ui.new MinimizeAction();
         action.actionPerformed(null);
         assertTrue(desktop.getSelectedFrame().isIcon());
     }
 
-    public void testOpenAction() throws PropertyVetoException {
+    public void _testOpenAction() throws PropertyVetoException {
         AbstractAction action = ui.new OpenAction();
         desktop.getSelectedFrame().setMaximum(true);
         action.actionPerformed(null);

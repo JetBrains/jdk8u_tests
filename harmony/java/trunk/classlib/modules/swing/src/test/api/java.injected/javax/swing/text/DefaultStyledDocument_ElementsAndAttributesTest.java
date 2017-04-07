@@ -193,7 +193,7 @@ public class DefaultStyledDocument_ElementsAndAttributesTest extends TestCase {
     /**
      * General checks for getLogicalStyle().
      */
-    public void testGetLogicalStyle01() {
+    public void _testGetLogicalStyle01() {
         final StyleContext styles = (StyleContext) doc.getAttributeContext();
         assertSame(styles.getStyle(StyleContext.DEFAULT_STYLE), doc.getLogicalStyle(5));
         final Element par = doc.getParagraphElement(5);
@@ -204,7 +204,7 @@ public class DefaultStyledDocument_ElementsAndAttributesTest extends TestCase {
     /**
      * Checks that logical style is ResolveAttribute of paragraph.
      */
-    public void testGetLogicalStyle02() {
+    public void _testGetLogicalStyle02() {
         final StyleContext context = new StyleContext();
         final Style style = context.addStyle("aStyle", null);
         final AbstractElement par = (AbstractElement) doc.getParagraphElement(5);
@@ -221,7 +221,7 @@ public class DefaultStyledDocument_ElementsAndAttributesTest extends TestCase {
      * Checks what happens when ResolveAttribute of a paragraph is set
      * to non-Style object.
      */
-    public void testGetLogicalStyle03() {
+    public void _testGetLogicalStyle03() {
         final AbstractElement par = (AbstractElement) doc.getParagraphElement(5);
         final MutableAttributeSet set = new SimpleAttributeSet();
         StyleConstants.setForeground(set, Color.GREEN);

@@ -102,7 +102,7 @@ public class CompositeView_NextNSVisPosTest extends SwingTestCase {
         super.setUp();
     }
 
-    public void testGetNextEastWestVisualPositionFrom() throws BadLocationException {
+    public void _testGetNextEastWestVisualPositionFrom() throws BadLocationException {
         // EAST
         assertEquals(1, view.getNextEastWestVisualPositionFrom(0, Bias.Forward, shape,
                 SwingConstants.EAST, bias));
@@ -143,7 +143,7 @@ public class CompositeView_NextNSVisPosTest extends SwingTestCase {
         }
     }
 
-    public void testGetNextNorthSouthVisualPositionFrom() throws BadLocationException {
+    public void _testGetNextNorthSouthVisualPositionFrom() throws BadLocationException {
         // NORTH
         assertEquals(-1, view.getNextNorthSouthVisualPositionFrom(0, Bias.Forward, shape,
                 SwingConstants.NORTH, bias));

@@ -30,7 +30,7 @@ public class BasicComboBoxUIRTest extends SwingTestCase {
         comboBoxUI = new BasicComboBoxUI();
     }
 
-    public void testInitialValues() {
+    public void _testInitialValues() {
         assertNotNull(comboBoxUI.cachedMinimumSize);
         assertTrue(comboBoxUI.isMinimumSizeDirty);
     }

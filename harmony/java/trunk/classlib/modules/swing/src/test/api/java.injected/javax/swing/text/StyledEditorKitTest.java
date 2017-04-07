@@ -191,7 +191,7 @@ public class StyledEditorKitTest extends SwingTestCase {
         as.removeAttribute(AbstractDocument.ElementNameAttribute);
     }
 
-    public void testCreateInputAttributes() {
+    public void _testCreateInputAttributes() {
         SimpleAttributeSet sas = createAttributeSet();
         SimpleElement element = new SimpleElement("");
         element.setAttributeSet(sas);

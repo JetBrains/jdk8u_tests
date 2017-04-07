@@ -59,7 +59,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         init();
     }
     
-    public void testFlush_Create() throws Exception {
+    public void _testFlush_Create() throws Exception {
         final String text = "tag";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B.toString());
@@ -74,7 +74,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(3, ((ElementSpec[])createMarker.getAuxiliary()).length);
     }
     
-    public void testFlush_NoCreate_IfEmptyBuffer() throws Exception {
+    public void _testFlush_NoCreate_IfEmptyBuffer() throws Exception {
         final String text = "tag";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B.toString());
@@ -85,7 +85,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testFlush_Create_PushPopNull() throws Exception {
+    public void _testFlush_Create_PushPopNull() throws Exception {
         final String text = "tag";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B);
@@ -101,7 +101,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(3, ((ElementSpec[])createMarker.getAuxiliary()).length);
     }
     
-    public void testFlush_Insert_Tag() throws Exception {
+    public void _testFlush_Insert_Tag() throws Exception {
         final String text = "tag";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B);
@@ -118,7 +118,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(text, doc.getText(0, doc.getLength()));
     }
     
-    public void testFlush_Insert_PushPopTag() throws Exception {
+    public void _testFlush_Insert_PushPopTag() throws Exception {
         final String text = "tag";
         editable = false;
         SimpleAttributeSet attr = new SimpleAttributeSet();
@@ -135,7 +135,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(3, ((ElementSpec[])insertMarker.getAuxiliary()).length);
     }
     
-    public void testFlush_Insert_PushPopTag_Wierd() throws Exception {
+    public void _testFlush_Insert_PushPopTag_Wierd() throws Exception {
         final String text = "tag";
         editable = false;
         SimpleAttributeSet attr = new SimpleAttributeSet();
@@ -155,14 +155,14 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(6, ((ElementSpec[])insertMarker.getAuxiliary()).length);
     }
     
-    public void testFlush_Insert_PushPopTag_ApplicationMoment1() throws Exception {
+    public void _testFlush_Insert_PushPopTag_ApplicationMoment1() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         reader = (HTMLReader)doc.getReader(1, 10, 100, Tag.I);
         reader.handleStartTag(Tag.I, new SimpleAttributeSet(), 0);
         assertEquals(110, reader.parseBuffer.size());
     }
     
-    public void testFlush_Insert_PushPopTag_ApplicationMoment2() throws Exception {
+    public void _testFlush_Insert_PushPopTag_ApplicationMoment2() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         reader = (HTMLReader)doc.getReader(-100, 10, 100, Tag.I);
         reader.registerTag(Tag.I, reader.new TagAction());
@@ -172,7 +172,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(0, reader.parseBuffer.size());
     }
     
-    public void testFlush_Insert_PushPopTag_ApplicationMoment3() throws Exception {
+    public void _testFlush_Insert_PushPopTag_ApplicationMoment3() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         reader = (HTMLReader)doc.getReader(-100, 10, 100, Tag.I);
         reader.registerTag(Tag.I, reader.new BlockAction());
@@ -180,14 +180,14 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(111, reader.parseBuffer.size());
     }
     
-    public void testFlush_Insert_PushPopTag_ApplicationMoment4() throws Exception {
+    public void _testFlush_Insert_PushPopTag_ApplicationMoment4() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         reader = (HTMLReader)doc.getReader(-100, 10, 100, Tag.I);
         reader.new BlockAction().start(Tag.I, new SimpleAttributeSet());
         assertEquals(111, reader.parseBuffer.size());
     }
     
-    public void testFlush_Insert_PushPopTag_ApplicationMoment5() throws Exception {
+    public void _testFlush_Insert_PushPopTag_ApplicationMoment5() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         reader = (HTMLReader)doc.getReader(-100, 0, 0, Tag.I);
         reader.registerTag(Tag.I, reader.new CharacterAction());
@@ -197,7 +197,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(1, reader.parseBuffer.size());
     }
     
-    public void testFlush_Insert_PushPopTag_SpecsOrder() throws Exception {
+    public void _testFlush_Insert_PushPopTag_SpecsOrder() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         reader = (HTMLReader)doc.getReader(-100, 2, 3, Tag.I);
         reader.handleStartTag(Tag.I, new SimpleAttributeSet(), 1000);
@@ -207,7 +207,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         }
     }
     
-    public void testFlush_Insert() throws Exception {
+    public void _testFlush_Insert() throws Exception {
         final String text = "tag";
         final String initialText = "text";
         doc.insertString(0, initialText, SimpleAttributeSet.EMPTY);
@@ -225,7 +225,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(text + initialText, doc.getText(0, doc.getLength()));
     }
     
-    public void testFlush_NoInsert_IfEmptyBuffer() throws Exception {
+    public void _testFlush_NoInsert_IfEmptyBuffer() throws Exception {
         final String text = "tag";
         final String initialText = "text";
         doc.insertString(0, initialText, SimpleAttributeSet.EMPTY);
@@ -243,7 +243,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         }
     }
     
-    public void testFlush_Insert_Offset() throws Exception {
+    public void _testFlush_Insert_Offset() throws Exception {
         final String text = "tag";
         final String initialText = "text";
         reader = (HTMLReader)doc.getReader(initialText.length());
@@ -262,7 +262,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(initialText + text, doc.getText(0, doc.getLength()));
     }
     
-    public void testHandleComment() {
+    public void _testHandleComment() {
         String text1 = "data";
         String text2 = "datadata";
         reader.handleComment(text1.toCharArray(), 0);
@@ -305,7 +305,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(text2, doc.getProperty(DefaultEditorKit.EndOfLineStringProperty));
     }
     
-    public void testHandleSimpleTag() {
+    public void _testHandleSimpleTag() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B.toString());
         final Marker endMarker = new Marker();
@@ -333,7 +333,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertSame(attr, startMarker.getAuxiliary());
     }
     
-    public void testHandleEndTag() {
+    public void _testHandleEndTag() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B.toString());
         final Marker endMarker = new Marker();
@@ -359,7 +359,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(startMarker.isOccurred());
     }
     
-    public void testHandleStartTag() {
+    public void _testHandleStartTag() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B.toString());
         final Marker endMarker = new Marker();
@@ -385,7 +385,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(endMarker.isOccurred());
     }
     
-    public void testHandleStartTag_StyleAttr() {
+    public void _testHandleStartTag_StyleAttr() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.STYLE, "color: red");
         reader.handleStartTag(Tag.P, attr, 0);
@@ -398,7 +398,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkAttributes(specAttr, CSS.Attribute.COLOR, "red");
     }
 
-    public void testHandleSimpleTag_StyleAttr() {
+    public void _testHandleSimpleTag_StyleAttr() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.STYLE, "color: red");
         reader.handleSimpleTag(Tag.HR, attr, 0);
@@ -411,7 +411,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkAttributes(specAttr, CSS.Attribute.COLOR, "red");
     }
 
-    public void testHandleText() throws Exception {
+    public void _testHandleText() throws Exception {
         String text = "data";
         reader.handleText(text.toCharArray(), 0);
         assertEquals(0, reader.charAttr.getAttributeCount());
@@ -489,7 +489,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         addContentMarker.reset();
     }
     
-    public void testHandleText_ContentMethodsCalls_Implied() throws Exception {
+    public void _testHandleText_ContentMethodsCalls_Implied() throws Exception {
         final Marker addContentMarker = new Marker(); 
         final Marker preContentMarker = new Marker(); 
         final Marker textAreaMarker = new Marker(); 
@@ -679,7 +679,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         addContentMarker.reset();
     }
     
-    public void testHandleText_Implied() throws Exception {
+    public void _testHandleText_Implied() throws Exception {
         String text = "data";
         final SimpleAttributeSet attr = new SimpleAttributeSet();
         reader.handleStartTag(Tag.BODY, attr, 0);
@@ -707,13 +707,13 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testHandleText_BlockOpenClose_P1() {
+    public void _testHandleText_BlockOpenClose_P1() {
         reader.blockOpen(Tag.H1, new SimpleAttributeSet());
         reader.blockClose(Tag.H1);
         checkTextInNotInserted();
     }
     
-    public void testHandleText_BlockOpenClose_P2() {
+    public void _testHandleText_BlockOpenClose_P2() {
         reader.blockOpen(Tag.H1, new SimpleAttributeSet());
         reader.blockOpen(Tag.H1, new SimpleAttributeSet());
         reader.blockOpen(Tag.H1, new SimpleAttributeSet());
@@ -721,7 +721,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextIsInserted();
     }
     
-    public void testHandleText_BlockOpenClose_P3() {
+    public void _testHandleText_BlockOpenClose_P3() {
         reader.blockOpen(Tag.H1, new SimpleAttributeSet());
         reader.blockOpen(Tag.H2, new SimpleAttributeSet());
         reader.blockOpen(Tag.H3, new SimpleAttributeSet());
@@ -731,13 +731,13 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextInNotInserted();
     }
     
-    public void testHandleText_BlockOpenClose_Implied1() {
+    public void _testHandleText_BlockOpenClose_Implied1() {
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockClose(Tag.IMPLIED);
         checkTextIsInserted();
     }
     
-    public void testHandleText_BlockOpenClose_Implied2() {
+    public void _testHandleText_BlockOpenClose_Implied2() {
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
@@ -748,7 +748,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextInNotInserted();
     }
     
-    public void testHandleText_BlockOpenClose_Implied3() {
+    public void _testHandleText_BlockOpenClose_Implied3() {
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
@@ -758,7 +758,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextIsInserted();
     }
     
-    public void testHandleText_BlockOpenClose_P_Implied1() {
+    public void _testHandleText_BlockOpenClose_P_Implied1() {
         reader.blockOpen(Tag.P, new SimpleAttributeSet());
         reader.blockOpen(Tag.P, new SimpleAttributeSet());
         reader.blockOpen(Tag.P, new SimpleAttributeSet());
@@ -768,7 +768,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextIsInserted();
     }
 
-    public void testHandleText_BlockOpenClose_P_Implied2() {
+    public void _testHandleText_BlockOpenClose_P_Implied2() {
         reader.blockOpen(Tag.P, new SimpleAttributeSet());
         reader.blockOpen(Tag.P, new SimpleAttributeSet());
         reader.blockOpen(Tag.P, new SimpleAttributeSet());
@@ -779,7 +779,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextInNotInserted();
     }
 
-    public void testHandleText_BlockOpenClose_P_Implied3() {
+    public void _testHandleText_BlockOpenClose_P_Implied3() {
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
@@ -789,7 +789,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextInNotInserted();
     }
     
-    public void testHandleText_BlockOpenClose_P_Implied4() {
+    public void _testHandleText_BlockOpenClose_P_Implied4() {
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
         reader.blockOpen(Tag.IMPLIED, new SimpleAttributeSet());
@@ -798,7 +798,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkTextIsInserted();
     }
 
-    public void testAddContent_BlockOpenClose_P1() {
+    public void _testAddContent_BlockOpenClose_P1() {
         reader.blockOpen(Tag.H1, new SimpleAttributeSet());
         reader.blockClose(Tag.H1);
         int numSpecs = reader.parseBuffer.size();
@@ -806,7 +806,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(numSpecs + 2, reader.parseBuffer.size());
     }
     
-    public void testAddContent_BlockOpenClose_P2() {
+    public void _testAddContent_BlockOpenClose_P2() {
         reader.blockOpen(Tag.H1, new SimpleAttributeSet());
         reader.blockClose(Tag.H1);
         int numSpecs = reader.parseBuffer.size();
@@ -814,7 +814,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(numSpecs + 1, reader.parseBuffer.size());
     }
     
-    public void testAddContent_BlockOpenClose_P_Implied5() {
+    public void _testAddContent_BlockOpenClose_P_Implied5() {
         TagAction action = reader.new ParagraphAction(); 
         reader.handleStartTag(Tag.BODY, new SimpleAttributeSet(), 0);
         assertEquals(1, reader.parseBuffer.size());
@@ -828,7 +828,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(9, reader.parseBuffer.size());
     }
     
-    public void testHTMLReaderIntIntIntTag() throws Exception {
+    public void _testHTMLReaderIntIntIntTag() throws Exception {
         reader = (HTMLReader)doc.getReader(10, 10, 20, Tag.B);
         assertNotNull(reader.parseBuffer);
         assertEquals(0, reader.parseBuffer.size());
@@ -837,7 +837,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(0, reader.charAttr.getAttributeCount());
     }
     
-    public void testHTMLReaderIntIntIntTag_TagParameter() throws Exception {
+    public void _testHTMLReaderIntIntIntTag_TagParameter() throws Exception {
         checkConstructorTagParameter(Tag.BR, "<a>link</a><b>asdasd</b>", 0);
         checkConstructorTagParameter(Tag.BR, "<a>link</a><b>asdasd</b><br>", 1);
         checkConstructorTagParameter(Tag.BR, "<a>link</a><b><br>asdasd</b>", 2);
@@ -848,7 +848,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkConstructorTagParameter(null, "<br><a>link</a><b>asdasd</b>", 15);
     }
     
-    public void testHTMLReaderIntIntIntTag_TagParameter_Closed() throws Exception {
+    public void _testHTMLReaderIntIntIntTag_TagParameter_Closed() throws Exception {
         final String text = "tag";
         editable = false;
         reader = (HTMLReader)doc.getReader(0, 0, 0, Tag.FORM);
@@ -917,7 +917,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkConstructorPopPushParameter(Tag.A, str, 3, 3, "cpeoeoeosnsnsncoco");
     }
     
-    public void testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec1() throws Exception {
+    public void _testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec1() throws Exception {
         editable = false;
         HTMLReader reader = (HTMLReader)doc.getReader(0, 0, 1, Tag.A);
         reader.new CharacterAction().start(Tag.A, new SimpleAttributeSet());
@@ -925,7 +925,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkJoinPrevSpec((ElementSpec)reader.parseBuffer.get(0));
     }
     
-    public void testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec2() throws Exception {
+    public void _testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec2() throws Exception {
         editable = false;
         HTMLReader reader = (HTMLReader)doc.getReader(1, 1, 0, Tag.A);
         reader.new CharacterAction().start(Tag.A, new SimpleAttributeSet());
@@ -933,7 +933,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertTrue(ElementSpec.JoinPreviousDirection != ((ElementSpec)reader.parseBuffer.get(0)).getDirection());
     }
     
-    public void testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec3() throws Exception {
+    public void _testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec3() throws Exception {
         editable = false;
         HTMLReader reader = (HTMLReader)doc.getReader(0, 1, 0, Tag.A);
         reader.new CharacterAction().start(Tag.A, new SimpleAttributeSet());
@@ -941,7 +941,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkJoinPrevSpec((ElementSpec)reader.parseBuffer.get(0));
     }
     
-    public void testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec4() throws Exception {
+    public void _testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec4() throws Exception {
         editable = false;
         HTMLReader reader = (HTMLReader)doc.getReader(0, 1, 0, Tag.P);
         reader.new ParagraphAction().start(Tag.P, new SimpleAttributeSet());
@@ -949,7 +949,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkJoinPrevSpec((ElementSpec)reader.parseBuffer.get(0));
     }
 
-    public void testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec5() throws Exception {
+    public void _testHTMLReaderIntIntIntTag_PushPopParameter_JoinPrevSpec5() throws Exception {
         final Tag[] tags = HTML.getAllTags();
         Tag[] oddTags;
         oddTags = new Tag[]{Tag.AREA, Tag.BASE, Tag.MAP, Tag.OPTION, Tag.PARAM, Tag.STYLE};
@@ -1009,7 +1009,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkConstructorOffsetPopPushParameter(Tag.A, str, 20, 3, 3, "eoeoeosnsnsncoco");
     }
     
-    public void testHTMLReaderInt() {
+    public void _testHTMLReaderInt() {
         assertNotNull(reader.parseBuffer);
         assertEquals(0, reader.parseBuffer.size());
         
@@ -1017,7 +1017,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(0, reader.charAttr.getAttributeCount());
     }
     
-    public void testPushPopCharacterStyle() {
+    public void _testPushPopCharacterStyle() {
         reader.charAttr.addAttribute("initial", "true");
         final MutableAttributeSet attr1 = reader.charAttr; 
         final SimpleAttributeSet attr2 = new SimpleAttributeSet();
@@ -1063,7 +1063,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(attr2, reader.charAttr);
     }
     
-    public void testAddContentCharArrayIntIntBoolean_Implying_Necess() {
+    public void _testAddContentCharArrayIntIntBoolean_Implying_Necess() {
         String text = "data";
         assertEquals(0, reader.parseBuffer.size());
         reader.addContent(text.toCharArray(), 1, 3, true);
@@ -1081,7 +1081,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testAddContentCharArrayIntIntBoolean_Implying_Unnecess() {
+    public void _testAddContentCharArrayIntIntBoolean_Implying_Unnecess() {
         String text = "data";
         reader.handleStartTag(Tag.H1, new SimpleAttributeSet(), 0);
         assertEquals(0, reader.charAttr.getAttributeCount());
@@ -1102,7 +1102,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testAddContentCharArrayIntIntBoolean_NotImplying() {
+    public void _testAddContentCharArrayIntIntBoolean_NotImplying() {
         String text = "data";
         assertEquals(0, reader.parseBuffer.size());
         reader.addContent(text.toCharArray(), 1, 3, false);
@@ -1117,7 +1117,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testAddContentCharArrayIntInt_FullLength() {
+    public void _testAddContentCharArrayIntInt_FullLength() {
         assertEquals(0, reader.parseBuffer.size());
         String text = "da\na";
         reader.charAttr.addAttribute("aaaa", "bbbb");
@@ -1134,7 +1134,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testAddContentCharArrayIntInt_PartLength() {
+    public void _testAddContentCharArrayIntInt_PartLength() {
         assertEquals(0, reader.parseBuffer.size());
         final SimpleAttributeSet initialSet = new SimpleAttributeSet();
         reader.charAttr = initialSet; 
@@ -1151,7 +1151,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testAddContent_CharAttr() {
+    public void _testAddContent_CharAttr() {
         String text = "data";
         assertEquals(0, reader.parseBuffer.size());
         final SimpleAttributeSet initialSet = new SimpleAttributeSet();
@@ -1173,7 +1173,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertNull(reader.charAttr);
     }
     
-    public void testAddSpecialElement() {
+    public void _testAddSpecialElement() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         reader.handleStartTag(Tag.P, attr, 0);
@@ -1199,19 +1199,19 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkAttributes(attr, "aaaa", "bbbb");
     }
     
-    public void testAddSpecialElement_AfterBlockOpen1() {
+    public void _testAddSpecialElement_AfterBlockOpen1() {
         checkAddSpecialAfterBlockOpen(Tag.HTML, Tag.IMPLIED);
     }
 
-    public void testAddSpecialElement_AfterBlockOpen2() {
+    public void _testAddSpecialElement_AfterBlockOpen2() {
         checkAddSpecialAfterBlockOpen(Tag.HTML, Tag.I);
     }
 
-    public void testAddSpecialElement_AfterBlockOpen3() {
+    public void _testAddSpecialElement_AfterBlockOpen3() {
         checkAddSpecialAfterBlockOpen(Tag.IMG, Tag.P);
     }
 
-    public void testAddSpecialElement_AllTagsImpliedBlockOpenCheck() {
+    public void _testAddSpecialElement_AllTagsImpliedBlockOpenCheck() {
         final Tag[] allTags = HTML.getAllTags();
         for (int i = 0; i < allTags.length; i++) {
             final Tag tag = allTags[i];
@@ -1228,7 +1228,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         }
     }
 
-    public void testAddSpecialElement_FrameImpliedBlockOpenCheck() {
+    public void _testAddSpecialElement_FrameImpliedBlockOpenCheck() {
         Tag specialTag = Tag.FRAME;
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
@@ -1246,7 +1246,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkAttributes(specAttr, "aaaa", "bbbb");
     }
     
-    public void testAddSpecialElement_FrameImpliedBlockCloseCheck() {
+    public void _testAddSpecialElement_FrameImpliedBlockCloseCheck() {
         Tag specialTag = Tag.FRAME;
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
@@ -1294,7 +1294,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkAttributes(specAttr, "aaaa", "bbbb");
     }
     
-    public void testBlockOpen() {
+    public void _testBlockOpen() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         reader.blockOpen(Tag.B, attr);
@@ -1312,7 +1312,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkAttributes(attr, StyleConstants.NameAttribute, Tag.B);
     }
     
-    public void testBlockOpen_ImpliedAttribute() {
+    public void _testBlockOpen_ImpliedAttribute() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         attr.addAttribute(HTMLEditorKit.ParserCallback.IMPLIED, Boolean.TRUE);
@@ -1332,7 +1332,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkAttributes(attr, "aaaa", "bbbb");
     }
     
-    public void testBlockClose() {
+    public void _testBlockClose() {
         reader.blockClose(Tag.B);
         assertEquals(0, reader.charAttr.getAttributeCount());
         assertEquals(1, reader.parseBuffer.size());
@@ -1340,7 +1340,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkEndTagSpec(spec);
     }
 
-    public void testBlockOpenClose() {
+    public void _testBlockOpenClose() {
        SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         
@@ -1373,7 +1373,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkEndTagSpec(spec);
     }
     
-    public void testBlockOpenOpenCloseClose() {
+    public void _testBlockOpenOpenCloseClose() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         
@@ -1427,7 +1427,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkEndTagSpec(spec);
     }
     
-    public void testBlockOpenOpenCloseClose_Implied() {
+    public void _testBlockOpenOpenCloseClose_Implied() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         
@@ -1477,7 +1477,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkEndTagSpec(spec);
     }
     
-    public void testBlockOpenOpenCloseClose_ImpliedImplied() {
+    public void _testBlockOpenOpenCloseClose_ImpliedImplied() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         
@@ -1527,7 +1527,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkEndTagSpec(spec);
     }
     
-    public void testBlockOpenContentClose_B() {
+    public void _testBlockOpenContentClose_B() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         
@@ -1573,7 +1573,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkEndTagSpec(spec);
     }
     
-    public void testBlockOpenContentClose_Implied() {
+    public void _testBlockOpenContentClose_Implied() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         
@@ -1617,7 +1617,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         checkEndTagSpec(spec);
     }
     
-    public void testRegisterTag() throws Exception {
+    public void _testRegisterTag() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(StyleConstants.NameAttribute, Tag.B.toString());
         final Marker endMarker = new Marker();
@@ -1644,7 +1644,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(Tag.B, endMarker.getAuxiliary());
     }
     
-    public void testPreContent() {
+    public void _testPreContent() {
         String text = "data";
         assertEquals(0, reader.parseBuffer.size());
         reader.charAttr.addAttribute("aaaa", "bbbb");
@@ -1665,7 +1665,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testPreContent_Calls() {
+    public void _testPreContent_Calls() {
         final Marker contentMarker = new Marker();
         doc = new HTMLDocument() {
             public ParserCallback getReader(int pos) {
@@ -1691,7 +1691,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(text.length(), ((Integer)callInfo.get(2)).intValue());
     }
     
-    public void testTextAreaContent() throws Exception {
+    public void _testTextAreaContent() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         String text1 = "data";
         String text2 = "atada";
@@ -1726,7 +1726,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertFalse(insertMarker.isOccurred());
     }
     
-    public void testHandleSimpleTag_Unknown() {
+    public void _testHandleSimpleTag_Unknown() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         
@@ -1748,7 +1748,7 @@ public class HTMLDocument_ReaderTest extends HTMLDocumentTestCase {
         assertEquals(3, reader.parseBuffer.size());
     }
     
-    public void testHandleStartEndTag_Unknown() {
+    public void _testHandleStartEndTag_Unknown() {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         

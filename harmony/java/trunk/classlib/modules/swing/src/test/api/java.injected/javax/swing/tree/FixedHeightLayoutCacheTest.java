@@ -68,7 +68,7 @@ public class FixedHeightLayoutCacheTest extends AbstractLayoutCacheTest {
                 path2, null));
     }
 
-    @Override
+    //@Override
     public void testIsFixedRowHeight() {
         assertTrue(cache.isFixedRowHeight());
     }

@@ -73,7 +73,7 @@ public class DefaultFormatterTest extends SwingTestCase {
         assertFalse(form.getOverwriteMode());
     }
 
-    public void testGetDocumentFilter() {
+    public void _testGetDocumentFilter() {
         assertNotNull(formatter.getDocumentFilter());
     }
 

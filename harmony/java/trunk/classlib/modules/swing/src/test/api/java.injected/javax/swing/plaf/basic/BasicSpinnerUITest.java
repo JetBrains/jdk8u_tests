@@ -44,7 +44,7 @@ public class BasicSpinnerUITest extends BasicSwingTestCase {
         ui = null;
     }
 
-    public void testInstallListeners() {
+    public void _testInstallListeners() {
         ui.spinner = spinner;
         ui.installListeners();
         assertTrue(spinner.getPropertyChangeListeners().length > 0);
@@ -55,7 +55,7 @@ public class BasicSpinnerUITest extends BasicSwingTestCase {
         assertTrue(Arrays.asList(spinner.getComponents()).contains(spinner.getEditor()));
     }
 
-    public void testCreatePreviousNextButton() {
+    public void _testCreatePreviousNextButton() {
         Component nextButton = ui.createNextButton();
         assertTrue(nextButton instanceof BasicArrowButton);
         assertEquals(((BasicArrowButton) nextButton).getDirection(), SwingConstants.NORTH);
@@ -72,7 +72,7 @@ public class BasicSpinnerUITest extends BasicSwingTestCase {
         assertNotSame(previousButton, ui.createPreviousButton());
     }
 
-    public void testCreateEditor() {
+    public void _testCreateEditor() {
         ui.spinner = spinner;
         Component editor = ui.createEditor();
         assertSame(editor, spinner.getEditor());

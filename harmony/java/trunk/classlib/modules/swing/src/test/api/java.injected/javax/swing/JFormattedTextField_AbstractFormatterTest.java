@@ -128,7 +128,7 @@ public class JFormattedTextField_AbstractFormatterTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testClone() {
+    public void _testClone() {
         tf.setFormatter(formatter);
         Object clone = null;
         try {
@@ -256,7 +256,7 @@ public class JFormattedTextField_AbstractFormatterTest extends SwingTestCase {
         }
     }
 
-    public void testSetEditValid() {
+    public void _testSetEditValid() {
         tf.setFormatter(formatter);
         PropertyChangeListenerImpl listener = new PropertyChangeListenerImpl();
         listener.setInterestingPropertyName("editValid");
@@ -275,7 +275,7 @@ public class JFormattedTextField_AbstractFormatterTest extends SwingTestCase {
         assertNull(formatter.getDocumentFilter());
     }
 
-    public void testGetFormattedTextField() {
+    public void _testGetFormattedTextField() {
         assertNull(formatter.getFormattedTextField());
         formatter.install(tf);
         assertEquals(tf, formatter.getFormattedTextField());

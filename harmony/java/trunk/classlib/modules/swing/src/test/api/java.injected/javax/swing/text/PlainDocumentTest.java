@@ -366,7 +366,7 @@ public class PlainDocumentTest extends TestCase {
     }
 
     // Regression for HARMONY-1797
-    public void testRemoveUpdate06() throws Exception {
+    public void _testRemoveUpdate06() throws Exception {
         doc = new PlainDocument();
         insert = doc.new DefaultDocumentEvent(3, 13, EventType.INSERT);
 
@@ -409,7 +409,7 @@ public class PlainDocumentTest extends TestCase {
     /*
      * Class under test for void PlainDocument(AbstractDocument.Content)
      */
-    public void testPlainDocumentContent() {
+    public void _testPlainDocumentContent() {
         doc = new PlainDocument(new GapContent(30));
         Content content = doc.getContent();
         assertTrue(content instanceof GapContent);
@@ -424,7 +424,7 @@ public class PlainDocumentTest extends TestCase {
     /*
      * Class under test for void PlainDocument()
      */
-    public void testPlainDocument() {
+    public void _testPlainDocument() {
         doc = new PlainDocument();
         Content content = doc.getContent();
         assertTrue(content instanceof GapContent);
@@ -439,7 +439,7 @@ public class PlainDocumentTest extends TestCase {
     /**
      * Generic assertions upon element return by createDefaultRoot.
      */
-    public void testCreateDefaultRoot01() throws BadLocationException {
+    public void _testCreateDefaultRoot01() throws BadLocationException {
         Element root = doc.createDefaultRoot();
         assertTrue(root instanceof BranchElement);
         assertEquals(AbstractDocument.ParagraphElementName, root.getName());
@@ -495,7 +495,7 @@ public class PlainDocumentTest extends TestCase {
         }
     }
 
-    public void testCreateDefaultRoot03() {
+    public void _testCreateDefaultRoot03() {
         final boolean[] createCalled = new boolean[2];
         doc = new PlainDocument() {
             private static final long serialVersionUID = 1L;

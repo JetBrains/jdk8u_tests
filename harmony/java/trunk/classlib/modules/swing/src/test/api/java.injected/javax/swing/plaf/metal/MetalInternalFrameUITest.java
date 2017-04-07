@@ -68,7 +68,7 @@ public class MetalInternalFrameUITest extends SwingTestCase {
     /*
      * Class under test for JComponent createNorthPane(JInternalFrame)
      */
-    public void testCreateNorthPane() {
+    public void _testCreateNorthPane() {
         JComponent comp = ui.createNorthPane(frame);
         assertTrue("not null", comp != null);
         assertTrue("instanceof MetalInternalFrameTitlePane",
@@ -91,7 +91,7 @@ public class MetalInternalFrameUITest extends SwingTestCase {
     /*
      * Class under test for void installUI(JComponent)
      */
-    public void testInstallUI() {
+    public void _testInstallUI() {
         ui.installUI(frame);
         assertFalse("false by default",
                 ((MetalInternalFrameTitlePane) ui.getNorthPane()).isPalette);
@@ -115,7 +115,7 @@ public class MetalInternalFrameUITest extends SwingTestCase {
     /*
      * Class under test for void installListeners()
      */
-    public void testInstallListeners() {
+    public void _testInstallListeners() {
         frame.setUI(ui);
         ui.uninstallListeners();
         ui.installListeners();
@@ -130,7 +130,7 @@ public class MetalInternalFrameUITest extends SwingTestCase {
     /*
      * Class under test for void uninstallListeners()
      */
-    public void testUninstallListeners() {
+    public void _testUninstallListeners() {
         frame.setUI(ui);
         ui.uninstallListeners();
         frame.putClientProperty(MetalInternalFrameUI.IS_PALETTE, Boolean.TRUE);
@@ -155,7 +155,7 @@ public class MetalInternalFrameUITest extends SwingTestCase {
     /*
      * Class under test for void uninstallComponents()
      */
-    public void testUninstallComponents() {
+    public void _testUninstallComponents() {
         frame.setUI(ui);
         ui.uninstallComponents();
         assertFalse("titlePane uninstalled", belongs(ui.getNorthPane(), frame.getComponents()));
@@ -172,7 +172,7 @@ public class MetalInternalFrameUITest extends SwingTestCase {
     /*
      * Class under test for void setPalette(boolean)
      */
-    public void testSetPalette() {
+    public void _testSetPalette() {
         frame.setUI(ui);
         ui.setPalette(true);
         assertTrue("isPalette of titlePane is true", ((MetalInternalFrameTitlePane) ui

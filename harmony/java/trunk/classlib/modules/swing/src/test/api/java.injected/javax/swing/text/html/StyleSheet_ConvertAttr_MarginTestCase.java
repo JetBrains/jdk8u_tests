@@ -30,7 +30,13 @@ import javax.swing.text.html.CSS.Attribute;
 public abstract class StyleSheet_ConvertAttr_MarginTestCase
     extends BasicSwingTestCase {
 
-    protected StyleSheet ss;
+    class TestStyleSheet extends StyleSheet {
+        public SmallAttributeSet createSmallAttributeSet(AttributeSet a) {
+            return super.createSmallAttributeSet(a);
+        }
+    }
+
+    protected TestStyleSheet ss;
 
     protected AttributeSet empty;
     protected AttributeSet attr;
@@ -45,7 +51,7 @@ public abstract class StyleSheet_ConvertAttr_MarginTestCase
 
     protected void setUp() throws Exception {
         super.setUp();
-        ss = new StyleSheet();
+        ss = new TestStyleSheet();
         empty = ss.getEmptySet();
         simple = new SimpleAttributeSet();
         defUnits = isHarmony() ? "pt" : "";

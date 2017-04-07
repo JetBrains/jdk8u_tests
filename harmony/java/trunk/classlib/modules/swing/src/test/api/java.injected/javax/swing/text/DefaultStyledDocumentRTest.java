@@ -120,7 +120,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertEquals(AbstractDocument.ContentElementName, child.getName());
     }
 
-    public void testDeepTreeInsertString01() throws Exception {
+    public void _testDeepTreeInsertString01() throws Exception {
         initStructure();
         attrs.addAttribute(ELEMENT_NAME, "content");
         doc.insertString(1, "\n", attrs);
@@ -134,7 +134,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertSpec(specs[6], ElementSpec.StartTagType, ElementSpec.JoinNextDirection, 0, 0);
     }
 
-    public void testDeepTreeInsertString02() throws Exception {
+    public void _testDeepTreeInsertString02() throws Exception {
         initStructure();
         attrs.addAttribute(ELEMENT_NAME, "content");
         doc.insertString(1, "^", attrs);
@@ -146,7 +146,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertSpec(specs[4], ElementSpec.ContentType, ElementSpec.OriginateDirection, 0, 1);
     }
 
-    public void testDeepTreeInsert01() throws Exception {
+    public void _testDeepTreeInsert01() throws Exception {
         initStructure();
         ElementSpec[] specs = {
                 new ElementSpec(null, ElementSpec.EndTagType), // 0
@@ -177,7 +177,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertChildren(p, new int[] { 2, 6, 6, 7 });
     }
 
-    public void testDeepTreeInsert02() throws Exception {
+    public void _testDeepTreeInsert02() throws Exception {
         initStructure();
         ElementSpec[] specs = { new ElementSpec(null, ElementSpec.EndTagType), // 0
                 new ElementSpec(null, ElementSpec.EndTagType), // 1
@@ -201,7 +201,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertChildren(p, new int[] { 1, 2, 2, 6, 6, 7 });
     }
 
-    public void testDeepTreeInsertSpecs() throws Exception {
+    public void _testDeepTreeInsertSpecs() throws Exception {
         initStructure();
         ElementSpec[] specs = {
                 new ElementSpec(null, ElementSpec.ContentType, "\n".toCharArray(), 0, 1),
@@ -222,7 +222,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertChildren(p, new int[] { 2, 6, 6, 7 });
     }
 
-    public void testHTMLInsert() throws Exception {
+    public void _testHTMLInsert() throws Exception {
         createEmptyHTMLStructure();
         doc.insertString(0, "0000", DefStyledDoc_Helpers.bold);
         ElementSpec[] specs = { new ElementSpec(null, ElementSpec.EndTagType),
@@ -240,7 +240,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertChildren(child, new int[] { 4, 8, 8, 9 });
     }
 
-    public void testCreate01() throws Exception {
+    public void _testCreate01() throws Exception {
         ElementSpec[] specs = { new ElementSpec(null, ElementSpec.StartTagType),
                 new ElementSpec(null, ElementSpec.ContentType, "^".toCharArray(), 0, 1),
                 new ElementSpec(null, ElementSpec.EndTagType), };
@@ -259,7 +259,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
         assertTrue(child.getElement(0).isLeaf());
     }
 
-    public void testCreate02() throws Exception {
+    public void _testCreate02() throws Exception {
         ElementSpec[] specs = { new ElementSpec(null, ElementSpec.StartTagType),
                 new ElementSpec(null, ElementSpec.StartTagType),
                 new ElementSpec(null, ElementSpec.StartTagType),
@@ -293,7 +293,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
      * belong has other attribute set.
      * @throws BadLocationException
      */
-    public void testInsertString01() throws BadLocationException {
+    public void _testInsertString01() throws BadLocationException {
         doc.remove(0, doc.getLength());
         doc.buffer = new ElementBufferWithLogging(doc, root) {
             private static final long serialVersionUID = 1L;
@@ -341,7 +341,7 @@ public class DefaultStyledDocumentRTest extends BasicSwingTestCase {
      * sets whereas the next run has other attribute set.
      * @throws BadLocationException
      */
-    public void testInsertString02() throws BadLocationException {
+    public void _testInsertString02() throws BadLocationException {
         doc.remove(0, doc.getLength());
         doc.buffer = new ElementBufferWithLogging(doc, root) {
             private static final long serialVersionUID = 1L;

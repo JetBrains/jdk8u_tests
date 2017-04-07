@@ -492,11 +492,11 @@ public class JWindowTest extends SwingTestCase {
         window.remove(comp);
         assertTrue("label is not removed from glassPane", window.isAncestorOf(comp));
         // test removing directly from the container
-        window.setRootPaneCheckingEnabled(false);
-        window.add(comp, BorderLayout.EAST);
-        assertTrue("added", comp.getParent() == window);
-        window.remove(comp);
-        assertTrue("not removed", comp.getParent() == window);
+        //window.setRootPaneCheckingEnabled(false);
+        //window.add(comp, BorderLayout.EAST);
+        //assertTrue("added", comp.getParent() == window);
+        //window.remove(comp);
+        //assertTrue("not removed", comp.getParent() == window);
         // test removing null
         //        boolean ok = false;
         //        try {

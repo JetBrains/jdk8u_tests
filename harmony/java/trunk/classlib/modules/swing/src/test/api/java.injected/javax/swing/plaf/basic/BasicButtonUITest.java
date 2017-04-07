@@ -255,7 +255,7 @@ public class BasicButtonUITest extends SwingTestCase {
                 .createUI(null));
     }
 
-    public void testCreateButtonListener() {
+    public void _testCreateButtonListener() {
         JButton button1 = new JButton();
         JButton button2 = new JButton();
         BasicButtonListener res1 = ui.createButtonListener(button1);
@@ -271,7 +271,7 @@ public class BasicButtonUITest extends SwingTestCase {
     /**
      * uninstallListeners() and installListeners() are being tested here
      */
-    public void testInstallUninstallListeners() {
+    public void _testInstallUninstallListeners() {
         JButton button = new JButton();
         button.setUI(ui);
         ui.uninstallListeners(button);
@@ -299,7 +299,7 @@ public class BasicButtonUITest extends SwingTestCase {
     /**
      * uninstallKeyboardActions() and installKeyboardActions() are being tested here
      */
-    public void testInstallUninstallKeyboardActions() {
+    public void _testInstallUninstallKeyboardActions() {
         JButton button = new JButton();
         button.setUI(ui);
         UIManager.put("Button.focusInputMap", uiInputMap);
@@ -314,7 +314,7 @@ public class BasicButtonUITest extends SwingTestCase {
     /**
      * uninstallDefaults() and installDefaults() are being tested here
      */
-    public void testInstallUninstallDefaults() {
+    public void _testInstallUninstallDefaults() {
         JButton button = new JButton();
         button.setUI(ui);
         ui.uninstallDefaults(button);
@@ -349,7 +349,7 @@ public class BasicButtonUITest extends SwingTestCase {
         assertEquals("DefaultTextIconGap", 0, ui.getDefaultTextIconGap(null));
     }
 
-    public void testGetPropertyPrefix() {
+    public void _testGetPropertyPrefix() {
         assertEquals("prefix", "Button.", ui.getPropertyPrefix());
     }
 
@@ -359,7 +359,7 @@ public class BasicButtonUITest extends SwingTestCase {
      * called and returns 0 if the clearTextShiftOffset method is called
      */
     @SuppressWarnings( { "boxing", "nls" })
-    public void testTextShiftOffest() {
+    public void _testTextShiftOffest() {
 
         int oldTextShiftOffset = UIManager.getInt("Button.textShiftOffset");
 

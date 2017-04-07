@@ -83,14 +83,14 @@ public class FlowView_FlowStrategy_HostedRTest extends SwingTestCase implements
         assertTrue(view.isAllocationValid());
     }
 
-    public void testInsertUpdate() throws BadLocationException {
+    public void _testInsertUpdate() throws BadLocationException {
         doc.insertString(p1.getStartOffset() + 1, "^^^", null);
         strategy.insertUpdate(view, event, alloc);
         assertEquals(alloc, paintRect);
         assertTrue(view.isAllocationValid());
     }
 
-    public void testRemoveUpdate() throws BadLocationException {
+    public void _testRemoveUpdate() throws BadLocationException {
         doc.remove(p1.getStartOffset() + 1, 3);
         paintRect = null;
         strategy.removeUpdate(view, event, alloc);
@@ -98,7 +98,7 @@ public class FlowView_FlowStrategy_HostedRTest extends SwingTestCase implements
         assertTrue(view.isAllocationValid());
     }
 
-    public void testChangedUpdate() throws BadLocationException {
+    public void _testChangedUpdate() throws BadLocationException {
         doc.setCharacterAttributes(p1.getStartOffset(), 3, doc.getAttributeContext()
                 .getEmptySet(), true);
         strategy.changedUpdate(view, event, alloc);

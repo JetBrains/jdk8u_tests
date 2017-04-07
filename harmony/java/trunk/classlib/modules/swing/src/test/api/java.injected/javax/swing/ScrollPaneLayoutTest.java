@@ -21,6 +21,8 @@ package javax.swing;
 
 import java.awt.Dimension;
 
+import static javax.swing.ScrollPaneConstants.*;
+
 public class ScrollPaneLayoutTest extends SwingTestCase {
     private ScrollPaneLayout layout;
 
@@ -44,21 +46,25 @@ public class ScrollPaneLayoutTest extends SwingTestCase {
     }
 
     public void testGetPreferredLayoutSize() throws Exception {
-        layout.colHead = new JViewport();
-        layout.colHead.setPreferredSize(new Dimension(100, 30));
-        layout.rowHead = new JViewport();
-        layout.rowHead.setPreferredSize(new Dimension(50, 20));
+        JViewport colHead = new JViewport();
+        colHead.setPreferredSize(new Dimension(100, 30));
+        layout.addLayoutComponent(COLUMN_HEADER, colHead);
+
+        JViewport rowHead = new JViewport();
+        rowHead.setPreferredSize(new Dimension(50, 20));
+        layout.addLayoutComponent(ROW_HEADER, rowHead);
+
         pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         pane.setBorder(BorderFactory.createEmptyBorder(51, 101, 151, 202));
         pane.setViewportBorder(BorderFactory.createEmptyBorder(51, 101, 151, 202));
-        int width = layout.viewport.getPreferredSize().width
-                + layout.rowHead.getPreferredSize().width
-                + (layout.vsb == null ? 0 : layout.vsb.getBounds().width)
+        int width = layout.getViewport().getPreferredSize().width
+                + rowHead.getPreferredSize().width
+                + (layout.getVerticalScrollBar() == null ? 0 : layout.getVerticalScrollBar().getBounds().width)
                 + pane.getInsets().right + pane.getInsets().left + 101 + 202;
-        int height = layout.viewport.getPreferredSize().height
-                + layout.colHead.getPreferredSize().height
-                + (layout.hsb == null ? 0 : layout.hsb.getBounds().height)
+        int height = layout.getViewport().getPreferredSize().height
+                + colHead.getPreferredSize().height
+                + (layout.getHorizontalScrollBar() == null ? 0 : layout.getHorizontalScrollBar().getBounds().height)
                 + pane.getInsets().top + pane.getInsets().bottom + 51 + 151;
         assertEquals(width, layout.preferredLayoutSize(pane).width);
         assertEquals(height, layout.preferredLayoutSize(pane).height);
@@ -78,13 +84,13 @@ public class ScrollPaneLayoutTest extends SwingTestCase {
 
     public void testDefaultLayout() throws Exception {
         ScrollPaneLayout l = new ScrollPaneLayout();
-        assertNull(l.colHead);
-        assertNull(l.lowerLeft);
-        assertNull(l.lowerRight);
-        assertNull(l.upperLeft);
-        assertNull(l.upperRight);
-        assertEquals(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, l.vsbPolicy);
-        assertEquals(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED, l.hsbPolicy);
+        //assertNull(l.colHead);
+        //assertNull(l.lowerLeft);
+        //assertNull(l.lowerRight);
+        //assertNull(l.upperLeft);
+        //assertNull(l.upperRight);
+        assertEquals(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, l.getVerticalScrollBarPolicy());
+        assertEquals(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED, l.getHorizontalScrollBarPolicy());
     }
 
     public void testSetHorizontalPolicy() throws Exception {
@@ -125,19 +131,19 @@ public class ScrollPaneLayoutTest extends SwingTestCase {
         } 
     }
 
-    public void testGetViewport() throws Exception {
+    public void _testGetViewport() throws Exception {
         assertEquals(layout.viewport, layout.getViewport());
         layout.viewport = null;
         assertNull(layout.getViewport());
     }
 
-    public void testGetHorizontalScrollbar() throws Exception {
+    public void _testGetHorizontalScrollbar() throws Exception {
         assertEquals(layout.hsb, layout.getHorizontalScrollBar());
         layout.hsb = null;
         assertNull(layout.getHorizontalScrollBar());
     }
 
-    public void testGetVerticalScrollbar() throws Exception {
+    public void _testGetVerticalScrollbar() throws Exception {
         assertEquals(layout.vsb, layout.getVerticalScrollBar());
         layout.vsb = null;
         assertNull(layout.getVerticalScrollBar());
@@ -148,12 +154,12 @@ public class ScrollPaneLayoutTest extends SwingTestCase {
         JButton upperLeftButton = new JButton();
         JButton lowerRightButton = new JButton();
         JButton upperRightButton = new JButton();
-        layout.lowerLeft = lowerLeftButton;
-        layout.upperLeft = upperLeftButton;
-        layout.lowerRight = lowerRightButton;
-        layout.upperRight = upperRightButton;
-        assertEquals(lowerLeftButton, layout.getCorner(ScrollPaneConstants.LOWER_LEFT_CORNER));
-        assertEquals(upperLeftButton, layout.getCorner(ScrollPaneConstants.UPPER_LEFT_CORNER));
+        layout.addLayoutComponent(LOWER_LEFT_CORNER, lowerLeftButton);
+        layout.addLayoutComponent(UPPER_LEFT_CORNER, upperLeftButton);
+        layout.addLayoutComponent(LOWER_RIGHT_CORNER, lowerRightButton);
+        layout.addLayoutComponent(UPPER_RIGHT_CORNER, upperRightButton);
+        assertEquals(lowerLeftButton, layout.getCorner(LOWER_LEFT_CORNER));
+        assertEquals(upperLeftButton, layout.getCorner(UPPER_LEFT_CORNER));
         assertEquals(lowerRightButton, layout.getCorner(ScrollPaneConstants.LOWER_RIGHT_CORNER));
         assertEquals(upperRightButton, layout.getCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER));
         assertNull(layout.getCorner("something"));
@@ -161,37 +167,39 @@ public class ScrollPaneLayoutTest extends SwingTestCase {
 
     public void testGetRowHeader() throws Exception {
         assertNull(layout.getRowHeader());
-        layout.rowHead = new JViewport();
-        assertEquals(layout.rowHead, layout.getRowHeader());
+        JViewport rowHead = new JViewport();
+        layout.addLayoutComponent(ROW_HEADER, rowHead);
+        assertEquals(rowHead, layout.getRowHeader());
     }
 
     public void testGetColumnHeader() throws Exception {
         assertNull(layout.getColumnHeader());
-        layout.colHead = new JViewport();
-        assertEquals(layout.colHead, layout.getColumnHeader());
+        JViewport colHead = new JViewport();
+        layout.addLayoutComponent(COLUMN_HEADER, colHead);
+        assertEquals(colHead, layout.getColumnHeader());
     }
 
     public void testSyncWithScrollPane() throws Exception {
         ScrollPaneLayout l = new ScrollPaneLayout();
-        assertNull(l.viewport);
-        assertNull(l.rowHead);
-        assertNull(l.colHead);
-        assertNull(l.lowerLeft);
-        assertNull(l.lowerRight);
-        assertNull(l.upperLeft);
-        assertNull(l.upperRight);
-        assertNull(l.hsb);
-        assertNull(l.vsb);
+        assertNull(l.getViewport());
+        assertNull(l.getRowHeader());
+        assertNull(l.getColumnHeader());
+        assertNull(l.getCorner(LOWER_LEFT_CORNER));
+        assertNull(l.getCorner(LOWER_RIGHT_CORNER));
+        assertNull(l.getCorner(UPPER_LEFT_CORNER));
+        assertNull(l.getCorner(UPPER_RIGHT_CORNER));
+        assertNull(l.getHorizontalScrollBar());
+        assertNull(l.getVerticalScrollBar());
         l.syncWithScrollPane(pane);
-        assertEquals(pane.getViewport(), l.viewport);
-        assertEquals(pane.getRowHeader(), l.rowHead);
-        assertEquals(pane.getColumnHeader(), l.colHead);
-        assertEquals(pane.getHorizontalScrollBar(), l.hsb);
-        assertEquals(pane.getVerticalScrollBar(), l.vsb);
-        assertEquals(pane.getCorner(ScrollPaneConstants.LOWER_LEFT_CORNER), l.lowerLeft);
-        assertEquals(pane.getCorner(ScrollPaneConstants.LOWER_RIGHT_CORNER), l.lowerRight);
-        assertEquals(pane.getCorner(ScrollPaneConstants.UPPER_LEFT_CORNER), l.upperLeft);
-        assertEquals(pane.getCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER), l.upperRight);
+        assertEquals(pane.getViewport(), l.getViewport());
+        assertEquals(pane.getRowHeader(), l.getRowHeader());
+        assertEquals(pane.getColumnHeader(), l.getColumnHeader());
+        assertEquals(pane.getHorizontalScrollBar(), l.getHorizontalScrollBar());
+        assertEquals(pane.getVerticalScrollBar(), l.getVerticalScrollBar());
+        assertEquals(pane.getCorner(LOWER_LEFT_CORNER), l.getCorner(LOWER_LEFT_CORNER));
+        assertEquals(pane.getCorner(LOWER_RIGHT_CORNER), l.getCorner(LOWER_RIGHT_CORNER));
+        assertEquals(pane.getCorner(UPPER_LEFT_CORNER), l.getCorner(UPPER_LEFT_CORNER));
+        assertEquals(pane.getCorner(UPPER_RIGHT_CORNER), l.getCorner(UPPER_RIGHT_CORNER));
         assertEquals(pane.getHorizontalScrollBarPolicy(), l.getHorizontalScrollBarPolicy());
         assertEquals(pane.getVerticalScrollBarPolicy(), l.getVerticalScrollBarPolicy());
         try {
@@ -206,69 +214,85 @@ public class ScrollPaneLayoutTest extends SwingTestCase {
     }
 
     public void testRemoveLayoutComponent() throws Exception {
-        assertNotNull(layout.viewport);
-        layout.removeLayoutComponent(layout.viewport);
-        assertNull(layout.viewport);
-        assertNotNull(layout.vsb);
-        layout.removeLayoutComponent(layout.vsb);
-        assertNull(layout.vsb);
-        assertNotNull(layout.hsb);
-        layout.removeLayoutComponent(layout.hsb);
-        assertNull(layout.hsb);
-        layout.rowHead = new JViewport();
-        assertNotNull(layout.rowHead);
-        layout.removeLayoutComponent(layout.rowHead);
-        assertNull(layout.rowHead);
-        layout.colHead = new JViewport();
-        assertNotNull(layout.colHead);
-        layout.removeLayoutComponent(layout.colHead);
-        assertNull(layout.colHead);
-        layout.lowerLeft = new JButton();
-        assertNotNull(layout.lowerLeft);
-        layout.removeLayoutComponent(layout.lowerLeft);
-        assertNull(layout.lowerLeft);
-        layout.lowerRight = new JButton();
-        assertNotNull(layout.lowerRight);
-        layout.removeLayoutComponent(layout.lowerRight);
-        assertNull(layout.lowerRight);
-        layout.upperLeft = new JButton();
-        assertNotNull(layout.upperLeft);
-        layout.removeLayoutComponent(layout.upperLeft);
-        assertNull(layout.upperLeft);
-        layout.upperRight = new JButton();
-        assertNotNull(layout.upperRight);
-        layout.removeLayoutComponent(layout.upperRight);
-        assertNull(layout.upperRight);
+        assertNotNull(layout.getViewport());
+        layout.removeLayoutComponent(layout.getViewport());
+        assertNull(layout.getViewport());
+        assertNotNull(layout.getVerticalScrollBar());
+        layout.removeLayoutComponent(layout.getVerticalScrollBar());
+        assertNull(layout.getVerticalScrollBar());
+        assertNotNull(layout.getHorizontalScrollBar());
+        layout.removeLayoutComponent(layout.getHorizontalScrollBar());
+        assertNull(layout.getHorizontalScrollBar());
+
+        JViewport rowHead = new JViewport();
+        layout.addLayoutComponent(ROW_HEADER, rowHead);
+        assertNotNull(layout.getRowHeader());
+        layout.removeLayoutComponent(layout.getRowHeader());
+        assertNull(layout.getRowHeader());
+
+        JViewport colHead = new JViewport();
+        layout.addLayoutComponent(COLUMN_HEADER, colHead);
+        assertNotNull(layout.getColumnHeader());
+        layout.removeLayoutComponent(layout.getColumnHeader());
+        assertNull(layout.getColumnHeader());
+
+        JButton lowerLeftButton = new JButton();
+        layout.addLayoutComponent(LOWER_LEFT_CORNER, lowerLeftButton);
+        assertNotNull(layout.getCorner(LOWER_LEFT_CORNER));
+        layout.removeLayoutComponent(layout.getCorner(LOWER_LEFT_CORNER));
+        assertNull(layout.getCorner(LOWER_LEFT_CORNER));
+
+        JButton lowerRightButton = new JButton();
+        layout.addLayoutComponent(LOWER_RIGHT_CORNER, lowerRightButton);
+        assertNotNull(layout.getCorner(LOWER_RIGHT_CORNER));
+        layout.removeLayoutComponent(layout.getCorner(LOWER_RIGHT_CORNER));
+        assertNull(layout.getCorner(LOWER_RIGHT_CORNER));
+
+        JButton upperLeftButton = new JButton();
+        layout.addLayoutComponent(UPPER_LEFT_CORNER, upperLeftButton);
+        assertNotNull(layout.getCorner(UPPER_LEFT_CORNER));
+        layout.removeLayoutComponent(layout.getCorner(UPPER_LEFT_CORNER));
+        assertNull(layout.getCorner(UPPER_LEFT_CORNER));
+
+        JButton upperRightButton = new JButton();
+        layout.addLayoutComponent(UPPER_RIGHT_CORNER, upperRightButton);
+        assertNotNull(layout.getCorner(UPPER_RIGHT_CORNER));
+        layout.removeLayoutComponent(layout.getCorner(UPPER_RIGHT_CORNER));
+        assertNull(layout.getCorner(UPPER_RIGHT_CORNER));
     }
 
-    public void testAddSingletonLayoutComponent() throws Exception {
+    public void _testAddSingletonLayoutComponent() throws Exception {
         JButton newButton = new JButton();
         JButton button = new JButton();
-        pane.setCorner(ScrollPaneConstants.LOWER_LEFT_CORNER, button);
+        pane.setCorner(LOWER_LEFT_CORNER, button);
         int componentCount = pane.getComponentCount();
         assertEquals(newButton, layout.addSingletonComponent(button, newButton));
         assertEquals(componentCount - 1, pane.getComponentCount());
-        pane.setCorner(ScrollPaneConstants.LOWER_LEFT_CORNER, button);
+        pane.setCorner(LOWER_LEFT_CORNER, button);
         componentCount = pane.getComponentCount();
         assertNull(layout.addSingletonComponent(button, null));
         assertEquals(componentCount - 1, pane.getComponentCount());
     }
 
     public void testMinimumLayoutSize() throws Exception {
-        layout.colHead = new JViewport();
-        layout.colHead.setPreferredSize(new Dimension(100, 30));
-        layout.rowHead = new JViewport();
-        layout.rowHead.setPreferredSize(new Dimension(50, 20));
+        JViewport colHead = new JViewport();
+        colHead.setPreferredSize(new Dimension(100, 30));
+        layout.addLayoutComponent(COLUMN_HEADER, colHead);
+
+        JViewport rowHead = new JViewport();
+        rowHead.setPreferredSize(new Dimension(50, 20));
+        layout.addLayoutComponent(ROW_HEADER, rowHead);
+
         pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         pane.setBorder(BorderFactory.createEmptyBorder(51, 101, 151, 202));
         pane.setViewportBorder(BorderFactory.createEmptyBorder(51, 101, 151, 202));
-        int width = layout.viewport.getMinimumSize().width
-                + layout.rowHead.getMinimumSize().width
+        int width = layout.getViewport().getMinimumSize().width
+                + layout.getRowHeader().getMinimumSize().width
                 + pane.getVerticalScrollBar().getMinimumSize().width + pane.getInsets().right
                 + pane.getInsets().left + 101 + 202;
-        int height = layout.viewport.getMinimumSize().height
-                + layout.colHead.getMinimumSize().height
+        int height = layout.getViewport().getMinimumSize().height
+                + layout.getColumnHeader().getMinimumSize().height
                 + pane.getHorizontalScrollBar().getMinimumSize().height + pane.getInsets().top
                 + pane.getInsets().bottom + 51 + 151;
         assertEquals(new Dimension(width, height), layout.minimumLayoutSize(pane));

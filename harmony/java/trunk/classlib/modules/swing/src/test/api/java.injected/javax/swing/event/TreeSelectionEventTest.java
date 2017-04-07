@@ -37,7 +37,7 @@ public class TreeSelectionEventTest extends SwingTestCase {
         event = new TreeSelectionEvent(source, path, isNew, oldSelection, newSelection);
         assertEquals(source, event.getSource());
         assertEquals(path, event.getPath());
-        assertEquals(isNew, event.areNew[0]);
+        assertEquals(isNew, event.isAddedPath());
         assertEquals(oldSelection, event.getOldLeadSelectionPath());
         assertEquals(newSelection, event.getNewLeadSelectionPath());
     }
@@ -57,9 +57,9 @@ public class TreeSelectionEventTest extends SwingTestCase {
         assertEquals(paths[0], event.getPaths()[0]);
         assertEquals(paths[1], event.getPaths()[1]);
         assertEquals(paths[2], event.getPaths()[2]);
-        assertEquals(areNew[0], event.areNew[0]);
-        assertEquals(areNew[1], event.areNew[1]);
-        assertEquals(areNew[2], event.areNew[2]);
+        assertEquals(areNew[0], event.isAddedPath(0));
+        assertEquals(areNew[1], event.isAddedPath(1));
+        assertEquals(areNew[2], event.isAddedPath(2));
         assertEquals(oldSelection, event.getOldLeadSelectionPath());
         assertEquals(newSelection, event.getNewLeadSelectionPath());
     }
@@ -81,9 +81,9 @@ public class TreeSelectionEventTest extends SwingTestCase {
         assertEquals(paths[0], cloned.getPaths()[0]);
         assertEquals(paths[1], cloned.getPaths()[1]);
         assertEquals(paths[2], cloned.getPaths()[2]);
-        assertEquals(areNew[0], cloned.areNew[0]);
-        assertEquals(areNew[1], cloned.areNew[1]);
-        assertEquals(areNew[2], cloned.areNew[2]);
+        assertEquals(areNew[0], cloned.isAddedPath(0));
+        assertEquals(areNew[1], cloned.isAddedPath(1));
+        assertEquals(areNew[2], cloned.isAddedPath(2));
         assertEquals(oldSelection, cloned.getOldLeadSelectionPath());
         assertEquals(newSelection, cloned.getNewLeadSelectionPath());
     }

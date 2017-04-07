@@ -127,7 +127,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         view = new WrappedPlainViewImpl(root);
     }
 
-    public void testLoadChildren() {
+    public void _testLoadChildren() {
         assertEquals(0, view.getViewCount());
         view.loadChildren(null);
         assertEquals(root.getElementCount(), view.getViewCount());
@@ -136,7 +136,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
     /*
      * Class under test for void WrappedPlainView(Element)
      */
-    public void testWrappedPlainViewElement() throws BadLocationException {
+    public void _testWrappedPlainViewElement() throws BadLocationException {
         view = new WrappedPlainViewImpl(root);
         assertSame(root, view.getElement());
         assertEquals("Major axis expected to be Y", View.Y_AXIS, view.getAxis());
@@ -159,7 +159,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
     /*
      * Class under test for void WrappedPlainView(Element, boolean)
      */
-    public void testWrappedPlainViewElementboolean() throws BadLocationException {
+    public void _testWrappedPlainViewElementboolean() throws BadLocationException {
         view = new WrappedPlainViewImpl(root, true);
         assertSame(root, view.getElement());
         assertEquals("Major axis expected to be Y", View.Y_AXIS, view.getAxis());
@@ -171,7 +171,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         assertEquals(" zw", doc.getText(breakOffset - 1, 3));
     }
 
-    public void testNextTabStop() {
+    public void _testNextTabStop() {
         Container container = view.getContainer();
         FontMetrics metrics = container.getFontMetrics(container.getFont());
         view.setSize(300, 100);
@@ -188,13 +188,13 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         assertEquals(tabPos * 2, view.nextTabStop(tabPos, 0), 0.00001f);
     }
 
-    public void testGetTabSize() {
+    public void _testGetTabSize() {
         assertEquals(8, view.getTabSize());
         doc.putProperty(PlainDocument.tabSizeAttribute, new Integer(4));
         assertEquals(4, view.getTabSize());
     }
 
-    public void testGetLineBuffer() {
+    public void _testGetLineBuffer() {
         Segment buffer = view.getLineBuffer();
         assertNotNull(buffer);
         assertSame(buffer, view.getLineBuffer());
@@ -204,7 +204,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
     /**
      * Tests calculateBreakPosition method with word wrapping turned off.
      */
-    public void testCalculateBreakPosition01() throws BadLocationException {
+    public void _testCalculateBreakPosition01() throws BadLocationException {
         Container container = view.getContainer();
         FontMetrics metrics = container.getFontMetrics(container.getFont());
         Element line = root.getElement(0);
@@ -237,7 +237,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
     /**
      * Tests calculateBreakPosition method with word wrapping turned on.
      */
-    public void testCalculateBreakPosition02() throws BadLocationException {
+    public void _testCalculateBreakPosition02() throws BadLocationException {
         view = new WrappedPlainViewImpl(root, true);
         Container container = view.getContainer();
         FontMetrics metrics = container.getFontMetrics(container.getFont());
@@ -270,7 +270,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
      * Tests calculateBreakPosition method with word wrapping turned on and
      * very-very long string.
      */
-    public void testCalculateBreakPosition03() throws BadLocationException {
+    public void _testCalculateBreakPosition03() throws BadLocationException {
         String veryLongString = "aVeryVeryVeryLongString";
         doc.insertString(root.getElement(1).getStartOffset(), veryLongString, null);
         Container container = view.getContainer();
@@ -288,7 +288,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         assertFalse(" ".equals(doc.getText(breakPos - 1, 1)));
     }
 
-    public void testInsertUpdate() {
+    public void _testInsertUpdate() {
         view.loadChildren(null);
         view.insertUpdate(docEvent, shape, null);
         if (BasicSwingTestCase.isHarmony()) {
@@ -299,7 +299,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         }
     }
 
-    public void testRemoveUpdate() {
+    public void _testRemoveUpdate() {
         view.loadChildren(null);
         view.removeUpdate(docEvent, shape, null);
         if (BasicSwingTestCase.isHarmony()) {
@@ -308,7 +308,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         }
     }
 
-    public void testChangedUpdate() {
+    public void _testChangedUpdate() {
         view.loadChildren(null);
         view.changedUpdate(docEvent, shape, null);
         if (BasicSwingTestCase.isHarmony()) {
@@ -317,7 +317,7 @@ public class WrappedPlainView_SimpleTest extends SwingTestCase {
         }
     }
 
-    public void testSetSize() {
+    public void _testSetSize() {
         assertFalse(view.isLayoutValid(View.X_AXIS));
         assertFalse(view.isLayoutValid(View.Y_AXIS));
         view.setSize(width, height);

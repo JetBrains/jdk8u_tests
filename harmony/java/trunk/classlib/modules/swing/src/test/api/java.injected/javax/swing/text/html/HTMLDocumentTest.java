@@ -105,7 +105,7 @@ public class HTMLDocumentTest extends DefaultStyledDocumentTest {
         assertEquals("default", style.getAttribute(StyleConstants.NameAttribute));
     }
 
-    public void testCreateLeafElement() throws BadLocationException {
+    public void _testCreateLeafElement() throws BadLocationException {
         Element leaf = htmlDoc.createLeafElement(null, null, 0, 1);
         assertTrue(leaf instanceof HTMLDocument.RunElement);
         assertNull(leaf.getParentElement());
@@ -127,7 +127,7 @@ public class HTMLDocumentTest extends DefaultStyledDocumentTest {
         assertEquals(0, leaf2.getEndOffset());
     }
 
-    public void testCreateBranchElement() {
+    public void _testCreateBranchElement() {
         Element branch = htmlDoc.createBranchElement(null, null);
         assertTrue(branch instanceof HTMLDocument.BlockElement);
         assertNull(branch.getParentElement());
@@ -167,7 +167,7 @@ public class HTMLDocumentTest extends DefaultStyledDocumentTest {
         }
     }
 
-    public void testCreateDefaultRoot() {
+    public void _testCreateDefaultRoot() {
         try {
             htmlDoc.insertString(0, "123", null);
         } catch (BadLocationException e) {}

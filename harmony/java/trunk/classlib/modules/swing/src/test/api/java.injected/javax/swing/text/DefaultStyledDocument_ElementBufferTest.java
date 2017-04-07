@@ -42,7 +42,7 @@ public class DefaultStyledDocument_ElementBufferTest extends TestCase {
         doc.buffer = buf;
     }
 
-    public void testElementBuffer() throws BadLocationException {
+    public void _testElementBuffer() throws BadLocationException {
         Element leaf = doc.new LeafElement(null, null, 0, 1);
         buf = doc.new ElementBuffer(leaf);
         assertSame(leaf, buf.getRootElement());
@@ -53,7 +53,7 @@ public class DefaultStyledDocument_ElementBufferTest extends TestCase {
      *
      * Clones a LeafElement.
      */
-    public void testCloneLeaf() throws BadLocationException {
+    public void _testCloneLeaf() throws BadLocationException {
         doc.writeLock();
         try {
             MutableAttributeSet attrs = new SimpleAttributeSet();
@@ -85,7 +85,7 @@ public class DefaultStyledDocument_ElementBufferTest extends TestCase {
      *
      * Clones a BranchElement.
      */
-    public void testCloneBranch() throws BadLocationException {
+    public void _testCloneBranch() throws BadLocationException {
         doc.writeLock();
         try {
             MutableAttributeSet attrs = new SimpleAttributeSet();
@@ -117,7 +117,7 @@ public class DefaultStyledDocument_ElementBufferTest extends TestCase {
         }
     }
 
-    public void testGetRootElement() {
+    public void _testGetRootElement() {
         Element docRoot = doc.getDefaultRootElement();
         Element bufRoot = buf.getRootElement();
         assertSame(docRoot, bufRoot);

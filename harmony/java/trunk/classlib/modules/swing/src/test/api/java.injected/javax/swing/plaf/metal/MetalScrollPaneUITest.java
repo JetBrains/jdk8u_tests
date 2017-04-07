@@ -44,7 +44,7 @@ public class MetalScrollPaneUITest extends SwingTestCase {
         assertNotSame(MetalScrollPaneUI.createUI(null), MetalScrollPaneUI.createUI(null));
     }
 
-    public void testCreateScrollBarSwapListener() throws Exception {
+    public void _testCreateScrollBarSwapListener() throws Exception {
         assertNotNull(ui.createScrollBarSwapListener());
     }
 

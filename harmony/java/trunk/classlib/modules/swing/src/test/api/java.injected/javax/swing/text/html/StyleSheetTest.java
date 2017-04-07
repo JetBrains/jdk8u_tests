@@ -59,14 +59,20 @@ public class StyleSheetTest extends BasicSwingTestCase {
         "    text-indent: 1.25cm\n" +
         "}\n";
 
-    private StyleSheet ss;
+    class TestStyleSheet extends StyleSheet {
+        public SmallAttributeSet createSmallAttributeSet(AttributeSet a) {
+            return super.createSmallAttributeSet(a);
+        }
+    }
+
+    private TestStyleSheet ss;
     private AttributeSet empty;
     private AttributeSet attr;
     private MutableAttributeSet simple;
 
     protected void setUp() throws Exception {
         super.setUp();
-        ss = new StyleSheet();
+        ss = new TestStyleSheet();
         empty = ss.getEmptySet();
         simple = new SimpleAttributeSet();
     }
@@ -718,7 +724,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
 
     public void testAddCSSAttributeFromHTML_AddCSS() {
         final Marker marker = new Marker();
-        ss = new StyleSheet() {
+        ss = new TestStyleSheet() {
             public void addCSSAttribute(final MutableAttributeSet attr,
                                         final Attribute key,
                                         final String value) {

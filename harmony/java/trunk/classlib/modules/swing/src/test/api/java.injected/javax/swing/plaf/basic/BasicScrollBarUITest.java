@@ -58,20 +58,20 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
     /**
      * Regression test for HARMONY-2854
      */
-    public void testGetTrackThumbNewUI() {
+    public void _testGetTrackThumbNewUI() {
         barUI = new BasicScrollBarUI();
         assertNull(barUI.getTrackBounds());
         assertNull(barUI.getThumbBounds());
     }
     
-    public void testSetThumbBounds() throws Exception {
+    public void _testSetThumbBounds() throws Exception {
         Rectangle bounds = barUI.getThumbBounds();
         barUI.setThumbBounds(2, 3, 4, 5);
         assertEquals(new Rectangle(2, 3, 4, 5), barUI.getThumbBounds());
         assertTrue(barUI.getThumbBounds() == bounds);
     }
 
-    public void testGetThumbBounds() throws Exception {
+    public void _testGetThumbBounds() throws Exception {
         Frame f = new Frame();
         f.setLayout(null);
         f.add(bar);
@@ -104,7 +104,7 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         assertEquals(2, bar.getComponentCount());
     }
 
-    public void testPreferredLayoutSize() throws Exception {
+    public void _testPreferredLayoutSize() throws Exception {
         assertEquals(barUI.preferredLayoutSize(bar), barUI.getPreferredSize(bar));
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(500, 600));
@@ -120,7 +120,7 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         f.dispose();
     }
 
-    public void testGetMinimumSize() throws Exception {
+    public void _testGetMinimumSize() throws Exception {
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(500, 600));
         label.setBackground(Color.RED);
@@ -139,7 +139,7 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         f.dispose();
     }
 
-    public void testGetMaximumSize() throws Exception {
+    public void _testGetMaximumSize() throws Exception {
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(500, 600));
         label.setBackground(Color.RED);
@@ -154,19 +154,19 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         f.dispose();
     }
 
-    public void testCreateDecreaseButton() throws Exception {
+    public void _testCreateDecreaseButton() throws Exception {
         final JButton b = barUI.createDecreaseButton(SwingConstants.VERTICAL);
         assertTrue(b instanceof BasicArrowButton);
         assertFalse(b == barUI.createDecreaseButton(SwingConstants.VERTICAL));
     }
 
-    public void testCreateIncreaseButton() throws Exception {
+    public void _testCreateIncreaseButton() throws Exception {
         final JButton b = barUI.createIncreaseButton(SwingConstants.VERTICAL);
         assertTrue(b instanceof BasicArrowButton);
         assertFalse(b == barUI.createIncreaseButton(SwingConstants.VERTICAL));
     }
 
-    public void testGetMaximumThumbSize() throws Exception {
+    public void _testGetMaximumThumbSize() throws Exception {
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(500, 600));
         label.setBackground(Color.RED);
@@ -180,12 +180,12 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         f.dispose();
     }
 
-    public void testCreateArrowButtonListener() throws Exception {
+    public void _testCreateArrowButtonListener() throws Exception {
         assertNotNull(barUI.createArrowButtonListener());
         assertFalse(barUI.createArrowButtonListener() == barUI.createArrowButtonListener());
     }
 
-    public void testCreatePropertyChangeListener() throws Exception {
+    public void _testCreatePropertyChangeListener() throws Exception {
         assertNotNull(barUI.createPropertyChangeListener());
         if (isHarmony()) {
             assertFalse(barUI.createPropertyChangeListener() == barUI
@@ -193,17 +193,17 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         }
     }
 
-    public void testCreateModelListener() throws Exception {
+    public void _testCreateModelListener() throws Exception {
         assertNotNull(barUI.createModelListener());
         assertFalse(barUI.createModelListener() == barUI.createModelListener());
     }
 
-    public void testCreateTrackListener() throws Exception {
+    public void _testCreateTrackListener() throws Exception {
         assertNotNull(barUI.createTrackListener());
         assertFalse(barUI.createTrackListener() == barUI.createTrackListener());
     }
 
-    public void testUninstallListeners() throws Exception {
+    public void _testUninstallListeners() throws Exception {
         assertEquals(2, barUI.incrButton.getMouseListeners().length);
         assertEquals(1, bar.getMouseListeners().length);
         assertEquals(1, bar.getPropertyChangeListeners().length);
@@ -215,7 +215,7 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         assertEquals(1, barUI.incrButton.getMouseListeners().length);
     }
 
-    public void testLayoutContainer() throws Exception {
+    public void _testLayoutContainer() throws Exception {
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(500, 600));
         label.setBackground(Color.RED);
@@ -241,7 +241,7 @@ public class BasicScrollBarUITest extends BasicSwingTestCase {
         f.dispose();
     }
 
-    public void testConfigureScrollBarColors() {
+    public void _testConfigureScrollBarColors() {
 	try {            
             new BasicScrollBarUI().configureScrollBarColors();
             fail("NPE expected");

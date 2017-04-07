@@ -172,7 +172,7 @@ public class CompositeView_ModelViewTest extends TestCase {
     /*
      * Class under test for Shape modelToView(int, Bias, int, Bias, Shape)
      */
-    public void testModelToViewintBiasintBiasShape() throws BadLocationException {
+    public void _testModelToViewintBiasintBiasShape() throws BadLocationException {
         Shape res;
         Rectangle rc1;
         Rectangle rc2;
@@ -251,7 +251,7 @@ public class CompositeView_ModelViewTest extends TestCase {
     /*
      * Class under test for Shape modelToView(int, Shape, Bias)
      */
-    public void testModelToViewintShapeBias() throws BadLocationException {
+    public void _testModelToViewintShapeBias() throws BadLocationException {
         assertEquals(new Rectangle(bounds.x, bounds.y, 1, LINE_HEIGHT), view.modelToView(0,
                 shape, Bias.Forward));
         assertSame(view.getView(0), viewAsked);
@@ -277,7 +277,7 @@ public class CompositeView_ModelViewTest extends TestCase {
      * For isBefore, isAfter the Y is used only. In this test either
      * isBefore or isAfter is true.
      */
-    public void testViewToModel01() {
+    public void _testViewToModel01() {
         CompositeViewTest.useBoth = false;
         CompositeViewTest.useX = false;
         int x, y;
@@ -296,7 +296,7 @@ public class CompositeView_ModelViewTest extends TestCase {
      * Tests viewToModel(float, float, Shape, Bias[]).
      * For isBefore, isAfter (always false in the test) the Y is used only.
      */
-    public void testViewToModel02() {
+    public void _testViewToModel02() {
         CompositeViewTest.useBoth = false;
         CompositeViewTest.useX = false;
         int x, y;
@@ -346,7 +346,7 @@ public class CompositeView_ModelViewTest extends TestCase {
      * (irrelevant asserts are removed) but:
      * for isBefore and isAfter, the X is used only.
      */
-    public void testViewToModel03() {
+    public void _testViewToModel03() {
         CompositeViewTest.useBoth = false;
         CompositeViewTest.useX = true;
         int x, y;
@@ -394,7 +394,7 @@ public class CompositeView_ModelViewTest extends TestCase {
      * <code>view.getStartOffset() != 0</code> and
      * <code>view.getEndOffset() != doc.getLength()</code>.
      */
-    public void testViewToModel04() {
+    public void _testViewToModel04() {
         // Modify the root
         final int oldCount = root.getElementCount();
         BranchElement docRoot = (BranchElement) root;
@@ -428,7 +428,7 @@ public class CompositeView_ModelViewTest extends TestCase {
         }
     }
 
-    public void testViewToModel05() {
+    public void _testViewToModel05() {
         final boolean[] methodCalled = new boolean[] { false };
         view = new WithChildrenView(root) {
             @Override

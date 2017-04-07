@@ -72,7 +72,7 @@ public class BoxViewRTest extends BasicSwingTestCase {
     /**
      * Checks that children have their sizes set after setSize.
      */
-    public void testSetSizeChildren() throws Exception {
+    public void _testSetSizeChildren() throws Exception {
         View[] children = new View[] { new Child(root.getElement(0), 0),
                 new Child(root.getElement(1), 1), };
         view.replace(0, view.getViewCount(), children);
@@ -88,7 +88,7 @@ public class BoxViewRTest extends BasicSwingTestCase {
     /**
      * Checks that children have their sizes set after layout.
      */
-    public void testLayoutChildren() throws Exception {
+    public void _testLayoutChildren() throws Exception {
         View[] children = new View[] { new Child(root.getElement(0), 0),
                 new Child(root.getElement(1), 1), };
         view.replace(0, view.getViewCount(), children);
@@ -111,7 +111,7 @@ public class BoxViewRTest extends BasicSwingTestCase {
      * <p>There's no limit to layout tries in our implementation. Hence layout may
      * cause stack overflow if a child always changes its preferences.
      */
-    public void testLayout() throws Exception {
+    public void _testLayout() throws Exception {
         View[] children = new View[] { new Child(root.getElement(0), 0),
                 new Child(root.getElement(1), 1) {
                     private int iteration = 0;
@@ -150,7 +150,7 @@ public class BoxViewRTest extends BasicSwingTestCase {
     /**
      * Tests that layout is invalidated upon change of axis.
      */
-    public void testSetAxisLayout() {
+    public void _testSetAxisLayout() {
         assertEquals(View.Y_AXIS, view.getAxis());
         view.layout(width, height);
         assertTrue(view.isAllocationValid());
@@ -162,7 +162,7 @@ public class BoxViewRTest extends BasicSwingTestCase {
         assertFalse(view.isAllocationValid());
     }
 
-    public void testBaselineLayout() throws BadLocationException {
+    public void _testBaselineLayout() throws BadLocationException {
         doc.insertString(0, "uno\ndos\t2\ntres\ncuatro", null);
         final Marker major = new Marker(true);
         final Marker minor = new Marker(true);

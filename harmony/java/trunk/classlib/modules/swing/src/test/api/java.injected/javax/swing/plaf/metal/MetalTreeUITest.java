@@ -112,11 +112,11 @@ public class MetalTreeUITest extends SwingTestCase {
         assertNotSame(MetalTreeUI.createUI(tree), MetalTreeUI.createUI(tree));
     }
 
-    public void testGetHorizontalLegBuffer() {
+    public void _testGetHorizontalLegBuffer() {
         assertEquals(4, ui.getHorizontalLegBuffer());
     }
 
-    public void testIsLocationInExpandControl() throws Exception {
+    public void _testIsLocationInExpandControl() throws Exception {
         tree.setShowsRootHandles(false);
         tree.expandPath(tree.getPathForRow(1));
         assertFalse(ui.isLocationInExpandControl(0, 0, -26, 25));

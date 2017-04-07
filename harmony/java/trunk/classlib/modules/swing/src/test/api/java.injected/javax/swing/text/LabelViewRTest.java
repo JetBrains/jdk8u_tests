@@ -42,7 +42,7 @@ public class LabelViewRTest extends BasicSwingTestCase {
         labelView = new LabelView(styledDoc.getDefaultRootElement().getElement(0).getElement(0));
     }
 
-    public void testSetPropertiesFromAttributes() {
+    public void _testSetPropertiesFromAttributes() {
         final Marker backgroundColorSetterMarker = new Marker();
         labelView = new LabelView(styledDoc.getDefaultRootElement().getElement(0).getElement(0)) {
             @Override

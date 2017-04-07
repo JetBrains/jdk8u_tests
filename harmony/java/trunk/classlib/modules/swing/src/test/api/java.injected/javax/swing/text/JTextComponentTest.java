@@ -401,7 +401,7 @@ public class JTextComponentTest extends SwingTestCase {
     }
 
     // Regression for HARMONY-2819
-    public void testFireCaretUpdateNull() throws Exception {
+    public void _testFireCaretUpdateNull() throws Exception {
         new JTextArea().fireCaretUpdate(null);
         // no exception is expected
     }
@@ -483,7 +483,7 @@ public class JTextComponentTest extends SwingTestCase {
         strOrderProcessInputMethodEventText = "";
     }
 
-    public void testProcessInputMethodEventInputMethodEvent() throws Exception {
+    public void _testProcessInputMethodEventInputMethodEvent() throws Exception {
         SimpleInputMethodListener listener1 = new SimpleInputMethodListener("1");
         SimpleInputMethodListener listener2 = new SimpleInputMethodListener("2");
         SimpleInputMethodListener listener3 = new SimpleInputMethodListener("3");

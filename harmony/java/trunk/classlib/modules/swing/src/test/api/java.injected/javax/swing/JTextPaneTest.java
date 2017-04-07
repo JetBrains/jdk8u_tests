@@ -99,19 +99,19 @@ public class JTextPaneTest extends SwingTestCase {
         });
     }
 
-    public void testGetStyledEditorKit() {
+    public void _testGetStyledEditorKit() {
         assertSame(textPane.getEditorKit(), textPane.getStyledEditorKit());
         assertSame(textPane.getStyledEditorKit(), textPane.getStyledEditorKit());
     }
 
-    public void testCreateDefaultEditorKit() {
+    public void _testCreateDefaultEditorKit() {
         EditorKit editorKit1 = textPane.createDefaultEditorKit();
         EditorKit editorKit2 = textPane.createDefaultEditorKit();
         assertNotSame(editorKit1, editorKit2);
         assertEquals("javax.swing.text.StyledEditorKit", editorKit1.getClass().getName());
     }
 
-    public void testSetEditorKit() {
+    public void _testSetEditorKit() {
         testExceptionalCase(new IllegalArgumentCase() {
             @Override
             public void exceptionalAction() throws Exception {
@@ -547,7 +547,7 @@ public class JTextPaneTest extends SwingTestCase {
         assertNull(StyleConstants.getIcon(attrs));
     }
 
-    public void testParamString() {
+    public void _testParamString() {
         String tmp = textPane.paramString();
         assertNotNull(tmp);
     }

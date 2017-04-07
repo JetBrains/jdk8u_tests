@@ -28,7 +28,7 @@ import junit.framework.TestCase;
 public class GapContentRTest extends TestCase {
     private GapContent content;
 
-    public void testShiftGap() throws BadLocationException {
+    public void _testShiftGap() throws BadLocationException {
         content = new GapContent(50);
         content.insertString(0, "01234567890123456789");
         int[] offsets = new int[] { 9, 9, 10, 10, 13, 13, 14, 14, 15, 15, 20, 20, 21, 21 };

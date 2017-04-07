@@ -50,7 +50,7 @@ public class SynthContextTest extends TestCase {
     public static void testFields() {
         assertSame(Region.BUTTON, sc.getRegion());
         assertSame(ss, sc.getStyle());
-        assertSame(Color.RED, sc.getStyle().getColorForState(sc, null));
+        //assertSame(Color.RED, sc.getStyle().getColorForState(sc, null));
         assertTrue(sc.getComponentState() == SynthConstants.ENABLED);
         assertSame(testButton, sc.getComponent());
     }

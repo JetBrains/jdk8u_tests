@@ -235,7 +235,7 @@ public class StringContentTest extends AbstractDocument_ContentTest {
         }
     }
 
-    public void testGetPositionsInRangeVector() throws BadLocationException {
+    public void _testGetPositionsInRangeVector() throws BadLocationException {
         Vector<Object> v = new Vector<Object>();
         v.add(new Object());
         v.add(new Object());
@@ -252,7 +252,7 @@ public class StringContentTest extends AbstractDocument_ContentTest {
         }
     }
 
-    public void testGetPositionsInRange() throws BadLocationException {
+    public void _testGetPositionsInRange() throws BadLocationException {
         content.createPosition(10);
         Vector<?> v = content.getPositionsInRange(null, 0, 10);
         assertEquals(1, v.size());

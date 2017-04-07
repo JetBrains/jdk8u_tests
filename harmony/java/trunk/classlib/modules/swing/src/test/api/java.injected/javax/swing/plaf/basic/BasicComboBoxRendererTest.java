@@ -45,7 +45,7 @@ public class BasicComboBoxRendererTest extends SwingTestCase {
         renderer = null;
     }
 
-    public void testBasicComboBoxRenderer() throws Exception {
+    public void _testBasicComboBoxRenderer() throws Exception {
         assertNotNull(BasicComboBoxRenderer.noFocusBorder);
         assertEquals(BasicComboBoxRenderer.noFocusBorder, renderer.getBorder());
         BasicComboBoxRenderer.noFocusBorder = BorderFactory.createEmptyBorder(1, 1, 1, 1);
@@ -88,7 +88,7 @@ public class BasicComboBoxRendererTest extends SwingTestCase {
         assertEquals(Color.blue, renderer.getBackground());
     }
 
-    public void testGetPreferredSize() throws Exception {
+    public void _testGetPreferredSize() throws Exception {
         JLabel l = new JLabel(" ");
         l.setBorder(BasicComboBoxRenderer.noFocusBorder);
         assertEquals(l.getPreferredSize(), renderer.getPreferredSize());

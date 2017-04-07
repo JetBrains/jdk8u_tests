@@ -103,7 +103,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, null)</code>,
      * where <code>insertOffset = 0</code>.
      */
-    public void testInsertSameAttrsDocStart() throws Exception {
+    public void _testInsertSameAttrsDocStart() throws Exception {
         insertOffset = 0;
         // doc.insertString(insertOffset, newLine, null);
         content.insertString(insertOffset, newLine);
@@ -134,7 +134,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, italic)</code>,
      * where <code>insertOffset = 0</code>.
      */
-    public void testInsertDiffAttrsDocStart() throws Exception {
+    public void _testInsertDiffAttrsDocStart() throws Exception {
         insertOffset = 0;
         // doc.insertString(insertOffset, newLine, italic);
         content.insertString(insertOffset, newLine);
@@ -164,7 +164,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * where <code>insertOffset</code> has default value from
      * <code>setUp()</code>.
      */
-    public void testInsertSameAttrsMiddle() throws Exception {
+    public void _testInsertSameAttrsMiddle() throws Exception {
         // doc.insertString(insertOffset, newLine, bold);
         content.insertString(insertOffset, newLine);
         event = doc.new DefaultDocumentEvent(insertOffset, newLineLen, EventType.INSERT);
@@ -194,7 +194,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, bold)</code>,
      * where 2 is added to default value of <code>insertOffset</code>.
      */
-    public void testInsertSameAttrsEnd() throws Exception {
+    public void _testInsertSameAttrsEnd() throws Exception {
         insertOffset += 2;
         // doc.insertString(insertOffset, newLine, bold);
         content.insertString(insertOffset, newLine);
@@ -227,7 +227,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * where <code>insertOffset</code> has default value from
      * <code>setUp()</code>.
      */
-    public void testInsertDiffAttrsMiddle() throws Exception {
+    public void _testInsertDiffAttrsMiddle() throws Exception {
         // doc.insertString(insertOffset, newLine, null);
         content.insertString(insertOffset, newLine);
         event = doc.new DefaultDocumentEvent(insertOffset, newLineLen, EventType.INSERT);
@@ -257,7 +257,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, null)</code>,
      * where 2 is added to default value of <code>insertOffset</code>.
      */
-    public void testInsertDiffAttrsEnd() throws Exception {
+    public void _testInsertDiffAttrsEnd() throws Exception {
         insertOffset += 2;
         // doc.insertString(insertOffset, newLine, null);
         content.insertString(insertOffset, newLine);
@@ -289,7 +289,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, italic)</code>,
      * where 2 is added to default value of <code>insertOffset</code>.
      */
-    public void testInsertDiffSameAttrsEnd() throws Exception {
+    public void _testInsertDiffSameAttrsEnd() throws Exception {
         insertOffset += 2;
         // doc.insertString(insertOffset, newLine, italic);
         content.insertString(insertOffset, newLine);
@@ -319,7 +319,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, null)</code>,
      * where <code>insertOffset = paragraph.getEndOffset()</code>.
      */
-    public void testInsertSameAttrsParStart() throws Exception {
+    public void _testInsertSameAttrsParStart() throws Exception {
         insertOffset = paragraph.getEndOffset();
         // doc.insertString(insertOffset, newLine, null);
         content.insertString(insertOffset, newLine);
@@ -351,7 +351,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, italic)</code>,
      * where <code>insertOffset = paragraph.getEndOffset()</code>.
      */
-    public void testInsertDiffAttrsParStart() throws Exception {
+    public void _testInsertDiffAttrsParStart() throws Exception {
         insertOffset = paragraph.getEndOffset();
         // doc.insertString(insertOffset, newLine, italic);
         content.insertString(insertOffset, newLine);
@@ -383,7 +383,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, null)</code>,
      * where <code>insertOffset = doc.getLength()</code>.
      */
-    public void testInsertSameAttrsDocEnd() throws Exception {
+    public void _testInsertSameAttrsDocEnd() throws Exception {
         insertOffset = doc.getLength();
         // doc.insertString(insertOffset, newLine, null);
         content.insertString(insertOffset, newLine);
@@ -411,7 +411,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertNewLineTest extends TestC
      * <code>doc.insertString(insertOffset, newLine, italic)</code>,
      * where <code>insertOffset = doc.getLength()</code>.
      */
-    public void testInsertDiffAttrsDocEnd() throws Exception {
+    public void _testInsertDiffAttrsDocEnd() throws Exception {
         insertOffset = doc.getLength();
         // doc.insertString(insertOffset, newLine, italic);
         content.insertString(insertOffset, newLine);

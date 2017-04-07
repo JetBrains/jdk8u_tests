@@ -46,7 +46,7 @@ public class BasicTabbedPaneUIRTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testPreferredLayoutSize() {
+    public void _testPreferredLayoutSize() {
         JPanel tabContent1 = new JPanel();
         tabContent1.setPreferredSize(new Dimension(300, 300));
         tabContent1.setMinimumSize(new Dimension(200, 200));

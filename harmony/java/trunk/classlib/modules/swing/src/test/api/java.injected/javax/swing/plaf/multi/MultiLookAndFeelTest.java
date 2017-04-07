@@ -66,7 +66,7 @@ public class MultiLookAndFeelTest extends TestCase {
 	 * 'javax.swing.plaf.multi.MultiLookAndFeel.createUIs(ComponentUI, Vector,
 	 * JComponent)'
 	 */
-	public void testCreateUIs() {
+	public void _testCreateUIs() {
 
 		JButton button = new JButton();
 		JLabel label = new JLabel();
@@ -110,7 +110,7 @@ public class MultiLookAndFeelTest extends TestCase {
 	 * 'javax.swing.plaf.multi.MultiLookAndFeel.uisToArray(Vector)'
 	 */
 	@SuppressWarnings("unchecked")
-	public void testUisToArray() {
+	public void _testUisToArray() {
 
 		assertEquals(0, MultiLookAndFeel.uisToArray(null).length);
 		assertNull(MultiLookAndFeel.uisToArray(new Vector()));

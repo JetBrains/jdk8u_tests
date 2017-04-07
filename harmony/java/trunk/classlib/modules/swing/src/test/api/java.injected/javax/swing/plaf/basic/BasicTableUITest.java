@@ -58,7 +58,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         ui = null;
     }
 
-    public void testBasicTableUI() throws Exception {
+    public void _testBasicTableUI() throws Exception {
         assertNull(ui.table);
         assertNull(ui.rendererPane);
         assertNull(ui.focusListener);
@@ -66,17 +66,17 @@ public class BasicTableUITest extends BasicSwingTestCase {
         assertNull(ui.mouseInputListener);
     }
 
-    public void testCreateKeyListener() throws Exception {
+    public void _testCreateKeyListener() throws Exception {
         assertNull(ui.createKeyListener());
     }
 
-    public void testCreateFocusListener() throws Exception {
+    public void _testCreateFocusListener() throws Exception {
         assertTrue(ui.createFocusListener() instanceof BasicTableUI.FocusHandler);
         assertNotSame(ui.createFocusListener(), ui.createFocusListener());
         assertNull(ui.focusListener);
     }
 
-    public void testCreateMouseInputListener() throws Exception {
+    public void _testCreateMouseInputListener() throws Exception {
         assertTrue(ui.createMouseInputListener() instanceof BasicTableUI.MouseInputHandler);
         assertNotSame(ui.createMouseInputListener(), ui.createMouseInputListener());
         assertNull(ui.mouseInputListener);
@@ -87,14 +87,14 @@ public class BasicTableUITest extends BasicSwingTestCase {
         assertNotSame(BasicTableUI.createUI(null), BasicTableUI.createUI(null));
     }
 
-    public void testInstallUI() throws Exception {
+    public void _testInstallUI() throws Exception {
         JTable table = new JTable();
         ui.installUI(table);
         assertSame(table, ui.table);
         assertNotNull(ui.rendererPane);
     }
 
-    public void testUninstallUI() throws Exception {
+    public void _testUninstallUI() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
             @Override
@@ -109,7 +109,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         assertNull(ui.rendererPane);
     }
 
-    public void testGetMinimumMaximumPreferredSize() throws Exception {
+    public void _testGetMinimumMaximumPreferredSize() throws Exception {
         JTable table = new JTable();
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
@@ -162,7 +162,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         assertEquals(new Dimension(70, 50), ui.getPreferredSize(null));
     }
 
-    public void testPaint() throws Exception {
+    public void _testPaint() throws Exception {
         ui.table = new JTable();
         DefaultTableModel model = (DefaultTableModel) ui.table.getModel();
         model.addColumn("column1");
@@ -191,7 +191,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         });
     }
 
-    public void testInstallDefaults() throws Exception {
+    public void _testInstallDefaults() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
             @Override
@@ -211,7 +211,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
                 .getSelectionBackground());
     }
 
-    public void testInstallKeyboardActions() throws Exception {
+    public void _testInstallKeyboardActions() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
             @Override
@@ -221,7 +221,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         });
     }
 
-    public void testUninstallDefaults() throws Exception {
+    public void _testUninstallDefaults() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
             @Override
@@ -231,7 +231,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         });
     }
 
-    public void testUninstallKeyboardActions() throws Exception {
+    public void _testUninstallKeyboardActions() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
             @Override
@@ -241,7 +241,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         });
     }
 
-    public void testInstallListeners() throws Exception {
+    public void _testInstallListeners() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
             @Override
@@ -251,7 +251,7 @@ public class BasicTableUITest extends BasicSwingTestCase {
         });
     }
 
-    public void testUninstallListeners() throws Exception {
+    public void _testUninstallListeners() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             // Regression test for HARMONY-2613
             @Override

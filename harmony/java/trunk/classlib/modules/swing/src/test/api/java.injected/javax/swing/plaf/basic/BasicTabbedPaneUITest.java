@@ -44,6 +44,32 @@ import javax.swing.SwingTestCase;
 public class BasicTabbedPaneUITest extends SwingTestCase {
     private JTabbedPane tabbed;
 
+    class MyBasicTabbedPaneUI extends BasicTabbedPaneUI {
+        public FontMetrics getFontMetrics() {
+            return super.getFontMetrics();
+        }
+
+        public int calculateMaxTabWidth(int tabPlacement) {
+            return super.calculateMaxTabWidth(tabPlacement);
+        }
+
+        public int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
+            return super.calculateTabAreaHeight(tabPlacement, horizRunCount, maxTabHeight);
+        }
+
+        public int calculateTabAreaWidth(int tabPlacement, int vertRunCount, int maxTabWidth) {
+            return super.calculateTabAreaWidth(tabPlacement, vertRunCount, maxTabWidth);
+        }
+
+        protected int calculateTabHeight(int tabPlacement, int tabIndex, int fontHeight) {
+            return super.calculateTabHeight(tabPlacement, tabIndex, fontHeight);
+        }
+
+        public int calculateTabWidth(int tabPlacement, int tabIndex, FontMetrics metrics) {
+            return super.calculateTabWidth(tabPlacement, tabIndex, metrics);
+        }
+
+    }
     private BasicTabbedPaneUI ui;
 
     private JFrame frame;
@@ -59,15 +85,15 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
                 return BasicTabbedPaneUITest.this.getFontMetrics(f);
             }
         };
-        ui = new BasicTabbedPaneUI();
+        ui = new MyBasicTabbedPaneUI();
         tabbed.setUI(ui);
         tabbed.addTab("tab1", new JLabel());
         tabbed.setIconAt(0, new ImageIcon());
         tabbed.setDisabledIconAt(0, new ImageIcon());
         tabbed.addTab("tabtab2", new JLabel());
-        FontMetrics fm = ui.getFontMetrics();
-        tabbed.setSize(ui.calculateTabWidth(tabbed.getTabPlacement(), 0, fm)
-                + ui.calculateTabWidth(tabbed.getTabPlacement(), 1, fm) + 10, 100);
+        FontMetrics fm = ((MyBasicTabbedPaneUI )ui).getFontMetrics();
+        tabbed.setSize(((MyBasicTabbedPaneUI )ui).calculateTabWidth(tabbed.getTabPlacement(), 0, fm)
+                + ((MyBasicTabbedPaneUI )ui).calculateTabWidth(tabbed.getTabPlacement(), 1, fm) + 10, 100);
         tabbed.doLayout();
     }
 
@@ -94,7 +120,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertNotSame(ui1, ui2);
     }
 
-    public void testRotateInsets() {
+    public void _testRotateInsets() {
         Insets insets = new Insets(1, 2, 3, 4);
         Insets rotated = new Insets(0, 0, 0, 0);
         BasicTabbedPaneUI.rotateInsets(insets, rotated, SwingConstants.LEFT);
@@ -109,13 +135,13 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         // does nothing
     }
 
-    public void testAssureRectsCreated() {
+    public void _testAssureRectsCreated() {
         ui.assureRectsCreated(5);
         assertEquals(5, ui.rects.length);
         assertNotNull(ui.rects[4]);
     }
 
-    public void testCalculateMaxTabHeight() {
+    public void _testCalculateMaxTabHeight() {
         int tabPlacement = tabbed.getTabPlacement();
         int fontHeight = tabbed.getFontMetrics(tabbed.getFont()).getHeight();
         int height1 = ui.calculateTabHeight(tabPlacement, 0, fontHeight);
@@ -126,23 +152,23 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
     public void testCalculateMaxTabWidth() {
         int tabPlacement = tabbed.getTabPlacement();
         FontMetrics fm = tabbed.getFontMetrics(tabbed.getFont());
-        int w1 = ui.calculateTabWidth(tabPlacement, 0, fm);
-        int w2 = ui.calculateTabWidth(tabPlacement, 1, fm);
-        assertEquals(Math.max(w1, w2), ui.calculateMaxTabWidth(tabPlacement));
+        int w1 = ((MyBasicTabbedPaneUI )ui).calculateTabWidth(tabPlacement, 0, fm);
+        int w2 = ((MyBasicTabbedPaneUI )ui).calculateTabWidth(tabPlacement, 1, fm);
+        assertEquals(Math.max(w1, w2), ((MyBasicTabbedPaneUI )ui).calculateMaxTabWidth(tabPlacement));
     }
 
     public void testCalculateTabAreaHeight() {
         int tabPlacement = SwingConstants.TOP;
-        assertEquals(14, ui.calculateTabAreaHeight(tabPlacement, 1, 10));
-        assertEquals(22, ui.calculateTabAreaHeight(tabPlacement, 2, 10));
-        assertEquals(30, ui.calculateTabAreaHeight(tabPlacement, 3, 10));
+        assertEquals(14, ((MyBasicTabbedPaneUI )ui).calculateTabAreaHeight(tabPlacement, 1, 10));
+        assertEquals(22, ((MyBasicTabbedPaneUI )ui).calculateTabAreaHeight(tabPlacement, 2, 10));
+        assertEquals(30, ((MyBasicTabbedPaneUI )ui).calculateTabAreaHeight(tabPlacement, 3, 10));
     }
 
     public void testCalculateTabAreaWidth() {
         int tabPlacement = SwingConstants.LEFT;
-        assertEquals(14, ui.calculateTabAreaWidth(tabPlacement, 1, 10));
-        assertEquals(22, ui.calculateTabAreaWidth(tabPlacement, 2, 10));
-        assertEquals(30, ui.calculateTabAreaWidth(tabPlacement, 3, 10));
+        assertEquals(14, ((MyBasicTabbedPaneUI )ui).calculateTabAreaWidth(tabPlacement, 1, 10));
+        assertEquals(22, ((MyBasicTabbedPaneUI )ui).calculateTabAreaWidth(tabPlacement, 2, 10));
+        assertEquals(30, ((MyBasicTabbedPaneUI )ui).calculateTabAreaWidth(tabPlacement, 3, 10));
     }
 
     public void testCalculateTabHeight() {
@@ -150,43 +176,43 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
             return;
         }
         tabbed.setSelectedIndex(0);
-        assertEquals(27, ui.calculateTabHeight(tabbed.getTabPlacement(), 0, 20));
+        assertEquals(27, ((MyBasicTabbedPaneUI )ui).calculateTabHeight(tabbed.getTabPlacement(), 0, 20));
         tabbed.setSelectedIndex(1);
-        assertEquals(27, ui.calculateTabHeight(tabbed.getTabPlacement(), 0, 20));
+        assertEquals(27, ((MyBasicTabbedPaneUI )ui).calculateTabHeight(tabbed.getTabPlacement(), 0, 20));
     }
 
     public void testCalculateTabWidth() {
         final FontMetrics fm = tabbed.getFontMetrics(tabbed.getFont());
         final int tabIndex = 0;
         final int textWidth = fm.stringWidth(tabbed.getTitleAt(tabIndex));
-        assertEquals(textWidth + 24, ui.calculateTabWidth(tabbed.getTabPlacement(), tabIndex,
+        assertEquals(textWidth + 24, ((MyBasicTabbedPaneUI )ui).calculateTabWidth(tabbed.getTabPlacement(), tabIndex,
                 fm));
     }
 
-    public void testCreateChangeListener() {
+    public void _testCreateChangeListener() {
         assertTrue(ui.createChangeListener() instanceof BasicTabbedPaneUI.TabSelectionHandler);
     }
 
-    public void testCreateFocusListener() {
+    public void _testCreateFocusListener() {
         assertTrue(ui.createFocusListener() instanceof BasicTabbedPaneUI.FocusHandler);
     }
 
-    public void testCreateLayoutManager() {
+    public void _testCreateLayoutManager() {
         assertTrue(ui.createLayoutManager() instanceof BasicTabbedPaneUI.TabbedPaneLayout);
         tabbed.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         assertFalse(ui.createLayoutManager().getClass() == BasicTabbedPaneUI.TabbedPaneLayout.class);
     }
 
-    public void testCreateMouseListener() {
+    public void _testCreateMouseListener() {
         assertTrue(ui.createMouseListener() instanceof BasicTabbedPaneUI.MouseHandler);
     }
 
-    public void testCreatePropertyChangeListener() {
+    public void _testCreatePropertyChangeListener() {
         PropertyChangeListener l = ui.createPropertyChangeListener();
         assertTrue(l instanceof BasicTabbedPaneUI.PropertyChangeHandler);
     }
 
-    public void testCreateScrollButton() {
+    public void _testCreateScrollButton() {
         JButton b = ui.createScrollButton(SwingConstants.NORTH);
         assertTrue(b instanceof UIResource);
         assertFalse(b.isFocusable());
@@ -206,13 +232,13 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testExpandTabRunsArray() {
+    public void _testExpandTabRunsArray() {
         int oldLength = ui.tabRuns.length;
         ui.expandTabRunsArray();
         assertTrue(ui.tabRuns.length > oldLength);
     }
 
-    public void testGetContentBorderInsets() {
+    public void _testGetContentBorderInsets() {
         assertEquals(ui.contentBorderInsets, ui.getContentBorderInsets(SwingConstants.TOP));
         assertSame(ui.contentBorderInsets, ui.getContentBorderInsets(SwingConstants.TOP));
         assertEquals(ui.contentBorderInsets, ui.getContentBorderInsets(SwingConstants.LEFT));
@@ -220,7 +246,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(ui.contentBorderInsets, ui.getContentBorderInsets(SwingConstants.RIGHT));
     }
 
-    public void testGetFocusIndex() {
+    public void _testGetFocusIndex() {
         showTabPane();
         Component focusOwner = KeyboardFocusManager.getCurrentKeyboardFocusManager()
                 .getFocusOwner();
@@ -231,10 +257,10 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
     public void testGetFontMetrics() {
         tabbed = new JTabbedPane();
         tabbed.setUI(ui);
-        assertSame(tabbed.getFontMetrics(tabbed.getFont()), ui.getFontMetrics());
+        assertSame(tabbed.getFontMetrics(tabbed.getFont()), ((MyBasicTabbedPaneUI )ui).getFontMetrics());
     }
 
-    public void testGetIconForTab() {
+    public void _testGetIconForTab() {
         tabbed.setEnabledAt(0, true);
         assertSame(tabbed.getIconAt(0), ui.getIconForTab(0));
         tabbed.setEnabledAt(0, false);
@@ -251,17 +277,17 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertNull(ui.getMinimumSize(tabbed));
     }
 
-    public void testGetNextTabIndex() {
+    public void _testGetNextTabIndex() {
         assertEquals(1, ui.getNextTabIndex(0));
         assertEquals(0, ui.getNextTabIndex(tabbed.getTabCount() - 1));
     }
 
-    public void testGetPreviousTabIndex() {
+    public void _testGetPreviousTabIndex() {
         assertEquals(tabbed.getTabCount() - 1, ui.getPreviousTabIndex(0));
         assertEquals(0, ui.getPreviousTabIndex(1));
     }
 
-    public void testGetNextTabIndexInRun() {
+    public void _testGetNextTabIndexInRun() {
         create2TabRuns();
         int tabCount = tabbed.getTabCount();
         assertEquals(1, ui.getNextTabIndexInRun(tabCount, 0));
@@ -269,13 +295,13 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(2, ui.getNextTabIndexInRun(tabCount, 2));
     }
 
-    public void testGetNextTabRun() {
+    public void _testGetNextTabRun() {
         create3TabRuns();
         assertEquals(1, ui.getNextTabRun(0));
         assertEquals(0, ui.getNextTabRun(2));
     }
 
-    public void testGetPreviousTabIndexInRun() {
+    public void _testGetPreviousTabIndexInRun() {
         create2TabRuns();
         int tabCount = tabbed.getTabCount();
         assertEquals(1, ui.getPreviousTabIndexInRun(tabCount, 0));
@@ -283,17 +309,17 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(2, ui.getPreviousTabIndexInRun(tabCount, 2));
     }
 
-    public void testGetPreviousTabRun() {
+    public void _testGetPreviousTabRun() {
         create3TabRuns();
         assertEquals(2, ui.getPreviousTabRun(0));
         assertEquals(0, ui.getPreviousTabRun(1));
     }
 
-    public void testGetRunForTab() {
+    public void _testGetRunForTab() {
         assertEquals(0, ui.getRunForTab(tabbed.getTabCount(), 1));
     }
 
-    public void testGetSelectedTabPadInsets() {
+    public void _testGetSelectedTabPadInsets() {
         Insets rotatedInsets = new Insets(0, 0, 0, 0);
         BasicTabbedPaneUI.rotateInsets(ui.selectedTabPadInsets, rotatedInsets,
                 SwingConstants.LEFT);
@@ -302,7 +328,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(rotatedInsets, ui.getSelectedTabPadInsets(SwingConstants.LEFT));
     }
 
-    public void testGetTabAreaInsets() {
+    public void _testGetTabAreaInsets() {
         ui.tabAreaInsets = new Insets(1, 2, 3, 4);
         assertEquals(ui.tabAreaInsets, ui.getTabAreaInsets(SwingConstants.TOP));
         assertEquals(new Insets(2, 1, 4, 3), ui.getTabAreaInsets(SwingConstants.LEFT));
@@ -311,7 +337,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertNotSame(ui.tabAreaInsets, ui.getTabAreaInsets(SwingConstants.TOP));
     }
 
-    public void testGetTabBoundsintRectangle() {
+    public void _testGetTabBoundsintRectangle() {
         tabbed.setSize(220, 100);
         tabbed.doLayout();
         Rectangle r = new Rectangle();
@@ -324,7 +350,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertTrue(r.height < 50 && r.height > 0);
     }
 
-    public void testGetTabBoundsJTabbedPaneint() {
+    public void _testGetTabBoundsJTabbedPaneint() {
         tabbed.setSize(220, 100);
         tabbed.doLayout();
         Rectangle r1 = ui.getTabBounds(tabbed, 0);
@@ -333,7 +359,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(r2, r1);
     }
 
-    public void testGetTabInsets() {
+    public void _testGetTabInsets() {
         tabbed.setSelectedIndex(0);
         assertSame(ui.tabInsets, ui.getTabInsets(SwingConstants.LEFT, 0));
         tabbed.setSelectedIndex(1);
@@ -343,7 +369,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertSame(ui.tabInsets, ui.getTabInsets(SwingConstants.BOTTOM, 1));
     }
 
-    public void testGetTabLabelShiftX() {
+    public void _testGetTabLabelShiftX() {
         if (!isHarmony()) {
             return;
         }
@@ -359,7 +385,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(-1, ui.getTabLabelShiftX(SwingConstants.BOTTOM, 0, false));
     }
 
-    public void testGetTabLabelShiftY() {
+    public void _testGetTabLabelShiftY() {
         assertEquals(-1, ui.getTabLabelShiftY(SwingConstants.TOP, 0, true));
         assertEquals(1, ui.getTabLabelShiftY(SwingConstants.LEFT, 0, true));
         assertEquals(1, ui.getTabLabelShiftY(SwingConstants.RIGHT, 0, true));
@@ -380,28 +406,28 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(1, ui.getTabRunCount(tabbed));
     }
 
-    public void testGetTabRunIndent() {
+    public void _testGetTabRunIndent() {
         assertEquals(0, ui.getTabRunIndent(SwingConstants.LEFT, 0));
         assertEquals(0, ui.getTabRunIndent(SwingConstants.TOP, 1));
         assertEquals(0, ui.getTabRunIndent(SwingConstants.BOTTOM, 1));
         assertEquals(0, ui.getTabRunIndent(SwingConstants.RIGHT, 1));
     }
 
-    public void testGetTabRunOffset() {
+    public void _testGetTabRunOffset() {
         // the documentation is empty
     }
 
-    public void testGetTabRunOverlay() {
+    public void _testGetTabRunOverlay() {
         assertEquals(ui.tabRunOverlay, ui.getTabRunOverlay(SwingConstants.LEFT));
         assertEquals(ui.tabRunOverlay, ui.getTabRunOverlay(SwingConstants.TOP));
     }
 
-    public void testGetTextViewForTab() {
+    public void _testGetTextViewForTab() {
         assertNull(ui.getTextViewForTab(0));
         //TODO HTML styled text is not supported
     }
 
-    public void testSetGetVisibleComponent() {
+    public void _testSetGetVisibleComponent() {
         assertSame(tabbed.getSelectedComponent(), ui.getVisibleComponent());
         assertTrue(ui.getVisibleComponent().isVisible());
         JComponent comp = new JLabel("label");
@@ -416,7 +442,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertNull(ui.getVisibleComponent());
     }
 
-    public void testInstallUninstallComponents() {
+    public void _testInstallUninstallComponents() {
         int count = tabbed.getComponentCount();
         ui.uninstallComponents();
         assertEquals(count, tabbed.getComponentCount());
@@ -433,7 +459,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(count, tabbed.getComponentCount());
     }
 
-    public void testInstallDefaults() {
+    public void _testInstallDefaults() {
         tabbed.setBackgroundAt(0, null);
         tabbed.setBackground(null);
         tabbed.setForeground(null);
@@ -447,11 +473,11 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertNull(tabbed.getLayout());
     }
 
-    public void testUninstallDefaults() {
+    public void _testUninstallDefaults() {
         // nothing to test
     }
 
-    public void testInstallUninstallKeyboardActions() {
+    public void _testInstallUninstallKeyboardActions() {
         ui.uninstallKeyboardActions();
         ui.installKeyboardActions();
         assertSame(UIManager.get("TabbedPane.focusInputMap"), SwingUtilities.getUIInputMap(
@@ -466,7 +492,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertNull(SwingUtilities.getUIActionMap(tabbed));
     }
 
-    public void testInstallUninstallListeners() {
+    public void _testInstallUninstallListeners() {
         ui.uninstallListeners();
         ui.installListeners();
         assertTrue(Arrays.asList(tabbed.getPropertyChangeListeners()).contains(
@@ -482,7 +508,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertFalse(Arrays.asList(tabbed.getChangeListeners()).contains(ui.tabChangeListener));
     }
 
-    public void testInstallUI() {
+    public void _testInstallUI() {
         tabbed.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         ui.uninstallListeners();
         ui.uninstallComponents();
@@ -503,7 +529,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
                         JComponent.WHEN_FOCUSED));
     }
 
-    public void testUninstallUI() {
+    public void _testUninstallUI() {
         tabbed.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         int compCount = tabbed.getComponentCount();
         ui.uninstallUI(tabbed);
@@ -515,16 +541,16 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
                 JComponent.WHEN_FOCUSED));
     }
 
-    public void testLastTabInRun() {
+    public void _testLastTabInRun() {
         int lastTabIndex = tabbed.getTabCount() - 1;
         assertEquals(lastTabIndex, ui.lastTabInRun(tabbed.getTabCount(), 0));
     }
 
-    public void testLayoutLabel() {
+    public void _testLayoutLabel() {
         // no documentation
     }
 
-    public void testNavigateSelectedTab() {
+    public void _testNavigateSelectedTab() {
         create2TabRuns();
         tabbed.setSelectedIndex(0);
         ui.navigateSelectedTab(SwingConstants.EAST);
@@ -553,51 +579,51 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         } 
     }
 
-    public void testPaintContentBorder() {
+    public void _testPaintContentBorder() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintContentBorderBottomEdge() {
+    public void _testPaintContentBorderBottomEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintContentBorderLeftEdge() {
+    public void _testPaintContentBorderLeftEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintContentBorderRightEdge() {
+    public void _testPaintContentBorderRightEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintContentBorderTopEdge() {
+    public void _testPaintContentBorderTopEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintFocusIndicator() {
+    public void _testPaintFocusIndicator() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintIcon() {
+    public void _testPaintIcon() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintTab() {
+    public void _testPaintTab() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintTabArea() {
+    public void _testPaintTabArea() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintTabBackground() {
+    public void _testPaintTabBackground() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintTabBorder() {
+    public void _testPaintTabBorder() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintText() {
+    public void _testPaintText() {
         // Note: painting code, cannot test
     }
 
@@ -644,7 +670,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
                 .getSelectedIndex());
     }
 
-    public void testSetGetRolloverTab() {
+    public void _testSetGetRolloverTab() {
         assertEquals(-1, ui.getRolloverTab());
         ui.setRolloverTab(1);
         assertEquals(1, ui.getRolloverTab());
@@ -652,7 +678,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(5, ui.getRolloverTab());
     }
 
-    public void testShouldPadTabRun() {
+    public void _testShouldPadTabRun() {
         assertFalse(ui.shouldPadTabRun(tabbed.getTabPlacement(), 0));
         create2TabRuns();
         assertTrue(ui.shouldPadTabRun(tabbed.getTabPlacement(), 0));
@@ -660,7 +686,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertTrue(ui.shouldPadTabRun(tabbed.getTabPlacement(), 2));
     }
 
-    public void testShouldRotateTabRuns() {
+    public void _testShouldRotateTabRuns() {
         assertTrue(ui.shouldRotateTabRuns(tabbed.getTabPlacement()));
     }
 
@@ -679,9 +705,9 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
 
     private void create2TabRuns() {
         tabbed.addTab("tab3", new JLabel());
-        FontMetrics fm = ui.getFontMetrics();
-        tabbed.setSize(ui.calculateTabWidth(tabbed.getTabPlacement(), 0, fm)
-                + ui.calculateTabWidth(tabbed.getTabPlacement(), 1, fm) + 10, 100);
+        FontMetrics fm = ((MyBasicTabbedPaneUI )ui).getFontMetrics();
+        tabbed.setSize(((MyBasicTabbedPaneUI )ui).calculateTabWidth(tabbed.getTabPlacement(), 0, fm)
+                + ((MyBasicTabbedPaneUI )ui).calculateTabWidth(tabbed.getTabPlacement(), 1, fm) + 10, 100);
         tabbed.getLayout().layoutContainer(tabbed);
         assertEquals("initialized incorrectly", 2, tabbed.getTabRunCount());
     }

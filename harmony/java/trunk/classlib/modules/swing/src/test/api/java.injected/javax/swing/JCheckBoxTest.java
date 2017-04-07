@@ -64,7 +64,7 @@ public class JCheckBoxTest extends SwingTestCase {
         assertNotSame(ui, button.getUI());
     }
 
-    public void testCreateActionPropertyChangeListener() {
+    public void _testCreateActionPropertyChangeListener() {
         Object res1 = null;
         Object res2 = null;
         AbstractAction action1 = new AbstractAction() {

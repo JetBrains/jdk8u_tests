@@ -72,7 +72,7 @@ public class BasicDesktopPaneUITest extends SwingTestCase {
     public void testBasicDesktopPaneUI() {
     }
 
-    public void testCreatePropertyChangeListener() {
+    public void _testCreatePropertyChangeListener() {
         assertNotNull(ui.createPropertyChangeListener());
     }
 
@@ -98,27 +98,27 @@ public class BasicDesktopPaneUITest extends SwingTestCase {
         assertNull(ui.getPreferredSize(desktop));
     }
 
-    public void testInstallDefaults() {
+    public void _testInstallDefaults() {
         desktop.setBackground(null);
         ui.installDefaults();
         assertNotNull("background", desktop.getBackground());
     }
 
-    public void testUninstallDefaults() {
+    public void _testUninstallDefaults() {
         ui.uninstallDefaults();
         if (isHarmony()) {
             assertNull("background", desktop.getBackground());
         }
     }
 
-    public void testInstallDesktopManager() {
+    public void _testInstallDesktopManager() {
         desktop.setDesktopManager(null);
         ui.installDesktopManager();
         assertNotNull(desktop.getDesktopManager());
         assertEquals("installed", ui.desktopManager, desktop.getDesktopManager());
     }
 
-    public void testUninstallDesktopManager() {
+    public void _testUninstallDesktopManager() {
         ui.installDesktopManager();
         ui.uninstallDesktopManager();
         assertNotNull(desktop.getDesktopManager());
@@ -137,7 +137,7 @@ public class BasicDesktopPaneUITest extends SwingTestCase {
                 JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT));
     }
 
-    public void testUninstallKeyboardActions() {
+    public void _testUninstallKeyboardActions() {
         ui.uninstallKeyboardActions();
         assertNull("action map", SwingUtilities.getUIActionMap(desktop));
         assertNull("input map", SwingUtilities.getUIInputMap(desktop,
@@ -151,7 +151,7 @@ public class BasicDesktopPaneUITest extends SwingTestCase {
     /*
      * Class under test for void installUI(JComponent)
      */
-    public void testInstallUI() {
+    public void _testInstallUI() {
         assertEquals("desktop", desktop, ui.desktop);
     }
 

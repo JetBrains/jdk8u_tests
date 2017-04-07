@@ -42,7 +42,7 @@ public class PlainViewI18N_LayoutTest extends SwingTestCase {
     /**
      * Tests values returned by <code>flipEastAndWestAtEnds()</code>.
      */
-    public void testFlipEastAndWest() throws Exception {
+    public void _testFlipEastAndWest() throws Exception {
         boolean[] forward = new boolean[] { false, false, false, false, false, false, false,
                 false, false, false, false, false };
         boolean[] backward = new boolean[] { false, false, false, false, false, false, false,

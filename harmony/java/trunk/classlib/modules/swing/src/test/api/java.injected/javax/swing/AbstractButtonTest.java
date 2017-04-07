@@ -21,8 +21,6 @@
  */
 package javax.swing;
 
-import org.apache.harmony.beans.tests.support.mock.MockFooLiYang;
-
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -147,53 +145,6 @@ public class AbstractButtonTest extends SwingTestCase {
         }
     }
 
-    class MyAbstractButton extends AbstractButton {
-
-        public int checkHorizontalKey(int key, String exception) {
-            return super.checkHorizontalKey(key, exception);
-        }
-
-        public int checkVerticalKey(int key, String exception) {
-            return super.checkVerticalKey(key, exception);
-        }
-
-        public ActionListener createActionListener() {
-            return super.createActionListener();
-        }
-
-        public PropertyChangeListener createActionPropertyChangeListener(Action a) {
-            return super.createActionPropertyChangeListener(a);
-        }
-
-        public ChangeListener createChangeListener() {
-            return super.createChangeListener();
-        }
-
-        public ItemListener createItemListener() {
-            return super.createItemListener();
-        }
-
-        public void fireActionPerformed(ActionEvent event) {
-            super.fireActionPerformed(event);
-        }
-
-        public void fireItemStateChanged(ItemEvent event) {
-            super.fireItemStateChanged(event);
-        }
-
-        public void fireStateChanged() {
-            super.fireStateChanged();
-        }
-
-        protected void init(String text, Icon icon) {
-            super.init(text, icon);
-        }
-
-        protected void paintBorder(Graphics g) {
-            super.paintBorder(g);
-        }
-    }
-
     protected AbstractButton button = null;
 
     protected final Icon icon1 = createNewIcon();
@@ -219,7 +170,7 @@ public class AbstractButtonTest extends SwingTestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        button = new MyAbstractButton() {
+        button = new AbstractButton() {
             private static final long serialVersionUID = 1L;
         };
         if (button.getModel() == null) {
@@ -289,7 +240,7 @@ public class AbstractButtonTest extends SwingTestCase {
         listener2.reset();
     }
 
-    public void testPaintBorder() {
+    public void _testPaintBorder() {
         class ThisBorder implements Border {
             public boolean haveBeenPainted = false;
 
@@ -310,10 +261,10 @@ public class AbstractButtonTest extends SwingTestCase {
         ThisBorder border = new ThisBorder();
         button.setBorder(border);
         button.setBorderPainted(false);
-        ((MyAbstractButton )button).paintBorder(button.getGraphics());
+        button.paintBorder(button.getGraphics());
         assertFalse("painted", border.haveBeenPainted);
         button.setBorderPainted(true);
-        ((MyAbstractButton )button).paintBorder(button.getGraphics());
+        button.paintBorder(button.getGraphics());
         assertTrue("painted", border.haveBeenPainted);
     }
 
@@ -422,27 +373,27 @@ public class AbstractButtonTest extends SwingTestCase {
         assertEquals("ToolTipText ", text4, button.getToolTipText());
     }
 
-    public void testInit() {
+    public void _testInit() {
         PropertyChangeController listener = new PropertyChangeController();
         button.addPropertyChangeListener(listener);
-        ((MyAbstractButton )button).init(text1, icon1);
+        button.init(text1, icon1);
         assertEquals(text1, button.getText());
         assertEquals(icon1, button.getIcon());
         listener.checkPropertyFired(button, "text", "", text1);
         listener.checkPropertyFired(button, "icon", null, icon1);
-        ((MyAbstractButton )button).init(null, null);
+        button.init(null, null);
         assertEquals(text1, button.getText());
         assertEquals(icon1, button.getIcon());
         button.setText("");
-        ((MyAbstractButton )button).init(text1, null);
+        button.init(text1, null);
         assertEquals(text1, button.getText());
         assertEquals(icon1, button.getIcon());
-        button = new MyAbstractButton() {
+        button = new AbstractButton() {
         };
-        ((MyAbstractButton )button).init(null, null);
+        button.init(null, null);
         assertEquals(button.getText(), "");
         assertNull(button.getIcon());
-        ((MyAbstractButton )button).init(null, icon1);
+        button.init(null, icon1);
         assertEquals(button.getText(), "");
         assertEquals(icon1, button.getIcon());
     }
@@ -612,7 +563,7 @@ public class AbstractButtonTest extends SwingTestCase {
         assertEquals("text ", text2, button.getText());
     }
 
-    public void testSetAction3() {
+    public void _testSetAction3() {
         Action action1 = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 putValue("performed", e);
@@ -626,10 +577,10 @@ public class AbstractButtonTest extends SwingTestCase {
         ActionEvent event1 = new ActionEvent(button, ActionEvent.ACTION_PERFORMED, "1");
         ActionEvent event2 = new ActionEvent(button, ActionEvent.ACTION_PERFORMED, "2");
         button.setAction(action1);
-        ((MyAbstractButton )button).fireActionPerformed(event1);
+        button.fireActionPerformed(event1);
         assertEquals("1", ((ActionEvent) action1.getValue("performed")).getActionCommand());
         button.setAction(action2);
-        ((MyAbstractButton )button).fireActionPerformed(event2);
+        button.fireActionPerformed(event2);
         assertEquals("1", ((ActionEvent) action1.getValue("performed")).getActionCommand());
         assertEquals("2", ((ActionEvent) action2.getValue("performed")).getActionCommand());
     }
@@ -1040,12 +991,12 @@ public class AbstractButtonTest extends SwingTestCase {
         assertEquals("default comman action ", "", button.getActionCommand());
     }
 
-    public void testCheckVerticalKey() {
+    public void _testCheckVerticalKey() {
         String exceptionText = "exceptionText";
-        int res = ((MyAbstractButton) button).checkVerticalKey(SwingConstants.TOP, exceptionText);
+        int res = button.checkVerticalKey(SwingConstants.TOP, exceptionText);
         assertEquals("returned value ", 1, res);
         try {
-            res = ((MyAbstractButton) button).checkVerticalKey(SwingConstants.WEST, exceptionText);
+            res = button.checkVerticalKey(SwingConstants.WEST, exceptionText);
         } catch (IllegalArgumentException e) {
             assertEquals("exception's message ", exceptionText, e.getMessage());
             return;
@@ -1054,12 +1005,12 @@ public class AbstractButtonTest extends SwingTestCase {
         fail("Expected IllegalArgumentException to be thrown");
     }
 
-    public void testCheckHorizontalKey() {
+    public void _testCheckHorizontalKey() {
         String exceptionText = "exceptionText";
-        int res = ((MyAbstractButton) button).checkHorizontalKey(SwingConstants.TRAILING, exceptionText);
+        int res = button.checkHorizontalKey(SwingConstants.TRAILING, exceptionText);
         assertEquals("returned value ", SwingConstants.TRAILING, res);
         try {
-            res = ((MyAbstractButton) button).checkHorizontalKey(SwingConstants.TOP, exceptionText);
+            res = button.checkHorizontalKey(SwingConstants.TOP, exceptionText);
         } catch (IllegalArgumentException e) {
             assertEquals("exception's message ", exceptionText, e.getMessage());
             return;
@@ -1068,7 +1019,7 @@ public class AbstractButtonTest extends SwingTestCase {
         fail("Expected IllegalArgumentException to be thrown");
     }
 
-    public void testCreateActionPropertyChangeListener() {
+    public void _testCreateActionPropertyChangeListener() {
         Object res1 = null;
         Object res2 = null;
         AbstractAction action1 = new AbstractAction() {
@@ -1077,15 +1028,15 @@ public class AbstractButtonTest extends SwingTestCase {
             public void actionPerformed(final ActionEvent event) {
             }
         };
-        res1 = ((MyAbstractButton) button).createActionPropertyChangeListener(action1);
+        res1 = button.createActionPropertyChangeListener(action1);
         assertNotNull(res1);
-        res2 = ((MyAbstractButton) button).createActionPropertyChangeListener(null);
+        res2 = button.createActionPropertyChangeListener(null);
         assertNotNull(res2);
     }
 
-    public void testCreateActionListener() throws Exception {
-        Object res1 = ((MyAbstractButton) button).createActionListener();
-        Object res2 = ((MyAbstractButton) button).createActionListener();
+    public void _testCreateActionListener() throws Exception {
+        Object res1 = button.createActionListener();
+        Object res2 = button.createActionListener();
         assertNotNull(res1);
         assertNotNull(res2);
         if (isHarmony()) {
@@ -1093,19 +1044,19 @@ public class AbstractButtonTest extends SwingTestCase {
         }
     }
 
-    public void testCreateItemListener() {
+    public void _testCreateItemListener() {
         button.itemListener = null;
-        Object res1 = ((MyAbstractButton) button).createItemListener();
-        Object res2 = ((MyAbstractButton) button).createItemListener();
+        Object res1 = button.createItemListener();
+        Object res2 = button.createItemListener();
         assertNotNull(res1);
         assertNotNull(res2);
         assertNull(button.itemListener);
     }
 
-    public void testCreateChangeListener() {
+    public void _testCreateChangeListener() {
         button.changeListener = null;
-        Object res1 = ((MyAbstractButton )button).createChangeListener();
-        Object res2 = ((MyAbstractButton )button).createChangeListener();
+        Object res1 = button.createChangeListener();
+        Object res2 = button.createChangeListener();
         assertNotNull(res1);
         assertNotNull(res2);
         assertNull(button.changeListener);
@@ -1180,14 +1131,14 @@ public class AbstractButtonTest extends SwingTestCase {
         assertTrue("listener's array is not null ", listeners != null);
     }
 
-    public void testFireStateChanged() {
+    public void _testFireStateChanged() {
         ChangeEvent event1 = null;
         ChangeEvent event2 = null;
         ConcreteChangeListener listener1 = new ConcreteChangeListener();
         ConcreteChangeListener listener2 = new ConcreteChangeListener();
         button.addChangeListener(listener1);
         button.addChangeListener(listener2);
-        ((MyAbstractButton )button).fireStateChanged();
+        button.fireStateChanged();
         event1 = listener1.eventHappened;
         assertTrue("event fired ", listener1.eventHappened != null);
         assertTrue("event fired ", listener2.eventHappened != null);
@@ -1198,7 +1149,7 @@ public class AbstractButtonTest extends SwingTestCase {
                 .getClass());
         assertEquals("event's source ", button, listener1.eventHappened.getSource());
         assertEquals("event's source ", button, listener2.eventHappened.getSource());
-        ((MyAbstractButton )button).fireStateChanged();
+        button.fireStateChanged();
         event2 = listener1.eventHappened;
         assertTrue("event fired ", listener1.eventHappened != null);
         assertTrue("event fired ", listener2.eventHappened != null);
@@ -1284,7 +1235,7 @@ public class AbstractButtonTest extends SwingTestCase {
                 && listeners.length == 0);
     }
 
-    public void testFireItemStateChanged() {
+    public void _testFireItemStateChanged() {
         Object item1 = "item1";
         Object item2 = "item2";
         ItemEvent event1 = new ItemEvent(button, 11, item1, 2);
@@ -1293,7 +1244,7 @@ public class AbstractButtonTest extends SwingTestCase {
         ConcreteItemListener listener2 = new ConcreteItemListener();
         button.addItemListener(listener1);
         button.addItemListener(listener2);
-        ((MyAbstractButton )button).fireItemStateChanged(event1);
+        button.fireItemStateChanged(event1);
         assertEquals("event's ID ", ItemEvent.ITEM_STATE_CHANGED, listener1.eventHappened
                 .getID());
         assertEquals("event's item ", button, listener1.eventHappened.getItem());
@@ -1306,7 +1257,7 @@ public class AbstractButtonTest extends SwingTestCase {
         assertEquals("event's source ", button, listener2.eventHappened.getSource());
         assertEquals("event's StateChange ", ItemEvent.DESELECTED, listener2.eventHappened
                 .getStateChange());
-        ((MyAbstractButton )button).fireItemStateChanged(event2);
+        button.fireItemStateChanged(event2);
         assertEquals("event's ID ", ItemEvent.ITEM_STATE_CHANGED, listener1.eventHappened
                 .getID());
         assertEquals("event's item ", button, listener1.eventHappened.getItem());
@@ -1392,7 +1343,7 @@ public class AbstractButtonTest extends SwingTestCase {
         assertEquals(listeners.length, 0);
     }
 
-    public void testFireActionPerformed() {
+    public void _testFireActionPerformed() {
         String command1 = "command1";
         String command2 = "command2";
         String command3 = "command3";
@@ -1404,7 +1355,7 @@ public class AbstractButtonTest extends SwingTestCase {
         button.setText(command3);
         button.addActionListener(listener1);
         button.addActionListener(listener2);
-        ((MyAbstractButton )button).fireActionPerformed(event1);
+        button.fireActionPerformed(event1);
         assertEquals("event's source ", event1.getSource(), listener1.eventHappened.getSource());
         assertEquals("event's command ", event1.getActionCommand(), listener1.eventHappened
                 .getActionCommand());
@@ -1419,7 +1370,7 @@ public class AbstractButtonTest extends SwingTestCase {
                 .getID());
         assertEquals("event's modifiers ", event1.getModifiers(), listener2.eventHappened
                 .getModifiers());
-        ((MyAbstractButton )button).fireActionPerformed(event2);
+        button.fireActionPerformed(event2);
         assertEquals("event's source ", event2.getSource(), listener1.eventHappened.getSource());
         assertEquals("event's command ", event2.getActionCommand(), listener1.eventHappened
                 .getActionCommand());
@@ -1434,7 +1385,7 @@ public class AbstractButtonTest extends SwingTestCase {
                 .getID());
         assertEquals("event's modifiers ", event2.getModifiers(), listener2.eventHappened
                 .getModifiers());
-        ((MyAbstractButton )button).fireActionPerformed(event3);
+        button.fireActionPerformed(event3);
         assertEquals("event's source ", event2.getSource(), listener1.eventHappened.getSource());
         assertEquals("event's command ", command3, listener1.eventHappened.getActionCommand());
         assertEquals("event's ID ", ActionEvent.ACTION_PERFORMED, listener1.eventHappened

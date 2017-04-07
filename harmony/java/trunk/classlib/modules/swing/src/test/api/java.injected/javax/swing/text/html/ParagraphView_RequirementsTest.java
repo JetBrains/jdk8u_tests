@@ -40,7 +40,7 @@ public class ParagraphView_RequirementsTest extends BasicSwingTestCase {
 
     private HTMLEditorKit kit;
     private HTMLDocument doc;
-    private ParagraphView view;
+    private ParagraphViewImpl view;
     private ViewFactory factory;
 
     private FontMetrics metrics;

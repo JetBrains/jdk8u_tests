@@ -25,6 +25,12 @@ import java.awt.Point;
 public class PopupTest extends BasicSwingTestCase {
     private Popup popup;
 
+    class MyPopup extends Popup {
+        MyPopup(Component owner, Component contents, int x, int y) {
+            super(owner, contents, x, y);
+        }
+    }
+
     public PopupTest(final String name) {
         super(name);
     }
@@ -37,7 +43,7 @@ public class PopupTest extends BasicSwingTestCase {
     public void testPopup() throws Exception {
         Component content = new JButton("content");
         assertNull(content.getParent());
-        popup = new Popup(null, content, 10, 10);
+        popup = new MyPopup(null, content, 10, 10);
         assertNotNull(content.getParent());
         assertFalse(content.isShowing());
         popup.show();
@@ -48,7 +54,7 @@ public class PopupTest extends BasicSwingTestCase {
         popup.hide();
         assertFalse(content.isShowing());
         JPanel owner = new JPanel();
-        popup = new Popup(owner, content, 10, 10);
+        popup = new MyPopup(owner, content, 10, 10);
         assertNotNull(content.getParent());
         assertFalse(content.isShowing());
         popup.show();
@@ -59,13 +65,13 @@ public class PopupTest extends BasicSwingTestCase {
         ownedFrame.getContentPane().add(owner);
         ownedFrame.setVisible(true);
         SwingWaitTestCase.isRealized(ownedFrame);
-        popup = new Popup(owner, content, 10, 10);
+        popup = new MyPopup(owner, content, 10, 10);
         popup.show();
         assertEquals(new Point(10, 10), content.getLocationOnScreen());
         testExceptionalCase(new IllegalArgumentCase() {
             @Override
             public void exceptionalAction() throws Exception {
-                new Popup(null, null, 10, 10);
+                new MyPopup(null, null, 10, 10);
             }
         });
     }
@@ -73,7 +79,7 @@ public class PopupTest extends BasicSwingTestCase {
     public void testShowHide() throws Exception {
         Component content = new JButton("content");
         assertNull(SwingUtilities.getWindowAncestor(content));
-        popup = new Popup(null, content, 100, 200);
+        popup = new MyPopup(null, content, 100, 200);
         assertNotNull(SwingUtilities.getWindowAncestor(content));
         popup.show();
         assertTrue(content.isShowing());

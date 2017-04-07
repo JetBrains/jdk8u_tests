@@ -70,13 +70,13 @@ public class StyledEditorKit_StyledTextActionTest extends SwingTestCase {
         assertTrue(action.isEnabled());
     }
 
-    public void testGetEditor() {
+    public void _testGetEditor() {
         jep = new JEditorPane();
         assertEquals(jep, action.getEditor(new ActionEvent(jep, 1, "...")));
         //Really this needs to check NullPointerException, but ...
     }
 
-    public void testSetParagraphAttributes() {
+    public void _testSetParagraphAttributes() {
         DefaultStyledDocument doc = new DefaultStyledDocument();
         jep.setEditorKit(kit);
         jep.setDocument(doc);
@@ -117,7 +117,7 @@ public class StyledEditorKit_StyledTextActionTest extends SwingTestCase {
         }
     }
 
-    public void testGetStyledDocument() {
+    public void _testGetStyledDocument() {
         jep = new JEditorPane();
         try {
             action.getStyledDocument(jep);
@@ -142,7 +142,7 @@ public class StyledEditorKit_StyledTextActionTest extends SwingTestCase {
         assertTrue(message.endsWith("'StyledDocument'"));
     }
 
-    public void testGetStyledEditorKit() {
+    public void _testGetStyledEditorKit() {
         jep = new JEditorPane();
         try {
             action.getStyledEditorKit(jep);
@@ -159,7 +159,7 @@ public class StyledEditorKit_StyledTextActionTest extends SwingTestCase {
         assertEquals(styledKit, action.getStyledEditorKit(jep));
     }
 
-    public void testSetCharacterAttributes() {
+    public void _testSetCharacterAttributes() {
         DefaultStyledDocument doc = new DefaultStyledDocument();
         jep.setEditorKit(kit);
         jep.setDocument(doc);

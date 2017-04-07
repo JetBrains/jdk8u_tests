@@ -70,7 +70,7 @@ public class BasicSeparatorUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicSeparatorUI.installDefaults(JSeparator)'
      */
-    public void testInstallUninstallDefaults() {
+    public void _testInstallUninstallDefaults() {
         JSeparator separator = new JSeparator();
         separator.setUI(ui);
         ui.uninstallDefaults(separator);

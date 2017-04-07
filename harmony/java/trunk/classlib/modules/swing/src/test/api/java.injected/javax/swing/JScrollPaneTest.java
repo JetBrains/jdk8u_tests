@@ -30,6 +30,8 @@ import javax.swing.border.Border;
 import javax.swing.plaf.ScrollPaneUI;
 import javax.swing.plaf.basic.BasicScrollPaneUI;
 
+import static javax.swing.ScrollPaneConstants.*;
+
 public class JScrollPaneTest extends SwingTestCase {
     private JScrollPane pane;
 
@@ -51,46 +53,46 @@ public class JScrollPaneTest extends SwingTestCase {
 
     public void testJScrollPane() throws Exception {
         assertEquals(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-                pane.verticalScrollBarPolicy);
+                pane.getVerticalScrollBarPolicy());
         assertEquals(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED,
-                pane.horizontalScrollBarPolicy);
-        assertNotNull(pane.viewport);
-        assertNull(pane.viewport.getView());
-        assertTrue(pane.verticalScrollBar instanceof JScrollPane.ScrollBar);
-        assertEquals(Adjustable.VERTICAL, pane.verticalScrollBar.getOrientation());
-        assertTrue(pane.horizontalScrollBar instanceof JScrollPane.ScrollBar);
-        assertEquals(Adjustable.HORIZONTAL, pane.horizontalScrollBar.getOrientation());
-        assertNull(pane.rowHeader);
-        assertNull(pane.columnHeader);
-        assertNull(pane.lowerLeft);
-        assertNull(pane.lowerRight);
-        assertNull(pane.upperLeft);
-        assertNull(pane.upperRight);
+                pane.getHorizontalScrollBarPolicy());
+        assertNotNull(pane.getViewport());
+        assertNull(pane.getViewport().getView());
+        assertTrue(pane.getVerticalScrollBar() instanceof JScrollPane.ScrollBar);
+        assertEquals(Adjustable.VERTICAL, pane.getVerticalScrollBar().getOrientation());
+        assertTrue(pane.getHorizontalScrollBar() instanceof JScrollPane.ScrollBar);
+        assertEquals(Adjustable.HORIZONTAL, pane.getHorizontalScrollBar().getOrientation());
+        assertNull(pane.getRowHeader());
+        assertNull(pane.getColumnHeader());
+        assertNull(pane.getCorner(LOWER_LEFT_CORNER));
+        assertNull(pane.getCorner(LOWER_RIGHT_CORNER));
+        assertNull(pane.getCorner(UPPER_LEFT_CORNER));
+        assertNull(pane.getCorner(UPPER_RIGHT_CORNER));
         assertEquals(3, pane.getComponentCount());
-        assertEquals(pane.viewport, pane.getComponent(0));
-        assertEquals(pane.verticalScrollBar, pane.getComponent(1));
-        assertEquals(pane.horizontalScrollBar, pane.getComponent(2));
+        assertEquals(pane.getViewport(), pane.getComponent(0));
+        assertEquals(pane.getVerticalScrollBar(), pane.getComponent(1));
+        assertEquals(pane.getHorizontalScrollBar(), pane.getComponent(2));
         Component view = new JButton();
         pane = new JScrollPane(view, ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        assertEquals(view, pane.viewport.getView());
-        assertEquals(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER, pane.verticalScrollBarPolicy);
+        assertEquals(view, pane.getViewport().getView());
+        assertEquals(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER, pane.getVerticalScrollBarPolicy());
         assertEquals(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS,
-                pane.horizontalScrollBarPolicy);
+                pane.getHorizontalScrollBarPolicy());
         view = new JButton();
         pane = new JScrollPane(view);
-        assertEquals(view, pane.viewport.getView());
+        assertEquals(view, pane.getViewport().getView());
         assertEquals(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-                pane.verticalScrollBarPolicy);
+                pane.getVerticalScrollBarPolicy());
         assertEquals(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED,
-                pane.horizontalScrollBarPolicy);
+                pane.getHorizontalScrollBarPolicy());
         pane = new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        assertNull(pane.viewport.getView());
+        assertNull(pane.getViewport().getView());
         assertEquals(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                pane.verticalScrollBarPolicy);
+                pane.getVerticalScrollBarPolicy());
         assertEquals(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER,
-                pane.horizontalScrollBarPolicy);
+                pane.getHorizontalScrollBarPolicy());
         testExceptionalCase(new IllegalArgumentCase() {
             @Override
             public void exceptionalAction() throws Exception {
@@ -357,10 +359,10 @@ public class JScrollPaneTest extends SwingTestCase {
     }
 
     public void testGetSetCorner() throws Exception {
-        assertNull(pane.getCorner(ScrollPaneConstants.LOWER_LEFT_CORNER));
-        assertNull(pane.getCorner(ScrollPaneConstants.LOWER_RIGHT_CORNER));
-        assertNull(pane.getCorner(ScrollPaneConstants.UPPER_LEFT_CORNER));
-        assertNull(pane.getCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        assertNull(pane.getCorner(LOWER_LEFT_CORNER));
+        assertNull(pane.getCorner(LOWER_RIGHT_CORNER));
+        assertNull(pane.getCorner(UPPER_LEFT_CORNER));
+        assertNull(pane.getCorner(UPPER_RIGHT_CORNER));
         assertNull(pane.getCorner(ScrollPaneConstants.LOWER_LEADING_CORNER));
         assertNull(pane.getCorner(ScrollPaneConstants.LOWER_TRAILING_CORNER));
         assertNull(pane.getCorner(ScrollPaneConstants.UPPER_LEADING_CORNER));
@@ -374,68 +376,68 @@ public class JScrollPaneTest extends SwingTestCase {
         Component lowerTrailing = new JButton();
         Component upperLeading = new JButton();
         Component upperTrailing = new JButton();
-        pane.setCorner(ScrollPaneConstants.LOWER_LEFT_CORNER, lowerLeft);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.LOWER_LEFT_CORNER));
+        pane.setCorner(LOWER_LEFT_CORNER, lowerLeft);
+        assertTrue(propertyChangeController.isChanged(LOWER_LEFT_CORNER));
         assertEquals(4, pane.getComponentCount());
         propertyChangeController.reset();
-        pane.setCorner(ScrollPaneConstants.LOWER_RIGHT_CORNER, lowerRight);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.LOWER_RIGHT_CORNER));
+        pane.setCorner(LOWER_RIGHT_CORNER, lowerRight);
+        assertTrue(propertyChangeController.isChanged(LOWER_RIGHT_CORNER));
         assertEquals(5, pane.getComponentCount());
         propertyChangeController.reset();
-        pane.setCorner(ScrollPaneConstants.UPPER_LEFT_CORNER, upperLeft);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.UPPER_LEFT_CORNER));
+        pane.setCorner(UPPER_LEFT_CORNER, upperLeft);
+        assertTrue(propertyChangeController.isChanged(UPPER_LEFT_CORNER));
         assertEquals(6, pane.getComponentCount());
         propertyChangeController.reset();
-        pane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, upperRight);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        pane.setCorner(UPPER_RIGHT_CORNER, upperRight);
+        assertTrue(propertyChangeController.isChanged(UPPER_RIGHT_CORNER));
         assertEquals(7, pane.getComponentCount());
-        assertEquals(lowerLeft, pane.getCorner(ScrollPaneConstants.LOWER_LEFT_CORNER));
-        assertEquals(lowerRight, pane.getCorner(ScrollPaneConstants.LOWER_RIGHT_CORNER));
-        assertEquals(upperLeft, pane.getCorner(ScrollPaneConstants.UPPER_LEFT_CORNER));
-        assertEquals(upperRight, pane.getCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        assertEquals(lowerLeft, pane.getCorner(LOWER_LEFT_CORNER));
+        assertEquals(lowerRight, pane.getCorner(LOWER_RIGHT_CORNER));
+        assertEquals(upperLeft, pane.getCorner(UPPER_LEFT_CORNER));
+        assertEquals(upperRight, pane.getCorner(UPPER_RIGHT_CORNER));
         propertyChangeController.reset();
         pane.setCorner(ScrollPaneConstants.LOWER_LEADING_CORNER, lowerLeading);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.LOWER_LEFT_CORNER));
+        assertTrue(propertyChangeController.isChanged(LOWER_LEFT_CORNER));
         assertEquals(7, pane.getComponentCount());
         propertyChangeController.reset();
         pane.setCorner(ScrollPaneConstants.LOWER_TRAILING_CORNER, lowerTrailing);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.LOWER_RIGHT_CORNER));
+        assertTrue(propertyChangeController.isChanged(LOWER_RIGHT_CORNER));
         assertEquals(7, pane.getComponentCount());
         propertyChangeController.reset();
         pane.setCorner(ScrollPaneConstants.UPPER_LEADING_CORNER, upperLeading);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.UPPER_LEFT_CORNER));
+        assertTrue(propertyChangeController.isChanged(UPPER_LEFT_CORNER));
         assertEquals(7, pane.getComponentCount());
         propertyChangeController.reset();
         pane.setCorner(ScrollPaneConstants.UPPER_TRAILING_CORNER, upperTrailing);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        assertTrue(propertyChangeController.isChanged(UPPER_RIGHT_CORNER));
         assertEquals(7, pane.getComponentCount());
-        assertEquals(lowerLeading, pane.getCorner(ScrollPaneConstants.LOWER_LEFT_CORNER));
-        assertEquals(lowerTrailing, pane.getCorner(ScrollPaneConstants.LOWER_RIGHT_CORNER));
-        assertEquals(upperLeading, pane.getCorner(ScrollPaneConstants.UPPER_LEFT_CORNER));
-        assertEquals(upperTrailing, pane.getCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        assertEquals(lowerLeading, pane.getCorner(LOWER_LEFT_CORNER));
+        assertEquals(lowerTrailing, pane.getCorner(LOWER_RIGHT_CORNER));
+        assertEquals(upperLeading, pane.getCorner(UPPER_LEFT_CORNER));
+        assertEquals(upperTrailing, pane.getCorner(UPPER_RIGHT_CORNER));
         testExceptionalCase(new IllegalArgumentCase() {
             @Override
             public void exceptionalAction() throws Exception {
                 pane.setCorner("anything", null);
             }
         });
-        pane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, new JButton());
+        pane.setCorner(UPPER_RIGHT_CORNER, new JButton());
         assertEquals(7, pane.getComponentCount());
-        pane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, null);
+        pane.setCorner(UPPER_RIGHT_CORNER, null);
         assertEquals(6, pane.getComponentCount());
         JButton b = new JButton();
         propertyChangeController.reset();
-        pane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, b);
-        assertTrue(propertyChangeController.isChanged(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        pane.setCorner(UPPER_RIGHT_CORNER, b);
+        assertTrue(propertyChangeController.isChanged(UPPER_RIGHT_CORNER));
         assertEquals(7, pane.getComponentCount());
         propertyChangeController.reset();
-        pane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, b);
-        assertFalse(propertyChangeController.isChanged(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        pane.setCorner(UPPER_RIGHT_CORNER, b);
+        assertFalse(propertyChangeController.isChanged(UPPER_RIGHT_CORNER));
         assertEquals(7, pane.getComponentCount());
         propertyChangeController.reset();
         pane.remove(6);
-        pane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, b);
-        assertFalse(propertyChangeController.isChanged(ScrollPaneConstants.UPPER_RIGHT_CORNER));
+        pane.setCorner(UPPER_RIGHT_CORNER, b);
+        assertFalse(propertyChangeController.isChanged(UPPER_RIGHT_CORNER));
         assertEquals(7, pane.getComponentCount());
     }
 

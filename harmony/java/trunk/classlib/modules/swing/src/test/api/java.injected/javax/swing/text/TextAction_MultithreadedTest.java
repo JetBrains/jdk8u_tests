@@ -59,7 +59,7 @@ public class TextAction_MultithreadedTest extends TestCase {
         super.tearDown();
     }
 
-    public void testGetFocusedComponent() throws Exception {
+    public void _testGetFocusedComponent() throws Exception {
         TextAction action = new TextAction("") {
             private static final long serialVersionUID = 1L;
 
@@ -93,7 +93,7 @@ public class TextAction_MultithreadedTest extends TestCase {
         assertEquals("focused component", component3, res);
     }
 
-    public void testGetTextComponent() throws Exception {
+    public void _testGetTextComponent() throws Exception {
         TextAction action = new TextAction("") {
             private static final long serialVersionUID = 1L;
 

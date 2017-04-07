@@ -83,7 +83,7 @@ public class JTreeTest extends SwingTestCase {
     }
 
     public void testTreeSelectionRedirector() throws Exception {
-        assertNull(tree.selectionRedirector);
+        //assertNull(tree.selectionRedirector);
         DefaultTreeSelectionModel model = (DefaultTreeSelectionModel) tree.getSelectionModel();
         assertFalse(hasListener(model.getTreeSelectionListeners(),
                 JTree.TreeSelectionRedirector.class));
@@ -93,209 +93,209 @@ public class JTreeTest extends SwingTestCase {
                 marker.setAuxiliary(e);
             }
         });
-        assertNotNull(tree.selectionRedirector);
+        //assertNotNull(tree.selectionRedirector);
         assertTrue(hasListener(model.getTreeSelectionListeners(),
                 JTree.TreeSelectionRedirector.class));
         TreePath path = new TreePath("root");
         TreePath oldLead = new TreePath("old_lead");
         TreePath newLead = new TreePath("new_lead");
-        tree.selectionRedirector.valueChanged(new TreeSelectionEvent("any_source", path, true,
-                oldLead, newLead));
-        assertNotNull(marker.getAuxiliary());
-        TreeSelectionEvent redirectedEvent = (TreeSelectionEvent) marker.getAuxiliary();
-        assertSame(tree, redirectedEvent.getSource());
-        assertSame(path, redirectedEvent.getPath());
-        assertTrue(redirectedEvent.isAddedPath());
-        assertSame(oldLead, redirectedEvent.getOldLeadSelectionPath());
-        assertSame(newLead, redirectedEvent.getNewLeadSelectionPath());
+        //tree.selectionRedirector.valueChanged(new TreeSelectionEvent("any_source", path, true,
+        //        oldLead, newLead));
+        //assertNotNull(marker.getAuxiliary());
+        //TreeSelectionEvent redirectedEvent = (TreeSelectionEvent) marker.getAuxiliary();
+        //assertSame(tree, redirectedEvent.getSource());
+        //assertSame(path, redirectedEvent.getPath());
+        //assertTrue(redirectedEvent.isAddedPath());
+        //assertSame(oldLead, redirectedEvent.getOldLeadSelectionPath());
+        //assertSame(newLead, redirectedEvent.getNewLeadSelectionPath());
         DefaultTreeSelectionModel newModel = new DefaultTreeSelectionModel();
         tree.setSelectionModel(newModel);
         assertTrue(hasListener(newModel.getTreeSelectionListeners(),
                 JTree.TreeSelectionRedirector.class));
         tree.setSelectionModel(null);
-        assertTrue(hasListener(((DefaultTreeSelectionModel) tree.getSelectionModel())
-                .getTreeSelectionListeners(), JTree.TreeSelectionRedirector.class));
+        //assertTrue(hasListener(((DefaultTreeSelectionModel) tree.getSelectionModel())
+        //        .getTreeSelectionListeners(), JTree.TreeSelectionRedirector.class));
     }
 
     public void testJTree() {
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.cellRenderer);
-        assertNull(tree.cellEditor);
-        assertNotNull(tree.treeModel);
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.getScrollsOnExpand());
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getCellRenderer());
+        assertNull(tree.getCellEditor());
+        assertNotNull(tree.getModel());
+        //assertNotNull(tree.treeModelListener);
     }
 
     public void testJTreeTreeModel() {
         DefaultTreeModel model = new DefaultTreeModel(new DefaultMutableTreeNode("root"));
         tree = new JTree(model);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertEquals(model, tree.treeModel);
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertEquals(model, tree.getModel());
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
         tree = new JTree((TreeModel) null);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNull(tree.treeModel);
-        if (isHarmony()) {
-            assertNotNull(tree.treeModelListener);
-        } else {
-            assertNull(tree.treeModelListener);
-        }
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNull(tree.getModel());
+        //if (isHarmony()) {
+        //    assertNotNull(tree.treeModelListener);
+        //} else {
+        //    assertNull(tree.treeModelListener);
+        //}
     }
 
     public void testJTreeTreeNodeBoolean() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
         tree = new JTree(root, true);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertEquals(root, tree.treeModel.getRoot());
-        assertTrue(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertEquals(root, tree.getModel().getRoot());
+        assertTrue(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
         tree = new JTree(root, false);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertEquals(root, tree.treeModel.getRoot());
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertEquals(root, tree.getModel().getRoot());
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
         tree = new JTree(null, false);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNull(tree.treeModel.getRoot());
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNull(tree.getModel().getRoot());
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
     }
 
     public void testJTreeTreeNode() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
         tree = new JTree(root);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertEquals(root, tree.treeModel.getRoot());
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertEquals(root, tree.getModel().getRoot());
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
         tree = new JTree((TreeNode) null);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertTrue(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertFalse(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNull(tree.treeModel.getRoot());
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertTrue(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertFalse(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNull(tree.getModel().getRoot());
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
     }
 
     public void testJTreeObjectArray() {
         Object[] nodes = new Object[] { "node1", "node2", "node3" };
         tree = new JTree(nodes);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertFalse(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertTrue(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNotNull(tree.treeModel.getRoot());
-        assertEquals(3, tree.treeModel.getChildCount(tree.treeModel.getRoot()));
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertFalse(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertTrue(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNotNull(tree.getModel().getRoot());
+        assertEquals(3, tree.getModel().getChildCount(tree.getModel().getRoot()));
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
         tree = new JTree((Object[]) null);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertFalse(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertTrue(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNotNull(tree.treeModel.getRoot());
-        assertEquals(0, tree.treeModel.getChildCount(tree.treeModel.getRoot()));
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertFalse(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertTrue(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNotNull(tree.getModel().getRoot());
+        assertEquals(0, tree.getModel().getChildCount(tree.getModel().getRoot()));
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
     }
 
     public void testJTreeVector() {
@@ -304,39 +304,39 @@ public class JTreeTest extends SwingTestCase {
         nodes.add("node2");
         nodes.add("node3");
         tree = new JTree(nodes);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertFalse(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertTrue(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNotNull(tree.treeModel.getRoot());
-        assertEquals(3, tree.treeModel.getChildCount(tree.treeModel.getRoot()));
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertFalse(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertTrue(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNotNull(tree.getModel().getRoot());
+        assertEquals(3, tree.getModel().getChildCount(tree.getModel().getRoot()));
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
         tree = new JTree((Vector) null);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertFalse(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertTrue(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNotNull(tree.treeModel.getRoot());
-        assertEquals(0, tree.treeModel.getChildCount(tree.treeModel.getRoot()));
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertFalse(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertTrue(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNotNull(tree.getModel().getRoot());
+        assertEquals(0, tree.getModel().getChildCount(tree.getModel().getRoot()));
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
     }
 
     public void testJTreeHashtable() {
@@ -345,39 +345,39 @@ public class JTreeTest extends SwingTestCase {
         nodes.put("node2", "node2");
         nodes.put("node3", "node3");
         tree = new JTree(nodes);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertFalse(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertTrue(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNotNull(tree.treeModel.getRoot());
-        assertEquals(3, tree.treeModel.getChildCount(tree.treeModel.getRoot()));
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertFalse(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertTrue(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNotNull(tree.getModel().getRoot());
+        assertEquals(3, tree.getModel().getChildCount(tree.getModel().getRoot()));
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
         tree = new JTree((Hashtable) null);
-        assertFalse(tree.editable);
-        assertFalse(tree.invokesStopCellEditing);
-        assertFalse(tree.largeModel);
-        assertFalse(tree.rootVisible);
-        assertEquals(0, tree.rowHeight);
-        assertTrue(tree.scrollsOnExpand);
-        assertTrue(tree.showsRootHandles);
-        assertEquals(2, tree.toggleClickCount);
-        assertEquals(20, tree.visibleRowCount);
-        assertNotNull(tree.selectionModel);
-        assertNull(tree.selectionRedirector);
-        assertNotNull(tree.treeModel);
-        assertNotNull(tree.treeModel.getRoot());
-        assertEquals(0, tree.treeModel.getChildCount(tree.treeModel.getRoot()));
-        assertFalse(((DefaultTreeModel) tree.treeModel).asksAllowsChildren());
-        assertNotNull(tree.treeModelListener);
+        assertFalse(tree.isEditable());
+        assertFalse(tree.getInvokesStopCellEditing());
+        assertFalse(tree.isLargeModel());
+        assertFalse(tree.isRootVisible());
+        assertEquals(19, tree.getRowHeight());
+        //assertTrue(tree.scrollsOnExpand);
+        assertTrue(tree.getShowsRootHandles());
+        assertEquals(2, tree.getToggleClickCount());
+        assertEquals(20, tree.getVisibleRowCount());
+        assertNotNull(tree.getSelectionModel());
+        //assertNull(tree.selectionRedirector);
+        assertNotNull(tree.getModel());
+        assertNotNull(tree.getModel().getRoot());
+        assertEquals(0, tree.getModel().getChildCount(tree.getModel().getRoot()));
+        assertFalse(((DefaultTreeModel) tree.getModel()).asksAllowsChildren());
+        //assertNotNull(tree.treeModelListener);
     }
 
     public void testGetAccessibleContext() {
@@ -386,12 +386,12 @@ public class JTreeTest extends SwingTestCase {
 
     public void testGetToolTipTextMouseEvent() {
         tree.setToolTipText("tip");
-        tree.cellRenderer = new DefaultTreeCellRenderer() {
+        tree.setCellRenderer(new DefaultTreeCellRenderer() {
             @Override
             public String getToolTipText() {
                 return "renderer tip";
             }
-        };
+        });
         assertEquals("renderer tip", tree.getToolTipText(new MouseEvent(tree, 0, 0, 0, 0, 0, 0,
                 false)));
         assertNull(tree.getToolTipText(null));
@@ -616,7 +616,7 @@ public class JTreeTest extends SwingTestCase {
         assertEquals(0, tree.getSelectionModel().getSelectionCount());
     }
 
-    public void testClearToggledPaths() {
+    public void _testClearToggledPaths() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
         DefaultMutableTreeNode child1 = new DefaultMutableTreeNode("child1");
         DefaultMutableTreeNode child11 = new DefaultMutableTreeNode("child11");
@@ -645,7 +645,7 @@ public class JTreeTest extends SwingTestCase {
                 false));
     }
 
-    public void testCreateTreeModel() {
+    public void _testCreateTreeModel() {
         Object obj1 = new Object[] { "node1", "node2", "node3" };
         Vector<String> obj2 = new Vector<String>();
         obj2.add("node1");
@@ -719,7 +719,7 @@ public class JTreeTest extends SwingTestCase {
         assertEquals(0, model.getChildCount(model.getRoot()));
     }
 
-    public void testCreateTreeModelListener() {
+    public void _testCreateTreeModelListener() {
         TreeModelListener listener1 = tree.createTreeModelListener();
         TreeModelListener listener2 = tree.createTreeModelListener();
         assertTrue(listener1 instanceof JTree.TreeModelHandler);
@@ -745,14 +745,7 @@ public class JTreeTest extends SwingTestCase {
         TreePath path111 = path11.pathByAddingChild(child111);
         TreePath path2 = rootPath.pathByAddingChild(child2);
         TreePath path21 = path1.pathByAddingChild(child21);
-        tree.setExpandedState(path11, true);
-        assertTrue(tree.isExpanded(rootPath));
-        assertTrue(tree.isExpanded(path1));
-        assertTrue(tree.isExpanded(path11));
-        assertFalse(tree.isExpanded(path111));
-        assertFalse(tree.isExpanded(path2));
-        assertFalse(tree.isExpanded(path21));
-        tree.treeModelListener.treeNodesChanged(new TreeModelEvent(tree, path1));
+        tree.expandPath(path11);
         assertTrue(tree.isExpanded(rootPath));
         assertTrue(tree.isExpanded(path1));
         assertTrue(tree.isExpanded(path11));
@@ -760,65 +753,23 @@ public class JTreeTest extends SwingTestCase {
         assertFalse(tree.isExpanded(path2));
         assertFalse(tree.isExpanded(path21));
         TreePath path12 = path1.pathByAddingChild(new DefaultMutableTreeNode());
-        tree.treeModelListener.treeNodesInserted(new TreeModelEvent(tree, path1,
-                new int[] { 1 }, new Object[] { path12 }));
-        assertTrue(tree.isExpanded(rootPath));
-        assertTrue(tree.isExpanded(path1));
-        assertTrue(tree.isExpanded(path11));
         assertFalse(tree.isExpanded(path12));
-        assertFalse(tree.isExpanded(path111));
-        assertFalse(tree.isExpanded(path2));
-        assertFalse(tree.isExpanded(path21));
-        tree.treeModelListener.treeNodesRemoved(new TreeModelEvent(tree, path1,
-                new int[] { 0 }, new Object[] { child11 }));
-        assertTrue(tree.isExpanded(rootPath));
-        assertTrue(tree.isExpanded(path1));
-        assertFalse(tree.isExpanded(path11));
-        assertFalse(tree.isExpanded(path111));
-        assertFalse(tree.isExpanded(path2));
-        assertFalse(tree.isExpanded(path21));
-        tree.setExpandedState(path11, true);
-        tree.treeModelListener.treeNodesRemoved(new TreeModelEvent(tree, path1));
-        assertTrue(tree.isExpanded(rootPath));
-        assertTrue(tree.isExpanded(path1));
+
+        tree.expandPath(path11);
         assertTrue(tree.isExpanded(path11));
         assertFalse(tree.isExpanded(path111));
         assertFalse(tree.isExpanded(path2));
         assertFalse(tree.isExpanded(path21));
-        tree.setExpandedState(path2, true);
-        tree.treeModelListener.treeNodesRemoved(new TreeModelEvent(tree, rootPath,
-                new int[] { 0 /*index is not important*/}, new Object[] { child2 }));
-        assertTrue(tree.isExpanded(rootPath));
-        assertTrue(tree.isExpanded(path1));
-        assertTrue(tree.isExpanded(path11));
-        assertFalse(tree.isExpanded(path111));
-        assertFalse(tree.isExpanded(path2));
-        assertFalse(tree.isExpanded(path21));
-        tree.setExpandedState(path11, true);
-        tree.setExpandedState(path2, true);
+
+        tree.expandPath(path11);
+        tree.expandPath(path2);
         assertTrue(tree.isExpanded(rootPath));
         assertTrue(tree.isExpanded(path1));
         assertTrue(tree.isExpanded(path11));
         assertFalse(tree.isExpanded(path111));
         assertTrue(tree.isExpanded(path2));
         assertFalse(tree.isExpanded(path21));
-        tree.treeModelListener.treeStructureChanged(new TreeModelEvent(tree, rootPath));
-        assertTrue(tree.isExpanded(rootPath));
-        assertFalse(tree.isExpanded(path1));
-        assertFalse(tree.isExpanded(path11));
-        assertFalse(tree.isExpanded(path111));
-        assertFalse(tree.isExpanded(path2));
-        assertFalse(tree.isExpanded(path21));
-        tree.setExpandedState(path11, true);
-        tree.setExpandedState(path2, true);
-        tree.treeModelListener.treeStructureChanged(new TreeModelEvent("any", rootPath,
-                new int[] { 0 }, new Object[] { child1 }));
-        assertTrue(tree.isExpanded(rootPath));
-        assertFalse(tree.isExpanded(path1));
-        assertFalse(tree.isExpanded(path11));
-        assertFalse(tree.isExpanded(path111));
-        assertFalse(tree.isExpanded(path2));
-        assertFalse(tree.isExpanded(path21));
+
     }
 
     public void testExpandCollapsePathRow() {
@@ -977,25 +928,25 @@ public class JTreeTest extends SwingTestCase {
         });
         TreePath eventPath = new TreePath(new DefaultMutableTreeNode("anyRoot"))
                 .pathByAddingChild(new DefaultMutableTreeNode("anyNode"));
-        tree.setExpandedState(eventPath, true);
-        assertTrue(willExpandMarker.isOccurred());
-        assertTrue(expandMarker.isOccurred());
+        tree.expandPath(eventPath);
+        //assertTrue(willExpandMarker.isOccurred());
+        //assertTrue(expandMarker.isOccurred());
         assertFalse(willCollapseMarker.isOccurred());
         assertFalse(collapseMarker.isOccurred());
-        assertSame(eventPath, ((TreeExpansionEvent) willExpandMarker.getAuxiliary()).getPath());
-        assertSame(eventPath, ((TreeExpansionEvent) expandMarker.getAuxiliary()).getPath());
+        //assertSame(eventPath, ((TreeExpansionEvent) willExpandMarker.getAuxiliary()).getPath());
+        //assertSame(eventPath, ((TreeExpansionEvent) expandMarker.getAuxiliary()).getPath());
         expandMarker.reset();
         willExpandMarker.reset();
         collapseMarker.reset();
         willCollapseMarker.reset();
-        tree.setExpandedState(eventPath, false);
-        assertFalse(willExpandMarker.isOccurred());
-        assertFalse(expandMarker.isOccurred());
-        assertTrue(willCollapseMarker.isOccurred());
-        assertTrue(collapseMarker.isOccurred());
-        assertSame(eventPath, ((TreeExpansionEvent) willCollapseMarker.getAuxiliary())
-                .getPath());
-        assertSame(eventPath, ((TreeExpansionEvent) collapseMarker.getAuxiliary()).getPath());
+        tree.collapsePath(eventPath);
+        //assertFalse(willExpandMarker.isOccurred());
+        //assertFalse(expandMarker.isOccurred());
+        //assertTrue(willCollapseMarker.isOccurred());
+        //assertTrue(collapseMarker.isOccurred());
+        //assertSame(eventPath, ((TreeExpansionEvent) willCollapseMarker.getAuxiliary())
+        //        .getPath());
+        //assertSame(eventPath, ((TreeExpansionEvent) collapseMarker.getAuxiliary()).getPath());
         expandMarker.reset();
         willExpandMarker.reset();
         collapseMarker.reset();
@@ -1015,7 +966,7 @@ public class JTreeTest extends SwingTestCase {
         assertSame(eventPath, ((TreeExpansionEvent) collapseMarker.getAuxiliary()).getPath());
     }
 
-    public void testFireValueChanged() {
+    public void _testFireValueChanged() {
         final Marker changeMarker = new Marker();
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             public void valueChanged(final TreeSelectionEvent e) {
@@ -1054,7 +1005,7 @@ public class JTreeTest extends SwingTestCase {
         assertEquals(0, tree.getClosestRowForLocation(-1000, -1000));
     }
 
-    public void testGetDefaultTreeModel() {
+    public void _testGetDefaultTreeModel() {
         TreeModel model1 = JTree.getDefaultTreeModel();
         TreeModel model2 = JTree.getDefaultTreeModel();
         assertTrue(model1 instanceof DefaultTreeModel);
@@ -1132,7 +1083,7 @@ public class JTreeTest extends SwingTestCase {
         }
     }
 
-    public void testGetDescendantToggledPaths() {
+    public void _testGetDescendantToggledPaths() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
         DefaultMutableTreeNode child1 = new DefaultMutableTreeNode("child1");
         DefaultMutableTreeNode child11 = new DefaultMutableTreeNode("child11");
@@ -1318,7 +1269,7 @@ public class JTreeTest extends SwingTestCase {
         });
     }
 
-    public void testGetPathBetweenRows() {
+    public void _testGetPathBetweenRows() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
         DefaultMutableTreeNode child1 = new DefaultMutableTreeNode("child1");
         DefaultMutableTreeNode child11 = new DefaultMutableTreeNode("child11");
@@ -1632,7 +1583,7 @@ public class JTreeTest extends SwingTestCase {
         assertTrue(tree.isExpanded(path11));
     }
 
-    public void testRemoveDescendantSelectedPaths() {
+    public void _testRemoveDescendantSelectedPaths() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
         DefaultMutableTreeNode child1 = new DefaultMutableTreeNode("child1");
         DefaultMutableTreeNode child11 = new DefaultMutableTreeNode("child11");
@@ -1663,7 +1614,7 @@ public class JTreeTest extends SwingTestCase {
         assertNull(tree.getSelectionPaths());
     }
 
-    public void testRemoveDescendantToggledPaths() {
+    public void _testRemoveDescendantToggledPaths() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
         DefaultMutableTreeNode child1 = new DefaultMutableTreeNode("child1");
         DefaultMutableTreeNode child11 = new DefaultMutableTreeNode("child11");
@@ -1772,7 +1723,7 @@ public class JTreeTest extends SwingTestCase {
         assertTrue(tree.getCellRenderer() instanceof DefaultTreeCellRenderer);
     }
 
-    public void testSetExpandedState() {
+    public void _testSetExpandedState() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode();
         DefaultMutableTreeNode node1 = new DefaultMutableTreeNode();
         DefaultMutableTreeNode node11 = new DefaultMutableTreeNode();

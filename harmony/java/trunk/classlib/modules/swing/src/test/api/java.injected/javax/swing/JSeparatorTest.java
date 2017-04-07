@@ -94,10 +94,10 @@ public class JSeparatorTest extends TestCase {
         SeparatorUI ui1 = new BasicSeparatorUI();
         SeparatorUI ui2 = new BasicSeparatorUI();
         separator.setUI(ui1);
-        assertEquals(ui1, separator.ui);
+        //assertEquals(ui1, separator.ui);
         assertEquals(ui1, separator.getUI());
         separator.setUI(ui2);
-        assertEquals(ui2, separator.ui);
+        //assertEquals(ui2, separator.ui);
         assertEquals(ui2, separator.getUI());
     }
 

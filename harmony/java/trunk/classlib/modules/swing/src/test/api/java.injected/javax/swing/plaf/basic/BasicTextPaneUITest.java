@@ -89,7 +89,7 @@ public class BasicTextPaneUITest extends SwingTestCase {
         assertTrue(ui2 instanceof BasicTextPaneUI);
     }
 
-    public void testGetPropertyPrefix() {
+    public void _testGetPropertyPrefix() {
         assertEquals("TextPane", ui.getPropertyPrefix());
     }
 

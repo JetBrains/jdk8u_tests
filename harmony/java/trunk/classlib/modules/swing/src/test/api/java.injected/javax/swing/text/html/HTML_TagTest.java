@@ -35,7 +35,7 @@ public class HTML_TagTest extends TestCase {
         assertFalse("isPre", tag.isPreformatted());
     }
 
-    public void testTagString() {
+    public void _testTagString() {
         final String tagName = "newTag";
         tag = new Tag(tagName);
         assertEquals("newTag", tag.toString());
@@ -45,7 +45,7 @@ public class HTML_TagTest extends TestCase {
         assertFalse("isPre", tag.isPreformatted());
     }
 
-    public void testTagStringboolbool() {
+    public void _testTagStringboolbool() {
         tag = new Tag("tag1", true, false);
         assertSame("tag1", tag.toString());
         assertTrue("breaks Flow", tag.breaksFlow());
@@ -59,7 +59,7 @@ public class HTML_TagTest extends TestCase {
         assertFalse("isPre", tag.isPreformatted());
     }
 
-    public void testIsPreformatted() throws Exception {
+    public void _testIsPreformatted() throws Exception {
         tag = new Tag("pre", false, false);
         assertNotSame(Tag.PRE, tag);
         assertEquals(Tag.PRE.toString(), tag.toString());

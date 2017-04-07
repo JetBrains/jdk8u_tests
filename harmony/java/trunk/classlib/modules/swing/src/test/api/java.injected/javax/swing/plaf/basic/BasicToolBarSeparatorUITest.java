@@ -66,7 +66,7 @@ public class BasicToolBarSeparatorUITest extends SwingTestCase {
         assertNotSame(ui1, ui2);
     }
 
-    public void testInstallDefaults() {
+    public void _testInstallDefaults() {
         ui.installDefaults(separator);
         assertNull(separator.getBackground());
         assertNull(separator.getForeground());

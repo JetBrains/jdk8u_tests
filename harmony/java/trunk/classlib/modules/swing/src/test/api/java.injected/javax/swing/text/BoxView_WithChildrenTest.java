@@ -148,7 +148,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
         minor = view.calculateMinorAxisRequirements(X_AXIS, null);
     }
 
-    public void testGetChildAllocation() {
+    public void _testGetChildAllocation() {
         assertNull(view.getChildAllocation(0, shape));
         assertNull(view.getChildAllocation(1, shape));
         view.layout(shape.width, shape.height);
@@ -164,7 +164,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
                 .getChildAllocation(3, shape));
     }
 
-    public void testChildAllocation() {
+    public void _testChildAllocation() {
         Rectangle alloc;
         final Rectangle invalidLayoutAlloc = new Rectangle(shape.x, shape.y, 0, 0);
         alloc = (Rectangle) shape.clone();
@@ -185,7 +185,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     }
 
     // Regression test for HARMONY-2776
-    public void testChildAllocationNull() throws Exception {
+    public void _testChildAllocationNull() throws Exception {
         final Marker marker = new Marker();
         view = new BoxView(root, Y_AXIS) {
             @Override
@@ -214,7 +214,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     }
     
 
-    public void testFlipEastAndWestAtEnds() {
+    public void _testFlipEastAndWestAtEnds() {
         assertEquals(Y_AXIS, view.getAxis());
         // Child views are not instances of CompositeView (no flip method)
         assertFalse(view.flipEastAndWestAtEnds(1, Bias.Backward));
@@ -252,7 +252,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
         assertNull(viewCalledUpon[0]);
     }
 
-    public void testFlipEastAndWestAtEndsIndex() throws Exception {
+    public void _testFlipEastAndWestAtEndsIndex() throws Exception {
         final Marker marker = new Marker();
         view = new BoxView(root, Y_AXIS) {
             @Override
@@ -297,7 +297,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * General checks.
      */
-    public void testGetViewAtPoint01() {
+    public void _testGetViewAtPoint01() {
         Rectangle alloc;
         view.layout(shape.width, shape.height);
         alloc = (Rectangle) shape.clone();
@@ -330,7 +330,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Checks with invalid coordinates: outside of the shape.
      */
-    public void testGetViewAtPoint02() {
+    public void _testGetViewAtPoint02() {
         Rectangle alloc;
         view.layout(shape.width, shape.height);
         final int x = shape.x - 20;
@@ -357,7 +357,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests getViewAtPoint method when major axis of the view is X.
      */
-    public void testGetViewAtPoint03() {
+    public void _testGetViewAtPoint03() {
         Rectangle alloc;
         view = new BoxViewImpl(root, X_AXIS);
         factory.resetID();
@@ -421,7 +421,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * <em>non-resizable</em> child views.
      * <p>The test performed for both major and minor axes.
      */
-    public void testBaselineLayout01() {
+    public void _testBaselineLayout01() {
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
         int axis = Y_AXIS;
@@ -457,7 +457,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>baselineLayout</code> with <em>resizable</em> child views.
      * <p>The test performed for major axis only.
      */
-    public void testBaselineLayout02() {
+    public void _testBaselineLayout02() {
         makeFlexible();
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
@@ -477,7 +477,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>baselineRequirements</code> with ordinary children along
      * major axis - Y.
      */
-    public void testBaselineRequirements01() {
+    public void _testBaselineRequirements01() {
         SizeRequirements sr;
         final int axis = Y_AXIS;
         sr = view.baselineRequirements(axis, null);
@@ -497,7 +497,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>baselineRequirements</code> with flexible children along
      * major axis - Y.
      */
-    public void testBaselineRequirements02() {
+    public void _testBaselineRequirements02() {
         if (!isHarmony()) {
             return;
         }
@@ -525,7 +525,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>baselineRequirements</code> with ordinary children along
      * minor axis - X.
      */
-    public void testBaselineRequirements03() {
+    public void _testBaselineRequirements03() {
         SizeRequirements sr;
         final int axis = X_AXIS;
         sr = view.baselineRequirements(axis, null);
@@ -542,7 +542,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>calculateMajorAxisRequirements</code> with ordinary children.
      */
-    public void testCalculateMajorAxisRequirements01() {
+    public void _testCalculateMajorAxisRequirements01() {
         SizeRequirements in = null;
         SizeRequirements out;
         out = view.calculateMajorAxisRequirements(Y_AXIS, in);
@@ -564,7 +564,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>calculateMajorAxisRequirements</code> with flexible children.
      */
-    public void testCalculateMajorAxisRequirements02() {
+    public void _testCalculateMajorAxisRequirements02() {
         makeFlexible();
         int min = 0; // Requirements are sum
         int pref = 0;
@@ -584,7 +584,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>calculateMinorAxisRequirements</code> with ordinary children.
      */
-    public void testCalculateMinorAxisRequirements01() {
+    public void _testCalculateMinorAxisRequirements01() {
         SizeRequirements in = null;
         SizeRequirements out;
         out = view.calculateMinorAxisRequirements(X_AXIS, in);
@@ -608,7 +608,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>calculateMinorAxisRequirements</code> with flexible children.
      */
-    public void testCalculateMinorAxisRequirements02() {
+    public void _testCalculateMinorAxisRequirements02() {
         makeFlexible();
         int min = 0; // Requirements are maximum values
         int pref = 0;
@@ -635,7 +635,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * preference along both axes.
      * (See javax.swing.text.ViewTestHelpers.ChildView.insertUpdate()).
      */
-    public void testForwardUpdate01() throws BadLocationException {
+    public void _testForwardUpdate01() throws BadLocationException {
         view.getContainer();
         componentRepaint = false;
         doc.addDocumentListener(this);
@@ -666,7 +666,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * document structure isn't changed. The child says it changed its
      * prefence along X_AXIS only.
      */
-    public void testForwardUpdate02() throws BadLocationException {
+    public void _testForwardUpdate02() throws BadLocationException {
         doc.addDocumentListener(this);
         doc.insertString(root.getElement(2).getStartOffset() + 1, "123", null);
         ElementChange change = insertEvent.getChange(view.getElement());
@@ -696,7 +696,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * preference along both axes.
      * (See javax.swing.text.ViewTestHelpers.ChildView.insertUpdate()).
      */
-    public void testForwardUpdate03() throws BadLocationException {
+    public void _testForwardUpdate03() throws BadLocationException {
         view = new BoxViewImpl(root, X_AXIS);
         view.loadChildren(factory);
         view.getContainer();
@@ -724,7 +724,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * document structure isn't changed. The child says it changed its
      * preference along Y_AXIS only.
      */
-    public void testForwardUpdate04() throws BadLocationException {
+    public void _testForwardUpdate04() throws BadLocationException {
         view = new BoxViewImpl(root, X_AXIS);
         view.loadChildren(factory);
         doc.addDocumentListener(this);
@@ -750,7 +750,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
         assertNull(paintRect);
     }
 
-    public void testInsertUpdate() throws BadLocationException {
+    public void _testInsertUpdate() throws BadLocationException {
         doc.addDocumentListener(this);
         doc.insertString(root.getElement(2).getStartOffset() + 1, "\n123", null);
         view.layout(shape.width, shape.height);
@@ -761,7 +761,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
         assertTrue(componentRepaint);
     }
 
-    public void testUpdateLayout01() throws BadLocationException {
+    public void _testUpdateLayout01() throws BadLocationException {
         doc.addDocumentListener(this);
         doc.insertString(root.getElement(2).getStartOffset() + 1, "123", null);
         view.layout(shape.width, shape.height);
@@ -772,7 +772,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
         assertFalse(componentRepaint);
     }
 
-    public void testUpdateLayout02() throws BadLocationException {
+    public void _testUpdateLayout02() throws BadLocationException {
         doc.addDocumentListener(this);
         doc.insertString(root.getElement(2).getStartOffset() + 1, "\n123", null);
         view.layout(shape.width, shape.height);
@@ -786,7 +786,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>getOffset</code> with Y axis.
      */
-    public void testGetOffset01() {
+    public void _testGetOffset01() {
         view.layout(shape.width, shape.height);
         assertEquals(getChildY(0) - shape.y, view.getOffset(Y_AXIS, 0));
         assertEquals(getChildY(1) - shape.y, view.getOffset(Y_AXIS, 1));
@@ -797,7 +797,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>getOffset</code> with X axis.
      */
-    public void testGetOffset02() {
+    public void _testGetOffset02() {
         view.layout(shape.width, shape.height);
         assertEquals(getChildX(0) - shape.x, view.getOffset(X_AXIS, 0));
         assertEquals(getChildX(1) - shape.x, view.getOffset(X_AXIS, 1));
@@ -808,7 +808,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>getSpan</code> with Y axis.
      */
-    public void testGetSpan01() {
+    public void _testGetSpan01() {
         view.layout(shape.width, shape.height);
         assertEquals(getHeight(0), view.getSpan(Y_AXIS, 0));
         assertEquals(getHeight(1), view.getSpan(Y_AXIS, 1));
@@ -819,7 +819,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests <code>getSpan</code> with X axis.
      */
-    public void testGetSpan02() {
+    public void _testGetSpan02() {
         view.layout(shape.width, shape.height);
         assertEquals(getWidth(0), view.getSpan(X_AXIS, 0));
         assertEquals(getWidth(1), view.getSpan(X_AXIS, 1));
@@ -831,7 +831,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>layoutMajorAxis</code> with default settings:
      * not resizable children, enough height space.
      */
-    public void testLayoutMajorAxis01() {
+    public void _testLayoutMajorAxis01() {
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
         view.layoutMajorAxis(shape.height, Y_AXIS, offsets, spans);
@@ -847,7 +847,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>layoutMajorAxis</code> with default settings:
      * not resizable children, height space > maximum.
      */
-    public void testLayoutMajorAxis02() {
+    public void _testLayoutMajorAxis02() {
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
         view.layoutMajorAxis(major.preferred - 150, Y_AXIS, offsets, spans);
@@ -863,7 +863,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>layoutMajorAxis</code> with "flexible" settings:
      * resizable children, enough height space.
      */
-    public void testLayoutMajorAxis03() {
+    public void _testLayoutMajorAxis03() {
         makeFlexible();
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
@@ -885,7 +885,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Tests <code>layoutMajorAxis</code> with "flexible" settings:
      * resizable children, height space > minimum but < preferred.
      */
-    public void testLayoutMajorAxis04() {
+    public void _testLayoutMajorAxis04() {
         makeFlexible();
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
@@ -910,7 +910,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests layout of minor axis with <em>normal (non-resizable)</em> children.
      */
-    public void testLayoutMinorAxis01() {
+    public void _testLayoutMinorAxis01() {
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
         view.layoutMinorAxis(shape.width, X_AXIS, offsets, spans);
@@ -925,7 +925,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Tests layout of minor axis with <em>resizable</em> children.
      */
-    public void testLayoutMinorAxis02() {
+    public void _testLayoutMinorAxis02() {
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
         makeFlexible();
@@ -945,7 +945,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * where <code>targetSpan</code> <em>is less than the minimum span</em>
      * of at least one of the children.
      */
-    public void testLayoutMinorAxis03() {
+    public void _testLayoutMinorAxis03() {
         int[] offsets = new int[view.getViewCount()];
         int[] spans = new int[view.getViewCount()];
         makeFlexible();
@@ -968,7 +968,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getMaximumSpan</code> with ordinary children.
      */
-    public void testGetMaximumSpan01() {
+    public void _testGetMaximumSpan01() {
         assertEquals(major.maximum, (int) view.getMaximumSpan(Y_AXIS));
         assertEquals(minor.maximum, (int) view.getMaximumSpan(X_AXIS));
     }
@@ -976,7 +976,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getMaximumSpan</code> with flexible children.
      */
-    public void testGetMaximumSpan02() {
+    public void _testGetMaximumSpan02() {
         makeFlexible();
         assertEquals(major.maximum, (int) view.getMaximumSpan(Y_AXIS));
         assertEquals(minor.maximum, (int) view.getMaximumSpan(X_AXIS));
@@ -985,7 +985,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getMaximumSpan</code> throws required exception.
      */
-    public void testGetMaximumSpan03() {
+    public void _testGetMaximumSpan03() {
         try {
             view.getMaximumSpan(INVALID_AXIS);
             fail("IllegalArgumentException is expected");
@@ -996,7 +996,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getMinimumSpan</code> with ordinary children.
      */
-    public void testGetMinimumSpan01() {
+    public void _testGetMinimumSpan01() {
         assertEquals(major.minimum, (int) view.getMinimumSpan(Y_AXIS));
         assertEquals(minor.minimum, (int) view.getMinimumSpan(X_AXIS));
     }
@@ -1004,7 +1004,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getMinimumSpan</code> with flexible children.
      */
-    public void testGetMinimumSpan02() {
+    public void _testGetMinimumSpan02() {
         makeFlexible();
         assertEquals(major.minimum, (int) view.getMinimumSpan(Y_AXIS));
         assertEquals(minor.minimum, (int) view.getMinimumSpan(X_AXIS));
@@ -1013,7 +1013,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getMinimumSpan</code> throws required exception.
      */
-    public void testGetMinimumSpan03() {
+    public void _testGetMinimumSpan03() {
         try {
             view.getMinimumSpan(INVALID_AXIS);
             fail("IllegalArgumentException is expected");
@@ -1024,7 +1024,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getPreferredSpan</code> with ordinary children.
      */
-    public void testGetPreferredSpan01() {
+    public void _testGetPreferredSpan01() {
         assertEquals(major.preferred, (int) view.getPreferredSpan(Y_AXIS));
         assertEquals(minor.preferred, (int) view.getPreferredSpan(X_AXIS));
     }
@@ -1032,7 +1032,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getPreferredSpan</code> with flexible children.
      */
-    public void testGetPreferredSpan02() {
+    public void _testGetPreferredSpan02() {
         makeFlexible();
         assertEquals(major.preferred, (int) view.getPreferredSpan(Y_AXIS));
         assertEquals(minor.preferred, (int) view.getPreferredSpan(X_AXIS));
@@ -1041,7 +1041,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getPreferredSpan</code> throws required exception.
      */
-    public void testGetPreferredSpan03() {
+    public void _testGetPreferredSpan03() {
         try {
             view.getPreferredSpan(INVALID_AXIS);
             fail("IllegalArgumentException is expected");
@@ -1052,7 +1052,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getResizeWeight</code> with ordinary children.
      */
-    public void testGetResizeWeight01() {
+    public void _testGetResizeWeight01() {
         assertEquals(0, view.getResizeWeight(Y_AXIS)); // major
         assertEquals(1, view.getResizeWeight(X_AXIS)); // minor
     }
@@ -1060,7 +1060,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getResizeWeight</code> with flexible children.
      */
-    public void testGetResizeWeight02() {
+    public void _testGetResizeWeight02() {
         makeFlexible();
         assertEquals(1, view.getResizeWeight(Y_AXIS));
         assertEquals(1, view.getResizeWeight(X_AXIS));
@@ -1069,7 +1069,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /**
      * Test <code>getResizeWeight</code> throws required exception.
      */
-    public void testGetResizeWeight03() {
+    public void _testGetResizeWeight03() {
         try {
             view.getResizeWeight(INVALID_AXIS);
             fail("IllegalArgumentException is expected");
@@ -1081,7 +1081,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
      * Test <code>getResizeWeight</code> with both ordinary and
      * flexible children while major axis is X.
      */
-    public void testGetResizeWeight04() {
+    public void _testGetResizeWeight04() {
         view = new BoxView(root, X_AXIS);
         view.loadChildren(factory);
         assertEquals(1, view.getResizeWeight(Y_AXIS)); // minor
@@ -1096,7 +1096,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /*
      * Class under test for Shape modelToView(int, Shape, Bias)
      */
-    public void testModelToView() throws BadLocationException {
+    public void _testModelToView() throws BadLocationException {
         // Allocation is invalid
         assertFalse(view.isAllocationValid());
         // The call makes layout, so...
@@ -1127,7 +1127,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
     /*
      * Tests method int viewToModel(float, float, Shape, Bias[])
      */
-    public void testViewToModel() {
+    public void _testViewToModel() {
         final Bias[] bias = new Bias[1];
         // Allocation is invalid
         assertFalse(view.isAllocationValid());
@@ -1145,7 +1145,7 @@ public class BoxView_WithChildrenTest extends BasicSwingTestCase implements Docu
                 getChildY(1), shape, bias));
     }
 
-    public void testPaint() {
+    public void _testPaint() {
         final class ChildPainted {
             public int index;
 

@@ -241,7 +241,7 @@ public class FlowView_ChangesTest extends TestCase implements DocumentListener {
         doc.addDocumentListener(this);
     }
 
-    public void testInsertUpdate() throws BadLocationException {
+    public void _testInsertUpdate() throws BadLocationException {
         assertEquals(alloc.width, view.layoutSpan);
         assertEquals(1, view.getViewCount());
         assertTrue(view.isAllocationValid());
@@ -262,7 +262,7 @@ public class FlowView_ChangesTest extends TestCase implements DocumentListener {
         preferences.get(1).check(view, view.getView(0), true, false);
     }
 
-    public void testRemoveUpdate() throws BadLocationException {
+    public void _testRemoveUpdate() throws BadLocationException {
         assertTrue(view.isAllocationValid());
         doc.remove(1, 1);
         view.removeUpdate(event, alloc, view.getViewFactory());
@@ -276,7 +276,7 @@ public class FlowView_ChangesTest extends TestCase implements DocumentListener {
         preferences.get(1).check(view, view.getView(0), false, true);
     }
 
-    public void testChangedUpdate() {
+    public void _testChangedUpdate() {
         assertTrue(view.isAllocationValid());
         event = doc.new DefaultDocumentEvent(1, 1, EventType.CHANGE);
         view.changedUpdate(event, alloc, view.getViewFactory());

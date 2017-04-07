@@ -55,7 +55,7 @@ public class FormView_FormTextAreaElementTest extends SwingTestCase {
        document = (HTMLDocument) editorPane.getDocument();
     }
 
-    public void testCreateComponent() throws Exception {
+    public void _testCreateComponent() throws Exception {
         createHTMLSample();
 
         //ROWS, COLUMNS

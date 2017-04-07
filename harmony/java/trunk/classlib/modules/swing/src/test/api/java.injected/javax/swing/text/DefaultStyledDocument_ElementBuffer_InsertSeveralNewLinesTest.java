@@ -118,7 +118,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertSeveralNewLinesTest exten
      * <code>doc.insertString(insertOffset, newLines2, null)</code>,
      * where <code>insertOffset = 0</code>.
      */
-    public void testInsertSameAttrsDocStart2NewLines() throws Exception {
+    public void _testInsertSameAttrsDocStart2NewLines() throws Exception {
         insertOffset = 0;
         // doc.insertString(insertOffset, newLines2, null);
         content.insertString(insertOffset, newLines2);
@@ -155,7 +155,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertSeveralNewLinesTest exten
      * <code>doc.insertString(insertOffset, newLines3, null)</code>,
      * where <code>insertOffset = 0</code>.
      */
-    public void testInsertSameAttrsDocStart3NewLines() throws Exception {
+    public void _testInsertSameAttrsDocStart3NewLines() throws Exception {
         insertOffset = 0;
         // doc.insertString(insertOffset, newLines3, null);
         content.insertString(insertOffset, newLines3);
@@ -199,7 +199,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertSeveralNewLinesTest exten
      * <code>doc.insertString(insertOffset, newLines2Text, null)</code>,
      * where <code>insertOffset = 0</code>.
      */
-    public void testInsertSameAttrsDocStart2NewLinesText() throws Exception {
+    public void _testInsertSameAttrsDocStart2NewLinesText() throws Exception {
         insertOffset = 0;
         // doc.insertString(insertOffset, newLines2Text, null);
         content.insertString(insertOffset, newLines2Text);
@@ -237,7 +237,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertSeveralNewLinesTest exten
      * <code>doc.insertString(insertOffset, newLines3Text, null)</code>,
      * where <code>insertOffset = 0</code>.
      */
-    public void testInsertSameAttrsDocStart3NewLinesText() throws Exception {
+    public void _testInsertSameAttrsDocStart3NewLinesText() throws Exception {
         insertOffset = 0;
         // doc.insertString(insertOffset, newLines3Text, null);
         content.insertString(insertOffset, newLines3Text);

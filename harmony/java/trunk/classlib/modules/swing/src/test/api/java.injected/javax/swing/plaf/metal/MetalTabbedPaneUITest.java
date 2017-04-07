@@ -94,11 +94,11 @@ public class MetalTabbedPaneUITest extends SwingTestCase {
         super(name);
     }
 
-    public void testUpdate() {
+    public void _testUpdate() {
         // Note: painting code, cannot test
     }
 
-    public void testPaint() {
+    public void _testPaint() {
         // Note: painting code, cannot test
     }
 
@@ -107,7 +107,7 @@ public class MetalTabbedPaneUITest extends SwingTestCase {
         assertTrue(ui instanceof MetalTabbedPaneUI);
     }
 
-    public void testCalculateMaxTabHeight() {
+    public void _testCalculateMaxTabHeight() {
         int tabPlacement = tabbed.getTabPlacement();
         int fontHeight = tabbed.getFontMetrics(tabbed.getFont()).getHeight();
         int height1 = ui.calculateTabHeight(tabPlacement, 0, fontHeight);
@@ -115,28 +115,28 @@ public class MetalTabbedPaneUITest extends SwingTestCase {
         assertEquals(Math.max(height1, height2), ui.calculateMaxTabHeight(tabPlacement));
     }
 
-    public void testCreateLayoutManager() {
+    public void _testCreateLayoutManager() {
         assertTrue(ui.createLayoutManager() instanceof MetalTabbedPaneUI.TabbedPaneLayout);
     }
 
-    public void testGetTabLabelShiftX() {
+    public void _testGetTabLabelShiftX() {
         assertEquals(0, ui.getTabLabelShiftX(SwingConstants.TOP, 0, true));
         assertEquals(0, ui.getTabLabelShiftX(SwingConstants.TOP, 1, false));
     }
 
-    public void testGetTabLabelShiftY() {
+    public void _testGetTabLabelShiftY() {
         assertEquals(0, ui.getTabLabelShiftY(SwingConstants.TOP, 0, true));
         assertEquals(0, ui.getTabLabelShiftY(SwingConstants.TOP, 1, false));
     }
 
-    public void testGetTabRunOverlay() {
+    public void _testGetTabRunOverlay() {
         assertTrue(ui.getTabRunOverlay(SwingConstants.TOP) >= 0);
         assertTrue(ui.getTabRunOverlay(SwingConstants.LEFT) >= 0);
         assertTrue(ui.getTabRunOverlay(SwingConstants.RIGHT) >= 0);
         assertTrue(ui.getTabRunOverlay(SwingConstants.BOTTOM) >= 0);
     }
 
-    public void testInstallDefaults() {
+    public void _testInstallDefaults() {
         ui.minTabWidth = 1;
         ui.selectColor = null;
         ui.selectHighlight = null;
@@ -148,35 +148,35 @@ public class MetalTabbedPaneUITest extends SwingTestCase {
         assertEquals(UIManager.get("TabbedPane.tabAreaBackground"), ui.tabAreaBackground);
     }
 
-    public void testPaintContentBorderBottomEdge() {
+    public void _testPaintContentBorderBottomEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintContentBorderLeftEdge() {
+    public void _testPaintContentBorderLeftEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintContentBorderRightEdge() {
+    public void _testPaintContentBorderRightEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintContentBorderTopEdge() {
+    public void _testPaintContentBorderTopEdge() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintFocusIndicator() {
+    public void _testPaintFocusIndicator() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintTabBackground() {
+    public void _testPaintTabBackground() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintTabBorder() {
+    public void _testPaintTabBorder() {
         // Note: painting code, cannot test
     }
 
-    public void testShouldPadTabRun() {
+    public void _testShouldPadTabRun() {
         assertFalse(ui.shouldPadTabRun(SwingConstants.TOP, 0));
         create3TabRuns();
         assertFalse(ui.shouldPadTabRun(SwingConstants.TOP, 2));
@@ -184,11 +184,11 @@ public class MetalTabbedPaneUITest extends SwingTestCase {
         assertTrue(ui.shouldPadTabRun(SwingConstants.TOP, 0));
     }
 
-    public void testMetalTabbedPaneUI() {
+    public void _testMetalTabbedPaneUI() {
         assertEquals(40, ui.minTabWidth);
     }
 
-    public void testGetColorForGap() {
+    public void _testGetColorForGap() {
         assertEquals(tabbed.getBackground(), ui.getColorForGap(0, 0, 0));
         create3TabRuns();
         tabbed.setBackgroundAt(2, Color.green);
@@ -203,27 +203,27 @@ public class MetalTabbedPaneUITest extends SwingTestCase {
                 tabBounds.x, tabBounds.y));
     }
 
-    public void testPaintHighlightBelowTab() {
+    public void _testPaintHighlightBelowTab() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintBottomTabBorder() {
+    public void _testPaintBottomTabBorder() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintLeftTabBorder() {
+    public void _testPaintLeftTabBorder() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintRightTabBorder() {
+    public void _testPaintRightTabBorder() {
         // Note: painting code, cannot test
     }
 
-    public void testPaintTopTabBorder() {
+    public void _testPaintTopTabBorder() {
         // Note: painting code, cannot test
     }
 
-    public void testShouldFillGap() {
+    public void _testShouldFillGap() {
         assertFalse(ui.shouldFillGap(0, 0, 0, 0));
         create3TabRuns();
         int tabCount = tabbed.getTabCount();
@@ -234,7 +234,7 @@ public class MetalTabbedPaneUITest extends SwingTestCase {
                 tabBounds.x, tabBounds.y));
     }
 
-    public void testShouldRotateTabRuns() {
+    public void _testShouldRotateTabRuns() {
         assertFalse(ui.shouldRotateTabRuns(SwingConstants.TOP, 0));
         assertFalse(ui.shouldRotateTabRuns(SwingConstants.TOP, 1));
     }

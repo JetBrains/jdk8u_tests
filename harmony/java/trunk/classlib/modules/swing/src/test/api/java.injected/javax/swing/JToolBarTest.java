@@ -50,7 +50,7 @@ public class JToolBarTest extends SwingTestCase {
         assertTrue(toolBar.getAccessibleContext() instanceof JToolBar.AccessibleJToolBar);
     }
 
-    public void testAddImpl() {
+    public void _testAddImpl() {
         JButton b = new JButton("b");
         b.setEnabled(true);
         toolBar.addImpl(b, null, 0);
@@ -256,7 +256,7 @@ public class JToolBarTest extends SwingTestCase {
         assertFalse(b.isEnabled());
     }
 
-    public void testCreateActionComponent() {
+    public void _testCreateActionComponent() {
         AbstractAction action = new AbstractAction() {
             private static final long serialVersionUID = 1L;
             {
@@ -273,7 +273,7 @@ public class JToolBarTest extends SwingTestCase {
         assertEquals("", b.getText());
     }
 
-    public void testCreateActionChangeListener() {
+    public void _testCreateActionChangeListener() {
         JButton b = new JButton("b");
         assertNull(toolBar.createActionChangeListener(b));
     }

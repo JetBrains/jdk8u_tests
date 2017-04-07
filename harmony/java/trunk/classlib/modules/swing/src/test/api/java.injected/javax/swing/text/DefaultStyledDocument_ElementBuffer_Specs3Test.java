@@ -150,7 +150,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs3Test extends TestCase imp
     /**
      * Adds text with no attributes.
      */
-    public void testInsertString01() throws Exception {
+    public void _testInsertString01() throws Exception {
         doc.insertString(insertOffset, "^^^", null);
         assertEquals(2, getEdits(insertEvent).size());
         List<?> edits = getEdits(insertEvent);
@@ -176,7 +176,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs3Test extends TestCase imp
     /**
      * Adds text with the same attributes.
      */
-    public void testInsertString02() throws Exception {
+    public void _testInsertString02() throws Exception {
         doc.insertString(insertOffset, "^^^", bold);
         List<?> edits = getEdits(insertEvent);
         assertEquals(1, edits.size());
@@ -193,7 +193,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs3Test extends TestCase imp
     /**
      * Puts non-attributed new line character.
      */
-    public void testInsertString03() throws Exception {
+    public void _testInsertString03() throws Exception {
         doc.insertString(insertOffset, "\n", null);
         final List<?> edits = getEdits(insertEvent);
         assertEquals(3, edits.size());
@@ -230,7 +230,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs3Test extends TestCase imp
     /**
      * Puts non-attributed 'one\ntwo'.
      */
-    public void testInsertString04() throws Exception {
+    public void _testInsertString04() throws Exception {
         doc.insertString(insertOffset, "one\ntwo", null);
         List<?> edits = getEdits(insertEvent);
         assertEquals(4, edits.size());
@@ -256,7 +256,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs3Test extends TestCase imp
      * Puts 'one\ntwo' with bold attributes (the same as in the portion
      * where text is inserted).
      */
-    public void testInsertString05() throws Exception {
+    public void _testInsertString05() throws Exception {
         doc.insertString(insertOffset, "one\ntwo", bold);
         List<?> edits = getEdits(insertEvent);
         assertEquals(4, edits.size());

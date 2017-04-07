@@ -51,7 +51,7 @@ public class CompositeViewRTest extends TestCase {
      * NullPointerException is thrown if <code>replace</code>
      * is called when <code>views</code> parameter is <code>null</code>.
      */
-    public void testReplace02() {
+    public void _testReplace02() {
         final int count = view.getViewCount();
         view.replace(0, 0, null);
         assertEquals(count, view.getViewCount());
@@ -60,7 +60,7 @@ public class CompositeViewRTest extends TestCase {
         assertEquals(0, view.getViewCount());
     }
 
-    public void testReplace03() throws Exception {
+    public void _testReplace03() throws Exception {
         View child = view.getView(0);
         assertSame(view, child.getParent());
         // This removes and places the same view at the same place
@@ -68,7 +68,7 @@ public class CompositeViewRTest extends TestCase {
         assertSame(view, child.getParent());
     }
 
-    public void testReplace04() throws Exception {
+    public void _testReplace04() throws Exception {
         View child = view.getView(0);
         assertSame(view, child.getParent());
         View parent = new PlainView(root);
@@ -81,7 +81,7 @@ public class CompositeViewRTest extends TestCase {
     /**
      * <code>loadChildren</code> doesn't call <code>replace</code>.
      */
-    public void testLoadChildren02() {
+    public void _testLoadChildren02() {
         final boolean[] called = new boolean[] { false };
         view = new CompositeViewImpl(root) {
             @Override

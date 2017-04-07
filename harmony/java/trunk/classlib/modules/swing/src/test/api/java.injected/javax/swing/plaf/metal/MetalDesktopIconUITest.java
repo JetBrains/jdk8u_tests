@@ -142,15 +142,15 @@ public class MetalDesktopIconUITest extends SwingTestCase {
         assertNotNull(icon.getFont());
     }
 
-    public void testInstallListeners() {
+    public void _testInstallListeners() {
         // nothing to test
     }
 
-    public void testUninstallListeners() {
+    public void _testUninstallListeners() {
         // nothing to test
     }
 
-    public void testMetalDesktopIconUI() {
+    public void _testMetalDesktopIconUI() {
         // nothing to test
     }
 }

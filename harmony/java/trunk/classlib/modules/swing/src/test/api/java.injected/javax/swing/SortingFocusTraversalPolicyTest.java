@@ -43,7 +43,7 @@ public class SortingFocusTraversalPolicyTest extends BasicSwingTestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        policy = new SortingFocusTraversalPolicy(new TestComparator());
+        policy = new MySortingFocusTraversalPolicy(new TestComparator());
         button1 = createButton("1");
         button2 = createButton("2");
         button3 = createButton("3");
@@ -63,16 +63,36 @@ public class SortingFocusTraversalPolicyTest extends BasicSwingTestCase {
         super.tearDown();
     }
 
+    class MySortingFocusTraversalPolicy extends SortingFocusTraversalPolicy {
+
+        public MySortingFocusTraversalPolicy(Comparator<? super Component> comparator)
+        {
+            super(comparator);
+        }
+
+        public Comparator<? super Component> getComparator() {
+            return super.getComparator();
+        }
+
+        public void setComparator(Comparator<? super Component> comparator) {
+            super.setComparator(comparator);
+        }
+
+        public boolean accept(Component aComponent) {
+            return super.accept(aComponent);
+        }
+    }
+
     public void testSortingFocusTraversalPolicy() throws Exception {
         Comparator cmp = new TestComparator();
-        policy = new SortingFocusTraversalPolicy(cmp);
-        assertEquals(cmp, policy.getComparator());
+        policy = new MySortingFocusTraversalPolicy(cmp);
+        assertEquals(cmp, ((MySortingFocusTraversalPolicy )policy).getComparator());
     }
 
     public void testSetComparator() throws Exception {
         Comparator cmp = new TestComparator();
-        policy.setComparator(cmp);
-        assertEquals(cmp, policy.getComparator());
+        ((MySortingFocusTraversalPolicy )policy).setComparator(cmp);
+        assertEquals(cmp, ((MySortingFocusTraversalPolicy )policy).getComparator());
     }
 
     public void testAccept() throws Exception {
@@ -81,20 +101,20 @@ public class SortingFocusTraversalPolicyTest extends BasicSwingTestCase {
         Component invisible = new JPanel();
         frame.getContentPane().add(invisible);
         invisible.setVisible(false);
-        assertFalse(policy.accept(invisible));
+        assertFalse(((MySortingFocusTraversalPolicy )policy).accept(invisible));
         Component undisplayable = new JPanel();
-        assertFalse(policy.accept(undisplayable));
+        assertFalse(((MySortingFocusTraversalPolicy )policy).accept(undisplayable));
         Component disabled = new JPanel();
         frame.getContentPane().add(disabled);
         disabled.setEnabled(false);
-        assertFalse(policy.accept(disabled));
+        assertFalse(((MySortingFocusTraversalPolicy )policy).accept(disabled));
         Component unfocusable = new JPanel();
         frame.getContentPane().add(unfocusable);
         unfocusable.setFocusable(false);
-        assertFalse(policy.accept(unfocusable));
+        assertFalse(((MySortingFocusTraversalPolicy )policy).accept(unfocusable));
         Component acceptable = new JPanel();
         frame.getContentPane().add(acceptable);
-        assertTrue(policy.accept(acceptable));
+        assertTrue(((MySortingFocusTraversalPolicy )policy).accept(acceptable));
     }
 
     public void testGetComponentBeforeNoInnerCycleRoots() throws Exception {

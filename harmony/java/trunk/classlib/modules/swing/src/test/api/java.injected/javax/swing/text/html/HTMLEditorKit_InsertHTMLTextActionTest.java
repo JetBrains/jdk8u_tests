@@ -58,7 +58,7 @@ public class HTMLEditorKit_InsertHTMLTextActionTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testInsertHTMLTextActionStringStringTagTagTagTag() {
+    public void _testInsertHTMLTextActionStringStringTagTagTagTag() {
         action = new HTMLEditorKit.InsertHTMLTextAction(name, html,
                                                         parentTag, addTag,
                                                         alternateParentTag,
@@ -71,7 +71,7 @@ public class HTMLEditorKit_InsertHTMLTextActionTest extends SwingTestCase {
         assertSame(alternateAddTag, action.alternateAddTag);
     }
 
-    public void testInsertHTMLTextActionStringStringTagTag() {
+    public void _testInsertHTMLTextActionStringStringTagTag() {
         action = new HTMLEditorKit.InsertHTMLTextAction(name, html,
                                                         parentTag, addTag);
         assertSame(name, action.getValue(AbstractAction.NAME));
@@ -87,7 +87,7 @@ public class HTMLEditorKit_InsertHTMLTextActionTest extends SwingTestCase {
         // TODO: implement
     }
 
-    public void testInsertHTML() throws BadLocationException {
+    public void _testInsertHTML() throws BadLocationException {
         action.insertHTML(pane, document, 0, html, 0, 0, addTag);
         assertEquals("html text", document.getText(0, document.getLength()));
 

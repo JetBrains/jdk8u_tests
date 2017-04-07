@@ -34,7 +34,7 @@ public class TagElementTest extends TestCase {
         tagElement = new TagElement(element);
     }
 
-    public void testFictional() {
+    public void _testFictional() {
         assertFalse(tagElement.fictional());
         tagElement = new TagElement(element, true);
         assertTrue(tagElement.fictional());
@@ -42,7 +42,7 @@ public class TagElementTest extends TestCase {
         assertFalse(tagElement.fictional());
     }
 
-    public void testGetHTMLTag() {
+    public void _testGetHTMLTag() {
         HTML.Tag tag = tagElement.getHTMLTag();
         assertTrue(tag instanceof HTML.UnknownTag);
         //name check
@@ -55,11 +55,11 @@ public class TagElementTest extends TestCase {
         assertEquals(HTML.Tag.HTML, tag);
     }
 
-    public void testGetElement() {
+    public void _testGetElement() {
         assertEquals(element, tagElement.getElement());
     }
 
-    public void testIsPreformatted() {
+    public void _testIsPreformatted() {
         assertFalse(tagElement.isPreformatted());
         element.name = DTDTest.conv("pre");
         tagElement = new TagElement(element);
@@ -69,7 +69,7 @@ public class TagElementTest extends TestCase {
         assertTrue(tagElement.isPreformatted());
     }
 
-    public void testBreaksFlow() {
+    public void _testBreaksFlow() {
         element.name = DTDTest.conv("td");
         tagElement = new TagElement(element);
         assertTrue(tagElement.breaksFlow());

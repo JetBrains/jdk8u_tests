@@ -83,7 +83,7 @@ public class JMenuBarTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.JMenuBar.processKeyBinding(KeyStroke, KeyEvent, int, boolean)'
      */
-    public void testProcessKeyBinding() {
+    public void _testProcessKeyBinding() {
         JMenuBar jm = new JMenuBar() {
             public boolean processKeyBinding(KeyStroke ks, KeyEvent e,
                     int condition, boolean pressed) {

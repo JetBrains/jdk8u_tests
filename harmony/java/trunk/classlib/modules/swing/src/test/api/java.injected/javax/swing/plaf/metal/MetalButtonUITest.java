@@ -46,13 +46,13 @@ public class MetalButtonUITest extends BasicButtonUITest {
                 .createUI(null));
     }
 
-    public void testMetalButtonUI() {
+    public void _testMetalButtonUI() {
         assertNull(metalUI.disabledTextColor);
         assertNull(metalUI.focusColor);
         assertNull(metalUI.selectColor);
     }
 
-    public void testGetDisabledTextColor() {
+    public void _testGetDisabledTextColor() {
         assertTrue("DisabledTextColor is ColorUIResource",
                 metalUI.getDisabledTextColor() instanceof ColorUIResource);
         assertTrue("DisabledTextColor is ColorUIResource",
@@ -88,7 +88,7 @@ public class MetalButtonUITest extends BasicButtonUITest {
         assertNotNull(metalUI.getFocusColor());
     }
 
-    public void testGetSelectColor() {
+    public void _testGetSelectColor() {
         assertTrue("SelectColor is ColorUIResource",
                 metalUI.getSelectColor() instanceof ColorUIResource);
         assertTrue("SelectColor is ColorUIResource",

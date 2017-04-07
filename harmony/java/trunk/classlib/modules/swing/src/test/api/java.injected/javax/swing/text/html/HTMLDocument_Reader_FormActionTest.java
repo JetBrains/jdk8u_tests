@@ -55,35 +55,35 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         }
     }
     
-    public void testFormEnd_InputButton() throws Exception {
+    public void _testFormEnd_InputButton() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "button");
     }
     
-    public void testFormStart_InputCheckBox() throws Exception {
+    public void _testFormStart_InputCheckBox() throws Exception {
         checkStandardInputStart("checkbox", JToggleButton.ToggleButtonModel.class);
     }
     
-    public void testFormEnd_InputCheckBox() throws Exception {
+    public void _testFormEnd_InputCheckBox() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "checkbox");
     }
     
-    public void testFormStart_InputImage() throws Exception {
+    public void _testFormStart_InputImage() throws Exception {
         checkStandardInputStart("image", DefaultButtonModel.class);
     }
     
-    public void testFormEnd_InputImage() throws Exception {
+    public void _testFormEnd_InputImage() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "image");
     }
     
-    public void testFormStart_InputRadio() throws Exception {
+    public void _testFormStart_InputRadio() throws Exception {
         checkStandardInputStart("radio", JToggleButton.ToggleButtonModel.class);
     }
     
-    public void testFormEnd_InputRadio() throws Exception {
+    public void _testFormEnd_InputRadio() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "radio");
     }
     
-    public void testForm_InputRadioGroups() throws Exception {
+    public void _testForm_InputRadioGroups() throws Exception {
         String name1 = "name1";
         String name2 = "name2";
         String name3 = "";
@@ -154,102 +154,102 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         return attr;
     }
     
-    public void testFormStart_InputReset() throws Exception {
+    public void _testFormStart_InputReset() throws Exception {
         checkStandardInputStart("reset", DefaultButtonModel.class);
     }
     
-    public void testFormEnd_InputReset() throws Exception {
+    public void _testFormEnd_InputReset() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "reset");
     }
     
-    public void testFormStart_InputSubmit() throws Exception {
+    public void _testFormStart_InputSubmit() throws Exception {
         checkStandardInputStart("submit", DefaultButtonModel.class);
     }
     
-    public void testFormEnd_InputSubmit() throws Exception {
+    public void _testFormEnd_InputSubmit() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "submit");
     }
     
-    public void testFormStart_InputText() throws Exception {
+    public void _testFormStart_InputText() throws Exception {
         checkStandardInputStart("text", PlainDocument.class);
     }
     
-    public void testFormEnd_InputText() throws Exception {
+    public void _testFormEnd_InputText() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "text");
     }
     
-    public void testFormStart_InputPassword() throws Exception {
+    public void _testFormStart_InputPassword() throws Exception {
         checkStandardInputStart("password", PlainDocument.class);
     }
     
-    public void testFormEnd_InputPassword() throws Exception {
+    public void _testFormEnd_InputPassword() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "password");
     }
     
-    public void testFormStart_InputFile() throws Exception {
+    public void _testFormStart_InputFile() throws Exception {
         checkStandardInputStart("file", PlainDocument.class);
     }
     
-    public void testFormEnd_InputFile() throws Exception {
+    public void _testFormEnd_InputFile() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "file");
     }
     
-    public void testFormStart_InputHidden() throws Exception {
+    public void _testFormStart_InputHidden() throws Exception {
         checkStandardInputStart("hidden", null);
     }
     
-    public void testFormEnd_InputHidden() throws Exception {
+    public void _testFormEnd_InputHidden() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, "hidden");
     }
     
-    public void testFormStart_InputNull() throws Exception {
+    public void _testFormStart_InputNull() throws Exception {
         checkStandardInputStart(null, PlainDocument.class);
     }
     
-    public void testFormEnd_InputNull() throws Exception {
+    public void _testFormEnd_InputNull() throws Exception {
         checkEmptyFormEnd(Tag.INPUT, null);
     }
     
-    public void testFormStart_SelectCombo1() throws Exception {
+    public void _testFormStart_SelectCombo1() throws Exception {
         checkStandardFormStart(Tag.SELECT, DefaultComboBoxModel.class);
     }
     
-    public void testFormStart_SelectCombo2() throws Exception {
+    public void _testFormStart_SelectCombo2() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.SIZE, "1");
         checkStandardFormStart(Tag.SELECT, DefaultComboBoxModel.class, attr);
     }
     
-    public void testFormStart_SelectList1() throws Exception {
+    public void _testFormStart_SelectList1() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.MULTIPLE, "multiple");
         checkStandardFormStart(Tag.SELECT, DefaultListModel.class, attr);
     }
     
-    public void testFormStart_SelectList2() throws Exception {
+    public void _testFormStart_SelectList2() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.SIZE, "2");
         checkStandardFormStart(Tag.SELECT, DefaultListModel.class, attr);
     }
     
-    public void testFormStart_SelectList3() throws Exception {
+    public void _testFormStart_SelectList3() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.MULTIPLE, "multiple");
         attr.addAttribute(HTML.Attribute.SIZE, "1");
         checkStandardFormStart(Tag.SELECT, DefaultListModel.class, attr);
     }
     
-    public void testFormStart_SelectList4() throws Exception {
+    public void _testFormStart_SelectList4() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.SIZE, "kva");
         checkStandardFormStart(Tag.SELECT, DefaultComboBoxModel.class, attr);
     }
     
-    public void testFormEnd_Select() throws Exception {
+    public void _testFormEnd_Select() throws Exception {
         checkEmptyFormEnd(Tag.SELECT, null);
     }
     
-    public void testFormStart_Option() throws Exception {
+    public void _testFormStart_Option() throws Exception {
         String text = "text";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
@@ -258,7 +258,7 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertEquals(0, reader.parseBuffer.size());
     }
     
-    public void testForm_OptionCombo() throws Exception {
+    public void _testForm_OptionCombo() throws Exception {
         String text = "text";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
@@ -292,7 +292,7 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertEquals(3, specAttr.getAttributeCount());
     }
     
-    public void testForm_OptionList() throws Exception {
+    public void _testForm_OptionList() throws Exception {
         String text = "text";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute(HTML.Attribute.MULTIPLE, "multiple");
@@ -327,7 +327,7 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertEquals(4, specAttr.getAttributeCount());
     }
     
-    public void testForm_SelectOption() throws Exception {
+    public void _testForm_SelectOption() throws Exception {
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
         action = reader.new FormAction();
@@ -341,7 +341,7 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertEquals(2, reader.parseBuffer.size());
     }
     
-    public void testForm_Attributes() throws Exception {
+    public void _testForm_Attributes() throws Exception {
         String text = "text";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
@@ -352,7 +352,7 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertNotSame(specAttr, attr);
     }
     
-    public void testForm_OptionAttributes() throws Exception {
+    public void _testForm_OptionAttributes() throws Exception {
         String text = "text";
         SimpleAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("aaaa", "bbbb");
@@ -407,15 +407,15 @@ public class HTMLDocument_Reader_FormActionTest extends HTMLDocumentTestCase {
         assertEquals(3, specAttr.getAttributeCount());
     }
     
-    public void testFormEnd_Option() throws Exception {
+    public void _testFormEnd_Option() throws Exception {
         checkEmptyFormEnd(Tag.OPTION, null);
     }
     
-    public void testFormStart_TextArea() throws Exception {
+    public void _testFormStart_TextArea() throws Exception {
         checkStandardFormStart(Tag.TEXTAREA, PlainDocument.class);
     }
     
-    public void testFormEnd_TextArea() throws Exception {
+    public void _testFormEnd_TextArea() throws Exception {
         checkEmptyFormEnd(Tag.TEXTAREA, null);
     }
     

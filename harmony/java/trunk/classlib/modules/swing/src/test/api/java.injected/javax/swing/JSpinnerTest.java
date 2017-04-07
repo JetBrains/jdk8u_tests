@@ -192,7 +192,7 @@ public class JSpinnerTest extends BasicSwingTestCase {
         assertNotSame(spinner.getEditor(), oldEditor);
     }
 
-    public void testCreateEditor() {
+    public void _testCreateEditor() {
         SpinnerModel model = new SpinnerNumberModel();
         spinner.setModel(model);
         assertTrue(spinner.createEditor(model) instanceof JSpinner.NumberEditor);
@@ -208,7 +208,7 @@ public class JSpinnerTest extends BasicSwingTestCase {
     public void testGetAccessibleContext() {
     }
 
-    public void testDefaultEditor_DefaultEditor() {
+    public void _testDefaultEditor_DefaultEditor() {
         DefaultEditor defaultEditor = (DefaultEditor) spinner.createEditor(abstractModel);
         spinner.setEditor(defaultEditor);
         assertTrue(Arrays.asList(defaultEditor.getTextField().getPropertyChangeListeners())

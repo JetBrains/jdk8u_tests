@@ -121,7 +121,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text 'one', doc is empty.
      */
-    public void testInsertString01() throws Exception {
+    public void _testInsertString01() throws Exception {
         doc.insertString(insertOffset, "one", null);
         assertEquals(1, getEdits(insertEvent).size());
         assertEquals(1, specs.length);
@@ -131,7 +131,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text 'one\n', doc is empty.
      */
-    public void testInsertString02() throws Exception {
+    public void _testInsertString02() throws Exception {
         doc.insertString(insertOffset, "one\n", null);
         List<?> edits = getEdits(insertEvent);
         assertEquals(3, edits.size());
@@ -146,7 +146,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text '\none', doc is empty.
      */
-    public void testInsertString03() throws Exception {
+    public void _testInsertString03() throws Exception {
         doc.insertString(insertOffset, "\none", null);
         List<?> edits = getEdits(insertEvent);
         assertEquals(4, edits.size());
@@ -164,7 +164,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text 'one\ntwo', doc is empty.
      */
-    public void testInsertString04() throws Exception {
+    public void _testInsertString04() throws Exception {
         doc.insertString(insertOffset, "one\ntwo", null);
         List<?> edits = getEdits(insertEvent);
         assertEquals(4, edits.size());
@@ -182,7 +182,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on paragraph, text 'one' with no attributes, doc is empty.
      */
-    public void testInsertString11() throws Exception {
+    public void _testInsertString11() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "one", null);
         assertEquals(1, getEdits(insertEvent).size());
@@ -196,7 +196,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
      * Bold attribute on paragraph, text 'one\n' with no attributes, doc is
      * empty.
      */
-    public void testInsertString12() throws Exception {
+    public void _testInsertString12() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "one\n", null);
         List<?> edits = getEdits(insertEvent);
@@ -215,7 +215,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
      * Bold attribute on paragraph, text '\none' with no attributes, doc is
      * empty.
      */
-    public void testInsertString13() throws Exception {
+    public void _testInsertString13() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "\none", null);
         List<?> edits = getEdits(insertEvent);
@@ -236,7 +236,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
      * Bold attribute on paragraph, text 'one\ntwo' with no attributes, doc is
      * empty.
      */
-    public void testInsertString14() throws Exception {
+    public void _testInsertString14() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "one\ntwo", null);
         List<?> edits = getEdits(insertEvent);
@@ -257,7 +257,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on character, text 'one' with no attributes, doc is empty.
      */
-    public void testInsertString21() throws Exception {
+    public void _testInsertString21() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "one", null);
@@ -280,7 +280,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
      * Bold attribute on character, text 'one\n' with no attributes, doc is
      * empty.
      */
-    public void testInsertString22() throws Exception {
+    public void _testInsertString22() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "one\n", null);
@@ -315,7 +315,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
      * Bold attribute on character, text '\none' with no attributes, doc is
      * empty.
      */
-    public void testInsertString23() throws Exception {
+    public void _testInsertString23() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "\none", null);
@@ -345,7 +345,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
      * Bold attribute on character, text 'one\ntwo' with no attributes, doc is
      * empty.
      */
-    public void testInsertString24() throws Exception {
+    public void _testInsertString24() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "one\ntwo", null);
@@ -368,7 +368,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text 'one' with italic, doc is empty.
      */
-    public void testInsertString31() throws Exception {
+    public void _testInsertString31() throws Exception {
         doc.insertString(insertOffset, "one", italic);
         List<?> edits = getEdits(insertEvent);
         assertEquals(2, edits.size());
@@ -386,7 +386,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text 'one\n' with italic, doc is empty.
      */
-    public void testInsertString32() throws Exception {
+    public void _testInsertString32() throws Exception {
         doc.insertString(insertOffset, "one\n", italic);
         List<?> edits = getEdits(insertEvent);
         assertEquals(3, edits.size());
@@ -418,7 +418,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text '\none' with italic, doc is empty.
      */
-    public void testInsertString33() throws Exception {
+    public void _testInsertString33() throws Exception {
         doc.insertString(insertOffset, "\none", italic);
         List<?> edits = getEdits(insertEvent);
         assertEquals(4, edits.size());
@@ -445,7 +445,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * No attributes, text 'one\ntwo' with italic, doc is empty.
      */
-    public void testInsertString34() throws Exception {
+    public void _testInsertString34() throws Exception {
         doc.insertString(insertOffset, "one\ntwo", italic);
         List<?> edits = getEdits(insertEvent);
         assertEquals(4, edits.size());
@@ -466,7 +466,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on paragraph, text 'one' with italic, doc is empty.
      */
-    public void testInsertString41() throws Exception {
+    public void _testInsertString41() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "one", italic);
         List<?> edits = getEdits(insertEvent);
@@ -485,7 +485,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on paragraph, text 'one\n' with italic, doc is empty.
      */
-    public void testInsertString42() throws Exception {
+    public void _testInsertString42() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "one\n", italic);
         List<?> edits = getEdits(insertEvent);
@@ -506,7 +506,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on paragraph, text '\none' with italic, doc is empty.
      */
-    public void testInsertString43() throws Exception {
+    public void _testInsertString43() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "\none", italic);
         List<?> edits = getEdits(insertEvent);
@@ -531,7 +531,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on paragraph, text 'one\ntwo' with italic, doc is empty.
      */
-    public void testInsertString44() throws Exception {
+    public void _testInsertString44() throws Exception {
         doc.setParagraphAttributes(insertOffset, 1, bold, false);
         doc.insertString(insertOffset, "one\ntwo", italic);
         List<?> edits = getEdits(insertEvent);
@@ -555,7 +555,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on character, text 'one' with italic, doc is empty.
      */
-    public void testInsertString51() throws Exception {
+    public void _testInsertString51() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "one", italic);
@@ -574,7 +574,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on character, text 'one\n' with italic, doc is empty.
      */
-    public void testInsertString52() throws Exception {
+    public void _testInsertString52() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "one\n", italic);
@@ -604,7 +604,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on character, text '\none' with italic, doc is empty.
      */
-    public void testInsertString53() throws Exception {
+    public void _testInsertString53() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "\none", italic);
@@ -628,7 +628,7 @@ public class DefaultStyledDocument_ElementBuffer_Specs2Test extends TestCase imp
     /**
      * Bold attribute on character, text 'one\ntwo' with italic, doc is empty.
      */
-    public void testInsertString54() throws Exception {
+    public void _testInsertString54() throws Exception {
         doc.setCharacterAttributes(modified.getStartOffset(), modified.getEndOffset()
                 - modified.getStartOffset(), bold, false);
         doc.insertString(insertOffset, "one\ntwo", italic);

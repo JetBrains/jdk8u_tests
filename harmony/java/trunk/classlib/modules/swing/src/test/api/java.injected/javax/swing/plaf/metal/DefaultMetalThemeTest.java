@@ -91,27 +91,27 @@ public class DefaultMetalThemeTest extends SwingTestCase {
         assertEquals(new FontUIResource("Dialog", Font.BOLD, 12), theme.getControlTextFont());
     }
 
-    public void testGetSecondary3() {
+    public void _testGetSecondary3() {
         assertNotNull(theme.getSecondary3());
     }
 
-    public void testGetSecondary2() {
+    public void _testGetSecondary2() {
         assertNotNull(theme.getSecondary2());
     }
 
-    public void testGetSecondary1() {
+    public void _testGetSecondary1() {
         assertNotNull(theme.getSecondary1());
     }
 
-    public void testGetPrimary3() {
+    public void _testGetPrimary3() {
         assertNotNull(theme.getPrimary3());
     }
 
-    public void testGetPrimary2() {
+    public void _testGetPrimary2() {
         assertNotNull(theme.getPrimary2());
     }
 
-    public void testGetPrimary1() {
+    public void _testGetPrimary1() {
         assertNotNull(theme.getPrimary1());
     }
 

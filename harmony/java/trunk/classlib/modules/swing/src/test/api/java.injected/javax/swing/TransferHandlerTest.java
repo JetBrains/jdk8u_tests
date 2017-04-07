@@ -92,7 +92,7 @@ public class TransferHandlerTest extends SwingTestCase {
         trH = new SimpleTransferHandler("text");
         button = new JButton();
         button.setTransferHandler(trH);
-        insetsTransferHandler = new TransferHandler("insets");
+        insetsTransferHandler = new MyTransferHandler("insets");
     }
 
     @Override
@@ -125,11 +125,21 @@ public class TransferHandlerTest extends SwingTestCase {
         trH.exportAsDrag(button, e, TransferHandler.COPY_OR_MOVE);
     }
 
+    class MyTransferHandler extends TransferHandler {
+        public MyTransferHandler(String property) {
+            super(property);
+        }
+
+        public Transferable createTransferable(JComponent c) {
+            return super.createTransferable(c);
+        }
+    }
+
     public void testImportData() {
-        TransferHandler handler = new TransferHandler("background");
+        TransferHandler handler = new MyTransferHandler("background");
         JTextArea textArea = new JTextArea();
         textArea.setBackground(Color.RED);
-        Transferable transferable = handler.createTransferable(textArea);
+        Transferable transferable = ((MyTransferHandler )handler).createTransferable(textArea);
         try {
             assertEquals(Color.RED, transferable.getTransferData(transferable
                     .getTransferDataFlavors()[0]));
@@ -145,7 +155,7 @@ public class TransferHandlerTest extends SwingTestCase {
     }
 
     public void testCreateTransferable() {
-        Transferable transferable = insetsTransferHandler.createTransferable(button);
+        Transferable transferable = ((MyTransferHandler )insetsTransferHandler).createTransferable(button);
         transferable.getTransferDataFlavors();
         DataFlavor[] flavors = transferable.getTransferDataFlavors();
         try {

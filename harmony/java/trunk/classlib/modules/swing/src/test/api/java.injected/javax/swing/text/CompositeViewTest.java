@@ -123,7 +123,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         bias = new Position.Bias[1];
     }
 
-    public void testGetChildAllocation() {
+    public void _testGetChildAllocation() {
         final class Params {
             boolean called;
 
@@ -163,7 +163,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
     /**
      * General tests for <code>replace</code> method.
      */
-    public void testReplace01() throws BadLocationException {
+    public void _testReplace01() throws BadLocationException {
         int count = root.getElementCount();
         assertEquals(count, view.getViewCount());
         int end = root.getElement(0).getEndOffset();
@@ -192,7 +192,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         }
     }
 
-    public void testGetView() {
+    public void _testGetView() {
         assertSame(root.getElement(0), view.getView(0).getElement());
         assertTrue(view.getView(0) instanceof PlainView);
         assertSame(root.getElement(1), view.getView(1).getElement());
@@ -209,11 +209,11 @@ public class CompositeViewTest extends BasicSwingTestCase {
         }
     }
 
-    public void testGetViewCount() {
+    public void _testGetViewCount() {
         assertEquals(root.getElementCount(), view.getViewCount());
     }
 
-    public void testSetParent() {
+    public void _testSetParent() {
         view = new CompositeViewImpl(root) {
             @Override
             protected void loadChildren(final ViewFactory factory) {
@@ -239,7 +239,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertFalse(childrenLoaded);
     }
 
-    public void testSetParentNull() throws Exception {
+    public void _testSetParentNull() throws Exception {
         view = new CompositeViewImpl(root) {
             @Override
             protected void loadChildren(final ViewFactory factory) {
@@ -254,7 +254,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertFalse(childrenLoaded);
     }
 
-    public void testSetParentNoViewFactory() throws Exception {
+    public void _testSetParentNoViewFactory() throws Exception {
         view = new CompositeViewImpl(root) {
             @Override
             protected void loadChildren(final ViewFactory factory) {
@@ -271,14 +271,14 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertTrue(childrenLoaded);
     }
 
-    public void testCompositeView() {
+    public void _testCompositeView() {
         view = new CompositeViewImpl(root);
         assertEquals(0, view.getViewCount());
         assertNull(view.getViewFactory());
         assertNull(view.getParent());
     }
 
-    public void testGetInsideAllocation() {
+    public void _testGetInsideAllocation() {
         view.setParagraphInsets(getAttributeSet());
         Rectangle rc = view.getInsideAllocation(new Rectangle(20, 30, 50, 40));
         assertEquals(20 + 7, rc.x);
@@ -291,7 +291,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
     }
 
     // Regression test for HARMONY-2189
-    public void testGetInsideAllocationOverridden() {
+    public void _testGetInsideAllocationOverridden() {
         final Marker top = new Marker();
         final Marker left = new Marker();
         final Marker bottom = new Marker();
@@ -347,7 +347,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
      * class CompositeView_NextNSVisPosTest
      * @throws BadLocationException
      */
-    public void testGetNextVisualPositionFrom() throws BadLocationException {
+    public void _testGetNextVisualPositionFrom() throws BadLocationException {
         final class CompositeViewNextPos extends CompositeViewImpl {
             public CompositeViewNextPos(final Element element) {
                 super(element);
@@ -433,14 +433,14 @@ public class CompositeViewTest extends BasicSwingTestCase {
         }
     }
 
-    public void testFlipEastAndWestAtEnds() {
+    public void _testFlipEastAndWestAtEnds() {
         assertFalse(view.flipEastAndWestAtEnds(0, Position.Bias.Backward));
     }
 
     /**
      * Tests the number of children before and after the call.
      */
-    public void testLoadChildren01() {
+    public void _testLoadChildren01() {
         view = new CompositeViewImpl(root);
         assertEquals(0, view.getViewCount());
         view.loadChildren(factory);
@@ -449,7 +449,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertSame(root.getElement(0), view.getView(0).getElement());
     }
 
-    public void testLoadChildrenNull() {
+    public void _testLoadChildrenNull() {
         view = new CompositeViewImpl(root);
         assertEquals(0, view.getViewCount());
         view.loadChildren(null);
@@ -462,7 +462,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
      * This element starts at document start (offset of 0) and ends at
      * document end (<code>view.getEndOffset() == doc.getLength()</code>).
      */
-    public void testGetViewIndexintBias() {
+    public void _testGetViewIndexintBias() {
         final Marker marker = new Marker(true);
         view = new CompositeViewImpl(root) {
             @Override
@@ -530,7 +530,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
      * of a styled text document. The element niether starts at 0, nor it ends
      * at <code>doc.getLength()</code>.
      */
-    public void testGetViewIndexintBiasNotRoot() throws BadLocationException {
+    public void _testGetViewIndexintBiasNotRoot() throws BadLocationException {
         doc = new DefaultStyledDocument();
         final MutableAttributeSet bold = new SimpleAttributeSet();
         StyleConstants.setBold(bold, true);
@@ -629,7 +629,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertFalse(marker.isOccurred());
     }
 
-    public void testGetViewIndexAtPosition() {
+    public void _testGetViewIndexAtPosition() {
         assertEquals(0, view.getViewIndexAtPosition(-1));
         assertEquals(0, view.getViewIndexAtPosition(0));
         assertEquals(0, view.getViewIndexAtPosition(5));
@@ -640,7 +640,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertEquals(view.getViewCount() - 1, view.getViewIndexAtPosition(doc.getLength() + 2));
     }
 
-    public void testGetViewIndexAtPositionNotRoot() throws BadLocationException {
+    public void _testGetViewIndexAtPositionNotRoot() throws BadLocationException {
         doc = new DefaultStyledDocument();
         final MutableAttributeSet bold = new SimpleAttributeSet();
         StyleConstants.setBold(bold, true);
@@ -676,7 +676,7 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertEquals(3, view.getViewIndexAtPosition(doc.getLength()));
     }
 
-    public void testGetViewAtPosition() {
+    public void _testGetViewAtPosition() {
         Rectangle alloc;
         alloc = view.getInsideAllocation(shape);
         assertSame(view.getView(0), view.getViewAtPosition(-1, alloc));
@@ -742,28 +742,28 @@ public class CompositeViewTest extends BasicSwingTestCase {
         return getAttributeSet(0, 4);
     }
 
-    public void testGetLeftInset() {
+    public void _testGetLeftInset() {
         AttributeSet attrs = getAttributeSet(1, 2);
         view.setParagraphInsets(attrs);
         assertEquals(7.0f, StyleConstants.getLeftIndent(attrs), 0.00001f);
         assertInsets(0, 7, 0, 0);
     }
 
-    public void testGetTopInset() {
+    public void _testGetTopInset() {
         AttributeSet attrs = getAttributeSet(0, 1);
         view.setParagraphInsets(attrs);
         assertEquals(0.1f, StyleConstants.getSpaceAbove(attrs), 0.00001f);
         assertInsets(0, 0, 0, 0);
     }
 
-    public void testGetRightInset() {
+    public void _testGetRightInset() {
         AttributeSet attrs = getAttributeSet(3, 4);
         view.setParagraphInsets(attrs);
         assertEquals(4.7f, StyleConstants.getRightIndent(attrs), 0.00001f);
         assertInsets(0, 0, 0, 4);
     }
 
-    public void testGetBottomInset() {
+    public void _testGetBottomInset() {
         AttributeSet attrs = getAttributeSet(2, 3);
         view.setParagraphInsets(attrs);
         assertEquals(5.3f, StyleConstants.getSpaceBelow(attrs), 0.00001f);
@@ -799,13 +799,13 @@ public class CompositeViewTest extends BasicSwingTestCase {
         assertInsets((short) top, (short) left, (short) bottom, (short) right);
     }
 
-    public void testSetInsets() {
+    public void _testSetInsets() {
         assertInsets(0, 0, 0, 0);
         view.setInsets((short) 5, (short) 10, (short) 7, (short) 13);
         assertInsets(5, 10, 7, 13);
     }
 
-    public void testSetParagraphInsets() {
+    public void _testSetParagraphInsets() {
         view.setParagraphInsets(getAttributeSet());
         assertInsets(0, 7, 5, 4);
     }

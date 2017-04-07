@@ -116,7 +116,7 @@ public class BasicPopupMenuUITest extends PopupMenuUITest {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicPopupMenuUI.installDefaults()'
      */
-    public void testInstallUninstallDefaults() {
+    public void _testInstallUninstallDefaults() {
         JPopupMenu menu = new JPopupMenu();
         UIManager.getDefaults().put("PopupMenu.background", new ColorUIResource(Color.red));
         UIManager.getDefaults().put("PopupMenu.foreground", new ColorUIResource(Color.yellow));
@@ -169,7 +169,7 @@ public class BasicPopupMenuUITest extends PopupMenuUITest {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicPopupMenuUI.installListeners()'
      */
-    public void testInstallUninstallListeners() {
+    public void _testInstallUninstallListeners() {
         JPopupMenu menu = new JPopupMenu();
         menu.setUI(null);
         basicPopupUI.popupMenu = menu;

@@ -415,7 +415,7 @@ public class JPopupMenuTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.JPopupMenu.createActionChangeListener(JMenuItem)'
      */
-    public void testCreateActionChangeListener() {
+    public void _testCreateActionChangeListener() {
         AbstractAction action1 = new AbstractAction() {
             private static final long serialVersionUID = 1L;
 
@@ -437,7 +437,7 @@ public class JPopupMenuTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.JPopupMenu.createActionComponent(Action)'
      */
-    public void testCreateActionComponent() {
+    public void _testCreateActionComponent() {
         Icon icon = new ImageIcon(new BufferedImage(20, 20, BufferedImage.TYPE_BYTE_GRAY));
         String text = "texttext";
         MyAction action = new MyAction(text, icon);
@@ -453,7 +453,7 @@ public class JPopupMenuTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.JPopupMenu.firePopupMenuCanceled()'
      */
-    public void testFirePopupMenuCanceled() {
+    public void _testFirePopupMenuCanceled() {
         ConcretePopupMenuListener listener1 = new ConcretePopupMenuListener();
         ConcretePopupMenuListener listener2 = new ConcretePopupMenuListener();
         popup.addPopupMenuListener(listener1);
@@ -468,7 +468,7 @@ public class JPopupMenuTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.JPopupMenu.firePopupMenuWillBecomeInvisible()'
      */
-    public void testFirePopupMenuWillBecomeInvisible() {
+    public void _testFirePopupMenuWillBecomeInvisible() {
         ConcretePopupMenuListener listener1 = new ConcretePopupMenuListener();
         ConcretePopupMenuListener listener2 = new ConcretePopupMenuListener();
         popup.addPopupMenuListener(listener1);
@@ -483,7 +483,7 @@ public class JPopupMenuTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.JPopupMenu.firePopupMenuWillBecomeVisible()'
      */
-    public void testFirePopupMenuWillBecomeVisible() {
+    public void _testFirePopupMenuWillBecomeVisible() {
         ConcretePopupMenuListener listener1 = new ConcretePopupMenuListener();
         ConcretePopupMenuListener listener2 = new ConcretePopupMenuListener();
         popup.addPopupMenuListener(listener1);

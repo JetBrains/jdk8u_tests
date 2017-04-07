@@ -39,21 +39,21 @@ public class MetalCheckBoxIconTest extends TestCase {
     /*
      * Test method for 'javax.swing.plaf.metal.MetalCheckBoxIcon.getControlSize()'
      */
-    public void testGetControlSize() {
+    public void _testGetControlSize() {
         assertEquals(13, icon.getControlSize());
     }
 
     /*
      * Test method for 'javax.swing.plaf.metal.MetalCheckBoxIcon.getIconWidth()'
      */
-    public void testGetIconWidth() {
+    public void _testGetIconWidth() {
         assertEquals(icon.getControlSize(), icon.getIconWidth());
     }
 
     /*
      * Test method for 'javax.swing.plaf.metal.MetalCheckBoxIcon.getIconHeight()'
      */
-    public void testGetIconHeight() {
+    public void _testGetIconHeight() {
         assertEquals(icon.getControlSize(), icon.getIconHeight());
     }
 }

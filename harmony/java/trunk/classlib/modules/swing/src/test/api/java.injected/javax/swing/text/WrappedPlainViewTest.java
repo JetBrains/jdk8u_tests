@@ -99,7 +99,7 @@ public class WrappedPlainViewTest extends SwingTestCase {
         assertEquals(shape.width, (int) view.getView(0).getPreferredSpan(X_AXIS));
     }
 
-    public void testDrawSelectedText() throws BadLocationException {
+    public void _testDrawSelectedText() throws BadLocationException {
         textArea.setText("line1\nline2");
         Graphics g = textArea.getGraphics();
         g.setFont(textArea.getFont());
@@ -125,7 +125,7 @@ public class WrappedPlainViewTest extends SwingTestCase {
         }
     }
 
-    public void testDrawUnselectedText() throws BadLocationException {
+    public void _testDrawUnselectedText() throws BadLocationException {
         textArea.setText("line1\nline2");
         Graphics g = textArea.getGraphics();
         g.setFont(textArea.getFont());

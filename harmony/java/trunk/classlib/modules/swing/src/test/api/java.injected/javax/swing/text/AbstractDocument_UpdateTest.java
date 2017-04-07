@@ -319,7 +319,7 @@ public class AbstractDocument_UpdateTest extends TestCase {
      * Tests if RUN_DIRECTION attribute set on text inserted has any
      * influence on bidirectional algorithm in AbstractDocument.
      */
-    public void testInsertUpdate11() throws BadLocationException {
+    public void _testInsertUpdate11() throws BadLocationException {
         StyleContext context = (StyleContext) doc.getAttributeContext();
         doc.insertString(0, LTR, context.addAttribute(context.getEmptySet(),
                 TextAttribute.RUN_DIRECTION, TextAttribute.RUN_DIRECTION_RTL));

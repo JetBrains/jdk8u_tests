@@ -165,7 +165,7 @@ public class AbstractDocument_BranchElementTest extends BasicSwingTestCase {
      * Tests getElementIndex behavior when there are "gaps" between children.
      * The document has zero length.
      */
-    public void testGetElementIndex05() throws BadLocationException {
+    public void _testGetElementIndex05() throws BadLocationException {
         doc.getContent().remove(0, doc.getLength());
         assertEquals(0, doc.getLength());
         final Element[] leaves = new Element[] { createLeaf(1, 2), createLeaf(3, 5),
@@ -275,7 +275,7 @@ public class AbstractDocument_BranchElementTest extends BasicSwingTestCase {
         assertEquals(2, par.getElementCount());
     }
 
-    public void testBranchElement() {
+    public void _testBranchElement() {
         doc.writeLock();
         bidi = doc.new BranchElement(par, as[2]);
         doc.writeUnlock();

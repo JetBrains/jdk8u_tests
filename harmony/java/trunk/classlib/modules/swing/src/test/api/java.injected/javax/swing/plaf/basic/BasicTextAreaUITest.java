@@ -104,7 +104,7 @@ public class BasicTextAreaUITest extends SwingTestCase {
         } 
     }
 
-    public void testGetPropertyPrefix() {
+    public void _testGetPropertyPrefix() {
         assertEquals("TextArea", ((BasicTextAreaUI) jta.getUI()).getPropertyPrefix());
         assertEquals("TextArea", ((BasicTextAreaUI) bidiJta.getUI()).getPropertyPrefix());
     }

@@ -25,7 +25,12 @@ public class RegionTest extends TestCase {
 
     private static final String UI = "testUI"; //$NON-NLS-1$
 
-    private static final Region r = new Region(NAME, UI, false);
+    static class TestRegion extends Region {
+        public TestRegion(String name, String ui, boolean subregion) {
+            super(name, ui, subregion);
+        }
+    }
+    private static final Region r = new TestRegion(NAME, UI, false);
 
     public static void testFields() {
         assertEquals(NAME, r.getName());

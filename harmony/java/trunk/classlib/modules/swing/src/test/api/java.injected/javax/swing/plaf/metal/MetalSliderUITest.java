@@ -44,14 +44,14 @@ public class MetalSliderUITest extends SwingTestCase {
         assertFalse(MetalSliderUI.createUI(slider) == MetalSliderUI.createUI(slider));
     }
 
-    public void testCreatePropertyChangeListener() throws Exception {
+    public void _testCreatePropertyChangeListener() throws Exception {
         assertNotNull(sliderUI.createPropertyChangeListener(slider));
         assertFalse(sliderUI.createPropertyChangeListener(slider) == sliderUI
                 .createPropertyChangeListener(slider));
         assertTrue(sliderUI.createPropertyChangeListener(slider) instanceof MetalSliderUI.MetalPropertyListener);
     }
 
-    public void testGetThumbOverhang() throws Exception {
+    public void _testGetThumbOverhang() throws Exception {
         sliderUI.installUI(slider);
         assertEquals(4, sliderUI.getThumbOverhang());
     }

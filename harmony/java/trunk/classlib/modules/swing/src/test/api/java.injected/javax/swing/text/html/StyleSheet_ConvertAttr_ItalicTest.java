@@ -31,7 +31,13 @@ import javax.swing.text.html.CSS.Attribute;
 import junit.framework.TestCase;
 
 public class StyleSheet_ConvertAttr_ItalicTest extends TestCase {
-    private StyleSheet ss;
+    class TestStyleSheet extends StyleSheet {
+        public SmallAttributeSet createSmallAttributeSet(AttributeSet a) {
+            return super.createSmallAttributeSet(a);
+        }
+    }
+
+    private TestStyleSheet ss;
     private AttributeSet empty;
     private AttributeSet attr;
     private MutableAttributeSet simple;
@@ -40,7 +46,7 @@ public class StyleSheet_ConvertAttr_ItalicTest extends TestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        ss = new StyleSheet();
+        ss = new TestStyleSheet();
         empty = ss.getEmptySet();
         simple = new SimpleAttributeSet();
     }

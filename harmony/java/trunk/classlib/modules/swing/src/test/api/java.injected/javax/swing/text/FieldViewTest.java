@@ -49,7 +49,7 @@ public class FieldViewTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testGetPreferredSpan() {
+    public void _testGetPreferredSpan() {
         FontMetrics fm = fv.getFontMetrics();
         assertEquals(fm.getHeight(), (int) fv.getPreferredSpan(View.Y_AXIS));
         assertEquals(fm.stringWidth(jtf.getText()), (int) fv.getPreferredSpan(View.X_AXIS));
@@ -65,7 +65,7 @@ public class FieldViewTest extends SwingTestCase {
         assertEquals(0, fv.getResizeWeight(5000));
     }
 
-    public void testGetFontMetrics() {
+    public void _testGetFontMetrics() {
         assertEquals(jtf.getFontMetrics(jtf.getFont()), fv.getFontMetrics());
         jtf.setFont(new java.awt.Font("SimSun", 0, 12));
         fv = (FieldView) ((BasicTextUI) jtf.getUI()).getRootView(jtf).getView(0);

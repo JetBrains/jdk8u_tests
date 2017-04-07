@@ -53,7 +53,7 @@ public class AbstractDocument_LeafElementTest extends BasicSwingTestCase {
         doc.writeUnlock();
     }
 
-    public void testGetElement() {
+    public void _testGetElement() {
         assertNull(leaf1.getElement(-1));
         assertNull(leaf1.getElement(0));
         assertNull(leaf1.getElement(1));
@@ -61,18 +61,18 @@ public class AbstractDocument_LeafElementTest extends BasicSwingTestCase {
         assertNull(leaf1.getElement(20));
     }
 
-    public void testChildren() {
+    public void _testChildren() {
         assertNull(leaf1.children());
         assertNull(leaf2.children());
     }
 
-    public void testGetName() {
+    public void _testGetName() {
         assertEquals("content", leaf1.getName());
         assertEquals("content", leaf2.getName());
         assertSame(AbstractDocument.ContentElementName, leaf1.getName());
     }
 
-    public void testGetElementIndex() {
+    public void _testGetElementIndex() {
         assertEquals(-1, leaf1.getElementIndex(-1));
         assertEquals(-1, leaf1.getElementIndex(0));
         assertEquals(-1, leaf1.getElementIndex(1));
@@ -80,15 +80,15 @@ public class AbstractDocument_LeafElementTest extends BasicSwingTestCase {
         assertEquals(-1, leaf1.getElementIndex(20));
     }
 
-    public void testIsLeaf() {
+    public void _testIsLeaf() {
         assertTrue(leaf1.isLeaf());
     }
 
-    public void testGetAllowsChildren() {
+    public void _testGetAllowsChildren() {
         assertFalse(leaf2.getAllowsChildren());
     }
 
-    public void testGetStartOffset() throws BadLocationException {
+    public void _testGetStartOffset() throws BadLocationException {
         assertEquals(0, leaf1.getStartOffset());
         assertEquals(5, leaf2.getStartOffset());
         doc.insertString(2, "insert", as[2]);
@@ -96,7 +96,7 @@ public class AbstractDocument_LeafElementTest extends BasicSwingTestCase {
         assertEquals(11, leaf2.getStartOffset());
     }
 
-    public void testGetEndOffset() throws BadLocationException {
+    public void _testGetEndOffset() throws BadLocationException {
         assertEquals(3, leaf1.getEndOffset());
         assertEquals(8, leaf2.getEndOffset());
         doc.insertString(4, "insert", as[2]);
@@ -104,11 +104,11 @@ public class AbstractDocument_LeafElementTest extends BasicSwingTestCase {
         assertEquals(14, leaf2.getEndOffset());
     }
 
-    public void testGetElementCount() {
+    public void _testGetElementCount() {
         assertEquals(0, leaf1.getElementCount());
     }
 
-    public void testLeafElement() {
+    public void _testLeafElement() {
         doc.writeLock();
         AbstractDocument.LeafElement leaf = doc.new LeafElement(leaf1, as[2], 3, 9);
         assertSame(leaf1, leaf.getParent());
@@ -131,7 +131,7 @@ public class AbstractDocument_LeafElementTest extends BasicSwingTestCase {
         doc.writeUnlock();
     }
 
-    public void testToString() {
+    public void _testToString() {
         assertEquals("LeafElement(content) 0,3\n", leaf1.toString());
         assertEquals("LeafElement(content) 5,8\n", leaf2.toString());
     }

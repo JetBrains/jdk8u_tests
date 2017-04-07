@@ -73,7 +73,7 @@ public class DefaultCaret_MultithreadedTest extends BasicSwingTestCase {
         }
     };
 
-    public void testAsyncUpdate() throws Exception {
+    public void _testAsyncUpdate() throws Exception {
         waitForIdle();
         SwingWaitTestCase.isRealized(jf);
         ad.writeLock();

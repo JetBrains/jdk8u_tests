@@ -253,7 +253,7 @@ public class AbstractDocument_ListenerTest extends TestCase implements DocumentL
         }
     };
 
-    public void testFireUndoableEditUpdate() {
+    public void _testFireUndoableEditUpdate() {
         UndoableEditEvent undoEvent = new UndoableEditEvent(doc, new AbstractUndoableEdit());
         doc.addUndoableEditListener(this);
         doc.fireUndoableEditUpdate(undoEvent);
@@ -261,21 +261,21 @@ public class AbstractDocument_ListenerTest extends TestCase implements DocumentL
         assertSame(undoEvent, undo);
     }
 
-    public void testFireRemoveUpdate() {
+    public void _testFireRemoveUpdate() {
         doc.addDocumentListener(this);
         doc.fireRemoveUpdate(docEvent);
         checkCalledEvents(false, false, true, false);
         assertSame(docEvent, remove);
     }
 
-    public void testFireInsertUpdate() {
+    public void _testFireInsertUpdate() {
         doc.addDocumentListener(this);
         doc.fireInsertUpdate(docEvent);
         checkCalledEvents(false, true, false, false);
         assertSame(docEvent, insert);
     }
 
-    public void testFireChangedUpdate() {
+    public void _testFireChangedUpdate() {
         doc.addDocumentListener(this);
         doc.fireChangedUpdate(docEvent);
         checkCalledEvents(true, false, false, false);

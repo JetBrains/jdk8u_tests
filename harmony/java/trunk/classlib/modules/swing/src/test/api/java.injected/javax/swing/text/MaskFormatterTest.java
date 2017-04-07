@@ -282,7 +282,7 @@ public class MaskFormatterTest extends SwingTestCase {
         bWasException = false;
     }
 
-    public void testGetNavigationFilter() {
+    public void _testGetNavigationFilter() {
         assertNotNull(formatter.getNavigationFilter());
     }
 

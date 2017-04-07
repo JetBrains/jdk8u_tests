@@ -47,14 +47,14 @@ public class TreeModelEventTest extends SwingTestCase {
         Object[] children = new Object[] { "1", "2", "3" };
         event = new TreeModelEvent(source, path, indices, children);
         assertEquals(source, event.getSource());
-        assertSame(path, event.path);
-        assertSame(indices, event.childIndices);
-        assertSame(children, event.children);
+        assertSame(path, event.getTreePath());
+        assertSame(indices, event.getChildIndices());
+        assertSame(children, event.getChildren());
         event = new TreeModelEvent(source, (TreePath) null, null, null);
         assertEquals(source, event.getSource());
-        assertNull(event.path);
-        assertNull(event.childIndices);
-        assertNull(event.children);
+        assertNull(event.getTreePath());
+        assertNull(event.getChildIndices());
+        assertNull(event.getChildren());
     }
 
     /*
@@ -67,24 +67,24 @@ public class TreeModelEventTest extends SwingTestCase {
         Object[] children = new Object[] { "1", "2", "3" };
         event = new TreeModelEvent(source, path, indices, children);
         assertEquals(source, event.getSource());
-        assertNotNull(event.path);
-        assertSame(indices, event.childIndices);
+        assertNotNull(event.getTreePath());
+        assertSame(indices, event.getChildIndices());
         assertEquals(indices[0], event.getChildIndices()[0]);
         assertEquals(indices[1], event.getChildIndices()[1]);
-        assertSame(children, event.children);
+        assertSame(children, event.getChildren());
         assertEquals(children[0], event.getChildren()[0]);
         assertEquals(children[1], event.getChildren()[1]);
         assertEquals(children[2], event.getChildren()[2]);
         event = new TreeModelEvent(source, path, null, null);
         assertEquals(source, event.getSource());
-        assertNotNull(event.path);
-        assertNull(event.childIndices);
-        assertNull(event.children);
+        assertNotNull(event.getTreePath());
+        assertNull(event.getChildIndices());
+        assertNull(event.getChildren());
         event = new TreeModelEvent(source, (TreePath) null, null, null);
         assertEquals(source, event.getSource());
-        assertNull(event.path);
-        assertNull(event.childIndices);
-        assertNull(event.children);
+        assertNull(event.getTreePath());
+        assertNull(event.getChildIndices());
+        assertNull(event.getChildren());
     }
 
     /*
@@ -95,10 +95,10 @@ public class TreeModelEventTest extends SwingTestCase {
         Object[] path = new Object[] { "11", "22", "33" };
         event = new TreeModelEvent(source, path);
         assertEquals(source, event.getSource());
-        assertNotNull(event.path);
-        assertNotNull(event.childIndices);
-        assertEquals(0, event.childIndices.length);
-        assertNull(event.children);
+        assertNotNull(event.getTreePath());
+        assertNotNull(event.getChildIndices());
+        assertEquals(0, event.getChildIndices().length);
+        assertNull(event.getChildren());
     }
 
     /*
@@ -109,16 +109,16 @@ public class TreeModelEventTest extends SwingTestCase {
         TreePath path = new TreePath("222");
         event = new TreeModelEvent(source, path);
         assertEquals(source, event.getSource());
-        assertSame(path, event.path);
-        assertNotNull(event.childIndices);
-        assertEquals(0, event.childIndices.length);
-        assertNull(event.children);
+        assertSame(path, event.getTreePath());
+        assertNotNull(event.getChildIndices());
+        assertEquals(0, event.getChildIndices().length);
+        assertNull(event.getChildren());
         event = new TreeModelEvent(source, (TreePath) null);
         assertEquals(source, event.getSource());
-        assertNull(event.path);
-        assertNotNull(event.childIndices);
-        assertEquals(0, event.childIndices.length);
-        assertNull(event.children);
+        assertNull(event.getTreePath());
+        assertNotNull(event.getChildIndices());
+        assertEquals(0, event.getChildIndices().length);
+        assertNull(event.getChildren());
     }
 
     /*
@@ -133,9 +133,9 @@ public class TreeModelEventTest extends SwingTestCase {
         event = new TreeModelEvent(source, path, indices1, children);
         assertNotSame(indices1, event.getChildIndices());
         assertTrue(Arrays.equals(indices1, event.getChildIndices()));
-        event.childIndices = indices2;
-        assertNotSame(indices2, event.getChildIndices());
-        assertTrue(Arrays.equals(indices2, event.getChildIndices()));
+        //event.childIndices = indices2;
+        //assertNotSame(indices2, event.getChildIndices());
+        //assertTrue(Arrays.equals(indices2, event.getChildIndices()));
     }
 
     /*
@@ -150,9 +150,9 @@ public class TreeModelEventTest extends SwingTestCase {
         event = new TreeModelEvent(source, path, indices, children1);
         assertNotSame(children1, event.getChildren());
         assertTrue(Arrays.equals(children1, event.getChildren()));
-        event.children = children2;
-        assertNotSame(children2, event.getChildren());
-        assertTrue(Arrays.equals(children2, event.getChildren()));
+        //event.children = children2;
+        //assertNotSame(children2, event.getChildren());
+        //assertTrue(Arrays.equals(children2, event.getChildren()));
     }
 
     /*
@@ -171,11 +171,11 @@ public class TreeModelEventTest extends SwingTestCase {
         event = new TreeModelEvent(source, path2);
         assertNotSame(array2, event.getPath());
         assertTrue(Arrays.equals(array2, event.getPath()));
-        event.path = path3;
-        assertNotSame(array2, event.getPath());
-        assertTrue(Arrays.equals(array2, event.getPath()));
-        event.path = null;
-        assertNull(event.getPath());
+        //event.path = path3;
+        //assertNotSame(array2, event.getPath());
+        //assertTrue(Arrays.equals(array2, event.getPath()));
+        //event.path = null;
+        //assertNull(event.getPath());
     }
 
     /*
@@ -192,10 +192,10 @@ public class TreeModelEventTest extends SwingTestCase {
         assertSame(path1, event.getTreePath());
         event = new TreeModelEvent(source, path2);
         assertTrue(Arrays.equals(array2, event.getTreePath().getPath()));
-        event.path = path3;
-        assertSame(path3, event.getTreePath());
-        event.path = null;
-        assertNull(event.getTreePath());
+        //event.path = path3;
+        //assertSame(path3, event.getTreePath());
+        //event.path = null;
+        //assertNull(event.getTreePath());
     }
 
     /*

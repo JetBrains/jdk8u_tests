@@ -45,7 +45,7 @@ public class BasicScrollPaneUITest extends SwingTestCase {
         assertNotSame(BasicScrollPaneUI.createUI(null), BasicScrollPaneUI.createUI(null));
     }
 
-    public void testCreateViewportChangeListener() throws Exception {
+    public void _testCreateViewportChangeListener() throws Exception {
         assertNotNull(ui.createViewportChangeListener());
         if (isHarmony()) {
             assertTrue(ui.createViewportChangeListener() instanceof BasicScrollPaneUI.ViewportChangeHandler);
@@ -53,7 +53,7 @@ public class BasicScrollPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testCreateHSBChangeListener() throws Exception {
+    public void _testCreateHSBChangeListener() throws Exception {
         assertNotNull(ui.createHSBChangeListener());
         if (isHarmony()) {
             assertTrue(ui.createHSBChangeListener() instanceof BasicScrollPaneUI.HSBChangeListener);
@@ -61,7 +61,7 @@ public class BasicScrollPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testCreateVSBChangeListener() throws Exception {
+    public void _testCreateVSBChangeListener() throws Exception {
         assertNotNull(ui.createVSBChangeListener());
         if (isHarmony()) {
             assertTrue(ui.createVSBChangeListener() instanceof BasicScrollPaneUI.VSBChangeListener);
@@ -69,7 +69,7 @@ public class BasicScrollPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testCreateMouseWheelListener() throws Exception {
+    public void _testCreateMouseWheelListener() throws Exception {
         assertNotNull(ui.createMouseWheelListener());
         if (isHarmony()) {
             assertTrue(ui.createMouseWheelListener() instanceof BasicScrollPaneUI.MouseWheelHandler);
@@ -77,7 +77,7 @@ public class BasicScrollPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testCreatePropertyChangeListener() throws Exception {
+    public void _testCreatePropertyChangeListener() throws Exception {
         assertNotNull(ui.createPropertyChangeListener());
         if (isHarmony()) {
             assertTrue(ui.createPropertyChangeListener() instanceof BasicScrollPaneUI.PropertyChangeHandler);
@@ -85,7 +85,7 @@ public class BasicScrollPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testInstallUninstallListeners() throws Exception {
+    public void _testInstallUninstallListeners() throws Exception {
         ui.scrollpane = new JScrollPane();
         int viewportListenersCount = ui.scrollpane.getViewport().getChangeListeners().length;
         assertNull(ui.viewportChangeListener);

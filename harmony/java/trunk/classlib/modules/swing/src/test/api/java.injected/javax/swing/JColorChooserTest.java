@@ -45,7 +45,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
 
     public void testJColorChooser() throws Exception {
         assertSame(DefaultColorSelectionModel.class, ch.getSelectionModel().getClass());
-        assertNull(ch.accessibleContext);
+        assertNull(ch.getAccessibleContext());
         assertEquals(Color.WHITE, ch.getColor());
         ch = new JColorChooser(Color.BLACK);
         assertEquals(Color.BLACK, ch.getColor());
@@ -57,7 +57,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
     }
 
     public void testGetAccessibleContext() throws Exception {
-        assertNull(ch.accessibleContext);
+        assertNull(ch.getAccessibleContext());
         assertNotNull(ch.getAccessibleContext());
         assertNotNull(ch.accessibleContext);
         assertSame(ch.getAccessibleContext(), ch.getAccessibleContext());

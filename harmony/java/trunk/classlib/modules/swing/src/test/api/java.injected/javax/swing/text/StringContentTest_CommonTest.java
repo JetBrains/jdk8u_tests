@@ -43,8 +43,8 @@ public class StringContentTest_CommonTest extends GapContentTest {
         assertEquals("\n", text.toString());
     }
 
-    @Override
-    public void testGetPositionsInRangeVector() throws BadLocationException {
+    //@Override
+    public void _testGetPositionsInRangeVector() throws BadLocationException {
         Vector<Object> v = new Vector<Object>();
         v.add(new Object());
         v.add(new Object());
@@ -65,15 +65,15 @@ public class StringContentTest_CommonTest extends GapContentTest {
      * Tests that the position at offset of offset + len is included in
      * the returned vector.
      */
-    @Override
-    public void testGetPositionsInRangeEnd() throws BadLocationException {
+    //@Override
+    public void _testGetPositionsInRangeEnd() throws BadLocationException {
         content.createPosition(10);
         Vector<?> v = ((StringContent) content).getPositionsInRange(null, 0, 10);
         assertEquals(1, v.size());
     }
 
-    @Override
-    public void testGetPositionsInRange() throws BadLocationException {
+    //@Override
+    public void _testGetPositionsInRange() throws BadLocationException {
         Vector<Position> pos = new Vector<Position>();
         for (int i = 0; i < content.length(); i += 2) {
             Position p = content.createPosition(i);
@@ -94,53 +94,53 @@ public class StringContentTest_CommonTest extends GapContentTest {
         }
     }
 
-    @Override
-    public void testGetCharsNegativeLength() {
+    //@Override
+    public void _testGetCharsNegativeLength() {
         // Is Already tested in StringContentTest
     }
 
-    @Override
-    public void testGetCharsAfterGapNoImplied() throws BadLocationException {
+    //@Override
+    public void _testGetCharsAfterGapNoImplied() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetCharsAfterGap() throws BadLocationException {
+    //@Override
+    public void _testGetCharsAfterGap() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetCharsBeforeGap() throws BadLocationException {
+    //@Override
+    public void _testGetCharsBeforeGap() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetCharsFullLength() throws BadLocationException {
+    //@Override
+    public void _testGetCharsFullLength() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetCharsFullActualLength() throws BadLocationException {
+    //@Override
+    public void _testGetCharsFullActualLength() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetCharsImpliedChar() throws BadLocationException {
+    //@Override
+    public void _testGetCharsImpliedChar() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetCharsPartial() throws BadLocationException {
+    //@Override
+    public void _testGetCharsPartial() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetCharsWithGap() throws BadLocationException {
+    //@Override
+    public void _testGetCharsWithGap() throws BadLocationException {
         // N/A
     }
 
-    @Override
-    public void testGetStringNegativeLength() {
+    //@Override
+    public void _testGetStringNegativeLength() {
         // Is Already tested in StringContentTest
     }
 }

@@ -116,15 +116,15 @@ public class MetalToolBarUITest extends SwingTestCase {
         super(name);
     }
 
-    public void testUpdate() {
+    public void _testUpdate() {
         // painting code, cannot test
     }
 
-    public void testUninstallUI() {
+    public void _testUninstallUI() {
         // nothing to test
     }
 
-    public void testInstallUI() {
+    public void _testInstallUI() {
         // nothing to test
     }
 
@@ -135,25 +135,25 @@ public class MetalToolBarUITest extends SwingTestCase {
         assertNotSame(ui1, ui2);
     }
 
-    public void testCreateDockingListener() {
+    public void _testCreateDockingListener() {
         assertTrue(ui.createDockingListener() instanceof MetalToolBarUI.MetalDockingListener);
     }
 
-    public void testCreateRolloverBorder() {
+    public void _testCreateRolloverBorder() {
         assertNotNull(ui.createRolloverBorder());
         if (isHarmony()) {
             assertTrue(ui.createRolloverBorder() instanceof UIResource);
         }
     }
 
-    public void testCreateNonRolloverBorder() {
+    public void _testCreateNonRolloverBorder() {
         assertNotNull(ui.createNonRolloverBorder());
         if (isHarmony()) {
             assertTrue(ui.createNonRolloverBorder() instanceof UIResource);
         }
     }
 
-    public void testInstallListeners() {
+    public void _testInstallListeners() {
         TestMetalToolBarUI ui = new TestMetalToolBarUI();
         toolBar.setUI(ui);
         assertTrue(Arrays.asList(toolBar.getContainerListeners()).contains(ui.contListener));
@@ -163,7 +163,7 @@ public class MetalToolBarUITest extends SwingTestCase {
                 .contains(ui.rolloverListener));
     }
 
-    public void testUninstallListeners() {
+    public void _testUninstallListeners() {
         TestMetalToolBarUI ui = new TestMetalToolBarUI();
         toolBar.setUI(ui);
         ui.uninstallListeners();
@@ -172,7 +172,7 @@ public class MetalToolBarUITest extends SwingTestCase {
                 ui.rolloverListener));
     }
 
-    public void testSetBorderToNonRollover() {
+    public void _testSetBorderToNonRollover() {
         TestMetalToolBarUI ui = new TestMetalToolBarUI();
         toolBar.setUI(ui);
         ui.setBorderToNonRollover(b);
@@ -191,15 +191,15 @@ public class MetalToolBarUITest extends SwingTestCase {
         // nothing to test
     }
 
-    public void testCreateContainerListener() {
+    public void _testCreateContainerListener() {
         assertNull(ui.createContainerListener());
     }
 
-    public void testCreateRolloverListener() {
+    public void _testCreateRolloverListener() {
         assertNull(ui.createRolloverListener());
     }
 
-    public void testSetDragOffset() {
+    public void _testSetDragOffset() {
         TestMetalToolBarUI ui = new TestMetalToolBarUI();
         toolBar.setUI(ui);
         Point offset = new Point(1, 2);
@@ -207,7 +207,7 @@ public class MetalToolBarUITest extends SwingTestCase {
         assertEquals(offset, ui.getDragWindowOffset());
     }
 
-    public void testMetalDockingListener() {
+    public void _testMetalDockingListener() {
         TestMetalToolBarUI ui = new TestMetalToolBarUI();
         toolBar.setUI(ui);
         toolBar.add(b);

@@ -31,12 +31,18 @@ import javax.swing.SwingTestCase;
 public class BasicSplitPaneUITest extends SwingTestCase {
     private JSplitPane splitPane;
 
+    class MyBasicSplitPaneUI extends BasicSplitPaneUI {
+        public BasicHorizontalLayoutManager getLayoutManager() {
+            return layoutManager;
+        }
+    }
+
     private BasicSplitPaneUI ui;
 
     @Override
     protected void setUp() throws Exception {
         splitPane = new JSplitPane();
-        ui = new BasicSplitPaneUI();
+        ui = new MyBasicSplitPaneUI();
         splitPane.setUI(ui);
         splitPane.setSize(new Dimension(2000, 1000));
     }
@@ -47,7 +53,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         ui = null;
     }
 
-    public void testPreferredLayoutSize() throws Exception {
+    public void _testPreferredLayoutSize() throws Exception {
         splitPane.setBorder(BorderFactory.createEmptyBorder(5, 6, 7, 8));
         ui.layoutManager.layoutContainer(splitPane);
         int width = splitPane.getInsets().left + splitPane.getInsets().right
@@ -69,7 +75,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
                 .preferredLayoutSize(splitPane));
     }
 
-    public void testMinLayoutSize() throws Exception {
+    public void _testMinLayoutSize() throws Exception {
         splitPane.setBorder(BorderFactory.createEmptyBorder(5, 6, 7, 8));
         ui.layoutManager.layoutContainer(splitPane);
         int width = splitPane.getInsets().left + splitPane.getInsets().right
@@ -97,14 +103,14 @@ public class BasicSplitPaneUITest extends SwingTestCase {
                 .createUI(splitPane));
     }
 
-    public void testCreatePropertyHandler() throws Exception {
+    public void _testCreatePropertyHandler() throws Exception {
         assertNotNull(ui.createPropertyChangeListener());
         if (isHarmony()) {
             assertFalse(ui.createPropertyChangeListener() == ui.createPropertyChangeListener());
         }
     }
 
-    public void testCreateFocusHandler() throws Exception {
+    public void _testCreateFocusHandler() throws Exception {
         assertNotNull(ui.createFocusListener());
         if (isHarmony()) {
             assertFalse(ui.createFocusListener() == ui.createFocusListener());
@@ -168,7 +174,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         assertNull(new BasicSplitPaneUI().getSplitPane());
     }
 
-    public void testCreateDefaultNonContinuousLayoutDivider() throws Exception {
+    public void _testCreateDefaultNonContinuousLayoutDivider() throws Exception {
         assertTrue(ui.createDefaultNonContinuousLayoutDivider() instanceof Canvas);
     }
 
@@ -176,7 +182,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         assertNotNull(ui.createDefaultDivider());
     }
 
-    public void testSetNonContinuousLayoutDivider() throws Exception {
+    public void _testSetNonContinuousLayoutDivider() throws Exception {
         Component component = new Component() {
             private static final long serialVersionUID = 1L;
         };
@@ -188,7 +194,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         assertTrue(ui.nonContinuousLayoutDivider == component);
     }
 
-    public void testAddComponentToLayout() throws Exception {
+    public void _testAddComponentToLayout() throws Exception {
         assertEquals(3, ui.layoutManager.components.length);
         JViewport viewport = new JViewport();
         ui.layoutManager.addLayoutComponent(JSplitPane.BOTTOM, viewport);
@@ -235,7 +241,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testGetComponentPreferredSize() throws Exception {
+    public void _testGetComponentPreferredSize() throws Exception {
         assertEquals(ui.layoutManager.components[0].getPreferredSize().width, ui.layoutManager
                 .getPreferredSizeOfComponent(ui.layoutManager.components[0]));
         splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
@@ -243,7 +249,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
                 .getPreferredSizeOfComponent(ui.layoutManager.components[0]));
     }
 
-    public void testGetComponentSize() throws Exception {
+    public void _testGetComponentSize() throws Exception {
         ui.layoutManager.layoutContainer(splitPane);
         assertEquals(ui.layoutManager.components[0].getSize().width, ui.layoutManager
                 .getSizeOfComponent(ui.layoutManager.components[0]));
@@ -252,7 +258,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
                 .getSizeOfComponent(ui.layoutManager.components[0]));
     }
 
-    public void testGetAvailableSize() throws Exception {
+    public void _testGetAvailableSize() throws Exception {
         splitPane.setSize(1000, 2000);
         splitPane.setBorder(BorderFactory.createEmptyBorder(5, 10, 15, 20));
         assertEquals(splitPane.getSize().width - 10 - 20, ui.layoutManager.getAvailableSize(
@@ -280,7 +286,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
                 - splitPane.getInsets().right, ui.getMaximumDividerLocation(splitPane));
     }
 
-    public void testSetDividerLocation() throws Exception {
+    public void _testSetDividerLocation() throws Exception {
         ui.setDividerLocation(splitPane, 230);
         assertEquals(-1, splitPane.getDividerLocation());
         assertEquals(0, ui.getDividerLocation(splitPane));
@@ -291,7 +297,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         assertEquals(20, ui.getDividerLocation(splitPane));
     }
 
-    public void testGetDividerLocation() throws Exception {
+    public void _testGetDividerLocation() throws Exception {
         try { // Regression test for HARMONY-2661
             ui.getDividerLocation(null);
             fail("NullPointerException should have been thrown");
@@ -300,7 +306,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         }
     }
 
-    public void testInitialLocation() throws Exception {
+    public void _testInitialLocation() throws Exception {
         splitPane.setSize(1000, 2000);
         splitPane.setBorder(BorderFactory.createEmptyBorder(5, 10, 15, 20));
         assertEquals(splitPane.getInsets().left, ui.layoutManager.getInitialLocation(splitPane
@@ -310,7 +316,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
                 .getInsets()));
     }
 
-    public void testUpdateComponents() throws Exception {
+    public void _testUpdateComponents() throws Exception {
         ui.layoutManager.components[0] = null;
         ui.layoutManager.components[1] = null;
         ui.layoutManager.components[2] = null;
@@ -320,7 +326,7 @@ public class BasicSplitPaneUITest extends SwingTestCase {
         assertEquals(ui.getDivider(), ui.layoutManager.components[2]);
     }
 
-    public void testSetComponentToSize() throws Exception {
+    public void _testSetComponentToSize() throws Exception {
         JButton b = new JButton();
         b.setSize(new Dimension(20, 30));
         int size = 5;

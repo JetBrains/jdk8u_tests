@@ -73,7 +73,7 @@ public class DefaultStyledDocument_CreateInsertTest extends TestCase implements
      * The attributes of the default root modified before the call to make
      * sure they are reset on call.
      */
-    public void testCreateWithoutText() throws BadLocationException {
+    public void _testCreateWithoutText() throws BadLocationException {
         final ElementSpec[] specs = {
                 new ElementSpec(null, ElementSpec.StartTagType),
                 new ElementSpec(null, ElementSpec.StartTagType),
@@ -134,7 +134,7 @@ public class DefaultStyledDocument_CreateInsertTest extends TestCase implements
      * This asserts the document contents is removed before applying
      * new structure.
      */
-    public void testCreateWithText() throws BadLocationException {
+    public void _testCreateWithText() throws BadLocationException {
         doc.insertString(0, "some text", bold);
         doc.insertString(doc.getLength(), "\nmore text", italic);
         final ElementSpec[] specs = {
@@ -179,7 +179,7 @@ public class DefaultStyledDocument_CreateInsertTest extends TestCase implements
         assertChange(edits.get(5), root, 0, new int[] {}, new int[] { 0, 16, 16, 21 });
     }
 
-    public void testInsertWithStartTag() throws BadLocationException {
+    public void _testInsertWithStartTag() throws BadLocationException {
         doc.insertString(0, "some  text", bold);
         doc.insertString(doc.getLength(), "\nmore text", italic);
         ElementSpec[] specs = {
@@ -224,7 +224,7 @@ public class DefaultStyledDocument_CreateInsertTest extends TestCase implements
      * The <code>ElementSpec</code>s applied contain no
      * <code>StartTagType</code> specs.
      */
-    public void testInsertNoStartTags() throws BadLocationException {
+    public void _testInsertNoStartTags() throws BadLocationException {
         doc.insertString(0, "some  text", bold);
         doc.insertString(doc.getLength(), "\nmore text", italic);
         ElementSpec[] specs = {

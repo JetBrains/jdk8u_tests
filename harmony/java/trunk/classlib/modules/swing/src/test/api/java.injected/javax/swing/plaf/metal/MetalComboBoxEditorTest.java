@@ -27,6 +27,17 @@ import javax.swing.SwingTestCase;
 public class MetalComboBoxEditorTest extends SwingTestCase {
     private MetalComboBoxEditor editor;
 
+    static class TestMetalComboBoxEditor extends MetalComboBoxEditor {
+
+        public static Insets getEditorBorderInsets() {
+            return editorBorderInsets;
+        }
+
+        public static void setEditorBorderInsets(Insets value) {
+            editorBorderInsets = value;
+        }
+    }
+
     public MetalComboBoxEditorTest(final String name) {
         super(name);
     }
@@ -42,14 +53,14 @@ public class MetalComboBoxEditorTest extends SwingTestCase {
     }
 
     public void testMetalComboBoxEditor() throws Exception {
-        assertNotNull(MetalComboBoxEditor.editorBorderInsets);
+        assertNotNull(TestMetalComboBoxEditor.getEditorBorderInsets());
         JTextField textEditor = (JTextField) editor.getEditorComponent();
-        assertEquals(MetalComboBoxEditor.editorBorderInsets, textEditor.getInsets());
-        MetalComboBoxEditor.editorBorderInsets = new Insets(2, 2, 2, 2);
-        assertEquals(MetalComboBoxEditor.editorBorderInsets, textEditor.getInsets());
+        assertEquals(TestMetalComboBoxEditor.getEditorBorderInsets(), textEditor.getInsets());
+        TestMetalComboBoxEditor.setEditorBorderInsets(new Insets(2, 2, 2, 2));
+        assertEquals(TestMetalComboBoxEditor.getEditorBorderInsets(), textEditor.getInsets());
         textEditor.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        assertNotSame(MetalComboBoxEditor.editorBorderInsets, textEditor.getInsets());
-        MetalComboBoxEditor.editorBorderInsets = new Insets(2, 2, 2, 2);
-        assertNotSame(MetalComboBoxEditor.editorBorderInsets, textEditor.getInsets());
+        assertNotSame(TestMetalComboBoxEditor.getEditorBorderInsets(), textEditor.getInsets());
+        TestMetalComboBoxEditor.setEditorBorderInsets(new Insets(2, 2, 2, 2));
+        assertNotSame(TestMetalComboBoxEditor.getEditorBorderInsets(), textEditor.getInsets());
     }
 }

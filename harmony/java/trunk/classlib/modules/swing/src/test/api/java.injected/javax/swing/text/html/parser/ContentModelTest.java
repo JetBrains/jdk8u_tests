@@ -76,7 +76,7 @@ public class ContentModelTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testContentModelElement() {
+    public void _testContentModelElement() {
         contentModel = new ContentModel(elements[0]);
         Utils.checkContentModel(contentModel, elements[0], 0, null);
 
@@ -84,12 +84,12 @@ public class ContentModelTest extends SwingTestCase {
         Utils.checkContentModel(contentModel, null, 0, null);
     }
 
-    public void testContentModel() {
+    public void _testContentModel() {
         contentModel = new ContentModel();
         Utils.checkContentModel(contentModel, null, 0, null);
     }
 
-    public void testContentModelIntContentModel() {
+    public void _testContentModelIntContentModel() {
         contentModel1 = new ContentModel(elements[0]);
 
         contentModel = new ContentModel('*', contentModel1);
@@ -102,7 +102,7 @@ public class ContentModelTest extends SwingTestCase {
         Utils.checkContentModel(contentModel, contentModel1, '+', null);
     }
 
-    public void testContentModelIntObjectContentModel() {
+    public void _testContentModelIntObjectContentModel() {
         contentModel1 = new ContentModel(elements[0]);
         contentModel = new ContentModel(',', elements[1], contentModel1);
         Utils.checkContentModel(contentModel, elements[1], ',',
@@ -131,7 +131,7 @@ public class ContentModelTest extends SwingTestCase {
                                 contentModel1);
     }
 
-    public void testIllegalArgumentException_Object() {
+    public void _testIllegalArgumentException_Object() {
         if (SwingTestCase.isHarmony()) {
             contentModel1 = new ContentModel(elements[0]);
             try {
@@ -203,7 +203,7 @@ public class ContentModelTest extends SwingTestCase {
         }
     }
 
-    public void testIllegalArgumentException_Type() {
+    public void _testIllegalArgumentException_Type() {
         if (SwingTestCase.isHarmony()) {
             contentModel1 = new ContentModel(elements[0]);
             try {
@@ -261,7 +261,7 @@ public class ContentModelTest extends SwingTestCase {
     }
 
 
-    public void testFirst() throws Exception{
+    public void _testFirst() throws Exception{
         initContentModels();
         assertEquals(elements[1], contentModel1.first());
         assertEquals(elements[2], contentModel2.first());
@@ -274,7 +274,7 @@ public class ContentModelTest extends SwingTestCase {
         assertNull(contentModel9.first());
     }
     
-    public void testFirst2() throws Exception{
+    public void _testFirst2() throws Exception{
         //regression for HARMONY-1350
         DTD dtd = DTD.getDTD("tmp");
         ContentModel model1 = new ContentModel (dtd.getElement(2));
@@ -284,7 +284,7 @@ public class ContentModelTest extends SwingTestCase {
     }
 
 
-    public void testToString() {
+    public void _testToString() {
         if (!SwingTestCase.isHarmony()) {
             return;
         }
@@ -324,7 +324,7 @@ public class ContentModelTest extends SwingTestCase {
         contentModel14 = new ContentModel('&', contentModel5, contentModel9);
     }
 
-    public void testFirstObject() {
+    public void _testFirstObject() {
         if (!SwingTestCase.isHarmony()) {
             return;
         }
@@ -467,7 +467,7 @@ public class ContentModelTest extends SwingTestCase {
         }
     }
 
-    public void testGetElements() {
+    public void _testGetElements() {
         resetElemVec();
         Vector v = new Vector();
         initContentModels();
@@ -517,7 +517,7 @@ public class ContentModelTest extends SwingTestCase {
         checkElemVec(v);
     }
 
-    public void testEmpty() {
+    public void _testEmpty() {
         //ClassCastException on RI
         if (!SwingTestCase.isHarmony()) {
             return;
@@ -539,7 +539,7 @@ public class ContentModelTest extends SwingTestCase {
         assertTrue(contentModel14.empty());
     }
 
-    public void testSerialization() {
+    public void _testSerialization() {
         contentModel1 = new ContentModel(elements[0]);
         contentModel = new ContentModel('|', elements[1], contentModel1);
         contentModel2 = (ContentModel)Utils.doSerialization(contentModel);

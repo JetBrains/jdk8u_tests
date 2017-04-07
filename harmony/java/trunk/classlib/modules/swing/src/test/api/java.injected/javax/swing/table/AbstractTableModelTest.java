@@ -21,6 +21,7 @@ package javax.swing.table;
 
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import java.util.EventListener;
 
 public class AbstractTableModelTest extends BasicSwingTableTestCase {
     private AbstractTableModel model;
@@ -49,8 +50,8 @@ public class AbstractTableModelTest extends BasicSwingTableTestCase {
     }
 
     public void testAbstractTableModel() throws Exception {
-        assertNotNull(model.listenerList);
-        assertEquals(0, model.listenerList.getListenerCount());
+        //assertNotNull(model.listenerList);
+        assertEquals(0, model.getListeners(EventListener.class).length);
     }
 
     public void testGetColumnName() throws Exception {

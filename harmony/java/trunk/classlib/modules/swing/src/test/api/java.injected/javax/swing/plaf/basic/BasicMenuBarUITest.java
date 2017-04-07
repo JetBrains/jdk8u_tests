@@ -69,7 +69,7 @@ public class BasicMenuBarUITest extends SwingTestCase {
         assertEquals(oldManager, menu.getLayout());
     }
 
-    public void testInstallUninstallUI2() {
+    public void _testInstallUninstallUI2() {
         JMenuBar menu = new JMenuBar();
         menu.setUI(menuBarUI);
         menuBarUI.installUI(menu);
@@ -91,7 +91,7 @@ public class BasicMenuBarUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuBarUI.createChangeListener()'
      */
-    public void testCreateChangeListener() {
+    public void _testCreateChangeListener() {
         assertNotNull(menuBarUI.createChangeListener());
         assertSame(menuBarUI.createChangeListener(), menuBarUI.createChangeListener());
     }
@@ -99,7 +99,7 @@ public class BasicMenuBarUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuBarUI.createContainerListener()'
      */
-    public void testCreateContainerListener() {
+    public void _testCreateContainerListener() {
         final ContainerListener containerListener1 = menuBarUI.createContainerListener();
         final ContainerListener containerListener2 = menuBarUI.createContainerListener();
         assertNotNull(containerListener1);
@@ -110,7 +110,7 @@ public class BasicMenuBarUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuBarUI.installDefaults()'
      */
-    public void testInstallUninstallDefaults() {
+    public void _testInstallUninstallDefaults() {
         JMenuBar menuBar = new JMenuBar();
         UIManager.getDefaults().put("MenuBar.background", new ColorUIResource(Color.red));
         UIManager.getDefaults().put("MenuBar.foreground", new ColorUIResource(Color.yellow));
@@ -136,7 +136,7 @@ public class BasicMenuBarUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuBarUI.installKeyboardActions()'
      */
-    public void testInstallUninstallKeyboardActions() {
+    public void _testInstallUninstallKeyboardActions() {
         JMenuBar menuBar = new JMenuBar();
         menuBar.setUI(menuBarUI);
         menuBarUI.installKeyboardActions();
@@ -156,7 +156,7 @@ public class BasicMenuBarUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuBarUI.installListeners()'
      */
-    public void testInstallUninstallListeners() {
+    public void _testInstallUninstallListeners() {
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu();
         menuBar.add(menu);

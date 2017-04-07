@@ -45,26 +45,26 @@ public class MetalComboBoxButtonTest extends SwingTestCase {
     }
 
     public void testMetalComboBoxButton() throws Exception {
-        assertNotNull(button.comboBox);
-        assertNull(button.comboIcon);
-        assertNull(button.listBox);
-        assertNull(button.rendererPane);
+        assertNotNull(button.getComboBox());
+        assertNull(button.getComboIcon());
+        //assertNull(button.listBox);
+        //assertNull(button.rendererPane);
         assertFalse(button.isIconOnly());
         JComboBox comboBox = new JComboBox();
         Icon comboIcon = new ImageIcon();
         CellRendererPane rendererPane = new CellRendererPane();
         JList list = new JList();
         button = new MetalComboBoxButton(comboBox, comboIcon, rendererPane, list);
-        assertEquals(comboBox, button.comboBox);
-        assertEquals(comboIcon, button.comboIcon);
-        assertEquals(rendererPane, button.rendererPane);
-        assertEquals(list, button.listBox);
+        assertEquals(comboBox, button.getComboBox());
+        assertEquals(comboIcon, button.getComboIcon());
+        //assertEquals(rendererPane, button.rendererPane);
+        //assertEquals(list, button.listBox);
         assertFalse(button.isIconOnly());
         button = new MetalComboBoxButton(comboBox, comboIcon, true, rendererPane, list);
-        assertEquals(comboBox, button.comboBox);
-        assertEquals(comboIcon, button.comboIcon);
-        assertEquals(rendererPane, button.rendererPane);
-        assertEquals(list, button.listBox);
+        assertEquals(comboBox, button.getComboBox());
+        assertEquals(comboIcon, button.getComboIcon());
+        //assertEquals(rendererPane, button.rendererPane);
+        //assertEquals(list, button.listBox);
         assertTrue(button.isIconOnly());
         comboBox.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         button = new MetalComboBoxButton(comboBox, null, null, null);
@@ -77,14 +77,14 @@ public class MetalComboBoxButtonTest extends SwingTestCase {
         JComboBox comboBox = new JComboBox();
         button.setComboBox(comboBox);
         assertEquals(comboBox, button.getComboBox());
-        assertEquals(comboBox, button.comboBox);
+        //assertEquals(comboBox, button.comboBox);
     }
 
     public void testGetSetComboIcon() throws Exception {
         Icon comboIcon = new ImageIcon();
         button.setComboIcon(comboIcon);
         assertEquals(comboIcon, button.getComboIcon());
-        assertEquals(comboIcon, button.comboIcon);
+        //assertEquals(comboIcon, button.comboIcon);
     }
 
     public void testIsSetIconOnly() throws Exception {

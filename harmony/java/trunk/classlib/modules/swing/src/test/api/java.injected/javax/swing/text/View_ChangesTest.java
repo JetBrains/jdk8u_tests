@@ -271,7 +271,7 @@ public class View_ChangesTest extends TestCase {
      * The view has <i>no</i> children, and <code>updateChildren</code>
      * is <i>not</i> called as well as other methods involved.
      */
-    public void testChangedUpdate01() throws BadLocationException {
+    public void _testChangedUpdate01() throws BadLocationException {
         createChangeEvent();
         hasChildren = false;
         assertEquals(0, view.getViewCount());
@@ -286,7 +286,7 @@ public class View_ChangesTest extends TestCase {
      * The view has children and <code>updateChildren</code> returns
      * <code>false</code>.
      */
-    public void testChangedUpdate02() throws BadLocationException {
+    public void _testChangedUpdate02() throws BadLocationException {
         hasChildren = true;
         createChangeEvent();
         updateChildrenReturn = false;
@@ -307,7 +307,7 @@ public class View_ChangesTest extends TestCase {
      * The view has children and <code>updateChildren</code> returns
      * <code>true</code>.
      */
-    public void testChangedUpdate03() throws BadLocationException {
+    public void _testChangedUpdate03() throws BadLocationException {
         hasChildren = true;
         createChangeEvent();
         assertEquals(1, docEvent.getChange(root).getIndex());
@@ -328,7 +328,7 @@ public class View_ChangesTest extends TestCase {
      * <code>updateChilren</code> returns <code>true</code>
      * (child views represent entire elements).
      */
-    public void testChangedUpdate04() throws BadLocationException {
+    public void _testChangedUpdate04() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         updateChildrenReturn = true;
@@ -353,7 +353,7 @@ public class View_ChangesTest extends TestCase {
      * <code>updateChilren</code> returns <code>false</code>
      * (child views represent entire elements).
      */
-    public void testChangedUpdate05() throws BadLocationException {
+    public void _testChangedUpdate05() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         updateChildrenReturn = false;
@@ -375,7 +375,7 @@ public class View_ChangesTest extends TestCase {
      * Tests <code>forwardUpdateToView</code> whether it calls
      * {insert,remove,changed}Update depending on event type.
      */
-    public void testForwardUpdateToView() {
+    public void _testForwardUpdateToView() {
         // Class to store which function is called
         class Params {
             boolean change = false;
@@ -502,7 +502,7 @@ public class View_ChangesTest extends TestCase {
      * <code>updateChildren</code> returns <code>true</code>. The result
      * is that changes must be forwarded to the first two view children.
      */
-    public void testInsertUpdate04() throws BadLocationException {
+    public void _testInsertUpdate04() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         // Event method will be tested upon
@@ -564,7 +564,7 @@ public class View_ChangesTest extends TestCase {
      * <code>updateChildren</code> returns <code>true</code>.
      * (Views represent entire elements.)
      */
-    public void testInsertUpdate07() throws BadLocationException {
+    public void _testInsertUpdate07() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.insertString(2, "^^^\n", null);
@@ -583,7 +583,7 @@ public class View_ChangesTest extends TestCase {
      * <code>updateChildren</code> returns <code>false</code>.
      * (Views represent partial elements.)
      */
-    public void testInsertUpdate08() throws BadLocationException {
+    public void _testInsertUpdate08() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.insertString(2, "^^^\n", null);
@@ -609,7 +609,7 @@ public class View_ChangesTest extends TestCase {
      * <code>updateChildren</code> returns <code>true</code>, i.e. it is
      * considered a view represents an entire element.
      */
-    public void testInsertUpdate09() throws BadLocationException {
+    public void _testInsertUpdate09() throws BadLocationException {
         createPartialViews();
         updateChildrenReturn = true;
         view.insertUpdate(docEvent, rect, viewFactory);
@@ -632,7 +632,7 @@ public class View_ChangesTest extends TestCase {
      * <code>updateChildren</code> returns <code>false</code>, i.e. it is
      * considered a view may represent a portion of element.
      */
-    public void testInsertUpdate10() throws BadLocationException {
+    public void _testInsertUpdate10() throws BadLocationException {
         createPartialViews();
         updateChildrenReturn = false;
         view.insertUpdate(docEvent, rect, viewFactory);
@@ -662,7 +662,7 @@ public class View_ChangesTest extends TestCase {
      * The view has <i>no</i> children, and <code>updateChildren</code>
      * is <i>not</i> called as well as other methods involved.
      */
-    public void testRemoveUpdate01() throws BadLocationException {
+    public void _testRemoveUpdate01() throws BadLocationException {
         changeDocument();
         doc.remove(line.getStartOffset(), 9);
         hasChildren = false;
@@ -680,7 +680,7 @@ public class View_ChangesTest extends TestCase {
      * <p>
      * Exactly one element is removed.
      */
-    public void testRemoveUpdate02() throws BadLocationException {
+    public void _testRemoveUpdate02() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.remove(line.getStartOffset(), 9);
@@ -703,7 +703,7 @@ public class View_ChangesTest extends TestCase {
      * <p>
      * Exactly one element is removed.
      */
-    public void testRemoveUpdate03() throws BadLocationException {
+    public void _testRemoveUpdate03() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.remove(line.getStartOffset(), 9);
@@ -725,7 +725,7 @@ public class View_ChangesTest extends TestCase {
      * <p>
      * Text removed is within one element.
      */
-    public void testRemoveUpdate04() throws BadLocationException {
+    public void _testRemoveUpdate04() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.remove(line.getStartOffset() + 1, 2);
@@ -746,7 +746,7 @@ public class View_ChangesTest extends TestCase {
      * <p>
      * New line character is removed.
      */
-    public void testRemoveUpdate05() throws BadLocationException {
+    public void _testRemoveUpdate05() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.remove(line.getEndOffset() - 1, 1);
@@ -768,7 +768,7 @@ public class View_ChangesTest extends TestCase {
      * <p>
      * New line character is removed.
      */
-    public void testRemoveUpdate06() throws BadLocationException {
+    public void _testRemoveUpdate06() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.remove(line.getEndOffset() - 1, 1);
@@ -790,7 +790,7 @@ public class View_ChangesTest extends TestCase {
      * <p>
      * Exactly one element is removed.
      */
-    public void testRemoveUpdate07() throws BadLocationException {
+    public void _testRemoveUpdate07() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.remove(0, line.getStartOffset());
@@ -812,7 +812,7 @@ public class View_ChangesTest extends TestCase {
      * <p>
      * Exactly one element is removed.
      */
-    public void testRemoveUpdate08() throws BadLocationException {
+    public void _testRemoveUpdate08() throws BadLocationException {
         hasChildren = true;
         changeDocument();
         doc.remove(0, line.getStartOffset());
@@ -830,7 +830,7 @@ public class View_ChangesTest extends TestCase {
      * Tests <code>updateLayout</code> when element change is not
      * <code>null</code>.
      */
-    public void testUpdateLayout01() throws BadLocationException {
+    public void _testUpdateLayout01() throws BadLocationException {
         final class Params {
             View child;
 
@@ -861,7 +861,7 @@ public class View_ChangesTest extends TestCase {
      * <code>null</code>: seems like it has no side effects and
      * probably does nothing in this case.
      */
-    public void testUpdateLayout02() throws BadLocationException {
+    public void _testUpdateLayout02() throws BadLocationException {
         final boolean[] called = new boolean[1];
         view = new DisAbstractedView(line) {
             @Override

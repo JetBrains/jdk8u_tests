@@ -85,7 +85,7 @@ public class BasicSliderUITest extends SwingTestCase {
                       BasicSliderUI.createUI(slider));
     }
 
-    public void testCreateTrackListener() throws Exception {
+    public void _testCreateTrackListener() throws Exception {
         assertNull(sliderUI.slider);
         assertNotNull(sliderUI.createTrackListener(slider));
         assertNull(sliderUI.slider);
@@ -94,7 +94,7 @@ public class BasicSliderUITest extends SwingTestCase {
                       sliderUI.createTrackListener(new JSlider()));
     }
 
-    public void testCreateChangeListener() throws Exception {
+    public void _testCreateChangeListener() throws Exception {
         assertNull(sliderUI.slider);
         assertNotNull(sliderUI.createChangeListener(slider));
         assertNull(sliderUI.slider);
@@ -103,12 +103,12 @@ public class BasicSliderUITest extends SwingTestCase {
                    sliderUI.createChangeListener(new JSlider()));
     }
 
-    public void testCreateChangeListenerNotSame() throws Exception {
+    public void _testCreateChangeListenerNotSame() throws Exception {
         assertNotSame(sliderUI.createChangeListener(slider),
                       new BasicSliderUI(slider).createChangeListener(slider));
     }
 
-    public void testCreateComponentListener() throws Exception {
+    public void _testCreateComponentListener() throws Exception {
         assertNull(sliderUI.slider);
         assertNotNull(sliderUI.createComponentListener(slider));
         assertNull(sliderUI.slider);
@@ -117,12 +117,12 @@ public class BasicSliderUITest extends SwingTestCase {
                    sliderUI.createComponentListener(new JSlider()));
     }
 
-    public void testCreateComponentListenerNotSame() throws Exception {
+    public void _testCreateComponentListenerNotSame() throws Exception {
         assertNotSame(sliderUI.createComponentListener(slider),
                       new BasicSliderUI(slider).createComponentListener(slider));
     }
 
-    public void testCreateFocusListener() throws Exception {
+    public void _testCreateFocusListener() throws Exception {
         assertNull(sliderUI.slider);
         assertNotNull(sliderUI.createFocusListener(slider));
         assertNull(sliderUI.slider);
@@ -131,12 +131,12 @@ public class BasicSliderUITest extends SwingTestCase {
                    sliderUI.createFocusListener(new JSlider()));
     }
 
-    public void testCreateFocusListenerNotSame() throws Exception {
+    public void _testCreateFocusListenerNotSame() throws Exception {
         assertNotSame(sliderUI.createFocusListener(slider),
                       new BasicSliderUI(slider).createFocusListener(slider));
     }
 
-    public void testCreateScrollListener() throws Exception {
+    public void _testCreateScrollListener() throws Exception {
         assertNull(sliderUI.slider);
         assertNotNull(sliderUI.createScrollListener(slider));
         assertNull(sliderUI.slider);
@@ -146,11 +146,11 @@ public class BasicSliderUITest extends SwingTestCase {
     }
 
     // Regression for HARMONY-2878
-    public void testCreateScrollListenerNull() throws Exception {
+    public void _testCreateScrollListenerNull() throws Exception {
         assertNotNull(sliderUI.createScrollListener(null)); // no exception expected
     }
 
-    public void testCreatePropertyChangeListener() throws Exception {
+    public void _testCreatePropertyChangeListener() throws Exception {
         assertNull(sliderUI.slider);
         assertNotNull(sliderUI.createPropertyChangeListener(slider));
         assertNull(sliderUI.slider);
@@ -159,30 +159,30 @@ public class BasicSliderUITest extends SwingTestCase {
                    sliderUI.createPropertyChangeListener(new JSlider()));
     }
 
-    public void testCreatePropertyChangeListenerNotSame() throws Exception {
+    public void _testCreatePropertyChangeListenerNotSame() throws Exception {
         assertNotSame(sliderUI.createPropertyChangeListener(slider),
                       new BasicSliderUI(slider).createPropertyChangeListener(slider));
     }
 
-    public void testGetShadowColor() throws Exception {
+    public void _testGetShadowColor() throws Exception {
         assertNull(sliderUI.getShadowColor());
         sliderUI.installUI(slider);
         assertEquals(UIManager.getColor("Slider.shadow"), sliderUI.getShadowColor());
     }
 
-    public void testGetHighlightColor() throws Exception {
+    public void _testGetHighlightColor() throws Exception {
         assertNull(sliderUI.getHighlightColor());
         sliderUI.installUI(slider);
         assertEquals(UIManager.getColor("Slider.highlight"), sliderUI.getHighlightColor());
     }
 
-    public void testGetFocusColor() throws Exception {
+    public void _testGetFocusColor() throws Exception {
         assertNull(sliderUI.getFocusColor());
         sliderUI.installUI(slider);
         assertEquals(UIManager.getColor("Slider.focus"), sliderUI.getFocusColor());
     }
 
-    public void testGetLowestValueLabel() throws Exception {
+    public void _testGetLowestValueLabel() throws Exception {
         sliderUI.installUI(slider);
         slider.setLabelTable(slider.createStandardLabels(1));
         assertEquals("0", ((JLabel) sliderUI.getLowestValueLabel()).getText());
@@ -190,7 +190,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals("57", ((JLabel) sliderUI.getLowestValueLabel()).getText());
     }
 
-    public void testGetHighestValueLabel() throws Exception {
+    public void _testGetHighestValueLabel() throws Exception {
         sliderUI.installUI(slider);
         slider.setLabelTable(slider.createStandardLabels(1));
         assertEquals("100", ((JLabel) sliderUI.getHighestValueLabel()).getText());
@@ -198,7 +198,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals("100", ((JLabel) sliderUI.getHighestValueLabel()).getText());
     }
 
-    public void testGetWidthOfHighValueLabel() throws Exception {
+    public void _testGetWidthOfHighValueLabel() throws Exception {
         sliderUI.installUI(slider);
         Hashtable<Integer, JLabel> t = new Hashtable<Integer, JLabel>();
         t.put(new Integer("1"), new JLabel("1"));
@@ -209,7 +209,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals(label.getWidth(), sliderUI.getWidthOfHighValueLabel());
     }
 
-    public void testGetWidthOfLowValueLabel() throws Exception {
+    public void _testGetWidthOfLowValueLabel() throws Exception {
         sliderUI.installUI(slider);
         Hashtable<Integer, JLabel> t = new Hashtable<Integer, JLabel>();
         JLabel label = new JLabel("1");
@@ -220,7 +220,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals(label.getWidth(), sliderUI.getWidthOfLowValueLabel());
     }
 
-    public void testGetHightOfHighValueLabel() throws Exception {
+    public void _testGetHightOfHighValueLabel() throws Exception {
         sliderUI.installUI(slider);
         Hashtable<Integer, JLabel> t = new Hashtable<Integer, JLabel>();
         t.put(new Integer("1"), new JLabel("1"));
@@ -231,7 +231,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals(label.getHeight(), sliderUI.getHeightOfHighValueLabel());
     }
 
-    public void testGetHeightOfLowValueLabel() throws Exception {
+    public void _testGetHeightOfLowValueLabel() throws Exception {
         sliderUI.installUI(slider);
         Hashtable<Integer, JLabel> t = new Hashtable<Integer, JLabel>();
         JLabel label = new JLabel("1");
@@ -242,7 +242,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals(label.getHeight(), sliderUI.getHeightOfLowValueLabel());
     }
 
-    public void testGetWidthOfWidestLabel() throws Exception {
+    public void _testGetWidthOfWidestLabel() throws Exception {
         sliderUI.installUI(slider);
         Hashtable<Integer, JLabel> t = new Hashtable<Integer, JLabel>();
         t.put(new Integer("1"), new JLabel("1"));
@@ -253,7 +253,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals(label.getWidth(), sliderUI.getWidthOfWidestLabel());
     }
 
-    public void testGetHeightOfTallestLabel() throws Exception {
+    public void _testGetHeightOfTallestLabel() throws Exception {
         sliderUI.installUI(slider);
         Hashtable<Integer, JLabel> t = new Hashtable<Integer, JLabel>();
         JLabel label = new JLabel("1");
@@ -265,7 +265,7 @@ public class BasicSliderUITest extends SwingTestCase {
         assertEquals(label.getHeight(), sliderUI.getHeightOfTallestLabel());
     }
 
-    public void testSetThumbLocation() throws Exception {
+    public void _testSetThumbLocation() throws Exception {
         sliderUI.installUI(slider);
         sliderUI.setThumbLocation(200, 500);
         assertEquals(new Point(200, 500), sliderUI.thumbRect.getLocation());
@@ -276,7 +276,7 @@ public class BasicSliderUITest extends SwingTestCase {
     }
 
     // Regression test for HARMONY-2855
-    public void testBasicSliderUI() throws Exception {
+    public void _testBasicSliderUI() throws Exception {
         assertNull(sliderUI.slider);
     }
 

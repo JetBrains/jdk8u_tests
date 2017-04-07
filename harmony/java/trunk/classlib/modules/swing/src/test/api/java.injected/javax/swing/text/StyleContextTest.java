@@ -260,7 +260,7 @@ public class StyleContextTest extends TestCase implements ChangeListener {
         assertSame(another, sc.getStyle(styleName));
     }
 
-    public void testCreateSmallAttributeSet() {
+    public void _testCreateSmallAttributeSet() {
         AttributeSet as = sc.createSmallAttributeSet(sc.getEmptySet());
         assertTrue(as instanceof SmallAttributeSet);
         assertEquals(0, as.getAttributeCount());
@@ -276,7 +276,7 @@ public class StyleContextTest extends TestCase implements ChangeListener {
         assertEquals("default", ((Style) style.getResolveParent()).getName());
     }
 
-    public void testCreateLargeAttributeSet() {
+    public void _testCreateLargeAttributeSet() {
         AttributeSet as = sc.createLargeAttributeSet(new SimpleAttributeSet());
         assertTrue(as instanceof SimpleAttributeSet);
     }
@@ -455,7 +455,7 @@ public class StyleContextTest extends TestCase implements ChangeListener {
         return str.substring(1, len - 2);
     }
 
-    public void testGetCompressionThreshold() {
+    public void _testGetCompressionThreshold() {
         assertEquals(9, sc.getCompressionThreshold());
     }
 

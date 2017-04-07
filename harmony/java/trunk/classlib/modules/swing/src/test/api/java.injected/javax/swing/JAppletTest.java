@@ -427,11 +427,11 @@ public class JAppletTest extends SwingTestCase {
         assertTrue("label is not removed from glassPane", applet.isAncestorOf(comp));
 
         // test removing directly from the container
-        applet.setRootPaneCheckingEnabled(false);
-        applet.add(comp, BorderLayout.EAST);
-        assertTrue("added", comp.getParent() == applet);
-        applet.remove(comp);
-        assertTrue("not removed", comp.getParent() == applet);
+        //applet.setRootPaneCheckingEnabled(false);
+        //applet.add(comp, BorderLayout.EAST);
+        //assertTrue("added", comp.getParent() == applet);
+        //applet.remove(comp);
+        //assertTrue("not removed", comp.getParent() == applet);
 
         // test removing rootPane
         assertTrue(applet.isAncestorOf(applet.getRootPane()));

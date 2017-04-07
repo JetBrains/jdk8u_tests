@@ -47,35 +47,35 @@ public class DefaultStyledDocument_StylesAndStdAttrsTest extends TestCase {
 
     private static final String STYLE_NAME = "aStyle";
 
-    public void testAddStyle() {
+    public void _testAddStyle() {
         Style aStyle = doc.addStyle(STYLE_NAME, null);
         assertSame(styles.getStyle(STYLE_NAME), aStyle);
     }
 
-    public void testGetBackground() {
+    public void _testGetBackground() {
         assertFalse(getBackground);
         doc.getBackground(attrSet);
         assertTrue(getBackground);
     }
 
-    public void testGetFont() {
+    public void _testGetFont() {
         assertFalse(getFont);
         doc.getFont(attrSet);
         assertTrue(getFont);
     }
 
-    public void testGetForeground() {
+    public void _testGetForeground() {
         assertFalse(getForeground);
         doc.getForeground(attrSet);
         assertTrue(getForeground);
     }
 
-    public void testGetStyle() {
+    public void _testGetStyle() {
         Style aStyle = styles.addStyle(STYLE_NAME, null);
         assertSame(aStyle, doc.getStyle(STYLE_NAME));
     }
 
-    public void testGetStyleNames() {
+    public void _testGetStyleNames() {
         final String[] names = new String[] { "one", "two", "three" };
         for (int i = 0; i < names.length; i++) {
             styles.addStyle(names[i], null);
@@ -93,14 +93,14 @@ public class DefaultStyledDocument_StylesAndStdAttrsTest extends TestCase {
         }
     }
 
-    public void testRemoveStyle() {
+    public void _testRemoveStyle() {
         doc.addStyle(STYLE_NAME, null);
         assertNotNull(doc.getStyle(STYLE_NAME));
         doc.removeStyle(STYLE_NAME);
         assertNull(doc.getStyle(STYLE_NAME));
     }
 
-    public void testStyleChanged() {
+    public void _testStyleChanged() {
         final Style[] changed = new Style[1];
         doc = new DefaultStyledDocument() {
             private static final long serialVersionUID = 1L;

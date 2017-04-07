@@ -41,7 +41,7 @@ public class BasicFormattedTextFieldUITest extends SwingTestCase {
         assertTrue(BasicFormattedTextFieldUI.createUI(new JFormattedTextField()) instanceof BasicFormattedTextFieldUI);
     }
 
-    public void testGetPropertyPrefix() {
+    public void _testGetPropertyPrefix() {
         assertEquals("FormattedTextField", ui.getPropertyPrefix());
     }
 }

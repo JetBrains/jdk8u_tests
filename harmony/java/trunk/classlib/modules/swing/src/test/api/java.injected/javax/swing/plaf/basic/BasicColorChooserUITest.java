@@ -51,13 +51,13 @@ public class BasicColorChooserUITest extends BasicSwingTestCase {
         assertSame(BasicColorChooserUI.class, BasicColorChooserUI.createUI(ch).getClass());
     }
 
-    public void testCreateDefaultChoosers() throws Exception {
+    public void _testCreateDefaultChoosers() throws Exception {
         assertNotNull(ui.createDefaultChoosers());
         assertNotSame(ui.createDefaultChoosers(), ui.createDefaultChoosers());
         assertEquals(3, ui.createDefaultChoosers().length);
     }
 
-    public void testCreatePropertychangeListener() throws Exception {
+    public void _testCreatePropertychangeListener() throws Exception {
         assertNotNull(ui.createPropertyChangeListener());
         if (isHarmony()) {
             assertNotSame(ui.createPropertyChangeListener(), ui.createPropertyChangeListener());
@@ -66,7 +66,7 @@ public class BasicColorChooserUITest extends BasicSwingTestCase {
         }
     }
 
-    public void testInstallUninstallPreviewPanel() throws Exception {
+    public void _testInstallUninstallPreviewPanel() throws Exception {
         assertEquals(2, ch.getComponentCount());
         assertNotNull(findComponent(ch, JTabbedPane.class, true));
         ch.remove(ch.getComponent(1));
@@ -99,7 +99,7 @@ public class BasicColorChooserUITest extends BasicSwingTestCase {
         assertNull(findComponent(ch, JTabbedPane.class, true));
     }
 
-    public void testInstallUninstallListeners() throws Exception {
+    public void _testInstallUninstallListeners() throws Exception {
         ui.uninstallListeners();
         int propChangeListCount = ch.getPropertyChangeListeners().length;
         int changeListcount = ((DefaultColorSelectionModel) ch.getSelectionModel())

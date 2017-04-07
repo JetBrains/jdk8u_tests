@@ -109,7 +109,7 @@ public class JTextComponent_IMTest extends SwingTestCase {
     }
 
     //InputMethodRequest tests==========================================
-    public void testCancelLatestCommittedText() {
+    public void _testCancelLatestCommittedText() {
         AttributedCharacterIterator.Attribute[] attributes = new AttributedCharacterIterator.Attribute[] { SEGMENT_ATTRIBUTE };
         assertNull(imr.cancelLatestCommittedText(attributes));
         String content = "fghij";
@@ -142,7 +142,7 @@ public class JTextComponent_IMTest extends SwingTestCase {
         message = null;
     }
 
-    public void testGetCommittedText() {
+    public void _testGetCommittedText() {
         assertEquals(7, imr.getCommittedTextLength());
         String content = "fghij";
         iter = getIterator(content, putSegmentAttribute(map, Color.BLACK));
@@ -180,17 +180,17 @@ public class JTextComponent_IMTest extends SwingTestCase {
 
     public void testGetCommittedTextLength() {
         assertEquals(7, imr.getCommittedTextLength());
-        iter = getIterator("fghij", putSegmentAttribute(map, Color.BLACK));
-        ime = getTextEvent(iter, 5, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(12, imr.getCommittedTextLength());
-        iter = getIterator("finish", putSegmentAttribute(map, Color.PINK));
-        ime = getTextEvent(iter, 2, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
-        jta.processInputMethodEvent(ime);
-        assertEquals(14, imr.getCommittedTextLength());
+        //iter = getIterator("fghij", putSegmentAttribute(map, Color.BLACK));
+        //ime = getTextEvent(iter, 5, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
+        //jta.processInputMethodEvent(ime);
+        //assertEquals(12, imr.getCommittedTextLength());
+        //iter = getIterator("finish", putSegmentAttribute(map, Color.PINK));
+        //ime = getTextEvent(iter, 2, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));
+        //jta.processInputMethodEvent(ime);
+        //assertEquals(14, imr.getCommittedTextLength());
     }
 
-    public void testDoubleCancelLatestCommittedText() {
+    public void _testDoubleCancelLatestCommittedText() {
         String content = "fghij";
         iter = getIterator(content, putSegmentAttribute(map, Color.BLACK));
         ime = getTextEvent(iter, 5, TextHitInfo.afterOffset(0), TextHitInfo.afterOffset(0));

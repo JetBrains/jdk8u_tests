@@ -73,7 +73,7 @@ public class HTMLEditorKit_HTMLTextActionTest extends SwingTestCase {
         assertEquals("actionName", action.getValue(AbstractAction.NAME));
     }
 
-    public void testElementCountToTag() throws Exception {
+    public void _testElementCountToTag() throws Exception {
         loadHTML();
         final int offset = editorPane.getDocument().getLength();
 
@@ -87,7 +87,7 @@ public class HTMLEditorKit_HTMLTextActionTest extends SwingTestCase {
                                                   HTML.Tag.HEAD));
     }
 
-    public void testFindElementMatchingTag() throws Exception {
+    public void _testFindElementMatchingTag() throws Exception {
         loadHTML();
         final int offset = editorPane.getDocument().getLength();
         Element[] elems = action.getElementsAt(document, offset);
@@ -105,7 +105,7 @@ public class HTMLEditorKit_HTMLTextActionTest extends SwingTestCase {
                                                     HTML.Tag.BODY));
     }
 
-    public void testGetElementsAt() throws Exception {
+    public void _testGetElementsAt() throws Exception {
         loadHTML();
         final int offset = editorPane.getDocument().getLength();
 
@@ -126,12 +126,12 @@ public class HTMLEditorKit_HTMLTextActionTest extends SwingTestCase {
         assertEquals(editorPane.getDocument().getDefaultRootElement(), elems[0]);
     }
 
-    public void testGetHTMLDocument() {
+    public void _testGetHTMLDocument() {
         assertSame(editorPane.getDocument(),
                    action.getHTMLDocument(editorPane));
     }
 
-    public void testGetHTMLEditorKit() {
+    public void _testGetHTMLEditorKit() {
         assertSame(editorPane.getEditorKit(),
                    action.getHTMLEditorKit(editorPane));
 

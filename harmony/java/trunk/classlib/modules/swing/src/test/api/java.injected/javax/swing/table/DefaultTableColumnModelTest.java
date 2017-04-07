@@ -48,18 +48,18 @@ public class DefaultTableColumnModelTest extends BasicSwingTestCase {
     }
 
     public void testDefaultTableColumnModel() throws Exception {
-        assertNotNull(model.tableColumns);
-        assertEquals(0, model.tableColumns.size());
-        assertTrue(model.selectionModel instanceof DefaultListSelectionModel);
-        assertEquals(1, ((DefaultListSelectionModel) model.selectionModel)
+        //assertNotNull(model.tableColumns);
+        assertEquals(0, model.getColumnCount());
+        assertTrue(model.getSelectionModel() instanceof DefaultListSelectionModel);
+        assertEquals(1, ((DefaultListSelectionModel) model.getSelectionModel())
                 .getListSelectionListeners().length);
-        assertEquals(model, ((DefaultListSelectionModel) model.selectionModel)
+        assertEquals(model, ((DefaultListSelectionModel) model.getSelectionModel())
                 .getListSelectionListeners()[0]);
-        assertEquals(1, model.columnMargin);
-        assertNotNull(model.listenerList);
-        assertNull(model.changeEvent);
-        assertFalse(model.columnSelectionAllowed);
-        assertEquals(-1, model.totalColumnWidth);
+        assertEquals(1, model.getColumnMargin());
+        assertNotNull(model.getColumnModelListeners());
+        //assertNull(model.changeEvent);
+        assertFalse(model.getColumnSelectionAllowed());
+        assertEquals(-1, model.getTotalColumnWidth());
     }
 
     public void testAddRemoveMoveColumn() throws Exception {
@@ -154,14 +154,14 @@ public class DefaultTableColumnModelTest extends BasicSwingTestCase {
     public void testGetSetColumnMargin() throws Exception {
         TestTableColumnModelListener listener = new TestTableColumnModelListener();
         model.addColumnModelListener(listener);
-        assertNull(model.changeEvent);
+        //assertNull(model.changeEvent);
         assertEquals(1, model.getColumnMargin());
         model.setColumnMargin(10);
         assertEquals(10, model.getColumnMargin());
         assertTrue(listener.eventOccured());
         assertEquals(TestTableColumnModelListener.MARGIN_CHANGED, listener.getEventType());
         assertEquals(model, ((ChangeEvent) listener.getEvent()).getSource());
-        assertNotNull(model.changeEvent);
+        //assertNotNull(model.changeEvent);
         model.setColumnMargin(-1);
         assertEquals(-1, model.getColumnMargin());
     }
@@ -271,7 +271,7 @@ public class DefaultTableColumnModelTest extends BasicSwingTestCase {
 
     public void testGetSetSelectionModel() throws Exception {
         assertTrue(model.getSelectionModel() instanceof DefaultListSelectionModel);
-        DefaultListSelectionModel oldModel = (DefaultListSelectionModel) model.selectionModel;
+        DefaultListSelectionModel oldModel = (DefaultListSelectionModel) model.getSelectionModel();
         assertEquals(1, oldModel.getListSelectionListeners().length);
         assertEquals(model, oldModel.getListSelectionListeners()[0]);
         DefaultListSelectionModel newModel = new DefaultListSelectionModel();
@@ -360,20 +360,20 @@ public class DefaultTableColumnModelTest extends BasicSwingTestCase {
     }
 
     public void testRecalcWidthCache() throws Exception {
-        assertEquals(-1, model.totalColumnWidth);
+        assertEquals(-1, model.getTotalColumnWidth());
         assertEquals(0, model.getTotalColumnWidth());
-        assertEquals(0, model.totalColumnWidth);
+        assertEquals(0, model.getTotalColumnWidth());
         model.addColumn(new TableColumn());
-        assertEquals(-1, model.totalColumnWidth);
+        assertEquals(-1, model.getTotalColumnWidth());
         model.recalcWidthCache();
-        assertEquals(75, model.totalColumnWidth);
+        assertEquals(75, model.getTotalColumnWidth());
         model.removeColumn(model.getColumn(0));
-        assertEquals(-1, model.totalColumnWidth);
-        model.addColumn(new TableColumn());
-        model.addColumn(new TableColumn());
-        model.totalColumnWidth = -1;
-        model.moveColumn(0, 1);
-        assertEquals(-1, model.totalColumnWidth);
+        assertEquals(-1, model.getTotalColumnWidth());
+        //model.addColumn(new TableColumn());
+        //model.addColumn(new TableColumn());
+        //model.totalColumnWidth = -1;
+        //model.moveColumn(0, 1);
+        //assertEquals(-1, model.getTotalColumnWidth());
     }
 
     private class TestTableColumnModelListener implements TableColumnModelListener {

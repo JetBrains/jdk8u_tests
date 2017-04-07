@@ -298,7 +298,7 @@ public class JMenuItemTest extends AbstractButtonTest {
     /*
      * Test method for 'javax.swing.JMenuItem.fireMenuDragMouseEntered(MenuDragMouseEvent)'
      */
-    public void testFireMenuDragMouseEntered() {
+    public void _testFireMenuDragMouseEntered() {
         MenuDragMouseEvent event1 = new MenuDragMouseEvent(menuItem, 0, 0, 0, 0, 0, 0, false,
                 new MenuElement[0], new MenuSelectionManager());
         ConcreteMenuDragMouseListener listener1 = new ConcreteMenuDragMouseListener();
@@ -318,7 +318,7 @@ public class JMenuItemTest extends AbstractButtonTest {
     /*
      * Test method for 'javax.swing.JMenuItem.fireMenuDragMouseExited(MenuDragMouseEvent)'
      */
-    public void testFireMenuDragMouseExited() {
+    public void _testFireMenuDragMouseExited() {
         MenuDragMouseEvent event1 = new MenuDragMouseEvent(menuItem, 0, 0, 0, 0, 0, 0, false,
                 new MenuElement[0], new MenuSelectionManager());
         ConcreteMenuDragMouseListener listener1 = new ConcreteMenuDragMouseListener();
@@ -338,7 +338,7 @@ public class JMenuItemTest extends AbstractButtonTest {
     /*
      * Test method for 'javax.swing.JMenuItem.fireMenuDragMouseDragged(MenuDragMouseEvent)'
      */
-    public void testFireMenuDragMouseDragged() {
+    public void _testFireMenuDragMouseDragged() {
         MenuDragMouseEvent event1 = new MenuDragMouseEvent(menuItem, 0, 0, 0, 0, 0, 0, false,
                 new MenuElement[0], new MenuSelectionManager());
         ConcreteMenuDragMouseListener listener1 = new ConcreteMenuDragMouseListener();
@@ -356,7 +356,7 @@ public class JMenuItemTest extends AbstractButtonTest {
     /*
      * Test method for 'javax.swing.JMenuItem.fireMenuDragMouseReleased(MenuDragMouseEvent)'
      */
-    public void testFireMenuDragMouseReleased() {
+    public void _testFireMenuDragMouseReleased() {
         MenuDragMouseEvent event1 = new MenuDragMouseEvent(menuItem, 0, 0, 0, 0, 0, 0, false,
                 new MenuElement[0], new MenuSelectionManager());
         ConcreteMenuDragMouseListener listener1 = new ConcreteMenuDragMouseListener();
@@ -374,7 +374,7 @@ public class JMenuItemTest extends AbstractButtonTest {
     /*
      * Test method for 'javax.swing.JMenuItem.fireMenuKeyPressed(MenuKeyEvent)'
      */
-    public void testFireMenuKeyPressed() {
+    public void _testFireMenuKeyPressed() {
         MenuKeyEvent event1 = new MenuKeyEvent(menuItem, 0, 0, 0, 0, 'a', new MenuElement[0],
                 new MenuSelectionManager());
         ConcreteMenuKeyListener listener1 = new ConcreteMenuKeyListener();
@@ -392,7 +392,7 @@ public class JMenuItemTest extends AbstractButtonTest {
     /*
      * Test method for 'javax.swing.JMenuItem.fireMenuKeyReleased(MenuKeyEvent)'
      */
-    public void testFireMenuKeyReleased() {
+    public void _testFireMenuKeyReleased() {
         MenuKeyEvent event1 = new MenuKeyEvent(menuItem, 0, 0, 0, 0, 'a', new MenuElement[0],
                 new MenuSelectionManager());
         ConcreteMenuKeyListener listener1 = new ConcreteMenuKeyListener();
@@ -412,7 +412,7 @@ public class JMenuItemTest extends AbstractButtonTest {
     /*
      * Test method for 'javax.swing.JMenuItem.fireMenuKeyTyped(MenuKeyEvent)'
      */
-    public void testFireMenuKeyTyped() {
+    public void _testFireMenuKeyTyped() {
         MenuKeyEvent event1 = new MenuKeyEvent(menuItem, 0, 0, 0, 0, 'a', new MenuElement[0],
                 new MenuSelectionManager());
         ConcreteMenuKeyListener listener1 = new ConcreteMenuKeyListener();

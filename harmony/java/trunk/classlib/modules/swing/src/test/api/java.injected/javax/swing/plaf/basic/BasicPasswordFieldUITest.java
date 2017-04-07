@@ -44,7 +44,7 @@ public class BasicPasswordFieldUITest extends SwingTestCase {
         assertTrue(BasicPasswordFieldUI.createUI(new JPasswordField()) instanceof BasicPasswordFieldUI);
     }
 
-    public void testGetPropertyPrefix() {
+    public void _testGetPropertyPrefix() {
         assertEquals("PasswordField", ui.getPropertyPrefix());
     }
 }

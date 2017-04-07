@@ -19,9 +19,7 @@
  */
 package javax.swing.text.html;
 
-import java.awt.ComponentOrientation;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
+import java.awt.*;
 import java.io.StringReader;
 
 import javax.swing.AbstractButton;
@@ -52,7 +50,18 @@ public class FormView_FormInputElementTest extends SwingTestCase {
 
     private Element elem;
 
-    private FormView formView;
+    class TestFormView extends FormView {
+
+        public TestFormView(Element elem) {
+            super(elem);
+        }
+
+        public Component createComponent() {
+            return super.createComponent();
+        }
+    }
+
+    private TestFormView formView;
 
     protected void setUp() throws Exception {
        super.setUp();
@@ -588,7 +597,7 @@ public class FormView_FormInputElementTest extends SwingTestCase {
 
     private void createFormViewWithParent(final String id) {
         elem = document.getElement(id);
-        formView = new FormView(elem);
+        formView = new TestFormView(elem);
         formView.setParent(editorPane.getUI().getRootView(editorPane));
     }
 

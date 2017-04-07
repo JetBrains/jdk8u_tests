@@ -514,7 +514,7 @@ public class JEditorPaneTest extends SwingTestCase {
         assertEquals(testList, listeners);
     }
 
-    public void testCreateDefaultEditorKit() {
+    public void _testCreateDefaultEditorKit() {
         EditorKit kit1 = jep.createDefaultEditorKit();
         EditorKit kit2 = jep.createDefaultEditorKit();
         assertEquals("javax.swing.JEditorPane$PlainEditorKit", kit1.getClass().getName());

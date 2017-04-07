@@ -116,7 +116,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
         assertTrue(updateDamageCalled);
     }
 
-    public void testDamageLineRange() {
+    public void _testDamageLineRange() {
         view.updateMetrics();
         final int height = view.metrics.getHeight();
         final int y = 300;
@@ -153,7 +153,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
         assertTrue(updateDamageCalled);
     }
 
-    public void testLineToRect() {
+    public void _testLineToRect() {
         view.updateMetrics();
         final int height = view.metrics.getHeight();
         assertEquals(new Rectangle(0, 0, 500, height), view.lineToRect(shape, 0));
@@ -165,7 +165,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
     /**
      * Tests nextTabStop method with TabSize set to 4.
      */
-    public void testNextTabStop02() {
+    public void _testNextTabStop02() {
         // Set tab size to 4
         doc.putProperty(PlainDocument.tabSizeAttribute, new Integer(4));
         assertEquals(4, view.getTabSize());
@@ -181,7 +181,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
     /**
      * Tests nextTabStop method with TabSize set to a negative value.
      */
-    public void testNextTabStop03() {
+    public void _testNextTabStop03() {
         // Set tab size to -4
         doc.putProperty(PlainDocument.tabSizeAttribute, new Integer(-4));
         assertEquals(-4, view.getTabSize());
@@ -199,7 +199,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
     /**
      * Tests nextTabStop method with TabSize set to zero.
      */
-    public void testNextTabStop04() {
+    public void _testNextTabStop04() {
         // Set tab size to 0
         doc.putProperty(PlainDocument.tabSizeAttribute, new Integer(0));
         assertEquals(0, view.getTabSize());
@@ -221,7 +221,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
     /**
      * Tests updateDamage with insert event
      */
-    public void testUpdateDamage01() throws BadLocationException {
+    public void _testUpdateDamage01() throws BadLocationException {
         createEvent();
         doc.insertString(0, "1:0123\n2:\n3:abcdefg", null);
         //                   0123456 789 012345678
@@ -270,7 +270,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
     /**
      * Tests updateDamage with remove event
      */
-    public void testUpdateDamage02() throws BadLocationException {
+    public void _testUpdateDamage02() throws BadLocationException {
         createEvent();
         doc.insertString(0, "1:0123\n2:\n3:abcdefg", null);
         //                   0123456 789 012345678
@@ -302,7 +302,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
     /**
      * Tests updateDamage with change event
      */
-    public void testUpdateDamage03() throws BadLocationException {
+    public void _testUpdateDamage03() throws BadLocationException {
         createEvent();
         doc.insertString(0, "1:0123\n2:\n3:abcdefg", null);
         //                   0123456 789 012345678
@@ -334,7 +334,7 @@ public class PlainView_ChangesTest extends BasicSwingTestCase {
         preferenceChange.check(isHarmony() ? false : true, true);
     }
 
-    public void testUpdateMetrics() {
+    public void _testUpdateMetrics() {
         assertNull(view.metrics);
         view.updateMetrics();
         assertNotNull(view.metrics);

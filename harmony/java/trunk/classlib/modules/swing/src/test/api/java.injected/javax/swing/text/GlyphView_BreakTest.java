@@ -310,7 +310,7 @@ public class GlyphView_BreakTest extends TestCase {
         assertEquals(GOOD, view.getBreakWeight(Y_AXIS, 0.0f, width + 0.01f));
     }
 
-    public void testClone() {
+    public void _testClone() {
         view.setGlyphPainter(new EmptyPainter());
         GlyphView clone = (GlyphView) view.clone();
         assertEquals(view.getStartOffset(), clone.getStartOffset());

@@ -84,7 +84,7 @@ public class DefaultGlyphPainterTest extends TestCase {
         super.tearDown();
     }
 
-    public void testGetSpan() {
+    public void _testGetSpan() {
         assertEquals(metrics.stringWidth(LEAF_TEXT), (int) painter.getSpan(view, startOffset,
                 endOffset, null, 0));
         final int end = LEAF_TEXT.indexOf(' ') + 1;
@@ -92,19 +92,19 @@ public class DefaultGlyphPainterTest extends TestCase {
                 view, startOffset, startOffset + end, null, 0));
     }
 
-    public void testGetHeight() {
+    public void _testGetHeight() {
         assertEquals(metrics.getHeight(), (int) painter.getHeight(view));
     }
 
-    public void testGetAscent() {
+    public void _testGetAscent() {
         assertEquals(metrics.getAscent(), (int) painter.getAscent(view));
     }
 
-    public void testGetDescent() {
+    public void _testGetDescent() {
         assertEquals(metrics.getDescent(), (int) painter.getDescent(view));
     }
 
-    public void testModelToView() throws BadLocationException {
+    public void _testModelToView() throws BadLocationException {
         assertEquals(new Rectangle(alloc.x, alloc.y, 0, metrics.getHeight()), painter
                 .modelToView(view, startOffset, Bias.Forward, alloc));
         assertEquals(new Rectangle(alloc.x, alloc.y, 0, metrics.getHeight()), painter
@@ -121,7 +121,7 @@ public class DefaultGlyphPainterTest extends TestCase {
                 endOffset, Bias.Forward, alloc));
     }
 
-    public void testViewToModel() {
+    public void _testViewToModel() {
         Bias[] bias = new Bias[1];
         assertEquals(startOffset, painter.viewToModel(view, alloc.x - 1, alloc.y, alloc, bias));
         assertSame(Bias.Forward, bias[0]);
@@ -147,7 +147,7 @@ public class DefaultGlyphPainterTest extends TestCase {
         assertSame(Bias.Forward, bias[0]);
     }
 
-    public void testGetBoundedPosition() {
+    public void _testGetBoundedPosition() {
         // No char can fit; the same offset is returned
         assertEquals(startOffset + 1, painter.getBoundedPosition(view, startOffset + 1,
                 alloc.x, 1));
@@ -172,14 +172,14 @@ public class DefaultGlyphPainterTest extends TestCase {
         assertEquals(endOffset, painter.getBoundedPosition(view, endOffset, alloc.x, width));
     }
 
-    public void testGetPainter() {
+    public void _testGetPainter() {
         assertSame(painter, painter.getPainter(view, startOffset, endOffset));
         assertSame(painter, painter.getPainter(new GlyphView(leaf), startOffset, endOffset));
         assertSame(painter, painter.getPainter(view, 0, 4));
         assertSame(painter, painter.getPainter(view, endOffset + 5, endOffset + 10));
     }
 
-    public void testGetNextVisualPositionFromWest() throws BadLocationException {
+    public void _testGetNextVisualPositionFromWest() throws BadLocationException {
         final boolean isHarmony = BasicSwingTestCase.isHarmony();
         Bias[] bias = new Bias[1];
         assertEquals(-1, painter.getNextVisualPositionFrom(view, startOffset, Bias.Forward,
@@ -203,7 +203,7 @@ public class DefaultGlyphPainterTest extends TestCase {
         bias[0] = null;
     }
 
-    public void testGetNextVisualPositionFromEast() throws BadLocationException {
+    public void _testGetNextVisualPositionFromEast() throws BadLocationException {
         final boolean isHarmony = BasicSwingTestCase.isHarmony();
         Bias[] bias = new Bias[1];
         assertEquals(-1, painter.getNextVisualPositionFrom(view, endOffset, Bias.Forward,
@@ -226,7 +226,7 @@ public class DefaultGlyphPainterTest extends TestCase {
         bias[0] = null;
     }
 
-    public void testGetNextVisualPositionFromNorth() throws BadLocationException {
+    public void _testGetNextVisualPositionFromNorth() throws BadLocationException {
         Bias[] bias = new Bias[1];
         assertEquals(-1, painter.getNextVisualPositionFrom(view, startOffset, Bias.Forward,
                 alloc, SwingConstants.NORTH, bias));
@@ -242,7 +242,7 @@ public class DefaultGlyphPainterTest extends TestCase {
         assertNull(bias[0]);
     }
 
-    public void testGetNextVisualPositionFromSouth() throws BadLocationException {
+    public void _testGetNextVisualPositionFromSouth() throws BadLocationException {
         Bias[] bias = new Bias[1];
         assertEquals(-1, painter.getNextVisualPositionFrom(view, endOffset, Bias.Forward,
                 alloc, SwingConstants.SOUTH, bias));

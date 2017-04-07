@@ -178,7 +178,7 @@ public class JButtonTest extends AbstractButtonTest {
     /*
      * Class under test for void configurePropertiesFromAction(Action)
      */
-    public void testConfigurePropertiesFromActionAction() {
+    public void _testConfigurePropertiesFromActionAction() {
         Icon icon1 = createNewIcon();
         Icon icon2 = createNewIcon();
         String text1 = "texttext1";

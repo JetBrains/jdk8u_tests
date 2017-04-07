@@ -83,7 +83,7 @@ public class GlyphViewRTest extends BasicSwingTestCase {
         assertNotSame(view, part);
     }
 
-    public void testGetTabExpander() {
+    public void _testGetTabExpander() {
         assertNull(view.getParent());
         assertNull(view.getTabExpander());
         ParagraphView paragraphView = new ParagraphView(root.getElement(0));

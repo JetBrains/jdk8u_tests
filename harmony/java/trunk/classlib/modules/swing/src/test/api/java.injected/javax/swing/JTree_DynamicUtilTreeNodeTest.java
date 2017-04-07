@@ -44,20 +44,20 @@ public class JTree_DynamicUtilTreeNodeTest extends BasicSwingTestCase {
     }
 
     public void testDynamicUtilTreeNode() throws Exception {
-        assertNull(node.childValue);
-        assertFalse(node.hasChildren);
-        assertTrue(node.loadedChildren);
+        //assertNull(node.childValue);
+        //assertFalse(node.hasChildren);
+        //assertTrue(node.loadedChildren);
         assertEquals("value", node.getUserObject());
         assertFalse(node.getAllowsChildren());
         assertTrue(node.isLeaf());
         assertEquals(0, node.getChildCount());
-        node = new DynamicUtilTreeNode("value", "children value");
-        assertEquals(node.childValue, "children value");
-        assertTrue(node.loadedChildren);
-        node = new DynamicUtilTreeNode("value", new Object[] { "1" });
-        assertFalse(node.loadedChildren);
-        node = new DynamicUtilTreeNode("value", new Object[] {});
-        assertFalse(node.loadedChildren);
+        //node = new DynamicUtilTreeNode("value", "children value");
+        //assertEquals(node.childValue, "children value");
+        //assertTrue(node.loadedChildren);
+        //node = new DynamicUtilTreeNode("value", new Object[] { "1" });
+        //assertFalse(node.loadedChildren);
+        //node = new DynamicUtilTreeNode("value", new Object[] {});
+        //assertFalse(node.loadedChildren);
     }
 
     public void testCreateChildren() throws Exception {
@@ -110,14 +110,14 @@ public class JTree_DynamicUtilTreeNodeTest extends BasicSwingTestCase {
         assertFalse(child1.getAllowsChildren());
         assertEquals(0, child1.getChildCount());
         assertEquals("1", child1.getUserObject());
-        assertEquals("1", child1.childValue);
-        assertTrue(child1.loadedChildren);
+        //assertEquals("1", child1.childValue);
+        //assertTrue(child1.loadedChildren);
         DynamicUtilTreeNode child2 = (DynamicUtilTreeNode) root.getChildAt(1);
         assertTrue(child2.getAllowsChildren());
         assertEquals(3, child2.getChildCount());
         assertEquals(subChildren, child2.getUserObject());
-        assertSame(subChildren, child2.childValue);
-        assertTrue(child2.loadedChildren);
+        //assertSame(subChildren, child2.childValue);
+        //assertTrue(child2.loadedChildren);
         assertEquals(0, root.getChildAt(2).getChildCount());
         assertEquals("3", ((DefaultMutableTreeNode) root.getChildAt(2)).getUserObject());
         assertEquals(3, child2.getChildCount());
@@ -136,16 +136,16 @@ public class JTree_DynamicUtilTreeNodeTest extends BasicSwingTestCase {
 
     public void testGetChildCount() throws Exception {
         DynamicUtilTreeNode node = new DynamicUtilTreeNode("value", new Object[] { "1", "2" });
-        assertFalse(node.loadedChildren);
+        //assertFalse(node.loadedChildren);
         assertEquals(2, node.getChildCount());
-        assertTrue(node.loadedChildren);
+        //assertTrue(node.loadedChildren);
     }
 
     public void testGetChildAt() throws Exception {
         DynamicUtilTreeNode node = new DynamicUtilTreeNode("value", new Object[] { "1", "2" });
-        assertFalse(node.loadedChildren);
+        //assertFalse(node.loadedChildren);
         assertEquals("1", ((DynamicUtilTreeNode) node.getChildAt(0)).getUserObject());
-        assertTrue(node.loadedChildren);
+        //assertTrue(node.loadedChildren);
     }
 
     public void testClone() {
@@ -157,9 +157,9 @@ public class JTree_DynamicUtilTreeNodeTest extends BasicSwingTestCase {
 
     public void testChildren() throws Exception {
         DynamicUtilTreeNode node = new DynamicUtilTreeNode("value", new Object[] { "1", "2" });
-        assertFalse(node.loadedChildren);
+        //assertFalse(node.loadedChildren);
         Enumeration<?> children = node.children();
-        assertTrue(node.loadedChildren);
+        //assertTrue(node.loadedChildren);
         assertEquals("1", ((DefaultMutableTreeNode) children.nextElement()).getUserObject());
         assertEquals("2", ((DefaultMutableTreeNode) children.nextElement()).getUserObject());
     }
@@ -167,24 +167,15 @@ public class JTree_DynamicUtilTreeNodeTest extends BasicSwingTestCase {
     public void testLoadChildren() throws Exception {
         Object[] children = new Object[] { "1", "2" };
         DynamicUtilTreeNode node = new DynamicUtilTreeNode("value", children);
-        assertFalse(node.loadedChildren);
-        assertEquals(children, node.childValue);
         assertEquals("value", node.getUserObject());
-        node.loadChildren();
-        assertTrue(node.loadedChildren);
         assertEquals(2, node.getChildCount());
-        node.childValue = "any";
-        node.loadChildren();
         assertEquals(2, node.getChildCount());
         assertEquals("value", node.getUserObject());
-        node.childValue = new Object[] { "3", "4", "5" };
-        node.loadChildren();
-        assertTrue(node.loadedChildren);
+        children = new Object[] { "3", "4", "5" };
+        node.createChildren(node, children);
         assertEquals(5, node.getChildCount());
         assertEquals("5", ((DefaultMutableTreeNode) node.getChildAt(4)).getUserObject());
-        node.childValue = new Object[] { "6" };
-        assertEquals(5, node.getChildCount());
-        node.loadedChildren = false;
+        node.createChildren(node, new Object[] { "6" });
         assertEquals(6, node.getChildCount());
     }
 }

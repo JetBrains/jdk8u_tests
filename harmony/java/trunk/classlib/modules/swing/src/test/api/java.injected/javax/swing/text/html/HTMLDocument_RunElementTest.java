@@ -50,7 +50,7 @@ public class HTMLDocument_RunElementTest extends
         super.tearDown();
     }
 
-    public void testGetName() {
+    public void _testGetName() {
         AbstractElement run = htmlDoc.new RunElement(null, null, 0, 0);
         assertEquals("content", run.getName());
         htmlDoc.lockWrite();
@@ -61,17 +61,17 @@ public class HTMLDocument_RunElementTest extends
         assertEquals(name, run.getName());
     }
 
-    public void testGetResolveParent() {
+    public void _testGetResolveParent() {
         AbstractElement parent = htmlDoc.new RunElement(null, null, 0, 0);
         AbstractElement block = htmlDoc.new RunElement(parent, null, 0, 0);
         assertNull(parent.getResolveParent());
         assertNull(block.getResolveParent());
     }
 
-    public void testLeafElement() {
+    public void _testLeafElement() {
     }
 
-    public void testRunElement() {
+    public void _testRunElement() {
         htmlDoc.lockWrite();
 
         RunElement run = htmlDoc.new RunElement(leaf1, as[2],

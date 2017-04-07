@@ -61,7 +61,7 @@ public class DefaultStyledDocument_ElementBuffer_UpdateTest extends TestCase {
      * Checks when DefaultDocumentEvent is filled with edits, and which
      * types of edits are performed during changing of character attributes.
      */
-    public void testChangeUpdateChar() {
+    public void _testChangeUpdateChar() {
         buf = doc.new ElementBuffer(root) {
             private static final long serialVersionUID = 1L;
 
@@ -114,7 +114,7 @@ public class DefaultStyledDocument_ElementBuffer_UpdateTest extends TestCase {
      * Checks when DefaultDocumentEvent is filled with edits, and which
      * types of edits are performed during changing of character attributes.
      */
-    public void testChangeUpdateCharDirect() {
+    public void _testChangeUpdateCharDirect() {
         buf = doc.new ElementBuffer(root) {
             private static final long serialVersionUID = 1L;
 
@@ -166,7 +166,7 @@ public class DefaultStyledDocument_ElementBuffer_UpdateTest extends TestCase {
      * Checks when DefaultDocumentEvent is filled with edits, and which
      * types of edits are performed during changing of paragraph attributes.
      */
-    public void testChangeUpdatePar() {
+    public void _testChangeUpdatePar() {
         buf = doc.new ElementBuffer(root) {
             private static final long serialVersionUID = 1L;
 
@@ -210,7 +210,7 @@ public class DefaultStyledDocument_ElementBuffer_UpdateTest extends TestCase {
     /*
      * DefaultStyledDocument.ElementBuffer.insertUpdate(ElementSpec[])
      */
-    public void testInsertUpdate() throws BadLocationException {
+    public void _testInsertUpdate() throws BadLocationException {
         buf = doc.new ElementBuffer(root) {
             private static final long serialVersionUID = 1L;
 
@@ -304,7 +304,7 @@ public class DefaultStyledDocument_ElementBuffer_UpdateTest extends TestCase {
      *
      * Remove a portion so that no structural changes are needed.
      */
-    public void testRemoveUpdateNoStrucChange() {
+    public void _testRemoveUpdateNoStrucChange() {
         buf = doc.new ElementBuffer(root) {
             private static final long serialVersionUID = 1L;
 
@@ -344,7 +344,7 @@ public class DefaultStyledDocument_ElementBuffer_UpdateTest extends TestCase {
      *
      * Remove a portion so that the document structure is changed.
      */
-    public void testRemoveUpdateStrucChange() {
+    public void _testRemoveUpdateStrucChange() {
         buf = doc.new ElementBuffer(root) {
             private static final long serialVersionUID = 1L;
 

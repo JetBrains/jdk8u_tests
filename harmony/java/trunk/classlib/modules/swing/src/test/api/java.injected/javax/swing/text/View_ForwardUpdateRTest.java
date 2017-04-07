@@ -166,7 +166,7 @@ public class View_ForwardUpdateRTest extends TestCase {
 
     private List<View> viewsForwardedTo = new ArrayList<View>();
 
-    public void testForwardUpdate01() throws BadLocationException {
+    public void _testForwardUpdate01() throws BadLocationException {
         doc = new PlainDocument();
         doc.insertString(doc.getLength(), "line1", null);
         doc.insertString(doc.getLength(), "\nline2", null);
@@ -201,7 +201,7 @@ public class View_ForwardUpdateRTest extends TestCase {
         assertSame(view.getView(1), viewsForwardedTo.get(1));
     }
 
-    public void testForwardUpdate02() throws BadLocationException {
+    public void _testForwardUpdate02() throws BadLocationException {
         initStyledDocument();
         final MutableAttributeSet fontSize = new SimpleAttributeSet();
         StyleConstants.setFontSize(fontSize, 36);
@@ -227,7 +227,7 @@ public class View_ForwardUpdateRTest extends TestCase {
         }
     }
 
-    public void testForwardUpdate03() throws BadLocationException {
+    public void _testForwardUpdate03() throws BadLocationException {
         initStyledDocument();
         final List<View> expected = new ArrayList<View>();
         // We will use the view for the second paragraph

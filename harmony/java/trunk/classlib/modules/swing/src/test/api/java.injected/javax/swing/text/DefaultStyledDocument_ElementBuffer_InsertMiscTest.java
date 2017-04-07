@@ -85,7 +85,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertMiscTest extends TestCase
      * <code>"first\nsecond\nthird"</code> into an empty document will
      * lead to the expected document structure.
      */
-    public void testInsertThreePars() throws Exception {
+    public void _testInsertThreePars() throws Exception {
         final String text = "first\nsecond\nthird";
         final int textLen = text.length();
         //doc.insertString(0, text, null);
@@ -122,7 +122,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertMiscTest extends TestCase
      * <code>"first\nsecond\nthird"</code> into an empty document and that
      * the document has the expected structure after the insert.
      */
-    public void testInsertUpdateThreePars() throws Exception {
+    public void _testInsertUpdateThreePars() throws Exception {
         final String text = "first\nsecond\nthird";
         doc.insertString(0, text, null);
         //        doc.dump(System.out);
@@ -151,7 +151,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertMiscTest extends TestCase
         assertEquals("third\n", getText(doc.getCharacterElement(0 + 6 + 7)));
     }
 
-    public void testInsertRightAfterNewLineWithNewLine() throws Exception {
+    public void _testInsertRightAfterNewLineWithNewLine() throws Exception {
         final String initialText = "one\ntwo\nthree";
         doc.insertString(0, initialText, null);
         final int offset = root.getElement(0).getEndOffset();
@@ -178,7 +178,7 @@ public class DefaultStyledDocument_ElementBuffer_InsertMiscTest extends TestCase
         assertEquals("three\n", getText(doc.getCharacterElement(0 + 4 + 4 + 4)));
     }
 
-    public void testInsertRightAfterNewLineWithoutNewLine() throws Exception {
+    public void _testInsertRightAfterNewLineWithoutNewLine() throws Exception {
         final String initialText = "one\ntwo\nthree";
         doc.insertString(0, initialText, null);
         final int offset = root.getElement(0).getEndOffset();

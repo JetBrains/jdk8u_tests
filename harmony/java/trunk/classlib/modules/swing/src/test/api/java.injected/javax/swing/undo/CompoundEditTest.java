@@ -405,7 +405,7 @@ public class CompoundEditTest extends AbstractUndoableEditTest {
         assertEquals(String.valueOf(n - 1), ce.getUndoPresentationName());
     }
 
-    public void testLastEdit() {
+    public void _testLastEdit() {
         assertNull(ce.lastEdit());
         TestUndoableEdit.counter = 0;
         final int n = 10;
@@ -415,8 +415,8 @@ public class CompoundEditTest extends AbstractUndoableEditTest {
         assertEquals(n - 1, ((TestUndoableEdit) ce.lastEdit()).id);
     }
 
-    @Override
-    public void testAddEdit() {
+    //@Override
+    public void _testAddEdit() {
         TestUndoableEdit ue = new TestUndoableEdit(TestUndoableEdit.ADD_EDIT_FALSE
                 | TestUndoableEdit.UNDO | TestUndoableEdit.REDO);
         assertTrue(ce.addEdit(ue));
@@ -448,7 +448,7 @@ public class CompoundEditTest extends AbstractUndoableEditTest {
         assertTrue(ce.canRedo());
     }
 
-    public void testEditsCapacity() { // Regression for HARMONY-2649
+    public void _testEditsCapacity() { // Regression for HARMONY-2649
         assertEquals(10, ce.edits.capacity());
     }
 }

@@ -116,7 +116,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals(content, out.toString());
     }
 
-    public void testWriteLineSeparator() throws Exception {
+    public void _testWriteLineSeparator() throws Exception {
         doc.putProperty(StyledEditorKit.EndOfLineStringProperty, "`");
         writer = new TestHTMLWriter(out, doc);
         writer.writeLineSeparator();
@@ -127,7 +127,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals("`~", out.toString());
     }
 
-    public void testOutput() throws Exception {
+    public void _testOutput() throws Exception {
         String content = "abc<def";
         writer.output(content.toCharArray(), 0, content.length());
         assertEquals(content, out.toString());
@@ -148,7 +148,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals(80, writer.getLineLength());
     }
 
-    public void testComment() throws Exception {
+    public void _testComment() throws Exception {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(HTML.Tag.I, HTML.Tag.I);
         attrs.addAttribute(HTML.Attribute.COMMENT, "comment body");
@@ -164,7 +164,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals("<i><!--comment body-->~", out.toString());
     }
 
-    public void testEmptyTag() throws Exception {
+    public void _testEmptyTag() throws Exception {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(HTML.Tag.I, HTML.Tag.I);
 
@@ -194,7 +194,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals("<i>  </i><p>~", out.toString());
     }
 
-    public void testIsBlockTag() {
+    public void _testIsBlockTag() {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         assertFalse(writer.isBlockTag(attrs));
 
@@ -205,7 +205,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertFalse(writer.isBlockTag(attrs));
     }
 
-    public void testMatchNameAttribute() {
+    public void _testMatchNameAttribute() {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         assertFalse(writer.matchNameAttribute(attrs, null));
         assertFalse(writer.matchNameAttribute(attrs, HTML.Tag.BODY));
@@ -216,7 +216,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertFalse(writer.matchNameAttribute(attrs, null));
     }
 
-    public void testStartTag() throws Exception {
+    public void _testStartTag() throws Exception {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(HTML.Tag.I, HTML.Tag.I);
         writer.writeEmbeddedTags(attrs);
@@ -245,7 +245,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals("<i></i>  <head>~~  </head>~  <body>~", out.toString());
     }
 
-    public void testEndTag() throws Exception {
+    public void _testEndTag() throws Exception {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(HTML.Tag.I, HTML.Tag.I);
         writer.writeEmbeddedTags(attrs);
@@ -263,7 +263,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals("<i>", out.toString());
     }
 
-    public void testSynthesizedElement() {
+    public void _testSynthesizedElement() {
         assertFalse(writer.synthesizedElement(root));
 
         setTag(root, HTML.Tag.BODY);
@@ -273,7 +273,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertTrue(writer.synthesizedElement(root));
     }
 
-    public void testText() throws Exception {
+    public void _testText() throws Exception {
         String content = "abc&lt;&gt; def";
         createDocument(content);
         createWriter();
@@ -293,7 +293,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals("  <pre>abc&lt;&gt; def", out.toString());
     }
 
-    public void testSelectContent() throws Exception {
+    public void _testSelectContent() throws Exception {
         String content = "<select>\n  <option selected>Component1</option>\n"
                 + "  <option>Component2</option>\n</select>";
         createDocument(content);
@@ -332,7 +332,7 @@ public class HTMLWriterTest extends SwingTestCase {
         }
     }
 
-    public void testTextAreaContent() throws Exception {
+    public void _testTextAreaContent() throws Exception {
         String content = "<textarea>\n   First line&lt;.\n"
                 + "   Second line.\n   </textarea>";
         createDocument(content);
@@ -345,7 +345,7 @@ public class HTMLWriterTest extends SwingTestCase {
                      out.toString());
     }
 
-    public void testWriteAttributes() throws IOException {
+    public void _testWriteAttributes() throws IOException {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(HTML.Tag.H1, HTML.Tag.H2);
         attrs.addAttribute(StyleConstants.Bold, StyleConstants.Bold);
@@ -357,7 +357,7 @@ public class HTMLWriterTest extends SwingTestCase {
         assertEquals(" style=\"margin: 10\" color=\"red\"", out.toString());
     }
 
-    public void testWriteEmbeddedTags() throws IOException {
+    public void _testWriteEmbeddedTags() throws IOException {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(HTML.Tag.I, HTML.Tag.B);
         attrs.addAttribute(HTML.Tag.H1, HTML.Tag.H2);
@@ -368,7 +368,7 @@ public class HTMLWriterTest extends SwingTestCase {
                    || "<h1><i>".equals(out.toString()));
     }
 
-    public void testCloseOutUnwantedEmbeddedTags() throws IOException {
+    public void _testCloseOutUnwantedEmbeddedTags() throws IOException {
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(HTML.Tag.I, HTML.Tag.B);
         attrs.addAttribute(HTML.Tag.H1, HTML.Tag.H2);
@@ -389,7 +389,7 @@ public class HTMLWriterTest extends SwingTestCase {
                    || "<h1><i>".equals(out.toString()));
     }
 
-    public void testWriteOption() throws IOException {
+    public void _testWriteOption() throws IOException {
         writer.incrIndent();
         SimpleAttributeSet attrs = new SimpleAttributeSet();
         Option option = new Option(attrs);

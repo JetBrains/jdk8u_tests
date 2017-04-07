@@ -37,7 +37,7 @@ public class BasicLookAndFeelTest extends SwingTestCase {
         lf = null;
     }
 
-    public void testAudioActionMap() {
+    public void _testAudioActionMap() {
         assertEquals(13, lf.getAudioActionMap().size());
     }
 

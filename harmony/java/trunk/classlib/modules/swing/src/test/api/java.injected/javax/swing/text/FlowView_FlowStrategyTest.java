@@ -160,7 +160,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
         viewsCreated.clear();
     }
 
-    public void testInsertUpdate() {
+    public void _testInsertUpdate() {
         event = doc.new DefaultDocumentEvent(4, 5, EventType.INSERT);
         event.addEdit(new ElementEdit(p1, 0, new Element[] { p1L }, new Element[] { p1L }));
         event.end();
@@ -170,7 +170,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
         assertTrue(view.isAllocationValid());
     }
 
-    public void testInsertUpdateNull() {
+    public void _testInsertUpdateNull() {
         view.layout(alloc.width, alloc.height);
         assertTrue(view.isAllocationValid());
         view.strategy.insertUpdate(view, null, null);
@@ -179,7 +179,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
         assertFalse(view.isLayoutValid(Y_AXIS));
     }
 
-    public void testRemoveUpdate() {
+    public void _testRemoveUpdate() {
         event = doc.new DefaultDocumentEvent(4, 5, EventType.REMOVE);
         event.addEdit(new ElementEdit(p1, 0, new Element[] { p1L }, new Element[] { p1L }));
         event.end();
@@ -189,7 +189,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
         assertTrue(view.isAllocationValid());
     }
 
-    public void testRemoveUpdateNull() {
+    public void _testRemoveUpdateNull() {
         view.layout(alloc.width, alloc.height);
         assertTrue(view.isAllocationValid());
         view.strategy.removeUpdate(view, null, null);
@@ -198,7 +198,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
         assertFalse(view.isLayoutValid(Y_AXIS));
     }
 
-    public void testChangedUpdate() {
+    public void _testChangedUpdate() {
         event = doc.new DefaultDocumentEvent(4, 5, EventType.CHANGE);
         event.addEdit(new ElementEdit(p1, 0, new Element[] { p1L }, new Element[] { p1L }));
         event.end();
@@ -208,7 +208,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
         assertTrue(view.isAllocationValid());
     }
 
-    public void testChangedUpdateNull() {
+    public void _testChangedUpdateNull() {
         view.layout(alloc.width, alloc.height);
         assertTrue(view.isAllocationValid());
         view.strategy.changedUpdate(view, null, null);
@@ -220,7 +220,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
     /**
      * Tests <code>adjustRow</code> in ordinary "environment".
      */
-    public void testAdjustRowOrdinary() {
+    public void _testAdjustRowOrdinary() {
         view.append(row);
         View[] views = new View[view.layoutPool.getViewCount() - 1];
         for (int i = 0; i < views.length; i++) {
@@ -252,7 +252,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
      * <code>ExcellentBreakWeight</code>. Here the second view will be broken
      * although it fits (the third doesn't fit the layoutSpan only).
      */
-    public void testAdjustRowGoodExcellentGood() {
+    public void _testAdjustRowGoodExcellentGood() {
         View[] views = new View[view.layoutPool.getViewCount()];
         view.layoutSpan = 0;
         for (int i = 0; i < views.length; i++) {
@@ -299,7 +299,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
     /**
      * Adjust the missing row. (Causes expected exception.)
      */
-    public void testAdjustRowNoRow() {
+    public void _testAdjustRowNoRow() {
         assertEquals(1, view.getViewCount());
         try {
             strategy.adjustRow(view, 1, view.layoutSpan, 0);
@@ -312,7 +312,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
     /**
      * Layout the missing row. (Causes expected exception.)
      */
-    public void testLayoutRowNoRow() {
+    public void _testLayoutRowNoRow() {
         assertEquals(1, view.getViewCount());
         try {
             strategy.layoutRow(view, 1, 0);
@@ -325,7 +325,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
     /**
      * Tests the situation where the layoutSpan is exhausted.
      */
-    public void testLayoutRowSpanExhausted() {
+    public void _testLayoutRowSpanExhausted() {
         view.layoutSpan = (int) (view.layoutPool.getView(0).getPreferredSpan(X_AXIS) + view.layoutPool
                 .getView(1).getPreferredSpan(X_AXIS) / 2);
         assertEquals(98, view.layoutSpan);
@@ -352,7 +352,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
      * Tests the situation where <code>createView</code> returns
      * <code>null</code>.
      */
-    public void testLayoutRowNullReturned() {
+    public void _testLayoutRowNullReturned() {
         strategy = view.strategy = new TestStrategy() {
             private int count = 0;
 
@@ -385,7 +385,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
     /**
      * Tests the situation where a view requests a forced break.
      */
-    public void testLayoutRowForcedBreak() {
+    public void _testLayoutRowForcedBreak() {
         strategy = view.strategy = new TestStrategy() {
             private int count = 0;
 
@@ -446,7 +446,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
     /**
      * Tests how FlowView lays out the second paragraph (with very long words).
      */
-    public void testLayout() {
+    public void _testLayout() {
         view = new FlowViewImplWithFactory(root.getElement(1), Y_AXIS, new PartFactory());
         strategy = view.strategy = new TestStrategy();
         view.loadChildren(null);
@@ -466,7 +466,7 @@ public class FlowView_FlowStrategyTest extends TestCase {
      * Tests that "old" children contained are removed from
      * the <code>FlowView</code> before layout is performed.
      */
-    public void testLayoutRemoved() {
+    public void _testLayoutRemoved() {
         View[] dummy = new View[] { new PlainView(p1L), new PlainView(p1) };
         view.replace(0, view.getViewCount(), dummy);
         assertEquals(2, view.getViewCount());
@@ -475,11 +475,11 @@ public class FlowView_FlowStrategyTest extends TestCase {
         assertEquals(1, view.getViewCount());
     }
 
-    public void testGetLogicalView() {
+    public void _testGetLogicalView() {
         assertSame(view.layoutPool, view.strategy.getLogicalView(view));
     }
 
-    public void testCreateView() {
+    public void _testCreateView() {
         assertSame(view.layoutPool.getView(0), strategy.createView(view, 0, view.layoutSpan, 0));
         assertSame(view.layoutPool.getView(0), strategy
                 .createView(view, 0, view.layoutSpan, -1));

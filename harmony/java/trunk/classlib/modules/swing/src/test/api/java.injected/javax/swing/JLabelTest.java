@@ -107,7 +107,7 @@ public class JLabelTest extends BasicSwingTestCase {
         });
     }
 
-    public void testCheckHorizontalKey() throws Exception {
+    public void _testCheckHorizontalKey() throws Exception {
         JLabel label = new JLabel();
         label.checkHorizontalKey(SwingConstants.LEFT, null);
         label.checkHorizontalKey(SwingConstants.CENTER, null);
@@ -118,7 +118,7 @@ public class JLabelTest extends BasicSwingTestCase {
         checkHorizontalKey(label, SwingConstants.TOP);
     }
 
-    public void testCheckVerticalKey() throws Exception {
+    public void _testCheckVerticalKey() throws Exception {
         JLabel label = new JLabel();
         label.checkVerticalKey(SwingConstants.TOP, null);
         label.checkVerticalKey(SwingConstants.CENTER, null);

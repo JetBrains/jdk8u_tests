@@ -277,7 +277,7 @@ public class JTextAreaTest extends SwingTestCase {
         assertFalse(ta.getWrapStyleWord());
     }
 
-    public void testCreateDefaultModel() {
+    public void _testCreateDefaultModel() {
         Document doc = jta.createDefaultModel();
         Document doc1 = jta.createDefaultModel();
         assertTrue(doc instanceof PlainDocument);
@@ -452,7 +452,7 @@ public class JTextAreaTest extends SwingTestCase {
         assertEquals("TextAreaUI", bidiJta.getUIClassID());
     }
 
-    public void testGetScrollableUnitIncrement() throws Exception {
+    public void _testGetScrollableUnitIncrement() throws Exception {
         assertEquals(jta.getColumnWidth(), jta.getScrollableUnitIncrement(null,
                 SwingConstants.HORIZONTAL, -1));
         assertEquals(jta.getColumnWidth(), jta.getScrollableUnitIncrement(null,
@@ -489,7 +489,7 @@ public class JTextAreaTest extends SwingTestCase {
                 SwingConstants.VERTICAL, 1));
     }
 
-    public void testSetFont() throws Exception {
+    public void _testSetFont() throws Exception {
         Font oldFont = jta.getFont();
         FontMetrics fm = jta.getFontMetrics(oldFont);
         assertEquals(fm.getHeight(), jta.getRowHeight());
@@ -530,7 +530,7 @@ public class JTextAreaTest extends SwingTestCase {
         assertEquals(getPrefferedSize(jta), jta.getPreferredSize());
     }
 
-    public void testGetPreferredScrollableViewportSize() throws Exception {
+    public void _testGetPreferredScrollableViewportSize() throws Exception {
         assertEquals(jta.getPreferredSize(), jta.getPreferredScrollableViewportSize());
         jta.setColumns(5);
         jta.setRows(2);

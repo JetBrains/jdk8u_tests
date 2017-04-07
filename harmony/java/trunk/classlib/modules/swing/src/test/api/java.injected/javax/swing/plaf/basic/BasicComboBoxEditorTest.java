@@ -43,45 +43,45 @@ public class BasicComboBoxEditorTest extends SwingTestCase {
     }
 
     public void testBasicComboBoxEditor() throws Exception {
-        assertNotNull(editor.editor);
+        assertNotNull(editor.getEditorComponent());
     }
 
     public void testAddRemoveActionListener() throws Exception {
         ActionController controller = new ActionController();
-        assertEquals(0, editor.editor.getActionListeners().length);
+        assertEquals(0, ((JTextField )editor.getEditorComponent()).getActionListeners().length);
         editor.addActionListener(controller);
-        assertEquals(1, editor.editor.getActionListeners().length);
+        assertEquals(1, ((JTextField )editor.getEditorComponent()).getActionListeners().length);
         editor.addActionListener(new ActionController());
-        assertEquals(2, editor.editor.getActionListeners().length);
+        assertEquals(2, ((JTextField )editor.getEditorComponent()).getActionListeners().length);
         editor.removeActionListener(controller);
-        assertEquals(1, editor.editor.getActionListeners().length);
+        assertEquals(1, ((JTextField )editor.getEditorComponent()).getActionListeners().length);
     }
 
     public void testGetEditorComponent() throws Exception {
-        assertNotNull(editor.getEditorComponent());
-        assertEquals(editor.editor, editor.getEditorComponent());
+        //assertNotNull(editor.getEditorComponent());
+        //assertEquals(editor.editor, editor.getEditorComponent());
         assertTrue(editor.getEditorComponent() instanceof JTextField);
     }
 
     public void testGetSetItem() throws Exception {
         assertEquals("", editor.getItem());
-        assertEquals("", editor.editor.getText());
+        assertEquals("", ((JTextField )editor.getEditorComponent()).getText());
         Object item = "any";
         editor.setItem(item);
         assertEquals(item, editor.getItem());
-        assertEquals(item, editor.editor.getText());
+        assertEquals(item, ((JTextField )editor.getEditorComponent()).getText());
         item = "another";
-        editor.editor.setText(item.toString());
-        assertEquals(item, editor.editor.getText());
+        ((JTextField )editor.getEditorComponent()).setText(item.toString());
+        assertEquals(item, ((JTextField )editor.getEditorComponent()).getText());
         assertEquals(item, editor.getItem());
     }
 
     public void testSelectAll() throws Exception {
-        assertNull(editor.editor.getSelectedText());
+        assertNull(((JTextField )editor.getEditorComponent()).getSelectedText());
         editor.setItem("any");
-        assertNull(editor.editor.getSelectedText());
+        assertNull(((JTextField )editor.getEditorComponent()).getSelectedText());
         editor.selectAll();
-        assertEquals("any", editor.editor.getSelectedText());
+        assertEquals("any", ((JTextField )editor.getEditorComponent()).getSelectedText());
     }
 
     private class ActionController implements ActionListener {

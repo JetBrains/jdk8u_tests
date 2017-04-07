@@ -21,9 +21,9 @@ import javax.swing.SwingTestCase;
 
 @SuppressWarnings("unchecked")
 public class StateEditTest extends SwingTestCase {
-    StateEdit se1;
+    SimpleStateEdit se1;
 
-    StateEdit se2;
+    TestStateEdit se2;
 
     boolean bWasException;
 
@@ -49,7 +49,47 @@ public class StateEditTest extends SwingTestCase {
         }
     }
 
-    class SimpleStateEdit extends StateEdit {
+    class TestStateEdit extends StateEdit {
+
+        public TestStateEdit(final StateEditable s) {
+            super(s);
+        }
+
+        public TestStateEdit(final StateEditable s, final String name) {
+            super(s, name);
+        }
+
+        @Override
+        protected void removeRedundantState() {
+            super.removeRedundantState();
+        }
+
+        Hashtable<Object,Object> getPreState() {
+            return preState;
+        }
+
+        Hashtable<Object,Object> getPostState() {
+            return postState;
+        }
+
+        void setPostState(Hashtable<Object,Object> value) {
+            postState = value;
+        }
+
+        String getUndoRedoName() {
+            return undoRedoName;
+        };
+
+        public void init(StateEditable anObject, String name) {
+            super.init(anObject, name);
+        }
+
+        StateEditable getObject() {
+            return object;
+        }
+    }
+
+    class SimpleStateEdit extends TestStateEdit  {
         private static final long serialVersionUID = 1L;
 
         boolean wasCallRemoveRedudant = false;
@@ -84,9 +124,9 @@ public class StateEditTest extends SwingTestCase {
     @Override
     protected void setUp() throws Exception {
         bWasException = false;
-        se1 = new SimpleStateEdit(new SimpleEditable());
-        obj = (SimpleEditable) se1.object;
-        se2 = new StateEdit(new SimpleEditable(), "presentationName");
+        obj = new SimpleEditable();
+        se1 = new SimpleStateEdit(obj);
+        se2 = new TestStateEdit(new SimpleEditable(), "presentationName");
         super.setUp();
     }
 
@@ -96,18 +136,18 @@ public class StateEditTest extends SwingTestCase {
     }
 
     public void testUndo() {
-        se1.preState.put("1", new Integer(1));
-        se1.preState.put("2", new Integer(2));
-        se1.postState = new Hashtable();
-        se1.postState.put("3", new Integer(3));
-        se1.postState.put("4", new Integer(4));
-        Hashtable oldPreState = se1.preState;
-        Hashtable oldPostState = se1.postState;
+        se1.getPreState().put("1", new Integer(1));
+        se1.getPreState().put("2", new Integer(2));
+        se1.setPostState(new Hashtable());
+        se1.getPostState().put("3", new Integer(3));
+        se1.getPostState().put("4", new Integer(4));
+        Hashtable oldPreState = se1.getPreState();
+        Hashtable oldPostState = se1.getPostState();
         se1.undo();
         assertTrue(obj.wasCallRestore);
-        assertEquals(obj.state, se1.preState);
-        assertEquals(oldPreState, se1.preState);
-        assertEquals(oldPostState, se1.postState);
+        assertEquals(obj.state, se1.getPreState());
+        assertEquals(oldPreState, se1.getPreState());
+        assertEquals(oldPostState, se1.getPostState());
     }
 
     public void testRedo() {
@@ -119,34 +159,34 @@ public class StateEditTest extends SwingTestCase {
         assertTrue("ExpectedException", bWasException);
         se1.undo();
         obj.wasCallRestore = false;
-        se1.preState.put("1", new Integer(1));
-        se1.preState.put("2", new Integer(2));
-        se1.postState = new Hashtable();
-        se1.postState.put("3", new Integer(3));
-        se1.postState.put("4", new Integer(4));
-        Hashtable oldPreState = se1.preState;
-        Hashtable oldPostState = se1.postState;
+        se1.getPreState().put("1", new Integer(1));
+        se1.getPreState().put("2", new Integer(2));
+        se1.setPostState(new Hashtable());
+        se1.getPostState().put("3", new Integer(3));
+        se1.getPostState().put("4", new Integer(4));
+        Hashtable oldPreState = se1.getPreState();
+        Hashtable oldPostState = se1.getPostState();
         se1.redo();
         assertTrue(obj.wasCallRestore);
-        assertEquals(se1.postState, obj.state);
-        assertEquals(oldPreState, se1.preState);
-        assertEquals(oldPostState, se1.postState);
+        assertEquals(se1.getPostState(), obj.state);
+        assertEquals(oldPreState, se1.getPreState());
+        assertEquals(oldPostState, se1.getPostState());
     }
 
-    public void testStateEditStateEditableString() {
+    public void _testStateEditStateEditableString() {
     }
 
-    public void testStateEditStateEditable() {
+    public void _testStateEditStateEditable() {
     }
 
     public void testEnd() {
         SimpleStateEdit stEdit = (SimpleStateEdit) se1;
-        se1.preState.put("1", new Integer(1));
-        se1.preState.put("2", new Integer(2));
-        se1.postState = new Hashtable();
-        se1.postState.put("3", new Integer(3));
-        se1.postState.put("4", new Integer(4));
-        Hashtable oldPreState = se1.preState;
+        se1.getPreState().put("1", new Integer(1));
+        se1.getPreState().put("2", new Integer(2));
+        se1.setPostState(new Hashtable());
+        se1.getPostState().put("3", new Integer(3));
+        se1.getPostState().put("4", new Integer(4));
+        Hashtable oldPreState = se1.getPreState();
         stEdit.resetDbgInfo();
         se1.end();
         assertTrue(obj.wasCallStore);
@@ -157,31 +197,31 @@ public class StateEditTest extends SwingTestCase {
     }
 
     public void testRemoveRedundantState() {
-        assertNotNull(se1.preState);
-        assertNull(se1.postState);
-        assertEquals(2, se1.preState.size());
-        se1.preState.remove("store");
-        se1.preState.remove("into");
-        se1.postState = new Hashtable();
-        se1.preState.put("1", new Integer(1));
-        se1.preState.put("2", new Integer(2));
-        se1.preState.put("3", new Integer(3));
-        se1.preState.put("4", new Integer(4));
-        se1.preState.put("5", new Integer(5));
-        se1.postState.put("1", new Integer(44));
-        se1.postState.put("2x", new Integer(2));
-        se1.postState.put("3x", new Integer(3));
-        se1.postState.put("4x", new Integer(4));
-        se1.postState.put("5", new Integer(5));
+        assertNotNull(se1.getPreState());
+        assertNull(se1.getPostState());
+        assertEquals(2, se1.getPreState().size());
+        se1.getPreState().remove("store");
+        se1.getPreState().remove("into");
+        se1.setPostState(new Hashtable());
+        se1.getPreState().put("1", new Integer(1));
+        se1.getPreState().put("2", new Integer(2));
+        se1.getPreState().put("3", new Integer(3));
+        se1.getPreState().put("4", new Integer(4));
+        se1.getPreState().put("5", new Integer(5));
+        se1.getPostState().put("1", new Integer(44));
+        se1.getPostState().put("2x", new Integer(2));
+        se1.getPostState().put("3x", new Integer(3));
+        se1.getPostState().put("4x", new Integer(4));
+        se1.getPostState().put("5", new Integer(5));
         se1.removeRedundantState();
-        Hashtable preState = se1.preState;
-        Hashtable postState = se1.postState;
-        assertEquals(4, se1.preState.size());
+        Hashtable preState = se1.getPreState();
+        Hashtable postState = se1.getPostState();
+        assertEquals(4, se1.getPreState().size());
         assertEquals(new Integer(1), preState.get("1"));
         assertEquals(new Integer(2), preState.get("2"));
         assertEquals(new Integer(3), preState.get("3"));
         assertEquals(new Integer(4), preState.get("4"));
-        assertEquals(4, se1.postState.size());
+        assertEquals(4, se1.getPostState().size());
         assertEquals(new Integer(44), postState.get("1"));
         assertEquals(new Integer(2), postState.get("2x"));
         assertEquals(new Integer(3), postState.get("3x"));
@@ -198,16 +238,16 @@ public class StateEditTest extends SwingTestCase {
         SimpleEditable newObj = new SimpleEditable();
         obj.wasCallStore = false;
         obj.state = null;
-        assertNull(se1.undoRedoName);
-        assertEquals("presentationName", se2.undoRedoName);
+        assertNull(se1.getUndoRedoName());
+        assertEquals("presentationName", se2.getUndoRedoName());
         se1.init(newObj, "name");
-        assertEquals(newObj, se1.object);
+        assertEquals(newObj, se1.getObject());
         assertEquals("name", se1.getPresentationName());
         assertTrue(newObj.wasCallStore);
-        assertEquals(newObj.state, se1.preState);
-        assertNull(se1.postState);
-        assertEquals(getState(newObj), se1.preState);
-        assertEquals("name", se1.undoRedoName);
+        assertEquals(newObj.state, se1.getPreState());
+        assertNull(se1.getPostState());
+        assertEquals(getState(newObj), se1.getPreState());
+        assertEquals("name", se1.getUndoRedoName());
 
         try { // Regression test for HARMONY-2536
             new StateEdit(null);
@@ -225,7 +265,7 @@ public class StateEditTest extends SwingTestCase {
 
     // Regression test for HARMONY-2844
     public void testInitNull() {
-        StateEdit se = new StateEdit(new SimpleEditable());
+        TestStateEdit se = new TestStateEdit(new SimpleEditable());
         try {
             se.init(null, "test");
             fail("NullPointerException is expected");

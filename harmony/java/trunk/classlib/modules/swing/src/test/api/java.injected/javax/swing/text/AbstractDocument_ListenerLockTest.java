@@ -53,7 +53,7 @@ public class AbstractDocument_ListenerLockTest extends TestCase implements Docum
         doc.writeLock();
     }
 
-    public void testFireInsertUpdate() throws Exception {
+    public void _testFireInsertUpdate() throws Exception {
         try {
             doc.fireInsertUpdate(null);
         } catch (LockTestError e) {
@@ -61,7 +61,7 @@ public class AbstractDocument_ListenerLockTest extends TestCase implements Docum
         unlockAndLock();
     }
 
-    public void testFireRemoveUpdate() throws Exception {
+    public void _testFireRemoveUpdate() throws Exception {
         try {
             doc.fireRemoveUpdate(null);
         } catch (LockTestError e) {
@@ -69,7 +69,7 @@ public class AbstractDocument_ListenerLockTest extends TestCase implements Docum
         unlockAndLock();
     }
 
-    public void testFireChangedUpdate() throws Exception {
+    public void _testFireChangedUpdate() throws Exception {
         try {
             doc.fireChangedUpdate(null);
         } catch (LockTestError e) {
@@ -77,7 +77,7 @@ public class AbstractDocument_ListenerLockTest extends TestCase implements Docum
         unlockAndLock();
     }
 
-    public void testFireUndoableEditUpdate() throws Exception {
+    public void _testFireUndoableEditUpdate() throws Exception {
         try {
             doc.fireUndoableEditUpdate(null);
         } catch (LockTestError e) {

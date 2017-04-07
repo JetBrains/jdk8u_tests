@@ -80,7 +80,7 @@ public class BasicTextFieldUITest extends SwingTestCase {
          */
     }
 
-    public void testGetPropertyPrefix() {
+    public void _testGetPropertyPrefix() {
         assertEquals("TextField", ui.getPropertyPrefix());
     }
 

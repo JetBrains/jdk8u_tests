@@ -53,8 +53,8 @@ public class BasicRadioButtonMenuItemUITest extends BasicMenuItemUITest {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicRadioButtonMenuItemUI.getPropertyPrefix()'
      */
-    @Override
-    public void testGetPropertyPrefix() {
+    //@Override
+    public void _testGetPropertyPrefix() {
         assertEquals("RadioButtonMenuItem", menuItemUI.getPropertyPrefix());
     }
 
@@ -62,6 +62,6 @@ public class BasicRadioButtonMenuItemUITest extends BasicMenuItemUITest {
      * Test method for 'javax.swing.plaf.basic.BasicRadioButtonMenuItemUI.processMouseEvent(JMenuItem, MouseEvent, MenuElement[], MenuSelectionManager)'
      * as method has an empty body we wo't test it
      */
-    public void testProcessMouseEvent() {
+    public void _testProcessMouseEvent() {
     }
 }

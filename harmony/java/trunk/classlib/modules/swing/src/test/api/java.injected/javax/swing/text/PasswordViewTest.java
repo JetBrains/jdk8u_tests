@@ -104,7 +104,7 @@ public class PasswordViewTest extends SwingTestCase {
         assertEquals(textWidth, (int) view.getPreferredSpan(View.X_AXIS));
     }
 
-    public void testDrawEchoCharacter() {
+    public void _testDrawEchoCharacter() {
         char c = '&';
         int m_width = fm.charWidth(c);
         Graphics g = pf.getGraphics();
@@ -113,7 +113,7 @@ public class PasswordViewTest extends SwingTestCase {
         assertEquals(color, g.getColor());
     }
 
-    public void testDrawSelectedText() {
+    public void _testDrawSelectedText() {
         Graphics g = pf.getGraphics();
         Color color = g.getColor();
         try {
@@ -128,7 +128,7 @@ public class PasswordViewTest extends SwingTestCase {
         }
     }
 
-    public void testDrawUnselectedText() {
+    public void _testDrawUnselectedText() {
         Graphics g = pf.getGraphics();
         Color old = g.getColor();
         try {
@@ -143,7 +143,7 @@ public class PasswordViewTest extends SwingTestCase {
         }
     }
 
-    public void testModelToView() throws Exception {
+    public void _testModelToView() throws Exception {
         Shape shape = new Rectangle(2, 20, 30, 40);
         Rectangle adjustRect = view.adjustAllocation(shape).getBounds();
         Rectangle rect = (Rectangle) view.modelToView(1, shape, Position.Bias.Forward);

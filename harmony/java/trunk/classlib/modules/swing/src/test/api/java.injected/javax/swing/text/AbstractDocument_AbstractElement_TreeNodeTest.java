@@ -51,12 +51,12 @@ public class AbstractDocument_AbstractElement_TreeNodeTest extends TestCase {
         parent = aElement;
     }
 
-    public void testGetChildCount() {
+    public void _testGetChildCount() {
         assertEquals(aElement.getElementCount(), aElement.getChildCount());
         assertEquals(parented.getElementCount(), parented.getChildCount());
     }
 
-    public void testGetChildAt() {
+    public void _testGetChildAt() {
         assertSame(aElement.getElement(0), aElement.getChildAt(0));
         assertSame(aElement.getElement(1), aElement.getChildAt(1));
         assertSame(aElement.getElement(2), aElement.getChildAt(2));
@@ -64,7 +64,7 @@ public class AbstractDocument_AbstractElement_TreeNodeTest extends TestCase {
         assertSame(aElement.getElement(10), aElement.getChildAt(10));
     }
 
-    public void testGetIndex() {
+    public void _testGetIndex() {
         assertEquals(-1, aElement.getIndex(null));
         TreeNode node = aElement.getChildAt(0);
         // Check sanity of the value
@@ -78,7 +78,7 @@ public class AbstractDocument_AbstractElement_TreeNodeTest extends TestCase {
         assertTrue((node = aElement.getChildAt(1)) == null || (1 == aElement.getIndex(node)));
     }
 
-    public void testGetParent() {
+    public void _testGetParent() {
         assertNull(aElement.getParent());
         assertNotNull(parented.getParent());
         assertSame(parent, parented.getParent());
