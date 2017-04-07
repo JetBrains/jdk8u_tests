@@ -126,8 +126,8 @@
                 </classpath>
                 <formatter type="xml" />
                 <batchtest fork="yes" todir="${result.dir}/@{suite}">
-                    <fileset dir="@{location}">
-                        <include name="${tests_pattern}" />
+                    <fileset dir="@{location}" includes="${tests_pattern}">
+                        <!--<include name="${tests_pattern}" />-->
                         <!--<include name="support/src/**/*Test.java" />-->
                         <excludesfile name="${exclude.file}" />
                     </fileset>
