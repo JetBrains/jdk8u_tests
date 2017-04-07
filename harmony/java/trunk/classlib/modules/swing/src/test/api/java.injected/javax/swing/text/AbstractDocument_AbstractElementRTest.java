@@ -87,7 +87,7 @@ public class AbstractDocument_AbstractElementRTest extends TestCase {
 
     private MutableAttributeSet attrs;
 
-    public void testGetNameAbstract() throws Exception {
+    public void _testGetNameAbstract() throws Exception {
         final String name = "Unbekannte";
         attrs.addAttribute(AbstractDocument.ElementNameAttribute, name);
         element = new AbstractElementImpl(doc, root, attrs);
@@ -100,7 +100,7 @@ public class AbstractDocument_AbstractElementRTest extends TestCase {
         assertSame(root, element.getParentElement());
     }
 
-    public void testGetNameLeaf() throws Exception {
+    public void _testGetNameLeaf() throws Exception {
         final String name = "Blatt";
         attrs.addAttribute(AbstractDocument.ElementNameAttribute, name);
         element = doc.new LeafElement(root, attrs, 15, 23);
@@ -110,7 +110,7 @@ public class AbstractDocument_AbstractElementRTest extends TestCase {
         assertSame(root, element.getParentElement());
     }
 
-    public void testGetNameBranch() throws Exception {
+    public void _testGetNameBranch() throws Exception {
         final String name = "Ast";
         attrs.addAttribute(AbstractDocument.ElementNameAttribute, name);
         element = doc.new BranchElement(root, attrs);
@@ -118,7 +118,7 @@ public class AbstractDocument_AbstractElementRTest extends TestCase {
         assertSame(root, element.getParentElement());
     }
 
-    public void testGetNameNonString() throws Exception {
+    public void _testGetNameNonString() throws Exception {
         attrs.addAttribute(AbstractDocument.ElementNameAttribute, new Integer(10101));
         element = new AbstractElementImpl(doc, root, attrs);
         try {
@@ -128,7 +128,7 @@ public class AbstractDocument_AbstractElementRTest extends TestCase {
         }
     }
 
-    public void testGetNameParent() throws Exception {
+    public void _testGetNameParent() throws Exception {
         final String parentName = "parentName";
         attrs.addAttribute(AbstractDocument.ElementNameAttribute, parentName);
         BranchElement parent = doc.new BranchElement(null, attrs);

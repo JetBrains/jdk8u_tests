@@ -104,14 +104,14 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.getPropertyPrefix()'
      */
-    public void testGetPropertyPrefix() {
+    public void _testGetPropertyPrefix() {
         assertEquals("Menu", menuUI.getPropertyPrefix());
     }
 
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.installDefaults()'
      */
-    public void testInstallUninstallDefaults() {
+    public void _testInstallUninstallDefaults() {
         JMenu menu = new JMenu();
         UIManager.getDefaults().put("Menu.background", new ColorUIResource(Color.red));
         UIManager.getDefaults().put("Menu.foreground", new ColorUIResource(Color.yellow));
@@ -176,7 +176,7 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.installListeners()'
      */
-    public void testInstallUninstallListeners() {
+    public void _testInstallUninstallListeners() {
         JMenu menu = new JMenu();
         menuUI = (BasicMenuUI) menu.getUI();
         menuUI.uninstallListeners();
@@ -221,7 +221,7 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.installKeyboardActions()'
      */
-    public void testInstallUninstallKeyboardActions() {
+    public void _testInstallUninstallKeyboardActions() {
         JMenu menu = new JMenu();
         menu.setUI(menuUI);
         menuUI.uninstallKeyboardActions();
@@ -245,14 +245,14 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.createMouseInputListener(JComponent)'
      */
-    public void testCreateMouseInputListener() {
+    public void _testCreateMouseInputListener() {
         assertNotNull(menuUI.createMouseInputListener(null));
     }
 
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.createMenuDragMouseListener(JComponent)'
      */
-    public void testCreateMenuDragMouseListener() {
+    public void _testCreateMenuDragMouseListener() {
         assertNotNull(menuUI.createMenuDragMouseListener(null));
         if (isHarmony()) {
             assertSame(menuUI.createMenuDragMouseListener(null), menuUI
@@ -263,7 +263,7 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.createMenuKeyListener(JComponent)'
      */
-    public void testCreateMenuKeyListener() {
+    public void _testCreateMenuKeyListener() {
         if (isHarmony()) {
             assertNull(menuUI.createMenuKeyListener(null));
             assertSame(menuUI.createMenuKeyListener(null), menuUI.createMenuKeyListener(null));
@@ -275,7 +275,7 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.BasicMenuUI()'
      */
-    public void testBasicMenuUI() {
+    public void _testBasicMenuUI() {
         assertNull(menuUI.changeListener);
         assertNull(menuUI.menuListener);
         assertNull(menuUI.propertyChangeListener);
@@ -284,7 +284,7 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.createChangeListener(JComponent)'
      */
-    public void testCreateChangeListener() {
+    public void _testCreateChangeListener() {
         assertNull(menuUI.createChangeListener(null));
         assertNull(menuUI.createChangeListener(new JMenu()));
     }
@@ -304,11 +304,11 @@ public class BasicMenuUITest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.plaf.basic.BasicMenuUI.createPropertyChangeListener(JComponent)'
      */
-    public void testCreatePropertyChangeListener() {
+    public void _testCreatePropertyChangeListener() {
         assertNotNull(menuUI.createPropertyChangeListener(null));
     }
 
-    public void testInstallUninstallUI() {
+    public void _testInstallUninstallUI() {
         JMenu item = new JMenu();
         menuUI.installUI(item);
         assertNotNull(item.getBorder());

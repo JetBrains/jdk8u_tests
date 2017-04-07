@@ -55,7 +55,7 @@ public class PlainView_ChangesRTest extends BasicSwingTestCase implements Docume
      * was not changed, <code>insertUpdate</code> throws NPE
      * when processing the notification.
      */
-    public void testInsertUpdateNPE() throws BadLocationException {
+    public void _testInsertUpdateNPE() throws BadLocationException {
         doc.insertString(0, "1:0123\n2:\n3:abcdefg", null);
         view.updateMetrics();
         doc.insertString(0, "^", null);
@@ -72,7 +72,7 @@ public class PlainView_ChangesRTest extends BasicSwingTestCase implements Docume
      * In this case only the modified line needs to be repainted
      * but <code>PlainView</code> repaints all following lines as well.
      */
-    public void testInsertUpdateExtraRepaint() throws BadLocationException {
+    public void _testInsertUpdateExtraRepaint() throws BadLocationException {
         doc.insertString(0, "1:0123\n2:\n3:abcdefg", null);
         view.updateMetrics();
         doc.insertString(0, "^", null);
@@ -88,7 +88,7 @@ public class PlainView_ChangesRTest extends BasicSwingTestCase implements Docume
      * and <code>setSize()</code> doesn't update the field in
      * the <code>PlainView</code>.
      */
-    public void testNextTabStop05() {
+    public void _testNextTabStop05() {
         assertNull(view.metrics);
         if (isHarmony()) {
             // Call to nextTabStop will lead to updateMetrics()

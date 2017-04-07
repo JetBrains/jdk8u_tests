@@ -56,7 +56,7 @@ public class TreePathTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.tree.TreePath.TreePath()'
      */
-    public void testTreePath() {
+    public void _testTreePath() {
         treePath = new TreePath();
         assertEquals(1, treePath.getPathCount());
         assertNull(treePath.getPath()[0]);
@@ -65,7 +65,7 @@ public class TreePathTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.tree.TreePath.TreePath(Object[], int)'
      */
-    public void testTreePathObjectArrayInt() {
+    public void _testTreePathObjectArrayInt() {
         Object[] path1 = new Object[] { new Object(), "1", "2" };
         treePath = new TreePath(path1, 3);
         assertEquals(3, treePath.getPathCount());
@@ -121,7 +121,7 @@ public class TreePathTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.tree.TreePath.TreePath(TreePath, Object)'
      */
-    public void testTreePathTreePathObject() {
+    public void _testTreePathTreePathObject() {
         Object last1 = "3";
         Object last2 = "345";
         Object[] path1 = new Object[] { new Object(), "1", "2" };
@@ -334,7 +334,7 @@ public class TreePathTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.tree.TreePath.toString()'
      */
-    public void testToString() {
+    public void _testToString() {
         TreePath path1 = new TreePath(new Object[] { "o1", "o2", "o3", "o4" });
         TreePath path2 = new TreePath(new Object[] { "o1", "o2", null });
         assertNotNull(path1.toString());

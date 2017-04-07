@@ -39,7 +39,7 @@ public class BasicToolBarUIRTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testNavigateFocusedComponent() {
+    public void _testNavigateFocusedComponent() {
         class MyButton extends JButton {
             private static final long serialVersionUID = 1L;
 

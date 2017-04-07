@@ -749,7 +749,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
         assertNull(attr.getAttribute(Attribute.FONT_SIZE));
     }
 
-    public void testCreateLargeAttributeSet() {
+    public void _testCreateLargeAttributeSet() {
         final Object value = new Integer(12);
         simple.addAttribute(StyleConstants.FontSize, value);
         attr = ss.createLargeAttributeSet(simple);

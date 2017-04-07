@@ -77,7 +77,7 @@ public class DefaultSingleSelectionModelTest extends SwingTestCase {
         assertEquals(0, model.getListeners(KeyListener.class).length);
     }
 
-    public void testFireStateChanged() throws Exception {
+    public void _testFireStateChanged() throws Exception {
         TestChangeListener listener2 = new TestChangeListener();
         model.addChangeListener(listener);
         model.addChangeListener(listener2);

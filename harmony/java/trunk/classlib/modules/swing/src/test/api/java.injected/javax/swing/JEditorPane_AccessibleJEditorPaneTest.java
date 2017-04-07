@@ -46,11 +46,11 @@ public class JEditorPane_AccessibleJEditorPaneTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testGetAccessibleStateSet() {
+    public void _testGetAccessibleStateSet() {
         assertTrue(accessible.getAccessibleStateSet().contains(AccessibleState.MULTI_LINE));
     }
 
-    public void testGetAccessibleDescription() {
+    public void _testGetAccessibleDescription() {
         assertEquals("text/plain", accessible.getAccessibleDescription());
         // TODO: uncomment when HTML support is implemented
         //        jep.setContentType("text/html");

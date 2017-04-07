@@ -279,7 +279,7 @@ public class JFormattedTextFieldTest extends SwingTestCase {
         checkEvent(propertyName, Color.RED, value);
     }
 
-    public void testSetGetFormatter() {
+    public void _testSetGetFormatter() {
         String propertyName = "textFormatter";
         listener.setInterestingPropertyName(propertyName);
         assertNull(tf.getFormatter());
@@ -336,7 +336,7 @@ public class JFormattedTextFieldTest extends SwingTestCase {
         checkEvent(propertyName, null, factory);
     }
 
-    public void testProcessFocusEventFocusEvent() {
+    public void _testProcessFocusEventFocusEvent() {
         Long value = new Long(56);
         tf.setValue(new Integer(345));
         tf.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -420,7 +420,7 @@ public class JFormattedTextFieldTest extends SwingTestCase {
         //TODO check commit & cancel actions
     }
 
-    public void testCommitEdit() {
+    public void _testCommitEdit() {
         tf.setFormatter(new NumberFormatter());
         assertNull(tf.getValue());
         tf.setText("678");

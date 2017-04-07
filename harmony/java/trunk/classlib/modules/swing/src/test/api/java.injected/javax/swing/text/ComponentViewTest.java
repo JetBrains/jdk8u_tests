@@ -68,7 +68,7 @@ public class ComponentViewTest extends SwingTestCase {
         assertNull(view.getComponent());
     }
 
-    public void testCreateComponent() {
+    public void _testCreateComponent() {
         final Marker createComponentCalled = new Marker();
         view = new ComponentView(componentElement) {
             @Override
@@ -329,7 +329,7 @@ public class ComponentViewTest extends SwingTestCase {
         }
     }
 
-    public void testGetComponent() {
+    public void _testGetComponent() {
         assertNull(view.getComponent());
         assertNotNull(view.createComponent());
         assertNull(view.getComponent());

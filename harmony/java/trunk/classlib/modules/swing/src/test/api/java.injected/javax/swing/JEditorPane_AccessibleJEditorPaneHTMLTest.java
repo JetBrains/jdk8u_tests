@@ -45,16 +45,16 @@ public class JEditorPane_AccessibleJEditorPaneHTMLTest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testGetAccessibleText() {
+    public void _testGetAccessibleText() {
         assertTrue(accessible.getAccessibleText() instanceof JEditorPane.JEditorPaneAccessibleHypertextSupport);
     }
 
-    public void testGetAccessibleAt() {
+    public void _testGetAccessibleAt() {
     }
 
-    public void testGetAccessibleChild(final int i) {
+    public void _testGetAccessibleChild(final int i) {
     }
 
-    public void testGetAccessibleChildrenCount() {
+    public void _testGetAccessibleChildrenCount() {
     }
 }

@@ -70,7 +70,7 @@ public class MetalDesktopIconUITest extends SwingTestCase {
     /*
      * Class under test for ComponentUI createUI(JComponent)
      */
-    public void testCreateUI() {
+    public void _testCreateUI() {
         ComponentUI ui1 = MetalDesktopIconUI.createUI(frame);
         ComponentUI ui2 = MetalDesktopIconUI.createUI(frame);
         assertTrue("not null", ui1 != null);
@@ -80,7 +80,7 @@ public class MetalDesktopIconUITest extends SwingTestCase {
     /*
      * Class under test for Dimension getMaximumSize(JComponent)
      */
-    public void testGetMaximumSize() {
+    public void _testGetMaximumSize() {
         assertEquals("== minimumSize (JRockit fails)", ui.getMinimumSize(icon), ui
                 .getMaximumSize(icon));
     }
@@ -88,7 +88,7 @@ public class MetalDesktopIconUITest extends SwingTestCase {
     /*
      * Class under test for Dimension getMinimumSize(JComponent)
      */
-    public void testGetMinimumSize() {
+    public void _testGetMinimumSize() {
         assertEquals("== preferredSize (JRockit fails)", ui.getPreferredSize(icon), ui
                 .getMinimumSize(icon));
     }
@@ -96,7 +96,7 @@ public class MetalDesktopIconUITest extends SwingTestCase {
     /*
      * Class under test for Dimension getPreferredSize(JComponent)
      */
-    public void testGetPreferredSize() {
+    public void _testGetPreferredSize() {
         Dimension size = ui.getPreferredSize(icon);
         int desktopIconWidth = UIManager.getInt("DesktopIcon.width");
         assertEquals("width ok", desktopIconWidth, size.width);
@@ -108,7 +108,7 @@ public class MetalDesktopIconUITest extends SwingTestCase {
         }
     }
 
-    public void testInstallComponents() {
+    public void _testInstallComponents() {
         int count = icon.getComponentCount();
         ui.uninstallComponents();
         assertEquals("uninstalled", count - 2, icon.getComponentCount());
@@ -119,7 +119,7 @@ public class MetalDesktopIconUITest extends SwingTestCase {
         }
     }
 
-    public void testUninstallComponents() {
+    public void _testUninstallComponents() {
         int count = icon.getComponentCount();
         if (isHarmony()) {
             assertTrue("added iconPane", icon.isAncestorOf(ui.getIconPane()));
@@ -131,7 +131,7 @@ public class MetalDesktopIconUITest extends SwingTestCase {
         }
     }
 
-    public void testInstallDefaults() {
+    public void _testInstallDefaults() {
         icon.setBackground(null);
         icon.setForeground(null);
         icon.setFont(null);

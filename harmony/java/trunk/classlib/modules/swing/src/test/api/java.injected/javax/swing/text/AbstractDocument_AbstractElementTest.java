@@ -156,7 +156,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
     /**
      * Simple test of constructor.
      */
-    public void testAbstractElement01() {
+    public void _testAbstractElement01() {
         assertSame(aElement, parented.getParentElement());
         assertTrue(parented.containsAttributes(aSet));
         assertSame(aElement, parented.getResolveParent());
@@ -171,7 +171,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
     /**
      * Test non-null attributes argument when there's no writeLock.
      */
-    public void testAbstractElement02() {
+    public void _testAbstractElement02() {
         aDocument.writeUnlock();
         // When attributes are null, the exception isn't thrown
         aElement = aDocument.new DisAbstractedElement(null, null);
@@ -190,7 +190,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
         }
     }
 
-    public void testCopyAttributes() {
+    public void _testCopyAttributes() {
         AttributeSet copy = aElement.copyAttributes();
         assertNotSame(copy, aElement);
         assertFalse(copy instanceof Element);
@@ -207,22 +207,22 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
         assertTrue(copy.isEqual(parented));
     }
 
-    public void testGetParentElement() {
+    public void _testGetParentElement() {
         assertNull(aElement.getParentElement());
         assertNotNull(parented.getParentElement());
         assertSame(aElement, parented.getParentElement());
     }
 
-    public void testGetDocument() {
+    public void _testGetDocument() {
         assertSame(aDocument, aElement.getDocument());
     }
 
-    public void testGetName() {
+    public void _testGetName() {
         assertNull(aElement.getName());
         assertNull(parented.getName());
     }
 
-    public void testDump() throws BadLocationException {
+    public void _testDump() throws BadLocationException {
         String dump1 = "<bidi root>\n" + "  <bidi level\n" + "    bidiLevel=0\n" + "  >\n"
                 + "    [0,6][01234\n" + "]\n" + "<content>\n" + "  [0,3][012]\n";
         String dump2 = "<bidi root>\n" + "  <bidi level\n" + "    bidiLevel=0\n" + "  >\n"
@@ -246,7 +246,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
             "123456789\n" + // 10 chars / 30
             "aaabbbccc1234567890"; // 19 chars / 49 + 1 def '\n'
 
-    public void testDumpAtTextLimit() throws BadLocationException {
+    public void _testDumpAtTextLimit() throws BadLocationException {
         String dump = "<bidi root>\n" + "  <bidi level\n" + "    bidiLevel=0\n" + "  >\n"
                 + "    [0,40][123456789\n" + "123456789\n" + "123456789\n" + "aaabbbccc\n"
                 + "]\n";
@@ -257,7 +257,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
         assertEquals(dump, AbstractDocumentTest.filterNewLines(out.toString()));
     }
 
-    public void testDumpBeyondTextLimit() throws BadLocationException {
+    public void _testDumpBeyondTextLimit() throws BadLocationException {
         String dump = "<bidi root>\n" + "  <bidi level\n" + "    bidiLevel=0\n" + "  >\n"
                 + "    [0,50][123456789\n" + "123456789\n" + "123456789\n" + "aaabbbccc1...]\n";
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -267,7 +267,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
         assertEquals(dump, AbstractDocumentTest.filterNewLines(out.toString()));
     }
 
-    public void testGetAttributeThruParent() {
+    public void _testGetAttributeThruParent() {
         assertFalse(parented.isDefined(StyleContextTest.attr[0]));
         assertTrue(aElement.isDefined(StyleContextTest.attr[0]));
         // containsAttribute method DOES NOT look up attributes in parent
@@ -277,12 +277,12 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
         assertSame(StyleContextTest.attr[1], parented.getAttribute(StyleContextTest.attr[0]));
     }
 
-    public void testGetResolveParent() {
+    public void _testGetResolveParent() {
         assertNull(aElement.getResolveParent());
         assertSame(aElement, parented.getResolveParent());
     }
 
-    public void testGetResolveParentExplicit() throws Exception {
+    public void _testGetResolveParentExplicit() throws Exception {
         AttributeSet resolver = new SimpleAttributeSet();
         parented.setResolveParent(resolver);
         assertSame(resolver, parented.getResolveParent());
@@ -342,7 +342,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
         }
     }
 
-    public void testGetAttributesOtherParent() throws Exception {
+    public void _testGetAttributesOtherParent() throws Exception {
         OtherElement parent = new OtherElement();
         parented = aDocument.new DisAbstractedElement(parent, null);
         assertSame(OtherElement.value, parented.getAttribute(OtherElement.key));
@@ -351,7 +351,7 @@ public class AbstractDocument_AbstractElementTest extends TestCase {
         assertNull(parented.getAttribute(OtherElement.key));
     }
 
-    public void testGetResolveParentOther() throws Exception {
+    public void _testGetResolveParentOther() throws Exception {
         OtherElement parent = new OtherElement();
         parented = aDocument.new DisAbstractedElement(parent, null);
         assertNotSame(parent, parent.getAttributes());

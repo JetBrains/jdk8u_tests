@@ -79,7 +79,7 @@ public class BasicLabelUITest extends SwingTestCase {
         assertEquals(UIManager.getColor("Label.background"), label.getBackground());
     }
 
-    public void testInstallUninstallKeyboardActions() throws Exception {
+    public void _testInstallUninstallKeyboardActions() throws Exception {
         label.getInputMap().clear();
         label.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).clear();
         label.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).clear();
@@ -92,7 +92,7 @@ public class BasicLabelUITest extends SwingTestCase {
         assertEquals(0, label.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).size());
     }
 
-    public void testInstallUninstallComponents() throws Exception {
+    public void _testInstallUninstallComponents() throws Exception {
         label.removeAll();
         assertEquals(0, label.getComponentCount());
         ui.installComponents(label);

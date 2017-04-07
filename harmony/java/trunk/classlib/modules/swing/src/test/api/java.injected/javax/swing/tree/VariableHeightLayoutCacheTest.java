@@ -37,8 +37,8 @@ public class VariableHeightLayoutCacheTest extends AbstractLayoutCacheTest {
     /*
      * Test method for 'javax.swing.tree.VariableHeightLayoutCache.VariableHeightLayoutCache()'
      */
-    @Override
-    public void testLayoutCache() {
+    //@Override
+    public void _testLayoutCache() {
         assertFalse(cache.rootVisible);
         assertNull(cache.nodeDimensions);
         assertEquals(0, cache.rowHeight);
@@ -316,7 +316,7 @@ public class VariableHeightLayoutCacheTest extends AbstractLayoutCacheTest {
     }
 
     //@Override
-    public void testIsFixedRowHeight() {
+    public void _testIsFixedRowHeight() {
         assertFalse(cache.isFixedRowHeight());
     }
 }

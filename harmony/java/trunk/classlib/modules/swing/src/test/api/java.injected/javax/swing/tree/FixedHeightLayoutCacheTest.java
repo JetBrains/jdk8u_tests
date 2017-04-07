@@ -34,8 +34,8 @@ public class FixedHeightLayoutCacheTest extends AbstractLayoutCacheTest {
         super.tearDown();
     }
 
-    @Override
-    public void testLayoutCache() {
+    //@Override
+    public void _testLayoutCache() {
         assertFalse(cache.rootVisible);
         assertNull(cache.nodeDimensions);
         assertEquals(1, cache.rowHeight);
@@ -69,7 +69,7 @@ public class FixedHeightLayoutCacheTest extends AbstractLayoutCacheTest {
     }
 
     //@Override
-    public void testIsFixedRowHeight() {
+    public void _testIsFixedRowHeight() {
         assertTrue(cache.isFixedRowHeight());
     }
 

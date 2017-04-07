@@ -72,7 +72,7 @@ public class MetalButtonUITest extends BasicButtonUITest {
         assertSame("DisabledTextColor", red, metalUI.getDisabledTextColor());
     }
 
-    public void testGetFocusColor() {
+    public void _testGetFocusColor() {
         assertTrue("FocusColor is ColorUIResource",
                 metalUI.getFocusColor() instanceof ColorUIResource);
         assertTrue("FocusColor is ColorUIResource",

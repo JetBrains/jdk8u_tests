@@ -55,28 +55,28 @@ public class BasicToolBarUI$DragWindowTest extends SwingTestCase {
         super(name);
     }
 
-    public void testGetInsets() {
+    public void _testGetInsets() {
         assertEquals(new Insets(1, 1, 1, 1), dragWindow.getInsets());
     }
 
-    public void testSetGetBorderColor() {
+    public void _testSetGetBorderColor() {
         dragWindow.setBorderColor(Color.red);
         assertSame(Color.red, dragWindow.getBorderColor());
     }
 
-    public void testSetGetOffset() {
+    public void _testSetGetOffset() {
         Point offset = new Point(1, 2);
         dragWindow.setOffset(offset);
         assertSame(offset, dragWindow.getOffset());
     }
 
-    public void testSetOrientation() {
+    public void _testSetOrientation() {
         dragWindow.setSize(1, 2);
         dragWindow.setOrientation(SwingConstants.VERTICAL);
         assertEquals(new Dimension(1, 2), dragWindow.getSize());
     }
 
-    public void testPaint() {
+    public void _testPaint() {
         // Note: painting code, cannot test
     }
 }
