@@ -63,9 +63,71 @@
     </target>
 
     <target name="copy-resources">
+
         <mkdir dir="${target.dir}/classes/tests/resources" />
+
         <copy todir="${target.dir}/classes/tests/resources">
             <fileset dir="support/src/test/java/tests/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/archive/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/auth/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/beans/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/crypto/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/imageio/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/instrument/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/jndi/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/logging/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/luni/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/nio/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/nio_char/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/prefs/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/regex/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/rmi/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/security/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/sound/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/sql/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/swing/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/text/src/test/resources"/>
+        </copy>
+        <copy todir="${target.dir}/classes">
+            <fileset dir="modules/x-net/src/test/resources"/>
         </copy>
     </target>
 
