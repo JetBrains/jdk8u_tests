@@ -52,7 +52,8 @@ Version: $Revision: 1.6 $
         <Runner ID="Runtime">
             <Option value="-Dorg.apache.harmony.test.share.stress.ReliabilityRunner.params=
 					org.apache.harmony.test.stress.jni.stack.StackTest14 {}"/>
-		<Option value="-Dorg.apache.harmony.test.stress.jni.stack.share.STStackTest.fillMemory=1"/>
+		    <Option value="-Dorg.apache.harmony.test.stress.jni.stack.share.STStackTest.fillMemory=1"/>
+			<Option value="-Dorg.apache.harmony.test.stress.jni.share.MTTest.threadsCount=30" />
 			<Param name="toRun" value="org.apache.harmony.test.share.stress.ReliabilityRunner">
 			</Param>
 		</Runner>
