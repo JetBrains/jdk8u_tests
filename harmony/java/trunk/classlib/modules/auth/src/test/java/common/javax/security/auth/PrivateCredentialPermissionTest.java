@@ -626,7 +626,7 @@ public class PrivateCredentialPermissionTest extends TestCase {
         assertEquals("nuke", p[2][1]);
     }
 
-    public final void testCtor() {
+    public final void _testCtor() {
 
         class MyPrincipal implements Principal {
             String name;

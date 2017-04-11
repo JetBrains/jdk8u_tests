@@ -1595,7 +1595,7 @@ public class SubjectTest extends SecurityTest {
             subject.getPrivateCredentials().remove(new Object());
         }
 
-        public void test_PrivateCredentialPermission() {
+        public void _test_PrivateCredentialPermission() {
 
             if (!testing) {
                 class P implements Principal {
