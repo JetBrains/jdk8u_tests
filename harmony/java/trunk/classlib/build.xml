@@ -63,8 +63,8 @@
     </target>
 
     <target name="copy-resources">
-        <mkdir dir="${target.dir}/classes/tests" />
-        <copy todir="${target.dir}/classes/tests">
+        <mkdir dir="${target.dir}/classes/tests/resources" />
+        <copy todir="${target.dir}/classes/tests/resources">
             <fileset dir="support/src/test/java/tests/resources"/>
         </copy>
     </target>
