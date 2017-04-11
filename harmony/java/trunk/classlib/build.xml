@@ -62,7 +62,14 @@
         </javac>
     </target>
 
-    <target name="run-unit-tests" depends="compile-all">
+    <target name="copy-resources">
+        <mkdir dir="${target.dir}/classes/tests" />
+        <copy todir="${target.dir}/classes/tests">
+            <fileset dir="support/src/test/java/tests/resources"/>
+        </copy>
+    </target>
+
+    <target name="run-unit-tests" depends="compile-all, copy-resources">
         <run-tests suite="accessibility"   location="modules/accessibility/src/test/api/java/common" />
         <run-tests suite="annotation"      location="modules/annotation/src/test/java" />
         <run-tests suite="archive"         location="modules/archive/src/test/java" />
