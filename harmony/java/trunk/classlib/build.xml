@@ -70,9 +70,6 @@
             <fileset dir="support/src/test/java/tests/resources"/>
         </copy>
         <copy todir="${target.dir}/classes">
-            <fileset dir="modules/archive/src/test/resources"/>
-        </copy>
-        <copy todir="${target.dir}/classes">
             <fileset dir="modules/auth/src/test/resources"/>
         </copy>
         <copy todir="${target.dir}/classes">
