@@ -1,2 +1,5 @@
 # it hangs on Windows
 **/org/apache/harmony/tests/java/awt/ComponentTest.java
+
+# hangs on Linux
+**/org/apache/harmony/auth/tests/module/Krb5LoginModuleTest.java
