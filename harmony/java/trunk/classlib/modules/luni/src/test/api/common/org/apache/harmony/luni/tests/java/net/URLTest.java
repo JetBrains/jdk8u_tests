@@ -1150,7 +1150,7 @@ public class URLTest extends TestCase {
     /**
      * @tests java.net.URL#openConnection()
      */
-    public void test_openConnection_Security() throws Exception {
+    public void _test_openConnection_Security() throws Exception {
         // regression test for Harmony-1049
         System.setSecurityManager(new SecurityManager());
         try {
