@@ -326,7 +326,7 @@ public class BinaryRefAddrTest extends TestCase {
 		// TO DO R: need to implement
 		ObjectInputStream ois = new ObjectInputStream(getClass()
                 .getClassLoader().getResourceAsStream(
-                        "/serialization/javax/naming/BinaryRefAddr.ser"));
+                        "serialization/javax/naming/BinaryRefAddr.ser"));
 		BinaryRefAddr addr = (BinaryRefAddr) ois.readObject();
 		ois.close();
 

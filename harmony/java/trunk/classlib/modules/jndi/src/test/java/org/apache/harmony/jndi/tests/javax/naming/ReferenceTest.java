@@ -605,7 +605,7 @@ public class ReferenceTest extends TestCase {
 			IOException {
 		ObjectInputStream ois = new ObjectInputStream(getClass()
                 .getClassLoader().getResourceAsStream(
-                        "/serialization/javax/naming/Reference.ser"));
+                        "serialization/javax/naming/Reference.ser"));
 		Reference reference2 = (Reference) ois.readObject();
 		ois.close();
 

@@ -195,7 +195,7 @@ public class StringRefAddrTest extends TestCase {
 			IOException {
 		ObjectInputStream ois = new ObjectInputStream(getClass()
                 .getClassLoader().getResourceAsStream(
-                        "/serialization/javax/naming/StringRefAddr.ser"));
+                        "serialization/javax/naming/StringRefAddr.ser"));
 		StringRefAddr addr = (StringRefAddr) ois.readObject();
 		ois.close();
 

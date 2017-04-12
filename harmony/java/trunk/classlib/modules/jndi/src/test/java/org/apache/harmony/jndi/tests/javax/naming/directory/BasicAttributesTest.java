@@ -712,7 +712,7 @@ public class BasicAttributesTest extends TestCase {
                 getClass()
                         .getClassLoader()
                         .getResourceAsStream(
-                                "/serialization/javax/naming/directory/BasicAttributes.ser"));
+                                "serialization/javax/naming/directory/BasicAttributes.ser"));
 		BasicAttributes attributes2 = (BasicAttributes) ois.readObject();
 
 		int count = 10;

@@ -84,7 +84,7 @@ public class NoInitialContextExceptionTest extends TestCase {
                 getClass()
                         .getClassLoader()
                         .getResourceAsStream(
-                                "/serialization/javax/naming/NoInitialContextException.ser"));
+                                "serialization/javax/naming/NoInitialContextException.ser"));
 		NoInitialContextException exception2 = (NoInitialContextException) ois
 				.readObject();
 		ois.close();

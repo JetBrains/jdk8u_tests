@@ -80,7 +80,7 @@ public class InvalidNameExceptionTest extends TestCase {
 			ClassNotFoundException, IOException {
 		ObjectInputStream ois = new ObjectInputStream(getClass()
                 .getClassLoader().getResourceAsStream(
-                        "/serialization/javax/naming/InvalidNameException.ser"));
+                        "serialization/javax/naming/InvalidNameException.ser"));
 		InvalidNameException exception2 = (InvalidNameException) ois
 				.readObject();
 		ois.close();

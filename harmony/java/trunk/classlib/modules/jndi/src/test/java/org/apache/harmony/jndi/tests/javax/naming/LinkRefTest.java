@@ -185,7 +185,7 @@ public class LinkRefTest extends TestCase {
 			IOException {
 		ObjectInputStream ois = new ObjectInputStream(getClass()
                 .getClassLoader().getResourceAsStream(
-                        "/serialization/javax/naming/LinkRef.ser"));
+                        "serialization/javax/naming/LinkRef.ser"));
 		LinkRef linkRef2 = (LinkRef) ois.readObject();
 		ois.close();
 

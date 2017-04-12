@@ -1193,7 +1193,7 @@ public class BasicAttributeTest extends TestCase {
                 getClass()
                         .getClassLoader()
                         .getResourceAsStream(
-                                "/serialization/javax/naming/directory/BasicAttribute.ser"));
+                                "serialization/javax/naming/directory/BasicAttribute.ser"));
 		BasicAttribute attribute2 = (BasicAttribute) ois.readObject();
 
 		BasicAttribute attribute = new BasicAttribute("serializeBasicAttribute");

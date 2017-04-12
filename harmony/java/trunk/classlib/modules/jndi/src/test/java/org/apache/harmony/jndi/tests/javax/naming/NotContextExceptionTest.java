@@ -80,7 +80,7 @@ public class NotContextExceptionTest extends TestCase {
 			ClassNotFoundException, IOException {
 		ObjectInputStream ois = new ObjectInputStream(getClass()
                 .getClassLoader().getResourceAsStream(
-                        "/serialization/javax/naming/NotContextException.ser"));
+                        "serialization/javax/naming/NotContextException.ser"));
 		NotContextException exception2 = (NotContextException) ois.readObject();
 		ois.close();
 

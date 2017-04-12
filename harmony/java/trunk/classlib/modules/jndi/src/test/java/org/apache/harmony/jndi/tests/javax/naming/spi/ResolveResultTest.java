@@ -405,7 +405,7 @@ public class ResolveResultTest extends TestCase {
 			IOException {
 		ObjectInputStream ois = new ObjectInputStream(getClass()
                 .getClassLoader().getResourceAsStream(
-                        "/serialization/javax/naming/spi/ResolveResult.ser"));
+                        "serialization/javax/naming/spi/ResolveResult.ser"));
 		ResolveResult resolveResult2 = (ResolveResult) ois.readObject();
 		ois.close();
 
