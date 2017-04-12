@@ -405,7 +405,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * Regression for Harmony-2503
      */
-    public void test_connectLjava_net_SocketAddress_AnyAddress()
+    public void _test_connectLjava_net_SocketAddress_AnyAddress()
             throws Exception {
         connectTestImpl(ServerThread.FIRST_TIME);
         connectTestImpl(ServerThread.SECOND_TIME);
