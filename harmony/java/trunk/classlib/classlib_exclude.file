@@ -3,3 +3,6 @@
 
 # hangs on Linux
 **/org/apache/harmony/auth/tests/module/Krb5LoginModuleTest.java
+
+# No printers found
+**/javax/print/*.java
