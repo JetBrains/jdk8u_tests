@@ -85,7 +85,7 @@
         <copy todir="${target.dir}/classes">
             <fileset dir="modules/imageio/src/test/resources"/>
         </copy>
-        <copy todir="${target.dir}/classes/resources">
+        <copy todir="${target.dir}/classes">
             <fileset dir="modules/instrument/src/test/resources"/>
         </copy>
         <copy todir="${target.dir}/classes">
