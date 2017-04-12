@@ -919,7 +919,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#implAccept
      */
-    public void test_implAcceptLjava_net_Socket() throws Exception {
+    public void _test_implAcceptLjava_net_Socket() throws Exception {
         // regression test for Harmony-1235
         try {
             new MockServerSocket().mockImplAccept(new MockSocket(
