@@ -72,6 +72,10 @@
         <copy todir="${target.dir}/classes">
             <fileset dir="modules/auth/src/test/resources"/>
         </copy>
+        <copy todir="${target.dir}/classes/resources">
+            <fileset dir="modules/awt/src/test/api/resources" />
+        </copy>
+
         <copy todir="${target.dir}/classes">
             <fileset dir="modules/beans/src/test/resources"/>
         </copy>

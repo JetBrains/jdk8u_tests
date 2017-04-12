@@ -487,7 +487,7 @@ public abstract class ShapeTestCase extends PathIteratorTestCase {
     
     public ShapeTestCase(String name) {
         super(name);
-        String classPath = "../resources/shapes/" + Tools.getClasstPath(this.getClass());
+        String classPath = "resources/shapes/java/awt/geom/";
         URL url = ClassLoader.getSystemClassLoader().getResource(classPath);
         assertNotNull("Path not found " + classPath, url);
         shapePath = url.getPath();

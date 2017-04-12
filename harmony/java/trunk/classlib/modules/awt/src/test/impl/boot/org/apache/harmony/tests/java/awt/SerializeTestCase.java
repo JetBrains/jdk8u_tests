@@ -35,7 +35,7 @@ public class SerializeTestCase extends TestCase {
     public SerializeTestCase(String name) {
         super(name);
         if (SERIALIZATION_TEST) {
-            String classPath = "../resources/serialization/" + Tools.getClasstPath(this.getClass());
+            String classPath = "resources/serialization/java/awt/geom/";
             URL url = ClassLoader.getSystemClassLoader().getResource(classPath);
             assertNotNull("Path not found " + classPath, url);
             serializePath = url.getPath();
