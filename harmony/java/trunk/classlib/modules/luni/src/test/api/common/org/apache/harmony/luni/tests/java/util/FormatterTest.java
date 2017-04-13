@@ -56,6 +56,9 @@ import java.util.UnknownFormatConversionException;
 import java.util.Formatter.BigDecimalLayoutForm;
 
 import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 public class FormatterTest extends TestCase {
 	private boolean root;
@@ -990,13 +993,23 @@ public class FormatterTest extends TestCase {
         assertEquals("", f.toString());
     }
 
+    private String oldSeparator = "";
+
+    @Before public void before() {
+        oldSeparator = System.getProperty("line.separator");
+    }
+
+    @After public void after() {
+        System.setProperty("line.separator", oldSeparator);
+    }
+
     /**
      * @tests java.util.Formatter#format(String, Object...) for line sperator
      */
+    @Test
     public void test_formatLjava_lang_String$Ljava_lang_Object_LineSeparator() {
         Formatter f = null;
 
-        String oldSeparator = System.getProperty("line.separator");
         System.setProperty("line.separator", "!\n");
 
         f = new Formatter(Locale.US);
