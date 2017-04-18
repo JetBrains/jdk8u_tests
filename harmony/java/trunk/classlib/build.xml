@@ -186,7 +186,7 @@
             <echo message="Running tests: ${tests_pattern}"/>
 
             <mkdir dir="${result.dir}/@{suite}" />
-            <junit fork="yes">
+            <junit fork="yes" showoutput="yes">
                 <classpath>
                     <pathelement path="${target.dir}/classes"/>
                     <pathelement location="${junit.jar}" />
