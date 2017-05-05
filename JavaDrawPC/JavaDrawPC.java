@@ -1,22 +1,34 @@
 // Compile command -  javac JavaDrawPC6.java
-// Run command     -  java  JavaDrawPC6
+// Run command     -  java  JavaDrawPC
 
-// Change ver below for different javac
-// And here rename class and file name e.g. JavaDrawPC6 to JavaDrawPi
+// Change version below for different javac
+// And here rename class and file name e.g. JavaDrawPC to JavaDrawPi
 
 import javax.swing.*;
-import javax.imageio.ImageIO;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.awt.image.*;
-import java.io.IOException;
-import java.util.Calendar;
-import java.io.*;
 
-public class JavaDrawPC6 extends JPanel implements ActionListener {
-    String ver = "            Produced by javac 1.6.0_45";
+public class JavaDrawPC extends JPanel implements ActionListener {
+
+    private static final DecimalFormat decimalFormat =
+            new DecimalFormat("0.00");
+
+    String version = System.getProperty("java.version");
+    String vendor = System.getProperty("java.vendor");
+    String vendorPrefix = vendor.split(" ", 2)[0];
     int x, y;
     Timer timer;
     static int WIDTH = 1280;
@@ -52,8 +64,13 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
 
     Random randNum = new Random();
     private static PrintWriter prout;
+    private static String fileName = "JavaDraw.txt";
 
-    private JavaDrawPC6() {
+    private static final String originVendor = "Oracle";
+    private static Map<String, Map<String, Integer>> framesMap = new HashMap<String, Map<String, Integer>>(2);
+    private static Map<String, Map<String, Float>> fpsMap = new HashMap<String, Map<String, Float>>(2);
+
+    private JavaDrawPC() {
         image = Toolkit.getDefaultToolkit().getImage("bground.png");
         image1 = Toolkit.getDefaultToolkit().getImage("bground1.png");
         image2 = Toolkit.getDefaultToolkit().getImage("sweep.png");
@@ -61,21 +78,9 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
         timer = new Timer(0, this);
         startTime = (double) System.currentTimeMillis();
         startTest = startTime;
-        Calendar c = Calendar.getInstance();
-        String sys = "%n   Java Drawing Benchmark, %tb %te %tY, %tT%n";
-        System.out.format(sys, c, c, c, c);
-        System.out.format("%s%n%n", ver);
-
         try {
-
             // Create file
-            boolean append = true;
-            prout = new PrintWriter(new FileWriter(new File("JavaDraw6.txt"), append));
-            prout.printf(" **************************************************%n");
-            prout.printf(sys, c, c, c, c);
-            prout.printf("%s%n%n", ver);
-            prout.printf("  Test                              Frames      FPS%n%n");
-            System.out.format("  Test                              Frames      FPS%n%n");
+            prout = new PrintWriter(new FileWriter(new File(fileName), true));
         } catch (Exception e) {
             //Catch exception if any
             System.err.println("%n  Create File Error: %n%n" + e.getMessage());
@@ -84,27 +89,25 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (runTime > 10.0) {
-            prout.printf(" %s %8d %8.2f%n", tests, frames, fps);
-            System.out.format(" %s %8d %8.2f%n", tests, frames, fps);
+            prout.printf("%s:%s:%d:%.2f%n",  vendorPrefix, tests.replace(' ','_'), frames, fps);
+            System.out.format("%35s %8d %8.2f%n", tests, frames, fps);
             startTime = (double) System.currentTimeMillis();
             test = test + 1;
             frames = 0;
             if (test == 6) {
                 testTime = ((double) System.currentTimeMillis() - startTest) / 1000;
-                prout.printf("%n         Total Elapsed Time %5.1f seconds%n", testTime);
-                System.out.format("%n         Total Elapsed Time %5.1f seconds%n", testTime);
-                prout.printf("%n  Operating System    "
+                System.out.format("%nTotal Elapsed Time %5.1f seconds%n", testTime);
+                System.out.format("%nOperating System    "
                         + System.getProperty("os.name") + ", Arch. "
                         + System.getProperty("os.arch") + ", Version "
                         + System.getProperty("os.version") + "%n");
-                prout.printf("  Java Vendor         "
-                        + System.getProperty("java.vendor") + ", Version "
-                        + " " + System.getProperty("java.version") + "%n");
-                prout.printf("  " + System.getenv("PROCESSOR_IDENTIFIER")
+                System.out.format("Java Vendor         "
+                        + vendor + ", Version "
+                        + " " + version + "%n");
+                System.out.format(System.getenv("PROCESSOR_IDENTIFIER")
                         + ", " + System.getenv("NUMBER_OF_PROCESSORS")
                         + " CPUs%n%n");
                 prout.close();
-                System.out.format("%n          Results in file JavaDraw6.txt%n%n");
                 System.exit(0);
             }
         }
@@ -142,7 +145,7 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
                 g.fillOval(WIDTH / 2 + r1, HEIGHT / 2 - r2, c2, c2);
                 g.fillOval(WIDTH / 2 - r1, HEIGHT / 2 + r2, c2, c2);
             }
-            if (test == 3) tests = " Plus 200 Random Small Circles  ";
+            if (test == 3) tests = "Plus 200 Random Small Circles";
         }
 
         if (test > 4) {
@@ -156,14 +159,14 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
                 g.fillOval(WIDTH / 2 + r12, HEIGHT / 2 - r22, c22, c22);
                 g.fillOval(WIDTH / 2 - r12, HEIGHT / 2 + r22, c22, c22);
             }
-            if (test == 5) tests = " Plus 4000 Random Small Circles ";
+            if (test == 5) tests = "Plus 4000 Random Small Circles";
         }
 
 
         if (test > 3) {
             for (i = 0; i < 80; i++) {
-                fh = (Float) (HEIGHT / 80 * (float) i);
-                fw = (Float) (WIDTH / 80 * (float) i);
+                fh = HEIGHT / 80 * (float) i;
+                fw = WIDTH / 80 * (float) i;
                 g.setColor(new Color(grn, 0, 0));
                 g.drawLine(0, HEIGHT / 2, WIDTH, (int) fh);
                 g.drawLine(WIDTH / 2, 0, (int) fw, HEIGHT);
@@ -171,7 +174,7 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
                 g.drawLine(WIDTH, HEIGHT / 2, 0, (int) fh);
                 g.drawLine(WIDTH / 2, HEIGHT, (int) fw, 0);
             }
-            if (test == 4) tests = " Plus 320 Long Lines            ";
+            if (test == 4) tests = "Plus 320 Long Lines";
         }
 
         int c1 = HEIGHT / 3;
@@ -185,7 +188,7 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
             if (circ > c1 * 3) ud2 = -1.0f;
             if (circ < c1) ud2 = 1.0f;
             cir2 = circ - 120;
-            if (test == 2) tests = " Plus 2 SweepGradient Circles   ";
+            if (test == 2) tests = "Plus 2 SweepGradient Circles";
         }
 
         if (test > -1) {
@@ -195,8 +198,8 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
             g2e.rotate(mv, image1.getWidth(this) / 2, image1.getHeight(this) / 2);
             g2e.drawImage(image1, 0, 0, this);
             g.drawImage(rotatedImg, WIDTH - wj * 5 / 4 - pos / 5, 50, wj, hj, null);
-            if (test == 0) tests = " Display PNG Bitmap Twice Pass 1";
-            if (test == 1) tests = " Display PNG Bitmap Twice Pass 2";
+            if (test == 0) tests = "Display PNG Bitmap Twice Pass 1";
+            if (test == 1) tests = "Display PNG Bitmap Twice Pass 2";
         }
 
         fpos = fpos + updown * inc;
@@ -220,14 +223,82 @@ public class JavaDrawPC6 extends JPanel implements ActionListener {
         }
     }
 
+    private static <V> void add(Map<String, Map <String, V>> map, String key, String innerKey, V value) {
+        Map <String, V> innerMap;
+        if (!map.containsKey(key)) {
+            innerMap = new HashMap <String, V> (12);
+            map.put(key, innerMap);
+        } else {
+            innerMap = map.get(key);
+        }
+        innerMap.put(innerKey, value);
+    }
+
+    private static void readValues() throws IOException {
+        BufferedReader in;
+        in = new BufferedReader(new FileReader(fileName));
+        while (true) {
+            String rsline = in.readLine();
+            if (rsline == null) {
+                break;
+            }
+            rsline = rsline.trim();
+            String[] columns = rsline.split(":");
+            String key = columns[0];
+            JavaDrawPC.<Integer>add(framesMap, columns[0], columns[1], Integer.valueOf(columns[2]));
+            JavaDrawPC.<Float>add(fpsMap, columns[0], columns[1], Float.valueOf(columns[3]));
+        }
+    }
+
+    private static int compareResults() {
+        int retValue = 0;
+
+        try {
+            readValues();
+        } catch (IOException e) {
+            System.out.println(e);
+            return -1;
+        }
+
+        Map<String, Float> originFPS = fpsMap.get(originVendor);
+        for (String test : originFPS.keySet()) {
+            boolean failedCase = false;
+            System.out.println("##teamcity[buildStatisticValue key='" + originVendor + "." + test
+                    + "' value='" + decimalFormat.format(originFPS.get(test)) + "']");
+            System.out.format("%45s = %5.2f%n", originVendor + "." + test, originFPS.get(test));
+            for (String customVendor : fpsMap.keySet()) {
+                if (customVendor.equals(originVendor)) continue;
+
+                Map<String, Float> customFPS = fpsMap.get(customVendor);
+                System.out.println("##teamcity[buildStatisticValue key='" + customVendor + "." + test
+                        + "' value='" + decimalFormat.format(customFPS.get(test)) + "']");
+
+                System.out.format("%45s = %5.2f", customVendor + "." + test, customFPS.get(test));
+                if (customFPS.get(test) + originFPS.get(test) * 0.1 < originFPS.get(test)) {
+                    retValue = -1;
+                    failedCase = true;
+                }
+                System.out.println(failedCase ? "\n*** the value significantly less" : "");
+            }
+            System.out.println();
+        }
+        return retValue;
+    }
+
     public static void main(String[] args) {
-        JFrame f = new JFrame(" JavaDrawPC6");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JavaDrawPC6 m = new JavaDrawPC6();
-        f.add(m);
-        f.setSize(WIDTH, HEIGHT);
-        f.setVisible(true);
-        m.timer.start();
+        java.util.List<String> argValues = Arrays.<String>asList(args);
+
+        if (argValues.contains("-compare")) {
+            System.exit(compareResults());
+
+        } else if (argValues.contains("-run")) {
+            JFrame f = new JFrame(" JavaDrawPC");
+            f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            JavaDrawPC m = new JavaDrawPC();
+            f.add(m);
+            f.setSize(WIDTH, HEIGHT);
+            f.setVisible(true);
+            m.timer.start();
+        }
     }
 }
-  
