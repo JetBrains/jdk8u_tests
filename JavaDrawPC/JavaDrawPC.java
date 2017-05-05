@@ -70,6 +70,8 @@ public class JavaDrawPC extends JPanel implements ActionListener {
     private static Map<String, Map<String, Integer>> framesMap = new HashMap<String, Map<String, Integer>>(2);
     private static Map<String, Map<String, Float>> fpsMap = new HashMap<String, Map<String, Float>>(2);
 
+    private static String renderingType;
+
     private JavaDrawPC() {
         image = Toolkit.getDefaultToolkit().getImage("bground.png");
         image1 = Toolkit.getDefaultToolkit().getImage("bground1.png");
@@ -89,7 +91,8 @@ public class JavaDrawPC extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (runTime > 10.0) {
-            prout.printf("%s:%s:%d:%.2f%n",  vendorPrefix, tests.replace(' ','_'), frames, fps);
+            prout.printf("%s:%s:%d:%.2f%n",  vendorPrefix + "_" + renderingType, tests.replace(' ','_'),
+                    frames, fps);
             System.out.format("%35s %8d %8.2f%n", tests, frames, fps);
             startTime = (double) System.currentTimeMillis();
             test = test + 1;
@@ -286,6 +289,13 @@ public class JavaDrawPC extends JPanel implements ActionListener {
     }
 
     public static void main(String[] args) {
+
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equals("-renderingType")) {
+                renderingType = args[++i];
+                renderingType = renderingType.substring(0, 1).toUpperCase() + renderingType.substring(1);;
+            }
+        }
         java.util.List<String> argValues = Arrays.<String>asList(args);
 
         if (argValues.contains("-compare")) {
