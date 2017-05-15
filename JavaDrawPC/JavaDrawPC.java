@@ -91,7 +91,7 @@ public class JavaDrawPC extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (runTime > 10.0) {
-            prout.printf("%s:%s:%d:%.2f%n",  vendorPrefix + "_" + renderingType, tests.replace(' ','_'),
+            prout.printf("%s:%s:%d:%.2f%n",  vendorPrefix + (renderingType!=null ? "_" + renderingType: ""), tests.replace(' ','_'),
                     frames, fps);
             System.out.format("%35s %8d %8.2f%n", tests, frames, fps);
             startTime = (double) System.currentTimeMillis();
@@ -264,6 +264,11 @@ public class JavaDrawPC extends JPanel implements ActionListener {
         }
 
         Map<String, Float> originFPS = fpsMap.get(originVendor);
+        if (originFPS == null) {
+            System.out.println("***ERR*** There are no reference results");
+            return -1;
+        }
+
         for (String test : originFPS.keySet()) {
             boolean failedCase = false;
             System.out.println("##teamcity[buildStatisticValue key='" + originVendor + "." + test
