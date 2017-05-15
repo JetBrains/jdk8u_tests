@@ -184,8 +184,13 @@ public class PackageTest extends junit.framework.TestCase {
         assertSame("Package getPackage failed for java.lang", Package
                 .getPackage("java.lang"), Package.getPackage("java.lang"));
 
-        assertSame("Package getPackage failed for java.lang", Package
-                .getPackage("java.lang"), Object.class.getPackage());
+        this.getClass().getClassLoader();
+        Package p1 = Package.getPackage("java.lang"),
+                p2 = Object.class.getPackage();
+        System.out.println("\tp1.getClass().getClassLoader()=" + p1.getClass().getClassLoader());
+        System.out.println("\tp2.getClass().getClassLoader()=" + p2.getClass().getClassLoader());
+        assertEquals("Package getPackage failed for java.lang", p1, p2);
+        assertSame("Package getPackage failed for java.lang", p1, p2);
     }
 
     /**
