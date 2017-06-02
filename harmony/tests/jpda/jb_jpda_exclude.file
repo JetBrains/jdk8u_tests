@@ -1,0 +1,5 @@
+org/apache/harmony/jpda/tests/jdwp/ObjectReference/GetValues002Test*.java
+org/apache/harmony/jpda/tests/jdwp/ObjectReference/SetValuesTest*.java
+org/apache/harmony/jpda/tests/jdwp/ClassType/InvokeMethodTest*.java
+org/apache/harmony/jpda/tests/jdwp/ClassType/NewInstanceTest*.java
+org/apache/harmony/jpda/tests/jdwp/ReferenceType/GetValues002Test*.java
