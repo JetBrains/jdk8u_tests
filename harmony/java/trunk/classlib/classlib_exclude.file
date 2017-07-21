@@ -6,3 +6,14 @@
 
 # No printers found
 **/javax/print/**/*.java
+
+# VM crash on Mac OSX (reproduced with Oracle's java)
+**/org/apache/harmony/tests/java/awt/RobotTest.java
+**/org/apache/harmony/logging/tests/java/util/logging/LogManagerTest.java
+**/org/apache/harmony/logging/tests/java/util/logging/LoggerTest.java
+**/org/apache/harmony/luni/tests/java/net/InetAddressTest.java
+**/org/apache/harmony/luni/tests/java/net/MulticastSocketTest.java
+**/org/apache/harmony/luni/tests/java/net/NetworkInterfaceTest.java
+**/org/apache/harmony/luni/tests/java/util/ResourceBundleTest.java
+**/org/apache/harmony/rmi/RegistryTest.java
+**/org/apache/harmony/security/tests/java/security/AccessController2Test.java
