@@ -27,6 +27,7 @@ import java.lang.management.MemoryUsage;
 import java.util.List;
 
 import junit.framework.TestCase;
+import org.junit.Ignore;
 
 public class MemoryPoolMXBeanTest extends TestCase {
 
@@ -260,6 +261,7 @@ public class MemoryPoolMXBeanTest extends TestCase {
     /*
      * Test method for 'java.lang.management.MemoryPoolMXBean.resetPeakUsage()'
      */
+    @Ignore
     public void testResetPeakUsage() {
         for (MemoryPoolMXBean mb : allBeans) {
             MemoryUsage current = mb.getUsage();
