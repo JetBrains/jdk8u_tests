@@ -111,3 +111,43 @@ vm/jvmti/funcs/IsMethodSynthetic/IsMethodSynthetic0103/IsMethodSynthetic0103.xml
 vm/jvms/instructions/invokeReturn/invokedynamic/invokedynamic01/invokedynamic0101/invokedynamic0101.xml 
 
 
+# The test failing by SIGSEGV in oopDesc::is_a()
+# https://bugs.openjdk.java.net/browse/JDK-6982741
+vm/jvmti/funcs/PopFrame/PopFrame0102/PopFrame0102.xml.xml
+vm/jvmti/funcs/SuspendThread/SuspendThread0101/SuspendThread0101.xml
+vm/jvmti/funcs/SuspendThread/SuspendThread0103/SuspendThread0103.xml
+vm/jvms/classFile/attributes/annotation/annotationDefault/methodinfo01/methodinfo01.xml
+vm/jvms/classFile/attributes/annotation/runtimeVisibleAnnotations/classinfo01/classinfo01.xml
+vm/jvms/classFile/fields/accessFlags/accessFlags11/accessFlags11.xml
+vm/jvms/classFile/methods/accessFlags/accessFlags32/accessFlags32.xml
+vm/jvms/classFile/methods/accessFlags/accessFlags39/accessFlags39.xml
+vm/jvms/instructions/invokeReturn/return/return02/return0201/return0201.xml
+vm/jvms/instructions/reftypes/baload/baload04/baload0401/baload0401.xml
+vm/jvms/instructions/reftypes/bastore/bastore04/bastore0401/bastore0401.xml
+vm/jvmti/funcs/GetCurrentContendedMonitor/GetCurrentContendedMonitor0103/GetCurrentContendedMonitor0103.xml
+vm/jvmti/funcs/GetErrorName/GetErrorName0101/GetErrorName0101.xml
+vm/jvmti/funcs/GetFrameCount/GetFrameCount0102/GetFrameCount0102.xml
+vm/jvmti/funcs/GetFrameLocation/GetFrameLocation0102/GetFrameLocation0102.xml
+vm/jvmti/funcs/GetLocalDouble/GetLocalDouble0106/GetLocalDouble0106.xml
+vm/jvmti/funcs/GetLocalFloat/GetLocalFloat0106/GetLocalFloat0106.xml
+vm/jvmti/funcs/GetLocalInt/GetLocalInt0106/GetLocalInt0106.xml
+vm/jvmti/funcs/GetLocalLong/GetLocalLong0106/GetLocalLong0106.xml
+vm/jvmti/funcs/GetOwnedMonitorInfo/GetOwnedMonitorInfo0103/GetOwnedMonitorInfo0103.xml
+vm/jvmti/funcs/GetStackTrace/GetStackTrace0103/GetStackTrace0103.xml
+vm/jvmti/funcs/GetThreadCPUTime/GetThreadCPUTime0103/GetThreadCPUTime0103.xml
+vm/jvmti/funcs/GetThreadLocalStorage/GetThreadLocalStorage0102/GetThreadLocalStorage0102.xml
+vm/jvmti/funcs/GetThreadState/GetThreadState0103/GetThreadState0103.xml
+vm/jvmti/funcs/IterateInstances/IterateInstances0103/IterateInstances0103.xml
+vm/jvmti/funcs/NotifyFramePop/NotifyFramePop0105/NotifyFramePop0105.xml
+vm/jvmti/funcs/PopFrame/PopFrame0104/PopFrame0104.xml
+vm/jvmti/funcs/PopFrame/PopFrame0106/PopFrame0106.xml
+vm/jvmti/funcs/PopFrame/PopFrame0107/PopFrame0107.xml
+vm/jvmti/funcs/ResumeThread/ResumeThread0105/ResumeThread0105.xml
+vm/jvmti/funcs/SetLocalDouble/SetLocalDouble0106/SetLocalDouble0106.xml
+vm/jvmti/funcs/SetLocalFloat/SetLocalFloat0106/SetLocalFloat0106.xml
+vm/jvmti/funcs/SetLocalInt/SetLocalInt0106/SetLocalInt0106.xml
+vm/jvmti/funcs/SetLocalLong/SetLocalLong0106/SetLocalLong0106.xml
+vm/jvmti/funcs/SetLocalObject/SetLocalObject0106/SetLocalObject0106.xml
+vm/jvmti/funcs/SetThreadLocalStorage/SetThreadLocalStorage0102/SetThreadLocalStorage0102.xml
+vm/jvmti/funcs/StopThread/StopThread0103/StopThread0103.xml
+vm/jvmti/funcs/SuspendThread/SuspendThread0104/SuspendThread0104.xml
