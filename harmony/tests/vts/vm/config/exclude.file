@@ -132,6 +132,7 @@ vm/jvmti/funcs/GetLocalDouble/GetLocalDouble0106/GetLocalDouble0106.xml
 vm/jvmti/funcs/GetLocalFloat/GetLocalFloat0106/GetLocalFloat0106.xml
 vm/jvmti/funcs/GetLocalInt/GetLocalInt0106/GetLocalInt0106.xml
 vm/jvmti/funcs/GetLocalLong/GetLocalLong0106/GetLocalLong0106.xml
+vm/jvmti/funcs/GetLocalObject/GetLocalObject0106/GetLocalObject0106.xml
 vm/jvmti/funcs/GetOwnedMonitorInfo/GetOwnedMonitorInfo0103/GetOwnedMonitorInfo0103.xml
 vm/jvmti/funcs/GetStackTrace/GetStackTrace0103/GetStackTrace0103.xml
 vm/jvmti/funcs/GetThreadCPUTime/GetThreadCPUTime0103/GetThreadCPUTime0103.xml
