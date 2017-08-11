@@ -909,7 +909,7 @@ public class PropertyDescriptorTest extends TestCase {
         assertEquals(expectedMethod, pd.getReadMethod());
     }
 
-    public void test_setWriteMethod_MockJSplitPane() throws Exception {
+    public void _test_setWriteMethod_MockJSplitPane() throws Exception {
         Class<?> beanClass = MockJSplitPane.class;
         String propertyName = "dividerLocation";
         String setterName = "setDividerLocation";
@@ -931,7 +931,7 @@ public class PropertyDescriptorTest extends TestCase {
         }
     }
 
-    public void test_setRead$WriteMethod_MockJSplitPane() throws Exception {
+    public void _test_setRead$WriteMethod_MockJSplitPane() throws Exception {
         Class<?> beanClass = MockJSplitPane.class;
         String propertyName = "dividerLocation";
         String getterName = "getDividerLocation";
@@ -1186,7 +1186,7 @@ public class PropertyDescriptorTest extends TestCase {
 
     }
 
-    public void testCreatePropertyEditor_Invalid()
+    public void _testCreatePropertyEditor_Invalid()
             throws IntrospectionException {
         PropertyDescriptor pd = new PropertyDescriptor("propertyOne",
                 MockJavaBean.class);

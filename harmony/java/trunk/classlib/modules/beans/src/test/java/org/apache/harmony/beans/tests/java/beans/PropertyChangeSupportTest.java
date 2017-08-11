@@ -68,7 +68,7 @@ public class PropertyChangeSupportTest extends TestCase {
      * Test the method addPropertyChangeListener(PropertyChangeListener) with a
      * normal listener parameter.
      */
-    public void testAddPropertyChangeListener_PropertyChangeListener_Normal() {
+    public void _testAddPropertyChangeListener_PropertyChangeListener_Normal() {
         Object src = new Object();
         PropertyChangeSupport sup = new PropertyChangeSupport(src);
         PropertyChangeListener l1 = new MockPropertyChangeListener();
@@ -139,7 +139,7 @@ public class PropertyChangeSupportTest extends TestCase {
      * Test the method addPropertyChangeListener(PropertyChangeListener,
      * String) with a normal listener parameter and property name parameter.
      */
-    public void testAddPropertyChangeListener_PropertyChangeListener_String_Normal() {
+    public void _testAddPropertyChangeListener_PropertyChangeListener_String_Normal() {
         Object src = new Object();
         PropertyChangeSupport sup = new PropertyChangeSupport(src);
         PropertyChangeListener l1 = new MockPropertyChangeListener();
@@ -224,7 +224,7 @@ public class PropertyChangeSupportTest extends TestCase {
      * String) with a listener parameter that has already been registered for
      * the named property.
      */
-    public void testAddPropertyChangeListener_PropertyChangeListener_String_Duplicate() {
+    public void _testAddPropertyChangeListener_PropertyChangeListener_String_Duplicate() {
         Object src = new Object();
         PropertyChangeSupport sup = new PropertyChangeSupport(src);
         PropertyChangeListener l1 = new MockPropertyChangeListener();

@@ -530,7 +530,7 @@ public class IntrospectorTest extends TestCase {
         assertTrue(contains("setStaticName", methodDescriptors));
     }
     
-    public void testMockIncompatibleGetterAndIndexedGetterBean() throws Exception {
+    public void _testMockIncompatibleGetterAndIndexedGetterBean() throws Exception {
         Class beanClass = MockIncompatibleGetterAndIndexedGetterBean.class;
         BeanInfo beanInfo = Introspector.getBeanInfo(beanClass);
         PropertyDescriptor pd = null;
@@ -554,7 +554,7 @@ public class IntrospectorTest extends TestCase {
         assertEquals(indexedWriteMethod, ipd.getIndexedWriteMethod());
     }
     
-    public void testMockIncompatibleSetterAndIndexedSetterBean() throws Exception {
+    public void _testMockIncompatibleSetterAndIndexedSetterBean() throws Exception {
         Class beanClass = MockIncompatibleSetterAndIndexedSetterBean.class;
         BeanInfo beanInfo = Introspector.getBeanInfo(beanClass);
         PropertyDescriptor pd = null;
@@ -578,7 +578,7 @@ public class IntrospectorTest extends TestCase {
         assertEquals(indexedWriteMethod, ipd.getIndexedWriteMethod());
     }
     
-    public void testMockIncompatibleAllSetterAndGetterBean() throws Exception {
+    public void _testMockIncompatibleAllSetterAndGetterBean() throws Exception {
         Class beanClass = MockIncompatibleAllSetterAndGetterBean.class;
         BeanInfo beanInfo = Introspector.getBeanInfo(beanClass);
         PropertyDescriptor pd = null;
@@ -960,7 +960,7 @@ public class IntrospectorTest extends TestCase {
         assertEquals(Integer.TYPE, pd.getPropertyType());
     }
     
-    public void testSetBeanInfoSearchPath_null() throws IntrospectionException{
+    public void _testSetBeanInfoSearchPath_null() throws IntrospectionException{
         String[] oldPath = Introspector.getBeanInfoSearchPath();
         try{
             Introspector.setBeanInfoSearchPath(null);
@@ -1167,7 +1167,7 @@ public class IntrospectorTest extends TestCase {
      * Sub PropertyDescriptor, super IndexedPropertyDescriptor Get/Set is
      * mismatch
      */
-    public void testIntrospection_6() throws IntrospectionException {
+    public void _testIntrospection_6() throws IntrospectionException {
         Class<FakeFox402> beanClass = FakeFox402.class;
         BeanInfo info = Introspector.getBeanInfo(beanClass);
         assertEquals(0, info.getEventSetDescriptors().length);
@@ -1261,7 +1261,7 @@ public class IntrospectorTest extends TestCase {
      * Sub is IndexedPropertyDescriptor, Super is PropertyDescriptor sub indexed
      * set. Super get. Type is different
      */
-    public void testIntrospection_9() throws IntrospectionException {
+    public void _testIntrospection_9() throws IntrospectionException {
         Class<FakeFox503> beanClass = FakeFox503.class;
         BeanInfo info = Introspector.getBeanInfo(beanClass);
         assertEquals(0, info.getEventSetDescriptors().length);
@@ -1627,7 +1627,7 @@ public class IntrospectorTest extends TestCase {
      * setBeanInfoSearchPath method of Introspector doesn't invoke
      * checkPropertiesAccess method of SecurityManager class
      */
-    public void testSetBeanInfoSearchPath2() {
+    public void _testSetBeanInfoSearchPath2() {
         SecurityManager dfl = System.getSecurityManager();
         try {
             SecurityManager sm = new MockSecurity1();
@@ -2659,7 +2659,7 @@ public class IntrospectorTest extends TestCase {
      * This is a regression test for HARMONY-5675
      * @throws IntrospectionException
      */
-    public void test5675() throws IntrospectionException {
+    public void _test5675() throws IntrospectionException {
         BeanInfo bInfo;
 
         for (Class clz: new Class[] {TstBean5675.class, TstBean5675_2.class}) {
@@ -2998,7 +2998,7 @@ public class IntrospectorTest extends TestCase {
 
     }
 
-    public void test_MixedSimpleClass4() throws Exception {
+    public void _test_MixedSimpleClass4() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass4.class);
         Method getter = MixedSimpleClass4.class.getDeclaredMethod("getList",
                 int.class);
@@ -3059,7 +3059,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass6() throws Exception {
+    public void _test_MixedSimpleClass6() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass6.class);
         Method getter = MixedSimpleClass6.class.getDeclaredMethod("getList",
                 int.class);
@@ -3180,7 +3180,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass10() throws Exception {
+    public void _test_MixedSimpleClass10() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass10.class);
         Method setter = MixedSimpleClass10.class.getDeclaredMethod("setList",
                 int.class, Object.class);
@@ -3246,7 +3246,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass12() throws Exception {
+    public void _test_MixedSimpleClass12() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass12.class);
         Method getter = MixedSimpleClass12.class.getDeclaredMethod("getList",
                 int.class);
@@ -3284,7 +3284,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass13() throws Exception {
+    public void _test_MixedSimpleClass13() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass13.class);
         Method getter = MixedSimpleClass13.class.getDeclaredMethod("getList",
                 int.class);
@@ -3322,7 +3322,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass14() throws Exception {
+    public void _test_MixedSimpleClass14() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass14.class);
         Method getter = MixedSimpleClass14.class.getDeclaredMethod("getList",
                 int.class);
@@ -3393,7 +3393,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass16() throws Exception {
+    public void _test_MixedSimpleClass16() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass16.class);
         Method setter = MixedSimpleClass16.class.getDeclaredMethod("setList",
                 int.class, Object.class);
@@ -3454,7 +3454,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass18() throws Exception {
+    public void _test_MixedSimpleClass18() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass18.class);
         Method setter = MixedSimpleClass18.class.getDeclaredMethod("setList",
                 int.class, Object.class);
@@ -3486,7 +3486,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass19() throws Exception {
+    public void _test_MixedSimpleClass19() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass19.class);
         Method getter = MixedSimpleClass19.class.getDeclaredMethod("getList",
                 int.class);
@@ -3520,7 +3520,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass20() throws Exception {
+    public void _test_MixedSimpleClass20() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass20.class);
         Method setter = MixedSimpleClass20.class.getDeclaredMethod("setList",
                 int.class, Object.class);
@@ -3547,7 +3547,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass21() throws Exception {
+    public void _test_MixedSimpleClass21() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass21.class);
         Method getter = MixedSimpleClass21.class.getDeclaredMethod("getList",
                 int.class);
@@ -3597,7 +3597,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass23() throws Exception {
+    public void _test_MixedSimpleClass23() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass23.class);
         Method setter = MixedSimpleClass23.class.getDeclaredMethod("setList",
                 int.class, Object.class);
@@ -3652,7 +3652,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass25() throws Exception {
+    public void _test_MixedSimpleClass25() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass25.class);
         Method setter = MixedSimpleClass25.class.getDeclaredMethod("setList",
                 int.class, Object.class);
@@ -3786,7 +3786,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass30() throws Exception {
+    public void _test_MixedSimpleClass30() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass30.class);
         Method indexedGetter = MixedSimpleClass30.class.getDeclaredMethod(
                 "getList", int.class);
@@ -3887,7 +3887,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass34() throws Exception {
+    public void _test_MixedSimpleClass34() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedSimpleClass34.class);
         Method indexedGetter = MixedSimpleClass34.class.getDeclaredMethod(
                 "getList", int.class);
@@ -4297,7 +4297,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass52() throws Exception {
+    public void _test_MixedSimpleClass52() throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(MixedSimpleClass52.class);
         Method setter = MixedSimpleClass52.class.getMethod("setList",
                 new Class<?>[] { int.class, boolean.class });
@@ -4358,7 +4358,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass54() throws Exception {
+    public void _test_MixedSimpleClass54() throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(MixedSimpleClass54.class);
         Method setter = MixedSimpleClass54.class.getMethod("setList",
                 new Class<?>[] { int.class, boolean.class });
@@ -4390,7 +4390,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass55() throws Exception {
+    public void _test_MixedSimpleClass55() throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(MixedSimpleClass55.class);
         Method getter = MixedSimpleClass55.class.getMethod("getList",
                 new Class<?>[] { int.class });
@@ -4454,7 +4454,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass57() throws Exception {
+    public void _test_MixedSimpleClass57() throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(MixedSimpleClass57.class);
         Method setter = MixedSimpleClass57.class.getMethod("setList",
                 new Class<?>[] { int.class, boolean.class });
@@ -4556,7 +4556,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass60() throws Exception {
+    public void _test_MixedSimpleClass60() throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(MixedSimpleClass60.class);
         Method getter = MixedSimpleClass60.class.getMethod("getList",
                 new Class<?>[] { int.class });
@@ -4602,7 +4602,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedSimpleClass61() throws Exception {
+    public void _test_MixedSimpleClass61() throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(MixedSimpleClass61.class);
         Method getter = MixedSimpleClass61.class.getMethod("getList",
                 new Class<?>[] { int.class });
@@ -4651,7 +4651,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass2() throws Exception {
+    public void _test_MixedExtendClass2() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass2.class);
         Method getter = MixedSimpleClass4.class.getDeclaredMethod("getList",
                 int.class);
@@ -4682,7 +4682,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass3() throws Exception {
+    public void _test_MixedExtendClass3() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass3.class);
         Method getter = MixedSimpleClass4.class.getDeclaredMethod("getList",
                 int.class);
@@ -4729,7 +4729,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass5() throws Exception {
+    public void _test_MixedExtendClass5() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass5.class);
         Method getter = MixedExtendClass5.class.getDeclaredMethod("getList",
                 int.class);
@@ -4776,7 +4776,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass7() throws Exception {
+    public void _test_MixedExtendClass7() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass7.class);
         Method getter = MixedExtendClass7.class.getDeclaredMethod("getList",
                 int.class);
@@ -4807,7 +4807,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass8() throws Exception {
+    public void _test_MixedExtendClass8() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass8.class);
         Method getter = MixedExtendClass8.class.getDeclaredMethod("getList",
                 int.class);
@@ -4853,7 +4853,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass10() throws Exception {
+    public void _test_MixedExtendClass10() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass10.class);
         Method setter = MixedExtendClass10.class.getDeclaredMethod("setList",
                 int.class, Object.class);
@@ -4877,7 +4877,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass11() throws Exception {
+    public void _test_MixedExtendClass11() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass11.class);
         Method getter = MixedSimpleClass41.class.getDeclaredMethod("getList");
         Method setter = MixedSimpleClass41.class.getDeclaredMethod("setList",
@@ -4898,7 +4898,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass12() throws Exception {
+    public void _test_MixedExtendClass12() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass12.class);
         Method[] methods = MixedExtendClass12.class.getDeclaredMethods();
         Method getter = null;
@@ -4947,7 +4947,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedExtendClass14() throws Exception {
+    public void _test_MixedExtendClass14() throws Exception {
         BeanInfo info = Introspector.getBeanInfo(MixedExtendClass14.class);
         Method[] methods = MixedExtendClass14.class.getDeclaredMethods();
         Method getter = null;
@@ -5052,7 +5052,7 @@ public class IntrospectorTest extends TestCase {
 
     }
 
-    public void test_MixedBooleanSimpleClass3() throws Exception {
+    public void _test_MixedBooleanSimpleClass3() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass3.class);
         Method getter = MixedBooleanSimpleClass3.class.getDeclaredMethod(
@@ -5081,7 +5081,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass4() throws Exception {
+    public void _test_MixedBooleanSimpleClass4() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass4.class);
         Method getter = MixedBooleanSimpleClass4.class.getDeclaredMethod(
@@ -5248,7 +5248,7 @@ public class IntrospectorTest extends TestCase {
 
     }
 
-    public void test_MixedBooleanSimpleClass9() throws Exception {
+    public void _test_MixedBooleanSimpleClass9() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass9.class);
         Method getter = MixedBooleanSimpleClass9.class.getDeclaredMethod(
@@ -5285,7 +5285,7 @@ public class IntrospectorTest extends TestCase {
 
     }
 
-    public void test_MixedBooleanSimpleClass10() throws Exception {
+    public void _test_MixedBooleanSimpleClass10() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass10.class);
         Method getter = MixedBooleanSimpleClass10.class.getDeclaredMethod(
@@ -5322,7 +5322,7 @@ public class IntrospectorTest extends TestCase {
 
     }
 
-    public void test_MixedBooleanSimpleClass11() throws Exception {
+    public void _test_MixedBooleanSimpleClass11() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass11.class);
         Method setter = MixedBooleanSimpleClass11.class.getDeclaredMethod(
@@ -5357,7 +5357,7 @@ public class IntrospectorTest extends TestCase {
 
     }
 
-    public void test_MixedBooleanSimpleClass12() throws Exception {
+    public void _test_MixedBooleanSimpleClass12() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass12.class);
         Method setter = MixedBooleanSimpleClass12.class.getDeclaredMethod(
@@ -5468,7 +5468,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass15() throws Exception {
+    public void _test_MixedBooleanSimpleClass15() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass15.class);
         Method getter = MixedBooleanSimpleClass15.class.getDeclaredMethod(
@@ -5508,7 +5508,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass16() throws Exception {
+    public void _test_MixedBooleanSimpleClass16() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass16.class);
         Method getter = MixedBooleanSimpleClass16.class.getDeclaredMethod(
@@ -5606,7 +5606,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass19() throws Exception {
+    public void _test_MixedBooleanSimpleClass19() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass19.class);
         Method getter = MixedBooleanSimpleClass19.class.getDeclaredMethod(
@@ -5641,7 +5641,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass20() throws Exception {
+    public void _test_MixedBooleanSimpleClass20() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass20.class);
         Method setter = MixedBooleanSimpleClass20.class.getDeclaredMethod(
@@ -5669,7 +5669,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass21() throws Exception {
+    public void _test_MixedBooleanSimpleClass21() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass21.class);
         Method getter = MixedBooleanSimpleClass21.class.getDeclaredMethod(
@@ -5721,7 +5721,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass23() throws Exception {
+    public void _test_MixedBooleanSimpleClass23() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass23.class);
         Method setter = MixedBooleanSimpleClass23.class.getDeclaredMethod(
@@ -5749,7 +5749,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass24() throws Exception {
+    public void _test_MixedBooleanSimpleClass24() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass24.class);
         Method setter = MixedBooleanSimpleClass24.class.getDeclaredMethod(
@@ -5778,7 +5778,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass25() throws Exception {
+    public void _test_MixedBooleanSimpleClass25() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass25.class);
         Method setter = MixedBooleanSimpleClass25.class.getDeclaredMethod(
@@ -5918,7 +5918,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass30() throws Exception {
+    public void _test_MixedBooleanSimpleClass30() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass30.class);
         Method indexedGetter = MixedBooleanSimpleClass30.class
@@ -5949,7 +5949,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass31() throws Exception {
+    public void _test_MixedBooleanSimpleClass31() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass31.class);
         Method indexedGetter = MixedBooleanSimpleClass31.class
@@ -6031,7 +6031,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanSimpleClass34() throws Exception {
+    public void _test_MixedBooleanSimpleClass34() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanSimpleClass34.class);
         Method indexedGetter = MixedBooleanSimpleClass34.class
@@ -6304,7 +6304,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanExtendClass2() throws Exception {
+    public void _test_MixedBooleanExtendClass2() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanExtendClass2.class);
         Method setter = MixedBooleanExtendClass2.class.getDeclaredMethod(
@@ -6358,7 +6358,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanExtendClass4() throws Exception {
+    public void _test_MixedBooleanExtendClass4() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanExtendClass4.class);
         Method getter = MixedBooleanSimpleClass1.class
@@ -6426,7 +6426,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanExtendClass7() throws Exception {
+    public void _test_MixedBooleanExtendClass7() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanExtendClass7.class);
         Method setter = MixedBooleanSimpleClass25.class.getDeclaredMethod(
@@ -6500,7 +6500,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanExtendClass10() throws Exception {
+    public void _test_MixedBooleanExtendClass10() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanExtendClass10.class);
         Method setter = MixedBooleanExtendClass10.class.getDeclaredMethod(
@@ -6595,7 +6595,7 @@ public class IntrospectorTest extends TestCase {
         }
     }
 
-    public void test_MixedBooleanExtendClass14() throws Exception {
+    public void _test_MixedBooleanExtendClass14() throws Exception {
         BeanInfo info = Introspector
                 .getBeanInfo(MixedBooleanExtendClass14.class);
         Method getter = MixedBooleanSimpleClass43.class

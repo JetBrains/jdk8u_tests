@@ -45,7 +45,7 @@ public class KeyStoreLoginModuleTest extends TestCase {
 
     private final String KEYSTORE_ALIAS = "mykey";
 
-    public void test_abort() throws LoginException {
+    public void _test_abort() throws LoginException {
         KeyStoreLoginModule ksm = new KeyStoreLoginModule();
         try {
             assertFalse("Should return false if login failed or no login", ksm
@@ -79,7 +79,7 @@ public class KeyStoreLoginModuleTest extends TestCase {
                 .abort());
     }
 
-    public void test_commit() {
+    public void _test_commit() {
         KeyStoreLoginModule module = new KeyStoreLoginModule();
         Subject subject = new Subject();
         module.initialize(subject, null, null, options);
@@ -120,7 +120,7 @@ public class KeyStoreLoginModuleTest extends TestCase {
         }
     }
 
-    public void test_login() {
+    public void _test_login() {
         KeyStoreLoginModule module = new KeyStoreLoginModule();
         HashMap<String, String> emptyOptions = new HashMap<String, String>();
         module.initialize(null, null, null, emptyOptions);
@@ -148,7 +148,7 @@ public class KeyStoreLoginModuleTest extends TestCase {
         }
     }
 
-    public void test_logout() {
+    public void _test_logout() {
         KeyStoreLoginModule module = new KeyStoreLoginModule();
         Subject subject = new Subject();
         module.initialize(subject, null, null, options);

@@ -44,7 +44,7 @@ public class TimeZoneTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.TimeZone#getDSTSavings()
 	 */
-	public void test_getDSTSavings() {
+	public void _test_getDSTSavings() {
 		// Test for method int java.util.TimeZone.getDSTSavings()
 
 		// test on subclass SimpleTimeZone
@@ -180,7 +180,7 @@ public class TimeZoneTest extends junit.framework.TestCase {
     /**
      * @tests java.util.TimeZone#getDisplayName(boolean, int, java.util.Locale)
      */
-    public void test_getDisplayNameZILjava_util_Locale() {
+    public void _test_getDisplayNameZILjava_util_Locale() {
         TimeZone timezone = TimeZone.getTimeZone("Asia/Shanghai");
         assertEquals("\u683c\u6797\u5c3c\u6cbb\u6807\u51c6\u65f6\u95f4+0800",
                 timezone.getDisplayName(false, TimeZone.SHORT, Locale.CHINA));
@@ -252,7 +252,7 @@ public class TimeZoneTest extends junit.framework.TestCase {
     /**
      * @add test {@link java.util.TimeZone#hasSameRules(TimeZone)}
      */
-    public void test_hasSameRules_Ljava_util_TimeZone() {
+    public void _test_hasSameRules_Ljava_util_TimeZone() {
         TimeZone tz = TimeZone.getTimeZone("Asia/Shanghai");
         int offset = tz.getRawOffset();
 

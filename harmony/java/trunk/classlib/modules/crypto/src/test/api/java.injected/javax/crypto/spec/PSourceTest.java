@@ -82,7 +82,7 @@ public class PSourceTest extends TestCase {
      * PSource(String pSrcName) method testing. Tests that returned value is
      * equal to the value specified in the constructor.
      */
-    public void testPSource() {
+    public void _testPSource() {
         try {
             new PSource(null);
             fail("NullPointerException should be thrown in the case of "
@@ -95,7 +95,7 @@ public class PSourceTest extends TestCase {
      * getAlgorithm() method testing. Tests that returned value is
      * equal to the value specified in the constructor.
      */
-    public void testGetAlgorithm() {
+    public void _testGetAlgorithm() {
         String pSrcName = "pSrcName";
         PSource ps = new PSource(pSrcName);
         assertTrue("The returned value is not equal to the value specified "

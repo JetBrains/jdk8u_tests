@@ -60,7 +60,7 @@ public class DelegationPermissionTest extends TestCase {
     /**
      * testing of a incorrect ctor
      */
-    public void testFailCtor() {
+    public void _testFailCtor() {
         try {
             new DelegationPermission(null);
             fail("no expected NPE");
@@ -109,7 +109,7 @@ public class DelegationPermissionTest extends TestCase {
 
     }
 
-    public void testFailCtor_2() {
+    public void _testFailCtor_2() {
         try {
             new DelegationPermission("\"AAA\"");
             fail("target name should be specifies a pair of kerberos service principals");

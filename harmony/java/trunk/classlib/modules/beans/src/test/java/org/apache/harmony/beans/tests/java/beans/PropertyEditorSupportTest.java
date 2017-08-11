@@ -32,7 +32,7 @@ public class PropertyEditorSupportTest extends TestCase {
     /**
      * @tests java.beans.PropertyEditorSupport#PropertyEditorSupport()
      */
-    public void testPropertyEditorSupport() {
+    public void _testPropertyEditorSupport() {
         // Regression for HARMONY-516
         PropertyEditorSupport support = new PropertyEditorSupport();
 
@@ -54,7 +54,7 @@ public class PropertyEditorSupportTest extends TestCase {
      * @tests java.beans.PropertyEditorSupport#PropertyEditorSupport(
      *        java.lang.Object)
      */
-    public void testPropertyEditorSupportObject() {
+    public void _testPropertyEditorSupportObject() {
         MockSource source = new MockSource();
         PropertyEditorSupport support = new PropertyEditorSupport(source);
 
@@ -248,7 +248,7 @@ public class PropertyEditorSupportTest extends TestCase {
 
     }
 
-    public void testSetValue_null() {
+    public void _testSetValue_null() {
         PropertyEditorSupport support = new PropertyEditorSupport();
         support.setValue(null);
 

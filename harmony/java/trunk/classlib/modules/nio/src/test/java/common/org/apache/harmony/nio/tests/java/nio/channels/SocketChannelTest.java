@@ -117,7 +117,7 @@ public class SocketChannelTest extends TestCase {
     /*
      * Test method for 'java.nio.channels.SocketChannel.open(SocketAddress)'
      */
-    public void testOpenSocketAddress_Null() throws IOException {
+    public void _testOpenSocketAddress_Null() throws IOException {
         SocketChannel channel1IP = null;
         try {
             channel1IP = SocketChannel.open(null);
@@ -150,7 +150,7 @@ public class SocketChannelTest extends TestCase {
         assertSame(s1, s2);
     }
 
-    public void testSocket_NonBlock_BasicStatusAfterConnect() throws Exception {
+    public void _testSocket_NonBlock_BasicStatusAfterConnect() throws Exception {
         assertFalse(this.channel1.isConnected());// not connected
         this.channel1.configureBlocking(false);
         boolean connected = channel1.connect(localAddr1);
@@ -177,13 +177,13 @@ public class SocketChannelTest extends TestCase {
         }
     }
 
-    public void testSocket_Block_ActionsBeforeConnect() throws IOException {
+    public void _testSocket_Block_ActionsBeforeConnect() throws IOException {
         assertFalse(this.channel1.isConnected());// not connected
         Socket s = this.channel1.socket();
         assertSocketAction_Block_BeforeConnect(s);
     }
 
-    public void testSocket_Block_ActionsAfterConnect() throws IOException {
+    public void _testSocket_Block_ActionsAfterConnect() throws IOException {
         assertFalse(this.channel1.isConnected());// not connected
         assertTrue(this.channel1.connect(localAddr1));
         assertTrue(this.channel1.isConnected());
@@ -209,7 +209,7 @@ public class SocketChannelTest extends TestCase {
         }
     }
 
-    public void testSocket_NonBlock_ActionsAfterConnectAfterFinish()
+    public void _testSocket_NonBlock_ActionsAfterConnectAfterFinish()
             throws Exception {
         assertFalse(this.channel1.isConnected());// not connected
         this.channel1.configureBlocking(false);
@@ -1130,7 +1130,7 @@ public class SocketChannelTest extends TestCase {
         statusChannelClosed();
     }
 
-    public void testCFII_Null() throws Exception {
+    public void _testCFII_Null() throws Exception {
         statusNotConnected_NotPending();
         try {
             this.channel1.connect(null);
@@ -2601,7 +2601,7 @@ public class SocketChannelTest extends TestCase {
     /**
      * @tests java.nio.channels.SocketChannel#write(ByteBuffer[])
      */
-    public void test_writev2() throws Exception {
+    public void _test_writev2() throws Exception {
         ServerSocketChannel ssc = ServerSocketChannel.open();
         ssc.configureBlocking(false);
         ssc.socket().bind(null);
@@ -2639,7 +2639,7 @@ public class SocketChannelTest extends TestCase {
      * code on Linux/Unix and return WSATRY_AGAIN/WSAEWOULDBLOCK error code on Windows.
      * These error code means try again but not fatal error, so we should not throw exception.
      */
-    public void test_write$NonBlockingException() throws Exception {
+    public void _test_write$NonBlockingException() throws Exception {
         ServerSocketChannel ssc = ServerSocketChannel.open();
         ssc.configureBlocking(false);
         ssc.socket().bind(null);

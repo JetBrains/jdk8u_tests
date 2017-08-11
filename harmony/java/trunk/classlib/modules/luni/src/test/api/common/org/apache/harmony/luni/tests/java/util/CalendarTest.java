@@ -658,7 +658,7 @@ public class CalendarTest extends junit.framework.TestCase {
      * @tests java.util.Calendar#getInstance(Locale)
      * @tests java.util.Calendar#getInstance(TimeZone, Locale)
      */
-    public void test_getInstance() {
+    public void _test_getInstance() {
         // test getInstance(Locale)
         Calendar us_calendar = Calendar.getInstance(Locale.US);
         Calendar ch_calendar = Calendar.getInstance(Locale.CHINESE);

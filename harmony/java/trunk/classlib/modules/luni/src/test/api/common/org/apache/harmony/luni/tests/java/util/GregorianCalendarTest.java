@@ -409,7 +409,7 @@ public class GregorianCalendarTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.GregorianCalendar#getLeastMaximum(int)
 	 */
-	public void test_getLeastMaximumI() {
+	public void _test_getLeastMaximumI() {
 		// Test for method int java.util.GregorianCalendar.getLeastMaximum(int)
 		GregorianCalendar gc = new GregorianCalendar();
 		assertEquals("Wrong least maximum value for DAY_OF_MONTH", 28, gc
@@ -536,7 +536,7 @@ public class GregorianCalendarTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.GregorianCalendar#roll(int, boolean)
 	 */
-	public void test_rollIZ() {
+	public void _test_rollIZ() {
 		// Test for method void java.util.GregorianCalendar.roll(int, boolean)
 		GregorianCalendar gc = new GregorianCalendar(1972, Calendar.OCTOBER,
 				13, 19, 9, 59);
@@ -672,7 +672,7 @@ public class GregorianCalendarTest extends junit.framework.TestCase {
     /**
      * @tests java.util.GregorianCalendar#getMinimalDaysInFirstWeek()
      */
-    public void test_getMinimalDaysInFirstWeek() {
+    public void _test_getMinimalDaysInFirstWeek() {
         // Regression for Harmony-1037
         // Some non-bug differences below because of different CLDR data of Harmony
         GregorianCalendar g = new GregorianCalendar(TimeZone

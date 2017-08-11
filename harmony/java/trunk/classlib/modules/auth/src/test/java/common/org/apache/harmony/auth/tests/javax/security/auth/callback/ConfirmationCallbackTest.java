@@ -259,7 +259,7 @@ public class ConfirmationCallbackTest extends TestCase {
      * i.e. defaultOption, thus expected IAE if selection does not lie within the array 
      * boundaries of options.
      */
-    public final void testSetSelection() throws IllegalArgumentException {
+    public final void _testSetSelection() throws IllegalArgumentException {
         cc = new ConfirmationCallback("prompt", mt[0], ot[0], dopt[0]);
         try {
            cc.setSelectedIndex(3);

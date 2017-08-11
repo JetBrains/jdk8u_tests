@@ -108,7 +108,7 @@ public class XMLDecoderTest extends TestCase {
     /*
      * test XMLDecoder constructor with null inputStream argument
      */
-    public void test_Constructor_NullInputStream_scenario1() {
+    public void _test_Constructor_NullInputStream_scenario1() {
         XMLDecoder xmlDecoder = new XMLDecoder((InputStream) null);
         assertNull(xmlDecoder.readObject());
         assertNull(xmlDecoder.getOwner());
@@ -119,7 +119,7 @@ public class XMLDecoderTest extends TestCase {
     /*
      * test XMLDecoder constructor with null inputStream argument
      */
-    public void test_Constructor_NullInputStream_scenario2() {
+    public void _test_Constructor_NullInputStream_scenario2() {
         XMLDecoder xmlDecoder = new XMLDecoder(null, null);
         assertNull(xmlDecoder.readObject());
         assertNull(xmlDecoder.getOwner());
@@ -130,7 +130,7 @@ public class XMLDecoderTest extends TestCase {
     /*
      * test XMLDecoder constructor with null inputStream argument
      */
-    public void test_Constructor_NullInputStream_scenario3() {
+    public void _test_Constructor_NullInputStream_scenario3() {
         XMLDecoder xmlDecoder = new XMLDecoder(null, null, null);
         assertNull(xmlDecoder.readObject());
         assertNull(xmlDecoder.getOwner());
@@ -141,7 +141,7 @@ public class XMLDecoderTest extends TestCase {
     /*
      * test XMLDecoder constructor with null inputStream argument
      */
-    public void test_Constructor_NullInputStream_scenario4() {
+    public void _test_Constructor_NullInputStream_scenario4() {
         XMLDecoder xmlDecoder = new XMLDecoder(null, null, null, null);
         assertNull(xmlDecoder.readObject());
         assertNull(xmlDecoder.getOwner());
@@ -332,7 +332,7 @@ public class XMLDecoderTest extends TestCase {
         assertEquals(22, integers[1]);
     }
 
-    public void testReadObject_Array_Special() {
+    public void _testReadObject_Array_Special() {
         // Read array of Object types in special case without length attribute
         XMLDecoder dec = new XMLDecoder(this.getClass().getResourceAsStream(
                 "/xml/Array_Null.xml"));
@@ -409,7 +409,7 @@ public class XMLDecoderTest extends TestCase {
         assertEquals("6", b.getZarrarr()[0][2]);
     }
 
-    public void testReadObject_StaticField() throws Exception {
+    public void _testReadObject_StaticField() throws Exception {
         XMLDecoder dec1 = new XMLDecoder(getCodedXML(
                 MockBean4StaticField.class,
                 "/xml/MockBean4StaticField_Original.xml"));
@@ -433,7 +433,7 @@ public class XMLDecoderTest extends TestCase {
         assertEquals(o1, t1.getV());
     }
 
-    public void testReadObject_Owner_Specific() {
+    public void _testReadObject_Owner_Specific() {
         String expectedValue = "expected value";
         HashMap map = new HashMap();
         map.put("key", expectedValue);

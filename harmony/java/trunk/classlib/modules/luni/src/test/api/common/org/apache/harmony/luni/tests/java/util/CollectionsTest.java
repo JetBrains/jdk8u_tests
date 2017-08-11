@@ -1963,7 +1963,7 @@ public class CollectionsTest extends junit.framework.TestCase {
     /**
      * @tests java.util.Collections#checkType(Object, Class)
      */
-    public void test_checkType_Ljava_lang_Object_Ljava_lang_Class() throws Exception {
+    public void _test_checkType_Ljava_lang_Object_Ljava_lang_Class() throws Exception {
         Method m = Collections.class.getDeclaredMethod("checkType", Object.class, Class.class);
    		m.setAccessible(true);
    		m.invoke(null, new Object(), Object.class);

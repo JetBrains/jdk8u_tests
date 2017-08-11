@@ -112,7 +112,7 @@ public class ChannelsTest extends TestCase {
     }
 
     // test if new Channel to input is null
-    public void testNewChannelInputStream_InputNull() throws IOException {
+    public void _testNewChannelInputStream_InputNull() throws IOException {
         ByteBuffer byteBuf = ByteBuffer.allocate(this.testNum);
         this.fins = null;
         int readres = this.testNum;
@@ -153,7 +153,7 @@ public class ChannelsTest extends TestCase {
     /*
      * Test method for 'java.nio.channels.Channels.NewChannel'
      */
-    public void testNewChannelInputStream() throws IOException {
+    public void _testNewChannelInputStream() throws IOException {
         int bufSize = 10;
         int readres = 0;
         byte[] byteArray = new byte[bufSize];
@@ -181,7 +181,7 @@ public class ChannelsTest extends TestCase {
     }
 
     // test if fout to change is null
-    public void testNewChannelOutputStream_inputNull() throws IOException {
+    public void _testNewChannelOutputStream_inputNull() throws IOException {
         int writeres = this.testNum;
         ByteBuffer writebuf = ByteBuffer.allocate(this.writebufSize);
         for (int val = 0; val < this.writebufSize / 2; val++) {
@@ -223,7 +223,7 @@ public class ChannelsTest extends TestCase {
     /*
      * Test method for 'java.nio.channels.Channels.NewChannel(OutputStream)'
      */
-    public void testNewChannelOutputStream() throws IOException {
+    public void _testNewChannelOutputStream() throws IOException {
         int writeNum = 0;
         ByteBuffer writebuf = ByteBuffer.allocateDirect(this.writebufSize);
         for (int val = 0; val < this.writebufSize / 2; val++) {
@@ -268,7 +268,7 @@ public class ChannelsTest extends TestCase {
         }
     }
 
-    public void testNewInputStreamReadableByteChannel_InputNull()
+    public void _testNewInputStreamReadableByteChannel_InputNull()
             throws Exception {
         byte[] readbuf = new byte[this.testNum];
         this.fins = new FileInputStream(tmpFile);
@@ -321,7 +321,7 @@ public class ChannelsTest extends TestCase {
         }
     }
 
-    public void testNewOutputStreamWritableByteChannel_InputNull()
+    public void _testNewOutputStreamWritableByteChannel_InputNull()
             throws Exception {
         byte[] writebuf = new byte[this.testNum];
         OutputStream testouts = Channels.newOutputStream((WritableByteChannel) null);
@@ -407,7 +407,7 @@ public class ChannelsTest extends TestCase {
      * Test method for
      * 'java.nio.channels.Channels.newReader(ReadableByteChannel, String)'
      */
-    public void testNewReaderReadableByteChannelString_InputNull()
+    public void _testNewReaderReadableByteChannelString_InputNull()
             throws IOException {
         int bufSize = this.testNum;
         int readres = 0;
@@ -452,7 +452,7 @@ public class ChannelsTest extends TestCase {
      * Test method for
      * 'java.nio.channels.Channels.newReader(ReadableByteChannel, String)'
      */
-    public void testNewReaderReadableByteChannelString_internalBufferZero()
+    public void _testNewReaderReadableByteChannelString_internalBufferZero()
             throws IOException {
         int bufSize = this.testNum;
         int readres = 0;
@@ -533,7 +533,7 @@ public class ChannelsTest extends TestCase {
     /*
      * Zero-Buffer
      */
-    public void testNewWriterWritableByteChannelString_internalBufZero()
+    public void _testNewWriterWritableByteChannelString_internalBufZero()
             throws IOException {
 
         String writebuf = ""; //$NON-NLS-1$

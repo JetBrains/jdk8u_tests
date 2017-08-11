@@ -323,7 +323,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#connect(java.net.SocketAddress)
      */
-    public void test_connectLjava_net_SocketAddress() throws Exception {
+    public void _test_connectLjava_net_SocketAddress() throws Exception {
 
         @SuppressWarnings("serial")
         class UnsupportedSocketAddress extends SocketAddress {
@@ -414,7 +414,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#connect(java.net.SocketAddress, int)
      */
-    public void test_connectLjava_net_SocketAddressI() throws Exception {
+    public void _test_connectLjava_net_SocketAddressI() throws Exception {
 
         @SuppressWarnings("serial")
         class UnsupportedSocketAddress extends SocketAddress {
@@ -708,7 +708,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#Socket(Proxy)
      */
-    public void test_ConstructorLjava_net_Proxy_Exception() {
+    public void _test_ConstructorLjava_net_Proxy_Exception() {
 
         class MockSecurityManager extends SecurityManager {
 

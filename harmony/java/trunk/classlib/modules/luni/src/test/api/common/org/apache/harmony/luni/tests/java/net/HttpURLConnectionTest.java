@@ -291,7 +291,7 @@ public class HttpURLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.HttpURLConnection#setFixedLengthStreamingMode_I()
      */
-    public void test_setFixedLengthStreamingModeI_effect() throws Exception {
+    public void _test_setFixedLengthStreamingModeI_effect() throws Exception {
         String posted = "just a test";
         java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url
                 .openConnection();
@@ -364,7 +364,7 @@ public class HttpURLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.HttpURLConnection#setChunkedStreamingMode_I()
      */
-    public void test_setChunkedStreamingModeI_effect() throws Exception {
+    public void _test_setChunkedStreamingModeI_effect() throws Exception {
         String posted = "just a test";
         // for test, use half length of the string
         int chunkSize = posted.length() / 2;
@@ -584,7 +584,7 @@ public class HttpURLConnectionTest extends junit.framework.TestCase {
      * @tests java.net.URLConnection#setUseCaches() and its real implementation
      *        in HttpURLConnection using getHeaderFields()
      */
-    public void test_UseCache_HttpURLConnection_getHeaderFields()
+    public void _test_UseCache_HttpURLConnection_getHeaderFields()
             throws IOException {
         ResponseCache.setDefault(new MockCachedResponseCache());
         URL u = new URL("http://" + Support_Configuration.InetTestAddress);

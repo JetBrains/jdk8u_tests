@@ -480,7 +480,7 @@ public class BeansTest extends TestCase {
      * failed to create an instance by deserialize from a wrong .ser file, which
      * will cause a ClassNotFoundException.
      */
-    public void test_instantiate_ClassNotFoundExceptionThrowing()
+    public void _test_instantiate_ClassNotFoundExceptionThrowing()
             throws IOException {
         ClassLoader loader = new WrongSerClassLoader();
         try {
@@ -497,7 +497,7 @@ public class BeansTest extends TestCase {
      * Test instantiate bean with corrupted .ser file and wrong class name. This
      * will cause an IOException.
      */
-    public void test_instantiate_IOExceptionThrowing()
+    public void _test_instantiate_IOExceptionThrowing()
             throws ClassNotFoundException {
         ClassLoader loader = new CorruptedSerClassLoader();
         try {

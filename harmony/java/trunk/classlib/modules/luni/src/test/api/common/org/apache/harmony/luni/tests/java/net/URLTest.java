@@ -843,7 +843,7 @@ public class URLTest extends TestCase {
     /**
      * @tests java.net.URL#openStream()
      */
-    public void test_openStream() throws Exception {
+    public void _test_openStream() throws Exception {
         // Regression test for Harmony-1700
         URL BASE = URLTest.class.getClassLoader().getResource(
                 URLTest.class.getPackage().getName().replace('.',

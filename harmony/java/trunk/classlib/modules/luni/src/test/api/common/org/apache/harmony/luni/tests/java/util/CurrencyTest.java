@@ -34,7 +34,7 @@ public class CurrencyTest extends junit.framework.TestCase {
     /**
      * @tests java.util.Currency#getInstance(java.util.Locale)
      */
-    public void test_getInstanceLjava_util_Locale() {
+    public void _test_getInstanceLjava_util_Locale() {
         /*
          * the behaviour in all these three cases should be the same since this
          * method ignores language and variant component of the locale.
@@ -112,7 +112,7 @@ public class CurrencyTest extends junit.framework.TestCase {
     /**
      * @tests java.util.Currency#getSymbol()
      */
-    public void test_getSymbol() {
+    public void _test_getSymbol() {
 
         Currency currK = Currency.getInstance("KRW");
         Currency currI = Currency.getInstance("INR");
@@ -144,7 +144,7 @@ public class CurrencyTest extends junit.framework.TestCase {
     /**
      * @tests java.util.Currency#getSymbol(java.util.Locale)
      */
-    public void test_getSymbolLjava_util_Locale() {
+    public void _test_getSymbolLjava_util_Locale() {
         Locale.setDefault(Locale.US);
         Currency currE = Currency.getInstance("EUR");
         // Some non-bug differences below because of CLDR data.
@@ -299,7 +299,7 @@ public class CurrencyTest extends junit.framework.TestCase {
     /**
      * @tests java.util.Currency#getDefaultFractionDigits()
      */
-    public void test_getDefaultFractionDigits() {
+    public void _test_getDefaultFractionDigits() {
         Currency c1 = Currency.getInstance("EUR");
         c1.getDefaultFractionDigits();
         assertEquals(" Currency.getInstance(\"" + c1

@@ -33,7 +33,7 @@ public class MemoryUsageTest extends TestCase {
     private static final String CLASS_NAME = MemoryNotificationInfo.class
             .getName();
 
-    public void testFrom() throws Exception {
+    public void _testFrom() throws Exception {
         String[] itemNames = { "init", "used", "committed", "max" };
         Object[] items = { Long.valueOf(1024), Long.valueOf(2048), Long.valueOf(4096),
                 Long.valueOf(8128) };

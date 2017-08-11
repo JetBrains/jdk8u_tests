@@ -101,7 +101,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor under normal conditions.
      */
-    public void testConstructor_Normal() {
+    public void _testConstructor_Normal() {
         Object target = new MockParent();
         Object arg1 = "string1";
         Object arg2 = new Object();
@@ -125,7 +125,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor with null target.
      */
-    public void testConstructor_NullTarget() {
+    public void _testConstructor_NullTarget() {
         Object arg = new Object();
         Object[] oa = new Object[] { arg };
         Expression t = new Expression(null, "method", oa);
@@ -139,7 +139,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor with an array target.
      */
-    public void testConstructor_ArrayTarget() {
+    public void _testConstructor_ArrayTarget() {
         Object target = new MockParent();
         Object arg = new Object();
         Object[] oa = new Object[] { arg };
@@ -157,7 +157,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor with null method name.
      */
-    public void testConstructor_NullMethodName() {
+    public void _testConstructor_NullMethodName() {
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
         Expression t = new Expression(target, null, oa);
@@ -170,7 +170,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor with the method name "new".
      */
-    public void testConstructor_NewMethodName() {
+    public void _testConstructor_NewMethodName() {
         Object target = MockObject.class;
         Object[] oa = new Object[] { new Object() };
         Expression t = new Expression(target, "new", oa);
@@ -185,7 +185,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor with empty method name.
      */
-    public void testConstructor_EmptyMethodName() {
+    public void _testConstructor_EmptyMethodName() {
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
         Expression t = new Expression(target, "", oa);
@@ -213,7 +213,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor with a null argument.
      */
-    public void testConstructor_NullArgument() {
+    public void _testConstructor_NullArgument() {
         Object target = new MockParent();
         Object[] oa = new Object[] { null };
         Expression t = new Expression(target, "method", oa);
@@ -230,7 +230,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) under normal conditions.
      */
-    public void testConstructor_Value_Normal() throws Exception {
+    public void _testConstructor_Value_Normal() throws Exception {
         Object val = new Object();
         Object target = new MockParent();
         Object arg1 = "mama";
@@ -256,7 +256,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) with null target.
      */
-    public void testConstructor_Value_NullTarget() throws Exception {
+    public void _testConstructor_Value_NullTarget() throws Exception {
         Object val = new Object();
         Object arg = new Object();
         Object[] oa = new Object[] { arg };
@@ -274,7 +274,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) with an array target.
      */
-    public void testConstructor_Value_ArrayTarget() throws Exception {
+    public void _testConstructor_Value_ArrayTarget() throws Exception {
         Integer val = new Integer(69);
         Object target = new Integer[] { val };
         Object arg = new Integer(0);
@@ -293,7 +293,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) with null method name.
      */
-    public void testConstructor_Value_NullMethodName() throws Exception {
+    public void _testConstructor_Value_NullMethodName() throws Exception {
         Object val = new Object();
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
@@ -310,7 +310,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) with the method name "new".
      */
-    public void testConstructor_Value_NewMethodName() throws Exception {
+    public void _testConstructor_Value_NewMethodName() throws Exception {
         Object val = new Object();
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
@@ -327,7 +327,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) with empty method name.
      */
-    public void testConstructor_Value_EmptyMethodName() throws Exception {
+    public void _testConstructor_Value_EmptyMethodName() throws Exception {
         Object val = new Object();
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
@@ -360,7 +360,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) with a null argument.
      */
-    public void testConstructor_Value_NullArgument() throws Exception {
+    public void _testConstructor_Value_NullArgument() throws Exception {
         Object val = new Object();
         Object target = new Object();
         Object[] oa = new Object[] { null };
@@ -378,7 +378,7 @@ public class ExpressionTest extends TestCase {
     /*
      * Test the constructor(value, ...) with a null value.
      */
-    public void testConstructor_Value_NullValue() throws Exception {
+    public void _testConstructor_Value_NullValue() throws Exception {
         Object target = new Object();
         Object[] oa = new Object[] { null };
         Expression t = new Expression(null, target, "method", oa);
@@ -1230,7 +1230,7 @@ public class ExpressionTest extends TestCase {
         SampleObject.assertCalled("object", arguments);
     }
 
-    public void test_Expression_Constructor_OneArgument_senario4()
+    public void _test_Expression_Constructor_OneArgument_senario4()
             throws Exception {
         Object[] arguments = new Object[] { null };
         Expression expression = new Expression(SampleObject.class, "new",
@@ -1239,7 +1239,7 @@ public class ExpressionTest extends TestCase {
         SampleObject.assertCalled("object", arguments);
     }
 
-    public void test_Expression_Constructor_twoArguments_senario1()
+    public void _test_Expression_Constructor_twoArguments_senario1()
             throws Exception {
         Object[] arguments = new Object[] { null, null };
         Expression expression = new Expression(SampleObject.class, "new",
@@ -1248,7 +1248,7 @@ public class ExpressionTest extends TestCase {
         SampleObject.assertCalled("object_object", arguments);
     }
 
-    public void test_Expression_Constructor_twoArguments_senario2()
+    public void _test_Expression_Constructor_twoArguments_senario2()
             throws Exception {
         Object[] arguments = new Object[] { null, "test" };
         Expression expression = new Expression(SampleObject.class, "new",
@@ -1284,7 +1284,7 @@ public class ExpressionTest extends TestCase {
         SampleObject.assertCalled("string_integer", arguments);
     }
 
-    public void test_Expression_Constructor_twoArguments_senario6()
+    public void _test_Expression_Constructor_twoArguments_senario6()
             throws Exception {
         Object[] arguments = new Object[] { "test", (String) null };
         Expression expression = new Expression(SampleObject.class, "new",

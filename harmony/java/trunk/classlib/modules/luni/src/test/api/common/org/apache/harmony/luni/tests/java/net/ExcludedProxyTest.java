@@ -42,7 +42,7 @@ public class ExcludedProxyTest extends TestCase {
     /**
      * @tests java.net.HttpURLConnection#usingProxy()
      */
-    public void test_usingProxy() throws Exception {
+    public void _test_usingProxy() throws Exception {
         try {
             System.setProperty("http.proxyHost",
                     Support_Configuration.ProxyServerTestHost);
@@ -116,7 +116,7 @@ public class ExcludedProxyTest extends TestCase {
     /**
      * @tests java.net.SocketImpl#SocketImpl()
      */
-    public void test_Constructor() {
+    public void _test_Constructor() {
         try {
             try {
                 System.setProperty("socksProxyHost",
@@ -156,7 +156,7 @@ public class ExcludedProxyTest extends TestCase {
     /**
      * @tests java.net.URL#openConnection(Proxy)
      */
-    public void test_openConnectionLjava_net_Proxy() throws IOException {
+    public void _test_openConnectionLjava_net_Proxy() throws IOException {
         SocketAddress addr1 = new InetSocketAddress(
                 Support_Configuration.ProxyServerTestHost, 808);
         SocketAddress addr2 = new InetSocketAddress(

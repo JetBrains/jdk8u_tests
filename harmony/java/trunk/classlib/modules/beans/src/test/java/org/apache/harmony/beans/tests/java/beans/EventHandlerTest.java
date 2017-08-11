@@ -1007,7 +1007,7 @@ public class EventHandlerTest extends TestCase {
      * Note: this test fails on RI and it is considered as Non-Bug Difference, 
      * please refer HARMONY-1884 for details
      */
-    public void testInvalidProperties_HY1884() {
+    public void _testInvalidProperties_HY1884() {
         BeanWithInvalidProps bean = new BeanWithInvalidProps();
         Object proxy;
 

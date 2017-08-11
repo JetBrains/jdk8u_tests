@@ -85,7 +85,7 @@ public class SealedObjectTest extends TestCase {
      * SealedObject(SealedObject so) method testing. Tests if the
      * NullPointerException is thrown in the case of null SealedObject.
      */
-    public void testSealedObject2() throws Exception {
+    public void _testSealedObject2() throws Exception {
         String secret = "secret string";
         Cipher cipher = new NullCipher();
         SealedObject so1 = new SealedObject(secret, cipher);

@@ -1835,7 +1835,7 @@ public class ArraysTest extends junit.framework.TestCase {
 	/**
      * @tests java.util.Arrays#swap(int, int, Object[])
      */
-    public void test_swap_I_I_$Ljava_lang_Object() throws Exception {
+    public void _test_swap_I_I_$Ljava_lang_Object() throws Exception {
     	Method m = Arrays.class.getDeclaredMethod("swap", int.class, int.class, Object[].class);
     	m.setAccessible(true);
     	Integer[] arr = {new Integer(0), new Integer(1), new Integer(2)};

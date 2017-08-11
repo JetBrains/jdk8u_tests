@@ -28,7 +28,7 @@ public class UnknownFormatConversionExceptionTest extends TestCase {
     /**
      * @tests java.util.UnknownFormatConversionException#UnknownFormatConversionException(String)
      */
-    public void test_unknownFormatConversionException() {
+    public void _test_unknownFormatConversionException() {
 
         // RI 5.0 will not throw NullPointerException, it is the bug according
         // to spec.

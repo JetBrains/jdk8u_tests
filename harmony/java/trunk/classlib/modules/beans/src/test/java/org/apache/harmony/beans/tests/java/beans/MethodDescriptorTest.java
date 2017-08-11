@@ -84,7 +84,7 @@ public class MethodDescriptorTest extends TestCase {
     /*
      * Class under test for void MethodDescriptor(Method, ParameterDescriptor[])
      */
-    public void testMethodDescriptorMethodParameterDescriptorArray()
+    public void _testMethodDescriptorMethodParameterDescriptorArray()
             throws SecurityException, NoSuchMethodException {
         String beanName = "MethodDescriptorTest.bean";
         MockJavaBean bean = new MockJavaBean(beanName);

@@ -143,7 +143,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#connect(java.net.InetAddress, int)
      */
-    public void test_connectLjava_net_InetAddressI() throws Exception {
+    public void _test_connectLjava_net_InetAddressI() throws Exception {
         DatagramSocket ds = new DatagramSocket();
         InetAddress inetAddress = InetAddress.getLocalHost();
         ds.connect(inetAddress, 0);
@@ -998,7 +998,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#setSendBufferSize(int)
      */
-    public void test_setSendBufferSizeI() {
+    public void _test_setSendBufferSizeI() {
         try {
             int portNumber = Support_PortManager.getNextPortForUDP();
             ds = new java.net.DatagramSocket(portNumber);
@@ -1013,7 +1013,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#setReceiveBufferSize(int)
      */
-    public void test_setReceiveBufferSizeI() {
+    public void _test_setReceiveBufferSizeI() {
         try {
             int portNumber = Support_PortManager.getNextPortForUDP();
             ds = new java.net.DatagramSocket(portNumber);
@@ -1029,7 +1029,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#setSoTimeout(int)
      */
-    public void test_setSoTimeoutI() throws SocketException {
+    public void _test_setSoTimeoutI() throws SocketException {
         DatagramSocket ds = new DatagramSocket();
         try {
             ds.setSoTimeout(100);
@@ -1061,7 +1061,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#DatagramSocket(java.net.SocketAddress)
      */
-    public void test_ConstructorLjava_net_SocketAddress() throws Exception {
+    public void _test_ConstructorLjava_net_SocketAddress() throws Exception {
         class UnsupportedSocketAddress extends SocketAddress {
 
             public UnsupportedSocketAddress() {
@@ -1090,7 +1090,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#bind(java.net.SocketAddress)
      */
-    public void test_bindLjava_net_SocketAddress() throws Exception {
+    public void _test_bindLjava_net_SocketAddress() throws Exception {
         class mySocketAddress extends SocketAddress {
 
             public mySocketAddress() {
@@ -1195,7 +1195,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#connect(java.net.SocketAddress)
      */
-    public void test_connectLjava_net_SocketAddress() throws Exception {
+    public void _test_connectLjava_net_SocketAddress() throws Exception {
 
         // validate that we get the PortUnreachable exception if we try to
         // send a dgram to a server that is not running and then do a recv
@@ -1422,7 +1422,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#isBound()
      */
-    public void test_isBound() throws Exception {
+    public void _test_isBound() throws Exception {
         InetAddress addr = InetAddress.getLocalHost();
         int[] ports = Support_PortManager.getNextPortsForUDP(3);
         int port = ports[0];
@@ -1466,7 +1466,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#isConnected()
      */
-    public void test_isConnected() throws Exception {
+    public void _test_isConnected() throws Exception {
         InetAddress addr = InetAddress.getLocalHost();
         int[] ports = Support_PortManager.getNextPortsForUDP(4);
         int port = ports[0];
@@ -1501,7 +1501,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getRemoteSocketAddress()
      */
-    public void test_getRemoteSocketAddress() throws Exception {
+    public void _test_getRemoteSocketAddress() throws Exception {
         int[] ports = Support_PortManager.getNextPortsForUDP(3);
         int sport = ports[0];
         int portNumber = ports[1];
@@ -1540,7 +1540,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getLocalSocketAddress()
      */
-    public void test_getLocalSocketAddress() throws Exception {
+    public void _test_getLocalSocketAddress() throws Exception {
         int portNumber = Support_PortManager.getNextPortForUDP();
         DatagramSocket s = new DatagramSocket(new InetSocketAddress(InetAddress
                 .getLocalHost(), portNumber));
@@ -1609,7 +1609,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#setReuseAddress(boolean)
      */
-    public void test_setReuseAddressZ() throws Exception {
+    public void _test_setReuseAddressZ() throws Exception {
         try {
             // test case were we set it to false
             DatagramSocket theSocket1 = null;
@@ -1674,7 +1674,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getReuseAddress()
      */
-    public void test_getReuseAddress() {
+    public void _test_getReuseAddress() {
         try {
             DatagramSocket theSocket = new DatagramSocket();
             theSocket.setReuseAddress(true);
@@ -1692,7 +1692,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#setBroadcast(boolean)
      */
-    public void test_setBroadcastZ() {
+    public void _test_setBroadcastZ() {
 
         try {
             int[] ports = Support_PortManager.getNextPortsForUDP(3);
@@ -1725,7 +1725,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getBroadcast()
      */
-    public void test_getBroadcast() {
+    public void _test_getBroadcast() {
         try {
             DatagramSocket theSocket = new DatagramSocket();
             theSocket.setBroadcast(true);
@@ -1743,7 +1743,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#setTrafficClass(int)
      */
-    public void test_setTrafficClassI() {
+    public void _test_setTrafficClassI() {
         try {
             int IPTOS_LOWCOST = 0x2;
             int IPTOS_RELIABILTY = 0x4;
@@ -1779,7 +1779,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getTrafficClass()
      */
-    public void test_getTrafficClass() {
+    public void _test_getTrafficClass() {
         try {
             int IPTOS_LOWCOST = 0x2;
             int IPTOS_RELIABILTY = 0x4;
@@ -1804,7 +1804,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#isClosed()
      */
-    public void test_isClosed() throws Exception {
+    public void _test_isClosed() throws Exception {
         DatagramSocket theSocket = new DatagramSocket();
 
         // validate isClosed returns expected values
@@ -1827,7 +1827,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getChannel()
      */
-    public void test_getChannel() throws SocketException {
+    public void _test_getChannel() throws SocketException {
         assertNull(new DatagramSocket().getChannel());
     }
 

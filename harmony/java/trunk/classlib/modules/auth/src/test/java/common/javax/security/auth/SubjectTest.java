@@ -223,7 +223,7 @@ public class SubjectTest extends SecurityTest {
      * Parameter set contains an invalid element.
      */
     @SuppressWarnings("unchecked")
-    public final void testSubject_3Set_InvalidSet() {
+    public final void _testSubject_3Set_InvalidSet() {
         HashSet hash = new HashSet();
 
         hash.add(null);
@@ -804,7 +804,7 @@ public class SubjectTest extends SecurityTest {
     /**
      * Tests Subject.hashCode() for SecurityException
      */
-    public final void testHashCode_ACE() {
+    public final void _testHashCode_ACE() {
 
         grantMode();
         try {
@@ -900,7 +900,7 @@ public class SubjectTest extends SecurityTest {
      * The array is invalid because it is not possible to add null element
      * to principal set via public API methods.
      */
-    public final void testSerialization_NullPrincipal() throws Exception {
+    public final void _testSerialization_NullPrincipal() throws Exception {
 
         // The array was produced in the following way:
         // 1) A check that verifies a passed principal object for null
@@ -1003,7 +1003,7 @@ public class SubjectTest extends SecurityTest {
      * The array is invalid because it is not possible to add such object
      * to principal set via public API methods.
      */
-    public final void testSerialization_IllegalPrincipal() throws Exception {
+    public final void _testSerialization_IllegalPrincipal() throws Exception {
 
         // The array was produced in the following way:
         // 1) A check for verifying that passed principal object 
@@ -1119,7 +1119,7 @@ public class SubjectTest extends SecurityTest {
      * 1) null object
      * 2) an object in principal set that doesn't implement Principal interface.
      */
-    public void test_PrincipalSetInvalidSerForm() throws Exception {
+    public void _test_PrincipalSetInvalidSerForm() throws Exception {
 
         // The array was produced in the following way:
         // 1) A check that verifies a passed principal object for null
@@ -1324,7 +1324,7 @@ public class SubjectTest extends SecurityTest {
      * Test subject's private credential set deserialization in case
      * of invalid null element.
      */
-    public void test_PrivateCredentialSetInvalidSerForm() throws Exception {
+    public void _test_PrivateCredentialSetInvalidSerForm() throws Exception {
 
         // The array was produced in the following way:
         // 1) A check that verifies a passed private credential object for null
@@ -1753,7 +1753,7 @@ public class SubjectTest extends SecurityTest {
      * Test subject's public credential set deserialization in case
      * of invalid null element.
      */
-    public void test_PublicCredentialInvalidSerForm() throws Exception {
+    public void _test_PublicCredentialInvalidSerForm() throws Exception {
 
         // The array was produced in the following way:
         // 1) A check that verifies a passed public credential object for null

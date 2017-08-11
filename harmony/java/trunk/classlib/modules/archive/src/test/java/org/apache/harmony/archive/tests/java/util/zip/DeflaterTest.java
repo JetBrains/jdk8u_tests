@@ -713,7 +713,7 @@ public class DeflaterTest extends TestCase {
 	/**
 	 * @tests java.util.zip.Deflater#setStrategy(int)
 	 */
-	public void test_setStrategyI() throws Exception {
+	public void _test_setStrategyI() throws Exception {
 		byte[] byteArray = new byte[100];
 			InputStream inFile = Support_Resources.getStream("hyts_checkInput.txt");
 			inFile.read(byteArray);

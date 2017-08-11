@@ -114,7 +114,7 @@ public class ScannerTest extends TestCase {
     /**
      * @tests java.util.Scanner#Scanner(File, String)
      */
-    public void test_ConstructorLjava_io_FileLjava_lang_String()
+    public void _test_ConstructorLjava_io_FileLjava_lang_String()
             throws IOException {
         File tmpFile = File.createTempFile("TestFileForScanner", ".tmp");
         s = new Scanner(tmpFile, Charset.defaultCharset().name());
@@ -296,7 +296,7 @@ public class ScannerTest extends TestCase {
     /**
      * @tests java.util.Scanner#Scanner(ReadableByteChannel, String)
      */
-    public void test_ConstructorLjava_nio_channels_ReadableByteChannelLjava_lang_String()
+    public void _test_ConstructorLjava_nio_channels_ReadableByteChannelLjava_lang_String()
             throws IOException {
         File tmpFile = File.createTempFile("TestFileForScanner", ".tmp");
         FileChannel fc = new FileOutputStream(tmpFile).getChannel();
@@ -440,7 +440,7 @@ public class ScannerTest extends TestCase {
     /**
      * @tests java.util.Scanner#locale()
      */
-    public void test_locale() {
+    public void _test_locale() {
         s = new Scanner("test");
         assertEquals(Locale.getDefault(), s.locale());
     }
@@ -957,7 +957,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#nextInt(int)
      */
-    public void test_nextIntI() throws IOException {
+    public void _test_nextIntI() throws IOException {
         s = new Scanner("123 456");
         assertEquals(123, s.nextInt(10));
         assertEquals(456, s.nextInt(10));
@@ -1149,7 +1149,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#nextInt()
      */
-    public void test_nextInt() throws IOException {
+    public void _test_nextInt() throws IOException {
         s = new Scanner("123 456");
         assertEquals(123, s.nextInt());
         assertEquals(456, s.nextInt());
@@ -1493,7 +1493,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#nextFloat()
      */
-    public void test_nextFloat() throws IOException {
+    public void _test_nextFloat() throws IOException {
         s = new Scanner("123 45\u0666. 123.4 .123 ");
         s.useLocale(Locale.ENGLISH);
         assertEquals((float)123.0, s.nextFloat());
@@ -2804,7 +2804,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#hasNextByte(int)
      */
-    public void test_hasNextByteI_cache() throws IOException{
+    public void _test_hasNextByteI_cache() throws IOException{
         //regression for HARMONY-2063
     	s = new Scanner("123 45");
 		assertTrue(s.hasNextByte(8));
@@ -3093,7 +3093,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#hasNextBigInteger(int)
      */
-    public void test_hasNextBigIntegerI_cache() throws IOException {
+    public void _test_hasNextBigIntegerI_cache() throws IOException {
         //regression for HARMONY-2063
     	s = new Scanner("123 123456789123456789");
 		assertTrue(s.hasNextBigInteger(16));
@@ -3288,7 +3288,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#hasNextInt(int)
      */
-    public void test_hasNextIntI() throws IOException {
+    public void _test_hasNextIntI() throws IOException {
         s = new Scanner("123 456");
         assertEquals(123, s.nextInt(10));
         assertTrue(s.hasNextInt(10));
@@ -3465,7 +3465,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#hasNextInt(int)
      */
-    public void test_hasNextIntI_cache() throws IOException {
+    public void _test_hasNextIntI_cache() throws IOException {
         //regression for HARMONY-2063
     	s = new Scanner("123 456");
 		assertTrue(s.hasNextInt(16));
@@ -3499,7 +3499,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#hasNextInt()
      */
-    public void test_hasNextInt() throws IOException {
+    public void _test_hasNextInt() throws IOException {
         s = new Scanner("123 456");
         assertTrue(s.hasNextInt());
         assertEquals(123, s.nextInt());
@@ -4137,7 +4137,7 @@ public class ScannerTest extends TestCase {
 	 * @throws IOException
 	 * @tests java.util.Scanner#hasNextShort(int)
 	 */
-	public void test_hasNextShortI_cache() throws IOException {
+	public void _test_hasNextShortI_cache() throws IOException {
         //regression for HARMONY-2063
 		s = new Scanner("123 456");
 		assertTrue(s.hasNextShort(16));
@@ -4342,7 +4342,7 @@ public class ScannerTest extends TestCase {
 	 * @throws IOException
 	 * @tests java.util.Scanner#hasNextLong(int)
 	 */
-    public void test_hasNextLongI_cache() throws IOException {
+    public void _test_hasNextLongI_cache() throws IOException {
         //regression for HARMONY-2063
     	s = new Scanner("123 456");
 		assertTrue(s.hasNextLong(16));
@@ -4549,7 +4549,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#nextDouble()
      */
-    public void test_hasNextDouble() throws IOException {
+    public void _test_hasNextDouble() throws IOException {
         s = new Scanner("123 45\u0666. 123.4 .123 ");
         s.useLocale(Locale.ENGLISH);
         assertTrue(s.hasNextDouble());
@@ -5023,7 +5023,7 @@ public class ScannerTest extends TestCase {
     /**
      * @tests java.util.Scanner#findInLine(Pattern)
      */
-    public void test_findInLine_LPattern() {
+    public void _test_findInLine_LPattern() {
 
         Scanner s = new Scanner("");
         try {

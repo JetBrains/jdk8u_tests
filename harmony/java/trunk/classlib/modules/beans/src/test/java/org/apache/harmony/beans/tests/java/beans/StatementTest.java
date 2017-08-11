@@ -232,7 +232,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor under normal conditions.
      */
-    public void testConstructor_Normal() {
+    public void _testConstructor_Normal() {
         Object arg1 = new Object();
         Object arg2 = "string";
         Object[] oa = new Object[] { arg1, arg2 };
@@ -248,7 +248,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor with null target.
      */
-    public void testConstructor_NullTarget() {
+    public void _testConstructor_NullTarget() {
         Object arg = new Object();
         Object[] oa = new Object[] { arg };
         Statement t = new Statement(null, "method", oa);
@@ -262,7 +262,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor with an array target.
      */
-    public void testConstructor_ArrayTarget() {
+    public void _testConstructor_ArrayTarget() {
         Object arg = new Object();
         Object[] oa = new Object[] { arg };
         Statement t = new Statement(oa, "method", oa);
@@ -276,7 +276,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor with null method name.
      */
-    public void testConstructor_NullMethodName() {
+    public void _testConstructor_NullMethodName() {
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
         Statement t = new Statement(target, null, oa);
@@ -289,7 +289,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor with the method name "new".
      */
-    public void testConstructor_NewMethodName() {
+    public void _testConstructor_NewMethodName() {
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
         Statement t = new Statement(target, "new", oa);
@@ -302,7 +302,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor with empty method name.
      */
-    public void testConstructor_EmptyMethodName() {
+    public void _testConstructor_EmptyMethodName() {
         Object target = new Object();
         Object[] oa = new Object[] { new Object() };
         Statement t = new Statement(target, "", oa);
@@ -315,7 +315,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor with null arguments.
      */
-    public void testConstructor_NullArguments() {
+    public void _testConstructor_NullArguments() {
         Object target = new Object();
         Statement t = new Statement(target, "method", null);
         assertSame(target, t.getTarget());

@@ -402,7 +402,7 @@ public class EncoderTest extends TestCase {
         assertSame(pd1, pd3);
     }
 
-    public void testSetPersistenceDelegate_Null() {
+    public void _testSetPersistenceDelegate_Null() {
         // Regression for HARMONY-1304
         Encoder enc = new Encoder();
         PersistenceDelegate pd = enc.getPersistenceDelegate(EncoderTest.class);
@@ -422,7 +422,7 @@ public class EncoderTest extends TestCase {
         }
     }
 
-    public void testSetPersistenceDelegate() {
+    public void _testSetPersistenceDelegate() {
         Encoder enc = new Encoder();
         PersistenceDelegate pd = enc.getPersistenceDelegate(EncoderTest.class);
         assertTrue(pd instanceof DefaultPersistenceDelegate);

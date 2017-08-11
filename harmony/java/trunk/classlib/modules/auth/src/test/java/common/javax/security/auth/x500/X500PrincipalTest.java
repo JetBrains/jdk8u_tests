@@ -692,7 +692,7 @@ public class X500PrincipalTest extends TestCase {
      * gets string in CANONICAL format
      * compares with expected value paying attention on sorting order of AVAs
      */
-    public void testGetName_CANONICAL_SortOrder_05() throws Exception {
+    public void _testGetName_CANONICAL_SortOrder_05() throws Exception {
         String dn = "OID.2.16.4.9=A + OID.2.16.4=B";
         X500Principal principal = new X500Principal(dn);
 
@@ -720,7 +720,7 @@ public class X500PrincipalTest extends TestCase {
      * gets string in CANONICAL format
      * compares with expected value paying attention on sorting order of AVAs
      */
-    public void testGetName_CANONICAL_SortOrder_07() throws Exception {
+    public void _testGetName_CANONICAL_SortOrder_07() throws Exception {
         String dn = "OID.1.1.1=A + OID.1.1=B";
         X500Principal principal = new X500Principal(dn);
 
@@ -770,7 +770,7 @@ public class X500PrincipalTest extends TestCase {
      * gets Name in RFC2253 format
      * compares with expected value of name 
      */
-    public void testNameOnlySpaces_RFC1779() {
+    public void _testNameOnlySpaces_RFC1779() {
         String dn = "CN=\"  \"";
         X500Principal principal = new X500Principal(dn);
         assertEquals("CN=\"  \"", principal.getName(X500Principal.RFC1779));
@@ -781,7 +781,7 @@ public class X500PrincipalTest extends TestCase {
      * gets Name in RFC2253 format
      * compares with expected value of name 
      */
-    public void testNameOnlySpaces_RFC2253() {
+    public void _testNameOnlySpaces_RFC2253() {
         String dn = "CN=\"  \"";
         X500Principal principal = new X500Principal(dn);
         assertEquals("CN=\\ \\ ", principal.getName(X500Principal.RFC2253));
@@ -930,7 +930,7 @@ public class X500PrincipalTest extends TestCase {
      * Compatibility issue: according RFC 2253 such string is invalid
      * but we accept it, not string char is escaped
      */
-    public void testIllegalInputName_07() {
+    public void _testIllegalInputName_07() {
         String dn = "CN=X\"YZ";
         X500Principal p = new X500Principal(dn);
         assertEquals("CN=X\\\"YZ", p.getName(X500Principal.RFC2253));
@@ -941,7 +941,7 @@ public class X500PrincipalTest extends TestCase {
      * Compatibility issue: according RFC 2253 such string is invalid
      * but we accept it, special char is escaped
      */
-    public void testIllegalInputName_08() {
+    public void _testIllegalInputName_08() {
         String dn = "CN=X<YZ";
         X500Principal p = new X500Principal(dn);
         assertEquals("CN=X\\<YZ", p.getName(X500Principal.RFC2253));
@@ -1208,7 +1208,7 @@ public class X500PrincipalTest extends TestCase {
      * gets string in RFC1779 format
      * compares with expected value paying attention on sorting order of AVAs
      */
-    public void testGetName_EncodingWithWrongOidButGoodName_MultAVA_RFC1779()
+    public void _testGetName_EncodingWithWrongOidButGoodName_MultAVA_RFC1779()
             throws Exception {
         String dn = "OID.2.16.4.3=B + CN=A";
         X500Principal principal = new X500Principal(dn);
@@ -1226,7 +1226,7 @@ public class X500PrincipalTest extends TestCase {
      * gets string in RFC2253 format
      * compares with expected value paying attention on sorting order of AVAs
      */
-    public void testGetName_EncodingWithWrongOidButGoodName_MultAVA_RFC2253()
+    public void _testGetName_EncodingWithWrongOidButGoodName_MultAVA_RFC2253()
             throws Exception {
         String dn = "OID.2.16.4.3=B + CN=A";
         X500Principal principal = new X500Principal(dn);
@@ -1397,7 +1397,7 @@ public class X500PrincipalTest extends TestCase {
      * gets Name in RFC2253 format
      * compares with expected value of name - \\nB
      */
-    public void testNameSpecialChars_RFC2253_01() throws Exception {
+    public void _testNameSpecialChars_RFC2253_01() throws Exception {
         
         try {
             // compatibility issue:
@@ -1509,7 +1509,7 @@ public class X500PrincipalTest extends TestCase {
      * Compatibility issue: according RFC 2253 such string is invalid
      * but we accept it, not string char is escaped
      */
-    public void testNameWithQuotation_03() throws Exception {
+    public void _testNameWithQuotation_03() throws Exception {
         String dn = "CN=ABC\"DEF\"";
         X500Principal principal = new X500Principal(dn);
         assertEquals("CN=ABC\\\"DEF\\\"", principal
@@ -1718,7 +1718,7 @@ public class X500PrincipalTest extends TestCase {
      * gets Name in RFC1779 format
      * compares with expected value of name - "B   A"
      */
-    public void testNameSpaces_RFC1779_01() throws Exception {
+    public void _testNameSpaces_RFC1779_01() throws Exception {
         String dn = "CN=\"B   A\"";
         X500Principal principal = new X500Principal(dn);
         String s = principal.getName(X500Principal.RFC1779);
@@ -1770,7 +1770,7 @@ public class X500PrincipalTest extends TestCase {
      * gets Name in RFC1779 format
      * compares with expected value of name - \'space''space'B
      */
-    public void testNameSpaces_RFC2253_02() throws Exception {
+    public void _testNameSpaces_RFC2253_02() throws Exception {
         String dn = "CN=\\  B";
         X500Principal principal = new X500Principal(dn);
         String s = principal.getName(X500Principal.RFC2253);
@@ -1896,7 +1896,7 @@ public class X500PrincipalTest extends TestCase {
      * gets Name in RFC1779 format
      * compares with expected value of name - CN="A\\", C=B
      */
-    public void testNameQu_5() throws Exception {
+    public void _testNameQu_5() throws Exception {
         String dn = "CN=\"A\\\\\", C=B";
         X500Principal principal = new X500Principal(dn);
         String s = principal.getName(X500Principal.RFC1779);
@@ -1909,7 +1909,7 @@ public class X500PrincipalTest extends TestCase {
      * gets Name in RFC1779 format
      * compares with expected value of name - CN="A\nB"
      */
-    public void testNameCR_RFC1779() throws Exception {
+    public void _testNameCR_RFC1779() throws Exception {
         String dn = "CN=A\nB";
         X500Principal principal = new X500Principal(dn);
         String s = principal.getName(X500Principal.RFC1779);
@@ -1943,7 +1943,7 @@ public class X500PrincipalTest extends TestCase {
     public static final String[] RFC2253_SPECIAL = new String[] { ",", "=",
             "+", "<", ">", "#", ";" };
 
-    public void testValidDN() throws Exception {
+    public void _testValidDN() throws Exception {
 
         TestList list = new TestList();
 
@@ -2402,7 +2402,7 @@ public class X500PrincipalTest extends TestCase {
         }
     }
 
-    public void testValidEncoding() {
+    public void _testValidEncoding() {
         TestList list = new TestList();
 
         //

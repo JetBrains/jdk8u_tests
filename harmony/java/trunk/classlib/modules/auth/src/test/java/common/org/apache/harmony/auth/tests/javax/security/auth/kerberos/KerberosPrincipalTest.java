@@ -46,7 +46,7 @@ public class KerberosPrincipalTest extends TestCase {
      * @tests javax.security.auth.kerberos.KerberosPrincipal#KerberosPrincipal(
      *        java.lang.String)
      */
-    public void test_Ctor1() {
+    public void _test_Ctor1() {
 
         // null value is invalid
         try {
@@ -123,7 +123,7 @@ public class KerberosPrincipalTest extends TestCase {
      * @tests javax.security.auth.kerberos.KerberosPrincipal#KerberosPrincipal(
      *        java.lang.String)
      */
-    public void test_Ctor_defaultRealm() throws Exception {
+    public void _test_Ctor_defaultRealm() throws Exception {
 
         // test: if the input name has no realm part then default realm is used.
         //
@@ -267,7 +267,7 @@ public class KerberosPrincipalTest extends TestCase {
     /**
      * @tests javax.security.auth.kerberos.KerberosPrincipal#equals(Object)
      */
-    public void test_equals() {
+    public void _test_equals() {
 
         KerberosPrincipal p = new KerberosPrincipal("A@B");
 

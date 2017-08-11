@@ -1119,7 +1119,7 @@ public class BeanContextSupportTest extends TestCase {
         assertSame(Locale.CHINA, support.getLocale());
     }
 
-    public void testGetResource_NullParam() {
+    public void _testGetResource_NullParam() {
         MockBeanContextSupport support = new MockBeanContextSupport();
         MockBeanContextChild child = new MockBeanContextChild();
         support.add(child);
@@ -1178,7 +1178,7 @@ public class BeanContextSupportTest extends TestCase {
         assertTrue(url.toString().endsWith(RESOURCE_NAME));
     }
 
-    public void testGetResourceAsStream_NullParam() {
+    public void _testGetResourceAsStream_NullParam() {
         MockBeanContextSupport support = new MockBeanContextSupport();
         MockBeanContextChild child = new MockBeanContextChild();
         support.add(child);
@@ -1849,7 +1849,7 @@ public class BeanContextSupportTest extends TestCase {
         assertEquals(Locale.ITALY, l2.lastEvent.getNewValue());
     }
 
-    public void testSetLocale_Veto() {
+    public void _testSetLocale_Veto() {
         MockBeanContextSupport support = new MockBeanContextSupport();
         MockPropertyChangeListener l1 = new MockPropertyChangeListener();
         MockVetoChangeListener l2 = new MockVetoChangeListener();

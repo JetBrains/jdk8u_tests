@@ -354,7 +354,7 @@ public class InflaterTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.zip.Inflater#inflate(byte[], int, int)
 	 */
-	public void test_inflate$BII() {
+	public void _test_inflate$BII() {
 		// test method of java.util.zip.inflater.inflate(byte,int,int)
 
 		byte byteArray[] = { 1, 3, 4, 7, 8, 'e', 'r', 't', 'y', '5' };
@@ -848,7 +848,7 @@ public class InflaterTest extends junit.framework.TestCase {
         }
     }
 
-    public void testSetDictionary$B() throws Exception {
+    public void _testSetDictionary$B() throws Exception {
         int i = 0;
         String inputString = "blah string contains blahblahblahblah and blah";
         String dictionary1 = "blah";
@@ -1086,7 +1086,7 @@ public class InflaterTest extends junit.framework.TestCase {
         }
     }
 
-    public void testExceptions() throws Exception {
+    public void _testExceptions() throws Exception {
         byte byteArray[] = { 5, 2, 3, 7, 8 };
 
         int r = 0;

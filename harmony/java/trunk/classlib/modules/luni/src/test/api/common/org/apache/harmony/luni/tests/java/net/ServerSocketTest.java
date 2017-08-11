@@ -341,7 +341,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#setSoTimeout(int)
      */
-    public void test_setSoTimeoutI() throws IOException {
+    public void _test_setSoTimeoutI() throws IOException {
         // Timeout should trigger and throw InterruptedIOException
         try {
             s = new ServerSocket(0);
@@ -362,7 +362,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#toString()
      */
-    public void test_toString() throws Exception {
+    public void _test_toString() throws Exception {
         s = new ServerSocket(0);
         try {
             int portNumber = s.getLocalPort();
@@ -376,7 +376,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#bind(java.net.SocketAddress)
      */
-    public void test_bindLjava_net_SocketAddress() throws IOException {
+    public void _test_bindLjava_net_SocketAddress() throws IOException {
         class mySocketAddress extends SocketAddress {
             public mySocketAddress() {
             }
@@ -458,7 +458,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#bind(java.net.SocketAddress,int)
      */
-    public void test_bindLjava_net_SocketAddressI() throws IOException {
+    public void _test_bindLjava_net_SocketAddressI() throws IOException {
         class mySocketAddress extends SocketAddress {
 
             public mySocketAddress() {
@@ -570,7 +570,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#getLocalSocketAddress()
      */
-    public void test_getLocalSocketAddress() throws Exception {
+    public void _test_getLocalSocketAddress() throws Exception {
         // set up server connect and then validate that we get the right
         // response for the local address
         ServerSocket theSocket = new ServerSocket(0, 5, InetAddress
@@ -606,7 +606,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#isBound()
      */
-    public void test_isBound() throws IOException {
+    public void _test_isBound() throws IOException {
         InetAddress addr = InetAddress.getLocalHost();
         ServerSocket serverSocket = new ServerSocket();
         assertFalse("Socket indicated bound when it should be (1)",
@@ -638,7 +638,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#isClosed()
      */
-    public void test_isClosed() throws IOException {
+    public void _test_isClosed() throws IOException {
         InetAddress addr = InetAddress.getLocalHost();
         ServerSocket serverSocket = new ServerSocket(0, 5, addr);
 
@@ -675,7 +675,7 @@ public class ServerSocketTest extends SocketTestCase {
     /*
      * Regression HARMONY-6090
      */
-    public void test_defaultValueReuseAddress() throws Exception {
+    public void _test_defaultValueReuseAddress() throws Exception {
         String platform = System.getProperty("os.name").toLowerCase(Locale.US);
         if (!platform.startsWith("windows")) {
             // on Unix
@@ -695,7 +695,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#setReuseAddress(boolean)
      */
-    public void test_setReuseAddressZ() {
+    public void _test_setReuseAddressZ() {
         try {
             // set up server and connect
             InetSocketAddress anyAddress = new InetSocketAddress(InetAddress
@@ -793,7 +793,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#getReuseAddress()
      */
-    public void test_getReuseAddress() {
+    public void _test_getReuseAddress() {
         try {
             ServerSocket theSocket = new ServerSocket();
             theSocket.setReuseAddress(true);
@@ -811,7 +811,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#setReceiveBufferSize(int)
      */
-    public void test_setReceiveBufferSizeI() {
+    public void _test_setReceiveBufferSizeI() {
         try {
             // now validate case where we try to set to 0
             ServerSocket theSocket = new ServerSocket();
@@ -846,7 +846,7 @@ public class ServerSocketTest extends SocketTestCase {
     /*
      * @tests java.net.ServerSocket#getReceiveBufferSize()
      */
-    public void test_getReceiveBufferSize() {
+    public void _test_getReceiveBufferSize() {
         try {
             ServerSocket theSocket = new ServerSocket();
 
@@ -866,14 +866,14 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#getChannel()
      */
-    public void test_getChannel() throws Exception {
+    public void _test_getChannel() throws Exception {
         assertNull(new ServerSocket().getChannel());
     }
 
     /*
      * @tests java.net.ServerSocket#setPerformancePreference()
      */
-    public void test_setPerformancePreference_Int_Int_Int() throws Exception {
+    public void _test_setPerformancePreference_Int_Int_Int() throws Exception {
         ServerSocket theSocket = new ServerSocket();
         theSocket.setPerformancePreferences(1, 1, 1);
     }

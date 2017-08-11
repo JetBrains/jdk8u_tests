@@ -172,7 +172,7 @@ public class ZipFileTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.zip.ZipFile#getEntry(java.lang.String)
 	 */
-	public void test_getEntryLjava_lang_String() throws IOException {
+	public void _test_getEntryLjava_lang_String() throws IOException {
 		// Test for method java.util.zip.ZipEntry
 		// java.util.zip.ZipFile.getEntry(java.lang.String)
 		java.util.zip.ZipEntry zentry = zfile.getEntry("File1.txt");

@@ -131,7 +131,7 @@ public class LocaleTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.Locale#getDisplayCountry()
 	 */
-	public void test_getDisplayCountry() {
+	public void _test_getDisplayCountry() {
 		// Test for method java.lang.String java.util.Locale.getDisplayCountry()
 		assertTrue("Returned incorrect country: "
 				+ testLocale.getDisplayCountry(), testLocale
@@ -246,7 +246,7 @@ public class LocaleTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.Locale#getISO3Language()
 	 */
-	public void test_getISO3Language() {
+	public void _test_getISO3Language() {
 		// Test for method java.lang.String java.util.Locale.getISO3Language()
 		assertTrue("Returned incorrect ISO3 language: "
 				+ testLocale.getISO3Language(), testLocale.getISO3Language()
@@ -292,7 +292,7 @@ public class LocaleTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.Locale#getISOLanguages()
 	 */
-	public void test_getISOLanguages() {
+	public void _test_getISOLanguages() {
 		// Test for method java.lang.String []
 		// java.util.Locale.getISOLanguages()
 		// Assumes always at least 131 ISOlanguages...

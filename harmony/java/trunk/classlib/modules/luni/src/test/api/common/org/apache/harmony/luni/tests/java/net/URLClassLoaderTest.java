@@ -116,7 +116,7 @@ public class URLClassLoaderTest extends TestCase {
     /**
      * @tests java.net.URLClassLoader#findResources(java.lang.String)
      */
-    public void test_findResourcesLjava_lang_String() throws IOException {
+    public void _test_findResourcesLjava_lang_String() throws IOException {
         String[] resValues = { "This is a test resource file.",
                 "This is a resource from a subdir" };
         URL[] urls = new URL[2];
@@ -165,7 +165,7 @@ public class URLClassLoaderTest extends TestCase {
     /**
      * @tests java.net.URLClassLoader#newInstance(java.net.URL[])
      */
-    public void test_newInstance$Ljava_net_URL() throws MalformedURLException,
+    public void _test_newInstance$Ljava_net_URL() throws MalformedURLException,
             ClassNotFoundException {
         // Verify that loaded class' have correct permissions
         URL[] urls = new URL[1];
@@ -221,7 +221,7 @@ public class URLClassLoaderTest extends TestCase {
      * @throws IOException
      * @tests java.net.URLClassLoader#findClass(java.lang.String)
      */
-    public void test_findClassLjava_lang_String()
+    public void _test_findClassLjava_lang_String()
             throws ClassNotFoundException, IOException {
         File resources = Support_Resources.createTempFolder();
         String resPath = resources.toString();
@@ -347,7 +347,7 @@ public class URLClassLoaderTest extends TestCase {
     /**
      * @tests java.net.URLClassLoader#findResource(java.lang.String)
      */
-    public void test_findResourceLjava_lang_String()
+    public void _test_findResourceLjava_lang_String()
             throws MalformedURLException {
         URL[] urls = new URL[2];
         urls[0] = new URL(serverURL);

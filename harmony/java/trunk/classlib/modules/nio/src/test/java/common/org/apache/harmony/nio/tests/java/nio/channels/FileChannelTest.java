@@ -1976,7 +1976,7 @@ public class FileChannelTest extends TestCase {
      *
      * @tests java.nio.channels.FileChannel#map(MapMode,long,long)
      */
-    public void test_map_LargePosition() throws IOException {
+    public void _test_map_LargePosition() throws IOException {
         // Regression test for HARMONY-3085
         int[] sizes = {
             4096, // 4K size (normal page size for Linux & Windows)

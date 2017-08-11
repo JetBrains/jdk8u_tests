@@ -116,7 +116,7 @@ public class SocketPermissionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.SocketPermission#implies(java.security.Permission)
      */
-    public void test_impliesLjava_security_Permission() {
+    public void _test_impliesLjava_security_Permission() {
         assertTrue("All should imply resolve", star_All.implies(star_Resolve));
 
         // Regression for HARMONY-1200
@@ -210,7 +210,7 @@ public class SocketPermissionTest extends junit.framework.TestCase {
         SerializationTest.verifySelf(permission);
     }
     
-    public void test_ConstructorLjava_lang_StringLjava_lang_String_subtestIPv6() {
+    public void _test_ConstructorLjava_lang_StringLjava_lang_String_subtestIPv6() {
         String[] goodTestStrings = { 
                 "12334.0.0.01", "[fe80::1]",
                 "[FE80:0000:0000:0000:0000:0000:0000:0001]:80",

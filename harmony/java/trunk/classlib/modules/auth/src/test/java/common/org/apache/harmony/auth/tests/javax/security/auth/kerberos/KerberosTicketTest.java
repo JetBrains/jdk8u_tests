@@ -87,7 +87,7 @@ public class KerberosTicketTest extends TestCase {
     /**
      * @tests javax.security.auth.kerberos.KerberosTicket#getAuthTime() 
      */
-    public void test_getAuthTime() throws Exception {
+    public void _test_getAuthTime() throws Exception {
 
         Date newAuthTime = new Date(AUTH_TIME);
 
@@ -184,7 +184,7 @@ public class KerberosTicketTest extends TestCase {
     /**
      * @tests javax.security.auth.kerberos.KerberosTicket#getEndTime() 
      */
-    public void test_getEndTime() throws Exception {
+    public void _test_getEndTime() throws Exception {
 
         Date newEndTime = new Date(END_TIME);
 
@@ -356,7 +356,7 @@ public class KerberosTicketTest extends TestCase {
     /**
      * @tests javax.security.auth.kerberos.KerberosTicket#getStartTime() 
      */
-    public void test_getStartTime() throws Exception {
+    public void _test_getStartTime() throws Exception {
 
         Date newStartTime = new Date(START_TIME);
 
@@ -382,7 +382,7 @@ public class KerberosTicketTest extends TestCase {
      * @tests javax.security.auth.kerberos.KerberosTicket#destroy()
      * @tests javax.security.auth.kerberos.KerberosTicket#isDestroyed()
      */
-    public void test_Destroyable() throws Exception {
+    public void _test_Destroyable() throws Exception {
 
         KerberosTicket kt = new KerberosTicket(ticket, pClient, pServer,
                 sessionKey, KEY_TYPE, flags, authTime, startTime, endTime,

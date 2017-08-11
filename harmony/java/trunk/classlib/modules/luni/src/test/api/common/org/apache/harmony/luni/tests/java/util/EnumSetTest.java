@@ -1200,7 +1200,7 @@ public class EnumSetTest extends TestCase {
      * @tests java.util.EnumSet#retainAll(Collection)
      */
     @SuppressWarnings("unchecked")
-    public void test_retainAll_LCollection() {
+    public void _test_retainAll_LCollection() {
         Set<EnumFoo> set = EnumSet.allOf(EnumFoo.class);
 
         try {

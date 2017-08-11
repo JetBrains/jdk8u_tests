@@ -148,7 +148,7 @@ public class SimpleTimeZoneTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.SimpleTimeZone#equals(java.lang.Object)
 	 */
-	public void test_equalsLjava_lang_Object() {
+	public void _test_equalsLjava_lang_Object() {
 		// Test for method boolean
 		// java.util.SimpleTimeZone.equals(java.lang.Object)
 
@@ -210,7 +210,7 @@ public class SimpleTimeZoneTest extends junit.framework.TestCase {
 	/**
      * @tests java.util.SimpleTimeZone#getRawOffset()
      */
-	public void test_getRawOffset() {
+	public void _test_getRawOffset() {
 		// Test for method int java.util.SimpleTimeZone.getRawOffset()
 		st1 = (SimpleTimeZone) TimeZone.getTimeZone("EST");
 		assertTrue("Incorrect offset returned",
@@ -221,7 +221,7 @@ public class SimpleTimeZoneTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.SimpleTimeZone#hashCode()
 	 */
-	public void test_hashCode() {
+	public void _test_hashCode() {
 		// Test for method int java.util.SimpleTimeZone.hashCode()
 		// For lack of a better test.
 		st1 = new SimpleTimeZone(-5 * 3600000, "EST", Calendar.APRIL, 1,
@@ -359,7 +359,7 @@ public class SimpleTimeZoneTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.SimpleTimeZone#setRawOffset(int)
 	 */
-	public void test_setRawOffsetI() {
+	public void _test_setRawOffsetI() {
 		// Test for method void java.util.SimpleTimeZone.setRawOffset(int)
 
 		st1 = (SimpleTimeZone) TimeZone.getTimeZone("EST");

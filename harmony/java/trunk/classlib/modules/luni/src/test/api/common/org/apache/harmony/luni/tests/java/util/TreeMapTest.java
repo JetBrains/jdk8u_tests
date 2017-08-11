@@ -400,7 +400,7 @@ public class TreeMapTest extends junit.framework.TestCase {
     /**
      * @tests java.util.TreeMap#put(java.lang.Object, java.lang.Object)
      */
-    public void test_putLjava_lang_ObjectLjava_lang_Object() {
+    public void _test_putLjava_lang_ObjectLjava_lang_Object() {
         // Test for method java.lang.Object
         // java.util.TreeMap.put(java.lang.Object, java.lang.Object)
         Object o = new Object();
@@ -656,7 +656,7 @@ public class TreeMapTest extends junit.framework.TestCase {
      * Tests that no ClassCastException will be thrown in all cases.
      * Regression test for HARMONY-1639.
      */
-    public void test_equals() throws Exception {
+    public void _test_equals() throws Exception {
         // comparing TreeMaps with different object types
         Map m1 = new TreeMap();
         Map m2 = new TreeMap();

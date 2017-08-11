@@ -47,7 +47,7 @@ public class JarURLConnectionTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.net.JarURLConnection#getAttributes()
 	 */
-	public void test_getAttributes() throws Exception{
+	public void _test_getAttributes() throws Exception{
             URL u = new URL("jar:"+BASE+"!/swt.dll");
                 
             juc = (JarURLConnection) u.openConnection();
@@ -76,7 +76,7 @@ public class JarURLConnectionTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.net.JarURLConnection#getJarEntry()
 	 */
-	public void test_getJarEntry() throws Exception {
+	public void _test_getJarEntry() throws Exception {
         URL u = new URL("jar:"+BASE+"!/plus.bmp");
         juc = (JarURLConnection) u.openConnection();
         assertEquals("Returned incorrect JarEntry", "plus.bmp", juc
@@ -196,7 +196,7 @@ public class JarURLConnectionTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.net.JarURLConnection#getMainAttributes()
 	 */
-	public void test_getMainAttributes() throws Exception{
+	public void _test_getMainAttributes() throws Exception{
         URL u = new URL("jar:"+BASE+"!/swt.dll");
         juc = (JarURLConnection) u.openConnection();
         java.util.jar.Attributes a = juc.getMainAttributes();
@@ -231,7 +231,7 @@ public class JarURLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.JarURLConnection#getManifest()
      */
-    public void test_getManifest() throws Exception {
+    public void _test_getManifest() throws Exception {
         URL u = new URL("jar:" + BASE + "!/plus.bmp");
         juc = (JarURLConnection) u.openConnection();
         Manifest mf = juc.getManifest();
@@ -246,7 +246,7 @@ public class JarURLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.JarURLConnection#getCertificates()
      */
-    public void test_getCertificates() throws Exception {
+    public void _test_getCertificates() throws Exception {
         URL u = new URL("jar:"+BASE+"!/plus.bmp");
         juc = (JarURLConnection) u.openConnection();
         // read incomplete, shall return null
@@ -272,7 +272,7 @@ public class JarURLConnectionTest extends junit.framework.TestCase {
      * @tests java.net.JarURLConnection#getContentLength()
      * Regression test for HARMONY-3665
      */
-    public void test_getContentLength() throws Exception {
+    public void _test_getContentLength() throws Exception {
         // check length for jar file itself
         URL u = new URL("jar:"+BASE+"!/");
         assertEquals("Returned incorrect size for jar file", 33095,
@@ -305,7 +305,7 @@ public class JarURLConnectionTest extends junit.framework.TestCase {
                 "content/unknown", u.openConnection().getContentType());
     }
 
-    public void test_getURLEncodedEntry() throws IOException {
+    public void _test_getURLEncodedEntry() throws IOException {
         String base = "file:resources/org/apache/harmony/luni/tests/java/net/url-test.jar";
         URL url = new URL("jar:" + base + "!/test%20folder%20for%20url%20test/test");
 

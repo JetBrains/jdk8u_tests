@@ -445,7 +445,7 @@ public class PrivateCredentialPermissionTest extends TestCase {
     /**
      * a target name should not be null 
      */
-    public final void testPCP_14() {
+    public final void _testPCP_14() {
         try {
             new PrivateCredentialPermission(null, "read");
             fail("should be throw NullPointerException");
@@ -664,7 +664,7 @@ public class PrivateCredentialPermissionTest extends TestCase {
         assertTrue(p4.implies(p3));
     }
 
-    public final void testDuplicates() {
+    public final void _testDuplicates() {
 
         // string contains duplicate entries: b "c"
         PrivateCredentialPermission p = new PrivateCredentialPermission(

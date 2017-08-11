@@ -60,7 +60,7 @@ public class JndiLoginModuleTest extends TestCase {
      * Test method for
      * {@link org.apache.harmony.auth.module.JndiLoginModule#abort()}.
      */
-    public void test_abort() throws LoginException {
+    public void _test_abort() throws LoginException {
         JndiLoginModule jlm = new JndiLoginModule();
         try {
             assertFalse("Should return false if login failed or no login", jlm
@@ -93,7 +93,7 @@ public class JndiLoginModuleTest extends TestCase {
      * Test method for
      * {@link org.apache.harmony.auth.module.JndiLoginModule#commit()}.
      */
-    public void test_commit() {
+    public void _test_commit() {
         JndiLoginModule module = new JndiLoginModule();
         Subject subject = new Subject();
         module.initialize(subject, new MockCallbackHandler(), null, options);
@@ -134,7 +134,7 @@ public class JndiLoginModuleTest extends TestCase {
      * Test method for
      * {@link org.apache.harmony.auth.module.JndiLoginModule#login()}.
      */
-    public void test_login() {
+    public void _test_login() {
         JndiLoginModule module = new JndiLoginModule();
         HashMap<String, String> emptyOptions = new HashMap<String, String>();
         module.initialize(null, new MockCallbackHandler(), null, emptyOptions);
@@ -165,7 +165,7 @@ public class JndiLoginModuleTest extends TestCase {
      * Test method for
      * {@link org.apache.harmony.auth.module.JndiLoginModule#logout()}.
      */
-    public void test_logout() {
+    public void _test_logout() {
         JndiLoginModule module = new JndiLoginModule();
         Subject subject = new Subject();
         module.initialize(subject, new MockCallbackHandler(), null, options);
@@ -186,7 +186,7 @@ public class JndiLoginModuleTest extends TestCase {
         assertTrue("Principals should be cleared", principals.isEmpty());
     }
 
-    public void test_optionsAndSharedStatus() throws LoginException {
+    public void _test_optionsAndSharedStatus() throws LoginException {
         options.put("debug", "true");
         options.put("useFirstPass", "true");
         HashMap<String, Object> status = new HashMap<String, Object>();

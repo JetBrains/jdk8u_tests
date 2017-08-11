@@ -694,7 +694,7 @@ public class PersistenceDelegateTest extends TestCase {
         assertEquals(component.getBounds(), aComponent.getBounds());
     }
 
-    public void test_writeObject_java_awt_Container() {
+    public void _test_writeObject_java_awt_Container() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(
             byteArrayOutputStream));

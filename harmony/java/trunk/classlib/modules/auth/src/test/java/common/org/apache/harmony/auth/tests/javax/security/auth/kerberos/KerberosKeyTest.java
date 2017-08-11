@@ -161,7 +161,7 @@ public class KerberosKeyTest extends TestCase {
     /**
      * @tests javax.security.auth.kerberos.KerberosKey#destroy()
      */
-    public void test_destroy() throws Exception {
+    public void _test_destroy() throws Exception {
 
         KerberosKey key = new KerberosKey(principal, new char[10], "DES");
 

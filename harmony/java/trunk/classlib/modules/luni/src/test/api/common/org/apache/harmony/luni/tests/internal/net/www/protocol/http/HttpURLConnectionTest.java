@@ -578,7 +578,7 @@ public class HttpURLConnectionTest extends TestCase {
     /**
      * @tests HttpURLConnection.usingProxy
      */
-    public void testUsingProxy2() throws Exception {
+    public void _testUsingProxy2() throws Exception {
         try {
             System.setProperty("http.proxyHost", "localhost");
             System.setProperty("http.proxyPort", jettyPort + "");
@@ -955,7 +955,7 @@ public class HttpURLConnectionTest extends TestCase {
      * Test that a connection made through proxy will be reused for connection
      * establishing without proxy.
      */
-    public void testProxiedConnectionPersistence() throws Exception {
+    public void _testProxiedConnectionPersistence() throws Exception {
         MockHTTPServer httpServer = new MockHTTPServer(
                 "HTTP Server for persistence checking", 2);
         httpServer.start();
@@ -1084,7 +1084,7 @@ public class HttpURLConnectionTest extends TestCase {
     /*
      * @test HttpURLConnection.setRequestProperty
      */
-    public void testSetRequestProperty() throws Exception {
+    public void _testSetRequestProperty() throws Exception {
         MockHTTPServer httpServer = new MockHTTPServer(
                 "HTTP Server for User-Specified Request Property", 2);
         httpServer.start();

@@ -165,7 +165,7 @@ public class HashMapTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.HashMap#HashMap(java.util.Map)
 	 */
-	public void test_ConstructorLjava_util_Map() {
+	public void _test_ConstructorLjava_util_Map() {
 		// Test for method java.util.HashMap(java.util.Map)
 		Map myMap = new TreeMap();
 		for (int counter = 0; counter < hmSize; counter++)
@@ -596,7 +596,7 @@ public class HashMapTest extends junit.framework.TestCase {
 	 * Compatibility test to ensure we rehash the same way as the RI.
 	 * Not required by the spec, but some apps seem sensitive to it.
 	 */
-    public void test_rehash() {
+    public void _test_rehash() {
         // This map should rehash on adding the ninth element.
         HashMap<MyKey, Integer> hm = new HashMap<MyKey, Integer>(10, 0.5f);
 

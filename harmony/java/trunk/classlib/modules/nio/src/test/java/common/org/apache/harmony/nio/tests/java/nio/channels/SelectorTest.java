@@ -449,7 +449,7 @@ public class SelectorTest extends TestCase {
         }
     }
 
-    public void test_nonBlockingConnect() throws IOException {
+    public void _test_nonBlockingConnect() throws IOException {
         SocketChannel channel = null;
         try {
             channel = SocketChannel.open();

@@ -187,7 +187,7 @@ public class ConfigurationTest extends TestCase {
     /**
      * Tests reading config files by default provider
      */
-    public void test_defaultProvider() throws Exception {
+    public void _test_defaultProvider() throws Exception {
 
         // test: there are no config files to be read
         // Regression for HARMONY-1715

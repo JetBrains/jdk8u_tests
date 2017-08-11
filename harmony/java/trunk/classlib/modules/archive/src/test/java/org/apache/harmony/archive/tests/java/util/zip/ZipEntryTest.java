@@ -192,7 +192,7 @@ public class ZipEntryTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.zip.ZipEntry#setComment(java.lang.String)
 	 */
-	public void test_setCommentLjava_lang_String() {
+	public void _test_setCommentLjava_lang_String() {
 		// Test for method void
 		// java.util.zip.ZipEntry.setComment(java.lang.String)
 		zentry = zfile.getEntry("File1.txt");
@@ -354,7 +354,7 @@ public class ZipEntryTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.zip.ZipEntry#setTime(long)
 	 */
-	public void test_setTimeJ() {
+	public void _test_setTimeJ() {
 		// Test for method void java.util.zip.ZipEntry.setTime(long)
 		zentry.setTime(orgTime + 10000);
 		assertEquals("Test 1: Failed to set time: " + zentry.getTime(), (orgTime + 10000), 

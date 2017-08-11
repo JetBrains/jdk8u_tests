@@ -153,7 +153,7 @@ public class PropertyEditorManagerTest extends TestCase {
     /*
      * registerEditor for type null Regression test for HARMONY-258
      */
-    public void testRegisterEditorType_Null() {
+    public void _testRegisterEditorType_Null() {
         try {
             PropertyEditorManager.registerEditor(null, ButtonEditor.class);
             fail("Should throw NullPointerException");
@@ -200,7 +200,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertEquals(Boolean.TRUE, editor.getValue());
     }
 
-    public void testBoolEditor_setAsText_null() {
+    public void _testBoolEditor_setAsText_null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(Boolean.TYPE);
         try {
             editor.setAsText(null);
@@ -268,7 +268,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getTags());
     }
 
-    public void testByteEditor_null() {
+    public void _testByteEditor_null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(Byte.TYPE);
         try {
             editor.setAsText(null);
@@ -308,7 +308,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getTags());
     }
 
-    public void testDoubleEditor_SetAsText_Null() {
+    public void _testDoubleEditor_SetAsText_Null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(Double.TYPE);
         try {
             editor.setAsText(null);
@@ -339,7 +339,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getTags());
     }
 
-    public void testFloatEditor_SetAsText_Null() {
+    public void _testFloatEditor_SetAsText_Null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(Float.TYPE);
         try {
             editor.setAsText(null);
@@ -370,7 +370,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getTags());
     }
 
-    public void testLongEditor_SetAsText_Null() {
+    public void _testLongEditor_SetAsText_Null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(Long.TYPE);
         try {
             editor.setAsText(null);
@@ -402,7 +402,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getTags());
     }
 
-    public void testShortEditor_SetAsText_Null() {
+    public void _testShortEditor_SetAsText_Null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(Short.TYPE);
         try {
             editor.setAsText(null);
@@ -433,7 +433,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getTags());
     }
 
-    public void testIntegerEditor_SetAsText_Null() {
+    public void _testIntegerEditor_SetAsText_Null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(Integer.TYPE);
         try {
             editor.setAsText(null);
@@ -463,7 +463,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getTags());
     }
 
-    public void testStringEditor_SetAsText_Null() {
+    public void _testStringEditor_SetAsText_Null() {
         PropertyEditor editor = PropertyEditorManager.findEditor(String.class);
 
         editor.setAsText("null");
@@ -481,7 +481,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertNull(editor.getValue());
     }
 
-    public void testStringEditor_SetAsText_SpecialChars() {
+    public void _testStringEditor_SetAsText_SpecialChars() {
         PropertyEditor editor = PropertyEditorManager.findEditor(String.class);
         String str = "\n\t\\a\"";
         editor.setAsText(str);
@@ -776,7 +776,7 @@ public class PropertyEditorManagerTest extends TestCase {
         assertTrue(pe instanceof AnotherSamplePropertyEditor);
     }
     
-    public void testFontEditor() throws Exception{
+    public void _testFontEditor() throws Exception{
         PropertyEditor e2 = PropertyEditorManager.findEditor(Font.class);
         Font font = new Font("Helvetica", Font.PLAIN, 12);
         e2.setValue(font);
@@ -818,7 +818,7 @@ public class PropertyEditorManagerTest extends TestCase {
 
     }
 
-    public void testColorEditor() throws Exception{
+    public void _testColorEditor() throws Exception{
         PropertyEditor e2 = PropertyEditorManager.findEditor(Color.class);
         assertNull(e2.getValue());
         assertEquals("", e2.getAsText());

@@ -55,7 +55,7 @@ public class MacSpiTest extends TestCase {
      * Test for <code>MacSpi</code> constructor 
      * Assertion: constructs MacSpi
      */
-    public void testMacSpiTests01() throws Exception {
+    public void _testMacSpiTests01() throws Exception {
         MyMacSpi mSpi = new MyMacSpi();
                 
         byte [] bb1 = {(byte)1, (byte)2, (byte)3, (byte)4, (byte)5};

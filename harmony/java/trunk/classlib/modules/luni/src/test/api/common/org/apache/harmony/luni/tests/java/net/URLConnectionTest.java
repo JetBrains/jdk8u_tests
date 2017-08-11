@@ -171,7 +171,7 @@ public class URLConnectionTest extends junit.framework.TestCase {
     /**
      * Regression test for HARMONY-6452
      */
-    public void test_RequestProperty_case_insensitivity() 
+    public void _test_RequestProperty_case_insensitivity()
             throws MalformedURLException, IOException {
 
         URLConnection u =
@@ -384,7 +384,7 @@ public class URLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.URLConnection#getContentType()
      */
-    public void test_getContentType() throws IOException {
+    public void _test_getContentType() throws IOException {
         // should not be known for a file
         assertTrue("getContentType failed: " + uc.getContentType(), uc
                 .getContentType().contains("text/html"));
@@ -399,7 +399,7 @@ public class URLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.URLConnection#getContentType()
      */
-    public void test_getContentType_regression() throws IOException {
+    public void _test_getContentType_regression() throws IOException {
         // Regression for HARMONY-4699
         assertEquals("application/rtf", getContentType("test.rtf"));
         assertEquals("text/plain", getContentType("test.java"));
@@ -516,7 +516,7 @@ public class URLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.URLConnection#getFileNameMap()
      */
-    public void test_getFileNameMap() {
+    public void _test_getFileNameMap() {
         // Tests for the standard MIME types -- users may override these
         // in their JRE
         FileNameMap map = URLConnection.getFileNameMap();
@@ -732,7 +732,7 @@ public class URLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.URLConnection#getInputStream()
      */
-    public void test_getInputStream() throws IOException {
+    public void _test_getInputStream() throws IOException {
         InputStream is = uc.getInputStream();
         byte[] ba = new byte[600];
         is.read(ba, 0, 600);
@@ -1091,7 +1091,7 @@ public class URLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.URLConnection#guessContentTypeFromStream(java.io.InputStream)
      */
-    public void test_guessContentTypeFromStreamLjava_io_InputStream()
+    public void _test_guessContentTypeFromStreamLjava_io_InputStream()
             throws IOException {
         String[] headers = new String[] { "<html>", "<head>", " <head ",
                 "<body", "<BODY ", "<!DOCTYPE html", "<?xml " };

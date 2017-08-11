@@ -170,7 +170,7 @@ public class DefaultPersistenceDelegateTest extends TestCase {
     /*
      * Test instantiate() with empty property name.
      */
-    public void testInstantiate_EmptyProperty() throws Exception {
+    public void _testInstantiate_EmptyProperty() throws Exception {
         MockPersistenceDelegate pd = new MockPersistenceDelegate(new String[] {
                 "prop1", "" });
         MockBean b = new MockBean();
@@ -321,7 +321,7 @@ public class DefaultPersistenceDelegateTest extends TestCase {
      * Test instantiate() with a property name starting with initial upper case
      * letter, and a valid getter method.
      */
-    public void testInstantiate_InitialUpperCasePropName() throws Exception {
+    public void _testInstantiate_InitialUpperCasePropName() throws Exception {
         String[] props = new String[] { "Prop1", "prop2" };
         MockPersistenceDelegate pd = new MockPersistenceDelegate(props);
         MockBean b = new MockBean();
@@ -361,7 +361,7 @@ public class DefaultPersistenceDelegateTest extends TestCase {
      * Test instantiate() with a property name that has an irregular getter
      * method, defined by its beaninfo.
      */
-    public void testInstantiate_NotRegularGetter() throws Exception {
+    public void _testInstantiate_NotRegularGetter() throws Exception {
         MockPersistenceDelegate pd = new MockPersistenceDelegate(
                 new String[] { "prop" });
         MockFoo2 b = new MockFoo2(2);

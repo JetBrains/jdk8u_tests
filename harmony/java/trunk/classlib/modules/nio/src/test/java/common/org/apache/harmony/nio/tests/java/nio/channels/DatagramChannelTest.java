@@ -165,7 +165,7 @@ public class DatagramChannelTest extends TestCase {
      * 
      * @throws IOException
      */
-    public void testSocket_ActionsBeforeConnect() throws IOException {
+    public void _testSocket_ActionsBeforeConnect() throws IOException {
         assertFalse(this.channel1.isConnected());// not connected
         DatagramSocket s = this.channel1.socket();
         assertSocketActionBeforeConnect(s);
@@ -176,14 +176,14 @@ public class DatagramChannelTest extends TestCase {
      * 
      * @throws IOException
      */
-    public void testSocket_Block_ActionsAfterConnect() throws IOException {
+    public void _testSocket_Block_ActionsAfterConnect() throws IOException {
         assertFalse(this.channel1.isConnected());// not connected
         this.channel1.connect(localAddr1);
         DatagramSocket s = this.channel1.socket();
         assertSocketActionAfterConnect(s);
     }
 
-    public void testSocket_NonBlock_ActionsAfterConnect() throws IOException {
+    public void _testSocket_NonBlock_ActionsAfterConnect() throws IOException {
         this.channel1.connect(localAddr1);
         this.channel1.configureBlocking(false);
         DatagramSocket s = this.channel1.socket();
@@ -345,7 +345,7 @@ public class DatagramChannelTest extends TestCase {
      * 
      * @throws IOException
      */
-    public void testConnect_Null() throws IOException {
+    public void _testConnect_Null() throws IOException {
         assertFalse(this.channel1.isConnected());
         try {
             this.channel1.connect(null);
@@ -1324,7 +1324,7 @@ public class DatagramChannelTest extends TestCase {
         private static final long serialVersionUID = 1L;
     }
 
-    public void testSend_MockSocketAddress() throws Exception {
+    public void _testSend_MockSocketAddress() throws Exception {
 
         SocketAddress badAddr = new mockAddress();
         final SecurityManager sm = System.getSecurityManager();

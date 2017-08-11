@@ -160,7 +160,7 @@ public class SinkChannelTest extends TestCase {
 	/**
 	 * @tests java.nio.channels.Pipe.SinkChannel#write(ByteBuffer)
 	 */
-	public void test_write_LByteBuffer_SourceClosed() throws IOException {
+	public void _test_write_LByteBuffer_SourceClosed() throws IOException {
 		source.close();
 		int written = sink.write(buffer);
 		assertEquals(BUFFER_SIZE, written);
@@ -169,7 +169,7 @@ public class SinkChannelTest extends TestCase {
 	/**
 	 * @tests java.nio.channels.Pipe.SinkChannel#write(ByteBuffer)
 	 */
-	public void test_write_LByteBuffer_SinkClosed() throws IOException {
+	public void _test_write_LByteBuffer_SinkClosed() throws IOException {
 		sink.close();
 		try {
 			sink.write(buffer);
@@ -248,7 +248,7 @@ public class SinkChannelTest extends TestCase {
 	/**
 	 * @tests java.nio.channels.Pipe.SinkChannel#write(ByteBuffer[])
 	 */
-	public void test_write_$LByteBuffer_SourceClosed() throws IOException {
+	public void _test_write_$LByteBuffer_SourceClosed() throws IOException {
 		ByteBuffer[] bufArray = { buffer };
 		source.close();
 		long written = sink.write(bufArray);
@@ -393,7 +393,7 @@ public class SinkChannelTest extends TestCase {
 	/**
 	 * @tests java.nio.channels.Pipe.SinkChannel#write(ByteBuffer[], int, int)
 	 */
-	public void test_write_$LByteBufferII_SourceClosed() throws IOException {
+	public void _test_write_$LByteBufferII_SourceClosed() throws IOException {
 		ByteBuffer[] bufArray = { buffer };
 		source.close();
 		long written = sink.write(bufArray, 0, 1);

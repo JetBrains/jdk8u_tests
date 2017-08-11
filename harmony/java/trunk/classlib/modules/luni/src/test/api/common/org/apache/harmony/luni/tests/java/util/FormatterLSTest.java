@@ -24,7 +24,7 @@ public class FormatterLSTest extends TestCase {
     /**
      * @tests java.util.Formatter#format(String, Object...) for line sperator
      */
-    public void test_formatLjava_lang_String$Ljava_lang_Object_LineSeparator() {
+    public void _test_formatLjava_lang_String$Ljava_lang_Object_LineSeparator() {
         Formatter f = null;
 
         System.setProperty("line.separator", "!\n");

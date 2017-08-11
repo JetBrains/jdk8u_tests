@@ -104,7 +104,7 @@ public class SourceChannelTest extends TestCase {
 	/**
 	 * @tests java.nio.channels.Pipe.SourceChannel#read(ByteBuffer)
 	 */
-	public void test_read_LByteBuffer_SourceClosed() throws IOException {
+	public void _test_read_LByteBuffer_SourceClosed() throws IOException {
 		ByteBuffer readBuf = ByteBuffer.allocate(BUFFER_SIZE);
 		source.close();
 		try {

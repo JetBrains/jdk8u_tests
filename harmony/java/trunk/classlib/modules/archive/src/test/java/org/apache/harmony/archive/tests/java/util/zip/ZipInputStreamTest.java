@@ -85,7 +85,7 @@ public class ZipInputStreamTest extends TestCase {
 	/**
 	 * @tests java.util.zip.ZipInputStream#close()
 	 */
-	public void test_close() {
+	public void _test_close() {
 		try {
 			zis.close();
 			byte[] rbuf = new byte[10];
@@ -208,7 +208,7 @@ public class ZipInputStreamTest extends TestCase {
         }
     }
 
-    public void test_available() throws Exception {
+    public void _test_available() throws Exception {
 
         File resources = Support_Resources.createTempFolder();
         Support_Resources.copyFile(resources, null, "hyts_ZipFile.zip");

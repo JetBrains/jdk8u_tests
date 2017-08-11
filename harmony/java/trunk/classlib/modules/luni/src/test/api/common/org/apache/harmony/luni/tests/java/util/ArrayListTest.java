@@ -612,7 +612,7 @@ public class ArrayListTest extends junit.framework.TestCase {
     /**
      * @tests {@link java.util.ArrayList#removeRange(int, int)}
      */
-    public void test_removeRange() {
+    public void _test_removeRange() {
         MockArrayList mylist = new MockArrayList();
         mylist.removeRange(0, 0);
 

@@ -229,7 +229,7 @@ public class PersistenceTest extends TestCase {
     /**
      * Test that an HTTP connection persists
      */
-    public void testConnectionsPersist() throws IOException, InterruptedException {
+    public void _testConnectionsPersist() throws IOException, InterruptedException {
         int initialFreeConnections = HttpConnectionManager.getDefault().numFreeConnections();
         MockServer httpServer =
                 new MockServer("ServerSocket for HttpURLConnectionTest");
@@ -259,7 +259,7 @@ public class PersistenceTest extends TestCase {
     /**
      * Test that multiple HTTP connections persist
      */
-    public void testMultipleConnectionsPersist() throws IOException, InterruptedException {
+    public void _testMultipleConnectionsPersist() throws IOException, InterruptedException {
         int initialFreeConnections = HttpConnectionManager.getDefault().numFreeConnections();
         MockServer httpServer =
                 new MockServer("ServerSocket for HttpURLConnectionTest");
@@ -314,7 +314,7 @@ public class PersistenceTest extends TestCase {
      * Test that a closed HTTP connection is not kept in the pool of live connections
      * @throws URISyntaxException
      */
-    public void testForcedClosure() throws Exception {
+    public void _testForcedClosure() throws Exception {
         int initialFreeConnections = HttpConnectionManager.getDefault().numFreeConnections();
         MockServer httpServer =
                 new MockServer("ServerSocket for HttpURLConnectionTest");
@@ -396,7 +396,7 @@ public class PersistenceTest extends TestCase {
      * Test that a connection is not closed if the client does read all the data
      * @throws Exception 
      */
-    public void testCorrectUsage() throws Exception {
+    public void _testCorrectUsage() throws Exception {
         int initialFreeConnections = HttpConnectionManager.getDefault().numFreeConnections();
         HttpURLConnection c = (HttpURLConnection)
             new URL("http://localhost:" + port).openConnection();
@@ -431,7 +431,7 @@ public class PersistenceTest extends TestCase {
     /**
      * Test that the http.keepAlive system property has the required effect on persistent connections
      */
-    public void testKeepAliveSystemProperty() throws IOException, InterruptedException {
+    public void _testKeepAliveSystemProperty() throws IOException, InterruptedException {
         System.setProperty("http.keepAlive", "false");
         MockServer httpServer =
                 new MockServer("ServerSocket for HttpURLConnectionTest");
@@ -456,7 +456,7 @@ public class PersistenceTest extends TestCase {
      * Test that the http.maxConnections system property has the required effect on persistent connections
      * @throws Exception
      */
-    public void testMaxConnectionsSystemProperty() throws Exception {
+    public void _testMaxConnectionsSystemProperty() throws Exception {
         int initialFreeConnections = HttpConnectionManager.getDefault().numFreeConnections();
         System.setProperty("http.maxConnections", "2");
         HttpURLConnection c = (HttpURLConnection)

@@ -167,7 +167,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter()
      */
-    public void test_Constructor() {
+    public void _test_Constructor() {
         Formatter f = new Formatter();
         assertNotNull(f);
         //Error java: incompatible types: java.lang.Appendable cannot be converted to java.lang.StringBuilder
@@ -179,7 +179,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(Appendable)
      */
-    public void test_ConstructorLjava_lang_Appendable() {
+    public void _test_ConstructorLjava_lang_Appendable() {
         MockAppendable ma = new MockAppendable();
         Formatter f1 = new Formatter(ma);
         assertEquals(ma, f1.out());
@@ -238,7 +238,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(String)
      */
-    public void test_ConstructorLjava_lang_String() throws IOException {
+    public void _test_ConstructorLjava_lang_String() throws IOException {
         Formatter f = null;
         try {
             f = new Formatter((String) null);
@@ -279,7 +279,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(String, String)
      */
-    public void test_ConstructorLjava_lang_StringLjava_lang_String()
+    public void _test_ConstructorLjava_lang_StringLjava_lang_String()
             throws IOException {
         Formatter f = null;
         try {
@@ -401,7 +401,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(File)
      */
-    public void test_ConstructorLjava_io_File() throws IOException {
+    public void _test_ConstructorLjava_io_File() throws IOException {
         Formatter f = null;
         try {
             f = new Formatter((File) null);
@@ -442,7 +442,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(File, String)
      */
-    public void test_ConstructorLjava_io_FileLjava_lang_String()
+    public void _test_ConstructorLjava_io_FileLjava_lang_String()
             throws IOException {
         Formatter f = null;
         try {
@@ -574,7 +574,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(PrintStream)
      */
-    public void test_ConstructorLjava_io_PrintStream() throws IOException {
+    public void _test_ConstructorLjava_io_PrintStream() throws IOException {
         Formatter f = null;
         try {
             f = new Formatter((PrintStream) null);
@@ -592,7 +592,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(OutputStream)
      */
-    public void test_ConstructorLjava_io_OutputStream() throws IOException {
+    public void _test_ConstructorLjava_io_OutputStream() throws IOException {
         Formatter f = null;
         try {
             f = new Formatter((OutputStream) null);
@@ -610,7 +610,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#Formatter(OutputStream, String)
      */
-    public void test_ConstructorLjava_io_OutputStreamLjava_lang_String()
+    public void _test_ConstructorLjava_io_OutputStreamLjava_lang_String()
             throws IOException {
         Formatter f = null;
         try {
@@ -1096,7 +1096,7 @@ public class FormatterTest extends TestCase {
     /**
      * @tests java.util.Formatter#format(String, Object...) for percent
      */
-    public void test_formatLjava_lang_String$Ljava_lang_Object_Percent() {
+    public void _test_formatLjava_lang_String$Ljava_lang_Object_Percent() {
         Formatter f = null;
 
         f = new Formatter(Locale.ENGLISH);
@@ -1800,7 +1800,7 @@ public class FormatterTest extends TestCase {
      * @tests java.util.Formatter#format(String, Object...) for Date/Time
      *        conversion
      */
-    public void test_formatLjava_lang_String$Ljava_lang_Object_DateTimeConversion() {
+    public void _test_formatLjava_lang_String$Ljava_lang_Object_DateTimeConversion() {
         Formatter f = null;
         Date now = new Date(1147327147578L);
 

@@ -171,7 +171,7 @@ public class PolicyTest extends TestCase {
 
     private static final String POLICY_PROP = "java.security.auth.policy";
     
-    public void test_GetPermissions() throws Exception {
+    public void _test_GetPermissions() throws Exception {
 
         PermissionCollection c;
         Permission per;
@@ -317,7 +317,7 @@ public class PolicyTest extends TestCase {
         }
     }
 
-    public void test_Refresh() {
+    public void _test_Refresh() {
 
         Permission per;
         Subject subject;

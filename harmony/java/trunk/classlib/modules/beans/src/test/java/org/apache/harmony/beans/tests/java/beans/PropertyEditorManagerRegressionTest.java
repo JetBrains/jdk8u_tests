@@ -102,7 +102,7 @@ public class PropertyEditorManagerRegressionTest extends TestCase {
     }
     
     // Regression Harmony-4062
-    public void testColorEditor() {
+    public void _testColorEditor() {
         PropertyEditor propertyEditor = PropertyEditorManager
                 .findEditor(Color.class);
         propertyEditor.setValue(new Color(0, 0, 0));

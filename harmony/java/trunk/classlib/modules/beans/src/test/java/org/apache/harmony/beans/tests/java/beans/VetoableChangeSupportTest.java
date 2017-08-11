@@ -361,7 +361,7 @@ public class VetoableChangeSupportTest extends TestCase {
     /*
      * add a VetoableChangeListenerProxy
      */
-    public void testAddVetoableChangeListenerVetoableChangeListener_Proxy() {
+    public void _testAddVetoableChangeListenerVetoableChangeListener_Proxy() {
         MockSource source = new MockSource();
         VetoableChangeSupport support = new VetoableChangeSupport(source);
 
@@ -433,7 +433,7 @@ public class VetoableChangeSupportTest extends TestCase {
         assertEquals("called", source.getText());
     }
 
-    public void testFireVetoableChangePropertyChangeEvent_Veto()
+    public void _testFireVetoableChangePropertyChangeEvent_Veto()
             throws PropertyVetoException {
         MockSource source = new MockSource();
         VetoableChangeSupport support = new VetoableChangeSupport(source);
@@ -1118,7 +1118,7 @@ public class VetoableChangeSupportTest extends TestCase {
         assertEquals("text.default", source.getText());
     }
 
-    public void testFireVetoableChangeException_revert_event() {
+    public void _testFireVetoableChangeException_revert_event() {
         final VetoableChangeSupport support = new VetoableChangeSupport(
                 new Object());
         final StringBuffer sb = new StringBuffer();
@@ -1534,7 +1534,7 @@ public class VetoableChangeSupportTest extends TestCase {
     /*
      * Regression test for HARMONY-321
      */
-    public void testFireVetoableChange_regression() {
+    public void _testFireVetoableChange_regression() {
         VetoableChangeSupport vcs = new VetoableChangeSupport(this);
         MockVetoListener2 vlistener = new MockVetoListener2();
 

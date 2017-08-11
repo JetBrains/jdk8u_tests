@@ -261,8 +261,7 @@ public class MemoryPoolMXBeanTest extends TestCase {
     /*
      * Test method for 'java.lang.management.MemoryPoolMXBean.resetPeakUsage()'
      */
-    @Ignore
-    public void testResetPeakUsage() {
+    public void _testResetPeakUsage() {
         for (MemoryPoolMXBean mb : allBeans) {
             MemoryUsage current = mb.getUsage();
             mb.resetPeakUsage();
