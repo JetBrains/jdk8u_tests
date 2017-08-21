@@ -47,7 +47,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testPKIXBuilderParametersKeyStoreCertSelector01()
+    public final void _testPKIXBuilderParametersKeyStoreCertSelector01()
         throws KeyStoreException,
                InvalidAlgorithmParameterException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
@@ -68,7 +68,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testPKIXBuilderParametersKeyStoreCertSelector02()
+    public final void _testPKIXBuilderParametersKeyStoreCertSelector02()
         throws KeyStoreException,
                InvalidAlgorithmParameterException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
@@ -91,7 +91,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testPKIXBuilderParametersKeyStoreCertSelector03()
+    public final void _testPKIXBuilderParametersKeyStoreCertSelector03()
         throws KeyStoreException,
                InvalidAlgorithmParameterException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED_AND_UNTRUSTED);
@@ -111,7 +111,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * Assertion: <code>KeyStoreException</code> -
      * if the <code>keystore</code> has not been initialized
      */
-    public final void testPKIXBuilderParametersKeyStoreCertSelector05() throws Exception {
+    public final void _testPKIXBuilderParametersKeyStoreCertSelector05() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(false, 0);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");
@@ -132,7 +132,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * if the <code>keystore</code> does not contain at least one
      * trusted certificate entry
      */
-    public final void testPKIXBuilderParametersKeyStoreCertSelector06() throws Exception {
+    public final void _testPKIXBuilderParametersKeyStoreCertSelector06() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.UNTRUSTED);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");
@@ -153,7 +153,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * @throws KeyStoreException
      * @throws InvalidAlgorithmParameterException
      */
-    public final void testGetMaxPathLength01()
+    public final void _testGetMaxPathLength01()
         throws KeyStoreException,
                InvalidAlgorithmParameterException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
@@ -171,7 +171,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * @throws KeyStoreException
      * @throws InvalidAlgorithmParameterException
      */
-    public final void testSetMaxPathLength01()
+    public final void _testSetMaxPathLength01()
         throws KeyStoreException,
                InvalidAlgorithmParameterException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
@@ -195,7 +195,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testSetMaxPathLength02()
+    public final void _testSetMaxPathLength02()
         throws KeyStoreException,
                InvalidAlgorithmParameterException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
@@ -218,7 +218,7 @@ public class PKIXBuilderParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testToString()
+    public final void _testToString()
         throws KeyStoreException,
                InvalidAlgorithmParameterException {
         KeyStore ks = TestUtils.getKeyStore(true,TestUtils.TRUSTED_AND_UNTRUSTED);

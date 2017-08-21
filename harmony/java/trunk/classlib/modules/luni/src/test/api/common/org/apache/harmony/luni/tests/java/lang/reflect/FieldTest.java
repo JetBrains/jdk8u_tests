@@ -257,7 +257,7 @@ public class FieldTest extends junit.framework.TestCase {
 	 * @tests java.lang.reflect.Field#setDouble(java.lang.Object, double)
 	 * @tests java.lang.reflect.Field#setChar(java.lang.Object, char)
 	 */
-	public void testProtectedFieldAccess() {
+	public void _testProtectedFieldAccess() {
 		Class fieldClass = new Support_Field().getClass();
 		String fieldName = null;
 		Field objectField = null;

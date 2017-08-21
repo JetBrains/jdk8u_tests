@@ -61,7 +61,7 @@ public class CodeSourceTest extends SerializationTest {
         super.tearDown();
     }
 
-    public void testGolden() throws Throwable {
+    public void _testGolden() throws Throwable {
         super.testGolden();
         // do special testing to cover Exceptions in the {read/write}Data
         

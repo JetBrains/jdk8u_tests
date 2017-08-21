@@ -223,7 +223,7 @@ public class MessageDigest1Test extends TestCase {
     /**
      * Tests SHA MessageDigest provider
      */
-    public void testSHAProvider() throws Exception {
+    public void _testSHAProvider() throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA");
         byte[] bytes = new byte[] { 1, 1, 1, 1, 1 };
 

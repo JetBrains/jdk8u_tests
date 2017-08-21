@@ -98,7 +98,7 @@ public class DateFormatSymbolsTest extends junit.framework.TestCase {
     /**
      * @tests java.text.DateFormatSymbols#getLocalPatternChars()
      */
-    public void test_getLocalPatternChars() {
+    public void _test_getLocalPatternChars() {
         // Test for method java.lang.String
         // java.text.DateFormatSymbols.getLocalPatternChars()
         String retVal = dfs.getLocalPatternChars();
@@ -111,7 +111,7 @@ public class DateFormatSymbolsTest extends junit.framework.TestCase {
     /**
      * @tests java.text.DateFormatSymbols#getMonths()
      */
-    public void test_getMonths() {
+    public void _test_getMonths() {
         // Test for method java.lang.String []
         // java.text.DateFormatSymbols.getMonths()
         String[] retVal = dfs.getMonths();
@@ -126,7 +126,7 @@ public class DateFormatSymbolsTest extends junit.framework.TestCase {
     /**
      * @tests java.text.DateFormatSymbols#getShortMonths()
      */
-    public void test_getShortMonths() {
+    public void _test_getShortMonths() {
         // Test for method java.lang.String []
         // java.text.DateFormatSymbols.getShortMonths()
         String[] retVal = dfs.getShortMonths();
@@ -169,7 +169,7 @@ public class DateFormatSymbolsTest extends junit.framework.TestCase {
     /**
      * @tests java.text.DateFormatSymbols#getZoneStrings()
      */
-    public void test_getZoneStrings() {
+    public void _test_getZoneStrings() {
         // Test for method java.lang.String [][]
         // java.text.DateFormatSymbols.getZoneStrings()
         String[][] val = { { "XX" }, { "YY" } };
@@ -312,7 +312,7 @@ public class DateFormatSymbolsTest extends junit.framework.TestCase {
     /**
      * @tests java.text.DateFormatSymbols#setZoneStrings(java.lang.String[][])
      */
-    public void test_setZoneStrings$$Ljava_lang_String() {
+    public void _test_setZoneStrings$$Ljava_lang_String() {
         // Test for method void
         // java.text.DateFormatSymbols.setZoneStrings(java.lang.String [][])
         String[][] val = { { "XX" }, { "YY" } };

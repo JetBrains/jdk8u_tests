@@ -2112,7 +2112,7 @@ public class FileTest extends TestCase {
     /**
      * @tests java.io.File#toURL()
      */
-    public void test_toURL() throws MalformedURLException {
+    public void _test_toURL() throws MalformedURLException {
         // Need a directory that exists
         File dir = tempDirectory;
 

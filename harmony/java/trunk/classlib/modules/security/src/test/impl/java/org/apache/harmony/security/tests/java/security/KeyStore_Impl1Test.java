@@ -79,7 +79,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * Assertion:
      * returns KeyStoreException object
      */
-    public void testKeyStore03() throws KeyStoreException {
+    public void _testKeyStore03() throws KeyStoreException {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStore ks;
         for (int i = 0; i < validValues.length; i++) {
@@ -92,7 +92,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * Test for <code>getInstance(String type, String provider)</code> method
      * Assertion: throws IllegalArgumentException when provider is null or empty
      */
-    public void testKeyStore04() throws Exception {
+    public void _testKeyStore04() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         String provider = null;
         for (int i = 0; i < validValues.length; i++) {
@@ -115,7 +115,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * Test for <code>getInstance(String type, String provider)</code> method
      * Assertion: throws NoSuchProviderException when provider is not available
      */
-    public void testKeyStore05() throws KeyStoreException {
+    public void _testKeyStore05() throws KeyStoreException {
         assertTrue(NotSupportMsg, JKSSupported);
         for (int i = 0; i < validValues.length; i++) {
             for (int j = 1; j < invalidValues.length; j++) {
@@ -136,7 +136,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * throws NullPointerException when type is null 
      * throws KeyStoreException when type is not available
      */
-    public void testKeyStore06() throws NoSuchProviderException {
+    public void _testKeyStore06() throws NoSuchProviderException {
         assertTrue(NotSupportMsg, JKSSupported);
         try {
             KeyStore.getInstance(null, defaultProviderName);
@@ -159,7 +159,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * Test for <code>getInstance(String type, String provider)</code> method
      * Assertion: returns KeyStore object
      */
-    public void testKeyStore07() throws Exception {
+    public void _testKeyStore07() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStore ks;
         for (int i = 0; i < validValues.length; i++) {
@@ -174,7 +174,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * Test for <code>getInstance(String type, Provider provider)</code> method
      * Assertion: throws IllegalArgumentException when provider is null 
      */
-    public void testKeyStore08() throws KeyStoreException {
+    public void _testKeyStore08() throws KeyStoreException {
         assertTrue(NotSupportMsg, JKSSupported);
         Provider provider = null;
         for (int i = 0; i < validValues.length; i++) {
@@ -194,7 +194,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * throws NullPointerException when type is null 
      * throws KeyStoreException when type is not available
      */
-    public void testKeyStore09() {
+    public void _testKeyStore09() {
         assertTrue(NotSupportMsg, JKSSupported);
         try {
             KeyStore.getInstance(null, defaultProvider);
@@ -218,7 +218,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * method 
      * Assertion: returns KeyStore object
      */
-    public void testKeyStore10() throws KeyStoreException {
+    public void _testKeyStore10() throws KeyStoreException {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStore ks;
         for (int i = 0; i < validValues.length; i++) {
@@ -248,7 +248,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * <code>store(OutputStream stream, char[] password)</code>
      * Assertion: throws KeyStoreException when KeyStore was not initialized
      */
-    public void testKeyStore11() throws Exception {
+    public void _testKeyStore11() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         String msgF ="KeyStoreException must be thrown because KeyStore was not initialized";
         KeyStore [] kss = createKS();
@@ -370,7 +370,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * used trusted certificate.
      *  
      */
-    public void testEntry01() throws Exception {
+    public void _testEntry01() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStoreTestSupport.MCertificate trust = new KeyStoreTestSupport.MCertificate(
                 "type", new byte[0]);
@@ -456,7 +456,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * KeyStore.PrivateKeyEntry is used.
      * 
      */    
-    public void testEntry02() throws Exception {
+    public void _testEntry02() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         TestKeyPair tkp = new TestKeyPair("DSA");
         KeyStoreTestSupport.MCertificate certs[] = {
@@ -573,7 +573,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * FIXME: this test should be changed to verify SecretKeyEntry.
      * It is not supported.  
      */    
-    public void testEntry03() throws Exception {
+    public void _testEntry03() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         TestKeyPair tkp = new TestKeyPair("DSA");
         KeyStoreTestSupport.SKey secKey = new KeyStoreTestSupport.SKey("DSA",
@@ -655,7 +655,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * setCertificateEntry(..) stores used entry and getCertificate(..) returns it 
      * 
      */
-    public void testEntry04() throws Exception {
+    public void _testEntry04() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStoreTestSupport.MCertificate cert = new KeyStoreTestSupport.MCertificate(
                 "type", new byte[0]);
@@ -725,7 +725,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * returns cert 
      * 
      */
-    public void testEntry05() throws Exception {
+    public void _testEntry05() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStoreTestSupport.MCertificate certs[] = {
                 new KeyStoreTestSupport.MCertificate("type1", new byte[10]),
@@ -830,7 +830,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * deletes entry from KeyStore.
      * 
      */    
-    public void testEntry06() throws Exception {
+    public void _testEntry06() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStore.TrustedCertificateEntry tCert = new KeyStore.TrustedCertificateEntry(
                 new KeyStoreTestSupport.MCertificate("type", new byte[0]));
@@ -897,7 +897,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * KeyStore.PrivateKeyEntry is used.
      * 
      */    
-    public void testEntry07() throws Exception {  
+    public void _testEntry07() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         TestKeyPair tkp = new TestKeyPair("DSA");
         KeyStoreTestSupport.MCertificate certs[] = {
@@ -953,7 +953,7 @@ public class KeyStore_Impl1Test extends TestCase {
      * constructor
      * Assertion: constructs KeyStore object
      */
-    public void testKeyStoreConstr() throws Exception {
+    public void _testKeyStoreConstr() throws Exception {
         assertTrue(NotSupportMsg, JKSSupported);
         KeyStoreSpi spi = new MyKeyStoreSpi();
         KeyStore keySt = new tmpKeyStore(spi, defaultProvider,

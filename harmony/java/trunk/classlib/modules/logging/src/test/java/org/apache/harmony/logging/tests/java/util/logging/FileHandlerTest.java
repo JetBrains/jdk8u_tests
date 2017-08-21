@@ -526,7 +526,7 @@ public class FileHandlerTest extends TestCase {
         }
     }
 
-    public void testInvalidParams() throws IOException {
+    public void _testInvalidParams() throws IOException {
 
         // %t and %p parsing can add file separator automatically
         FileHandler h1 = new FileHandler("%taaa");

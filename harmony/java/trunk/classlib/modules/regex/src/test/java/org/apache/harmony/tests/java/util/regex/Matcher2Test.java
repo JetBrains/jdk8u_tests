@@ -219,7 +219,7 @@ public class Matcher2Test extends TestCase {
     /*
      * Regression test for HARMONY-997
      */
-    public void testReplacementBackSlash() {
+    public void _testReplacementBackSlash() {
         String str = "replace me";
         String replacedString = "me";
         String substitutionString = "\\";

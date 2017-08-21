@@ -1163,7 +1163,7 @@ public class BeanContextSupportTest extends TestCase {
         assertNull(url);
     }
 
-    public void testGetResource() {
+    public void _testGetResource() {
         MockBeanContextSupport support = new MockBeanContextSupport();
         MockBeanContextChild child = new MockBeanContextChild();
         support.add(child);
@@ -1222,7 +1222,7 @@ public class BeanContextSupportTest extends TestCase {
         assertNull(ins);
     }
 
-    public void testGetResourceAsStream() throws IOException {
+    public void _testGetResourceAsStream() throws IOException {
         MockBeanContextSupport support = new MockBeanContextSupport();
         MockBeanContextChild child = new MockBeanContextChild();
         support.add(child);

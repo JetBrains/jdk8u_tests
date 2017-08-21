@@ -481,7 +481,7 @@ public class LdapNameTest extends TestCase {
      * The expected result is an InvalidNameException.
      * </p>
      */
-    public void testLdapNameString016() throws Exception {
+    public void _testLdapNameString016() throws Exception {
 
         new LdapName("a=a#");
         try {
@@ -561,7 +561,7 @@ public class LdapNameTest extends TestCase {
      * The expected result is an Exception.
      * </p>
      */
-    public void testLdapNameString042() {
+    public void _testLdapNameString042() {
         try {
             new LdapName("a=b\\");
             fail("InvalidNameException expected");
@@ -640,7 +640,7 @@ public class LdapNameTest extends TestCase {
      * The expected result is an exception.
      * </p>
      */
-    public void testLdapNameString053() {
+    public void _testLdapNameString053() {
         try {
             new LdapName("cn=pucho,,o=fitc");
             fail("InvalidNameException expected");

@@ -117,7 +117,7 @@ public class TrackTest extends TestCase {
      * test method remove(MidiEvent)
      * @throws Exception
      */
-    public void test_remove() throws Exception {
+    public void _test_remove() throws Exception {
         /*
          * create an empty Track
          */
@@ -199,7 +199,7 @@ public class TrackTest extends TestCase {
      * test method size()
      * @throws Exception
      */
-    public void test_size() throws Exception {
+    public void _test_size() throws Exception {
         /*
          * create an empty Track
          */

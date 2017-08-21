@@ -53,7 +53,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * test against the "void generateSeed(int)" method;
      * it checks out that the method throws NegativeArraySizeException if argument <0
      */
-    public final void testGenerateSeedint01() {
+    public final void _testGenerateSeedint01() {
         try {
             sr.generateSeed(-1);
             fail("generateSeed(-1) :: No NegativeArraySizeException");
@@ -67,7 +67,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * it checks out that number of bits returned is equal to one requested;
      * the check includes case for argument's value == 0;
      */
-    public final void testGenerateSeedint02() {
+    public final void _testGenerateSeedint02() {
 
         for ( int i = 0; i < LENGTH; i++ ) {
 
@@ -83,7 +83,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * it checks out the quality of entropy 
      * (# of different bytes in sequential calls is more or equal to 50%)
      */
-    public final void testGenerateSeedint03() {
+    public final void _testGenerateSeedint03() {
 
         byte[] myBytes1;
         byte[] myBytes2;
@@ -107,7 +107,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * test against the "void nextBytes(byte[])" method;
      * it checks out that the method throws NPE if argument supplied is null
      */
-    public final void testNextBytesbyteArray01() {
+    public final void _testNextBytesbyteArray01() {
 
         try {
             sr.nextBytes(null);
@@ -123,7 +123,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * being supplied with the same seed return the same sequencies of bytes
      * as results of their "nextBytes(byte[])" methods
      */
-    public final void testNextBytesbyteArray02() {
+    public final void _testNextBytesbyteArray02() {
 
         byte[] myBytes;
         byte[] myBytes1;
@@ -188,7 +188,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * being supplied with seed by themselves return different sequencies of bytes
      * as results of their "nextBytes(byte[])" methods
      */
-    public final void testNextBytesbyteArray03() throws NoSuchAlgorithmException,
+    public final void _testNextBytesbyteArray03() throws NoSuchAlgorithmException,
                                                         NoSuchProviderException {
 
         SecureRandom sr1;    // these are needed to test new SecureRandom objects in loop
@@ -241,7 +241,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * invocation of "setSeed(..)" methods are first ones
      * then further calls to "nextBytes(new byte[0])" methods has no effect
      */
-    public final void testNextBytesbyteArray04() throws NoSuchAlgorithmException,
+    public final void _testNextBytesbyteArray04() throws NoSuchAlgorithmException,
                                                         NoSuchProviderException {
 
         SecureRandom sr1;    // these are needed to test new SecureRandom objects in loop
@@ -320,7 +320,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * test against the "void setSeed(byte[])" method;
      * it checks out that the method throws NPE if argument supplied is null
      */
-    public final void testSetSeedbyteArray01() {
+    public final void _testSetSeedbyteArray01() {
 
         try {
             sr.setSeed(null);
@@ -335,7 +335,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      * it checks out that "setSeed(byte[])" method supplements its argument to current seed
      * rather than replaces current seed
      */
-    public final void testSetSeedbyteArray02() throws NoSuchFieldException,
+    public final void _testSetSeedbyteArray02() throws NoSuchFieldException,
                                                         SecurityException,
                                                         IllegalAccessException {
         byte[]   seed = new byte[LENGTH];
@@ -371,7 +371,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
      *   nextBytes(..); setSeed(new byte[0]); nextBytes(..);
      *   don't contain the same byte sequencies.
      */
-    public final void testSetSeedbyteArray03() throws NoSuchFieldException,
+    public final void _testSetSeedbyteArray03() throws NoSuchFieldException,
                                                         SecurityException,
                                                         IllegalAccessException {
         byte[]   seed = new byte[LENGTH];

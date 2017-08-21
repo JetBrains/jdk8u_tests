@@ -113,7 +113,7 @@ public class ObjectStreamClassTest extends TestCase {
     /**
      * @tests java.io.ObjectStreamClass#getSerialVersionUID()
      */
-    public void test_getSerialVersionUID_inner_private_class() {
+    public void _test_getSerialVersionUID_inner_private_class() {
         ObjectStreamClass osc1 = ObjectStreamClass.lookup(SyntheticTest.class);
         assertEquals("SyntheticTest unexpected UID: "
                 + osc1.getSerialVersionUID(), -7784078941584535183L, osc1
@@ -129,7 +129,7 @@ public class ObjectStreamClassTest extends TestCase {
     /**
      * @tests java.io.ObjectStreamClass#getSerialVersionUID()
      */
-    public void test_getSerialVersionUID_classloader() throws Exception {
+    public void _test_getSerialVersionUID_classloader() throws Exception {
         File file = new File(
                 "resources/org/apache/harmony/luni/tests/ObjectStreamClassTest.jar");
         ClassLoader loader = new URLClassLoader(new URL[] { file.toURL() },

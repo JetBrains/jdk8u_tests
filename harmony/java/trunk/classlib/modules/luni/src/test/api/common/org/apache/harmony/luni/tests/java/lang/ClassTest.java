@@ -180,7 +180,7 @@ public class ClassTest extends junit.framework.TestCase {
     /**
      * @tests java.lang.Class#getClasses()
      */
-    public void test_getClasses_subtest0() {
+    public void _test_getClasses_subtest0() {
         final Permission privCheckPermission = new BasicPermission("Privilege check") {
             private static final long serialVersionUID = 1L;
         };

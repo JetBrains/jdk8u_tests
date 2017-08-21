@@ -145,7 +145,7 @@ public class SearchResultTest extends TestCase {
 		assertFalse(r.isRelative());
 	}
 
-	public void testSearchResult_NullParameters() {
+	public void _testSearchResult_NullParameters() {
 		log.setMethod("testSearchResult_NullParameters()");
 
 		try {

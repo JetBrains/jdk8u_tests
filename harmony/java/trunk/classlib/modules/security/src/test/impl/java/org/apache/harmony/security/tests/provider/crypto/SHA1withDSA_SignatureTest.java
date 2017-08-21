@@ -291,7 +291,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * It checks out that regardless of a Signature object's state
      * the method throws InvalidKeyException if PrivateKey is null or not DSAPrivateKey
      */
-    public final void testInitSignPrivateKey01() {
+    public final void _testInitSignPrivateKey01() {
 
         for (int i = 0; i < signs.length; i++) {
             try {
@@ -312,7 +312,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * PrivateKey is DSAPrivateKey and the key is invalid, that is, 
      * BigIntegers constituting the key have incorrect values.
      */
-    public final void testInitSignPrivateKey02() throws Exception {
+    public final void _testInitSignPrivateKey02() throws Exception {
 
         for (int i = 0; i < signs.length; i++) {
             for (int j = 0; j < params.length; j++) {
@@ -334,7 +334,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * In RI, negating effect of previous call includes 
      * discarding updates done before calling the method.
      */
-    public final void testInitSignPrivateKey03() throws Exception {
+    public final void _testInitSignPrivateKey03() throws Exception {
 
         // Initially all signing Signature objects are initialized with some PublicKey
         // and the "verifyingSign" object with corresponding PrivateKey.
@@ -375,7 +375,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * RI behavior is such that with respect to "update" 
      * it doesn't matter whether argument is the same or different.
      */
-    public final void testInitSignPrivateKey04() throws Exception {
+    public final void _testInitSignPrivateKey04() throws Exception {
 
         for (int i = 0; i < signingSigns.length; i++) {
 
@@ -400,7 +400,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * the method throws InvalidKeyException if
      * PublicKey is null or is not DSAPublicKey
      */
-    public final void testInitVerifyPublicKey01() {
+    public final void _testInitVerifyPublicKey01() {
 
         PublicKey pk = null;
 
@@ -423,7 +423,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * PublicKey is DSAPublicKey and the key is invalid, that is, 
      * BigIntegers constituting the key have incorrect values.
      */
-    public final void testInitVerifyPublicKey02() throws Exception {
+    public final void _testInitVerifyPublicKey02() throws Exception {
 
         for (int i = 0; i < signs.length; i++) {
             for (int j = 0; j < params.length; j++) {
@@ -443,7 +443,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * that is, after initializing with PublicKey from another KeyPair
      * the "verify" method returns "false".
      */
-    public final void testInitVerifyPublicKey03() throws Exception {
+    public final void _testInitVerifyPublicKey03() throws Exception {
 
         signingSigns[0].update(bytes1, 0, bytes1.length);
         signature = signingSigns[0].sign();
@@ -464,7 +464,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * In RI negating effect of previous call includes 
      * discarding updates done before calling the method.
      */
-    public final void testInitVerifyPublicKey04() throws Exception {
+    public final void _testInitVerifyPublicKey04() throws Exception {
 
         signingSigns[0].update(bytes1, 0, bytes1.length);
         signature = signingSigns[0].sign();
@@ -498,7 +498,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * The test against the "sign()" method.
      * It checks out that Signature object returned by the method has correct ASN1 encoding.
      */
-    public final void testSign01() throws Exception {
+    public final void _testSign01() throws Exception {
 
         byte sig[];
 
@@ -527,7 +527,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * The test against the "sign(byte[], int, int)" method.
      * It checks out that Signature object returned by the method has correct ASN1 encoding.
      */
-    public final void testSignbyteArrayintint01() throws Exception {
+    public final void _testSignbyteArrayintint01() throws Exception {
 
         byte sig[] = new byte[offset + 100];
 
@@ -563,7 +563,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * Note.
      * As signature's length varies we use length value of 44 which is certainly less than signature's length,
      */
-    public final void testSignbyteArrayintint02() throws Exception {
+    public final void _testSignbyteArrayintint02() throws Exception {
 
         byte sig[] = new byte[50];
 
@@ -621,7 +621,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * (1) the method returns "true" if PublicKey is from the same KeyPair,
      * (2) the method returns "false" otherwise.
      */
-    public final void testVerifybyteArray01() throws Exception {
+    public final void _testVerifybyteArray01() throws Exception {
 
         byte sigBytes[];
 
@@ -643,7 +643,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * if a verifying Signature object was updated with the same message 
      * which was used to update a signing Signature object.
      */
-    public final void testVerifybyteArray02() throws Exception {
+    public final void _testVerifybyteArray02() throws Exception {
 
         byte sig1[];
         byte sig2[];
@@ -682,7 +682,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * the method invoked on a Signature object initialized with corresponding PublicKey from RI 
      * returns "true".
      */
-    public final void testVerifybyteArray03() throws Exception {
+    public final void _testVerifybyteArray03() throws Exception {
 
         verifyingSign.initVerify(publicKey2);
         verifyingSign.update(Predefined.getMessage());
@@ -696,7 +696,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * provider and provider1; 
      * so, the test checks up on compatibility signing-verifying between implementations.
      */
-    public final void testVerifybyteArray04() throws Exception {
+    public final void _testVerifybyteArray04() throws Exception {
 
         Signature signingSign, verifyingSign;
 
@@ -744,7 +744,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      *       length < 0      or 
      *       offset+length > outbuf.length 
      */
-    public final void testVerifybyteArrayintint01() throws Exception {
+    public final void _testVerifybyteArrayintint01() throws Exception {
 
         byte bArray[] = new byte[100];
 
@@ -783,7 +783,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * (3) SignatureException if outbuf's lentgh is correct 
      *     whereas a signature doesn't meet ASN1 syntax.
      */
-    public final void testVerifybyteArrayintint02() throws Exception {
+    public final void _testVerifybyteArrayintint02() throws Exception {
 
         byte sigBytes[] = new byte[100]; // wrong signature
 
@@ -809,7 +809,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * It checks out that in case of correct signature the method throws SignatureException
      * if value of "length" is less than signature's length
      */
-    public final void testVerifybyteArrayintint03() throws Exception {
+    public final void _testVerifybyteArrayintint03() throws Exception {
 
         byte sig[] = new byte[offset + 100];
 
@@ -835,7 +835,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * It check out that if a call to the method returns normally
      * a Signature object resets itself.
      */
-    public final void testVerifybyteArrayintint04() throws Exception {
+    public final void _testVerifybyteArrayintint04() throws Exception {
 
         byte sig[] = new byte[100];
         int n = 0;
@@ -880,7 +880,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * It check out that a Signature object doesn't reset itself if
      * the method throws up an exception.
      */
-    public final void testVerifybyteArrayintint05() throws Exception {
+    public final void _testVerifybyteArrayintint05() throws Exception {
 
         byte sig[] = new byte[100]; //incorrect signature
 
@@ -928,7 +928,7 @@ public class SHA1withDSA_SignatureTest extends TestCase {
      * if a verifying Signature object was updated with the same message 
      * which was used to update a signing Signature object.
      */
-    public final void testVerifybyteArrayintint06() throws Exception {
+    public final void _testVerifybyteArrayintint06() throws Exception {
 
         byte sig1[] = new byte[offset + 100];
         byte sig2[] = new byte[offset + 100];

@@ -21,7 +21,7 @@ import java.sql.SQLException;
 
 public class CachedRowSetMatchColumnTest extends CachedRowSetTestCase {
 
-    public void testSetMatchColumn_Name() throws Exception {
+    public void _testSetMatchColumn_Name() throws Exception {
         String name = null;
         /*
          * TODO spec: throw SQLException, RI throw NullPointerException, Harmony

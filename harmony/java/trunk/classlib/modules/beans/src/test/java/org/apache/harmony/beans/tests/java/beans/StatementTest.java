@@ -327,7 +327,7 @@ public class StatementTest extends TestCase {
     /*
      * Test the constructor with a null argument.
      */
-    public void testConstructor_NullArgument() {
+    public void _testConstructor_NullArgument() {
         Object target = new Object();
         Object[] oa = new Object[] { null };
         Statement t = new Statement(target, "method", oa);

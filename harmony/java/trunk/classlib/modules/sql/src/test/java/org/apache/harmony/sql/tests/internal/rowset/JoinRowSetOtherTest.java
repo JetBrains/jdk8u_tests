@@ -94,7 +94,7 @@ public class JoinRowSetOtherTest extends JoinRowSetTestCase {
      * @tests java.sql.rowset.joinRowSet#setJoinType(int) and getJoinType();
      * @throws SQLException
      */
-    public void testSetJoinTypeAndGetJoinType() throws SQLException {
+    public void _testSetJoinTypeAndGetJoinType() throws SQLException {
         int joinType;
 
         // Tests default join type.
@@ -263,7 +263,7 @@ public class JoinRowSetOtherTest extends JoinRowSetTestCase {
      * @throws SQLException
      * @tests java.sql.rowset.joinRowSet#getRowSets()
      */
-    public void testGetRowSets_SingleJdbcRowSet() throws Exception {
+    public void _testGetRowSets_SingleJdbcRowSet() throws Exception {
         // Creates jdbc rowset.
         JdbcRowSet jdbcRs;
         jdbcRs = newJdbcRowSet();
@@ -306,7 +306,7 @@ public class JoinRowSetOtherTest extends JoinRowSetTestCase {
      * @throws SQLException
      * @tests java.sql.rowset.joinRowSet#addRowSet()
      */
-    public void testAddRowSet_NoInitialCachedRowSet() throws Exception {
+    public void _testAddRowSet_NoInitialCachedRowSet() throws Exception {
         Collection collection;
 
         CachedRowSet crs = newNoInitialInstance();

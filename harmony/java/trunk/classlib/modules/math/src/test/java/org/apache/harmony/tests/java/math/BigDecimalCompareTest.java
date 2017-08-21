@@ -427,7 +427,7 @@ public class BigDecimalCompareTest extends TestCase {
     /**
      * negate(MathContext) for a positive BigDecimal
      */
-    public void testNegateMathContextPositive() {
+    public void _testNegateMathContextPositive() {
        String a = "92948782094488478231212478987482988429808779810457634781384756794987";
        int aScale = 41;
        int precision = 37;
@@ -457,7 +457,7 @@ public class BigDecimalCompareTest extends TestCase {
     /**
      * negate(MathContext) for a negative BigDecimal
      */
-    public void testNegateMathContextNegative() {
+    public void _testNegateMathContextNegative() {
        String a = "-92948782094488478231212478987482988429808779810457634781384756794987";
        int aScale = 49;
        int precision = 46;

@@ -258,7 +258,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method throws up InvalidKeySpecException
      * if argument is neither "X509EncodedKeySpec" nor "DSAPublicKeySpec"
      */
-    public final void testGeneratePublicKeySpec01() throws Exception {
+    public final void _testGeneratePublicKeySpec01() throws Exception {
         try {
             kf.generatePublic(pkcs8KeySpec);
             fail("testcase1: no InvalidKeySpecException");
@@ -277,7 +277,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method returns DSAPublicKey
      * if argument is "X509EncodedKeySpec"
      */
-    public final void testGeneratePublicKeySpec02() throws Exception {
+    public final void _testGeneratePublicKeySpec02() throws Exception {
 
         checkPublicKeys( (DSAPublicKey) kf.generatePublic(x509KeySpec) );
     }
@@ -288,7 +288,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method returns DSAPublicKey
      * if argument is "DSAPublicKeySpec"
      */
-    public final void testGeneratePublicKeySpec03() throws Exception {
+    public final void _testGeneratePublicKeySpec03() throws Exception {
 
         KeySpec keySpec = (KeySpec) new DSAPublicKeySpec(publicY, publicP, publicQ, publicG);
 
@@ -301,7 +301,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method throws up InvalidKeySpecException
      * if KeySpec argument contains incorrect ASN.1 syntax
      */
-    public final void testGeneratePublicKeySpec04() throws Exception {
+    public final void _testGeneratePublicKeySpec04() throws Exception {
 
         X509EncodedKeySpec ks;
         DSAPublicKey pubKey;
@@ -342,7 +342,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * the "generatePublic" method returns DSA public key
      * whose algorithm is neither null nor "DSA".
      */
-    public final void testGeneratePublicKeySpec05() throws Exception {
+    public final void _testGeneratePublicKeySpec05() throws Exception {
 
         X509EncodedKeySpec ks;
         DSAPublicKey pubKey;
@@ -382,7 +382,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method throws up InvalidKeySpecException
      * if argument is neither "PKCS8EncodedKeySpec" nor "DSAPrivateKeySpec"
      */
-    public final void testGeneratePrivateKeySpec01() throws Exception {
+    public final void _testGeneratePrivateKeySpec01() throws Exception {
         try {
             kf.generatePrivate(x509KeySpec);
             fail("testcase1: no InvalidKeySpecException");
@@ -401,7 +401,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method returns DSAPrivateKey
      * if argument is "PKCS8EncodedKeySpec"
      */
-    public final void testGeneratePrivateKeySpec02() throws Exception {
+    public final void _testGeneratePrivateKeySpec02() throws Exception {
 
          checkPrivateKeys( (DSAPrivateKey) kf.generatePrivate(pkcs8KeySpec) );
     }
@@ -412,7 +412,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method returns DSAPrivateKey
      * if argument is "DSAPrivateKeySpec"
      */
-    public final void testGeneratePrivateKeySpec03() throws Exception {
+    public final void _testGeneratePrivateKeySpec03() throws Exception {
 
         KeySpec keySpec = (KeySpec) new DSAPrivateKeySpec(privateX, 
                                                           privateP, privateQ, privateG);
@@ -426,7 +426,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method throws up InvalidKeySpecException
      * if KeySpec argument contains incorrect ASN.1 syntax
      */
-    public final void testGeneratePrivateKeySpec04() throws Exception {
+    public final void _testGeneratePrivateKeySpec04() throws Exception {
 
         PKCS8EncodedKeySpec ks;
         DSAPrivateKey prKey;
@@ -467,7 +467,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * the "generatePrivate" method returns DSA private key
      * whose algorithm is neither null nor "DSA".
      */
-    public final void testGeneratePrivateKeySpec05() throws Exception {
+    public final void _testGeneratePrivateKeySpec05() throws Exception {
 
         PKCS8EncodedKeySpec ks;
         DSAPrivateKey prKey;
@@ -508,7 +508,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * a "Class" argument is not appropriate for a "Key" argument
      * regardless of whether a correct value or null is passed to a Key argument.
      */
-    public final void testGetKeySpec01() throws Exception {
+    public final void _testGetKeySpec01() throws Exception {
 
         try {
             kf.getKeySpec( privateKey, DSAPublicKeySpec.class);
@@ -558,7 +558,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method throws up NullPointerException
      * if null is passed to a "Class" argument.
      */
-    public final void testGetKeySpec02() throws Exception {
+    public final void _testGetKeySpec02() throws Exception {
         try {
             kf.getKeySpec(privateKey, null);
             fail("testcase1: No NullPointerException");
@@ -579,7 +579,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      *    expected "DSAPublicKeySpec" or "X509EncodedKeySpec", and 
      * 2) DSAPublickey object generated from KeySpec is equal a "publicKey" argument.
      */
-    public final void testGetKeySpec03() throws Exception {
+    public final void _testGetKeySpec03() throws Exception {
 
         KeySpec ks;
 
@@ -598,7 +598,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
           expected "DSAPrivateKeySpec" or "PKCS8EncodedKeySpec", and 
      * 2) DSAPublickey object generated from KeySpec is equal a "privateKey" argument.
      */
-    public final void testGetKeySpec04() throws Exception {
+    public final void _testGetKeySpec04() throws Exception {
 
         KeySpec ks;
 
@@ -616,7 +616,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * It checks out that if Key is DSAPrivateKey having incorrect encoding
      * the method doesn't throw up InvalidKeySpecException.
      */
-    public final void testGetKeySpec05() throws Exception {
+    public final void _testGetKeySpec05() throws Exception {
 
         int lng = 20;
 
@@ -652,7 +652,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * It checks out that if Key is DSAPublicKey having incorrect encoding
      * the method doesn't throw up InvalidKeySpecException
      */
-    public final void testGetKeySpec06() throws Exception {
+    public final void _testGetKeySpec06() throws Exception {
 
         int lng = 20;
 
@@ -689,7 +689,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that the method throws up InvalidKeyException
      * if argument is not a DSAPublicKey or a DSAPrivateKey
      */
-    public final void testTranslateKey01() throws Exception {
+    public final void _testTranslateKey01() throws Exception {
         try {
             kf.translateKey( (Key) privateRSAKey );
             fail("testcase1: No InvalidKeyException");
@@ -723,7 +723,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * The test checks out that for a DSAPublicKey argument
      * the new key has the same values of p, q, g, and y that original key has.
      */
-    public final void testTranslateKey02() throws Exception {
+    public final void _testTranslateKey02() throws Exception {
 
         checkPublicIntegers( (DSAPublicKey) kf.translateKey(publicKey) );
     }
@@ -734,7 +734,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * It checks out that for a DSAPrivateKey argument
      * the new key has the same values of p, q, g, and x that original key has.
      */
-    public final void testTranslateKey03() throws Exception {
+    public final void _testTranslateKey03() throws Exception {
 
         checkPrivateIntegers( (DSAPrivateKey) kf.translateKey(privateKey) );
     }
@@ -748,7 +748,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * but AlgorithmIdentifier contains value that connot be translated to "DSA"  
      * the method returns DSAPrivateKey whose algorithm is neither null nor "DSA".
      */
-    public final void testTranslateKey04() throws Exception {
+    public final void _testTranslateKey04() throws Exception {
 
         final BigInteger y = publicY;
         final BigInteger p = publicP;
@@ -792,7 +792,7 @@ public class DSAKeyFactoryImplTest extends TestCase {
      * but AlgorithmIdentifier contains value that connot be translated to "DSA"  
      * the method returns DSAPrivateKey whose algorithm is neither null nor "DSA".
      */
-    public final void testTranslateKey05() throws Exception {
+    public final void _testTranslateKey05() throws Exception {
 
         final BigInteger x = privateKey.getX();
         final BigInteger p = privateParams.getP();

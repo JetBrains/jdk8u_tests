@@ -91,7 +91,7 @@ public class IdentityScopeTest extends TestCase {
     /**
      * just call IdentityScope.getSystemScope()
      */
-    public final void testGetSystemScope() {
+    public final void _testGetSystemScope() {
         String name = Security.getProperty("system.scope");
         assertNotNull(name);
         IdentityScope scope = IdentityScope.getSystemScope(); 

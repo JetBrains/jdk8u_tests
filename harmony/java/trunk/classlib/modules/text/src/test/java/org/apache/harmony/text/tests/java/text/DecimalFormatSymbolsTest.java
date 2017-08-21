@@ -66,7 +66,7 @@ public class DecimalFormatSymbolsTest extends TestCase {
     /**
      * @tests java.text.DecimalFormatSymbols#getCurrency()
      */
-    public void test_getCurrency() {
+    public void _test_getCurrency() {
         Currency currency = Currency.getInstance("USD");
         assertEquals("Returned incorrect currency",
                 dfsUS.getCurrency(), currency);
@@ -398,7 +398,7 @@ public class DecimalFormatSymbolsTest extends TestCase {
      * the Java 1.5 RI. The actual values may differ on Harmony and other JREs,
      * so we only assert the values that are known to be in the serialized data.
      */
-    public void test_RIHarmony_compatible() throws Exception {
+    public void _test_RIHarmony_compatible() throws Exception {
         DecimalFormatSymbols dfs;
         ObjectInputStream i = null;
         try {

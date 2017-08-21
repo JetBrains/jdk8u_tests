@@ -129,7 +129,7 @@ public class SplitTest extends TestCase {
         assertEquals("dle z", tokens[2]);
     }
 
-    public void testSplit2() {
+    public void _testSplit2() {
         Pattern p = Pattern.compile("");
         String s[];
         s = p.split("a", -1);
@@ -152,7 +152,7 @@ public class SplitTest extends TestCase {
         assertEquals("", s[5]);
     }
 
-    public void testSplitSupplementaryWithEmptyString() {
+    public void _testSplitSupplementaryWithEmptyString() {
 
         /*
          * See http://www.unicode.org/reports/tr18/#Supplementary_Characters We

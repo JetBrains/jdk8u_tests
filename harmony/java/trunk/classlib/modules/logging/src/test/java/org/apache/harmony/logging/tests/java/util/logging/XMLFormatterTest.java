@@ -164,7 +164,7 @@ public class XMLFormatterTest extends TestCase {
 		assertTrue(formatter.getTail(handler).indexOf("/log>") > 0);
 	}
 
-	public void testInvalidParameter() {
+	public void _testInvalidParameter() {
 		formatter.getTail(null);
 		try {
 			formatter.format(null);
@@ -193,7 +193,7 @@ public class XMLFormatterTest extends TestCase {
         }
     }
 
-    public void test_TestFileHandlerClass_constructor() throws Exception {
+    public void _test_TestFileHandlerClass_constructor() throws Exception {
         File logFile = new File(System.getProperty("user.home"),
                 "TestFileHandlerClass.log");
         logFile.deleteOnExit();

@@ -199,7 +199,7 @@ public class DRLCertFactoryTest extends TestCase {
     /**
      * DRLCertFactory() method testing.
      */
-    public void testDRLCertFactory() {
+    public void _testDRLCertFactory() {
         CertificateFactory certFactory;
         try {
             certFactory = 

@@ -843,7 +843,7 @@ p = Pattern.compile("([0-9]+)[\\u0020:\\x21];");
         // Cn
     }
 
-    public void testUnicodeBlocks() throws PatternSyntaxException {
+    public void _testUnicodeBlocks() throws PatternSyntaxException {
         Pattern p;
         Matcher m;
         int i, j;

@@ -59,7 +59,7 @@ public class CryptoProviderTest extends TestCase {
     /**
      * Test against CryptoProvider() methods.
      */
-    public void testCrypto() throws NoSuchAlgorithmException, NoSuchProviderException {
+    public void _testCrypto() throws NoSuchAlgorithmException, NoSuchProviderException {
         SecureRandom sr;
         MessageDigest md;
         Signature sign;

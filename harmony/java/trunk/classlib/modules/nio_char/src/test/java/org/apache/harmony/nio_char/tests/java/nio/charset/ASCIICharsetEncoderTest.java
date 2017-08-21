@@ -287,7 +287,7 @@ public class ASCIICharsetEncoderTest extends TestCase {
         }
     }
     
-    public void testInternalState_Flushed() {
+    public void _testInternalState_Flushed() {
         CharsetEncoder newEncoder = cs.newEncoder();
         
         // init -> flushed
@@ -404,7 +404,7 @@ public class ASCIICharsetEncoderTest extends TestCase {
         }
     }
     
-    public void testInternalState_from_Encode() throws CharacterCodingException {
+    public void _testInternalState_from_Encode() throws CharacterCodingException {
         CharsetEncoder newEncoder = cs.newEncoder();
         
         //Encode -> Reset

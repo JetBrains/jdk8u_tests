@@ -444,7 +444,7 @@ public class ExecutorsTest extends JSR166TestCase{
      * Without class loader permissions, creating
      * privilegedCallableUsingCurrentClassLoader throws ACE
      */
-    public void testCreatePrivilegedCallableUsingCCLWithNoPrivs() {
+    public void _testCreatePrivilegedCallableUsingCCLWithNoPrivs() {
 	Policy savedPolicy = null;
         try {
             savedPolicy = Policy.getPolicy();

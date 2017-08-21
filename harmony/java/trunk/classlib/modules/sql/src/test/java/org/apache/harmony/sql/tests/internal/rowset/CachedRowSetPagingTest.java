@@ -28,7 +28,7 @@ import java.sql.SQLException;
  */
 public class CachedRowSetPagingTest extends CachedRowSetTestCase {
 
-    public void testPagingInMemory() throws Exception {
+    public void _testPagingInMemory() throws Exception {
         insertMoreData(10);
         crset = newNoInitialInstance();
         Listener listener = new Listener();
@@ -72,7 +72,7 @@ public class CachedRowSetPagingTest extends CachedRowSetTestCase {
 
     }
 
-    public void testPagingInMemory2() throws Exception {
+    public void _testPagingInMemory2() throws Exception {
         insertMoreData(4);
 
         crset = newNoInitialInstance();
@@ -152,7 +152,7 @@ public class CachedRowSetPagingTest extends CachedRowSetTestCase {
 
     }
 
-    public void testPagingInMemory3() throws Exception {
+    public void _testPagingInMemory3() throws Exception {
         insertMoreData(10);
 
         crset = newNoInitialInstance();
@@ -295,7 +295,7 @@ public class CachedRowSetPagingTest extends CachedRowSetTestCase {
         }
     }
 
-    public void testTravel() throws Exception {
+    public void _testTravel() throws Exception {
         insertMoreData(4);
 
         crset = newNoInitialInstance();
@@ -361,7 +361,7 @@ public class CachedRowSetPagingTest extends CachedRowSetTestCase {
 
     }
 
-    public void testTravel2() throws Exception {
+    public void _testTravel2() throws Exception {
         insertMoreData(4);
 
         crset = newNoInitialInstance();
@@ -432,7 +432,7 @@ public class CachedRowSetPagingTest extends CachedRowSetTestCase {
 
     }
 
-    public void testTravel3() throws Exception {
+    public void _testTravel3() throws Exception {
         insertMoreData(10);
 
         crset = newNoInitialInstance();

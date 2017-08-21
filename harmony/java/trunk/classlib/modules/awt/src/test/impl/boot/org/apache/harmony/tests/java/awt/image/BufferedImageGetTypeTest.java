@@ -83,7 +83,7 @@ public class BufferedImageGetTypeTest extends TestCase {
         assertEquals(BufferedImage.TYPE_BYTE_BINARY, bi.getType());
     }
 
-    public final void testGetTypeICM_1_2_alpha_byte(){
+    public final void _testGetTypeICM_1_2_alpha_byte(){
         int cmap[] = new int[256];
         int pixelBits = 1;
         int colorMapSize = 2;
@@ -134,7 +134,7 @@ public class BufferedImageGetTypeTest extends TestCase {
         assertEquals(BufferedImage.TYPE_BYTE_BINARY, bi.getType());
     }
 
-    public final void testGetTypeICM_2_4_alpha_byte(){
+    public final void _testGetTypeICM_2_4_alpha_byte(){
         int cmap[] = new int[256];
         int pixelBits = 2;
         int colorMapSize = 4;

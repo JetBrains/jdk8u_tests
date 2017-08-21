@@ -193,7 +193,7 @@ public class ECFieldF2m_ImplTest extends TestCase {
      * 
      * Assertion: IllegalArgumentException if rp is invalid.
      */
-    public final void testECFieldF2mintBigInteger() {
+    public final void _testECFieldF2mintBigInteger() {
         for(int i=0; i<intBigIntegerCtorTestParameters.length; i++) {
             ECFieldF2mDomainParams tp = intBigIntegerCtorTestParameters[i];
             try {

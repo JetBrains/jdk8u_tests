@@ -102,7 +102,7 @@ public class FilePermissionTest extends TestCase {
     /**
      * @tests java.io.FilePermission#implies(java.security.Permission)
      */
-    public void test_impliesLjava_security_Permission() {
+    public void _test_impliesLjava_security_Permission() {
         assertFalse("Should not return true for non-subset of actions", readAllFiles
                 .implies(allInCurrent));
         assertFalse("Should not return true for non-subset of files", allInCurrent
@@ -210,7 +210,7 @@ public class FilePermissionTest extends TestCase {
     /**
      * @tests java.io.FilePermission#hashCode()
      */
-    public void test_hashCode() {
+    public void _test_hashCode() {
         assertTrue(
                 "two equal filePermission instances returned different hashCode",
                 readAllFiles.hashCode() == alsoReadAllFiles.hashCode());

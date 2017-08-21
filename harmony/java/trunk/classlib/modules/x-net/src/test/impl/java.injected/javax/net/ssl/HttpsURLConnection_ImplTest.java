@@ -30,7 +30,7 @@ import sun.net.www.protocol.https.DefaultHostnameVerifier;
  */
 public class HttpsURLConnection_ImplTest extends TestCase {
 
-    public final void testGetDefaultHostnameVerifier() {
+    public final void _testGetDefaultHostnameVerifier() {
         
         HostnameVerifier ver = HttpsURLConnection.getDefaultHostnameVerifier();
         if (!(ver instanceof DefaultHostnameVerifier)) {
@@ -41,7 +41,7 @@ public class HttpsURLConnection_ImplTest extends TestCase {
         }
     }
 
-    public final void testGetHostnameVerifier() {
+    public final void _testGetHostnameVerifier() {
         
         HttpsURLConnection con = new MyHttpsURLConnection(null);
         HostnameVerifier ver = con.getHostnameVerifier();

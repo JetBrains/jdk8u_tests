@@ -60,7 +60,7 @@ public class SerialArrayTest extends TestCase {
         badmap.put("Something", HashMap.class);
     }
 
-    public void testConstructor_ObjectArray() throws SQLException {
+    public void _testConstructor_ObjectArray() throws SQLException {
         assertNotNull(new SerialArray(new SQLArray()));
 
         // OK
@@ -200,7 +200,7 @@ public class SerialArrayTest extends TestCase {
         assertEquals("BaseName", sa.getBaseTypeName());
     }
 
-    public void testGetResultSet() throws SQLException {
+    public void _testGetResultSet() throws SQLException {
         try {
             sa.getResultSet();
             fail("should throw UnsupportedOperationException");
@@ -209,7 +209,7 @@ public class SerialArrayTest extends TestCase {
         }
     }
 
-    public void testGetResultSetLongInt() throws SQLException {
+    public void _testGetResultSetLongInt() throws SQLException {
         try {
             sa.getResultSet(0, 1);
             fail("should throw UnsupportedOperationException");
@@ -218,7 +218,7 @@ public class SerialArrayTest extends TestCase {
         }
     }
 
-    public void testGetResultSetLongIntMapOfStringClassOfQ()
+    public void _testGetResultSetLongIntMapOfStringClassOfQ()
             throws SQLException {
         try {
             sa.getResultSet(0, 1, null);
@@ -228,7 +228,7 @@ public class SerialArrayTest extends TestCase {
         }
     }
 
-    public void testGetResultSetMapOfStringClassOfQ() throws SerialException {
+    public void _testGetResultSetMapOfStringClassOfQ() throws SerialException {
         try {
             sa.getResultSet(null);
             fail("should throw UnsupportedOperationException");

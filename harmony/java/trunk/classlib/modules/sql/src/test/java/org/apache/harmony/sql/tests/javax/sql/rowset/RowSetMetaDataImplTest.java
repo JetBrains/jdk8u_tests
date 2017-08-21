@@ -69,7 +69,7 @@ public class RowSetMetaDataImplTest extends TestCase {
     /**
      * @tests {@link javax.sql.rowset.RowSetMetaDataImpl#getColumnCount()}
      */
-    public void test_getColumnCount() throws SQLException {
+    public void _test_getColumnCount() throws SQLException {
         assertEquals(0, metaDataImpl.getColumnCount());
         try {
             metaDataImpl.isAutoIncrement(1);
@@ -151,7 +151,7 @@ public class RowSetMetaDataImplTest extends TestCase {
     /**
      * @tests {@link javax.sql.rowset.RowSetMetaDataImpl#getColumnClassName(int)}
      */
-    public void test_getColumnClassNameI() throws SQLException {
+    public void _test_getColumnClassNameI() throws SQLException {
         try {
             metaDataImpl.getColumnClassName(1);
             fail("should throw SQLException");

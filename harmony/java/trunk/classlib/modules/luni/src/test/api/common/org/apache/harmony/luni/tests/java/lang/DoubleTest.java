@@ -409,7 +409,7 @@ public class DoubleTest extends TestCase {
     /**
      * @tests java.lang.Double#parseDouble(java.lang.String)
      */
-    public void test_parseDoubleLjava_lang_String() {
+    public void _test_parseDoubleLjava_lang_String() {
         assertEquals("Incorrect double returned, expected zero.", 0.0, Double
                 .parseDouble("2.4703282292062327208828439643411e-324"), 0.0);
         assertTrue("Incorrect double returned, expected minimum double.", Double

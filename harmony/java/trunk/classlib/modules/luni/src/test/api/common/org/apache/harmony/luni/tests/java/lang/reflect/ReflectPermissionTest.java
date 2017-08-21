@@ -24,7 +24,7 @@ public class ReflectPermissionTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.lang.reflect.ReflectPermission#ReflectPermission(java.lang.String)
 	 */
-	public void test_ConstructorLjava_lang_String() {
+	public void _test_ConstructorLjava_lang_String() {
 		// Test for method java.lang.reflect.ReflectPermission(java.lang.String)
 		String permString = new ReflectPermission("Blah").toString();
 		assertTrue("Incorrect permission constructed", permString.indexOf(
@@ -35,7 +35,7 @@ public class ReflectPermissionTest extends junit.framework.TestCase {
 	 * @tests java.lang.reflect.ReflectPermission#ReflectPermission(java.lang.String,
 	 *        java.lang.String)
 	 */
-	public void test_ConstructorLjava_lang_StringLjava_lang_String() {
+	public void _test_ConstructorLjava_lang_StringLjava_lang_String() {
 		// Test for method java.lang.reflect.ReflectPermission(java.lang.String,
 		// java.lang.String)
 		assertTrue("Incorrect permission constructed", new ReflectPermission(

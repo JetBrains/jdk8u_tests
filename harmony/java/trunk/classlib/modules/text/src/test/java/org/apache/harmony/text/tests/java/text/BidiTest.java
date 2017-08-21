@@ -143,7 +143,7 @@ public class BidiTest extends TestCase {
 		bd = new Bidi(new char[] {'o'}, 0, new byte[] { 2, 2}, 2, 0, 2 );
 	}
 
-	public void testEmptyParagraph() {
+	public void _testEmptyParagraph() {
 		bd = new Bidi("", Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
 		assertTrue(bd.baseIsLeftToRight());
 		assertEquals(0, bd.getBaseLevel());
@@ -281,7 +281,7 @@ public class BidiTest extends TestCase {
 		assertFalse(bd.isRightToLeft());
 	}
 
-	public void testBadFlags() {
+	public void _testBadFlags() {
 		bd = new Bidi("", 173);
 		assertTrue(bd.baseIsLeftToRight());
 		assertEquals(0, bd.getBaseLevel());
@@ -961,7 +961,7 @@ public class BidiTest extends TestCase {
             assertEquals(expectedRuns[i][1], bi.getRunLimit(i));
         }
     }
-       public void testGetRunLimit() {
+       public void _testGetRunLimit() {
          bd = new Bidi("text", Bidi.DIRECTION_LEFT_TO_RIGHT);
          try {
              assertTrue(4 == bd.getRunLimit(-1));
@@ -973,7 +973,7 @@ public class BidiTest extends TestCase {
          fail("Expected IllegalArgumentException to be thrown for invalid run limit");
        }
 
-       public void testBidiConstructor_Iterator() {
+       public void _testBidiConstructor_Iterator() {
                AttributedString paragraph = new AttributedString("text");
          bd = new Bidi(paragraph.getIterator());
          try {

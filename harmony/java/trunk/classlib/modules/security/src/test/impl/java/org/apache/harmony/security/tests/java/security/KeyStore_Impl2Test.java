@@ -297,7 +297,7 @@ public class KeyStore_Impl2Test extends TestCase {
      * returns KeyStore object
      * 
      */
-    public void testGetInstance01() throws KeyStoreException,
+    public void _testGetInstance01() throws KeyStoreException,
             UnrecoverableKeyException, UnrecoverableEntryException,
             NoSuchAlgorithmException, IOException, CertificateException {
         try {
@@ -333,7 +333,7 @@ public class KeyStore_Impl2Test extends TestCase {
      * throws NoSuchProviderException when provider is available; 
      * returns KeyStore object
      */
-    public void testGetInstance02() throws KeyStoreException,
+    public void _testGetInstance02() throws KeyStoreException,
             NoSuchProviderException, IllegalArgumentException,
             UnrecoverableKeyException, UnrecoverableEntryException,
             NoSuchAlgorithmException, IOException, CertificateException {
@@ -391,7 +391,7 @@ public class KeyStore_Impl2Test extends TestCase {
      * throws IllegalArgumentException when provider is null; 
      * returns KeyStore object
      */
-    public void testGetInstance03() throws KeyStoreException,
+    public void _testGetInstance03() throws KeyStoreException,
             IllegalArgumentException, UnrecoverableKeyException,
             UnrecoverableEntryException, NoSuchAlgorithmException, IOException,
             CertificateException {

@@ -127,7 +127,7 @@ public class Mac_ImplTest extends TestCase {
      * throws NoSuchAlgorithmException when algorithm is not correct;
      * returns Mac object
      */
-    public void testGetInstance01() throws NoSuchAlgorithmException,
+    public void _testGetInstance01() throws NoSuchAlgorithmException,
             InvalidKeyException,
             InvalidAlgorithmParameterException {
         try {
@@ -163,7 +163,7 @@ public class Mac_ImplTest extends TestCase {
      * throws NoSuchProviderException when provider is available;
      * returns Mac object
      */
-    public void testGetInstance02() throws NoSuchAlgorithmException,
+    public void _testGetInstance02() throws NoSuchAlgorithmException,
             NoSuchProviderException, IllegalArgumentException,
             InvalidKeyException,
             InvalidAlgorithmParameterException {            
@@ -224,7 +224,7 @@ public class Mac_ImplTest extends TestCase {
      * throws IllegalArgumentException when provider is null;
      * returns Mac object
      */
-    public void testGetInstance03() throws NoSuchAlgorithmException,
+    public void _testGetInstance03() throws NoSuchAlgorithmException,
             IllegalArgumentException,
             InvalidKeyException,
             InvalidAlgorithmParameterException {

@@ -57,7 +57,7 @@ public class SyncProviderExceptionTest extends TestCase {
      * @add tests
      *      {@link javax.sql.rowset.spi.SyncProviderException#getSyncResolver()}
      */
-    public void test_setSyncResolver_Ljavax_sql_rowset_spi_SyncResolver() {
+    public void _test_setSyncResolver_Ljavax_sql_rowset_spi_SyncResolver() {
         SyncProviderException ex = new SyncProviderException();
         try {
             ex.setSyncResolver(null);

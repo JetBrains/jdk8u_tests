@@ -642,7 +642,7 @@ public class ThreadGroupTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.lang.ThreadGroup#setMaxPriority(int)
 	 */
-	public void test_setMaxPriorityI() {
+	public void _test_setMaxPriorityI() {
 		// Test for method void java.lang.ThreadGroup.setMaxPriority(int)
 
 		final ThreadGroup originalCurrent = getInitialThreadGroup();

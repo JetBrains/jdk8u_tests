@@ -72,7 +72,7 @@ public class RuleBasedCollatorTest extends TestCase {
     /*
      * Class under test for boolean equals(java.lang.Object)
      */
-    public void testEqualsObject() throws ParseException {
+    public void _testEqualsObject() throws ParseException {
         String rule = "< a < b < c < d < e";
         RuleBasedCollator coll = new RuleBasedCollator(rule);
 
@@ -122,7 +122,7 @@ public class RuleBasedCollatorTest extends TestCase {
      * Class under test for java.text.CollationElementIterator
      * getCollationElementIterator(java.lang.String)
      */
-    public void testGetCollationElementIteratorString() throws Exception {
+    public void _testGetCollationElementIteratorString() throws Exception {
         {
             Locale locale = new Locale("es", "", "TRADITIONAL");
             RuleBasedCollator coll = (RuleBasedCollator) Collator
@@ -171,7 +171,7 @@ public class RuleBasedCollatorTest extends TestCase {
      * Class under test for java.text.CollationElementIterator
      * getCollationElementIterator(java.text.CharacterIterator)
      */
-    public void testGetCollationElementIteratorCharacterIterator() throws Exception {
+    public void _testGetCollationElementIteratorCharacterIterator() throws Exception {
         {
             Locale locale = new Locale("es", "", "TRADITIONAL");
             RuleBasedCollator coll = (RuleBasedCollator) Collator

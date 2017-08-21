@@ -89,7 +89,7 @@ public class RasterTest extends TestCase {
     }
 
     // Regression test for Harmony-2743
-    public void test_createCompatibleWritableRaster()
+    public void _test_createCompatibleWritableRaster()
             throws IllegalArgumentException {
         MultiPixelPackedSampleModel localMultiPixelPackedSampleModel =
                 new MultiPixelPackedSampleModel(0, 5, 22, -1, -25, 40825);

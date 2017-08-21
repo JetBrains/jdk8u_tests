@@ -57,7 +57,7 @@ public class TrustAnchorTest extends TestCase {
      * Expected: must pass without any exceptions
      * @throws InvalidKeySpecException
      */
-    public final void testTrustAnchorStringPublicKeybyteArray01()
+    public final void _testTrustAnchorStringPublicKeybyteArray01()
             throws Exception {
 
         PublicKey pk = new TestKeyPair(keyAlg).getPublic();
@@ -94,7 +94,7 @@ public class TrustAnchorTest extends TestCase {
      * Expected: modification must not change object internal state
      * @throws InvalidKeySpecException
      */
-    public final void testTrustAnchorStringPublicKeybyteArray03()
+    public final void _testTrustAnchorStringPublicKeybyteArray03()
             throws Exception {
 
         PublicKey pk = new TestKeyPair(keyAlg).getPublic();
@@ -165,7 +165,7 @@ public class TrustAnchorTest extends TestCase {
      * Expected: must pass without any exceptions
      * @throws InvalidKeySpecException
      */
-    public final void testTrustAnchorX500PrincipalPublicKeybyteArray01()
+    public final void _testTrustAnchorX500PrincipalPublicKeybyteArray01()
             throws Exception {
 
         PublicKey pk = new TestKeyPair(keyAlg).getPublic();
@@ -205,7 +205,7 @@ public class TrustAnchorTest extends TestCase {
      * Expected: modification must not change object internal state
      * @throws InvalidKeySpecException
      */
-    public final void testTrustAnchorX500PrincipalPublicKeybyteArray03()
+    public final void _testTrustAnchorX500PrincipalPublicKeybyteArray03()
             throws Exception {
 
         PublicKey pk = new TestKeyPair(keyAlg).getPublic();

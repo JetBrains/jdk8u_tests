@@ -142,7 +142,7 @@ public class NumberFormatTest extends junit.framework.TestCase {
     /**
      * @tests java.text.NumberFormat#getIntegerInstance(java.util.Locale)
      */
-    public void test_getIntegerInstanceLjava_util_Locale()
+    public void _test_getIntegerInstanceLjava_util_Locale()
             throws ParseException {
         // Test for method java.text.NumberFormat
         // getIntegerInstance(java.util.Locale)

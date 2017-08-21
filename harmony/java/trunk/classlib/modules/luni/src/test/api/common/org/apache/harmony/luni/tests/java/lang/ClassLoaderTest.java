@@ -163,7 +163,7 @@ public class ClassLoaderTest extends TestCase {
     /**
      * @tests java.lang.ClassLoader#getResource(java.lang.String)
      */
-    public void test_getResourceLjava_lang_String() {
+    public void _test_getResourceLjava_lang_String() {
         // Test for method java.net.URL
         // java.lang.ClassLoader.getResource(java.lang.String)
         java.net.URL u = ClassLoader.getSystemClassLoader().getResource("hyts_Foo.c");
@@ -181,7 +181,7 @@ public class ClassLoaderTest extends TestCase {
     /**
      * @tests java.lang.ClassLoader#getResourceAsStream(java.lang.String)
      */
-    public void test_getResourceAsStreamLjava_lang_String() {
+    public void _test_getResourceAsStreamLjava_lang_String() {
         // Test for method java.io.InputStream
         // java.lang.ClassLoader.getResourceAsStream(java.lang.String)
         // Need better test...
@@ -199,7 +199,7 @@ public class ClassLoaderTest extends TestCase {
     /**
      * @tests java.lang.ClassLoader#getSystemClassLoader()
      */
-    public void test_getSystemClassLoader() {
+    public void _test_getSystemClassLoader() {
         // Test for method java.lang.ClassLoader
         // java.lang.ClassLoader.getSystemClassLoader()
         ClassLoader cl = ClassLoader.getSystemClassLoader();
@@ -215,7 +215,7 @@ public class ClassLoaderTest extends TestCase {
     /**
      * @tests java.lang.ClassLoader#getSystemResource(java.lang.String)
      */
-    public void test_getSystemResourceLjava_lang_String() {
+    public void _test_getSystemResourceLjava_lang_String() {
         // Test for method java.net.URL
         // java.lang.ClassLoader.getSystemResource(java.lang.String)
         // Need better test...

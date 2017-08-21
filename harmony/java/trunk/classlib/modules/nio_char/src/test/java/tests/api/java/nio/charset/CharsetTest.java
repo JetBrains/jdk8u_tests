@@ -124,7 +124,7 @@ public class CharsetTest extends TestCase {
 	 * Test the method isSupported(String) with a string starting with ".".
 	 * 
 	 */
-	public void testIsSupported_InvalidInitialCharacter() {
+	public void _testIsSupported_InvalidInitialCharacter() {
 		try {
 			Charset.isSupported(".char");
 		} catch (IllegalArgumentException e) {
@@ -242,7 +242,7 @@ public class CharsetTest extends TestCase {
 	 * digit nor a letter.
 	 * 
 	 */
-	public void testConstructor_IllegalCanonicalName_Initial() {
+	public void _testConstructor_IllegalCanonicalName_Initial() {
 		try {
 			new MockCharset("-123", new String[] { "mock" });
 		} catch (IllegalCharsetNameException e) {
@@ -333,7 +333,7 @@ public class CharsetTest extends TestCase {
 	 * nor a letter.
 	 * 
 	 */
-	public void testConstructor_IllegalAliases_Initial() {
+	public void _testConstructor_IllegalAliases_Initial() {
 		try {
 			new MockCharset("mockChar", new String[] { "mock", "-123" });
 		} catch (IllegalCharsetNameException e) {
@@ -706,7 +706,7 @@ public class CharsetTest extends TestCase {
     /**
      * @tests java.nio.charset.Charset#availableCharsets()
      */
-    public void test_availableCharsets() throws Exception {
+    public void _test_availableCharsets() throws Exception {
         // regression test for Harmony-1051
         ClassLoader originalClassLoader = Thread.currentThread()
                 .getContextClassLoader();
@@ -723,7 +723,7 @@ public class CharsetTest extends TestCase {
     /**
      * @tests java.nio.charset.Charset#availableCharsets()
      */
-    public void test_forNameLString() throws Exception {
+    public void _test_forNameLString() throws Exception {
         // regression test for Harmony-1051
         ClassLoader originalClassLoader = Thread.currentThread()
                 .getContextClassLoader();

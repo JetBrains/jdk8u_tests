@@ -1080,7 +1080,7 @@ public class CharacterTest extends TestCase {
     /**
      * @tests java.lang.Character#isJavaIdentifierPart(char)
      */
-    public void test_isJavaIdentifierPartC() {
+    public void _test_isJavaIdentifierPartC() {
         assertTrue("letter returned false", Character.isJavaIdentifierPart('l'));
         assertTrue("currency returned false", Character
                 .isJavaIdentifierPart('$'));

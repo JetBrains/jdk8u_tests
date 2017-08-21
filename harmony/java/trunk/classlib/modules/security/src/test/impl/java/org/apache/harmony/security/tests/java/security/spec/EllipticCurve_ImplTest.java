@@ -40,7 +40,7 @@ public class EllipticCurve_ImplTest extends TestCase {
      * Test preconditions: see test comments<br>
      * Expected: all objects in this test must be NOT equal
      */
-    public final void testEqualsObject02() {
+    public final void _testEqualsObject02() {
         // test case 1: must not be equal to null
         EllipticCurve c2=null, c1 =
             new EllipticCurve(new ECFieldFp(BigInteger.valueOf(23L)),

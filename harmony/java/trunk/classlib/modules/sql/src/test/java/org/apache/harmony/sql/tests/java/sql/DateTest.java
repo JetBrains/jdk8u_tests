@@ -320,7 +320,7 @@ public class DateTest extends TestCase {
     /**
      * @tests java.sql.Date#valueOf(String )
      */
-    public void test_valueOf_IllegalArgumentException() {
+    public void _test_valueOf_IllegalArgumentException() {
         try {
             Date.valueOf("1996-10-07-01");
             fail("should throw NumberFormatException");

@@ -98,7 +98,7 @@ public class HttpsURLConnectionTest extends TestCase {
     /**
      * Checks that HttpsURLConnection's default SSLSocketFactory is operable.
      */
-    public void testGetDefaultSSLSocketFactory() throws Exception {
+    public void _testGetDefaultSSLSocketFactory() throws Exception {
         // set up the properties defining the default values needed by SSL stuff
         setUpStoreProperties();
 
@@ -123,7 +123,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * HTTP response. After HTTPS session if finished test checks connection
      * state parameters established by HttpsURLConnection.
      */
-    public void testHttpsConnection() throws Throwable {
+    public void _testHttpsConnection() throws Throwable {
         // set up the properties defining the default values needed by SSL stuff
         setUpStoreProperties();
 
@@ -163,7 +163,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * persistent. After HTTPS session if finished test checks connection state
      * parameters established by HttpsURLConnection.
      */
-    public void testHttpsPersistentConnection() throws Throwable {
+    public void _testHttpsPersistentConnection() throws Throwable {
         // set up the properties defining the default values needed by SSL stuff
         setUpStoreProperties();
 
@@ -201,7 +201,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * Tests the behaviour of HTTPS connection in case of unavailability of
      * requested resource.
      */
-    public void testHttpsConnection_Not_Found_Response() throws Throwable {
+    public void _testHttpsConnection_Not_Found_Response() throws Throwable {
         // set up the properties defining the default values needed by SSL stuff
         setUpStoreProperties();
 
@@ -242,7 +242,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * Tests possibility to set up the default SSLSocketFactory to be used by
      * HttpsURLConnection.
      */
-    public void testSetDefaultSSLSocketFactory() throws Throwable {
+    public void _testSetDefaultSSLSocketFactory() throws Throwable {
         // create the SSLServerSocket which will be used by server side
         SSLContext ctx = getContext();
         SSLServerSocket ss = (SSLServerSocket) ctx.getServerSocketFactory()
@@ -291,7 +291,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * Tests possibility to set up the SSLSocketFactory to be used by
      * HttpsURLConnection.
      */
-    public void testSetSSLSocketFactory() throws Throwable {
+    public void _testSetSSLSocketFactory() throws Throwable {
         // create the SSLServerSocket which will be used by server side
         SSLContext ctx = getContext();
         SSLServerSocket ss = (SSLServerSocket) ctx.getServerSocketFactory()
@@ -375,7 +375,7 @@ public class HttpsURLConnectionTest extends TestCase {
     /**
      * Tests if setHostnameVerifier() method replaces default verifier.
      */
-    public void testSetHostnameVerifier() throws Throwable {
+    public void _testSetHostnameVerifier() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -417,7 +417,7 @@ public class HttpsURLConnectionTest extends TestCase {
     /**
      * Tests the behaviour in case of sending the data to the server.
      */
-    public void test_doOutput() throws Throwable {
+    public void _test_doOutput() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -453,7 +453,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * Tests the behaviour in case of sending the data to the server over
      * persistent connection.
      */
-    public void testPersistence_doOutput() throws Throwable {
+    public void _testPersistence_doOutput() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -489,7 +489,7 @@ public class HttpsURLConnectionTest extends TestCase {
     /**
      * Tests HTTPS connection process made through the proxy server.
      */
-    public void testProxyConnection() throws Throwable {
+    public void _testProxyConnection() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -526,7 +526,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * persistent connection to the host exists and can be used no in spite of
      * explicit Proxy specifying.
      */
-    public void testPersistentProxyConnection() throws Throwable {
+    public void _testPersistentProxyConnection() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -563,7 +563,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * Tests HTTPS connection process made through the proxy server. Proxy
      * server needs authentication.
      */
-    public void testProxyAuthConnection() throws Throwable {
+    public void _testProxyAuthConnection() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -608,7 +608,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * connections are opened for one URL. For the first time the connection is
      * opened through one proxy, for the second time through another.
      */
-    public void testConsequentProxyConnection() throws Throwable {
+    public void _testConsequentProxyConnection() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -652,7 +652,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * Tests HTTPS connection process made through the proxy server. Proxy
      * server needs authentication. Client sends data to the server.
      */
-    public void testProxyAuthConnection_doOutput() throws Throwable {
+    public void _testProxyAuthConnection_doOutput() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -696,7 +696,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * server needs authentication but client fails to authenticate
      * (Authenticator was not set up in the system).
      */
-    public void testProxyAuthConnectionFailed() throws Throwable {
+    public void _testProxyAuthConnectionFailed() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 
@@ -736,7 +736,7 @@ public class HttpsURLConnectionTest extends TestCase {
      * Tests the behaviour of HTTPS connection in case of unavailability of
      * requested resource.
      */
-    public void testProxyConnection_Not_Found_Response() throws Throwable {
+    public void _testProxyConnection_Not_Found_Response() throws Throwable {
         // setting up the properties pointing to the key/trust stores
         setUpStoreProperties();
 

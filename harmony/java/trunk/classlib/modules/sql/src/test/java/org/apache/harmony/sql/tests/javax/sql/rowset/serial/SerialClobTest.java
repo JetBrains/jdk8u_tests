@@ -243,7 +243,7 @@ public class SerialClobTest extends TestCase {
         assertEquals(-1, pos);
     }
 
-    public void testSetAsciiStream() throws Exception {
+    public void _testSetAsciiStream() throws Exception {
         MockSerialClob mockClob = new MockSerialClob();
         mockClob.characterStreamReader = new CharArrayReader(mockClob.buf);
         mockClob.asciiInputStream = new ByteArrayInputStream(new byte[] { 1 });
@@ -291,7 +291,7 @@ public class SerialClobTest extends TestCase {
         }
     }
 
-    public void testSetStringJLString() throws Exception {
+    public void _testSetStringJLString() throws Exception {
         String s = "hello";
         char[] buf = s.toCharArray();
         SerialClob serialClob = new SerialClob(buf);
@@ -329,7 +329,7 @@ public class SerialClobTest extends TestCase {
         }
     }
 
-    public void testSetStringJLStringII() throws Exception {
+    public void _testSetStringJLStringII() throws Exception {
         SerialClob serialClob = new SerialClob("hello".toCharArray());
         int count = serialClob.setString(1, "olleh", 0, 5);
         String sub = serialClob.getSubString(1, 5);

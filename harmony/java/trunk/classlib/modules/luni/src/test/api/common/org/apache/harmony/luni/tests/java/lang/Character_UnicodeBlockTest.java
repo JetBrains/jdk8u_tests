@@ -20,7 +20,7 @@ import junit.framework.TestCase;
 
 public class Character_UnicodeBlockTest extends TestCase {
 
-    public void test_ofC() {
+    public void _test_ofC() {
         assertEquals(Character.UnicodeBlock.BASIC_LATIN, Character.UnicodeBlock.of((char)0x0));
         assertEquals(Character.UnicodeBlock.BASIC_LATIN, Character.UnicodeBlock.of((char)0x7f));
         assertEquals(Character.UnicodeBlock.LATIN_1_SUPPLEMENT, Character.UnicodeBlock.of((char)0x80));
@@ -258,7 +258,7 @@ public class Character_UnicodeBlockTest extends TestCase {
         assertEquals(Character.UnicodeBlock.SPECIALS, Character.UnicodeBlock.of((char)0xfff0));
         assertEquals(Character.UnicodeBlock.SPECIALS, Character.UnicodeBlock.of((char)0xffff));
     }
-    public void test_ofI() {
+    public void _test_ofI() {
         assertEquals(Character.UnicodeBlock.BASIC_LATIN, Character.UnicodeBlock.of(0x0));
         assertEquals(Character.UnicodeBlock.BASIC_LATIN, Character.UnicodeBlock.of(0x7f));
         assertEquals(Character.UnicodeBlock.LATIN_1_SUPPLEMENT, Character.UnicodeBlock.of(0x80));

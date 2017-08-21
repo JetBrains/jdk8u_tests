@@ -91,7 +91,7 @@ public class SerialBlobTest extends TestCase {
         }
     }
 
-    public void testGetBytesJI() throws Exception {
+    public void _testGetBytesJI() throws Exception {
         byte[] buf = { 1, 2, 3, 4, 5, 6, 7, 8 };
         SerialBlob serialBlob = new SerialBlob(buf);
         byte[] data = serialBlob.getBytes(1, 1);
@@ -142,7 +142,7 @@ public class SerialBlobTest extends TestCase {
         }
     }
 
-    public void testSetBytesJ$B() throws Exception {
+    public void _testSetBytesJ$B() throws Exception {
         byte[] buf = { 1, 2, 3, 4, 5, 6, 7, 8 };
         byte[] theBytes = { 9, 10, 11 };
         SerialBlob serialBlob = new SerialBlob(buf);
@@ -189,7 +189,7 @@ public class SerialBlobTest extends TestCase {
 
     }
 
-    public void testSetBytesJ$BII() throws Exception {
+    public void _testSetBytesJ$BII() throws Exception {
         byte[] buf = { 1, 2, 3, 4, 5, 6, 7, 8 };
         byte[] theBytes = { 9, 10, 11 };
         SerialBlob serialBlob = new SerialBlob(buf);
@@ -264,7 +264,7 @@ public class SerialBlobTest extends TestCase {
         }
     }
 
-    public void testPosition$BJ() throws Exception {
+    public void _testPosition$BJ() throws Exception {
         byte[] buf = { 1, 2, 3, 4, 5, 6, 7, 8 };
         SerialBlob serialBlob = new SerialBlob(buf);
 
@@ -276,7 +276,7 @@ public class SerialBlobTest extends TestCase {
         assertBlobPosition_BytePattern(serialBlob);
     }
 
-    public void testPositionLBlobJ() throws Exception {
+    public void _testPositionLBlobJ() throws Exception {
         byte[] buf = { 1, 2, 3, 4, 5, 6, 7, 8 };
         SerialBlob serialBlob = new SerialBlob(buf);
         assertBlobPosition_BlobPattern(serialBlob);
@@ -287,7 +287,7 @@ public class SerialBlobTest extends TestCase {
         assertBlobPosition_BlobPattern(serialBlob);
     }
 
-    public void testTruncateJ() throws Exception {
+    public void _testTruncateJ() throws Exception {
         byte[] buf = { 1, 2, 3, 4, 5, 6, 7, 8 };
         SerialBlob serialBlob1 = new SerialBlob(buf);
         MockSerialBlob mockBlob = new MockSerialBlob();
@@ -322,7 +322,7 @@ public class SerialBlobTest extends TestCase {
         }
     }
 
-    public void testSetBinaryStreamJ() throws Exception {
+    public void _testSetBinaryStreamJ() throws Exception {
         MockSerialBlob mockBlob = new MockSerialBlob();
         mockBlob.binaryStream = new ByteArrayOutputStream();
         SerialBlob serialBlob = new SerialBlob(mockBlob);

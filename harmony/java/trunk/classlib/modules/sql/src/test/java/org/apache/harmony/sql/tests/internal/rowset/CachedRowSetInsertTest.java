@@ -143,7 +143,7 @@ public class CachedRowSetInsertTest extends CachedRowSetTestCase {
         assertEquals("test4", noInitialCrset.getString(2));
     }
 
-    public void testInsertRow_Multi() throws Exception {
+    public void _testInsertRow_Multi() throws Exception {
         noInitialCrset = newNoInitialInstance();
         // only when the cursor is on the insert row, it will have effect
         noInitialCrset.moveToCurrentRow();
@@ -320,7 +320,7 @@ public class CachedRowSetInsertTest extends CachedRowSetTestCase {
         assertEquals(10, index);
     }
 
-    public void testUndoInsert() throws Exception {
+    public void _testUndoInsert() throws Exception {
         noInitialCrset = newNoInitialInstance();
         try {
             noInitialCrset.undoInsert();

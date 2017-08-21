@@ -54,7 +54,7 @@ public class FilePreferencesImplTest extends TestCase {
         sroot = null;
     }
 
-    public void testPutGet() throws IOException, BackingStoreException {
+    public void _testPutGet() throws IOException, BackingStoreException {
         uroot.put("ukey1", "value1");
         assertEquals("value1", uroot.get("ukey1", null));
         String[] names = uroot.keys();
@@ -78,7 +78,7 @@ public class FilePreferencesImplTest extends TestCase {
         assertEquals("\u4e2d value1", sroot.get("\u4e2d key1", null));
     }
 
-    public void testChildNodes() throws Exception {
+    public void _testChildNodes() throws Exception {
         Preferences child1 = uroot.node("child1");
         Preferences child2 = uroot.node("\u4e2d child2");
         Preferences grandchild = child1.node("grand");
@@ -126,7 +126,7 @@ public class FilePreferencesImplTest extends TestCase {
         assertEquals(0, childNames.length);
     }
 
-    public void testSecurityException() throws BackingStoreException {
+    public void _testSecurityException() throws BackingStoreException {
         Preferences child1 = uroot.node("child1");
         MockFileSecurityManager manager = new MockFileSecurityManager();
         manager.install();

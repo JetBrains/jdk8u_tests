@@ -54,7 +54,7 @@ public class PatternTest extends TestCase {
     /*
      * Class under test for String[] split(CharSequence, int)
      */
-    public void testSplitCharSequenceint() {
+    public void _testSplitCharSequenceint() {
         // splitting CharSequence which ends with pattern
         // bug6193
         assertEquals(",,".split(",", 3).length, 3);
@@ -1054,7 +1054,7 @@ public class PatternTest extends TestCase {
         assertNotNull(pattern);
     }
 
-    public void testCanonEqFlag() {
+    public void _testCanonEqFlag() {
 
         /*
          * for decompositions see
@@ -1250,7 +1250,7 @@ public class PatternTest extends TestCase {
         assertFalse(mat.find());
     }
 
-    public void testIndexesCanonicalEq() {
+    public void _testIndexesCanonicalEq() {
         String baseString;
         String testString;
         Pattern pat;
@@ -1279,7 +1279,7 @@ public class PatternTest extends TestCase {
         assertEquals(mat.end(), 13);
     }
 
-    public void testCanonEqFlagWithSupplementaryCharacters() {
+    public void _testCanonEqFlagWithSupplementaryCharacters() {
 
         /*
          * \u1D1BF->\u1D1BB\u1D16F->\u1D1B9\u1D165\u1D16F in UTF32
@@ -1426,7 +1426,7 @@ public class PatternTest extends TestCase {
         assertTrue(mat.find());
     }
 
-    public void testPredefinedClassesWithSurrogatesSupplementary() {
+    public void _testPredefinedClassesWithSurrogatesSupplementary() {
         String patString = "[123\\D]";
         String testString = "a";
         Pattern pat = Pattern.compile(patString);

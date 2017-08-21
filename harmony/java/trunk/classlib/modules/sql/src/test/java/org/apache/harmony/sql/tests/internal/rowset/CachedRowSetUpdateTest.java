@@ -240,7 +240,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
         assertEquals("test4", noInitialCrset.getString(2));
     }
 
-    public void testUndoUpdate() throws Exception {
+    public void _testUndoUpdate() throws Exception {
         noInitialCrset = newNoInitialInstance();
         try {
             noInitialCrset.undoUpdate();
@@ -377,7 +377,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
         noInitialCrset.moveToCurrentRow();
     }
 
-    public void testUpdateValue() throws Exception {
+    public void _testUpdateValue() throws Exception {
 
         try {
             crset.updateString(1, "");
@@ -429,7 +429,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
 
     }
 
-    public void testUpdateLong() throws SQLException {
+    public void _testUpdateLong() throws SQLException {
         crset.moveToInsertRow();
 
         crset.updateInt(1, 100);
@@ -485,7 +485,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
 
     }
 
-    public void testUpdateInt() throws SQLException {
+    public void _testUpdateInt() throws SQLException {
         crset.moveToInsertRow();
 
         crset.updateInt(1, 50);
@@ -550,7 +550,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
         assertTrue(rs.next());
     }
 
-    public void testUpdateShort() throws SQLException {
+    public void _testUpdateShort() throws SQLException {
         crset.moveToInsertRow();
 
         crset.updateInt(1, 50);
@@ -618,7 +618,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
         crset.acceptChanges(conn);
     }
 
-    public void testUpdateFloat() throws SQLException {
+    public void _testUpdateFloat() throws SQLException {
         crset.moveToInsertRow();
 
         crset.updateInt(1, 50);
@@ -687,7 +687,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
         }
     }
 
-    public void testUpdateBigDecimal() throws SQLException {
+    public void _testUpdateBigDecimal() throws SQLException {
         crset.moveToInsertRow();
         crset.updateInt(1, 50);
         crset.updateString(2, "test100");
@@ -745,7 +745,7 @@ public class CachedRowSetUpdateTest extends CachedRowSetTestCase {
         // crset.updateArray(3, null);
     }
 
-    public void testUpdateObject_I_LObject_I() throws Exception {
+    public void _testUpdateObject_I_LObject_I() throws Exception {
         crset.moveToInsertRow();
 
         crset.updateInt(1, 50);

@@ -55,7 +55,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testPKIXParametersKeyStore01() throws Exception {
+    public final void _testPKIXParametersKeyStore01() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");
@@ -75,7 +75,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testPKIXParametersKeyStore02() throws Exception {
+    public final void _testPKIXParametersKeyStore02() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED_AND_UNTRUSTED);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");
@@ -92,7 +92,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * Assertion: <code>KeyStoreException</code> -
      * if the <code>keystore</code> has not been initialized
      */
-    public final void testPKIXParametersKeyStore04() throws Exception {
+    public final void _testPKIXParametersKeyStore04() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(false, 0);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");
@@ -112,7 +112,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * if the <code>keystore</code> does not contain at least one
      * trusted certificate entry
      */
-    public final void testPKIXParametersKeyStore05() throws Exception {
+    public final void _testPKIXParametersKeyStore05() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.UNTRUSTED);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");
@@ -133,7 +133,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testSetTrustAnchors05() throws Exception {
+    public final void _testSetTrustAnchors05() throws Exception {
         // use several trusted certs in this test
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -160,7 +160,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws NoSuchAlgorithmException
      */
-    public final void testClone01() throws Exception {
+    public final void _testClone01() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");
@@ -233,7 +233,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws NoSuchAlgorithmException
      */
-    public final void testClone02() throws Exception {
+    public final void _testClone02() throws Exception {
         PKIXParameters[] p = new PKIXParameters[2];
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -273,7 +273,7 @@ public class PKIXParameters_ImplTest extends TestCase {
      * @throws InvalidAlgorithmParameterException
      * @throws KeyStoreException
      */
-    public final void testToString() throws Exception {
+    public final void _testToString() throws Exception {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED_AND_UNTRUSTED);
         if (ks == null) {
             fail(getName() + ": not performed (could not create test KeyStore)");

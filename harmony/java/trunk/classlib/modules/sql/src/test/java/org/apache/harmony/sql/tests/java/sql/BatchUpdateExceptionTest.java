@@ -75,7 +75,7 @@ public class BatchUpdateExceptionTest extends TestCase {
     /*
      * ConstructorTest
      */
-    public void testBatchUpdateExceptionintArray() {
+    public void _testBatchUpdateExceptionintArray() {
 
         int[][] init1 = { { 1, 2, 3 }, null };
 
@@ -121,7 +121,7 @@ public class BatchUpdateExceptionTest extends TestCase {
     /*
      * ConstructorTest
      */
-    public void testBatchUpdateExceptionStringintArray() {
+    public void _testBatchUpdateExceptionStringintArray() {
 
         String[] init1 = { "a", "1", "valid1", "----", "&valid*", null, "",
                 ".", "a" };
@@ -176,7 +176,7 @@ public class BatchUpdateExceptionTest extends TestCase {
     /*
      * ConstructorTest
      */
-    public void testBatchUpdateExceptionStringStringintArray() {
+    public void _testBatchUpdateExceptionStringStringintArray() {
 
         String[] init1 = { "a", "1", "valid1", "----", "&valid*", null, "",
                 ".", "a", "a" };
@@ -233,7 +233,7 @@ public class BatchUpdateExceptionTest extends TestCase {
     /*
      * ConstructorTest
      */
-    public void testBatchUpdateExceptionStringStringintintArray() {
+    public void _testBatchUpdateExceptionStringStringintintArray() {
 
         String[] init1 = { "a", "1", "valid1", "----", "&valid*", null, "",
                 ".", "a", "a" };
@@ -291,7 +291,7 @@ public class BatchUpdateExceptionTest extends TestCase {
     /*
      * Method test for getUpdateCounts
      */
-    public void testGetUpdateCounts() {
+    public void _testGetUpdateCounts() {
 
         BatchUpdateException aBatchUpdateException;
         int[][] init1 = { { 1, 2, 3 }, {}, null };

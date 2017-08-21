@@ -57,7 +57,7 @@ public class GSSExceptionTest extends TestCase {
         assertEquals(GSSException.FAILURE,  gssException.getMajor());
     }
         
-    public void testGetMajorString() {
+    public void _testGetMajorString() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME);
         String majorString= gssException.getMajorString();
         assertEquals("BAD NAME",  majorString );
@@ -109,47 +109,47 @@ public class GSSExceptionTest extends TestCase {
         String minorString= gssException.getMinorString();
         assertEquals("Bad day today",  minorString );
     }
-    public void testGetMinorString_2() {
+    public void _testGetMinorString_2() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME, 0, "Bad day today");
         String minorString= gssException.getMinorString();
         assertNull(minorString);
     }
     
-    public void testGetMinorString_3() {
+    public void _testGetMinorString_3() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME);
         gssException.setMinor(0, "Bad day today");
         String minorString= gssException.getMinorString();
         assertNull(minorString);
     }
     
-    public void testGetMessage() {
+    public void _testGetMessage() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME);
         assertEquals("BAD NAME",  gssException.getMessage() );
     }
     
-    public void testGetMessage_0() {
+    public void _testGetMessage_0() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME, GSSException.BAD_NAME, "Bad day today");
         assertEquals("BAD NAME (Bad day today)",  gssException.getMessage() );
     }
     
-    public void testGetMessage_1() {
+    public void _testGetMessage_1() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME);
         gssException.setMinor(GSSException.BAD_NAME, "Unclear reason");
         assertEquals("BAD NAME (Unclear reason)",  gssException.getMessage() );
     }
     
-    public void testGetMessage_2() {
+    public void _testGetMessage_2() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME, GSSException.BAD_NAME, "Bad day today");
         gssException.setMinor(GSSException.BAD_NAME, "Unclear reason");
         assertEquals("BAD NAME (Unclear reason)",  gssException.getMessage() );
     }
     
-    public void testToString() {
+    public void _testToString() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME);
         assertEquals("GSSException: BAD NAME",  gssException.toString() );
     }
     
-    public void testToString_0() {
+    public void _testToString_0() {
         GSSException gssException= new GSSException(GSSException.BAD_NAME, GSSException.BAD_NAME, "Bad day today");
         assertEquals("GSSException: BAD NAME (Bad day today)",  gssException.toString() );
     }

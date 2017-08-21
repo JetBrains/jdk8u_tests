@@ -72,7 +72,7 @@ public class AtomicLongFieldUpdaterTest extends JSR166TestCase {
     }
     static class Sub2 extends Base {}
 
-    public void testProtectedFieldOnAnotherSubtype() {
+    public void _testProtectedFieldOnAnotherSubtype() {
         Sub1 sub1 = new Sub1();
         Sub2 sub2 = new Sub2();
 

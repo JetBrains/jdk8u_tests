@@ -48,7 +48,7 @@ public class X509CertSelectorTest extends TestCase {
     /**
      * @tests java.security.cert.X509CertSelector#addSubjectAlternativeName(int, String)
      */
-    public void test_addSubjectAlternativeNameLintLjava_lang_String() throws IOException {
+    public void _test_addSubjectAlternativeNameLintLjava_lang_String() throws IOException {
         // Regression for HARMONY-727
         int[] types = { 0, 3, 4, 5, 6, 7, 8 };
         for (int i = 0; i < types.length; i++) {

@@ -86,7 +86,7 @@ public class CharsetTest extends TestCase {
     /**
 	 * @tests java.nio.charset.Charset#defaultCharset()
 	 */
-	public void test_defaultCharset() {
+	public void _test_defaultCharset() {
 		String charsetName = null;
 		String defaultCharsetName = null;
         String oldDefaultEncoding = System.getProperty("file.encoding");

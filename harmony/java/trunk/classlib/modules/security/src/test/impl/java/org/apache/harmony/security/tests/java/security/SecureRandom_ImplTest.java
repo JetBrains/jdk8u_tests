@@ -65,14 +65,14 @@ public class SecureRandom_ImplTest extends TestCase {
 	/*
 	 * Class under test for void setSeed(long)
 	 */
-	public final void testSetSeedlong() {
+	public final void _testSetSeedlong() {
 		SecureRandom sr = new SecureRandom();
 		sr.setSeed(0);
 		sr.setSeed(-1);
 		sr.setSeed(11111111111L);
 	}
 
-	public final void testNextBytes() {
+	public final void _testNextBytes() {
 		SecureRandom sr = new SecureRandom();
 		sr.nextBytes(new byte[20]);
 		sr.nextBytes(new byte[1]);
@@ -96,11 +96,11 @@ public class SecureRandom_ImplTest extends TestCase {
 		}
 	}
 	
-	public final void testGetProvider() {
+	public final void _testGetProvider() {
         assertNull("Non null provider", new SecureRandom().getProvider());
 	}
 	
-	public final void testGetAlgorithm() {
+	public final void _testGetAlgorithm() {
         //test default implementation
 		SecureRandom sr = new SecureRandom();
         assertEquals("Incorrect algorithm", "SHA1PRNG", sr.getAlgorithm());
@@ -113,7 +113,7 @@ public class SecureRandom_ImplTest extends TestCase {
 	/*
 	 * Class under test for void setSeed(byte[])
 	 */
-	public final void testSetSeedbyteArray() {
+	public final void _testSetSeedbyteArray() {
 		SecureRandom sr = new SecureRandom();
 
 		//Not specified behavior: throws NullPointerException if bytes is null
@@ -129,12 +129,12 @@ public class SecureRandom_ImplTest extends TestCase {
 		sr.setSeed(seed1);
 	}
 
-	public final void testGetSeed() {
+	public final void _testGetSeed() {
 		byte[] seed = SecureRandom.getSeed(5);
 		new SecureRandom(seed).nextBytes(new byte[20]);
 	}
 
-	public final void testGenerateSeed() {
+	public final void _testGenerateSeed() {
 		SecureRandom sr = new SecureRandom();
 		byte[] seed = sr.generateSeed(5);
 		new SecureRandom(seed).nextBytes(new byte[20]);

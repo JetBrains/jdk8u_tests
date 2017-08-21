@@ -497,7 +497,7 @@ public class ChannelsTest extends TestCase {
      * Test method for
      * 'java.nio.channels.Channels.newReader(ReadableByteChannel, String)'
      */
-    public void testNewReaderReadableByteChannelString() throws IOException {
+    public void _testNewReaderReadableByteChannelString() throws IOException {
         int bufSize = this.testNum;
         int readres = 0;
         CharBuffer charBuf = CharBuffer.allocate(bufSize);

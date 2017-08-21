@@ -47,7 +47,7 @@ public class Cipher_Impl1Test extends junit.framework.TestCase {
      * @tests javax.crypto.Cipher#init(int, java.security.Key,
      *        java.security.AlgorithmParameters)
      */
-    public void test_getIV() throws Exception {
+    public void _test_getIV() throws Exception {
         /*
          * If this test is changed, implement the following:
          * test_initILjava_security_KeyLjava_security_AlgorithmParameters()
@@ -74,7 +74,7 @@ public class Cipher_Impl1Test extends junit.framework.TestCase {
      * @tests javax.crypto.Cipher#init(int, java.security.Key,
      *        java.security.AlgorithmParameters, java.security.SecureRandom)
      */
-    public void test_getParameters() throws Exception {
+    public void _test_getParameters() throws Exception {
 
         /*
          * If this test is changed, implement the following:

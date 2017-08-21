@@ -81,12 +81,12 @@ public class CharsetEncoderTest extends TestCase {
 		super.tearDown();
 	}
 
-	public void testSpecificDefaultValue() {
+	public void _testSpecificDefaultValue() {
 		assertTrue(encoder.averageBytesPerChar() == AVER_BYTES);
 		assertTrue(encoder.maxBytesPerChar() == MAX_BYTES);
 	}
 
-	public void testDefaultValue() {
+	public void _testDefaultValue() {
 		assertEquals(CodingErrorAction.REPORT, encoder.malformedInputAction());
 		assertEquals(CodingErrorAction.REPORT, encoder
 				.unmappableCharacterAction());
@@ -105,7 +105,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * Class under test for constructor CharsetEncoder(Charset, float, float)
 	 */
-	public void testCharsetEncoderCharsetfloatfloat() {
+	public void _testCharsetEncoderCharsetfloatfloat() {
 		// default value
 		encoder = new MockCharsetEncoder(cs, (float) AVER_BYTES, MAX_BYTES);
 		assertSame(encoder.charset(), cs);
@@ -174,7 +174,7 @@ public class CharsetEncoderTest extends TestCase {
 	 * Class under test for constructor CharsetEncoder(Charset, float, float,
 	 * byte[])
 	 */
-	public void testCharsetEncoderCharsetfloatfloatbyteArray() {
+	public void _testCharsetEncoderCharsetfloatfloatbyteArray() {
 		byte[] ba = getLegalByteArray();
 		// normal case
 		CharsetEncoder ec = new MockCharsetEncoder(cs, 1, MAX_BYTES, ba);
@@ -248,7 +248,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * Class under test for boolean canEncode(char)
 	 */
-	public void testCanEncodechar() throws CharacterCodingException {
+	public void _testCanEncodechar() throws CharacterCodingException {
 		// for non-mapped char
 		assertTrue(encoder.canEncode('\uc2c0'));
 		// surrogate char for unicode
@@ -267,7 +267,7 @@ public class CharsetEncoderTest extends TestCase {
 
 	// Normal case: just after reset, and it also means reset can be done
 	// anywhere
-	public void testResetIllegalState() throws CharacterCodingException {
+	public void _testResetIllegalState() throws CharacterCodingException {
 		assertSame(encoder, encoder.reset());
 		encoder.canEncode('\ud901');
 		assertSame(encoder, encoder.reset());
@@ -281,7 +281,7 @@ public class CharsetEncoderTest extends TestCase {
 		assertSame(encoder, encoder.reset());
 	}
 
-	public void testFlushIllegalState() throws CharacterCodingException {
+	public void _testFlushIllegalState() throws CharacterCodingException {
 		CharBuffer in = CharBuffer.wrap("aaa");
 		ByteBuffer out = ByteBuffer.allocate(5);
 
@@ -310,7 +310,7 @@ public class CharsetEncoderTest extends TestCase {
 		}
 	}
 	
-	public void testFlushAfterConstructing() {
+	public void _testFlushAfterConstructing() {
 		ByteBuffer out = ByteBuffer.allocate(5);
 		
 		//Illegal state: flush after instance created
@@ -324,7 +324,7 @@ public class CharsetEncoderTest extends TestCase {
 	}
 
 	// test illegal states for encode facade
-	public void testEncodeFacadeIllegalState() throws CharacterCodingException {
+	public void _testEncodeFacadeIllegalState() throws CharacterCodingException {
 		// encode facade can be execute in anywhere
 		CharBuffer in = CharBuffer.wrap("aaa");
 		// Normal case: just created
@@ -369,7 +369,7 @@ public class CharsetEncoderTest extends TestCase {
 	}
 
 	// test illegal states for two encode method with endOfInput is true
-	public void testEncodeTrueIllegalState() throws CharacterCodingException {
+	public void _testEncodeTrueIllegalState() throws CharacterCodingException {
 		CharBuffer in = CharBuffer.wrap("aaa");
 		ByteBuffer out = ByteBuffer.allocate(5);
 		// Normal case: just created
@@ -419,7 +419,7 @@ public class CharsetEncoderTest extends TestCase {
 	}
 
 	// test illegal states for two encode method with endOfInput is false
-	public void testEncodeFalseIllegalState() throws CharacterCodingException {
+	public void _testEncodeFalseIllegalState() throws CharacterCodingException {
 		CharBuffer in = CharBuffer.wrap("aaa");
 		ByteBuffer out = ByteBuffer.allocate(5);
 		// Normal case: just created
@@ -477,7 +477,7 @@ public class CharsetEncoderTest extends TestCase {
 	}
 
 	// test illegal states for two canEncode methods
-	public void testCanEncodeIllegalState() throws CharacterCodingException {
+	public void _testCanEncodeIllegalState() throws CharacterCodingException {
 		// Normal case: just created
 		encoder.canEncode("\ud900\udc00");
 		encoder.canEncode('\ud900');
@@ -523,7 +523,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * Class under test for boolean canEncode(CharSequence)
 	 */
-	public void testCanEncodeCharSequence() {
+	public void _testCanEncodeCharSequence() {
 		// for non-mapped char
 		assertTrue(encoder.canEncode("\uc2c0"));
 		// surrogate char for unicode
@@ -539,7 +539,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * Class under test for Charset charset()
 	 */
-	public void testCharset() {
+	public void _testCharset() {
 		try {
 			encoder = new MockCharsetEncoder(Charset.forName("gbk"), 1,
 					MAX_BYTES);
@@ -553,7 +553,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * Class under test for ByteBuffer encode(CharBuffer)
 	 */
-	public void testEncodeCharBuffer() throws CharacterCodingException {
+	public void _testEncodeCharBuffer() throws CharacterCodingException {
 		// Null pointer
 		try {
 			encoder.encode(null);
@@ -613,7 +613,7 @@ public class CharsetEncoderTest extends TestCase {
 		return CharBuffer.wrap("runtime buffer");
 	}
 
-	public void testEncodeCharBufferException() throws CharacterCodingException {
+	public void _testEncodeCharBufferException() throws CharacterCodingException {
 		ByteBuffer out;
 		CharBuffer in;
 		// MalformedException:
@@ -692,7 +692,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * Class under test for CoderResult encode(CharBuffer, ByteBuffer, boolean)
 	 */
-	public void testEncodeCharBufferByteBufferboolean()
+	public void _testEncodeCharBufferByteBufferboolean()
 			throws CharacterCodingException {
 		ByteBuffer out = ByteBuffer.allocate(200);
 		CharBuffer in = CharBuffer.wrap(unistr);
@@ -797,12 +797,12 @@ public class CharsetEncoderTest extends TestCase {
 		}
 	}
 
-	public void testEncodeCharBufferByteBufferbooleanExceptionFalse()
+	public void _testEncodeCharBufferByteBufferbooleanExceptionFalse()
 			throws CharacterCodingException {
 		implTestEncodeCharBufferByteBufferbooleanException(false);
 	}
 
-	public void testEncodeCharBufferByteBufferbooleanExceptionTrue()
+	public void _testEncodeCharBufferByteBufferbooleanExceptionTrue()
 			throws CharacterCodingException {
 		implTestEncodeCharBufferByteBufferbooleanException(true);
 	}
@@ -902,7 +902,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * Class under test for CoderResult flush(ByteBuffer)
 	 */
-	public void testFlush() throws CharacterCodingException {
+	public void _testFlush() throws CharacterCodingException {
 		ByteBuffer out = ByteBuffer.allocate(6);
 		CharBuffer in = CharBuffer.wrap("aaa");
 		assertEquals(in.remaining(), 3);
@@ -917,7 +917,7 @@ public class CharsetEncoderTest extends TestCase {
 	/*
 	 * test isLegalReplacement(byte[])
 	 */
-	public void testIsLegalReplacement() {
+	public void _testIsLegalReplacement() {
 		try {
 			encoder.isLegalReplacement(null);
 			fail("should throw null pointer exception");
@@ -932,7 +932,7 @@ public class CharsetEncoderTest extends TestCase {
 		}
 	}
 
-	public void testIsLegalReplacementEmptyArray() {
+	public void _testIsLegalReplacementEmptyArray() {
 		// ISO, ASC, GB, UTF8 encoder will throw exception in RI
 		// others will pass
 		// try {
@@ -942,7 +942,7 @@ public class CharsetEncoderTest extends TestCase {
 		// }
 	}
 
-	public void testOnMalformedInput() {
+	public void _testOnMalformedInput() {
 		assertSame(CodingErrorAction.REPORT, encoder.malformedInputAction());
 		try {
 			encoder.onMalformedInput(null);
@@ -953,7 +953,7 @@ public class CharsetEncoderTest extends TestCase {
 		assertSame(CodingErrorAction.IGNORE, encoder.malformedInputAction());
 	}
 
-	public void testOnUnmappableCharacter() {
+	public void _testOnUnmappableCharacter() {
 		assertSame(CodingErrorAction.REPORT, encoder
 				.unmappableCharacterAction());
 		try {
@@ -966,7 +966,7 @@ public class CharsetEncoderTest extends TestCase {
 				.unmappableCharacterAction());
 	}
 
-	public void testReplacement() {
+	public void _testReplacement() {
 		try {
 			encoder.replaceWith(null);
 			fail("should throw null pointer exception");

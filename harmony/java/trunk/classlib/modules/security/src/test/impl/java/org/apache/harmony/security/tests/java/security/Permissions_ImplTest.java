@@ -50,7 +50,7 @@ public class Permissions_ImplTest extends TestCase {
      * The only exception is UnresolvedPermission itself, which is effectively
      * implied only by AllPermission
      */
-    public void testImplies() {
+    public void _testImplies() {
         Permissions ps = new Permissions();
         Permission ap = new AllPermission();
         Permission bp1 = new BasicPermission("jhb23jhg5") {

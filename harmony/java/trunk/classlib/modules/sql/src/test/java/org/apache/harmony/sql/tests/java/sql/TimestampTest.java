@@ -306,7 +306,7 @@ public class TimestampTest extends TestCase {
      */
     static String theExceptionMessage = "Timestamp format must be yyyy-mm-dd hh:mm:ss.fffffffff";
 
-    public void testValueOfString() {
+    public void _testValueOfString() {
     	TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         for (int i = 0; i < TIME_ARRAY.length; i++) {
             Timestamp theTimestamp = new Timestamp(TIME_ARRAY[i]);
@@ -595,7 +595,7 @@ public class TimestampTest extends TestCase {
      * Method test for compareTo
      */
     @SuppressWarnings("deprecation")
-    public void testCompareToTimestamp() {
+    public void _testCompareToTimestamp() {
         Timestamp theTest = new Timestamp(TIME_EARLY);
         Timestamp theTest2 = new Timestamp(TIME_LATE);
 

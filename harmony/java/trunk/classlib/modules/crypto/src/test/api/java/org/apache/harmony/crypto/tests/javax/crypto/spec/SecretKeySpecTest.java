@@ -78,7 +78,7 @@ public class SecretKeySpecTest extends TestCase {
      * the case of inappropriate constructor parameters and that input iv array
      * is copied to protect against subsequent modification.
      */
-    public void testSecretKeySpec2() {
+    public void _testSecretKeySpec2() {
         byte[] key = new byte[] {1, 2, 3, 4, 5};
         int offset = 1;
         int len = 4;

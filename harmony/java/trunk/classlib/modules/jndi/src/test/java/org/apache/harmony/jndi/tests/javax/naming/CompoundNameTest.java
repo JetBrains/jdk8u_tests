@@ -1122,7 +1122,7 @@ public class CompoundNameTest extends TestCase {
 	}
 
     // regression for HARMONY-2525
-	public void testAdd_Null() throws InvalidNameException {
+	public void _testAdd_Null() throws InvalidNameException {
 		log.setMethod("testAdd_Null()");
 		CompoundName name;
 
@@ -1191,7 +1191,7 @@ public class CompoundNameTest extends TestCase {
 	}
 
     // regression for HARMONY-2525
-    public void testAdd_Indexed_Null() throws InvalidNameException {
+    public void _testAdd_Indexed_Null() throws InvalidNameException {
 		log.setMethod("testAdd_Indexed_Null()");
 		CompoundName name;
 

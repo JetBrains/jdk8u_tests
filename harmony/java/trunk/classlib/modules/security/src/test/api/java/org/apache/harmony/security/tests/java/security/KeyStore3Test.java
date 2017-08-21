@@ -159,7 +159,7 @@ public class KeyStore3Test extends TestCase {
         mockKeyStore.store(null, null);
     }
     
-    public void test_getKeyStore() throws KeyStoreException,
+    public void _test_getKeyStore() throws KeyStoreException,
             NoSuchAlgorithmException, CertificateException,
             FileNotFoundException, IOException {
 

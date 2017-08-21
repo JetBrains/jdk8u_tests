@@ -463,7 +463,7 @@ public class KeyStore2Test extends junit.framework.TestCase {
 	/**
 	 * @tests java.security.KeyStore#load(java.io.InputStream, char[])
 	 */
-	public void test_loadLjava_io_InputStream$C() throws Exception {
+	public void _test_loadLjava_io_InputStream$C() throws Exception {
 		// Test for method void java.security.KeyStore.load(java.io.InputStream,
 		// char [])
 		byte[] keyStore = creatCertificate();
@@ -529,7 +529,7 @@ public class KeyStore2Test extends junit.framework.TestCase {
 	 * @tests java.security.KeyStore#setKeyEntry(java.lang.String, byte[],
 	 *        java.security.cert.Certificate[])
 	 */
-	public void test_setKeyEntryLjava_lang_String$B$Ljava_security_cert_Certificate()
+	public void _test_setKeyEntryLjava_lang_String$B$Ljava_security_cert_Certificate()
 			throws Exception {
 
 //		fail("Test hangs - requires a full math implementation ??");

@@ -188,7 +188,7 @@ public class FilteredRowSetTest extends CachedRowSetTestCase {
         assertEquals(1, filteredRowSet.getInt(1));
     }
 
-    public void testAbsolute() throws Exception {
+    public void _testAbsolute() throws Exception {
         FilteredRowSet filteredRowSet = newFilterRowSet();
         rs = st.executeQuery("SELECT * FROM USER_INFO");
         filteredRowSet.populate(rs);
@@ -277,7 +277,7 @@ public class FilteredRowSetTest extends CachedRowSetTestCase {
         assertTrue(filteredRowSet.isBeforeFirst());
     }
 
-    public void testCursorMove() throws Exception {
+    public void _testCursorMove() throws Exception {
         insertMoreData(30);
         FilteredRowSet filteredRowSet = newFilterRowSet();
         rs = st.executeQuery("SELECT * FROM USER_INFO");
@@ -374,7 +374,7 @@ public class FilteredRowSetTest extends CachedRowSetTestCase {
         assertEquals(EVALUATE_ROWSET, range.getTag());
     }
 
-    public void testNoFilter_Insert() throws Exception {
+    public void _testNoFilter_Insert() throws Exception {
         FilteredRowSet filteredRowSet = newFilterRowSet();
         rs = st.executeQuery("SELECT * FROM USER_INFO");
         filteredRowSet.populate(rs);
@@ -568,7 +568,7 @@ public class FilteredRowSetTest extends CachedRowSetTestCase {
         assertEquals(2, filteredRowSet.getInt(1));
     }
 
-    public void testPaging() throws Exception {
+    public void _testPaging() throws Exception {
         insertMoreData(4);
 
         FilteredRowSet filteredRowSet = newFilterRowSet();
@@ -642,7 +642,7 @@ public class FilteredRowSetTest extends CachedRowSetTestCase {
 
     }
 
-    public void testPagingInMemory() throws Exception {
+    public void _testPagingInMemory() throws Exception {
         insertMoreData(10);
         FilteredRowSet filteredRowSet = newFilterRowSet();
 

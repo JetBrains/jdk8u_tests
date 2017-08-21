@@ -247,7 +247,7 @@ public class KeyStoreTest extends TestCase {
     /*
      * @tests java.security.KeyStoreSpi.engineEntryInstanceOf(String, Class<? extends Entry>)
      */
-    public void testEngineEntryInstanceOf() throws Exception {
+    public void _testEngineEntryInstanceOf() throws Exception {
         //Regression for HARMONY-615
 
         // create a KeyStore 

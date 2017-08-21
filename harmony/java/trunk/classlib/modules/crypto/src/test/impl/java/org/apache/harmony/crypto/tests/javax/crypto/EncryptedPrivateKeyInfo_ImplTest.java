@@ -50,7 +50,7 @@ public class EncryptedPrivateKeyInfo_ImplTest extends TestCase {
      * 
      * @throws IOException
      */
-    public final void testGetAlgName01() throws IOException {
+    public final void _testGetAlgName01() throws IOException {
         boolean performed = false;
         for (int i = 0; i < EncryptedPrivateKeyInfoData.algName0.length; i++) {
             try {
@@ -76,7 +76,7 @@ public class EncryptedPrivateKeyInfo_ImplTest extends TestCase {
      * 
      * @throws IOException
      */
-    public final void testGetAlgName02() {
+    public final void _testGetAlgName02() {
         boolean performed = false;
         for (int i = 0; i < EncryptedPrivateKeyInfoData.algName0.length; i++) {
             try {
@@ -101,7 +101,7 @@ public class EncryptedPrivateKeyInfo_ImplTest extends TestCase {
      * 
      * @throws IOException
      */
-    public final void testGetAlgName03() throws IOException {
+    public final void _testGetAlgName03() throws IOException {
         boolean performed = false;
         for (int i = 0; i < EncryptedPrivateKeyInfoData.algName0.length; i++) {
             try {

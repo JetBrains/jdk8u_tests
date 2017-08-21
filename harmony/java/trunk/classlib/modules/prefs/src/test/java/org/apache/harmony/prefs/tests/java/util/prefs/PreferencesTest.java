@@ -60,7 +60,7 @@ public class PreferencesTest extends TestCase {
         stream.close();
     }
 
-    public void testSystemNodeForPackage() throws BackingStoreException {
+    public void _testSystemNodeForPackage() throws BackingStoreException {
         Preferences p = null;
         try {
             p = Preferences.systemNodeForPackage(Object.class);
@@ -137,7 +137,7 @@ public class PreferencesTest extends TestCase {
         assertEquals("User Preference Node: " + p.absolutePath(), p.toString());
     }
 
-    public void testImportPreferences() throws Exception {
+    public void _testImportPreferences() throws Exception {
         Preferences prefs = null;
         try {
             prefs = Preferences.userNodeForPackage(PreferencesTest.class);

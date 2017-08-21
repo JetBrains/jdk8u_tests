@@ -62,7 +62,7 @@ public class CodeSource_ImplTest extends TestCase {
      * Test for equals(Object)<br>
      * The signer certificate may contain nulls, and equals() must not fail with NPE 
      */
-    public void testEqualsObject_03() {
+    public void _testEqualsObject_03() {
         Certificate cert0 = new TestCertUtils.TestCertificate();
         Certificate[] certs0 = new Certificate[] { cert0, null };
         Certificate[] certs1 = new Certificate[] { null, cert0 };
@@ -103,7 +103,7 @@ public class CodeSource_ImplTest extends TestCase {
     /**
      * getCodeSigners() must not take into account non-X509 certificates.
      */
-    public void testGetCodeSigners_01() {
+    public void _testGetCodeSigners_01() {
         Certificate[] certs = { new TestCertUtils.TestCertificate("00") };
         CodeSource cs = new CodeSource(null, certs);
         assertNull(cs.getCodeSigners());
@@ -112,7 +112,7 @@ public class CodeSource_ImplTest extends TestCase {
     /**
      * getCodeSigners() must return null if no X509 factory available
      */
-    public void testGetCodeSigners_02() {
+    public void _testGetCodeSigners_02() {
         ArrayList al = new ArrayList();
         boolean noMoreFactories = false;
         try {
@@ -152,7 +152,7 @@ public class CodeSource_ImplTest extends TestCase {
      * getCodeSigners() must return an array of CodeSigners. Just make sure
      * the array looks healthy.
      */
-    public void testGetCodeSigners_03() {
+    public void _testGetCodeSigners_03() {
         TestCertUtils.install_test_x509_factory();
         try {
             X500Principal[] ps = TestCertUtils.UniGen.genX500s(3);
@@ -183,7 +183,7 @@ public class CodeSource_ImplTest extends TestCase {
     /**
      * getCodeSigners(). Make sure, that CertException is handled properly
      */
-    public void testGetCodeSigners_04() {
+    public void _testGetCodeSigners_04() {
         try {
             TestCertUtils.install_test_x509_factory();
             X500Principal[] ps = TestCertUtils.UniGen.genX500s(1);
@@ -211,7 +211,7 @@ public class CodeSource_ImplTest extends TestCase {
     /**
      * @tests java.security.CodeSource#toString()
      */
-    public void test_toString() throws Exception {
+    public void _test_toString() throws Exception {
         // Test for method java.lang.String java.security.CodeSource.toString()
         CodeSource cs = new CodeSource(new java.net.URL("file:///test"),
                 (Certificate[]) null);

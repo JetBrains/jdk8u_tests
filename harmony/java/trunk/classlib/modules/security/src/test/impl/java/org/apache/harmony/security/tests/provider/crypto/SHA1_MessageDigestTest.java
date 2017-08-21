@@ -143,7 +143,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * test against the "Object clone()" method;
      * test checks out that clone object has the same state that its origin
      */
-    public final void testClone() throws CloneNotSupportedException {
+    public final void _testClone() throws CloneNotSupportedException {
 
         MessageDigest clone = null;
 
@@ -172,7 +172,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * test against the "byte[] digest()" method;
      * it checks out that the method always return array of 20 bytes length
      */
-    public final void testDigest01() {
+    public final void _testDigest01() {
 
         byte[] bytes = null;
 
@@ -198,7 +198,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * it checks out that for given seed arrays 
      * hash arrays returned by the method are the same as in RI
      */
-    public final void testDigest02() {
+    public final void _testDigest02() {
 
         int i = 0;
         byte[] results = null;
@@ -222,7 +222,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * test against the "byte[] digest()" method;
      * it checks out that "digest()" method resets engine
      */
-    public final void testDigest03() {
+    public final void _testDigest03() {
 
         byte[] bytes1 = null;
         byte[] bytes2 = null;
@@ -252,7 +252,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * test against "int digest(byte[], int, int)" method;
      * it checks out correct throwing exceptions
      */
-    public final void testDigestbyteArrayintint01() throws DigestException {
+    public final void _testDigestbyteArrayintint01() throws DigestException {
 
         int offset = 0;
         int len    = 0;
@@ -311,7 +311,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * it checks out that for given seed arrays 
      * hash arrays returned by the method are the same as in RI
      */
-    public final void testDigestbyteArrayintint02() throws DigestException {
+    public final void _testDigestbyteArrayintint02() throws DigestException {
 
         byte[] bytes = null;
         int i = 0;
@@ -340,7 +340,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * test against "int engineDigest(byte[], int, int)" method
      * it checks out that engine gets reset after call to the method
      */
-    public final void testDigestbyteArrayintint03() throws DigestException {
+    public final void _testDigestbyteArrayintint03() throws DigestException {
 
         byte[] bytes1 = new byte[DIGESTLENGTH];
         byte[] bytes2 = new byte[DIGESTLENGTH];
@@ -370,7 +370,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * it checks out that the method returns the same value
      * regardless of previous calls to other methods
      */ 
-    public final void testGetDigestLength() throws DigestException {
+    public final void _testGetDigestLength() throws DigestException {
 
         int digestlength = md.getDigestLength();
 
@@ -406,7 +406,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * it checks out that digests returned after proceeding "engineReset()"
      * is the same as in case of initial digest
      */
-    public final void testReset() {
+    public final void _testReset() {
 
         byte[] bytes = new byte[LENGTH];
         byte[] digest1 = null;
@@ -435,7 +435,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * it checks out that if one digest is update to its forerunner
      * the digests are not the same
      */
-    public final void testUpdatebyte() {
+    public final void _testUpdatebyte() {
 
         boolean flag;
         byte[] digest1 = null;
@@ -468,7 +468,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * test against the "void update(byte[], int, int)" method;
      * it checks out throwing exceptions
      */
-    public final void testUpdatebyteArrayintint01() {
+    public final void _testUpdatebyteArrayintint01() {
 
         // IllegalArgumentException if byte[] is null
         try {
@@ -499,7 +499,7 @@ public class SHA1_MessageDigestTest extends TestCase {
      * second is byte array update to first,
      * are different, provided length of the byte array > 0.
      */
-    public final void testUpdatebyteArrayintint02() {
+    public final void _testUpdatebyteArrayintint02() {
 
         boolean flag;
         byte[] digest1 = null;

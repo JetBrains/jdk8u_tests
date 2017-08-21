@@ -126,7 +126,7 @@ public class AbstractSelectorTest extends TestCase {
     /**
      * @tests AbstractSelector#register(Selector,int)
      */
-    public void test_register_LSelectorI_error() throws IOException {
+    public void _test_register_LSelectorI_error() throws IOException {
         Selector acceptSelector = SelectorProvider.provider().openSelector();
         ServerSocketChannel ssc = ServerSocketChannel.open();
         ssc.configureBlocking(false);

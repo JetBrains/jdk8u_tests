@@ -100,7 +100,7 @@ public class ProviderServiceTest extends TestCase {
                 .getAttribute("KeySize"));
 	}
     
-    public void testNewInstance() throws NoSuchAlgorithmException {
+    public void _testNewInstance() throws NoSuchAlgorithmException {
         Provider p = new MyProvider();
         Provider.Service s = new Provider.Service(p, "SecureRandom",
                 "algorithm",

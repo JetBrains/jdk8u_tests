@@ -442,7 +442,7 @@ public class CipherTest extends junit.framework.TestCase {
      * @tests javax.crypto.Cipher#Cipher(CipherSpi cipherSpi, Provider provider,
      *        String transformation)
      */
-    public void test_Ctor() throws Exception {
+    public void _test_Ctor() throws Exception {
         // Regression for Harmony-1184
         try {
             new testCipher(null, null, "s");

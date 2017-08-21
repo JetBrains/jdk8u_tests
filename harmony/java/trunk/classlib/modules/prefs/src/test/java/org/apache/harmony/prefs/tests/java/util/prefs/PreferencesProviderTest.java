@@ -23,7 +23,7 @@ import junit.framework.TestCase;
 
 public class PreferencesProviderTest extends TestCase {
 
-    public void testLoadProviderFromFile() {
+    public void _testLoadProviderFromFile() {
         System.clearProperty("java.util.prefs.PreferencesFactory");
 
         assertEquals(MockAbstractPreferences.class, Preferences.systemRoot().getClass());

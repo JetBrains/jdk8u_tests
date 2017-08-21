@@ -28,7 +28,7 @@ public class DatabaseMetaDataTest extends TestCase {
     /*
      * Public statics test
      */
-    public void testPublicStatics() {
+    public void _testPublicStatics() {
 
         HashMap<String, Number> thePublicStatics = new HashMap<String, Number>();
         thePublicStatics.put("sqlStateSQL99", new Integer(2));

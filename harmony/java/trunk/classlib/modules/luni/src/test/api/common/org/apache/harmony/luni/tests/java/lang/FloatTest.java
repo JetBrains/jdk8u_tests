@@ -785,7 +785,7 @@ public class FloatTest extends TestCase {
     /**
      * @tests java.lang.Float#parseFloat(java.lang.String)
      */
-    public void test_parseFloat_LString_Harmony6261() {
+    public void _test_parseFloat_LString_Harmony6261() {
         // Regression test for HARMONY-6261
         float f = new Float("2147483648");
         assertEquals("2.1474836E9", Float.toString(f));

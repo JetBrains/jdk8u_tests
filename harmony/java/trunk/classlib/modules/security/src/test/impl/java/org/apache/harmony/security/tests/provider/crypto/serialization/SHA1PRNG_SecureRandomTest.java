@@ -375,7 +375,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
     /**
      * Testing deserialized object.
      */
-    public void testSerializationSelf() throws Exception {
+    public void _testSerializationSelf() throws Exception {
 
         Object[] data;
 
@@ -391,7 +391,7 @@ public class SHA1PRNG_SecureRandomTest extends TestCase {
     /**
      * Testing that SecureRandom with SHA1PRNG objects can be deserialized from golden files.
      */
-    public void testSerializationCompartibility() throws Exception {
+    public void _testSerializationCompartibility() throws Exception {
 
         Object[] data;
 

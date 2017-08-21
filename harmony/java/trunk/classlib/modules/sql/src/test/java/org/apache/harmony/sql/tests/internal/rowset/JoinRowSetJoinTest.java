@@ -547,7 +547,7 @@ public class JoinRowSetJoinTest extends JoinRowSetTestCase {
         }
     }
 
-    public void testProperty() throws Exception {
+    public void _testProperty() throws Exception {
         SyncProvider sp = jrs.getSyncProvider();
 
         crset.setDataSourceName("testDataSource");

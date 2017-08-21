@@ -29,7 +29,7 @@ public class DataTruncationTest extends TestCase {
     /*
      * ConstructorTest
      */
-    public void testDataTruncationintbooleanbooleanintint() {
+    public void _testDataTruncationintbooleanbooleanintint() {
 
         int[] init1 = { -2147483648, 2147483647, 0, 329751502, 318587557,
                 -1217247045, 329474146 };
@@ -96,7 +96,7 @@ public class DataTruncationTest extends TestCase {
     /*
      * Method test for getIndex
      */
-    public void testGetIndex() {
+    public void _testGetIndex() {
 
         DataTruncation aDataTruncation;
         int[] init1 = { -2147483648, 2147483647, 0, -2045829673, 1977156911,
@@ -168,7 +168,7 @@ public class DataTruncationTest extends TestCase {
     /*
      * Method test for getParameter
      */
-    public void testGetParameter() {
+    public void _testGetParameter() {
 
         DataTruncation aDataTruncation;
         int[] init1 = { -2147483648, 2147483647, 0, -492314242, 1637665948,
@@ -240,7 +240,7 @@ public class DataTruncationTest extends TestCase {
     /*
      * Method test for getRead
      */
-    public void testGetRead() {
+    public void _testGetRead() {
 
         DataTruncation aDataTruncation;
         int[] init1 = { -2147483648, 2147483647, 0, 2092420209, -1695764964,
@@ -312,7 +312,7 @@ public class DataTruncationTest extends TestCase {
     /*
      * Method test for getDataSize
      */
-    public void testGetDataSize() {
+    public void _testGetDataSize() {
 
         DataTruncation aDataTruncation;
         int[] init1 = { -2147483648, 2147483647, 0, 1146707040, -2020665632,
@@ -384,7 +384,7 @@ public class DataTruncationTest extends TestCase {
     /*
      * Method test for getTransferSize
      */
-    public void testGetTransferSize() {
+    public void _testGetTransferSize() {
 
         DataTruncation aDataTruncation;
         int[] init1 = { -2147483648, 2147483647, 0, 78096124, 1719192600,

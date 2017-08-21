@@ -5296,7 +5296,7 @@ public class ScannerTest extends TestCase {
      * @throws IOException
      * @tests java.util.Scanner#nextDouble()
      */
-    public void test_nextDouble() throws IOException {
+    public void _test_nextDouble() throws IOException {
         s = new Scanner("123 45\u0666. 123.4 .123 ");
         s.useLocale(Locale.ENGLISH);
         assertEquals(123.0, s.nextDouble());

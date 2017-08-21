@@ -296,7 +296,7 @@ public class ThreadTest extends junit.framework.TestCase {
      * @tests java.lang.Thread#countStackFrames()
      */
     @SuppressWarnings("deprecation")
-    public void test_countStackFrames() {
+    public void _test_countStackFrames() {
         /*
          * Thread.countStackFrames() is unpredictable, so we just test that it
          * doesn't throw an exception.
@@ -974,7 +974,7 @@ public class ThreadTest extends junit.framework.TestCase {
 	 * @tests java.lang.Thread#stop()
 	 */
 	@SuppressWarnings("deprecation")
-    public void test_stop_subtest0() {
+    public void _test_stop_subtest0() {
 		Thread t = new Thread("t");
 		class MySecurityManager extends SecurityManager {
 			public boolean intest = false;
@@ -1026,7 +1026,7 @@ public class ThreadTest extends junit.framework.TestCase {
 	 * @tests java.lang.Thread#stop(java.lang.Throwable)
 	 */
 	@SuppressWarnings("deprecation")
-    public void test_stopLjava_lang_Throwable_subtest0() {
+    public void _test_stopLjava_lang_Throwable_subtest0() {
 		Thread t = new Thread("t");
 		class MySecurityManager extends SecurityManager {
 			public boolean intest = false;
@@ -1083,7 +1083,7 @@ public class ThreadTest extends junit.framework.TestCase {
 	 * @tests java.lang.Thread#stop(java.lang.Throwable)
 	 */
 	@SuppressWarnings("deprecation")
-    public void test_stopLjava_lang_Throwable() {
+    public void _test_stopLjava_lang_Throwable() {
 		// Test for method void java.lang.Thread.stop(java.lang.Throwable)
 		ResSupThread t = new ResSupThread(Thread.currentThread());
 		synchronized (t) {

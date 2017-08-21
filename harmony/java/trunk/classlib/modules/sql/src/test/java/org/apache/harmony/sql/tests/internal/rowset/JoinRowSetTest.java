@@ -29,7 +29,7 @@ import javax.sql.rowset.WebRowSet;
 
 public class JoinRowSetTest extends JoinRowSetTestCase {
 
-    public void testAddJoinableRowSet_CachedRowSet_Exception() throws Exception {
+    public void _testAddJoinableRowSet_CachedRowSet_Exception() throws Exception {
         try {
             jrs.addRowSet(null);
             fail("should throw SQLException");
@@ -97,7 +97,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_CachedRowSet_MetaData() throws Exception {
+    public void _testAddJoinableRowSet_CachedRowSet_MetaData() throws Exception {
         assertNull(jrs.getMetaData());
         crset.setMatchColumn(1);
         jrs.addRowSet(crset);
@@ -135,7 +135,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_CachedRowSet_MetaData2() throws Exception {
+    public void _testAddJoinableRowSet_CachedRowSet_MetaData2() throws Exception {
         /*
          * Add the first CachedRowSet, populate with table BOOKS
          */
@@ -174,7 +174,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         assertEquals(15, rsmd.getColumnCount());
     }
 
-    public void testAddJoinableRowSet_CachedRowSet_Int_Exception()
+    public void _testAddJoinableRowSet_CachedRowSet_Int_Exception()
             throws Exception {
         try {
             jrs.addRowSet(null, 1);
@@ -259,7 +259,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_CachedRowSet_StringArray_Exception()
+    public void _testAddJoinableRowSet_CachedRowSet_StringArray_Exception()
             throws Exception {
         RowSet[] rowSets = new RowSet[2];
         String[] matchCols = new String[1];
@@ -307,7 +307,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_WebRowSet_Exception() throws Exception {
+    public void _testAddJoinableRowSet_WebRowSet_Exception() throws Exception {
         /*
          * Test empty WebRowSet
          */
@@ -359,7 +359,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_WebRowSet_Int_Exception()
+    public void _testAddJoinableRowSet_WebRowSet_Int_Exception()
             throws Exception {
         /*
          * Test empty WebRowSet. RI would throw ClassCastException.
@@ -390,7 +390,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_FilteredRowSet_Exception()
+    public void _testAddJoinableRowSet_FilteredRowSet_Exception()
             throws Exception {
         /*
          * Test empty FilteredRowSet
@@ -447,7 +447,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_FilteredRowSet_Int_Exception()
+    public void _testAddJoinableRowSet_FilteredRowSet_Int_Exception()
             throws Exception {
         /*
          * Test empty FilteredRowSet
@@ -496,7 +496,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         jrs.close();
     }
 
-    public void testAddJoinableRowSet_JdbcRowSet_Exception() throws Exception {
+    public void _testAddJoinableRowSet_JdbcRowSet_Exception() throws Exception {
         /*
          * Test empty JdbcRowSet
          */
@@ -887,7 +887,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         }
     }
 
-    public void testCancelRowUpdates_Simple() throws Exception {
+    public void _testCancelRowUpdates_Simple() throws Exception {
         jrs.addRowSet(crset, 1);
         Listener listener = new Listener();
         jrs.addRowSetListener(listener);
@@ -904,7 +904,7 @@ public class JoinRowSetTest extends JoinRowSetTestCase {
         assertNull(listener.getTag());
     }
 
-    public void testCancelRowUpdates() throws Exception {
+    public void _testCancelRowUpdates() throws Exception {
         jrs.addRowSet(crset, 1);
         Listener listener = new Listener();
         jrs.addRowSetListener(listener);

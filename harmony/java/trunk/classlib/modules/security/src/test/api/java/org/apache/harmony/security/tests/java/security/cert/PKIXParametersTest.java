@@ -973,7 +973,7 @@ public class PKIXParametersTest extends TestCase {
     /**
      * @tests java.security.cert.PKIXParameters#setDate(Date)
      */
-    public final void test_setDateLjava_util_Date() throws Exception {
+    public final void _test_setDateLjava_util_Date() throws Exception {
         Set taSet = TestUtils.getTrustAnchorSet();
         assertNotNull("could not create test TrustAnchor set", taSet);
 

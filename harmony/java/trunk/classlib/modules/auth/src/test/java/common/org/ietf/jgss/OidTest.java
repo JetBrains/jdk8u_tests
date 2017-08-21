@@ -222,7 +222,7 @@ public class OidTest extends TestCase {
      * Tests 2 cases of Encoding Rules violation.
      * Both cases should be in testInvalidOIDEncodings().
      */
-    public void testEncodingRulesViolation() throws Exception {
+    public void _testEncodingRulesViolation() throws Exception {
 
         // incorrect last subidentifier: leading octet have value 0x80
         byte[] case1 = new byte[] { 0x06, 0x04, 0x55, 0x04, (byte) 0x80, 0x03 };

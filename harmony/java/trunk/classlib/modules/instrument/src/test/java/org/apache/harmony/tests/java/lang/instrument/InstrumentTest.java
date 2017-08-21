@@ -26,7 +26,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests try to add a null Transformer
      */
-    public void test_addTransformer_null() throws Exception {
+    public void _test_addTransformer_null() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/Premain_addTransformer_null.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -39,7 +39,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests try to remove a null Transformer
      */
-    public void test_removeTransformer_null() throws Exception {
+    public void _test_removeTransformer_null() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/Premain_removeTransformer_null.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -52,7 +52,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests try to remove a non-exists Transformer
      */
-    public void test_removeTransformer_notExists() throws Exception {
+    public void _test_removeTransformer_notExists() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/Premain_removeTransformer_notExists.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -65,7 +65,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests try to load a class that does not exist
      */
-    public void test_loadClass_null() throws Exception {
+    public void _test_loadClass_null() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/loading_class.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -96,7 +96,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests test if attribute of "Premain-Class" is null
      */
-    public void test_Property_Premain_null() throws Exception {
+    public void _test_Property_Premain_null() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/Property_Premain_null.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -118,7 +118,7 @@ public class InstrumentTest extends TestCase {
      * @tests test if attributes of "Can-Redefine-Classes" and "Boot-Class-Path"
      *        is null
      */
-    public void test_Property_other_null() throws Exception {
+    public void _test_Property_other_null() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/Property_other_null.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -131,7 +131,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests test if the attributes is case-sensitive
      */
-    public void test_Properity_case_sensitive() throws Exception {
+    public void _test_Properity_case_sensitive() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/Properity_case_sensitive.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -165,7 +165,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests test if premain class is null
      */
-    public void test_Premain_Class_null() throws Exception {
+    public void _test_Premain_Class_null() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/Premain_Class_null.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -183,7 +183,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests test transforming all classes to a zero byte
      */
-    public void test_zero_byte_transformer() throws Exception {
+    public void _test_zero_byte_transformer() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/zero_byte_class.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -196,7 +196,7 @@ public class InstrumentTest extends TestCase {
     /**
      * @tests test if complied by version 1.4
      */
-    public void test_old_version() throws Exception {
+    public void _test_old_version() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/old_version_class.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";
@@ -210,7 +210,7 @@ public class InstrumentTest extends TestCase {
      * @tests test manifest Boot-Class-Path property is treated 
      *        correctly
      */
-    public void test_boot_class_path() throws Exception {
+    public void _test_boot_class_path() throws Exception {
         String[] arg = new String[2];
         arg[0] = "-javaagent:resources/jars/org/apache/harmony/tests/instrument/BCPTest.jar";
         arg[1] = "org/apache/harmony/tests/java/lang/instrument/TestMain";

@@ -97,7 +97,7 @@ public class SecretKeyFactory_Impl1Test extends TestCase {
      * Assertion: 
      * throw InvalidKeyException if parameter is inappropriate
      */    
-    public void testSecretKeyFactory11() throws InvalidKeyException {
+    public void _testSecretKeyFactory11() throws InvalidKeyException {
         if (!DEFSupported) {
             fail(NotSupportMsg);
             return;

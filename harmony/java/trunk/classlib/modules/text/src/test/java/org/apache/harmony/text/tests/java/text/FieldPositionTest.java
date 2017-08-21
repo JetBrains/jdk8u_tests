@@ -201,7 +201,7 @@ public class FieldPositionTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.text.FieldPosition#toString()
 	 */
-	public void test_toString() {
+	public void _test_toString() {
 		// Test for method java.lang.String java.text.FieldPosition.toString()
 		FieldPosition fpos = new FieldPosition(1);
 		fpos.setBeginIndex(2);

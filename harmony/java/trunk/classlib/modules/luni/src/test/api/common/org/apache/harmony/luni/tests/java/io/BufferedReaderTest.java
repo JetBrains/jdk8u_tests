@@ -101,7 +101,7 @@ public class BufferedReaderTest extends TestCase {
 	/**
 	 * @tests java.io.BufferedReader#mark(int)
 	 */
-	public void test_markI() throws IOException {
+	public void _test_markI() throws IOException {
 		// Test for method void java.io.BufferedReader.mark(int)
 		char[] buf = null;
 		br = new BufferedReader(new Support_StringReader(testString));

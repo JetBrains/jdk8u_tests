@@ -62,7 +62,7 @@ public class KeyAgreement_Impl1Test extends TestCase {
      * Test for <code>KeyAgreement</code> constructor Assertion: returns
      * KeyAgreement object
      */
-    public void testKeyAgreement() throws NoSuchAlgorithmException,
+    public void _testKeyAgreement() throws NoSuchAlgorithmException,
             InvalidKeyException, IllegalStateException {
         if (!DEFSupported) {
             fail(NotSupportMsg);

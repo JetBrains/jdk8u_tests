@@ -7,6 +7,23 @@
 # No printers found
 **/javax/print/**/*.java
 
+# there are no tests in the classes
+**/org/apache/harmony/archive/tests/java/util/jar/Pack200Test.java
+**/org/apache/harmony/auth/tests/jgss/GSSManagerImplTest.java
+**/javax/crypto/MacSpiTest.java
+**/org/apache/harmony/auth/internal/SecurityTest.java
+**/org/apache/harmony/luni/tests/java/lang/CharacterImplTest.java
+**/org/apache/harmony/luni/tests/java/net/ExcludedProxyTest.java
+**/org/apache/harmony/luni/tests/java/util/FormatterLSTest.java
+**/org/apache/harmony/prefs/tests/java/util/prefs/PreferencesProviderTest.java
+**/org/apache/harmony/rmi/DGCTest.java
+**/org/apache/harmony/security/tests/java/security/CodeSigner_ImplTest.java
+**/org/apache/harmony/security/tests/java/security/Timestamp_ImplTest.java
+**/org/apache/harmony/sound/tests/javax/sound/sampled/AudioSystemTest.java
+**/org/apache/harmony/sql/tests/internal/rowset/XmlReaderTest.java
+**/org/apache/harmony/sql/tests/java/sql/DatabaseMetaDataTest.java
+**/org/apache/harmony/sql/tests/javax/sql/rowset/serial/SerialJavaObjectTest.java
+
 # VM crash on Mac OSX (reproduced with Oracle's java)
 **/org/apache/harmony/tests/java/awt/RobotTest.java
 **/org/apache/harmony/logging/tests/java/util/logging/LogManagerTest.java

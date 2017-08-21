@@ -110,7 +110,7 @@ public class KSBuilder_ImplTest extends TestCase {
      * returns ProtectionParameter which is used in newInstance(...) 
      * 
      */
-    public void testNewInstanceKeyStoreProtectionParameter()
+    public void _testNewInstanceKeyStoreProtectionParameter()
             throws KeyStoreException, NoSuchAlgorithmException, IOException,
             CertificateException, InvalidKeyException, InvalidKeySpecException {
         // exceptions verification
@@ -230,7 +230,7 @@ public class KSBuilder_ImplTest extends TestCase {
      * returns ProtectionParameter which is used in newInstance(...) 
      * 
      */
-    public void testNewInstanceStringProviderFileProtectionParameter()
+    public void _testNewInstanceStringProviderFileProtectionParameter()
             throws Exception {
         if (!JKSSupported) {
             fail(defaultType + " type is not supported");
@@ -382,7 +382,7 @@ public class KSBuilder_ImplTest extends TestCase {
      * throws KeyStoreException when alias is not available
      * 
      */
-    public void testNewInstanceStringProviderProtectionParameter()
+    public void _testNewInstanceStringProviderProtectionParameter()
             throws KeyStoreException {
         if (!JKSSupported) {
             fail(defaultType + " type is not supported");

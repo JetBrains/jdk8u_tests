@@ -378,7 +378,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         assertEquals(3, crset.getInt(1));
     }
 
-    public void testcreateCopyNoConstraints() throws Exception {
+    public void _testcreateCopyNoConstraints() throws Exception {
         crset.setConcurrency(ResultSet.CONCUR_READ_ONLY);
         crset.setType(ResultSet.TYPE_SCROLL_SENSITIVE);
         crset.setEscapeProcessing(false);
@@ -471,7 +471,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
 
     }
 
-    public void testcreateCopyNoConstraints2() throws Exception {
+    public void _testcreateCopyNoConstraints2() throws Exception {
 
         // the default value
         assertNull(crset.getCommand());
@@ -948,7 +948,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         assertEquals(4, crset.getInt(1));
     }
 
-    public void testNextandPreviousPage() throws Exception {
+    public void _testNextandPreviousPage() throws Exception {
 
         st.executeUpdate("delete from USER_INFO");
         st.executeUpdate("insert into USER_INFO(ID,NAME) values (1,'1')");
@@ -1506,7 +1506,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         assertTrue(crset.isFirst());
     }
 
-    public void testAcceptChanges_Insert() throws Exception {
+    public void _testAcceptChanges_Insert() throws Exception {
         /*
          * Insert a new row one time
          */
@@ -1562,7 +1562,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         assertEquals(20, cursorIndex);
     }
 
-    public void testAcceptChanges_InsertException() throws Exception {
+    public void _testAcceptChanges_InsertException() throws Exception {
         /*
          * Insert a new row. One given column's value exceeds the max range.
          * Therefore, it should throw SyncProviderException.
@@ -1722,7 +1722,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         }
     }
 
-    public void testAcceptChanges_Delete() throws Exception {
+    public void _testAcceptChanges_Delete() throws Exception {
         /*
          * Delete all the row. On the first and second row, only two columns
          * have value, all the others are NULL. When run on RI, deleteRow() will
@@ -1758,7 +1758,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         }
     }
 
-    public void testAcceptChanges_DeleteException() throws Exception {
+    public void _testAcceptChanges_DeleteException() throws Exception {
         /*
          * Delete a row which has been deleted from database
          */
@@ -2003,7 +2003,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         }
     }
 
-    public void testAcceptChanges_MultiConflicts() throws Exception {
+    public void _testAcceptChanges_MultiConflicts() throws Exception {
         /*
          * Update a row in which one column's value is out of range
          */
@@ -2407,7 +2407,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
         assertFalse(noInitialCrset.rowUpdated());
     }
 
-    public void testToCollection() throws Exception {
+    public void _testToCollection() throws Exception {
         noInitialCrset = newNoInitialInstance();
         try {
             noInitialCrset.toCollection();
@@ -2649,7 +2649,7 @@ public class CachedRowSetImplTest extends CachedRowSetTestCase {
 
     }
 
-    public void testSetKeyColumns() throws Exception {
+    public void _testSetKeyColumns() throws Exception {
         try {
             noInitialCrset.setKeyColumns(null);
             fail("Should throw NullPointerException");

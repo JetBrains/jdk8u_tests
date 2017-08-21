@@ -87,7 +87,7 @@ public class CachedRowSetTransactionTest extends CachedRowSetTestCase {
         assertEquals(4, index);
     }
 
-    public void testClose() throws Exception {
+    public void _testClose() throws Exception {
         noInitialCrset = newNoInitialInstance();
         noInitialCrset.close();
 
@@ -261,7 +261,7 @@ public class CachedRowSetTransactionTest extends CachedRowSetTestCase {
         noInitialCrset.rollback();
     }
 
-    public void testAcceptChanges_UpdateException() throws Exception {
+    public void _testAcceptChanges_UpdateException() throws Exception {
         assertTrue(crset.absolute(3));
         crset.updateString(2, "update3");
         crset.updateRow();
@@ -332,7 +332,7 @@ public class CachedRowSetTransactionTest extends CachedRowSetTestCase {
         }
     }
 
-    public void testAcceptChanges_InsertException() throws Exception {
+    public void _testAcceptChanges_InsertException() throws Exception {
         assertTrue(crset.absolute(4));
         crset.updateString(2, "update4");
         crset.updateRow();

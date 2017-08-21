@@ -56,7 +56,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: valid parameters passed<br>
      * Expected: must pass without any exceptions
      */
-    public final void testTrustAnchorX509CertificatebyteArray01()
+    public final void _testTrustAnchorX509CertificatebyteArray01()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -88,7 +88,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: <code>null</code> as nameConstraints passed<br>
      * Expected: must pass without any exceptions
      */
-    public final void testTrustAnchorX509CertificatebyteArray02()
+    public final void _testTrustAnchorX509CertificatebyteArray02()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -107,7 +107,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: modify passed nameConstraints<br>
      * Expected: modification must not change object internal state
      */
-    public final void testTrustAnchorX509CertificatebyteArray03()
+    public final void _testTrustAnchorX509CertificatebyteArray03()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -135,7 +135,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: pass <code>null</code> as <code>X509Certificate</code><br>
      * Expected: NullPointerException
      */
-    public final void testTrustAnchorX509CertificatebyteArray04()
+    public final void _testTrustAnchorX509CertificatebyteArray04()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -156,7 +156,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: pass invalid nameConstraints encoding<br>
      * Expected: IllegalArgumentException
      */
-    public final void testTrustAnchorX509CertificatebyteArray05()
+    public final void _testTrustAnchorX509CertificatebyteArray05()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -266,7 +266,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: valid parameters passed (base as OID)<br>
      * Expected: must pass without any exceptions
      */
-    public final void testTrustAnchorX509CertificatebyteArray06()
+    public final void _testTrustAnchorX509CertificatebyteArray06()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -287,7 +287,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: pass invalid nameConstraints (OID) encoding<br>
      * Expected: IllegalArgumentException
      */
-    public final void testTrustAnchorX509CertificatebyteArray07()
+    public final void _testTrustAnchorX509CertificatebyteArray07()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -314,7 +314,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: pass invalid nameConstraints encodings<br>
      * Expected: IllegalArgumentException
      */
-    public final void testTrustAnchorX509CertificatebyteArray08()
+    public final void _testTrustAnchorX509CertificatebyteArray08()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -359,7 +359,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Expected: no exception for valid encoding and IllegalArgumentException for invalid
      * @throws KeyStoreException
      */
-    public final void testTrustAnchorX509CertificatebyteArray09()
+    public final void _testTrustAnchorX509CertificatebyteArray09()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -399,7 +399,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: valid nameConstraints parameter passed (not null)<br>
      * Expected: must return new reference each time called
      */
-    public final void testGetNameConstraints()
+    public final void _testGetNameConstraints()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -430,7 +430,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * @throws KeyStoreException
      * 
      */
-    public final void testGetCAPublicKey02()
+    public final void _testGetCAPublicKey02()
         throws InvalidKeySpecException, KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -453,7 +453,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Expected: <code>null</code> as return value<br>
      * @throws KeyStoreException
      */
-    public final void testGetCAName02()
+    public final void _testGetCAName02()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -475,7 +475,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * @throws KeyStoreException
      * 
      */
-    public final void testGetTrustedCert01()
+    public final void _testGetTrustedCert01()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -498,7 +498,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Expected: <code>null</code> as return value<br>
      * @throws KeyStoreException
      */
-    public final void testGetCA02()
+    public final void _testGetCA02()
         throws KeyStoreException {
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {
@@ -518,7 +518,7 @@ public class TrustAnchor_ImplTest extends TestCase {
      * Test preconditions: several valid test objects created<br>
      * Expected: method returns not <code>null</code> in all cases<br>
      */
-    public final void testToString() throws Exception {
+    public final void _testToString() throws Exception {
 
         KeyStore ks = TestUtils.getKeyStore(true, TestUtils.TRUSTED);
         if (ks == null) {

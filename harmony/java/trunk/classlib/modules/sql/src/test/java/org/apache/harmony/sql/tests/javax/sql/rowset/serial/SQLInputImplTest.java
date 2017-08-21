@@ -531,7 +531,7 @@ public class SQLInputImplTest extends TestCase {
     /**
      * @tests {@link javax.sql.rowset.serial.SQLInputImpl#readURL()}
      */
-    public void testReadURL() throws SQLException, MalformedURLException {
+    public void _testReadURL() throws SQLException, MalformedURLException {
         URL url = new URL("http://www.apache.org");
         SerialDatalink link = new SerialDatalink(url);
         Object[] attributes = new Object[] { link };

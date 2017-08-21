@@ -1719,7 +1719,7 @@ public class NamingManagerTest extends TestCase {
 		}
 	}
 
-	public void testGetContinuationContext_MockContext_null_null_null()
+	public void _testGetContinuationContext_MockContext_null_null_null()
 			throws NamingException {
 		log
 				.setMethod("testGetContinuationContext_MockContext_null_null_null()");
@@ -1861,7 +1861,7 @@ public class NamingManagerTest extends TestCase {
 		assertTrue(r instanceof MockContext);
 	}
 
-	public void testGetContinuationContext_OBJ_name_context_null()
+	public void _testGetContinuationContext_OBJ_name_context_null()
 			throws NamingException {
 		log.setMethod("testGetContinuationContext_OBJ_name_context_null()");
 		CannotProceedException cpe = new CannotProceedException();

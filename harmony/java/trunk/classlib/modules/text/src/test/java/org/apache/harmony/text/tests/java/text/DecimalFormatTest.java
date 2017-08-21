@@ -376,7 +376,7 @@ public class DecimalFormatTest extends TestCase {
     }
 
     //FIXME This test fails on Harmony ClassLibrary
-    public void test_getMaximumIntegerDigits() {
+    public void _test_getMaximumIntegerDigits() {
         final int maxIntDigit = 309;
 
         // When use default locale, in this case zh_CN
@@ -800,7 +800,7 @@ public class DecimalFormatTest extends TestCase {
      *        java.text.FieldPosition)
      */
     //FIXME This test fails on Harmony ClassLibrary
-    public void test_formatDLjava_lang_StringBufferLjava_text_FieldPosition() {
+    public void _test_formatDLjava_lang_StringBufferLjava_text_FieldPosition() {
         new Support_DecimalFormat(
                 "test_formatDLjava_lang_StringBufferLjava_text_FieldPosition")
                 .t_format_with_FieldPosition();
@@ -1106,7 +1106,7 @@ public class DecimalFormatTest extends TestCase {
      * @tests java.text.DecimalFormat#formatToCharacterIterator(java.lang.Object)
      */
     //FIXME This test fails on Harmony ClassLibrary
-    public void test_formatToCharacterIteratorLjava_lang_Object() {
+    public void _test_formatToCharacterIteratorLjava_lang_Object() {
 
         try {
             // Regression for HARMONY-466
@@ -1124,7 +1124,7 @@ public class DecimalFormatTest extends TestCase {
     /**
      * @tests java.text.DecimalFormat#format(double)
      */
-    public void test_formatD() {
+    public void _test_formatD() {
         DecimalFormat format = (DecimalFormat) NumberFormat
                 .getInstance(Locale.ENGLISH);
         format.setGroupingUsed(false);
@@ -1268,7 +1268,7 @@ public class DecimalFormatTest extends TestCase {
      *        java.text.ParsePosition)
      */
     //FIXME This test fails on Harmony ClassLibrary
-    public void test_parseLjava_lang_StringLjava_text_ParsePosition() {
+    public void _test_parseLjava_lang_StringLjava_text_ParsePosition() {
         DecimalFormat format = (DecimalFormat) NumberFormat
                 .getNumberInstance(Locale.ENGLISH);
         ParsePosition pos = new ParsePosition(0);

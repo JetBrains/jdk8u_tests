@@ -36,7 +36,7 @@ import junit.framework.TestCase;
  */
 public class HttpsURLConnectionTest extends TestCase {
 
-    public final void testGetPeerPrincipal() throws Exception {
+    public final void _testGetPeerPrincipal() throws Exception {
         HttpsURLConnection con = new MyHttpsURLConnection(new URL(
                 "http://foo.com"));
         try {
@@ -70,14 +70,14 @@ public class HttpsURLConnectionTest extends TestCase {
         }
     }
 
-    public final void testGetDefaultSSLSocketFactory() {
+    public final void _testGetDefaultSSLSocketFactory() {
         SSLSocketFactory sf = HttpsURLConnection.getDefaultSSLSocketFactory();
         if (!sf.equals(SSLSocketFactory.getDefault())) {
             fail("incorrect DefaultSSLSocketFactory");
         }
     }
 
-    public final void testGetSSLSocketFactory() {
+    public final void _testGetSSLSocketFactory() {
         HttpsURLConnection con = new MyHttpsURLConnection(null);
         SSLSocketFactory sf = con.getSSLSocketFactory();
         if (!sf.equals(SSLSocketFactory.getDefault())) {

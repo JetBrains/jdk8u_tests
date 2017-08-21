@@ -37,7 +37,7 @@ import junit.framework.TestCase;
  */
 public class AudioSystemTest extends TestCase {
 
-    public void testAudioFile() throws Exception {
+    public void _testAudioFile() throws Exception {
         boolean ok;
 
         assertTrue(AudioSystem.getAudioFileFormat(new URL("file:./myFile.txt")) != null);
@@ -54,7 +54,7 @@ public class AudioSystemTest extends TestCase {
         assertTrue(ok);
     }
 
-    public void testMixer() throws Exception {
+    public void _testMixer() throws Exception {
         boolean ok;
 
         Mixer.Info[] minfos = AudioSystem.getMixerInfo();
@@ -93,7 +93,7 @@ public class AudioSystemTest extends TestCase {
         assertTrue(ok);
     }
 
-    public void testAudioInputStream() throws Exception {
+    public void _testAudioInputStream() throws Exception {
 
         AudioInputStream stream = AudioSystem.getAudioInputStream(new File(
                 "myFile.txt"));
@@ -108,7 +108,7 @@ public class AudioSystemTest extends TestCase {
     }
 
     // see TestFormatConversionProvider
-    public void testFormatConversion() throws Exception {
+    public void _testFormatConversion() throws Exception {
 
         boolean ok;
 
@@ -147,7 +147,7 @@ public class AudioSystemTest extends TestCase {
         assertTrue(ok);
     }
 
-    public void testGetLine() throws Exception {
+    public void _testGetLine() throws Exception {
 
         assertEquals("org.apache.harmony.sound.testProvider.myClip",
                 AudioSystem.getLine(

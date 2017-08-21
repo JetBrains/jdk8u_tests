@@ -52,7 +52,7 @@ public class ServerSocketFactoryTest extends TestCase {
     /*
      * Class under test for javax.net.ServerSocketFactory getDefault()
      */
-    public final void testGetDefault() {
+    public final void _testGetDefault() {
         ServerSocketFactory sf = ServerSocketFactory.getDefault();
         ServerSocket s;
         if (!(sf instanceof DefaultServerSocketFactory)) {

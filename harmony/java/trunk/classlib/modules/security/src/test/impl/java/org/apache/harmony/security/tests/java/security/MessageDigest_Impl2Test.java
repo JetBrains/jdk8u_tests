@@ -61,7 +61,7 @@ public class MessageDigest_Impl2Test extends TestCase {
 	/*
 	 * Class under test for MessageDigest getInstance(String)
 	 */
-	public void testGetInstanceString1() throws Exception {
+	public void _testGetInstanceString1() throws Exception {
 		MessageDigest md1 = MessageDigest.getInstance("ABC");		
 		checkMD1(md1, p);
 	}
@@ -77,7 +77,7 @@ public class MessageDigest_Impl2Test extends TestCase {
 	/*
 	 * Class under test for MessageDigest getInstance(String, String)
 	 */
-	public void testGetInstanceStringString1() throws Exception {
+	public void _testGetInstanceStringString1() throws Exception {
 		MessageDigest md1 = MessageDigest.getInstance("ABC", "MyProvider");		
 		checkMD1(md1, p);
 	}
@@ -93,7 +93,7 @@ public class MessageDigest_Impl2Test extends TestCase {
 	/*
 	 * Class under test for MessageDigest getInstance(String, Provider)
 	 */
-	public void testGetInstanceStringProvider1() throws Exception {
+	public void _testGetInstanceStringProvider1() throws Exception {
 		Provider p = new MyProvider();
         MessageDigest md1 = MessageDigest.getInstance("ABC", p);		
 		checkMD1(md1, p);
@@ -111,7 +111,7 @@ public class MessageDigest_Impl2Test extends TestCase {
     /*
      * Class under test for String toString()
      */
-    public void testToString() {
+    public void _testToString() {
         MyMessageDigest1 md = new MyMessageDigest1("ABC");
         assertEquals("incorrect result", "MESSAGE DIGEST ABC", md.toString());
     }

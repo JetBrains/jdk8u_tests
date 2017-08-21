@@ -49,7 +49,7 @@ public class KeyStoreBuilderParametersTest extends TestCase {
     /*
      * Class under test for void KeyStoreBuilderParameters(KeyStore.Builder)
      */
-    public final void testKeyStoreBuilderParametersBuilder() {
+    public final void _testKeyStoreBuilderParametersBuilder() {
         try {
             new KeyStoreBuilderParameters((KeyStore.Builder) null);
         } catch (NullPointerException e) {

@@ -128,7 +128,7 @@ public abstract class SerializationTest extends TestCase {
      * exceptions, and that deserialization really produces deeply cloned
      * objects.
      */
-    public void testSelf() throws Throwable {
+    public void _testSelf() throws Throwable {
 
         if (this instanceof SerializableAssert) {
             verifySelf(getData(), (SerializableAssert) this);

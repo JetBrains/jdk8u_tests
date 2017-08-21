@@ -306,7 +306,7 @@ public class SimpleDateFormatTest extends junit.framework.TestCase {
     /**
      * @tests java.text.SimpleDateFormat#formatToCharacterIterator(java.lang.Object)
      */
-    public void test_formatToCharacterIteratorLjava_lang_Object() {
+    public void _test_formatToCharacterIteratorLjava_lang_Object() {
 
         try {
             // Regression for HARMONY-466
@@ -326,7 +326,7 @@ public class SimpleDateFormatTest extends junit.framework.TestCase {
      * @tests java.text.SimpleDateFormat#format(java.util.Date,
      *        java.lang.StringBuffer, java.text.FieldPosition)
      */
-    public void test_formatLjava_util_DateLjava_lang_StringBufferLjava_text_FieldPosition() {
+    public void _test_formatLjava_util_DateLjava_lang_StringBufferLjava_text_FieldPosition() {
         // Test for method java.lang.StringBuffer
         // java.text.SimpleDateFormat.format(java.util.Date,
         // java.lang.StringBuffer, java.text.FieldPosition)
@@ -505,7 +505,7 @@ public class SimpleDateFormatTest extends junit.framework.TestCase {
     /**
      * @tests java.text.SimpleDateFormat#format(java.util.Date)
      */
-    public void test_timeZoneFormatting() {
+    public void _test_timeZoneFormatting() {
         // tests specific to formatting of timezones
         Date summerDate = new GregorianCalendar(1999, Calendar.JUNE, 2, 15, 3,
                 6).getTime();
@@ -572,7 +572,7 @@ public class SimpleDateFormatTest extends junit.framework.TestCase {
      * @tests java.text.SimpleDateFormat#parse(java.lang.String,
      *        java.text.ParsePosition)
      */
-    public void test_parseLjava_lang_StringLjava_text_ParsePosition() {
+    public void _test_parseLjava_lang_StringLjava_text_ParsePosition() {
         // Test for method java.util.Date
         // java.text.SimpleDateFormat.parse(java.lang.String,
         // java.text.ParsePosition)

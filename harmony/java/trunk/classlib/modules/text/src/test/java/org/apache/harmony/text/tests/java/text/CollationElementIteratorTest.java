@@ -160,7 +160,7 @@ public class CollationElementIteratorTest extends TestCase {
 		assertEquals(tOrder1, tOrder2);
 	}
 
-	public void testSetOffset() {
+	public void _testSetOffset() {
 		RuleBasedCollator rbColl = (RuleBasedCollator) Collator
 				.getInstance(new Locale("es", "", "TRADITIONAL"));
 		String text = "cha";
@@ -173,7 +173,7 @@ public class CollationElementIteratorTest extends TestCase {
 	/*
 	 * Class under test for void setText(java.lang.String)
 	 */
-	public void testSetTextString() {
+	public void _testSetTextString() {
 		RuleBasedCollator rbColl = (RuleBasedCollator) Collator
 				.getInstance(new Locale("es", "", "TRADITIONAL"));
 		String text = "caa";
@@ -189,7 +189,7 @@ public class CollationElementIteratorTest extends TestCase {
 	/*
 	 * Class under test for void setText(java.text.CharacterIterator)
 	 */
-	public void testSetTextCharacterIterator() {
+	public void _testSetTextCharacterIterator() {
 		RuleBasedCollator rbColl = (RuleBasedCollator) Collator
 				.getInstance(new Locale("es", "", "TRADITIONAL"));
 		String text = "caa";

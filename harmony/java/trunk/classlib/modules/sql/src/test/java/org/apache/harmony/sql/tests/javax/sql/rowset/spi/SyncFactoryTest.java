@@ -38,7 +38,7 @@ public class SyncFactoryTest extends TestCase {
      * 
      * @throws SyncFactoryException
      */
-    public void test_registerProvider_Ljava_lang_String()
+    public void _test_registerProvider_Ljava_lang_String()
             throws SyncFactoryException {
         final String proID = "org.apache.harmony.sql.tests.TestProvider";
         SyncFactory.registerProvider(proID);
@@ -104,7 +104,7 @@ public class SyncFactoryTest extends TestCase {
      * 
      * @throws SyncFactoryException
      */
-    public void test_getInstance_Ljava_lang_String()
+    public void _test_getInstance_Ljava_lang_String()
             throws SyncFactoryException {
         Enumeration<SyncProvider> providers = SyncFactory
                 .getRegisteredProviders();
@@ -130,7 +130,7 @@ public class SyncFactoryTest extends TestCase {
      * 
      * @throws SyncFactoryException
      */
-    public void test_setLogger_Ljava_util_logging_Logger()
+    public void _test_setLogger_Ljava_util_logging_Logger()
             throws SyncFactoryException {
         Logger logger = Logger.getAnonymousLogger();
         SyncFactory.setLogger(logger);

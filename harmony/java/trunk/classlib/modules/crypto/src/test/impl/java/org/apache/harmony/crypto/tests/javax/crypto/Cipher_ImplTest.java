@@ -97,7 +97,7 @@ public class Cipher_ImplTest extends TestCase {
 	/*
 	 * Class under test for Cipher getInstance(String)
 	 */
-	public void testGetInstanceString2() throws NoSuchAlgorithmException,
+	public void _testGetInstanceString2() throws NoSuchAlgorithmException,
             NoSuchPaddingException {
 		
 		Cipher c = Cipher.getInstance("DES/CBC/PKCS5Padding");
@@ -112,7 +112,7 @@ public class Cipher_ImplTest extends TestCase {
 	/*
 	 * Class under test for Cipher getInstance(String)
 	 */
-	public void testGetInstanceString3() throws NoSuchAlgorithmException,
+	public void _testGetInstanceString3() throws NoSuchAlgorithmException,
             NoSuchPaddingException {
 		
 		try {
@@ -230,7 +230,7 @@ public class Cipher_ImplTest extends TestCase {
 		assertEquals("getBlockSize", 111, c.getBlockSize());
 	}
 
-	public void testGetOutputSize() throws NoSuchAlgorithmException,
+	public void _testGetOutputSize() throws NoSuchAlgorithmException,
             NoSuchPaddingException, InvalidKeyException {
 
 		Cipher c = Cipher.getInstance("DES");
@@ -258,7 +258,7 @@ public class Cipher_ImplTest extends TestCase {
 	/*
 	 * Class under test for byte[] update(byte[])
 	 */
-	public void testUpdatebyteArray() throws NoSuchAlgorithmException,
+	public void _testUpdatebyteArray() throws NoSuchAlgorithmException,
             NoSuchPaddingException, InvalidKeyException {
 
 		Cipher c = Cipher.getInstance("DES");

@@ -53,7 +53,7 @@ public class Policy_ImplTest extends TestCase {
      * Tests loading of a default provider, both valid and invalid class
      * references.
      */
-    public void testGetPolicy_LoadDefaultProvider() {
+    public void _testGetPolicy_LoadDefaultProvider() {
         Policy oldPolicy = Policy.getPolicy();
         String POLICY_PROVIDER = "policy.provider";
         String oldProvider = Security.getProperty(POLICY_PROVIDER);
@@ -80,7 +80,7 @@ public class Policy_ImplTest extends TestCase {
     /** 
      * Tests that implies() does proper permission evaluation.
      */
-    public void testImplies() {
+    public void _testImplies() {
         TestProvider policy = new TestProvider();
         SecurityPermission sp = new SecurityPermission("abc");
         policy.pc = sp.newPermissionCollection();

@@ -294,7 +294,7 @@ public class ChoiceFormatTest extends TestCase {
     /**
      * @tests java.text.ChoiceFormat#getFormats()
      */
-    public void test_getFormats() {
+    public void _test_getFormats() {
         // Test for method java.lang.Object []
         // java.text.ChoiceFormat.getFormats()
         String[] orgFormats = (String[]) formats.clone();
@@ -307,7 +307,7 @@ public class ChoiceFormatTest extends TestCase {
     /**
      * @tests java.text.ChoiceFormat#getLimits()
      */
-    public void test_getLimits() {
+    public void _test_getLimits() {
         // Test for method double [] java.text.ChoiceFormat.getLimits()
         double[] orgLimits = (double[]) limits.clone();
         double[] l = f1.getLimits();
@@ -391,7 +391,7 @@ public class ChoiceFormatTest extends TestCase {
     /**
      * @tests java.text.ChoiceFormat#setChoices(double[], java.lang.String[])
      */
-    public void test_setChoices$D$Ljava_lang_String() {
+    public void _test_setChoices$D$Ljava_lang_String() {
         // Test for method void java.text.ChoiceFormat.setChoices(double [],
         // java.lang.String [])
         ChoiceFormat f = (ChoiceFormat) f1.clone();
