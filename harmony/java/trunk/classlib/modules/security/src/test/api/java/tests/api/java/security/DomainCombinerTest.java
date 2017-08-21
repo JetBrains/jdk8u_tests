@@ -37,7 +37,7 @@ public class DomainCombinerTest extends junit.framework.TestCase {
 	 * @tests java.security.DomainCombiner#combine(java.security.ProtectionDomain[],
 	 *        java.security.ProtectionDomain[])
 	 */
-	public void test_combine$Ljava_security_ProtectionDomain$Ljava_security_ProtectionDomain() {
+	public void _test_combine$Ljava_security_ProtectionDomain$Ljava_security_ProtectionDomain() {
 		final boolean[] calledDomainCombiner = new boolean[] { false, false };
 
 		class MyCombiner implements DomainCombiner {

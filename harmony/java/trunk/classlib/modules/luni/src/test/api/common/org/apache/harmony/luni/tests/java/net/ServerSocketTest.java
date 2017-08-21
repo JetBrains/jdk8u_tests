@@ -102,7 +102,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#ServerSocket(int)
      */
-    public void test_ConstructorI_SocksSet() throws IOException {
+    public void _test_ConstructorI_SocksSet() throws IOException {
         // Harmony-623 regression test
         ServerSocket ss = null;
         Properties props = (Properties) System.getProperties().clone();
@@ -121,7 +121,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#ServerSocket(int, int)
      */
-    public void test_ConstructorII() throws IOException {
+    public void _test_ConstructorII() throws IOException {
         try {
             s = new ServerSocket(0, 10);
             s.setSoTimeout(2000);
@@ -154,7 +154,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#ServerSocket(int, int, java.net.InetAddress)
      */
-    public void test_ConstructorIILjava_net_InetAddress()
+    public void _test_ConstructorIILjava_net_InetAddress()
             throws UnknownHostException, IOException {
         s = new ServerSocket(0, 10, InetAddress.getLocalHost());
         try {
@@ -171,7 +171,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#accept()
      */
-    public void test_accept() throws IOException {
+    public void _test_accept() throws IOException {
         s = new ServerSocket(0);
         try {
             s.setSoTimeout(5000);

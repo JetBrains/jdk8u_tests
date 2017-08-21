@@ -151,7 +151,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#bind(java.net.SocketAddress)
      */
-    public void test_bindLjava_net_SocketAddress() throws IOException {
+    public void _test_bindLjava_net_SocketAddress() throws IOException {
 
         @SuppressWarnings("serial")
         class UnsupportedSocketAddress extends SocketAddress {
@@ -260,7 +260,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#close()
      */
-    public void test_close() throws IOException {
+    public void _test_close() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -285,7 +285,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests Socket#connect(SocketAddress) try an unknownhost
      */
-    public void test_connect_unknownhost() throws Exception {
+    public void _test_connect_unknownhost() throws Exception {
         Socket socket = new Socket();
         try {
             socket.connect(new InetSocketAddress("unknownhost.invalid", 12345));
@@ -298,7 +298,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests Socket#connect(SocketAddress)
      */
-    public void test_connect_unresolved() throws IOException {
+    public void _test_connect_unresolved() throws IOException {
         Socket socket = new Socket();
 
         // Try a known host created by createUnresolved()
@@ -521,7 +521,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#Socket()
      */
-    public void test_Constructor() {
+    public void _test_Constructor() {
         // create the socket and then validate some basic state
         Socket s = new Socket();
         assertFalse("new socket should not be connected", s.isConnected());
@@ -536,7 +536,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#Socket(java.lang.String, int)
      */
-    public void test_ConstructorLjava_lang_StringI() throws IOException {
+    public void _test_ConstructorLjava_lang_StringI() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -555,7 +555,7 @@ public class SocketTest extends SocketTestCase {
      * @tests java.net.Socket#Socket(java.lang.String, int,
      *        java.net.InetAddress, int)
      */
-    public void test_ConstructorLjava_lang_StringILjava_net_InetAddressI()
+    public void _test_ConstructorLjava_lang_StringILjava_net_InetAddressI()
             throws IOException {
 
         ServerSocket server = new ServerSocket(0);
@@ -648,7 +648,7 @@ public class SocketTest extends SocketTestCase {
      * @tests java.net.Socket#Socket(java.lang.String, int, boolean)
      */
     @SuppressWarnings("deprecation")
-    public void test_ConstructorLjava_lang_StringIZ() throws IOException {
+    public void _test_ConstructorLjava_lang_StringIZ() throws IOException {
         ServerSocket server = new ServerSocket(0);
         int serverPort = server.getLocalPort();
         Socket client = new Socket(InetAddress.getLocalHost().getHostAddress(),
@@ -666,7 +666,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#Socket(java.net.InetAddress, int)
      */
-    public void test_ConstructorLjava_net_InetAddressI() throws IOException {
+    public void _test_ConstructorLjava_net_InetAddressI() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -682,7 +682,7 @@ public class SocketTest extends SocketTestCase {
      * @tests java.net.Socket#Socket(java.net.InetAddress, int,
      *        java.net.InetAddress, int)
      */
-    public void test_ConstructorLjava_net_InetAddressILjava_net_InetAddressI()
+    public void _test_ConstructorLjava_net_InetAddressILjava_net_InetAddressI()
             throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
@@ -694,7 +694,7 @@ public class SocketTest extends SocketTestCase {
      * @tests java.net.Socket#Socket(java.net.InetAddress, int, boolean)
      */
     @SuppressWarnings("deprecation")
-    public void test_ConstructorLjava_net_InetAddressIZ() throws IOException {
+    public void _test_ConstructorLjava_net_InetAddressIZ() throws IOException {
         ServerSocket server = new ServerSocket(0);
         int serverPort = server.getLocalPort();
 
@@ -775,14 +775,14 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getChannel()
      */
-    public void test_getChannel() {
+    public void _test_getChannel() {
         assertNull(new Socket().getChannel());
     }
 
     /**
      * @tests java.net.Socket#getInetAddress()
      */
-    public void test_getInetAddress() throws IOException {
+    public void _test_getInetAddress() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -797,7 +797,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getInputStream()
      */
-    public void test_getInputStream() throws IOException {
+    public void _test_getInputStream() throws IOException {
         // Simple fetch test
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
@@ -824,7 +824,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getKeepAlive()
      */
-    public void test_getKeepAlive() {
+    public void _test_getKeepAlive() {
         try {
             ServerSocket server = new ServerSocket(0);
             Socket client = new Socket(InetAddress.getLocalHost(), server
@@ -846,7 +846,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getLocalAddress()
      */
-    public void test_getLocalAddress() throws IOException {
+    public void _test_getLocalAddress() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -884,7 +884,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getLocalPort()
      */
-    public void test_getLocalPort() throws IOException {
+    public void _test_getLocalPort() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -898,7 +898,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getLocalSocketAddress()
      */
-    public void test_getLocalSocketAddress() throws IOException {
+    public void _test_getLocalSocketAddress() throws IOException {
         // set up server connect and then validate that we get the right
         // response for the local address
         ServerSocket server = new ServerSocket(0);
@@ -978,7 +978,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getOOBInline()
      */
-    public void test_getOOBInline() {
+    public void _test_getOOBInline() {
         try {
             Socket theSocket = new Socket();
 
@@ -1003,7 +1003,7 @@ public class SocketTest extends SocketTestCase {
      * @tests java.net.Socket#getOutputStream()
      */
     @SuppressWarnings("deprecation")
-    public void test_getOutputStream() throws IOException {
+    public void _test_getOutputStream() throws IOException {
         // Simple fetch test
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
@@ -1096,7 +1096,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getPort()
      */
-    public void test_getPort() throws IOException {
+    public void _test_getPort() throws IOException {
         ServerSocket server = new ServerSocket(0);
         int serverPort = server.getLocalPort();
         Socket client = new Socket(InetAddress.getLocalHost(), serverPort);
@@ -1110,7 +1110,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getReceiveBufferSize()
      */
-    public void test_getReceiveBufferSize() throws IOException {
+    public void _test_getReceiveBufferSize() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1132,7 +1132,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getRemoteSocketAddress()
      */
-    public void test_getRemoteSocketAddress() throws IOException {
+    public void _test_getRemoteSocketAddress() throws IOException {
         // set up server connect and then validate that we get the right
         // response for the remote address
         ServerSocket server = new ServerSocket(0);
@@ -1165,7 +1165,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getReuseAddress()
      */
-    public void test_getReuseAddress() {
+    public void _test_getReuseAddress() {
         try {
             Socket theSocket = new Socket();
             theSocket.setReuseAddress(true);
@@ -1184,7 +1184,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getSendBufferSize()
      */
-    public void test_getSendBufferSize() throws IOException {
+    public void _test_getSendBufferSize() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1206,7 +1206,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getSoLinger()
      */
-    public void test_getSoLinger() throws IOException {
+    public void _test_getSoLinger() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1228,7 +1228,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getSoTimeout()
      */
-    public void test_getSoTimeout() throws IOException {
+    public void _test_getSoTimeout() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1250,7 +1250,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getTcpNoDelay()
      */
-    public void test_getTcpNoDelay() throws IOException {
+    public void _test_getTcpNoDelay() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1273,7 +1273,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#getTrafficClass()
      */
-    public void test_getTrafficClass() {
+    public void _test_getTrafficClass() {
         try {
             /*
              * We cannot actually check that the values are set as if a platform
@@ -1293,7 +1293,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#isBound()
      */
-    public void test_isBound() throws IOException {
+    public void _test_isBound() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1338,7 +1338,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#isClosed()
      */
-    public void test_isClosed() throws IOException {
+    public void _test_isClosed() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1369,7 +1369,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#isConnected()
      */
-    public void test_isConnected() throws IOException {
+    public void _test_isConnected() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1404,7 +1404,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#isInputShutdown()
      */
-    public void test_isInputShutdown() throws IOException {
+    public void _test_isInputShutdown() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1441,7 +1441,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#isOutputShutdown()
      */
-    public void test_isOutputShutdown() throws IOException {
+    public void _test_isOutputShutdown() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());
@@ -1478,7 +1478,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#sendUrgentData(int)
      */
-    public void test_sendUrgentDataI() throws Exception {
+    public void _test_sendUrgentDataI() throws Exception {
         /*
          * Some platforms may not support urgent data in this case we will not
          * run these tests. For now run on all platforms until we find those
@@ -1694,7 +1694,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#setKeepAlive(boolean)
      */
-    public void test_setKeepAliveZ() throws IOException {
+    public void _test_setKeepAliveZ() throws IOException {
 
         class TestSocket extends Socket {
             public TestSocket(SocketImpl impl) throws SocketException {
@@ -1726,7 +1726,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#setOOBInline(boolean)
      */
-    public void test_setOOBInlineZ() {
+    public void _test_setOOBInlineZ() {
         try {
             Socket theSocket = new Socket();
             theSocket.setOOBInline(true);
@@ -1749,7 +1749,7 @@ public class SocketTest extends SocketTestCase {
     /**
      * @tests java.net.Socket#setReceiveBufferSize(int)
      */
-    public void test_setReceiveBufferSizeI() throws IOException {
+    public void _test_setReceiveBufferSizeI() throws IOException {
         ServerSocket server = new ServerSocket(0);
         Socket client = new Socket(InetAddress.getLocalHost(), server
                 .getLocalPort());

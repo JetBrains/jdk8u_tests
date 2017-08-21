@@ -53,7 +53,7 @@ public class PermissionCollectionTest extends junit.framework.TestCase {
     /**
      * @tests java.security.PermissionCollection#implies(java.security.Permission)
      */
-    public void test_impliesLjava_security_Permission() throws Exception{
+    public void _test_impliesLjava_security_Permission() throws Exception{
 
         // Look for the tests classpath
         URL classURL = this.getClass().getProtectionDomain().getCodeSource().getLocation();

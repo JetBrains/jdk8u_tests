@@ -1536,7 +1536,7 @@ public class SubjectTest extends SecurityTest {
             }
         }
 
-        public void testIteratorNext_EmptySet() {
+        public void _testIteratorNext_EmptySet() {
 
             grantMode(); // no permissions
             try {

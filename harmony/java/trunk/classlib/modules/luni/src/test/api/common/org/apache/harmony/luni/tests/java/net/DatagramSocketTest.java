@@ -102,14 +102,14 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#DatagramSocket()
      */
-    public void test_Constructor() throws SocketException {
+    public void _test_Constructor() throws SocketException {
         new DatagramSocket();
     }
 
     /**
      * @tests java.net.DatagramSocket#DatagramSocket(int)
      */
-    public void test_ConstructorI() throws SocketException {
+    public void _test_ConstructorI() throws SocketException {
         DatagramSocket ds = new DatagramSocket(0);
         ds.close();
     }
@@ -127,7 +127,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#close()
      */
-    public void test_close() throws UnknownHostException, SocketException {
+    public void _test_close() throws UnknownHostException, SocketException {
         DatagramSocket ds = new DatagramSocket(0);
         DatagramPacket dp = new DatagramPacket("Test String".getBytes(), 11,
                 InetAddress.getLocalHost(), 0);
