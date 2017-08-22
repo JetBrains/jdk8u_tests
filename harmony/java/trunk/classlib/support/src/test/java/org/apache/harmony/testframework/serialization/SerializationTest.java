@@ -142,7 +142,7 @@ public abstract class SerializationTest extends TestCase {
      * Tests that data objects can be deserialized from golden files, to verify
      * compartibility with Reference Implementation.
      */
-    public void testGolden() throws Throwable {
+    public void _testGolden() throws Throwable {
         
         verifyGolden(this, getData());
     }

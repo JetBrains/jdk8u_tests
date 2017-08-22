@@ -46,7 +46,7 @@ public class ASCIICharsetEncoderTest extends TestCase {
 	protected void tearDown() throws Exception {
     }
 
-	public void testCanEncodeCharSequence() {
+	public void _testCanEncodeCharSequence() {
 		// normal case for ascCS
 		assertTrue(encoder.canEncode("\u0077"));
 		assertFalse(encoder.canEncode("\uc2a3"));
@@ -58,7 +58,7 @@ public class ASCIICharsetEncoderTest extends TestCase {
 		assertTrue(encoder.canEncode(""));
 	}
 
-	public void testCanEncodeSurrogate () {
+	public void _testCanEncodeSurrogate () {
 		assertFalse(encoder.canEncode('\ud800'));
 		assertFalse(encoder.canEncode("\udc00"));
 	}

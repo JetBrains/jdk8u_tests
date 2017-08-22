@@ -117,7 +117,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#DatagramSocket(int, java.net.InetAddress)
      */
-    public void test_ConstructorILjava_net_InetAddress() throws IOException {
+    public void _test_ConstructorILjava_net_InetAddress() throws IOException {
         DatagramSocket ds = new DatagramSocket(0, InetAddress.getLocalHost());
         assertTrue("Created socket with incorrect port", ds.getLocalPort() != 0);
         assertEquals("Created socket with incorrect address", InetAddress

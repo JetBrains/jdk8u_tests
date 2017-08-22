@@ -245,7 +245,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#close()
      */
-    public void test_close() throws IOException {
+    public void _test_close() throws IOException {
         try {
             s = new ServerSocket(0);
             try {
@@ -263,7 +263,7 @@ public class ServerSocketTest extends SocketTestCase {
     /**
      * @tests java.net.ServerSocket#getInetAddress()
      */
-    public void test_getInetAddress() throws IOException {
+    public void _test_getInetAddress() throws IOException {
         InetAddress addr = InetAddress.getLocalHost();
         s = new ServerSocket(0, 10, addr);
         try {

@@ -415,7 +415,7 @@ public class JoinRowSetOtherTest extends JoinRowSetTestCase {
      * @throws Exception
      * @tests java.sql.rowset.joinRowSet#getWhereClause()
      */
-    public void testGetWhereClause_SingleJdbcRowSet() throws Exception {
+    public void _testGetWhereClause_SingleJdbcRowSet() throws Exception {
         String whereClause;
 
         // Creates jdbc rowset.
