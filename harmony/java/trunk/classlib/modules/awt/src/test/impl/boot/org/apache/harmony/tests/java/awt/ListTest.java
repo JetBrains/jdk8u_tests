@@ -201,7 +201,7 @@ public class ListTest extends TestCase {
     /*
      * Class under test for void remove(java.lang.String)
      */
-    public final void testRemoveString() {
+    public final void _testRemoveString() {
         String item = "q";
         boolean iae = false;
         try {
@@ -225,7 +225,7 @@ public class ListTest extends TestCase {
     /*
      * Class under test for void remove(int)
      */
-    public final void testRemoveint() {
+    public final void _testRemoveint() {
         int pos = 0;
         boolean exception = false;
         try {
@@ -491,7 +491,7 @@ public class ListTest extends TestCase {
 //      System.out.println((new int[0])[0]);
 //    }
 
-    public final void testSetMultipleMode() {
+    public final void _testSetMultipleMode() {
         list.setMultipleMode(true);
         assertTrue(list.isMultipleMode());
         list.add("item");

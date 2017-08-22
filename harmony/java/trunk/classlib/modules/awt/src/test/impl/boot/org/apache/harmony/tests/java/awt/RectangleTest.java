@@ -344,27 +344,27 @@ public class RectangleTest extends SerializeTestCase {
         assertEquals(new Rectangle2D.Double(0, 0, 5, 6), r.createUnion(new Rectangle2D.Double(0, 0, 5, 6))); // Cover
     }
 
-    public void testSerializeRead1() {
+    public void _testSerializeRead1() {
         checkRead(new Rectangle());
     }
 
-    public void testSerializeRead2() {
+    public void _testSerializeRead2() {
         checkRead(new Rectangle(1, 2));
     }
 
-    public void testSerializeRead3() {
+    public void _testSerializeRead3() {
         checkRead(new Rectangle(1, 2, 3, 4));
     }
 
-    public void testSerializeWrite1() {
+    public void _testSerializeWrite1() {
         checkWrite(new Rectangle());
     }
 
-    public void testSerializeWrite2() {
+    public void _testSerializeWrite2() {
         checkWrite(new Rectangle(1, 2));
     }
 
-    public void testSerializeWrite3() {
+    public void _testSerializeWrite3() {
         checkWrite(new Rectangle(1, 2, 3, 4));
     }
 

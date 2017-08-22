@@ -225,6 +225,11 @@
 **/org/apache/harmony/xnet/tests/javax/net/ssl/serialization/SSLSessionBindingEventTest.java
 **/org/apache/harmony/auth/tests/javax/security/auth/callback/serialization/UnsupportedCallbackExceptionTest.java
 
+**/org/apache/harmony/tests/java/awt/MenuBarRTest.java
+**/org/apache/harmony/tests/java/awt/MenuShortcutTest.java
+**/javax/imageio/plugins/jpeg/JPEGQTableTest.java
+**/org/apache/harmony/awt/tests/image/BufferedImageTest.java
+
 # VM crash on Mac OSX (reproduced with Oracle's java)
 **/org/apache/harmony/tests/java/awt/RobotTest.java
 **/org/apache/harmony/logging/tests/java/util/logging/LogManagerTest.java

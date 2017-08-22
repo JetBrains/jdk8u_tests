@@ -25,7 +25,7 @@ import java.awt.*;
 
 public class MenuBarRTest extends TestCase {
 
-    public void testSetHelpMenuNull() {
+    public void _testSetHelpMenuNull() {
         boolean npe = false;
         MenuBar mb = new MenuBar();
         Menu menu = new Menu();

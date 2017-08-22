@@ -233,49 +233,49 @@ public class PolygonTest extends ShapeTestCase {
         checkPathClose(p, true);
     }
 
-    public void testGetPathIteratorDouble() {
+    public void _testGetPathIteratorDouble() {
         Polygon pg = new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3);
         checkPathIteratorDouble(
                 pg.getPathIterator(null),
                 new double[]{1, 4, 2, 5, 3, 6});
     }
 
-    public void testGetPathIteratorFloat() {
+    public void _testGetPathIteratorFloat() {
         Polygon pg = new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3);
         checkPathIteratorFloat(
                 pg.getPathIterator(null),
                 new float[]{1, 4, 2, 5, 3, 6});
     }
 
-    public void testGetPathIteratorDoubleFlat() {
+    public void _testGetPathIteratorDoubleFlat() {
         Polygon pg = new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3);
         checkPathIteratorDouble(
                 pg.getPathIterator(null, 2),
                 new double[]{1, 4, 2, 5, 3, 6});
     }
 
-    public void testGetPathIteratorFloatFlat() {
+    public void _testGetPathIteratorFloatFlat() {
         Polygon pg = new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3);
         checkPathIteratorFloat(
                 pg.getPathIterator(null, 5),
                 new float[]{1, 4, 2, 5, 3, 6});
     }
 
-    public void testGetPathIteratorDoubleAffine() {
+    public void _testGetPathIteratorDoubleAffine() {
         Polygon pg = new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3);
         checkPathIteratorDouble(
                 pg.getPathIterator(AffineTransform.getTranslateInstance(3, 1)),
                 new double[]{4, 5, 5, 6, 6, 7});
     }
 
-    public void testGetPathIteratorFloatAffine() {
+    public void _testGetPathIteratorFloatAffine() {
         Polygon pg = new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3);
         checkPathIteratorFloat(
                 pg.getPathIterator(AffineTransform.getTranslateInstance(3, 1)),
                 new float[]{4, 5, 5, 6, 6, 7});
     }
 
-    public void testGetPathIteratorEmpty() {
+    public void _testGetPathIteratorEmpty() {
         // Regression for HARMONY-1572
         Polygon pg = new Polygon(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 },
                 0);
@@ -312,19 +312,19 @@ public class PolygonTest extends ShapeTestCase {
         return obj.getClass().getName() + "[" + data + "]";
     }
 
-    public void testSerializeRead1() {
+    public void _testSerializeRead1() {
         checkRead(new Polygon());
     }
 
-    public void testSerializeRead2() {
+    public void _testSerializeRead2() {
         checkRead(new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3));
     }
     
-    public void testSerializeWrite1() {
+    public void _testSerializeWrite1() {
         checkWrite(new Polygon());
     }
 
-    public void testSerializeWrite2() {
+    public void _testSerializeWrite2() {
         checkWrite(new Polygon(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 3));
     }
     

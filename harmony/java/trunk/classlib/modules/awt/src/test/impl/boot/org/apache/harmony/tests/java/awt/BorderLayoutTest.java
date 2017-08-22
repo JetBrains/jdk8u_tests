@@ -166,7 +166,7 @@ public class BorderLayoutTest extends AWTTestCase {
         assertEquals(layout.maximumLayoutSize(frame), new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
     }
 
-    public final void testMinimumLayoutSize() {
+    public final void _testMinimumLayoutSize() {
         Dimension expected = new Dimension();
         Insets insets = frame.getInsets();
 
@@ -230,7 +230,7 @@ public class BorderLayoutTest extends AWTTestCase {
         assertEquals(layout.minimumLayoutSize(frame), expected);
     }
 
-    public final void testPreferredLayoutSize() {
+    public final void _testPreferredLayoutSize() {
         Dimension expected = new Dimension();
         Insets insets = frame.getInsets();
 

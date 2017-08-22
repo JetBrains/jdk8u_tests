@@ -179,7 +179,7 @@ public class JavaBlitterTest extends TestCase{
     }
 
     // Blitting from Direct Color Model to Index Color Model (Map size - 256)
-    public final void test_from_INT_RGB_to_BYTE_INDEXED(){
+    public final void _test_from_INT_RGB_to_BYTE_INDEXED(){
         src = createImage(BufferedImage.TYPE_INT_RGB);
         dst = new BufferedImage(w, h, BufferedImage.TYPE_BYTE_INDEXED);
         Graphics2D g2d = dst.createGraphics();
@@ -193,7 +193,7 @@ public class JavaBlitterTest extends TestCase{
     }
 
     // Blitting from Direct Color Model to Index Color Model (Map size - 2)
-    public final void test_from_INT_RGB_to_BYTE_BINARY(){
+    public final void _test_from_INT_RGB_to_BYTE_BINARY(){
         src = createImage(BufferedImage.TYPE_INT_RGB);
         dst = new BufferedImage(w, h, BufferedImage.TYPE_BYTE_BINARY);
         Graphics2D g2d = dst.createGraphics();
@@ -343,7 +343,7 @@ public class JavaBlitterTest extends TestCase{
     }
 
     // Blitting from Component Color Model to Index Color Model (Map size - 256)
-    public final void test_from_3BYTE_BGR_to_BYTE_INDEXED(){
+    public final void _test_from_3BYTE_BGR_to_BYTE_INDEXED(){
         src = createImage(BufferedImage.TYPE_3BYTE_BGR);
         dst = new BufferedImage(w, h, BufferedImage.TYPE_BYTE_INDEXED);
         Graphics2D g2d = dst.createGraphics();
@@ -357,7 +357,7 @@ public class JavaBlitterTest extends TestCase{
     }
 
     // Blitting from Component Color Model to Index Color Model (Map size - 2)
-    public final void test_from_3BYTE_BGR_to_BYTE_BINARY(){
+    public final void _test_from_3BYTE_BGR_to_BYTE_BINARY(){
         src = createImage(BufferedImage.TYPE_3BYTE_BGR);
         dst = new BufferedImage(w, h, BufferedImage.TYPE_BYTE_BINARY);
         Graphics2D g2d = dst.createGraphics();
@@ -521,7 +521,7 @@ public class JavaBlitterTest extends TestCase{
     }
 
     // Blitting from Index Color Model to Index Color Model (Map size - 2)
-    public final void test_from_BYTE_INDEXED_to_BYTE_BINARY(){
+    public final void _test_from_BYTE_INDEXED_to_BYTE_BINARY(){
         src = createImage(BufferedImage.TYPE_BYTE_INDEXED);
         dst = new BufferedImage(w, h, BufferedImage.TYPE_BYTE_BINARY);
         Graphics2D g2d = dst.createGraphics();

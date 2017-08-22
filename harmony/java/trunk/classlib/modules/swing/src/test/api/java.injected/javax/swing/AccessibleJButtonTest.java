@@ -65,7 +65,7 @@ public class AccessibleJButtonTest extends BasicSwingTestCase {
         assertNull("AccessibleText ", aContext.getAccessibleText());
     }
 
-    public void testGetToolTipText() {
+    public void _testGetToolTipText() {
         String text1 = "do what you feel";
         String text2 = "what you need to do";
         button.setText(text1);
@@ -88,7 +88,7 @@ public class AccessibleJButtonTest extends BasicSwingTestCase {
                 .getAccessibleIcon()[0]);
     }
 
-    public void testGetAccessibleStateSet() {
+    public void _testGetAccessibleStateSet() {
         assertNotNull("AccessibleStateSet is not null", aContext.getAccessibleStateSet());
         assertTrue("AccessibleStateSet contains ENABLED", aContext.getAccessibleStateSet()
                 .contains(AccessibleState.ENABLED));

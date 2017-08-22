@@ -47,7 +47,7 @@ public class ButtonRTest extends TestCase {
     
     // Regression test for HARMONY-2305
     // Currently fails on Linux version of RI
-    public void testHarmony2305() throws Exception {
+    public void _testHarmony2305() throws Exception {
         final Frame f = new Frame();
         final Button b1 = new Button("B1"); //$NON-NLS-1$
         final Button b2 = new Button("B2"); //$NON-NLS-1$
@@ -83,7 +83,7 @@ public class ButtonRTest extends TestCase {
     }
     
     // Regression test for HARMONY-3701
-    public void testHarmony3701() throws Exception {
+    public void _testHarmony3701() throws Exception {
         setName("testHarmony3701"); //$NON-NLS-1$
         testHarmony2305();
         testHarmony2305();

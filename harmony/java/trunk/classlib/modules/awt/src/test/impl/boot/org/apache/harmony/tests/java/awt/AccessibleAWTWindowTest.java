@@ -60,7 +60,7 @@ public class AccessibleAWTWindowTest extends TestCase {
     }
 
     @SuppressWarnings("deprecation")
-    public final void testGetAccessibleStateSet() {
+    public final void _testGetAccessibleStateSet() {
         frame.show();
         window.setFocusable(true);
         window.setVisible(true);

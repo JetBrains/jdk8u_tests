@@ -68,7 +68,7 @@ public class WindowTest extends TestCase {
     }
 
     @SuppressWarnings("deprecation")
-    public void testSetLocationRelativeTo() {
+    public void _testSetLocationRelativeTo() {
         Rectangle screenRect = f.getGraphicsConfiguration().getBounds();
         Point centerScreen = screenRect.getLocation();
         centerScreen.translate((screenRect.width - 1) / 2,
@@ -117,7 +117,7 @@ public class WindowTest extends TestCase {
     }
 
     @SuppressWarnings("deprecation")
-    public final void testApplyResourceBundleString() {
+    public final void _testApplyResourceBundleString() {
         assertNotNull(w);
         assertSame(ComponentOrientation.UNKNOWN, w.getComponentOrientation());
         w.applyResourceBundle("MyResourceBundle");

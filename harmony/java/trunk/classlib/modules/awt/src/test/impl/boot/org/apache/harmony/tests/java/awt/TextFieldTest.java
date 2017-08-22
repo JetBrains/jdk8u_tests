@@ -69,7 +69,7 @@ public class TextFieldTest extends TestCase {
     /*
      * Test method for 'java.awt.TextField.getMinimumSize()'
      */
-    public void testGetMinimumSize() {
+    public void _testGetMinimumSize() {
         Dimension minSize = new Dimension();
         assertEquals(minSize, tf.getMinimumSize());
         minSize.setSize(130, 160);
@@ -158,7 +158,7 @@ public class TextFieldTest extends TestCase {
     /*
      * Test method for 'java.awt.TextField.setText(String)'
      */
-    public void testSetText() {
+    public void _testSetText() {
         String text = "Some text";
         tf.setText(text);
         assertEquals(text, tf.getText());

@@ -69,7 +69,7 @@ public class FlowLayoutTest extends AWTTestCase {
         junit.textui.TestRunner.run(FlowLayoutTest.class);
     }
 
-    public final void testToString() {
+    public final void _testToString() {
         layout = new FlowLayout(FlowLayout.LEADING, 10, 20);
         assertTrue(new String("java.awt.FlowLayout[hgap=10,vgap=20,align=leading]").equals(layout.toString()));
         layout = new FlowLayout(FlowLayout.LEFT, 0, 0);
@@ -243,7 +243,7 @@ public class FlowLayoutTest extends AWTTestCase {
        
     }
 
-    public final void testLayoutContainer() {
+    public final void _testLayoutContainer() {
 
         frame.add(b1);
         frame.add(b2);

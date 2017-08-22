@@ -65,7 +65,7 @@ public class AbstractSpinnerModelTest extends BasicSwingTestCase {
         chl = null;
     }
 
-    public void testAddRemoveChangeListener() {
+    public void _testAddRemoveChangeListener() {
         model.addChangeListener(chl);
         assertEquals(1, model.getListeners(ChangeController.class).length);
         model.removeChangeListener(chl);
@@ -83,7 +83,7 @@ public class AbstractSpinnerModelTest extends BasicSwingTestCase {
         assertTrue(chl.isChanged());
     }
 
-    public void testGetListeners() {
+    public void _testGetListeners() {
         final TestListener testListener = new TestListener();
         model.addChangeListener(testListener);
         assertTrue(Arrays.asList(model.getListeners(TestListener.class)).contains(testListener));

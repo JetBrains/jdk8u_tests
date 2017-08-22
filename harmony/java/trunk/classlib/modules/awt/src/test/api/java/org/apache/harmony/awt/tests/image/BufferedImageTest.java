@@ -30,15 +30,15 @@ public class BufferedImageTest extends TestCase {
 	private final int EXP_WIDTH = 320;
 	private final int EXP_HEIGHT = 182;
 
-	public void testJpg() throws InterruptedException {
+	public void _testJpg() throws InterruptedException {
 		decodeImage("utest.jpg");
 	}
 
-	public void testGif() throws InterruptedException {
+	public void _testGif() throws InterruptedException {
 		decodeImage("utest.gif");
 	}
 
-	public void testPng() throws InterruptedException {
+	public void _testPng() throws InterruptedException {
 		decodeImage("utest.png");
 	}
 
@@ -71,7 +71,7 @@ public class BufferedImageTest extends TestCase {
 	/**
 	 * Regression test for HARMONY-3602
 	 */
-	public void testTerminate() {
+	public void _testTerminate() {
 		final Image img = createImage("test.gif");
 
 		System.out.println(new ImageIcon(img)); // Loads the image.

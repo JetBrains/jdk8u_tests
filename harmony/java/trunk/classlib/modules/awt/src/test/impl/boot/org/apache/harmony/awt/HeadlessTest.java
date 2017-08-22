@@ -44,12 +44,12 @@ public class HeadlessTest extends TestCase {
         jp.addNotify();
     }
     
-    public void testPanel(){
+    public void _testPanel(){
         Panel p = new Panel();
         p.addNotify();
     }
 
-    public void testCanvas(){
+    public void _testCanvas(){
         Canvas cnv = new Canvas();
         cnv.addNotify();
     }

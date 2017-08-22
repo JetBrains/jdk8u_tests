@@ -361,7 +361,7 @@ public class NumericShaperTest extends TestCase {
      * Test method for 'java.awt.font.NumericShaper.shape(char[], int, int)' with 
      * illegal parameters.
      */
-    public final void testShapeCharArrayIntInt_IllegalArguments() {
+    public final void _testShapeCharArrayIntInt_IllegalArguments() {
         // regression test for Harmony-1584
         int ranges = NumericShaper.ARABIC;
         NumericShaper localNumericShaper = NumericShaper
@@ -406,7 +406,7 @@ public class NumericShaperTest extends TestCase {
      * Test method for 'java.awt.font.NumericShaper.shape(char[], int, int, int)' with 
      * illegal parameters. 
      */
-    public final void testShapeCharArrayIntIntInt_IllegalArguments() {
+    public final void _testShapeCharArrayIntIntInt_IllegalArguments() {
         // regression test for Harmony-1584
         int ranges = NumericShaper.ARABIC;
         NumericShaper localNumericShaper = NumericShaper

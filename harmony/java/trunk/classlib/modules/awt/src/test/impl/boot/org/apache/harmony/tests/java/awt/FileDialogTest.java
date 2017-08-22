@@ -52,7 +52,7 @@ public class FileDialogTest extends TestCase {
         }
     }
 
-    public final void testAddNotify() {
+    public final void _testAddNotify() {
         assertNull(fd.getGraphics());
         assertNull(fd.getLayout());
         fd.addNotify();

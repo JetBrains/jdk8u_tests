@@ -130,19 +130,19 @@ public class PointTest extends SerializeTestCase {
         assertFalse(new Point(3, 3).equals(new Point(1, 2)));
     }
 
-    public void testSerializeRead1() {
+    public void _testSerializeRead1() {
         checkRead(new Point());
     }
 
-    public void testSerializeRead2() {
+    public void _testSerializeRead2() {
         checkRead(new Point(1, 2));
     }
 
-    public void testSerializeWrite1() {
+    public void _testSerializeWrite1() {
         checkWrite(new Point());
     }
 
-    public void testSerializeWrite2() {
+    public void _testSerializeWrite2() {
         checkWrite(new Point(1, 2));
     }
 

@@ -41,7 +41,7 @@ public class TransformAttributeTest extends TestCase {
     /*
      * Test method for 'java.awt.font.TransformAttribute.TransformAttribute(AffineTransform)'
      */
-    public final void testTransformAttribute() {
+    public final void _testTransformAttribute() {
         TransformAttribute ta;
         AffineTransform at = AffineTransform.getRotateInstance(1);
         ta = new TransformAttribute(at);

@@ -85,7 +85,7 @@ public class AccessibleAWTCheckboxTest extends TestCase {
         assertNotNull(av);
     }
 
-    public final void testAccessibleAWTCheckbox() {
+    public final void _testAccessibleAWTCheckbox() {
         assertEquals(1, checkbox.getItemListeners().length);
         // constructor has side-effect:
         // item listener is added

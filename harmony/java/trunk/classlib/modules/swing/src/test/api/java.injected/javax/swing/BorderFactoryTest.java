@@ -191,7 +191,7 @@ public class BorderFactoryTest extends SwingTestCase {
     /*
      * Class under test for TitledBorder createTitledBorder(Border, String)
      */
-    public void testCreateTitledBorderBorderString() {
+    public void _testCreateTitledBorderBorderString() {
         String string1 = "string1";
         String string2 = null;
         Border border3 = new EmptyBorder(1, 1, 1, 1);
@@ -245,7 +245,7 @@ public class BorderFactoryTest extends SwingTestCase {
     /*
      * Class under test for TitledBorder createTitledBorder(Border)
      */
-    public void testCreateTitledBorderBorder() {
+    public void _testCreateTitledBorderBorder() {
         Border border3 = new EmptyBorder(1, 1, 1, 1);
         Border border4 = null;
         TitledBorder border1 = BorderFactory.createTitledBorder(border3);
@@ -276,7 +276,7 @@ public class BorderFactoryTest extends SwingTestCase {
     /*
      * Class under test for TitledBorder createTitledBorder(String)
      */
-    public void testCreateTitledBorderString() {
+    public void _testCreateTitledBorderString() {
         String string1 = "string1";
         String string2 = null;
         TitledBorder border1 = BorderFactory.createTitledBorder(string1);

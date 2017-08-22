@@ -147,7 +147,7 @@ public class ScrollPaneAdjustableTest extends TestCase {
         assertEquals(getVisFromSize(size, hGap), hAdjustable.getVisibleAmount());
     }
 
-    public final void testParamString() {
+    public final void _testParamString() {
         String hStr = hAdjustable.paramString();
         String vStr = vAdjustable.paramString();
         assertTrue(vStr.indexOf("vertical") >= 0);
@@ -220,7 +220,7 @@ public class ScrollPaneAdjustableTest extends TestCase {
         assertTrue(errorCatched);
     }
 
-    public void testAddGetRemoveAdjustmentListener() {
+    public void _testAddGetRemoveAdjustmentListener() {
         assertEquals(0, vAdjustable.getAdjustmentListeners().length);
 
         AdjustmentListener listener = new AdjustmentListener() {

@@ -73,7 +73,7 @@ public class TextComponentTest extends TestCase {
     /*
      * Test method for 'java.awt.TextComponent.getBackground()'
      */
-    public void testGetBackground() {
+    public void _testGetBackground() {
         assertNull(textComp.getBackground());
         frame = new Frame();
         frame.add(textComp);
@@ -234,7 +234,7 @@ public class TextComponentTest extends TestCase {
     /*
      * Test method for 'java.awt.TextComponent.setCaretPosition(int)'
      */
-    public void testSetCaretPosition() {
+    public void _testSetCaretPosition() {
         int pos = 5;
         textComp.setCaretPosition(pos);
         assertEquals(0, textComp.getCaretPosition());

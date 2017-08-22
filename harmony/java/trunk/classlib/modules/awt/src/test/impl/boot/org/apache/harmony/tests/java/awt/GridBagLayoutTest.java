@@ -168,7 +168,7 @@ public class GridBagLayoutTest extends AWTTestCase {
                      layout.maximumLayoutSize(frame));
     }
 
-    public final void testGetLayoutDimensions() {
+    public final void _testGetLayoutDimensions() {
         frame.add(first);
         frame.validate();
         frame.setSize(frame.getPreferredSize());
@@ -181,7 +181,7 @@ public class GridBagLayoutTest extends AWTTestCase {
         assertEquals(0, dims[1][1]);
     }
 
-    public final void testGetLayoutWeights() {
+    public final void _testGetLayoutWeights() {
         GridBagConstraints c = new GridBagConstraints();
         c.weightx = 1.;
         c.weighty = .5;
@@ -220,7 +220,7 @@ public class GridBagLayoutTest extends AWTTestCase {
         assertEquals(new Point(1, 0), layout.location(x, insets.top + 1));
     }
 
-    public final void testLayoutContainer() {
+    public final void _testLayoutContainer() {
         GridBagConstraints c = new GridBagConstraints();
         Insets insets = frame.getInsets();
 

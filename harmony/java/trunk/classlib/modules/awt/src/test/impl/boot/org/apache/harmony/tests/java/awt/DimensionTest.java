@@ -107,19 +107,19 @@ public class DimensionTest extends SerializeTestCase {
         assertEquals(d.toString(), "java.awt.Dimension[width=2,height=3]");
     }
 
-    public void testSerializeRead1() {
+    public void _testSerializeRead1() {
         checkRead(new Dimension());
     }
 
-    public void testSerializeRead2() {
+    public void _testSerializeRead2() {
         checkRead(new Dimension(1, 2));
     }
 
-    public void testSerializeWrite1() {
+    public void _testSerializeWrite1() {
         checkWrite(new Dimension());
     }
 
-    public void testSerializeWrite2() {
+    public void _testSerializeWrite2() {
         checkWrite(new Dimension(1, 2));
     }
 

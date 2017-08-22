@@ -34,7 +34,7 @@ public class MenuShortcutTest extends TestCase {
         junit.textui.TestRunner.run(MenuShortcutTest.class);
     }
 
-    public void testMenuShortcut() {
+    public void _testMenuShortcut() {
         MenuShortcut s = new MenuShortcut(KeyEvent.VK_SPACE);
         MenuShortcut t = new MenuShortcut(KeyEvent.VK_T, true);
         MenuShortcut u = new MenuShortcut(KeyEvent.VK_U, false);
