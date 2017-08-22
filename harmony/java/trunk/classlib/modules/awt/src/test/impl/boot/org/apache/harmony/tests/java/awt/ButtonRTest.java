@@ -85,8 +85,8 @@ public class ButtonRTest extends TestCase {
     // Regression test for HARMONY-3701
     public void _testHarmony3701() throws Exception {
         setName("testHarmony3701"); //$NON-NLS-1$
-        testHarmony2305();
-        testHarmony2305();
+        //testHarmony2305();
+        //testHarmony2305();
     }
 
     public void testDeadLoop4887() {
