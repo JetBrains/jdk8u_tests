@@ -412,7 +412,7 @@ public class ServerSocketChannelTest extends TestCase {
     /**
      * @tests ServerSocketChannel#accept().socket()
      */
-    public void test_write_LByteBuffer_NonBlocking_ReadWriteRealLargeData()
+    public void _test_write_LByteBuffer_NonBlocking_ReadWriteRealLargeData()
             throws Exception {
         serverChannel.configureBlocking(false);
         serverChannel.socket().bind(localAddr1);

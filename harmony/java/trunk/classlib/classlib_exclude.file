@@ -226,7 +226,7 @@
 **/org/apache/harmony/auth/tests/javax/security/auth/callback/serialization/UnsupportedCallbackExceptionTest.java
 
 # VM crash on Mac OSX (reproduced with Oracle's java)
-**/org/apache/harmony/tests/java/awt/RobotTest/java
+**/org/apache/harmony/tests/java/awt/RobotTest.java
 **/org/apache/harmony/logging/tests/java/util/logging/LogManagerTest.java
 **/org/apache/harmony/logging/tests/java/util/logging/LoggerTest.java
 **/org/apache/harmony/luni/tests/java/net/InetAddressTest.java

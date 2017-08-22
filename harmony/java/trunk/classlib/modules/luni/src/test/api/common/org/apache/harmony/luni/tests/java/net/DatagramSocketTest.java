@@ -946,7 +946,7 @@ public class DatagramSocketTest extends SocketTestCase {
      * @tests java.net.DatagramSocket#send(java.net.DatagramPacket)
      */
     @Test
-    public void test_sendLjava_net_DatagramPacket2() throws IOException {
+    public void _test_sendLjava_net_DatagramPacket2() throws IOException {
         int udp_port = 20000;
         int send_port = 23000;
         DatagramSocket udpSocket = new DatagramSocket(udp_port);
