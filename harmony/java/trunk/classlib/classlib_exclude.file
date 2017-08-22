@@ -78,6 +78,7 @@
 **/java/security/cert/X509CertificateTest.java
 **/javax/net/ssl/HttpsURLConnection_ImplTest.java
 **/tests/api/java/nio/charset/CharsetEncoderTest.java
+**/javax/swing/JEditorPane_AccessibleJEditorPaneTest.java
 **/javax/swing/JEditorPane_AccessibleJEditorPaneHTMLTest.java
 **/javax/accessibility/AccessibleState/JEditorPane_AccessibleJEditorPaneTest.java
 **/javax/swing/plaf/basic/BasicComboBoxUIRTest.java
@@ -128,9 +129,9 @@
 **/javax/swing/text/html/FormView_FormTextAreaElementTest.java
 **/javax/swing/text/html/HTMLDocument_Reader_ActionsTest.java
 **/javax/swing/text/html/HTMLDocument_RunElementTest.java
-**/javax/swing/text/html/parser.ContentModelTest.java
-**/javax/swing/text/html/parser.ElementTest.java
-**/javax/swing/text/html/parser.TagElementTest.java
+**/javax/swing/text/html/parser/ContentModelTest.java
+**/javax/swing/text/html/parser/ElementTest.java
+**/javax/swing/text/html/parser/TagElementTest.java
 **/org/apache/harmony/rmi/ConnectionTest.java
 **/org/apache/harmony/tests/java/awt/BasicStrokeTest.java
 **/org/apache/harmony/xnet/provider/jsse/SSLSocketFunctionalTest.java
@@ -141,10 +142,10 @@
 **/org/apache/harmony/auth/tests/javax/security/auth/callback/serialization/PasswordCallbackTest.java
 **/org/apache/harmony/auth/tests/javax/security/auth/callback/serialization/TextInputCallbackTest.java
 **/org/apache/harmony/auth/tests/javax/security/auth/callback/serialization/TextOutputCallbackTest.java
-**/org/apache/harmony/auth/tests/javax/security/auth/callback/…ialization/UnsupportedCallbackExceptionTest.java
+**/org/apache/harmony/auth/tests/javax/security/auth/callback/serialization/UnsupportedCallbackExceptionTest.java
 **/org/apache/harmony/auth/tests/javax/security/auth/kerberos/serialization/DelegationPermissionTest.java
-**/org/apache/harmony/auth/tests/javax/security/auth/kerberos/…ation/KrbDelegationPermissionCollectionTest.java
-**/org/apache/harmony/auth/tests/javax/security/auth/kerberos/…lization/KrbServicePermissionCollectionTest.java
+**/org/apache/harmony/auth/tests/javax/security/auth/kerberos/serialization/KrbDelegationPermissionCollectionTest.java
+**/org/apache/harmony/auth/tests/javax/security/auth/kerberos/serialization/KrbServicePermissionCollectionTest.java
 **/org/apache/harmony/auth/tests/javax/security/auth/kerberos/serialization/ServicePermissionTest.java
 **/org/apache/harmony/auth/tests/javax/security/auth/login/serialization/AccountExceptionTest.java
 **/org/apache/harmony/auth/tests/javax/security/auth/login/serialization/AccountExpiredExceptionTest.java
@@ -222,6 +223,7 @@
 **/org/apache/harmony/xnet/tests/javax/net/ssl/serialization/SSLPeerUnverifiedExceptionTest.java
 **/org/apache/harmony/xnet/tests/javax/net/ssl/serialization/SSLProtocolExceptionTest.java
 **/org/apache/harmony/xnet/tests/javax/net/ssl/serialization/SSLSessionBindingEventTest.java
+**/org/apache/harmony/auth/tests/javax/security/auth/callback/serialization/UnsupportedCallbackExceptionTest.java
 
 # VM crash on Mac OSX (reproduced with Oracle's java)
 **/org/apache/harmony/tests/java/awt/RobotTest/java

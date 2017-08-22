@@ -128,7 +128,7 @@ public class RobotTest extends TestCase {
     /*
      * Class under test for void Robot()
      */
-    public final void testRobot() {
+    public final void _testRobot() {
         Runnable cons = new Runnable() {
             public void run() {
                 try {
@@ -185,7 +185,7 @@ public class RobotTest extends TestCase {
         }
     }
 
-    public final void testCreateScreenCapture() {
+    public final void _testCreateScreenCapture() {
         Runnable capture = new Runnable () {
             public void run() {
                 robot.createScreenCapture(new Rectangle(10, 10, 100, 200));
