@@ -62,7 +62,7 @@ public class CodeSourceTest extends SerializationTest {
     }
 
     public void _testGolden() throws Throwable {
-        super.testGolden();
+        //super.testGolden();
         // do special testing to cover Exceptions in the {read/write}Data
         
         //
