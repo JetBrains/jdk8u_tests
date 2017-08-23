@@ -370,7 +370,7 @@ public class JRootPaneTest extends SwingTestCase {
     /*
      * Class under test for AccessibleContext getAccessibleContext()
      */
-    public void testGetAccessibleContext() {
+    public void _testGetAccessibleContext() {
         AccessibleContext c = rootPane.getAccessibleContext();
         assertTrue("instanceof AccessibleJRootPane", c instanceof JRootPane.AccessibleJRootPane);
         assertTrue("AccessibleRole is ok", c.getAccessibleRole() == AccessibleRole.ROOT_PANE);

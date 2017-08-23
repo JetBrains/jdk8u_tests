@@ -321,7 +321,7 @@ public class JFileChooserTest extends SwingTestCase {
         assertEquals(KeyEvent.VK_X, chooser.getApproveButtonMnemonic());
     }
 
-    public void testGetAddRemoveResetChoosableFileFilters() throws Exception {
+    public void _testGetAddRemoveResetChoosableFileFilters() throws Exception {
         assertEquals(1, chooser.getChoosableFileFilters().length);
         FileFilter fileFilter = new FileFilter() {
             @Override

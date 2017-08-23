@@ -101,7 +101,7 @@ public class AccessibleJComponentTest extends SwingTestCase {
         assertSame(aContext.getAccessibleChild(2), panel3);
     }
 
-    public void testGetToolTipText() {
+    public void _testGetToolTipText() {
         panel.setToolTipText("text");
         assertNull(aContext.getToolTipText());
         panel = new JButton();

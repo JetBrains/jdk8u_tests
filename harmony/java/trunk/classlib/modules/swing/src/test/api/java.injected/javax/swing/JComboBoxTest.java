@@ -577,7 +577,7 @@ public class JComboBoxTest extends SwingTestCase {
         assertEquals(PopupMenuController.INVISIBLE, pmc.getEventType());
     }
 
-    public void testShowHidePopup() throws Exception {
+    public void _testShowHidePopup() throws Exception {
         createVisibleComboBox();
         assertFalse(comboBox.isPopupVisible());
         comboBox.showPopup();
@@ -607,7 +607,7 @@ public class JComboBoxTest extends SwingTestCase {
     }
 
     @SuppressWarnings("deprecation")
-    public void testProcessKeyEvent() throws Exception {
+    public void _testProcessKeyEvent() throws Exception {
         comboBox.setKeySelectionManager(null);
         createVisibleComboBox();
         PopupMenuController pmc = new PopupMenuController();

@@ -35,7 +35,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
         super(name);
     }
 
-    public static Test suite() {
+    public static Test _suite() {
         TestSuite suite = new TestSuite();
         suite.addTest(new AbstractDocument_AbstractElement_MASNoLockTest("testAddAttribute"));
         suite.addTest(new AbstractDocument_AbstractElement_MASNoLockTest("testAddAttributes"));
@@ -67,7 +67,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     }
 
     @Override
-    public void testAddAttribute() {
+    public void _testAddAttribute() {
         try {
             super.testAddAttribute();
             fail("Error should be thrown, the reason " + "being no write lock acquired");

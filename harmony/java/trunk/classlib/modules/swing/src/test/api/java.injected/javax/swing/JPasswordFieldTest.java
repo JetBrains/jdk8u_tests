@@ -110,7 +110,7 @@ public class JPasswordFieldTest extends SwingTestCase {
         assertEquals(AccessibleRole.PASSWORD_TEXT, context.getAccessibleRole());
     }
 
-    public void testSetGetEchoChar() {
+    public void _testSetGetEchoChar() {
         char echoChar = '*';
         assertEquals(echoChar, pf.getEchoChar());
         echoChar = 'j';

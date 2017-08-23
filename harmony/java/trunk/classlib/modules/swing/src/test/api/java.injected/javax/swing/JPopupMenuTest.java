@@ -152,7 +152,7 @@ public class JPopupMenuTest extends SwingTestCase {
      * Test method for 'javax.swing.JPopupMenu.setLocation(int, int)'
      */
     @SuppressWarnings("deprecation")
-    public void testSetLocationIntInt() {
+    public void _testSetLocationIntInt() {
         JFrame frame = new JFrame();
         JMenuBar menuBar = new JMenuBar();
         JMenu menu1 = new JMenu();
@@ -189,7 +189,7 @@ public class JPopupMenuTest extends SwingTestCase {
      * Test method for 'javax.swing.JPopupMenu.show(Component, int, int)'
      */
     @SuppressWarnings("deprecation")
-    public void testShowComponentIntInt() {
+    public void _testShowComponentIntInt() {
         JFrame frame = new JFrame();
         JMenuBar menuBar = new JMenuBar();
         JMenu menu1 = new JMenu();
@@ -663,7 +663,7 @@ public class JPopupMenuTest extends SwingTestCase {
      * Test method for 'javax.swing.JPopupMenu.menuSelectionChanged(boolean)'
      */
     @SuppressWarnings("deprecation")
-    public void testMenuSelectionChanged() {
+    public void _testMenuSelectionChanged() {
         JFrame frame = new JFrame();
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu();

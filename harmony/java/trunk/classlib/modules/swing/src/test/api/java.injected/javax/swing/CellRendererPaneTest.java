@@ -41,7 +41,7 @@ public class CellRendererPaneTest extends SwingTestCase {
         pane = null;
     }
 
-    public void testCellRendererPane() throws Exception {
+    public void _testCellRendererPane() throws Exception {
         assertNull(pane.getAccessibleContext());
     }
 

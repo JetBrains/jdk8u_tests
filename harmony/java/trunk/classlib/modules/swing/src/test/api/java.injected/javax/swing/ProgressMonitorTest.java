@@ -45,7 +45,7 @@ public class ProgressMonitorTest extends BasicSwingTestCase {
         assertEquals(progressMonitor.getMillisToPopup(), 2000);
     }
 
-    public void testSetProgress() throws Exception {
+    public void _testSetProgress() throws Exception {
         progressMonitor = new ProgressMonitor(window, "message test", "note test", 0, 100);
         assertEquals(0, window.getOwnedWindows().length);
         progressMonitor.setProgress(1);
@@ -68,7 +68,7 @@ public class ProgressMonitorTest extends BasicSwingTestCase {
         assertEquals(1, window.getOwnedWindows().length);
     }
 
-    public void testGetSetMaximum() throws Exception {
+    public void _testGetSetMaximum() throws Exception {
         progressMonitor = new ProgressMonitor(window, "message test", "note test", 0, 300);
         progressMonitor.setProgress(1);
         Thread.sleep(500 + 100);
@@ -81,7 +81,7 @@ public class ProgressMonitorTest extends BasicSwingTestCase {
         assertEquals(500, progressMonitor.getMaximum());
     }
 
-    public void testGetSetMinimum() throws Exception {
+    public void _testGetSetMinimum() throws Exception {
         progressMonitor = new ProgressMonitor(window, "message test", "note test", 0, 300);
         progressMonitor.setProgress(1);
         Thread.sleep(500 + 100);

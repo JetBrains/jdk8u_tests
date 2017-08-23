@@ -132,7 +132,7 @@ public class JDialogTest extends SwingTestCase {
     /*
      * Class under test for void JDialog()
      */
-    public void testJDialog() {
+    public void _testJDialog() {
         dialog = new JDialog();
         // title == null, isModal() == false
         checkDialogCorrectness(dialog, null, false);
@@ -141,7 +141,7 @@ public class JDialogTest extends SwingTestCase {
     /*
      * Class under test for void dialogInit()
      */
-    public void testDialogInit() {
+    public void _testDialogInit() {
         TestDialog dialog = new TestDialog();
         assertTrue("onwer is not null", dialog.getOwner() != null);
         //assertTrue("rootPaneCheckingEnabled is true", dialog.isRootPaneCheckingEnabled());
@@ -176,7 +176,7 @@ public class JDialogTest extends SwingTestCase {
      *     void setDefaultCloseOperation(int operation)
      *     int getDefaultCloseOperation()
      */
-    public void testSetGetDefaultCloseOperation() {
+    public void _testSetGetDefaultCloseOperation() {
         // default value is JDialog.HIDE_ON_CLOSE
         assertEquals(WindowConstants.HIDE_ON_CLOSE, dialog.getDefaultCloseOperation());
         // test setting valid value
@@ -368,7 +368,7 @@ public class JDialogTest extends SwingTestCase {
     /*
      * Class under test for void JDialog(Frame, boolean)
      */
-    public void testJDialogFrameboolean() {
+    public void _testJDialogFrameboolean() {
         Frame owner = new Frame();
         // test with corrent owner, modal == false
         dialog = new JDialog(owner, false);
@@ -389,7 +389,7 @@ public class JDialogTest extends SwingTestCase {
     /*
      * Class under test for void JDialog(Frame)
      */
-    public void testJDialogFrame() {
+    public void _testJDialogFrame() {
         Frame owner = new Frame();
         // test with corrent owner
         dialog = new JDialog(owner);
@@ -405,7 +405,7 @@ public class JDialogTest extends SwingTestCase {
     /*
      * Class under test for void JDialog(Dialog, boolean)
      */
-    public void testJDialogDialogboolean() {
+    public void _testJDialogDialogboolean() {
         Dialog owner = new Dialog(new Frame());
         // test with corrent owner, modal == false
         dialog = new JDialog(owner, false);
@@ -423,7 +423,7 @@ public class JDialogTest extends SwingTestCase {
     /*
      * Class under test for void JDialog(Dialog)
      */
-    public void testJDialogDialog() {
+    public void _testJDialogDialog() {
         Dialog owner = new Dialog(new Frame());
         // test with corrent owner
         dialog = new JDialog(owner);
@@ -540,7 +540,7 @@ public class JDialogTest extends SwingTestCase {
     /*
      * Class under test for AccessibleContext getAccessibleContext()
      */
-    public void testGetAccessibleContext() {
+    public void _testGetAccessibleContext() {
         AccessibleContext c = dialog.getAccessibleContext();
         assertTrue("class is ok", c instanceof JDialog.AccessibleJDialog);
         assertTrue("AccessibleRole is ok", c.getAccessibleRole() == AccessibleRole.DIALOG);

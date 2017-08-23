@@ -147,7 +147,7 @@ public class JInternalFrame$JDesktopIconTest extends SwingTestCase {
     /*
      * Class under test for AccessibleContext getAccessibleContext()
      */
-    public void testGetAccessibleContext() {
+    public void _testGetAccessibleContext() {
         AccessibleContext c = icon.getAccessibleContext();
         assertTrue("instanceof AccessibleJDesktopIcon",
                 c instanceof JInternalFrame.JDesktopIcon.AccessibleJDesktopIcon);

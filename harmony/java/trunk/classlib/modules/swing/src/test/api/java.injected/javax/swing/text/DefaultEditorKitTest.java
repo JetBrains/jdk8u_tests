@@ -53,7 +53,7 @@ public class DefaultEditorKitTest extends EditorKitTest {
                 .getProperty(Document.StreamDescriptionProperty));
     }
 
-    public void testGetActions() {
+    public void _testGetActions() {
         Action[] actions1 = kit.getActions();
         Action[] actions2 = kit.getActions();
         String templateStr = "insert-content, delete-previous, delete-next, "

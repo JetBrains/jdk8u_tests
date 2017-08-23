@@ -448,7 +448,7 @@ public class CompositeView_VisualPositionTest extends TestCase {
         flipCalled.clear();
     }
 
-    public void testGetNextVisualPositionFrom_Right_AtBeginningMinus2()
+    public void _testGetNextVisualPositionFrom_Right_AtBeginningMinus2()
         throws BadLocationException {
 
         assertEquals(-1, view.getViewIndex(-2, Forward));
@@ -751,7 +751,7 @@ public class CompositeView_VisualPositionTest extends TestCase {
         flipCalled.clear();
     }
 
-    public void testGetNextVisualPositionFrom_Left_AtBeginningMinus2()
+    public void _testGetNextVisualPositionFrom_Left_AtBeginningMinus2()
     throws BadLocationException {
 
         try {

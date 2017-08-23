@@ -450,7 +450,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#disconnect()
      */
-    public void test_disconnect() throws Exception {
+    public void _test_disconnect() throws Exception {
         DatagramSocket ds = new DatagramSocket();
         InetAddress inetAddress = InetAddress.getLocalHost();
         ds.connect(inetAddress, 0);
@@ -482,7 +482,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getLocalAddress()
      */
-    public void test_getLocalAddress() throws Exception {
+    public void _test_getLocalAddress() throws Exception {
         InetAddress local = null;
 
         int portNumber = Support_PortManager.getNextPortForUDP();
@@ -522,7 +522,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getLocalPort()
      */
-    public void test_getLocalPort() throws SocketException {
+    public void _test_getLocalPort() throws SocketException {
         DatagramSocket ds = new DatagramSocket();
         assertTrue("Returned incorrect port", ds.getLocalPort() != 0);
     }
@@ -530,7 +530,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getPort()
      */
-    public void test_getPort() throws IOException {
+    public void _test_getPort() throws IOException {
         DatagramSocket theSocket = new DatagramSocket();
         assertEquals("Expected -1 for remote port as not connected", -1,
                 theSocket.getPort());
@@ -545,7 +545,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getReceiveBufferSize()
      */
-    public void test_getReceiveBufferSize() throws SocketException {
+    public void _test_getReceiveBufferSize() throws SocketException {
         DatagramSocket ds = new DatagramSocket();
         try {
             ds.setReceiveBufferSize(130);
@@ -560,7 +560,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getSendBufferSize()
      */
-    public void test_getSendBufferSize() {
+    public void _test_getSendBufferSize() {
         try {
             int portNumber = Support_PortManager.getNextPortForUDP();
             ds = new java.net.DatagramSocket(portNumber);
@@ -575,7 +575,7 @@ public class DatagramSocketTest extends SocketTestCase {
     /**
      * @tests java.net.DatagramSocket#getSoTimeout()
      */
-    public void test_getSoTimeout() throws SocketException {
+    public void _test_getSoTimeout() throws SocketException {
         DatagramSocket ds = new DatagramSocket();
         try {
             ds.setSoTimeout(100);

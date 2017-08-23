@@ -428,7 +428,7 @@ public class StringContentTest extends AbstractDocument_ContentTest {
         assertEquals("0111111\n", content.getString(0, content.length()));
     }
 
-    public void testPositionGC() throws BadLocationException {
+    public void _testPositionGC() throws BadLocationException {
         Vector<WeakReference<Position>> pos = new Vector<WeakReference<Position>>(10);
         ReferenceQueue<Position> rq = new ReferenceQueue<Position>();
         for (int i = 0; i < content.length(); i += 2) {

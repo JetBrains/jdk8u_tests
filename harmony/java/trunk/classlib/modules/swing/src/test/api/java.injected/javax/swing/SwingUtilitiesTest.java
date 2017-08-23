@@ -1029,7 +1029,7 @@ public class SwingUtilitiesTest extends SwingTestCase implements SwingConstants 
                 panel, 0) == component1);
     }
 
-    public void testComputeStringWidth() {
+    public void _testComputeStringWidth() {
         JFrame frame = new JFrame();
         JWindow window = new JWindow(frame);
         window.setVisible(true);
@@ -1245,7 +1245,7 @@ public class SwingUtilitiesTest extends SwingTestCase implements SwingConstants 
     }
 
     @SuppressWarnings("deprecation")
-    public void testGetDeepestComponentAt() {
+    public void _testGetDeepestComponentAt() {
         if (isHarmony()) {
             return;
         }
@@ -1465,7 +1465,7 @@ public class SwingUtilitiesTest extends SwingTestCase implements SwingConstants 
         assertFalse(event5.isConsumed());
     }
 
-    public void testUpdateComponentTreeUI() throws Exception {
+    public void _testUpdateComponentTreeUI() throws Exception {
         LookAndFeel laf = UIManager.getLookAndFeel();
         try {
             JPanel panel1 = new JPanel();

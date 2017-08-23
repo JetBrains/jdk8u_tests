@@ -224,7 +224,7 @@ public class UtilitiesTest extends SwingTestCase {
         }
     }
 
-    public void testDrawTabbedText() {
+    public void _testDrawTabbedText() {
         drawTabbedTextTest(jta);
         drawTabbedTextTest(jtf);
         //drawTabbedTextTest(jtp);
@@ -259,7 +259,7 @@ public class UtilitiesTest extends SwingTestCase {
         }
     }
 
-    public void testGetTabbedTextWidth() {
+    public void _testGetTabbedTextWidth() {
         getTabbedTextWidthTest(jta);
         getTabbedTextWidthTest(jtf);
         //getTabbedTextWidthTest(jtp);
@@ -361,7 +361,7 @@ public class UtilitiesTest extends SwingTestCase {
         }
     }
 
-    public void testGetTabbedTextOffsetRound() {
+    public void _testGetTabbedTextOffsetRound() {
         getTabbedTextOffsetRoundTest(jta);
         getTabbedTextOffsetRoundTest(jtf);
         //getTabbedTextOffsetRoundTest(jtp);
@@ -428,7 +428,7 @@ public class UtilitiesTest extends SwingTestCase {
         }
     }
 
-    public void testGetTabbedTextOffset() {
+    public void _testGetTabbedTextOffset() {
         getTabbedTextOffsetTest(jta);
         getTabbedTextOffsetTest(jtf);
         //getTabbedTextOffsetTest(jtp);

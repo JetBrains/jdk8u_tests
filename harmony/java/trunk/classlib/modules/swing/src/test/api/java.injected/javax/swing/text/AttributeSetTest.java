@@ -90,14 +90,14 @@ public class AttributeSetTest extends TestCase {
         super(name);
     }
 
-    public void testContainsAttribute() {
+    public void _testContainsAttribute() {
         assertTrue(as.containsAttribute(keys[1], values[1]));
         assertFalse(as.containsAttribute(values[1], keys[1]));
         assertFalse(as.containsAttribute(keyInResolver, valueInResolver));
         assertTrue(asWithResolver.containsAttribute(keyInResolver, valueInResolver));
     }
 
-    public void testContainsAttributes() {
+    public void _testContainsAttributes() {
         MutableAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute(keys[0], values[0]);
         attrs.addAttribute(keys[2], values[2]);
@@ -108,7 +108,7 @@ public class AttributeSetTest extends TestCase {
         assertTrue(asWithResolver.containsAttributes(resolverSet));
     }
 
-    public void testCopyAttributes() {
+    public void _testCopyAttributes() {
         AttributeSet copy = as.copyAttributes();
         //copyAttributes returns an attribute set
         //that is guaranteed not to change over time
@@ -119,7 +119,7 @@ public class AttributeSetTest extends TestCase {
         assertTrue(as.isEqual(copy));
     }
 
-    public void testGetAttribute() {
+    public void _testGetAttribute() {
         assertNull(as.getAttribute("key"));
         assertEquals(values[1], as.getAttribute(keys[1]));
         MutableAttributeSet parent = new SimpleAttributeSet();
@@ -130,12 +130,12 @@ public class AttributeSetTest extends TestCase {
         assertEquals(valueInResolver, asWithResolver.getAttribute(keyInResolver));
     }
 
-    public void testGetAttributeCount() {
+    public void _testGetAttributeCount() {
         assertEquals(keys.length, as.getAttributeCount());
         assertEquals(keys.length + 1, asWithResolver.getAttributeCount());
     }
 
-    public void testGetAttributeNames() {
+    public void _testGetAttributeNames() {
         int count = 0;
         for (Enumeration<?> e = as.getAttributeNames(); e.hasMoreElements();) {
             count++;
@@ -150,18 +150,18 @@ public class AttributeSetTest extends TestCase {
         assertEquals(asWithResolver.getAttributeCount(), count);
     }
 
-    public void testGetResolveParent() {
+    public void _testGetResolveParent() {
         assertNull(as.getResolveParent());
         assertNotNull(asWithResolver.getResolveParent());
     }
 
-    public void testIsDefined() {
+    public void _testIsDefined() {
         assertTrue(as.isDefined(keys[1]));
         assertFalse(as.isDefined(values[1]));
         assertFalse(asWithResolver.isDefined(keyInResolver));
     }
 
-    public void testIsEqual() {
+    public void _testIsEqual() {
         AttributeSet copy = as.copyAttributes();
         assertTrue(as.isEqual(copy));
         assertFalse(as.isEqual(SimpleAttributeSet.EMPTY));
@@ -184,11 +184,11 @@ public class AttributeSetTest extends TestCase {
         }
     }
 
-    public void testResolveAttribute() {
+    public void _testResolveAttribute() {
         assertSame(AttributeSet.ResolveAttribute, StyleConstants.ResolveAttribute);
     }
 
-    public void testNameAttribute() {
+    public void _testNameAttribute() {
         assertSame(AttributeSet.NameAttribute, StyleConstants.NameAttribute);
     }
 }

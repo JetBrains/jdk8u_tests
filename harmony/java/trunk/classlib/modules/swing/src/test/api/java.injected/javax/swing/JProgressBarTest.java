@@ -53,7 +53,7 @@ public class JProgressBarTest extends BasicSwingTestCase {
         controller = null;
     }
 
-    public void testJProgressBar() {
+    public void _testJProgressBar() {
         progressBar = new JProgressBar();
         assertEquals(SwingConstants.HORIZONTAL, progressBar.getOrientation());
         assertNull(progressBar.getString());

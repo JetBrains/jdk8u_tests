@@ -252,7 +252,7 @@ public class JComponent_MultithreadedTest extends BasicSwingTestCase {
      * Class under test for boolean requestFocusInWindow()
      */
     @SuppressWarnings("deprecation")
-    public void testRequestFocusInWindow() throws Exception {
+    public void _testRequestFocusInWindow() throws Exception {
         MyInputVerifier verifier = new MyInputVerifier();
         MyInputVerifier verifier2 = new MyInputVerifier(false);
         JComponent panel1 = new JPanel();
@@ -336,7 +336,7 @@ public class JComponent_MultithreadedTest extends BasicSwingTestCase {
      * Class under test for boolean requestFocusInWindow(boolean)
      */
     @SuppressWarnings("deprecation")
-    public void testRequestFocusInWindowboolean() throws Exception {
+    public void _testRequestFocusInWindowboolean() throws Exception {
         MyInputVerifier verifier = new MyInputVerifier();
         MyInputVerifier verifier2 = new MyInputVerifier(false);
         JComponent panel1 = new JPanel();
@@ -467,7 +467,7 @@ public class JComponent_MultithreadedTest extends BasicSwingTestCase {
         assertFalse("focus's gained ", window.isFocusOwner());
     }
 
-    public void testUpdateUI() throws Exception {
+    public void _testUpdateUI() throws Exception {
         LookAndFeel laf = UIManager.getLookAndFeel();
         try {
             JButton button = new JButton();

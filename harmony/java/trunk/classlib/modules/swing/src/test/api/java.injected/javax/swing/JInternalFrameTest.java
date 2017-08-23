@@ -279,7 +279,7 @@ public class JInternalFrameTest extends SwingTestCase {
     /*
      * Class under test for void JInternalFrame()
      */
-    public void testJInternalFrame() {
+    public void _testJInternalFrame() {
         frame = new JInternalFrame();
         checkJInternalFrameCorrectness("", false, false, false, false);
     }
@@ -320,7 +320,7 @@ public class JInternalFrameTest extends SwingTestCase {
     /*
      * Class under test for void pack()
      */
-    public void testPack() {
+    public void _testPack() {
         final JComponent comp1 = new JPanel();
         final JComponent comp2 = new JPanel();
         comp2.setPreferredSize(new Dimension(60, 20));
@@ -776,7 +776,7 @@ public class JInternalFrameTest extends SwingTestCase {
      *     void setSelected(boolean)
      *     boolean isSelected()
      */
-    public void testSetIsSelected() {
+    public void _testSetIsSelected() {
         createAndShowRootFrame();
         rootFrame.getContentPane().add(new JInternalFrame()); // to make 'frame' not selectable by default
         //rootFrame.getContentPane().add(frame);
@@ -887,7 +887,7 @@ public class JInternalFrameTest extends SwingTestCase {
     /*
      * Class under test for void JInternalFrame(String, boolean, boolean, boolean, boolean)
      */
-    public void testJInternalFrameStringbooleanbooleanbooleanboolean() {
+    public void _testJInternalFrameStringbooleanbooleanbooleanboolean() {
         final String title = "Test title";
         frame = new JInternalFrame(title, true, true, true, true);
         checkJInternalFrameCorrectness(title, true, true, true, true);
@@ -900,7 +900,7 @@ public class JInternalFrameTest extends SwingTestCase {
     /*
      * Class under test for void JInternalFrame(String, boolean, boolean, boolean)
      */
-    public void testJInternalFrameStringbooleanbooleanboolean() {
+    public void _testJInternalFrameStringbooleanbooleanboolean() {
         final String title = "Test title";
         frame = new JInternalFrame(title, true, true, true);
         checkJInternalFrameCorrectness(title, true, true, true, false);
@@ -913,7 +913,7 @@ public class JInternalFrameTest extends SwingTestCase {
     /*
      * Class under test for void JInternalFrame(String, boolean, boolean)
      */
-    public void testJInternalFrameStringbooleanboolean() {
+    public void _testJInternalFrameStringbooleanboolean() {
         final String title = "Test title";
         frame = new JInternalFrame(title, true, true);
         checkJInternalFrameCorrectness(title, true, true, false, false);
@@ -926,7 +926,7 @@ public class JInternalFrameTest extends SwingTestCase {
     /*
      * Class under test for void JInternalFrame(String, boolean)
      */
-    public void testJInternalFrameStringboolean() {
+    public void _testJInternalFrameStringboolean() {
         final String title = "Test title";
         frame = new JInternalFrame(title, false);
         checkJInternalFrameCorrectness(title, false, false, false, false);
@@ -937,7 +937,7 @@ public class JInternalFrameTest extends SwingTestCase {
     /*
      * Class under test for void JInternalFrame(String)
      */
-    public void testJInternalFrameString() {
+    public void _testJInternalFrameString() {
         final String title = "Test title";
         frame = new JInternalFrame(title);
         checkJInternalFrameCorrectness(title, false, false, false, false);
@@ -1021,7 +1021,7 @@ public class JInternalFrameTest extends SwingTestCase {
      *     void setRootPane(JRootPane)
      *     JRootPane getRootPane()
      */
-    public void testSetGetRootPane() {
+    public void _testSetGetRootPane() {
         TestInternalFrame frame = new TestInternalFrame();
         assertTrue("setRootPane() is called from the constructor",
                 TestInternalFrame.setRootPaneCalled);
@@ -1160,7 +1160,7 @@ public class JInternalFrameTest extends SwingTestCase {
      *     void setFrameIcon(Icon)
      *     Icon getFrameIcon()
      */
-    public void testSetGetFrameIcon() {
+    public void _testSetGetFrameIcon() {
         Icon icon = new ImageIcon();
         assertTrue("frameIcon is not null by default", frame.getFrameIcon() != null);
         frame.setFrameIcon(icon);

@@ -45,7 +45,7 @@ public class ScrollPaneLayoutTest extends SwingTestCase {
         label = null;
     }
 
-    public void testGetPreferredLayoutSize() throws Exception {
+    public void _testGetPreferredLayoutSize() throws Exception {
         JViewport colHead = new JViewport();
         colHead.setPreferredSize(new Dimension(100, 30));
         layout.addLayoutComponent(COLUMN_HEADER, colHead);

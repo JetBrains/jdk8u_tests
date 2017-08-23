@@ -111,7 +111,7 @@ public class JMenuTest extends JMenuItemTest {
     /*
      * Test method for 'javax.swing.JMenu.JMenu()'
      */
-    public void testJMenu() {
+    public void _testJMenu() {
         assertTrue("default buttonModel ", button.getModel() instanceof DefaultButtonModel);
         assertNull("icon ", button.getIcon());
         assertEquals("text ", "", button.getText());
@@ -135,7 +135,7 @@ public class JMenuTest extends JMenuItemTest {
     /*
      * Test method for 'javax.swing.JMenu.JMenu(String)'
      */
-    public void testJMenuString() {
+    public void _testJMenuString() {
         String text = "texttext";
         button = menuItem = menu = new JMenu(text);
         assertTrue("default buttonModel ", button.getModel() instanceof DefaultButtonModel);
@@ -163,7 +163,7 @@ public class JMenuTest extends JMenuItemTest {
     /*
      * Test method for 'javax.swing.JMenu.JMenu(String, boolean)'
      */
-    public void testJMenuStringBoolean() {
+    public void _testJMenuStringBoolean() {
         String text = "texttext";
         button = menuItem = menu = new JMenu(text, true);
         assertTrue("default buttonModel ", button.getModel() instanceof DefaultButtonModel);
@@ -191,7 +191,7 @@ public class JMenuTest extends JMenuItemTest {
     /*
      * Test method for 'javax.swing.JMenu.JMenu(Action)'
      */
-    public void testJMenuAction() {
+    public void _testJMenuAction() {
         final String command = "dnammoc";
         class MyAction extends AbstractAction {
             public MyAction(final String text, final Icon icon) {
@@ -671,7 +671,7 @@ public class JMenuTest extends JMenuItemTest {
     /*
      * Test method for 'javax.swing.JMenu.createActionChangeListener(JMenuItem)'
      */
-    public void testCreateActionChangeListener() {
+    public void _testCreateActionChangeListener() {
         String text1 = "text";
         String text2 = "texttext";
         String text3 = "texttexttext";
@@ -1160,7 +1160,7 @@ public class JMenuTest extends JMenuItemTest {
     /*
      * Test method for 'javax.swing.JMenu.setMenuLocation(int, int)'
      */
-    public void testSetMenuLocation() {
+    public void _testSetMenuLocation() {
         int x = 100;
         int y = 200;
         menu.getPopupMenu().setVisible(true);
@@ -1172,7 +1172,7 @@ public class JMenuTest extends JMenuItemTest {
     /*
      * Test method for 'javax.swing.JMenu.setPopupMenuVisible(boolean)'
      */
-    public void testSetIsPopupMenuVisible() throws InterruptedException {
+    public void _testSetIsPopupMenuVisible() throws InterruptedException {
         menu.setPopupMenuVisible(true);
         assertFalse(menu.isPopupMenuVisible());
         JWindow frame = new JWindow();

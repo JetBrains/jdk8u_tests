@@ -166,7 +166,7 @@ public class JLabelTest extends BasicSwingTestCase {
         assertTrue(listener.isPropertyChanged("disabledIcon"));
     }
 
-    public void testGetSetDisplayedMnemonic() throws Exception {
+    public void _testGetSetDisplayedMnemonic() throws Exception {
         listener.reset();
         label.setDisplayedMnemonic('a');
         assertEquals(KeyEvent.VK_A, label.getDisplayedMnemonic());
@@ -323,7 +323,7 @@ public class JLabelTest extends BasicSwingTestCase {
         assertFalse(label.imageUpdate(((ImageIcon) createTestIcon()).getImage(), 0, 0, 0, 0, 0));
     }
 
-    public void testMnemonicProcessing() throws Exception {
+    public void _testMnemonicProcessing() throws Exception {
         final JFrame frame = new JFrame();
         final JLabel label = new JLabel("label");
         final JButton button = new JButton("button");

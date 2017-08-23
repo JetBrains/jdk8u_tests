@@ -199,7 +199,7 @@ public class JTextPaneTest extends SwingTestCase {
         assertNull(textPane.getLogicalStyle());
     }
 
-    public void testSetLogicalStyle() throws BadLocationException {
+    public void _testSetLogicalStyle() throws BadLocationException {
         // Set text
         attrs = textPane.getInputAttributes();
         attrs.removeAttributes(attrs.getAttributeNames());

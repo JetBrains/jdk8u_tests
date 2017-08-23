@@ -81,7 +81,7 @@ public class JDesktopPaneTest extends SwingTestCase {
     /*
      * Class under test for boolean isOpaque()
      */
-    public void testIsOpaque() {
+    public void _testIsOpaque() {
         assertTrue("always returns true", desktop.isOpaque());
         desktop.setOpaque(false);
         assertTrue("always returns true", desktop.isOpaque());

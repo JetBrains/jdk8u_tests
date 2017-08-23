@@ -36,7 +36,7 @@ public class JTableRTest extends BasicSwingTestCase {
         table = null;
     }
 
-    public void testSelectAllClearSelection() throws Exception {
+    public void _testSelectAllClearSelection() throws Exception {
         table = new JTable(3, 4);
         assertEquals(0, getSelectedIndices(table.getSelectionModel()).length);
         assertEquals(0, getSelectedIndices(table.getColumnModel().getSelectionModel()).length);

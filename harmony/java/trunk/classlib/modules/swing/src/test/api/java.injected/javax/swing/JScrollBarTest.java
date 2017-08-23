@@ -62,7 +62,7 @@ public class JScrollBarTest extends SwingTestCase {
         }
     }
 
-    public void testGetAccessibleContext() throws Exception {
+    public void _testGetAccessibleContext() throws Exception {
         JScrollBar.AccessibleJScrollBar accJScrollBar = (JScrollBar.AccessibleJScrollBar) bar
                 .getAccessibleContext();
         assertNotNull(accJScrollBar);

@@ -43,7 +43,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
         ch = null;
     }
 
-    public void testJColorChooser() throws Exception {
+    public void _testJColorChooser() throws Exception {
         assertSame(DefaultColorSelectionModel.class, ch.getSelectionModel().getClass());
         assertNull(ch.getAccessibleContext());
         assertEquals(Color.WHITE, ch.getColor());
@@ -56,7 +56,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
         assertSame(BorderLayout.class, ch.getLayout().getClass());
     }
 
-    public void testGetAccessibleContext() throws Exception {
+    public void _testGetAccessibleContext() throws Exception {
         assertNull(ch.getAccessibleContext());
         assertNotNull(ch.getAccessibleContext());
         assertNotNull(ch.accessibleContext);
@@ -65,7 +65,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
         assertSame(JColorChooser.AccessibleJColorChooser.class, ch.accessibleContext.getClass());
     }
 
-    public void testSetGetSelectionModel() throws Exception {
+    public void _testSetGetSelectionModel() throws Exception {
         assertNotNull(ch.getSelectionModel());
         ColorSelectionModel oldModel = ch.getSelectionModel();
         ColorSelectionModel model = new DefaultColorSelectionModel();
@@ -110,7 +110,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
         assertTrue(ch.getDragEnabled());
     }
 
-    public void testSetGetPreviewPanel() throws Exception {
+    public void _testSetGetPreviewPanel() throws Exception {
         ch.addPropertyChangeListener(propertyChangeController);
         assertNotNull(ch.getPreviewPanel());
         JButton button = new JButton();
@@ -127,7 +127,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
                 .getPreviewPanel().getClass());
     }
 
-    public void testSetGetChooserPanels() throws Exception {
+    public void _testSetGetChooserPanels() throws Exception {
         AbstractColorChooserPanel[] oldChooserPanels = ch.getChooserPanels();
         assertEquals(3, oldChooserPanels.length);
         AbstractColorChooserPanel[] newPanels = new AbstractColorChooserPanel[] {};
@@ -141,7 +141,7 @@ public class JColorChooserTest extends BasicSwingTestCase {
         assertEquals(0, ch.getChooserPanels().length);
     }
 
-    public void testAddRemoveChooserPanel() throws Exception {
+    public void _testAddRemoveChooserPanel() throws Exception {
         AbstractColorChooserPanel[] oldChooserPanels = ch.getChooserPanels();
         assertEquals(3, oldChooserPanels.length);
         AbstractColorChooserPanel panel = oldChooserPanels[0];

@@ -71,7 +71,7 @@ public class View_VisualPosition_PartTest extends TestCase {
         };
     }
 
-    public void testGetNextVisualPositionFrom_RightAtBeginning()
+    public void _testGetNextVisualPositionFrom_RightAtBeginning()
         throws BadLocationException {
 
         assertNextPosition(startOffset, -1, View.EAST, view, alloc);
@@ -109,7 +109,7 @@ public class View_VisualPosition_PartTest extends TestCase {
         };
     }
 
-    public void testGetNextVisualPositionFrom_LeftAtBeginning()
+    public void _testGetNextVisualPositionFrom_LeftAtBeginning()
         throws BadLocationException {
 
         assertNextPosition(endOffset - 1, -1, View.WEST, view, alloc);

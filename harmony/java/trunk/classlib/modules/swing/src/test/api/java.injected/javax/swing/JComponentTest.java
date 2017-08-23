@@ -966,7 +966,7 @@ public class JComponentTest extends SwingTestCase {
     /*
      * Class under test for EventListener[] getListeners(Class)
      */
-    public void testGetListenersClass1() {
+    public void _testGetListenersClass1() {
         PropertyChangeController changeListener1 = new PropertyChangeController();
         PropertyChangeController changeListener2 = new PropertyChangeController();
         class ConcreteAncestorListener implements AncestorListener {

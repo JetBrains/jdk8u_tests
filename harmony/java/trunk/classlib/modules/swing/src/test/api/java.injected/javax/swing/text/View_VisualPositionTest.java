@@ -53,7 +53,7 @@ public class View_VisualPositionTest extends TestCase {
         };
     }
 
-    public void testGetNextVisualPositionFrom_RightAtBeginning()
+    public void _testGetNextVisualPositionFrom_RightAtBeginning()
         throws BadLocationException {
 
         assertNextPosition(0, -1, View.EAST, view, null);
@@ -84,7 +84,7 @@ public class View_VisualPositionTest extends TestCase {
         };
     }
 
-    public void testGetNextVisualPositionFrom_LeftAtBeginning()
+    public void _testGetNextVisualPositionFrom_LeftAtBeginning()
         throws BadLocationException {
 
         assertNextPosition(0, 1, View.WEST, view, null);

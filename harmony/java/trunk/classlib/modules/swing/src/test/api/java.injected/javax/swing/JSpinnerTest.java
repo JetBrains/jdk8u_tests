@@ -314,7 +314,7 @@ public class JSpinnerTest extends BasicSwingTestCase {
         });
     }
 
-    public void testDateEditor_DateEditor() {
+    public void _testDateEditor_DateEditor() {
         spinner.setModel(new SpinnerDateModel());
         DateEditor dateEditor = (DateEditor) spinner.getEditor();
         spinner.setEditor(dateEditor);

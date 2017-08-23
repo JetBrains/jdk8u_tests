@@ -759,7 +759,7 @@ public class JTableTest extends BasicSwingTestCase {
         assertFalse(table.isCellSelected(4, 2));
     }
 
-    public void testChangeSelection() throws Exception {
+    public void _testChangeSelection() throws Exception {
         table = new JTable(3, 4);
         table.setCellSelectionEnabled(true);
         table.changeSelection(1, 1, true, false);
@@ -924,7 +924,7 @@ public class JTableTest extends BasicSwingTestCase {
         assertEquals(10, table.getColumnCount());
     }
 
-    public void testGetColumnName() throws Exception {
+    public void _testGetColumnName() throws Exception {
         table = new JTable(3, 4);
         assertEquals("A", table.getColumnName(0));
         assertEquals("B", table.getColumnName(1));

@@ -129,7 +129,7 @@ public class JTextArea_MultithreadedTest extends TestCase {
         return s1.substring(0, index) + s2 + s1.substring(index, s1.length());
     }
 
-    public void testInsert() throws Exception {
+    public void _testInsert() throws Exception {
         jta.insert(str1, 5);
         tmp = insertString(content, str1, 5);
         assertEquals(tmp, jta.getText());

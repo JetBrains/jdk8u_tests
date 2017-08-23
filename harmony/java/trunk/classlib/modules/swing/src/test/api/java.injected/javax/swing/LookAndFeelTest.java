@@ -111,7 +111,7 @@ public class LookAndFeelTest extends SwingTestCase {
         assertEquals(DefaultEditorKit.beginWordAction, b[1].actionName);
     }
 
-    public void testMakeKeyBindingsFromErrorArray() {
+    public void _testMakeKeyBindingsFromErrorArray() {
         Object[] binds = { "UP", DefaultEditorKit.beepAction, "DOWN" };
         try {
             LookAndFeel.makeKeyBindings(binds);

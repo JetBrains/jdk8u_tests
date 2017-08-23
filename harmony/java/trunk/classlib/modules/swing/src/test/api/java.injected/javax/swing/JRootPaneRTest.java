@@ -37,7 +37,7 @@ public class JRootPaneRTest extends SwingTestCase {
         }
     }
 
-    public void testDefaultButton() throws PropertyVetoException {
+    public void _testDefaultButton() throws PropertyVetoException {
         JInternalFrame iframe = new JInternalFrame("", true, true, true, true);
         JDesktopPane desktop = new JDesktopPane();
         desktop.add(iframe);

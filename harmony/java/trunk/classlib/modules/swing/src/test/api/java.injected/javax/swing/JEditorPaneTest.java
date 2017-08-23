@@ -731,7 +731,7 @@ public class JEditorPaneTest extends SwingTestCase {
         assertEquals(pane.getEditorKit().getContentType(), expected);
     }
 
-    public void testGetContentType() throws IOException {
+    public void _testGetContentType() throws IOException {
         // Regression for HARMONY-4696
         checkContentType("txt", "text/plain");
         checkContentType("html", "text/html");

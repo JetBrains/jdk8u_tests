@@ -136,7 +136,7 @@ public class JMenuBarTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.JMenuBar.getMenu(int)'
      */
-    public void testGetMenu() {
+    public void _testGetMenu() {
         JMenu menu1 = new JMenu();
         JMenu menu2 = new JMenu();
         menuBar.add(menu1);

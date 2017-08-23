@@ -244,7 +244,7 @@ public class StyleContext_NamedStyleTest extends StyleTest {
         assertTrue(ns.isEqual(read));
     }
 
-    public void testListenerList() {
+    public void _testListenerList() {
         //assertNotNull(ns.listenerList);
         assertTrue(ns.getListeners(EventListener.class).length == 0);
         ns.addChangeListener(this);

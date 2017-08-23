@@ -49,7 +49,7 @@ public class JFormattedTextField_CommitActionRTest extends TestCase {
         super.tearDown();
     }
 
-    public void testActionPerformed() throws Exception {
+    public void _testActionPerformed() throws Exception {
         c = new JPanel();
         Container parent = new Panel();
         textField = new JFormattedTextField("   ");

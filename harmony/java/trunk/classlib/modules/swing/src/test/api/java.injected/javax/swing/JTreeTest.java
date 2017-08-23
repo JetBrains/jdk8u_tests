@@ -384,7 +384,7 @@ public class JTreeTest extends SwingTestCase {
         assertNotNull(tree.getAccessibleContext());
     }
 
-    public void testGetToolTipTextMouseEvent() {
+    public void _testGetToolTipTextMouseEvent() {
         tree.setToolTipText("tip");
         tree.setCellRenderer(new DefaultTreeCellRenderer() {
             @Override
@@ -1361,7 +1361,7 @@ public class JTreeTest extends SwingTestCase {
         assertEquals(0, tree.getRowCount());
     }
 
-    public void testGetSetRowHeight() {
+    public void _testGetSetRowHeight() {
         assertEquals(0, tree.getRowHeight());
         tree.setRowHeight(20);
         assertEquals(20, tree.getRowHeight());
@@ -1372,7 +1372,7 @@ public class JTreeTest extends SwingTestCase {
         assertTrue(propertyChangeController.isChanged("rowHeight"));
     }
 
-    public void testGetSetScrollsOnExpand() {
+    public void _testGetSetScrollsOnExpand() {
         assertTrue(tree.getScrollsOnExpand());
         tree.setScrollsOnExpand(false);
         assertFalse(tree.getScrollsOnExpand());
@@ -1487,7 +1487,7 @@ public class JTreeTest extends SwingTestCase {
         assertFalse(tree.isExpanded(2));
     }
 
-    public void testIsFixedRowHeight() {
+    public void _testIsFixedRowHeight() {
         assertFalse(tree.isFixedRowHeight());
         tree.setRowHeight(10);
         assertTrue(tree.isFixedRowHeight());
@@ -1834,7 +1834,7 @@ public class JTreeTest extends SwingTestCase {
         assertNull(tree.getModel());
     }
 
-    public void testSetSelectionModel() {
+    public void _testSetSelectionModel() {
         assertTrue(tree.getSelectionModel() instanceof DefaultTreeSelectionModel);
         RowMapper rowMapper1 = new RowMapper() {
             public int[] getRowsForPaths(TreePath[] path) {
@@ -1897,7 +1897,7 @@ public class JTreeTest extends SwingTestCase {
         assertEquals(1, tree.getSelectionRows()[0]);
     }
 
-    public void testGetSetSelectionRow() {
+    public void _testGetSetSelectionRow() {
         assertNull(tree.getSelectionRows());
         tree.setSelectionRow(2);
         assertEquals(1, tree.getSelectionRows().length);
@@ -1913,7 +1913,7 @@ public class JTreeTest extends SwingTestCase {
         assertEquals(0, tree.getSelectionRows()[0]);
     }
 
-    public void testGetSetSelectionRows() {
+    public void _testGetSetSelectionRows() {
         assertNull(tree.getSelectionRows());
         tree.setSelectionRows(null);
         assertNull(tree.getSelectionRows());
@@ -2011,7 +2011,7 @@ public class JTreeTest extends SwingTestCase {
         assertNull(tree.getEditingPath());
     }
 
-    public void testGetPreferredScrollableViewportSize() {
+    public void _testGetPreferredScrollableViewportSize() {
         tree.setPreferredSize(new Dimension(100, 200));
         tree.setVisibleRowCount(0);
         assertEquals(new Dimension(100, 0), tree.getPreferredScrollableViewportSize());
@@ -2050,7 +2050,7 @@ public class JTreeTest extends SwingTestCase {
                 SwingConstants.VERTICAL, -1));
     }
 
-    public void testGetScrollableUnitIncrement() {
+    public void _testGetScrollableUnitIncrement() {
         assertEquals(4, tree.getScrollableUnitIncrement(new Rectangle(10, 20, 30, 40),
                 SwingConstants.HORIZONTAL, 1));
         assertEquals(4, tree.getScrollableUnitIncrement(new Rectangle(100, 200, 300, 400),

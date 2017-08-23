@@ -52,7 +52,7 @@ public class DefaultFocusManagerTest extends TestCase {
         focusManager = null;
     }
 
-    public void testGetComponentBefore() throws Exception {
+    public void _testGetComponentBefore() throws Exception {
         assertEquals(components.get(0), focusManager
                 .getComponentBefore(null, components.get(1)));
         assertEquals(components.get(1), focusManager
@@ -63,23 +63,23 @@ public class DefaultFocusManagerTest extends TestCase {
                 .getComponentBefore(null, components.get(0)));
     }
 
-    public void testGetComponentAfter() throws Exception {
+    public void _testGetComponentAfter() throws Exception {
         assertEquals(components.get(0), focusManager.getComponentAfter(null, components.get(3)));
         assertEquals(components.get(1), focusManager.getComponentAfter(null, components.get(0)));
         assertEquals(components.get(2), focusManager.getComponentAfter(null, components.get(1)));
         assertEquals(components.get(3), focusManager.getComponentAfter(null, components.get(2)));
     }
 
-    public void testGetLastComponent() throws Exception {
+    public void _testGetLastComponent() throws Exception {
         assertEquals(components.get(3), focusManager.getLastComponent(null));
     }
 
-    public void testGetFirstComponent() throws Exception {
+    public void _testGetFirstComponent() throws Exception {
         assertEquals(components.get(0), focusManager.getFirstComponent(null));
     }
 
     //TODO: Is not clear how this method should work
-    public void testCompareTabOrder() throws Exception {
+    public void _testCompareTabOrder() throws Exception {
         assertFalse(focusManager.compareTabOrder(components.get(1), components.get(2)));
     }
 

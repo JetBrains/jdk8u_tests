@@ -124,7 +124,7 @@ public class SpringLayoutTest extends SwingTestCase {
         assertEquals(0.5f, layout.getLayoutAlignmentY(container), 0.01);
     }
 
-    public void testGetConstraints() {
+    public void _testGetConstraints() {
         Constraints constraints = layout.getConstraints(null);
         assertNotNull(constraints);
         layout.addLayoutComponent(component, "not_constraints");
@@ -197,7 +197,7 @@ public class SpringLayoutTest extends SwingTestCase {
         }
     }
 
-    public void testPutConstraint() throws Exception {
+    public void _testPutConstraint() throws Exception {
         JFrame frame = new JFrame("testPutConstraint");
         container.setLayout(layout);
         layout.putConstraint(SpringLayout.SOUTH, button, 5, SpringLayout.NORTH, container);
@@ -337,7 +337,7 @@ public class SpringLayoutTest extends SwingTestCase {
         assertEquals(0, label.getX());
     }
 
-    public void testInvalidateLayout() throws Exception {
+    public void _testInvalidateLayout() throws Exception {
         JFrame frame = new JFrame("testMinimumLayoutSize");
         frame.setContentPane(container);
         layout = new SpringLayout();
@@ -785,7 +785,7 @@ public class SpringLayoutTest extends SwingTestCase {
         SpringTest.assertSizes(11, 12, 13, 12, constraints.getHeight());
     }
 
-    public void testConstraints_SetConstraint() throws Exception {
+    public void _testConstraints_SetConstraint() throws Exception {
         Constraints constraints;
         layout.getConstraints(container).setConstraint(SpringLayout.WEST,
                                                       Spring.constant(5));

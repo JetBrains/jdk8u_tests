@@ -181,7 +181,7 @@ public class ElementIteratorTest extends BasicSwingTestCase {
     /*
      * Test method for 'javax.swing.text.ElementIterator.depth()'
      */
-    public void testDepth() throws BadLocationException {
+    public void _testDepth() throws BadLocationException {
         assertEquals(0, iterator.depth());
         iterator.current();
         assertEquals(1, iterator.depth());

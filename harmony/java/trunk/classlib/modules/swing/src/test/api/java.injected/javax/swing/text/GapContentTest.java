@@ -124,7 +124,7 @@ public class GapContentTest extends AbstractDocument_ContentTest {
         assertEquals(1, v.size());
     }
 
-    public void testPositionGC() throws BadLocationException {
+    public void _testPositionGC() throws BadLocationException {
         Vector<WeakReference<Position>> pos = new Vector<WeakReference<Position>>(10);
         ReferenceQueue<Position> rq = new ReferenceQueue<Position>();
         for (int i = 0; i < content.length(); i += 2) {

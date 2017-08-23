@@ -241,7 +241,7 @@ public class PlainViewI18N_ModelViewTest extends SwingTestCase {
                 .getHeight());
     }
 
-    public void testViewToModel() throws Exception {
+    public void _testViewToModel() throws Exception {
         assertEquals(2, view.viewToModel(rtlWidth, 0, shape, bias));
         assertSame(Bias.Forward, bias[0]);
         bias[0] = null;
@@ -256,7 +256,7 @@ public class PlainViewI18N_ModelViewTest extends SwingTestCase {
         bias[0] = null;
     }
 
-    public void testViewToModelRTL() throws Exception {
+    public void _testViewToModelRTL() throws Exception {
         View rtl;
         if (BasicSwingTestCase.isHarmony()) {
             rtl = view.getView(0).getView(0);

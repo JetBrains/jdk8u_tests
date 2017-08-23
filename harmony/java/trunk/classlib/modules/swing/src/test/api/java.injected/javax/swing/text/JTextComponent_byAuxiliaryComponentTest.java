@@ -113,7 +113,7 @@ public class JTextComponent_byAuxiliaryComponentTest extends SwingTestCase {
         assertEquals(ac, jtComp.getAccessibleContext());
     }
 
-    public void testGetActions() {
+    public void _testGetActions() {
         Action actions[] = new DefaultEditorKit().getActions();
         Action actions1[] = jtComp.getActions();
         Action actions2[] = new DefaultEditorKit().getActions();

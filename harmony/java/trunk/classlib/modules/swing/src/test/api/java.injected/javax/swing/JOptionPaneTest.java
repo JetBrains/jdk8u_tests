@@ -416,7 +416,7 @@ public class JOptionPaneTest extends SwingTestCase {
         //TODO Implement showOptionDialog().
     }
 
-    public void testCreateInternalFrame() {
+    public void _testCreateInternalFrame() {
         JDesktopPane deskTop = new JDesktopPane();
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();

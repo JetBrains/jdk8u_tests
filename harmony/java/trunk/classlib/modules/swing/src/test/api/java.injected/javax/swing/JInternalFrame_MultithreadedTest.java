@@ -127,7 +127,7 @@ public class JInternalFrame_MultithreadedTest extends BasicSwingTestCase {
     /*
      * Class under test for Component getMostRecentFocusOwner()
      */
-    public void testGetMostRecentFocusOwner() throws PropertyVetoException,
+    public void _testGetMostRecentFocusOwner() throws PropertyVetoException,
             InterruptedException, InvocationTargetException {
         final Component initial = new JPanel(); // initial focus component
         final Component def = new JPanel(); // default focus component

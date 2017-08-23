@@ -357,7 +357,7 @@ public class StyledEditorKitTest extends SwingTestCase {
     /**
      * Regression test for HARMONY-2594
      * */
-    public void testCreateInputAttributes2() {
+    public void _testCreateInputAttributes2() {
         MyStyledEditorKit msek = new MyStyledEditorKit();
         try {
             msek.createInputAttributes(new SimpleElement(""), null);

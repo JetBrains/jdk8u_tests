@@ -101,7 +101,7 @@ public class JTextComponent_MultithreadedTest extends TestCase {
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
     }
 
-    public void testModelToView() throws Exception {
+    public void _testModelToView() throws Exception {
         Runnable test = new Runnable() {
             public void run() {
                 jtc.setText(sLTR + sRTL + sLTR + sRTL + sLTR);

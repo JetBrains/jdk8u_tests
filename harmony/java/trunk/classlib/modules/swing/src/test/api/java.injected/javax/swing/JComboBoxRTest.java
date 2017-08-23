@@ -39,7 +39,7 @@ public class JComboBoxRTest extends TestCase {
         assertEquals(1, cb.getItemCount());
     }
 
-    public void testKeyboardActionsEnabled() throws Exception {
+    public void _testKeyboardActionsEnabled() throws Exception {
         JComboBox cb = new JComboBox(new String[] { "1", "2", "4" });
         checkActionState(cb, "hidePopup", false);
         checkActionState(cb, "enterPressed", true);

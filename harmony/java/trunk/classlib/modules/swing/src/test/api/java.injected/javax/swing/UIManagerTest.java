@@ -247,7 +247,7 @@ public class UIManagerTest extends SwingTestCase {
         UIManager.setInstalledLookAndFeels(previousValues);
     }
 
-    public void testGetInstalledLFs() throws Exception {
+    public void _testGetInstalledLFs() throws Exception {
         LookAndFeelInfo[] installedLookAndFeels = UIManager.getInstalledLookAndFeels();
         if (isHarmony()) {
             assertEquals(1, installedLookAndFeels.length);
@@ -263,7 +263,7 @@ public class UIManagerTest extends SwingTestCase {
         assertTrue(foundMetalLF);
     }
     
-    public void testAuxillaryLafs() {
+    public void _testAuxillaryLafs() {
 
         MetalLookAndFeel auxLaf1 = new MetalLookAndFeel();
         MetalLookAndFeel auxLaf2 = new MetalLookAndFeel();

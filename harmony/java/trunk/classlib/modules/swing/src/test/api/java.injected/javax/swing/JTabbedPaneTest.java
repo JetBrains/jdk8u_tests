@@ -444,7 +444,7 @@ public class JTabbedPaneTest extends SwingTestCase {
     /*
      * Class under test for Rectangle getBoundsAt(int)
      */
-    public void testGetBoundsAt() {
+    public void _testGetBoundsAt() {
         assertEquals(tabbed.getBoundsAt(1), tabbed.getUI().getTabBounds(tabbed, 1));
         tabbed.setUI(null);
         assertNull(tabbed.getBoundsAt(1));
@@ -509,7 +509,7 @@ public class JTabbedPaneTest extends SwingTestCase {
     /*
      * Class under test for String getToolTipText(MouseEvent)
      */
-    public void testGetToolTipTextMouseEvent() {
+    public void _testGetToolTipTextMouseEvent() {
         Rectangle bounds = tabbed.getBoundsAt(1);
         tabbed.setToolTipTextAt(1, "tooltip");
         MouseEvent e = new MouseEvent(tabbed, MouseEvent.MOUSE_MOVED, 0L, 0, bounds.x + 1,
@@ -557,7 +557,7 @@ public class JTabbedPaneTest extends SwingTestCase {
         assertEquals("no icon", -1, tabbed.indexOfTab("otherTitle"));
     }
 
-    public void testInsertTab() {
+    public void _testInsertTab() {
         tabbed.removeAll();
         tabbed = new JTabbedPane();
         assertEquals(-1, tabbed.getSelectedIndex());

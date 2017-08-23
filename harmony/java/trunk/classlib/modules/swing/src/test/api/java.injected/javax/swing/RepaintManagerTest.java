@@ -70,7 +70,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         assertNotNull(RepaintManager.currentManager((JComponent) null));
     }
 
-    public void testAddRemoveInvalidComponent() throws Exception {
+    public void _testAddRemoveInvalidComponent() throws Exception {
         Frame f = new Frame();
         final JPanel rootPanel = new JPanel(new BorderLayout()) {
                 private static final long serialVersionUID = 1L;
@@ -225,7 +225,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
                 .getDoubleBufferMaximumSize());
     }
 
-    public void testGetOffscreenBuffer() throws Exception {
+    public void _testGetOffscreenBuffer() throws Exception {
         JPanel root = new JPanel();
         JFrame f = new JFrame();
         f.getContentPane().add(root);
@@ -284,7 +284,7 @@ public class RepaintManagerTest extends BasicSwingTestCase {
         f.dispose();
     }
 
-    public void testGetVolatileOffscreenBuffer() throws Exception {
+    public void _testGetVolatileOffscreenBuffer() throws Exception {
         JPanel root = new JPanel();
         JFrame f = new JFrame();
         f.getContentPane().add(root);

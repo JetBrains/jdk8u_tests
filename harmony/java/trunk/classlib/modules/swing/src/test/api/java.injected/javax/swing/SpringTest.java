@@ -141,7 +141,7 @@ public class SpringTest extends SwingTestCase {
         assertEquals(-3, spring1.getValue());
     }
 
-    public void testMinus_UNSET() throws Exception {
+    public void _testMinus_UNSET() throws Exception {
         spring1 = Spring.constant(4, 5, 6);
         spring1.setValue(1);
         spring = Spring.minus(spring1);
@@ -161,7 +161,7 @@ public class SpringTest extends SwingTestCase {
         assertEquals(-15, spring1.getValue());
     }
 
-    public void testSum() throws Exception {
+    public void _testSum() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             @Override
             public void exceptionalAction() throws Exception {
@@ -279,7 +279,7 @@ public class SpringTest extends SwingTestCase {
         assertEquals(0, spring.getMaximumValue());
     }
 
-    public void testSum_SizesCashing() throws Exception {
+    public void _testSum_SizesCashing() throws Exception {
         spring1 = Spring.constant(4, 5, 6);
         spring2 = Spring.width(component);
         spring = Spring.sum(spring1, spring2);
@@ -389,7 +389,7 @@ public class SpringTest extends SwingTestCase {
         assertEquals(1, spring2.getValue());
     }
 
-    public void testMax() throws Exception {
+    public void _testMax() throws Exception {
         testExceptionalCase(new NullPointerCase() {
             @Override
             public void exceptionalAction() throws Exception {
@@ -436,7 +436,7 @@ public class SpringTest extends SwingTestCase {
         assertSizes(11, 13, 24, 13, spring);
     }
 
-    public void testMax_SizesCashing() throws Exception {
+    public void _testMax_SizesCashing() throws Exception {
         spring1 = Spring.constant(5);
         spring2 = Spring.width(component);
         spring = Spring.max(spring1, spring2);
@@ -507,7 +507,7 @@ public class SpringTest extends SwingTestCase {
         assertSizes(11, 13, Integer.MAX_VALUE, 13, spring);
     }
 
-    public void testMax_UNSET() throws Exception {
+    public void _testMax_UNSET() throws Exception {
         spring1 = Spring.constant(5);
         spring2 = Spring.constant(4);
         spring1.setValue(1);
@@ -572,7 +572,7 @@ public class SpringTest extends SwingTestCase {
         testScale(-1.7f);
     }
 
-    public void testScale_Overflow() throws Exception {
+    public void _testScale_Overflow() throws Exception {
         component = new JTextField();
         spring = Spring.scale(Spring.width(component), 2f);
         spring.setValue(2147483642);

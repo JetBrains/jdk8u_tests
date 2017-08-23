@@ -199,7 +199,7 @@ public class JViewportTest extends SwingTestCase {
     }
 
     @SuppressWarnings("deprecation")
-    public void testScrollRectToVisible() throws Exception {
+    public void _testScrollRectToVisible() throws Exception {
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(300, 300));
         label.setBackground(Color.RED);

@@ -322,7 +322,7 @@ public class DefaultListSelectionModelTest extends SwingTestCase {
         assertEquals(0, listener.getEvents().size());
     }
 
-    public void testRemoveIndexInterval() throws Exception {
+    public void _JColorChooserTesttestRemoveIndexInterval() throws Exception {
         model.setSelectionInterval(3, 8);
         model.addListSelectionListener(listener);
         model.removeSelectionInterval(-1, 10);

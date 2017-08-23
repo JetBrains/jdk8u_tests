@@ -714,7 +714,7 @@ public class JTextFieldTest extends SwingTestCase {
     }
 
     // Regression for HARMONY-2627
-    public void testGetScrollOffset() {
+    public void _testGetScrollOffset() {
         jtf = new ExtJTextField("abc");
         final int viewWidth = (int)jtf.getUI().getRootView(jtf)
                                    .getPreferredSpan(View.X_AXIS);

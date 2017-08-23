@@ -46,7 +46,7 @@ public class MutableAttributeSetTest extends AttributeSetTest {
         mas = (MutableAttributeSet) as;
     }
 
-    public void testRemoveAttribute() {
+    public void _testRemoveAttribute() {
         int count = mas.getAttributeCount();
         mas.removeAttribute(keys[1]);
         assertFalse(mas.isDefined(keys[1]));
@@ -55,7 +55,7 @@ public class MutableAttributeSetTest extends AttributeSetTest {
         assertEquals(count - 1, mas.getAttributeCount());
     }
 
-    public void testAddAttributes() {
+    public void _testAddAttributes() {
         MutableAttributeSet forAdd = new SimpleAttributeSet();
         String key1 = "keyforAdd1", value1 = "valueforAdd1";
         String key2 = "keyforAdd2", value2 = "valueforAdd2";
@@ -71,7 +71,7 @@ public class MutableAttributeSetTest extends AttributeSetTest {
     /*
      * Class under test for void removeAttributes(javax.swing.text.AttributeSet)
      */
-    public void testRemoveAttributesAttributeSetSame() {
+    public void _testRemoveAttributesAttributeSetSame() {
         MutableAttributeSet forRemove = new SimpleAttributeSet();
         // The key/value pair are the same as those in mas
         forRemove.addAttribute(keys[1], values[1]);
@@ -88,7 +88,7 @@ public class MutableAttributeSetTest extends AttributeSetTest {
     /*
      * Class under test for void removeAttributes(javax.swing.text.AttributeSet)
      */
-    public void testRemoveAttributesAttributeSetDiff() {
+    public void _testRemoveAttributesAttributeSetDiff() {
         MutableAttributeSet forRemove = new SimpleAttributeSet();
         // The keys are the same but, the values are different
         forRemove.addAttribute(keys[1], "one");
@@ -103,7 +103,7 @@ public class MutableAttributeSetTest extends AttributeSetTest {
     }
 
     @SuppressWarnings("unchecked")
-    public void testRemoveAttributesEnumeration() {
+    public void _testRemoveAttributesEnumeration() {
         int count = mas.getAttributeCount();
         assertTrue(mas.isDefined(keys[0]));
         assertTrue(mas.isDefined(keys[1]));
@@ -132,7 +132,7 @@ public class MutableAttributeSetTest extends AttributeSetTest {
         assertFalse(mas.isDefined(keyInResolver));
     }
 
-    public void testSetResolveParent() {
+    public void _testSetResolveParent() {
         AttributeSet parent = mas.getResolveParent();
         AttributeSet newParent = new SimpleAttributeSet();
         mas.setResolveParent(newParent);
@@ -140,7 +140,7 @@ public class MutableAttributeSetTest extends AttributeSetTest {
         assertSame(newParent, mas.getResolveParent());
     }
 
-    public void testAddAttribute() {
+    public void _testAddAttribute() {
         int count = mas.getAttributeCount();
         String key = "key", value = "value";
         mas.addAttribute(key, value);

@@ -38,7 +38,7 @@ public class Box_FillerTest extends SwingTestCase {
         super.setUp();
     }
 
-    public void testFiller() {
+    public void _testFiller() {
         Dimension minimumSize = new Dimension(100, 100);
         Dimension preferredSize = new Dimension(200, 200);
         Dimension maximumSize = new Dimension(300, 300);
@@ -60,7 +60,7 @@ public class Box_FillerTest extends SwingTestCase {
     /*
      * Class under test for Dimension getMinimumSize()
      */
-    public void testGetMinimumSize() {
+    public void _testGetMinimumSize() {
         Dimension initMinimumSize = new Dimension(100, 100);
         Dimension initPreferredSize = new Dimension(200, 200);
         Dimension initMaximumSize = new Dimension(300, 300);
@@ -77,7 +77,7 @@ public class Box_FillerTest extends SwingTestCase {
     /*
      * Class under test for Dimension getMaximumSize()
      */
-    public void testGetMaximumSize() {
+    public void _testGetMaximumSize() {
         Dimension initMinimumSize = new Dimension(100, 100);
         Dimension initPreferredSize = new Dimension(200, 200);
         Dimension initMaximumSize = new Dimension(300, 300);
@@ -94,7 +94,7 @@ public class Box_FillerTest extends SwingTestCase {
     /*
      * Class under test for Dimension getPreferredSize()
      */
-    public void testGetPreferredSize() {
+    public void _testGetPreferredSize() {
         Dimension initMinimumSize = new Dimension(100, 100);
         Dimension initPreferredSize = new Dimension(200, 200);
         Dimension initMaximumSize = new Dimension(300, 300);

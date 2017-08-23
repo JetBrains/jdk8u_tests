@@ -93,7 +93,7 @@ public class GlyphView_ChangesTest extends TestCase implements DocumentListener 
         doc.addDocumentListener(this);
     }
 
-    public void testInsertUpdate() throws BadLocationException {
+    public void _testInsertUpdate() throws BadLocationException {
         doc.insertString(1, "^", null);
         for (int i = 0; i < views.length; i++) {
             views[i].insertUpdate(event, new Rectangle(), null);
@@ -101,7 +101,7 @@ public class GlyphView_ChangesTest extends TestCase implements DocumentListener 
         }
     }
 
-    public void testRemoveUpdate() throws BadLocationException {
+    public void _testRemoveUpdate() throws BadLocationException {
         doc.remove(0, 1);
         for (int i = 0; i < views.length; i++) {
             views[i].removeUpdate(event, new Rectangle(), null);
@@ -109,7 +109,7 @@ public class GlyphView_ChangesTest extends TestCase implements DocumentListener 
         }
     }
 
-    public void testChangedUpdate() {
+    public void _testChangedUpdate() {
         MutableAttributeSet attrs = new SimpleAttributeSet();
         attrs.addAttribute("key", "value");
         doc.setParagraphAttributes(0, 1, attrs, false);

@@ -91,7 +91,7 @@ public class PasswordViewTest extends SwingTestCase {
         jf.dispose();
     }
 
-    public void testGetPreferredSpan() {
+    public void _testGetPreferredSpan() {
         assertEquals(echoCharsWidth, (int) view.getPreferredSpan(View.X_AXIS));
         assertEquals(height, (int) view.getPreferredSpan(View.Y_AXIS));
         pf.setColumns(3);
@@ -165,7 +165,7 @@ public class PasswordViewTest extends SwingTestCase {
         }
     }
 
-    public void testViewToModel() {
+    public void _testViewToModel() {
         Shape shape = new Rectangle(10, 20, 30, 40);
         int px = 10 + fm.stringWidth("***");
         int py = 20 + fm.getAscent() - 1;

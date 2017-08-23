@@ -259,7 +259,7 @@ public class DefaultEditorKit_Actions_MultithreadedTest extends BasicSwingTestCa
         assertEquals("caret position", 0, c.getCaretPosition());
     }
 
-    public void testVerticalPageActionPerformed() throws Exception {
+    public void _testVerticalPageActionPerformed() throws Exception {
         String text = "111111111111111\n2\n3\n44444444\n55555555555\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5555555555555555555";
         Action action = getAction(DefaultEditorKit.pageDownAction);
         JTextArea c = getInitedComponent(4, 6, text);
@@ -487,7 +487,7 @@ public class DefaultEditorKit_Actions_MultithreadedTest extends BasicSwingTestCa
         assertEquals("caret position", 0, c.getCaretPosition());
     }
 
-    public void testNextWordActionPerformed() throws Exception {
+    public void _testNextWordActionPerformed() throws Exception {
         String text = "012345  6789\nasfd\nasd  asd";
         Action action = getAction(DefaultEditorKit.nextWordAction);
         JTextArea c = getInitedComponent(13, 15, text);

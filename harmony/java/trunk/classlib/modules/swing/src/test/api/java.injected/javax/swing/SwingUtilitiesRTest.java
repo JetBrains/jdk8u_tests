@@ -44,7 +44,7 @@ public class SwingUtilitiesRTest extends SwingTestCase {
                 0, 0), iconRectangle);
     }
 
-    public void testIsLeftMiddleRightMouseButton() {
+    public void _testIsLeftMiddleRightMouseButton() {
         JComponent panel = new JPanel();
         panel.setPreferredSize(new Dimension(100, 100));
         MouseEvent button1DownEvent = new MouseEvent(panel, 100, 0,
