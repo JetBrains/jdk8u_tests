@@ -536,7 +536,7 @@ public abstract class ShapeTestCase extends PathIteratorTestCase {
         }
     }
 
-    public void testGetPathIterator() {
+    public void _testGetPathIterator() {
         iterator(
                 "getPathIterator()",
                 filterShape,

@@ -230,7 +230,7 @@ public class QuadCurve2DTest extends ShapeTestCase {
         }
     }
 
-    public void testSolveQuadratic1() {
+    public void _testSolveQuadratic1() {
         for (double[][] element : equations) {
             double eqn[] = new double[3];
             System.arraycopy(element[0], 0, eqn, 0, 3);
@@ -246,7 +246,7 @@ public class QuadCurve2DTest extends ShapeTestCase {
         }
     }
 
-    public void testSolveQuadratic2() {
+    public void _testSolveQuadratic2() {
         for (double[][] element : equations) {
             double res[] = new double[3];
             double eqn[] = new double[3];

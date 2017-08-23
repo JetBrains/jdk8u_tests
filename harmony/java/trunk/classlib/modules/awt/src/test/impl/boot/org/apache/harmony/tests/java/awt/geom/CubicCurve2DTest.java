@@ -236,7 +236,7 @@ public class CubicCurve2DTest extends ShapeTestCase {
         }
     }
 
-    public void testSolveCubic1() {
+    public void _testSolveCubic1() {
         for (double[][] element : equations) {
             double eqn[] = new double[4];
             System.arraycopy(element[0], 0, eqn, 0, 4);
@@ -253,7 +253,7 @@ public class CubicCurve2DTest extends ShapeTestCase {
         }
     }
 
-    public void testSolveCubic2() {
+    public void _testSolveCubic2() {
         for (double[][] element : equations) {
             double res[] = new double[3];
             double eqn[] = new double[4];

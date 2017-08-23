@@ -244,7 +244,7 @@ public class Arc2DTest extends ShapeTestCase {
         }
     }
 
-    public void testContainsAngle() {
+    public void _testContainsAngle() {
         for (double[] element : arcs) {
             double start = element[0];
             double extent = element[1];
@@ -284,7 +284,7 @@ public class Arc2DTest extends ShapeTestCase {
         assertEquals(new Arc2D.Double(4, 5, 6, 6, 11, 12, Arc2D.CHORD), a);
     }
 
-    public void testSetArcByTangent() {
+    public void _testSetArcByTangent() {
         for (double[] element : tangent) {
             double x1 = element[0];
             double y1 = element[1];
@@ -315,7 +315,7 @@ public class Arc2DTest extends ShapeTestCase {
         }
     }
 
-    public void testSetAngleStart() {
+    public void _testSetAngleStart() {
         for (double[] element : points1) {
             double x = element[0];
             double y = element[1];
@@ -329,7 +329,7 @@ public class Arc2DTest extends ShapeTestCase {
         }
     }
 
-    public void testSetAngels1() {
+    public void _testSetAngels1() {
         for (double[] element : points2) {
             double x1 = element[0];
             double y1 = element[1];
@@ -351,7 +351,7 @@ public class Arc2DTest extends ShapeTestCase {
         }
     }
 
-    public void testSetAngels2() {
+    public void _testSetAngels2() {
         for (double[] element : points2) {
             double x1 = element[0];
             double y1 = element[1];
@@ -373,7 +373,7 @@ public class Arc2DTest extends ShapeTestCase {
         }
     }
 
-    public void testGetPathIteratorEmpty() {
+    public void _testGetPathIteratorEmpty() {
         // Regression test HARMONY-1585
         Arc2D a = new Arc2D.Double();
         PathIterator p = a.getPathIterator(null);

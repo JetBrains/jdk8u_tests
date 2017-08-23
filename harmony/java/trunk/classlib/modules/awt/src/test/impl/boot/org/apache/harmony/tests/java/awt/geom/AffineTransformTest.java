@@ -229,7 +229,7 @@ public class AffineTransformTest extends GeomTestCase {
         return Integer.toString(type);
     }
 
-    public void testGetType() {
+    public void _testGetType() {
         for (double[] element : type) {
             Assert.assertEquals(
                     matrixToStr(element) + " Type",
@@ -819,7 +819,7 @@ public class AffineTransformTest extends GeomTestCase {
         }
     }
 
-    public void testCreateTransformedShape() {
+    public void _testCreateTransformedShape() {
         AffineTransform at = new AffineTransform(0, 1, -2, 0, 3, 4);
         Shape actual = at.createTransformedShape(new Line2D.Double(1, 2, 3, 4));
         GeneralPath expected = new GeneralPath();
@@ -860,7 +860,7 @@ public class AffineTransformTest extends GeomTestCase {
         Assert.assertEquals(t, t.clone());
     }
 
-    public void testToString() {
+    public void _testToString() {
         Assert.assertEquals(
                 "java.awt.geom.AffineTransform[[2.0, 4.0, 6.0], [3.0, 5.0, 7.0]]",
                 t.toString());

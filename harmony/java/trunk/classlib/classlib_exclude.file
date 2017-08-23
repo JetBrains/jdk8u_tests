@@ -21,6 +21,8 @@
 **/org/apache/harmony/luni/tests/java/lang/reflect/ReflectPermissionTest.java
 **/org/apache/harmony/luni/tests/java/net/ExcludedProxyTest.java
 **/org/apache/harmony/luni/tests/java/util/FormatterLSTest.java
+**/org/apache/harmony/luni/tests/java/io/SerializationStressTest.java
+
 **/org/apache/harmony/prefs/tests/java/util/prefs/FilePreferencesImplTest.java
 **/org/apache/harmony/prefs/tests/java/util/prefs/PreferencesProviderTest.java
 **/org/apache/harmony/rmi/DGCTest.java

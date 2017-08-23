@@ -196,19 +196,19 @@ public class GeneralPathTest extends ShapeTestCase {
         }
     }
 
-    public void testMoveToDouble() {
+    public void _testMoveToDouble() {
         g.moveTo(10, 20);
         PathIterator p = g.getPathIterator(null);
         checkPathMove(p, true, 10, 20, 0.0);
     }
 
-    public void testMoveToFloat() {
+    public void _testMoveToFloat() {
         g.moveTo(10, 20);
         PathIterator p = g.getPathIterator(null);
         checkPathMove(p, true, 10, 20, 0.0f);
     }
 
-    public void testLineToDouble() {
+    public void _testLineToDouble() {
         g.moveTo(10, 20);
         g.lineTo(30, 40);
         PathIterator p = g.getPathIterator(null);
@@ -216,7 +216,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathLine(p, true, 30, 40, 0.0);
     }
 
-    public void testLineToFloat() {
+    public void _testLineToFloat() {
         g.moveTo(10, 20);
         g.lineTo(30, 40);
         PathIterator p = g.getPathIterator(null);
@@ -224,7 +224,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathLine(p, true, 30, 40, 0.0f);
     }
 
-    public void testQuadToDouble() {
+    public void _testQuadToDouble() {
         g.moveTo(10, 20);
         g.quadTo(30, 40, 50, 60);
         PathIterator p = g.getPathIterator(null);
@@ -232,7 +232,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathQuad(p, true, 30, 40, 50, 60, 0.0);
     }
 
-    public void testQuadToFloat() {
+    public void _testQuadToFloat() {
         g.moveTo(10, 20);
         g.quadTo(30, 40, 50, 60);
         PathIterator p = g.getPathIterator(null);
@@ -240,7 +240,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathQuad(p, true, 30, 40, 50, 60, 0.0f);
     }
 
-    public void testCurveToDouble() {
+    public void _testCurveToDouble() {
         g.moveTo(10, 20);
         g.curveTo(30, 40, 50, 60, 70, 80);
         PathIterator p = g.getPathIterator(null);
@@ -248,7 +248,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathCubic(p, true, 30, 40, 50, 60, 70, 80, 0.0);
     }
 
-    public void testCurveToFloat() {
+    public void _testCurveToFloat() {
         g.moveTo(10, 20);
         g.curveTo(30, 40, 50, 60, 70, 80);
         PathIterator p = g.getPathIterator(null);
@@ -256,7 +256,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathCubic(p, true, 30, 40, 50, 60, 70, 80, 0.0f);
     }
 
-    public void testClosePathDouble() {
+    public void _testClosePathDouble() {
         g.moveTo(10, 20);
         g.closePath();
         PathIterator p = g.getPathIterator(null);
@@ -264,7 +264,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathClose(p, true);
     }
 
-    public void testClosePathFloat() {
+    public void _testClosePathFloat() {
         g.moveTo(10, 20);
         g.closePath();
         PathIterator p = g.getPathIterator(null);
@@ -272,7 +272,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathClose(p, true);
     }
 
-    public void testClosePath2() {
+    public void _testClosePath2() {
         g.moveTo(10, 20);
         g.closePath();
         g.closePath();
@@ -281,7 +281,7 @@ public class GeneralPathTest extends ShapeTestCase {
         checkPathClose(p, true);
     }
 
-    public void testClosePath3() {
+    public void _testClosePath3() {
         g.moveTo(10, 20);
         g.lineTo(30, 40);
         g.closePath();
@@ -372,7 +372,7 @@ public class GeneralPathTest extends ShapeTestCase {
         Assert.assertTrue(p.isDone());
     }
 
-    public void testReset2() {
+    public void _testReset2() {
         g.moveTo(10, 20);
         g.lineTo(30, 40);
         g.closePath();

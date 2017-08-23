@@ -160,7 +160,7 @@ public class AreaTest extends PathIteratorTestCase {
          Assert.assertFalse(area2.isRectangular());
      }
      
-     public void testGetPathIterator() {
+     public void _testGetPathIterator() {
          // Regression test HARMONY-1860
          Area a = new Area();
          PathIterator path = a.getPathIterator(null);
@@ -168,7 +168,7 @@ public class AreaTest extends PathIteratorTestCase {
          checkPathDone(path, true);
      }
      
-     public void testCreateTransformedArea() {
+     public void _testCreateTransformedArea() {
          // Regression test HARMONY-1880
          AffineTransform t = AffineTransform.getScaleInstance(2, 3);
          Area a1 = new Area();        
