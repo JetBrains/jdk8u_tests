@@ -70,7 +70,7 @@ public class ParagraphView_RequirementsTest extends BasicSwingTestCase {
         };
     }
 
-    public void testCalculateMinorAxisRequirements01() {
+    public void _testCalculateMinorAxisRequirements01() {
         view = new ParagraphViewImpl(doc.getParagraphElement(10), factory);
         SizeRequirements sr =
             view.calculateMinorAxisRequirements(View.X_AXIS, null);
@@ -79,7 +79,7 @@ public class ParagraphView_RequirementsTest extends BasicSwingTestCase {
         assertEquals(Integer.MAX_VALUE, sr.maximum);
     }
 
-    public void testCalculateMinorAxisRequirements02() throws Exception {
+    public void _testCalculateMinorAxisRequirements02() throws Exception {
         view = new ParagraphViewImpl(doc.getParagraphElement(20), factory);
         SizeRequirements sr =
             view.calculateMinorAxisRequirements(View.X_AXIS, null);
@@ -117,7 +117,7 @@ public class ParagraphView_RequirementsTest extends BasicSwingTestCase {
         assertEquals(Integer.MAX_VALUE, sr.maximum);
     }
 
-    public void testCalculateMinorAxisRequirements04() throws Exception {
+    public void _testCalculateMinorAxisRequirements04() throws Exception {
         factory = new ViewFactory() {
             public View create(Element element) {
                 PlainView result = new PlainView(element) {

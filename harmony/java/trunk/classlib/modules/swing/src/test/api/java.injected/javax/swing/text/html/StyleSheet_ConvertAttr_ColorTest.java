@@ -299,7 +299,7 @@ public class StyleSheet_ConvertAttr_ColorTest extends BasicSwingTestCase {
         }
     }
 
-    public void testColorStringUnknown() throws Exception {
+    public void _testColorStringUnknown() throws Exception {
         if (!isHarmony()) {
             testExceptionalCase(new NullPointerCase() {
                 public void exceptionalAction() throws Exception {

@@ -231,7 +231,7 @@
 **/org/apache/harmony/awt/tests/image/BufferedImageTest.java
 **/javax/swing/text/AttributeSetTest.java
 **/javax/swing/text/AbstractDocument_AbstractElement_MASNoLockTest.java
-**/javax/swing/textAbstractDocument_AbstractElement_MASTest.java
+**/javax/swing/text/AbstractDocument_AbstractElement_MASTest.java
 **/javax/swing/text/MutableAttributeSetTest.java
 **/javax/swing/text/GlyphView_ChangesTest.java
 **/javax/swing/text/StringContentTest_CommonTest.java
@@ -239,6 +239,15 @@
 **/javax/swing/JFormattedTextField_CommitActionRTest.java
 **/javax/swing/JRootPaneRTest.java
 **/javax/swing/JTableRTest.java
+**/javax/swing/text/PasswordViewTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_BorderBottomTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_BorderColorTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_BorderLeftTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_BorderRightTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_BorderStyleTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_BorderTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_BorderTopTest.java
+**/javax/swing/text/html/StyleSheet_ConvertAttr_FontFamilyTest.java
 
 # VM crash on Mac OSX (reproduced with Oracle's java)
 **/org/apache/harmony/tests/java/awt/RobotTest.java

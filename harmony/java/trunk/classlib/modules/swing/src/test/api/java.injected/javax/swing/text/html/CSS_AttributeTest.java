@@ -164,7 +164,7 @@ public class CSS_AttributeTest extends TestCase {
         assertFalse(attr.isInherited());
     }
 
-    public void testColor() {
+    public void _testColor() {
         attr = CSS.Attribute.COLOR;
         assertEquals("color", attr.toString());
         assertNull(attr.getDefaultValue());

@@ -242,7 +242,7 @@ public class StyleSheet_RulesTest extends BasicSwingTestCase {
     /**
      * Classes are case-sensitive.
      */
-    public void testAddRule09() throws Exception {
+    public void _testAddRule09() throws Exception {
         assertNull(ss.getStyle(".header"));
         assertNull(ss.getStyle(".HEADER"));
         ss.addRule(".HEADER { color: blue }");
@@ -269,7 +269,7 @@ public class StyleSheet_RulesTest extends BasicSwingTestCase {
     /**
      * ids are case-sensitive.
      */
-    public void testAddRule10() throws Exception {
+    public void _testAddRule10() throws Exception {
         assertNull(ss.getStyle(".id"));
         assertNull(ss.getStyle(".ID"));
         ss.addRule("#ID { color: blue }");

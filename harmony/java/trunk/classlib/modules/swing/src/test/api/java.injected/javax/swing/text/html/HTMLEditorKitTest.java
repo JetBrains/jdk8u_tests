@@ -196,7 +196,7 @@ public class HTMLEditorKitTest extends SwingTestCase {
         assertTrue(listener.occured);
     }
 
-    public void testInsertHRAction() throws Exception {
+    public void _testInsertHRAction() throws Exception {
         InsertHTMLTextAction action = (InsertHTMLTextAction)findActionWithName(
             editorKit.getActions(), "InsertHR");
         assertNotNull(action);

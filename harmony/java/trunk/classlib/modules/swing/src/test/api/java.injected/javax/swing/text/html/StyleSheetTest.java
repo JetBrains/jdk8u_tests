@@ -344,7 +344,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
         assertSame(fs, css);
     }
 
-    public void testGetFont() {
+    public void _testGetFont() {
         ss.addCSSAttribute(simple, Attribute.FONT_FAMILY, "serif");
         ss.addCSSAttribute(simple, Attribute.FONT_WEIGHT, "bold");
         assertEquals(2, simple.getAttributeCount());
@@ -767,7 +767,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
         assertNotSame(bp, ss.getBoxPainter(empty));
     }
 
-    public void testGetBoxPainterAttributes() {
+    public void _testGetBoxPainterAttributes() {
         final Marker borderStyle = new Marker();
         final Marker marginTop = new Marker();
         final Marker marginRight = new Marker();
@@ -811,7 +811,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
         assertTrue(marginLeft.isOccurred());
     }
 
-    public void testGetBoxPainterAttributesBorderStyle() {
+    public void _testGetBoxPainterAttributesBorderStyle() {
         final Marker borderStyle = new Marker();
         final Marker borderTopWidth = new Marker();
         final Marker borderRightWidth = new Marker();
@@ -1158,7 +1158,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
         }
     }
 
-    public void testSetBaseFontSizeStringInvalidPlus() {
+    public void _testSetBaseFontSizeStringInvalidPlus() {
         testExceptionalCase(new NumberFormatCase() {
             public void exceptionalAction() throws Exception {
                 ss.setBaseFontSize("++1");
@@ -1247,7 +1247,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
         }
     }
 
-    public void testGetPointSizeStringInvalidPlus() {
+    public void _testGetPointSizeStringInvalidPlus() {
         testExceptionalCase(new NumberFormatCase() {
             public void exceptionalAction() throws Exception {
                 ss.getPointSize("++1");
@@ -1382,7 +1382,7 @@ public class StyleSheetTest extends BasicSwingTestCase {
     /**
      * Tests with empty string.
      */
-    public void testStringToColor05() {
+    public void _testStringToColor05() {
         if (isHarmony()) {
             assertNull(ss.stringToColor(""));
         } else {
