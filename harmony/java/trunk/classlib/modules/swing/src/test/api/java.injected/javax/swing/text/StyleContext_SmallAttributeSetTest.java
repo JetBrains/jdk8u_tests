@@ -133,7 +133,7 @@ public class StyleContext_SmallAttributeSetTest extends AttributeSetTest {
         emptyTest(attrSet);
     }
 
-    @Override
+    //@Override
     public void testGetResolveParent() {
         assertNull(attrSet.getResolveParent());
         AttributeSet parent = sc.new SmallAttributeSet(new Object[] { "key", "value" });

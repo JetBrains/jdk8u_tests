@@ -69,7 +69,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     @Override
     public void _testAddAttribute() {
         try {
-            super.testAddAttribute();
+            //super.testAddAttribute();
             fail("Error should be thrown, the reason " + "being no write lock acquired");
         } catch (Error e) {
         }
@@ -78,7 +78,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     //@Override
     public void _testAddAttributes() {
         try {
-            super.testAddAttributes();
+            //super.testAddAttributes();
             fail("Error should be thrown, the reason " + "being no write lock acquired");
         } catch (Error e) {
         }
@@ -87,7 +87,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     //@Override
     public void _testRemoveAttribute() {
         try {
-            super.testRemoveAttribute();
+            //super.testRemoveAttribute();
             fail("Error should be thrown, the reason " + "being no write lock acquired");
         } catch (Error e) {
         }
@@ -96,7 +96,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     //@Override
     public void _testRemoveAttributesAttributeSetDiff() {
         try {
-            super.testRemoveAttributesAttributeSetDiff();
+            //super.testRemoveAttributesAttributeSetDiff();
             fail("Error should be thrown, the reason " + "being no write lock acquired");
         } catch (Error e) {
         }
@@ -105,7 +105,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     //@Override
     public void _testRemoveAttributesAttributeSetSame() {
         try {
-            super.testRemoveAttributesAttributeSetSame();
+            //super.testRemoveAttributesAttributeSetSame();
             fail("Error should be thrown, the reason " + "being no write lock acquired");
         } catch (Error e) {
         }
@@ -114,7 +114,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     //@Override
     public void _testRemoveAttributesEnumeration() {
         try {
-            super.testRemoveAttributesEnumeration();
+            //super.testRemoveAttributesEnumeration();
             fail("Error should be thrown, the reason " + "being no write lock acquired");
         } catch (Error e) {
         }
@@ -123,7 +123,7 @@ public class AbstractDocument_AbstractElement_MASNoLockTest extends
     //@Override
     public void _testSetResolveParent() {
         try {
-            super.testSetResolveParent();
+            //super.testSetResolveParent();
             fail("Error should be thrown, the reason " + "being no write lock acquired");
         } catch (Error e) {
         }
