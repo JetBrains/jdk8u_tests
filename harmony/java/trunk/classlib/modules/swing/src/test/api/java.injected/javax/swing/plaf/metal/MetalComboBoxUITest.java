@@ -92,7 +92,7 @@ public class MetalComboBoxUITest extends SwingTestCase {
                 .createLayoutManager());
     }
 
-    public void testGetMinimumSize() throws Exception {
+    public void _testGetMinimumSize() throws Exception {
         ui.setComboBox(comboBox);
         ComboPopup popup = new BasicComboPopup(comboBox);
         ui.setPopup(popup);

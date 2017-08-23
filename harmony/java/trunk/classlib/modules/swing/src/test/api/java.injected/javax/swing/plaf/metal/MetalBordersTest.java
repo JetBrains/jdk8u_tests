@@ -159,7 +159,7 @@ public class MetalBordersTest extends SwingTestCase {
         checkInsets(border);
     }
 
-    public void testToolBarBorderClass() {
+    public void _testToolBarBorderClass() {
         JToolBar testToolBar = new JToolBar();
         MetalBorders.ToolBarBorder border = new MetalBorders.ToolBarBorder();
         assertFalse(border.isBorderOpaque());

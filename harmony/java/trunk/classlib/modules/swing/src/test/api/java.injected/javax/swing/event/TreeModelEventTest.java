@@ -40,7 +40,7 @@ public class TreeModelEventTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.event.TreeModelEvent.TreeModelEvent(Object, TreePath, int[], Object[])'
      */
-    public void testTreeModelEventObjectTreePathIntArrayObjectArray() {
+    public void _testTreeModelEventObjectTreePathIntArrayObjectArray() {
         Object source = "111";
         TreePath path = new TreePath("222");
         int[] indices = new int[] { 1, 2 };
@@ -60,7 +60,7 @@ public class TreeModelEventTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.event.TreeModelEvent.TreeModelEvent(Object, Object[], int[], Object[])'
      */
-    public void testTreeModelEventObjectObjectArrayIntArrayObjectArray() {
+    public void _testTreeModelEventObjectObjectArrayIntArrayObjectArray() {
         Object source = "111";
         Object[] path = new Object[] { "11", "22", "33" };
         int[] indices = new int[] { 1, 2 };

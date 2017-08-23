@@ -122,7 +122,7 @@ public class BasicDesktopIconUITest extends SwingTestCase {
     /*
      * Class under test for Insets getInsets(JComponent)
      */
-    public void testGetInsets() {
+    public void _testGetInsets() {
         final Insets validInsets = new Insets(5, 5, 5, 5);
         Insets insets = ui.getInsets(icon);
         assertTrue("not null", insets != null);

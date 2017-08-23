@@ -262,7 +262,7 @@ public class MetalInternalFrameTitlePaneTest extends SwingTestCase {
     /*
      * Test MetalInternalFrameTitlePane.MetalTitlePaneLayout class
      */
-    public void testMetalTitlePaneLayout() {
+    public void _testMetalTitlePaneLayout() {
         TestMetalInternalFrameTitlePane pane = new TestMetalInternalFrameTitlePane(frame);
         pane.setSize(200, 31);
         LayoutManager layout = pane.getLayout();

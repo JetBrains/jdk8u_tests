@@ -164,7 +164,7 @@ public class TitledBorderTest extends SwingTestCase {
     /*
      * Class under test for void TitledBorder(Border, String)
      */
-    public void testTitledBorderBorderString() {
+    public void _testTitledBorderBorderString() {
         String string1 = "string1";
         String string2 = null;
         Border border3 = new EmptyBorder(1, 1, 1, 1);
@@ -197,7 +197,7 @@ public class TitledBorderTest extends SwingTestCase {
     /*
      * Class under test for void TitledBorder(Border)
      */
-    public void testTitledBorderBorder() {
+    public void _testTitledBorderBorder() {
         Border border3 = new EmptyBorder(1, 1, 1, 1);
         Border border4 = null;
         TitledBorder border1 = new TitledBorder(border3);
@@ -228,7 +228,7 @@ public class TitledBorderTest extends SwingTestCase {
     /*
      * Class under test for void TitledBorder(String)
      */
-    public void testTitledBorderString() {
+    public void _testTitledBorderString() {
         String string1 = "string1";
         String string2 = null;
         TitledBorder border1 = new TitledBorder(string1);
@@ -260,7 +260,7 @@ public class TitledBorderTest extends SwingTestCase {
     /*
      * Class under test for Insets getBorderInsets(Component, Insets)
      */
-    public void testGetBorderInsetsComponentInsets() {
+    public void _testGetBorderInsetsComponentInsets() {
         Insets insets = new Insets(0, 0, 0, 0);
         Font font1 = new Font(null, Font.BOLD, 10);
         Font font2 = new Font(null, Font.ITALIC, 20);
@@ -292,7 +292,7 @@ public class TitledBorderTest extends SwingTestCase {
     /*
      * Class under test for Insets getBorderInsets(Component)
      */
-    public void testGetBorderInsetsComponent() {
+    public void _testGetBorderInsetsComponent() {
         Font font1 = new Font(null, Font.BOLD, 10);
         Font font2 = new Font(null, Font.ITALIC, 20);
         Border border1 = new EmptyBorder(10, 10, 10, 10);
@@ -369,7 +369,7 @@ public class TitledBorderTest extends SwingTestCase {
         assertFalse("TitledBorder is not opaque ", border3.isBorderOpaque());
     }
 
-    public void testGetFont() {
+    public void _testGetFont() {
         class PublicTitledBorder extends TitledBorder {
             private static final long serialVersionUID = 1L;
 
@@ -400,7 +400,7 @@ public class TitledBorderTest extends SwingTestCase {
                 titledBorder.getFont(null).getClass().toString());
     }
 
-    public void testGetMinimumSize() {
+    public void _testGetMinimumSize() {
         Font font1 = new Font(null, Font.BOLD, 10);
         Font font2 = new Font(null, Font.ITALIC, 20);
         Border border1 = new EmptyBorder(10, 10, 10, 10);
@@ -434,7 +434,7 @@ public class TitledBorderTest extends SwingTestCase {
     public void testSetBorder() {
     }
 
-    public void testGetBorder() {
+    public void _testGetBorder() {
         TitledBorder titledBorder = new TitledBorder("hello, border!!");
         Border border1 = new EmptyBorder(1, 1, 1, 1);
         Border border2 = new EmptyBorder(2, 2, 2, 2);
@@ -480,7 +480,7 @@ public class TitledBorderTest extends SwingTestCase {
     public void testSetTitleFont() {
     }
 
-    public void testGetTitleFont() {
+    public void _testGetTitleFont() {
         TitledBorder titledBorder = new TitledBorder("hello, border!!");
         Font newFont1 = new Font(null, Font.BOLD, 10);
         Font newFont2 = new Font(null, Font.ITALIC, 20);

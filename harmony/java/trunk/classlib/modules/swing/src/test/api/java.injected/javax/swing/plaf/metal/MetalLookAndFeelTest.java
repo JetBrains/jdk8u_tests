@@ -233,7 +233,7 @@ public class MetalLookAndFeelTest extends SwingTestCase {
                 .getWindowBackground());
     }
 
-    public void testGetWindowTitleBackground() {
+    public void _testGetWindowTitleBackground() {
         checkColor(MetalLookAndFeel.getWindowTitleBackground(), defaultMetalTheme
                 .getWindowTitleBackground());
     }
@@ -244,17 +244,17 @@ public class MetalLookAndFeelTest extends SwingTestCase {
         assertEquals(defaultMetalTheme.getWindowTitleFont(), font);
     }
 
-    public void testGetWindowTitleForeground() {
+    public void _testGetWindowTitleForeground() {
         checkColor(MetalLookAndFeel.getWindowTitleForeground(), defaultMetalTheme
                 .getWindowTitleForeground());
     }
 
-    public void testGetWindowTitleInactiveBackground() {
+    public void _testGetWindowTitleInactiveBackground() {
         checkColor(MetalLookAndFeel.getWindowTitleInactiveBackground(), defaultMetalTheme
                 .getWindowTitleInactiveBackground());
     }
 
-    public void testGetWindowTitleInactiveForeground() {
+    public void _testGetWindowTitleInactiveForeground() {
         checkColor(MetalLookAndFeel.getWindowTitleInactiveForeground(), defaultMetalTheme
                 .getWindowTitleInactiveForeground());
     }

@@ -53,7 +53,7 @@ public class ColorChooserComponentFactoryTest extends BasicSwingTestCase {
         assertNull(swatchPanel.getLargeDisplayIcon());
     }
 
-    public void testRGBPanel() throws Exception {
+    public void _testRGBPanel() throws Exception {
         AbstractColorChooserPanel rgbPanel = ColorChooserComponentFactory
                 .getDefaultChooserPanels()[2];
         assertEquals("RGB", rgbPanel.getDisplayName());
@@ -113,7 +113,7 @@ public class ColorChooserComponentFactoryTest extends BasicSwingTestCase {
         assertEquals(new Color(0, 66, 132), colorChooser.getColor());
     }
 
-    public void testHSBPanel() throws InterruptedException {
+    public void _testHSBPanel() throws InterruptedException {
         AbstractColorChooserPanel hsbPanel = ColorChooserComponentFactory
                 .getDefaultChooserPanels()[1];
         assertEquals("HSB", hsbPanel.getDisplayName());

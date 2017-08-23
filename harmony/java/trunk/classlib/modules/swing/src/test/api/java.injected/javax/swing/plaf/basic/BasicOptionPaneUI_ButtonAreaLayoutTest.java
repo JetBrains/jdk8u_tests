@@ -114,7 +114,7 @@ public class BasicOptionPaneUI_ButtonAreaLayoutTest extends SwingTestCase {
         assertEquals("Sizes ", new Dimension(70, 10), layout.minimumLayoutSize(container));
     }
 
-    public void testLayoutContainer() {
+    public void _testLayoutContainer() {
         JComponent container = new JPanel();
         JComponent component1 = new JButton();
         JComponent component2 = new JButton();

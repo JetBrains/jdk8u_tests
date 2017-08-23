@@ -55,7 +55,7 @@ public class SynthContextTest extends TestCase {
         assertSame(testButton, sc.getComponent());
     }
 
-    public static void testStates() {
+    public static void _testStates() {
 
         //assertTrue(SynthContext.isEnabled(sc.getComponentState()));
         //sc.setState(SynthConstants.DISABLED);

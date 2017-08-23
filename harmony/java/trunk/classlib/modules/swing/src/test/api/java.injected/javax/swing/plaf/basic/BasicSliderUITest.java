@@ -345,7 +345,7 @@ public class BasicSliderUITest extends SwingTestCase {
     /**
      * Regression test for HARMONY-4445
      */
-    public void testMinMaxValue() {
+    public void _testMinMaxValue() {
 
         slider.setMaximum(Integer.MAX_VALUE);
         slider.setMinimum(0);

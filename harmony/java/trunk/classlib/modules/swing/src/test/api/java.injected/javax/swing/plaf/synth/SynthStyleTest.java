@@ -105,7 +105,7 @@ public class SynthStyleTest extends TestCase {
     /*
      * Test method for 'javax.swing.plaf.synth.SynthStyle.getFont(SynthContext)'
      */
-    public void testGetFont() {
+    public void _testGetFont() {
         Font newFont = new Font("Dialog", Font.BOLD, 15); //$NON-NLS-1$
         currentComponent.setFont(newFont);
         assertEquals(currentStyle.getFont(currentContext), newFont);

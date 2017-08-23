@@ -203,7 +203,7 @@ public class AncestorEventTest extends BasicSwingTestCase {
         performChecksInQueue(component, ancestor, AncestorEvent.ANCESTOR_ADDED);
     }
 
-    public void testAncestorAddedEventWhenAncestorAdded() throws Exception {
+    public void _testAncestorAddedEventWhenAncestorAdded() throws Exception {
         frame = createVisibleFrameWithAncestor();
         waitForIdle();
         assertTrue(listener.getNumEvents() >= 3);

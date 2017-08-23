@@ -63,7 +63,7 @@ public class MetalRootPaneUITest extends SwingTestCase {
     /*
      * Class under test for void installUI(JComponent)
      */
-    public void testInstallUI() {
+    public void _testInstallUI() {
         // test install with windowDecorationStyle = JRootPane.NONE
         Border saveBorder = rootPane.getBorder();
         LayoutManager saveLayout = rootPane.getLayout();
@@ -91,7 +91,7 @@ public class MetalRootPaneUITest extends SwingTestCase {
     /*
      * Class under test for void uninstallUI(JComponent)
      */
-    public void testUninstallUI() {
+    public void _testUninstallUI() {
         // test uninstall with windowDecorationStyle = JRootPane.NONE
         ui.installUI(rootPane);
         Border saveBorder = rootPane.getBorder();
@@ -118,7 +118,7 @@ public class MetalRootPaneUITest extends SwingTestCase {
     /*
      * Class under test for void propertyChange(PropertyChangeEvent)
      */
-    public void testPropertyChange() {
+    public void _testPropertyChange() {
         rootPane.setUI(ui);
         Border saveBorder = rootPane.getBorder();
         LayoutManager saveLayout = rootPane.getLayout();

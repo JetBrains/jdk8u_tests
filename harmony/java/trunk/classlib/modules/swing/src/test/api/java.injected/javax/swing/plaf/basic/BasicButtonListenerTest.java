@@ -44,7 +44,7 @@ public class BasicButtonListenerTest extends SwingTestCase {
         //TODO Implement uninstallKeyboardActions().
     }
 
-    public void testInstallKeyboardActions() {
+    public void _testInstallKeyboardActions() {
         AbstractButton button = new JButton();
         BasicButtonListener listener = new BasicButtonListener(button);
         assertEquals(0, button.getActionMap().size());
@@ -121,7 +121,7 @@ public class BasicButtonListenerTest extends SwingTestCase {
         }
     };
 
-    public void testFocusLost() {
+    public void _testFocusLost() {
         final JToggleButton button = new JToggleButton();
         button.getModel().setPressed(true);
         button.getModel().setArmed(true);

@@ -250,6 +250,10 @@
 **/javax/swing/text/html/StyleSheet_ConvertAttr_BorderTest.java
 **/javax/swing/text/html/StyleSheet_ConvertAttr_BorderTopTest.java
 **/javax/swing/text/html/StyleSheet_ConvertAttr_FontFamilyTest.java
+**/javax/swing/plaf/basic/BasicMenuUI_MultithreadedTest.java
+**/javax/swing/plaf/metal/MetalComboBoxEditorTest.java
+**/javax/swing/plaf/metal/MetalRootPaneUI$MetalRootLayoutTest
+**/javax/swing/plaf/metal/MetalRootPaneUIRTest.java
 
 # VM crash on Mac OSX (reproduced with Oracle's java)
 **/org/apache/harmony/tests/java/awt/RobotTest.java

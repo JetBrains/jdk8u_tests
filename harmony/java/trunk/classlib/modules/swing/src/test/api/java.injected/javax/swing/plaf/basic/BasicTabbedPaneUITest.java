@@ -157,14 +157,14 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(Math.max(w1, w2), ((MyBasicTabbedPaneUI )ui).calculateMaxTabWidth(tabPlacement));
     }
 
-    public void testCalculateTabAreaHeight() {
+    public void _testCalculateTabAreaHeight() {
         int tabPlacement = SwingConstants.TOP;
         assertEquals(14, ((MyBasicTabbedPaneUI )ui).calculateTabAreaHeight(tabPlacement, 1, 10));
         assertEquals(22, ((MyBasicTabbedPaneUI )ui).calculateTabAreaHeight(tabPlacement, 2, 10));
         assertEquals(30, ((MyBasicTabbedPaneUI )ui).calculateTabAreaHeight(tabPlacement, 3, 10));
     }
 
-    public void testCalculateTabAreaWidth() {
+    public void _testCalculateTabAreaWidth() {
         int tabPlacement = SwingConstants.LEFT;
         assertEquals(14, ((MyBasicTabbedPaneUI )ui).calculateTabAreaWidth(tabPlacement, 1, 10));
         assertEquals(22, ((MyBasicTabbedPaneUI )ui).calculateTabAreaWidth(tabPlacement, 2, 10));
@@ -181,7 +181,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(27, ((MyBasicTabbedPaneUI )ui).calculateTabHeight(tabbed.getTabPlacement(), 0, 20));
     }
 
-    public void testCalculateTabWidth() {
+    public void _testCalculateTabWidth() {
         final FontMetrics fm = tabbed.getFontMetrics(tabbed.getFont());
         final int tabIndex = 0;
         final int textWidth = fm.stringWidth(tabbed.getTitleAt(tabIndex));
@@ -399,7 +399,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
     /*
      * Class under test for int getTabRunCount(JTabbedPane)
      */
-    public void testGetTabRunCount() {
+    public void _testGetTabRunCount() {
         create2TabRuns();
         assertEquals(2, ui.getTabRunCount(tabbed));
         tabbed.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -627,7 +627,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         // Note: painting code, cannot test
     }
 
-    public void testSelectAdjacentRunTab() {
+    public void _testSelectAdjacentRunTab() {
         create3TabRuns();
         tabbed.setSelectedIndex(0);
         int tabRunOffset = ui.getTabRunOffset(tabbed.getTabPlacement(), tabbed.getTabCount(),
@@ -636,7 +636,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(3, tabbed.getSelectedIndex());
     }
 
-    public void testSelectNextTab() {
+    public void _testSelectNextTab() {
         create2TabRuns();
         int initIndex = 0;
         tabbed.setSelectedIndex(initIndex);
@@ -652,7 +652,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(ui.getPreviousTabIndex(initIndex), tabbed.getSelectedIndex());
     }
 
-    public void testSelectNextTabInRun() {
+    public void _testSelectNextTabInRun() {
         create2TabRuns();
         int initIndex = 0;
         tabbed.setSelectedIndex(initIndex);
@@ -661,7 +661,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
                 .getSelectedIndex());
     }
 
-    public void testSelectPreviousTabInRun() {
+    public void _testSelectPreviousTabInRun() {
         create2TabRuns();
         int initIndex = 0;
         tabbed.setSelectedIndex(initIndex);

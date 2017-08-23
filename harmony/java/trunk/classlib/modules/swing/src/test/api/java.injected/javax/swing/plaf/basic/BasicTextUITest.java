@@ -761,7 +761,7 @@ public class BasicTextUITest extends SwingTestCase {
                 TextAreaUI.callOrder);
     }
 
-    public void testFocusAccelerator() throws Exception {
+    public void _testFocusAccelerator() throws Exception {
         jta.setFocusAccelerator('a');
         InputMap im = SwingUtilities.getUIInputMap(jta, JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap am = jta.getActionMap().getParent().getParent();

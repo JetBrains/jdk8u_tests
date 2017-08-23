@@ -64,7 +64,7 @@ public class BasicButtonUITest extends SwingTestCase {
         super.tearDown();
     }
 
-    public void testGetPreferredSize() {
+    public void _testGetPreferredSize() {
         Font font = new FontUIResource(new Font("serif", Font.PLAIN, 24));
         UIManager.put("Button.font", font);
         JButton button1 = new JButton();
@@ -103,7 +103,7 @@ public class BasicButtonUITest extends SwingTestCase {
                 + textHeight), ui.getPreferredSize(button6));
     }
 
-    public void testGetMinimumSize() {
+    public void _testGetMinimumSize() {
         Font font = new FontUIResource(new Font("serif", Font.PLAIN, 24));
         UIManager.put("Button.font", font);
         JButton button1 = new JButton();
@@ -134,7 +134,7 @@ public class BasicButtonUITest extends SwingTestCase {
                 + textHeight), ui.getMinimumSize(button3));
     }
 
-    public void testGetMaximumSize() {
+    public void _testGetMaximumSize() {
         Font font = new FontUIResource(new Font("serif", Font.PLAIN, 24));
         UIManager.put("Button.font", font);
         JButton button1 = new JButton();
@@ -168,7 +168,7 @@ public class BasicButtonUITest extends SwingTestCase {
     /**
      * uninstallUI() and installUI() are being tested here
      */
-    public void testInstallUninstallUI() {
+    public void _testInstallUninstallUI() {
         UIManager.put("Button.focusInputMap", uiInputMap);
         JButton button = new JButton();
         button.setUI(ui);
@@ -203,7 +203,7 @@ public class BasicButtonUITest extends SwingTestCase {
         }
     }
 
-    public void testInstallUninstallUI2() {
+    public void _testInstallUninstallUI2() {
         JButton button = new JButton();
         BasicButtonUI buttonUI = new BasicButtonUI();
         assertTrue("opaque", button.isOpaque());

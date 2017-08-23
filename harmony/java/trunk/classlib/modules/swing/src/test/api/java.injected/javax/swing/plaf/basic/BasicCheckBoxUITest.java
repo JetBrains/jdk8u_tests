@@ -86,7 +86,7 @@ public class BasicCheckBoxUITest extends SwingTestCase {
         ui = new MyBasicCheckBoxUI();
     }
 
-    public void testGetPreferredSize() {
+    public void _testGetPreferredSize() {
         Font font = new FontUIResource(new Font("serif", Font.PLAIN, 24));
         UIManager.put("CheckBox.font", font);
         Border border = new BorderUIResource(BorderFactory.createEmptyBorder(11, 11, 11, 11));
