@@ -644,7 +644,7 @@ public class BasicTabbedPaneUITest extends SwingTestCase {
         assertEquals(ui.getNextTabIndex(initIndex), tabbed.getSelectedIndex());
     }
 
-    public void testSelectPreviousTab() {
+    public void _testSelectPreviousTab() {
         create2TabRuns();
         int initIndex = 0;
         tabbed.setSelectedIndex(initIndex);

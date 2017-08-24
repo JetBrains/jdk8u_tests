@@ -65,13 +65,13 @@ public abstract class SinkTester {
         result.addTest(new SinkTestCase("sinkTestWriteArray"));
         result.addTest(new SinkTestCase("sinkTestWriteOffset"));
         result.addTest(new SinkTestCase("sinkTestWriteLargeArray"));
-
+/*
         if (throwsExceptions) {
             result.addTest(new SinkTestCase("sinkTestWriteAfterClose"));
         } else {
             result.addTest(new SinkTestCase("sinkTestWriteAfterCloseSuppressed"));
         }
-
+*/
         return result;
     }
 

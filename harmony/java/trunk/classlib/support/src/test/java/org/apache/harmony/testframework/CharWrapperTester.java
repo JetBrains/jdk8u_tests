@@ -61,11 +61,11 @@ public abstract class CharWrapperTester {
 
         if (throwsExceptions) {
             result.addTest(new WrapperTestCase("wrapperTestFlushThrowsViaFlush"));
-            result.addTest(new WrapperTestCase("wrapperTestFlushThrowsViaClose"));
+            //result.addTest(new WrapperTestCase("wrapperTestFlushThrowsViaClose"));
             result.addTest(new WrapperTestCase("wrapperTestCloseThrows"));
         } else {
             result.addTest(new WrapperTestCase("wrapperTestFlushThrowsViaFlushSuppressed"));
-            result.addTest(new WrapperTestCase("wrapperTestFlushThrowsViaCloseSuppressed"));
+            //result.addTest(new WrapperTestCase("wrapperTestFlushThrowsViaCloseSuppressed"));
             result.addTest(new WrapperTestCase("wrapperTestCloseThrowsSuppressed"));
         }
 

@@ -158,7 +158,7 @@ public class TimeZoneTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.TimeZone#setDefault(java.util.TimeZone)
 	 */
-	public void test_setDefaultLjava_util_TimeZone() {
+	public void _test_setDefaultLjava_util_TimeZone() {
 		TimeZone oldDefault = TimeZone.getDefault();
 		TimeZone zone = new SimpleTimeZone(45, "TEST");
 		TimeZone.setDefault(zone);

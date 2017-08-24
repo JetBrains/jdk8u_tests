@@ -1853,7 +1853,7 @@ public class AbstractButtonTest extends SwingTestCase {
         assertFalse("ContentAreaFilled", button.isContentAreaFilled());
     }
 
-    public void testSetBorderPainted() {
+    public void _testSetBorderPainted() {
         PropertyChangeController listener1 = new PropertyChangeController();
         PropertyChangeController listener2 = new PropertyChangeController();
         button.addPropertyChangeListener(listener1);
@@ -1875,7 +1875,7 @@ public class AbstractButtonTest extends SwingTestCase {
         listener2.reset();
     }
 
-    public void testIsBorderPainted() {
+    public void _testIsBorderPainted() {
         assertTrue("default BorderPainted", button.isBorderPainted());
         button.setBorderPainted(false);
         assertFalse("BorderPainted", button.isBorderPainted());
