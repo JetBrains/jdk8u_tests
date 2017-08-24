@@ -35,7 +35,6 @@ public class AbstractUndoableEditTest extends TestCase {
     private String defaultRedoName;
 
     @Override
-    @Override
     protected void setUp() throws Exception {
         obj = new AbstractUndoableEdit();
         defaultUndoName = UIManager.getString(UNDO_NAME_KEY);
