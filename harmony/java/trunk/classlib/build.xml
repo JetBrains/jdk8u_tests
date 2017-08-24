@@ -147,7 +147,7 @@
         <run-tests suite="crypto"          location="modules/crypto/src/test/impl/java" />
         <run-tests suite="crypto"          location="modules/crypto/src/test/api/java.injected" />
         <run-tests suite="imageio"         location="modules/imageio/src/test/java" />
-        <run-tests suite="instrument"      location="modules/instrument/src/test/java" />
+        <!--<run-tests suite="instrument"      location="modules/instrument/src/test/java" />-->
         <run-tests suite="jndi"            location="modules/jndi/src/test/java" />
         <run-tests suite="lang-management" location="modules/lang-management/src/test/api/java" />
         <run-tests suite="lang-management" location="modules/lang-management/src/test/impl/java" />
