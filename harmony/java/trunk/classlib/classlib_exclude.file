@@ -258,6 +258,7 @@
 **/org/apache/harmony/x/swing/plaf/resources/basic/BasicResourceBundleTest.java
 **/org/apache/harmony/x/swing/plaf/resources/metal/MetalResourceBundleTest.java
 **/org/apache/harmony/awt/tests/image/GifDecoderTest.java
+**/org/apache/harmony/tests/javax/lang/instrument/HelloWorldTest.java
 
 # VM crash on Mac OSX (reproduced with Oracle's java)
 **/org/apache/harmony/tests/java/awt/RobotTest.java

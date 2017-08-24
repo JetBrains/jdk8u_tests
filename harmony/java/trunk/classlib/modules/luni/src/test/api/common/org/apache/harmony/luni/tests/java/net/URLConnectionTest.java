@@ -598,7 +598,7 @@ public class URLConnectionTest extends junit.framework.TestCase {
     /**
      * @tests java.net.URLConnection#getHeaderFieldKey(int)
      */
-    public void test_getHeaderFieldKeyI() {
+    public void _test_getHeaderFieldKeyI() {
         String hf;
         boolean foundResponse = false;
         for (int i = 0; i < 100; i++) {
