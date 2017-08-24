@@ -109,7 +109,7 @@ public class MouseEventTest extends TestCase {
         assertEquals(event.getPoint(), new Point(90, 190));
     }
 
-    public final void testGetMouseModifiersText() {
+    public final void _testGetMouseModifiersText() {
         assertTrue(MouseEvent.getMouseModifiersText(InputEvent.ALT_MASK)
                 .indexOf("Alt") != -1); //$NON-NLS-1$
         assertTrue(MouseEvent.getMouseModifiersText(InputEvent.ALT_GRAPH_MASK)
@@ -134,7 +134,7 @@ public class MouseEventTest extends TestCase {
                 .getMouseModifiersText(MouseEvent.MOUSE_PRESSED));
     }
 
-    public final void testParamString() {
+    public final void _testParamString() {
         Button button = new Button("Button");
         MouseEvent event = new MouseEvent(button, MouseEvent.MOUSE_PRESSED,
                 1000000000, InputEvent.BUTTON2_DOWN_MASK, 100, 200, 10, true,
@@ -151,7 +151,7 @@ public class MouseEventTest extends TestCase {
                 "unknown type,(100,200),button=1,modifiers=Alt+Button2,extModifiers=Alt+Button2,clickCount=10");
     }
     
-    public void testHarmony5215() throws Exception {
+    public void _testHarmony5215() throws Exception {
         final Frame f = new Frame();
         final Point l = MouseInfo.getPointerInfo().getLocation();
         final Robot r = new Robot();

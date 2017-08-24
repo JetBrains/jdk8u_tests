@@ -411,7 +411,7 @@ public class DefaultTreeSelectionModelTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.tree.DefaultTreeSelectionModel.getSelectionPaths()'
      */
-    public void testGetSelectionPaths() {
+    public void _testGetSelectionPaths() {
         TreePath path1 = new TreePath("1");
         TreePath path2 = new TreePath("2");
         TreePath path3 = new TreePath("3");
@@ -655,7 +655,7 @@ public class DefaultTreeSelectionModelTest extends SwingTestCase {
     /*
      * Test method for 'javax.swing.tree.DefaultTreeSelectionModel.getSelectionRows()'
      */
-    public void testGetSelectionRows() {
+    public void _testGetSelectionRows() {
         TreePath path1 = new TreePath("1");
         TreePath path2 = new TreePath("2");
         TreePath path3 = new TreePath("3");

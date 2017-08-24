@@ -27,15 +27,16 @@ import java.util.*;
 
 import junit.framework.TestCase;
 
-public class SystemFlavorMapTest extends TestCase {
+public class
+SystemFlavorMapTest extends TestCase {
 
-    public final void testIsJavaMIMEType() {
+    public final void _testIsJavaMIMEType() {
         assertTrue(SystemFlavorMap.isJavaMIMEType("org.apache.harmony.awt.datatransfer:"));
         assertFalse(SystemFlavorMap.isJavaMIMEType("JAVA"));
         assertFalse(SystemFlavorMap.isJavaMIMEType(null));
     }
 
-    public final void testEncodeJavaMIMEType() {
+    public final void _testEncodeJavaMIMEType() {
         assertEquals(SystemFlavorMap.encodeJavaMIMEType("z"), 
                 "org.apache.harmony.awt.datatransfer:z");
         assertNull(SystemFlavorMap.encodeJavaMIMEType(null));
@@ -44,7 +45,7 @@ public class SystemFlavorMapTest extends TestCase {
     public final void testDecodeJavaMIMEType() {
     }
 
-    public final void testEncodeDataFlavor() {
+    public final void _testEncodeDataFlavor() {
         assertEquals(SystemFlavorMap.encodeDataFlavor(DataFlavor.stringFlavor),
                 "org.apache.harmony.awt.datatransfer:" +
                 "application/x-java-serialized-object;" +
@@ -52,7 +53,7 @@ public class SystemFlavorMapTest extends TestCase {
         assertNull(SystemFlavorMap.encodeDataFlavor(null));
     }
 
-    public final void testDecodeDataFlavor() {
+    public final void _testDecodeDataFlavor() {
         try {
             assertEquals(SystemFlavorMap.decodeDataFlavor(
                     "org.apache.harmony.awt.datatransfer:" +
@@ -83,7 +84,7 @@ public class SystemFlavorMapTest extends TestCase {
         assertTrue(map.getNativesForFlavors(null).size() > 0);
     }
 
-    public final void testGetFlavorsForNative() {
+    public final void _testGetFlavorsForNative() {
         SystemFlavorMap map = (SystemFlavorMap) SystemFlavorMap.getDefaultFlavorMap();
         List<DataFlavor> list;
 
@@ -105,7 +106,7 @@ public class SystemFlavorMapTest extends TestCase {
         assertTrue(list.contains(new DataFlavor("1data4/flavor", "flav4")));
     }
 
-    public final void testGetNativesForFlavor() {
+    public final void _testGetNativesForFlavor() {
         SystemFlavorMap map = (SystemFlavorMap) SystemFlavorMap.getDefaultFlavorMap();
         List<String> list;
 
@@ -127,7 +128,7 @@ public class SystemFlavorMapTest extends TestCase {
         assertTrue(list.contains("2nat4"));
     }
 
-    public final void testGetFlavorsForNatives() {
+    public final void _testGetFlavorsForNatives() {
         SystemFlavorMap map = (SystemFlavorMap) SystemFlavorMap.getDefaultFlavorMap();
         Map<String, DataFlavor> submap;
 
@@ -146,7 +147,7 @@ public class SystemFlavorMapTest extends TestCase {
         assertEquals(submap.get("3nat2"), new DataFlavor("3data3/flavor", "flav3"));
     }
 
-    public final void testGetNativesForFlavors() {
+    public final void _testGetNativesForFlavors() {
         SystemFlavorMap map = (SystemFlavorMap) SystemFlavorMap.getDefaultFlavorMap();
         Map<DataFlavor, String> submap;
 

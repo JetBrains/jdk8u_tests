@@ -91,7 +91,7 @@ public class GifDecoderTest extends TestCase implements ImageConsumer{
         ip.removeConsumer(this);
     }
 
-    public void test_H5491() throws Exception{
+    public void _test_H5491() throws Exception{
 
         Image img = createImage("test.gif");
         while(state != STATICIMAGEDONE){

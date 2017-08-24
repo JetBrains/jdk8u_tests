@@ -106,7 +106,7 @@ public class SimpleDateFormatTest extends junit.framework.TestCase {
     /**
      * @tests java.text.SimpleDateFormat#SimpleDateFormat()
      */
-    public void test_Constructor() {
+    public void _test_Constructor() {
         // Test for method java.text.SimpleDateFormat()
         SimpleDateFormat f2 = new SimpleDateFormat();
         assertTrue("Wrong class", f2.getClass() == SimpleDateFormat.class);
@@ -121,7 +121,7 @@ public class SimpleDateFormatTest extends junit.framework.TestCase {
     /**
      * @tests java.text.SimpleDateFormat#SimpleDateFormat(java.lang.String)
      */
-    public void test_ConstructorLjava_lang_String() {
+    public void _test_ConstructorLjava_lang_String() {
         // Test for method java.text.SimpleDateFormat(java.lang.String)
         SimpleDateFormat f2 = new SimpleDateFormat("yyyy");
         assertTrue("Wrong class", f2.getClass() == SimpleDateFormat.class);

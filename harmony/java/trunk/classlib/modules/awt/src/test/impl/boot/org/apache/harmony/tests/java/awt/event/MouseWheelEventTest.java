@@ -42,7 +42,7 @@ public class MouseWheelEventTest extends TestCase {
         assertEquals(event.getUnitsToScroll(), 3 * 2);
     }
 
-    public final void testParamString() {
+    public final void _testParamString() {
         Button button = new Button("Button");
         MouseWheelEvent event = new MouseWheelEvent(button, MouseEvent.MOUSE_WHEEL, 1000000000,
                 InputEvent.BUTTON2_DOWN_MASK, 100, 200,

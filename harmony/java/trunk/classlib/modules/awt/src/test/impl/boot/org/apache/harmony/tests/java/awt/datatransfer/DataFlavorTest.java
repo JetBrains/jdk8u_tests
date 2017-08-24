@@ -32,7 +32,7 @@ import junit.framework.TestCase;
 
 public class DataFlavorTest extends TestCase {
 
-    public final void testHashCode() {
+    public final void _testHashCode() {
         assertEquals(new DataFlavor("x/y; class=java.util.LinkedList", "").hashCode(),
                 new DataFlavor("x/y; class=java.util.LinkedList", "").hashCode());
         assertTrue(new DataFlavor("z/y; class=java.util.LinkedList", "").hashCode() !=
@@ -103,7 +103,7 @@ public class DataFlavorTest extends TestCase {
             new DataFlavor("x/y; class=java.util.List; charset=c2", "")));
     }
 
-    public final void testGetTextPlainUnicodeFlavor() {
+    public final void _testGetTextPlainUnicodeFlavor() {
         String charset = null;
         String osName = System.getProperty("os.name").toLowerCase();
 
@@ -219,7 +219,7 @@ public class DataFlavorTest extends TestCase {
         assertEquals(new DataFlavor("x/y; class=java.lang.String", "z").getSubType(), "y");
     }
 
-    public final void testGetMimeType() {
+    public final void _testGetMimeType() {
         assertEquals(new DataFlavor("x/y; param=value", "z").getMimeType(),
                 "x/y; class=\"java.io.InputStream\"; param=\"value\"");
     }
@@ -350,7 +350,7 @@ public class DataFlavorTest extends TestCase {
                 isFlavorJavaFileListType());
     }
 
-    public final void testIsFlavorTextType() {
+    public final void _testIsFlavorTextType() {
         assertTrue(DataFlavor.stringFlavor.
                 isFlavorTextType());
         assertTrue(new DataFlavor("text/z", "").

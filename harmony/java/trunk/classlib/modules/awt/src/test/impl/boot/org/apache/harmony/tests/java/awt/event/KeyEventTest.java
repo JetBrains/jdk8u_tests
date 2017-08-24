@@ -28,7 +28,7 @@ import junit.framework.TestCase;
 
 public class KeyEventTest extends TestCase {
 
-    public final void testGetKeyText() throws StringIndexOutOfBoundsException {
+    public final void _testGetKeyText() throws StringIndexOutOfBoundsException {
         assertEquals(KeyEvent.getKeyText(KeyEvent.VK_1), "1");
         assertEquals(KeyEvent.getKeyText(KeyEvent.VK_SHIFT), "Shift");
         assertEquals(KeyEvent.getKeyText(KeyEvent.VK_INVERTED_EXCLAMATION_MARK),
@@ -40,7 +40,7 @@ public class KeyEventTest extends TestCase {
         KeyEvent.getKeyText(4);
     }
 
-    public final void testGetKeyModifiersText() {
+    public final void _testGetKeyModifiersText() {
         assertTrue(KeyEvent.getKeyModifiersText(InputEvent.ALT_DOWN_MASK).indexOf("Alt") != -1);
         assertTrue(KeyEvent.getKeyModifiersText(InputEvent.ALT_GRAPH_DOWN_MASK).indexOf("Alt Graph") != -1);
         assertTrue(KeyEvent.getKeyModifiersText(InputEvent.CTRL_DOWN_MASK).indexOf("Ctrl") != -1);
@@ -53,7 +53,7 @@ public class KeyEventTest extends TestCase {
         assertTrue(KeyEvent.getKeyModifiersText(InputEvent.META_MASK).indexOf("Meta") != -1);
     }
 
-    public final void testKeyEventComponentintlongintintchar() {
+    public final void _testKeyEventComponentintlongintintchar() {
         long when = 1000000000;
         Button button = new Button("Button");
         KeyEvent event = new KeyEvent(button, KeyEvent.KEY_PRESSED, when,
@@ -87,7 +87,7 @@ public class KeyEventTest extends TestCase {
         assertTrue(typedUndefinedChar);
     }
 
-    public final void testKeyEventComponentintlongintintcharint() {
+    public final void _testKeyEventComponentintlongintintcharint() {
         long when = 1000000000;
         Button button = new Button("Button");
         KeyEvent event = new KeyEvent(button, KeyEvent.KEY_PRESSED, when,
@@ -179,7 +179,7 @@ public class KeyEventTest extends TestCase {
         assertFalse(typedKeyChar);
     }
 
-    public final void testIsActionKey() {
+    public final void _testIsActionKey() {
         Button button = new Button("Button");
         KeyEvent event = new KeyEvent(button, KeyEvent.KEY_PRESSED, 0l,
                 InputEvent.ALT_GRAPH_MASK, KeyEvent.VK_A, 'a');
@@ -198,7 +198,7 @@ public class KeyEventTest extends TestCase {
         assertFalse(event.isActionKey());
     }
 
-    public final void testParamString() {
+    public final void _testParamString() {
         Button button = new Button("Button");
         KeyEvent event = new KeyEvent(button, KeyEvent.KEY_PRESSED, 0l,
                 InputEvent.ALT_GRAPH_MASK, KeyEvent.VK_A, 'a', KeyEvent.KEY_LOCATION_NUMPAD);

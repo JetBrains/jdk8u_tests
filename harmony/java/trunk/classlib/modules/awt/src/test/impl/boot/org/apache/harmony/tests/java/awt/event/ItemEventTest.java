@@ -47,7 +47,7 @@ public class ItemEventTest extends TestCase {
         assertEquals(event.getItemSelectable(), item);
     }
 
-    public final void testParamString() {
+    public final void _testParamString() {
         ItemEvent event = new ItemEvent(item, ItemEvent.ITEM_STATE_CHANGED, item, ItemEvent.SELECTED);
 
         assertTrue(event.paramString().startsWith("ITEM_STATE_CHANGED,item=ItemEventTest"));

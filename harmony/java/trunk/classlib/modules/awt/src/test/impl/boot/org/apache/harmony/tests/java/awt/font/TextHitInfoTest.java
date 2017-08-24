@@ -92,7 +92,7 @@ public class TextHitInfoTest extends TestCase
         assertTrue(l4.isLeadingEdge());
     }
 
-    public void testHashCode() throws Exception
+    public void _testHashCode() throws Exception
     {
         assertEquals(TextHitInfo.trailing(3).hashCode(), t3.hashCode());
         assertTrue(t3.hashCode() != l4.hashCode());

@@ -162,7 +162,7 @@ public class TableColumnTest extends BasicSwingTestCase {
         assertEquals(100, column.getPreferredWidth());
     }
 
-    public void testGetSetMaxWidth() throws Exception {
+    public void _testGetSetMaxWidth() throws Exception {
         assertEquals(Integer.MAX_VALUE, column.getMaxWidth());
         column.setMaxWidth(100);
         assertEquals(100, column.getMaxWidth());
@@ -188,7 +188,7 @@ public class TableColumnTest extends BasicSwingTestCase {
             return super.createDefaultHeaderRenderer();
         }
     }
-    public void testSizeWidthToFit() throws Exception {
+    public void _testSizeWidthToFit() throws Exception {
         TestTableColumn column = new TestTableColumn();
         column.sizeWidthToFit();
         assertEquals(15, column.getMinWidth());

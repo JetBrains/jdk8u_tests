@@ -28,7 +28,7 @@ import junit.framework.TestCase;
 
 public class InputMethodEventTest extends TestCase {
 
-    public final void testInputMethodEventComponentintTextHitInfoTextHitInfo() {
+    public final void _testInputMethodEventComponentintTextHitInfoTextHitInfo() {
         Button button = new Button();
         InputMethodEvent event = new InputMethodEvent(button,
                 InputMethodEvent.CARET_POSITION_CHANGED,
@@ -54,7 +54,7 @@ public class InputMethodEventTest extends TestCase {
         assertTrue(wrongID);
     }
 
-    public final void testInputMethodEventComponentintAttributedCharacterIteratorintTextHitInfoTextHitInfo() {
+    public final void _testInputMethodEventComponentintAttributedCharacterIteratorintTextHitInfoTextHitInfo() {
         Button button = new Button();
         InputMethodEvent event = new InputMethodEvent(button,
                 InputMethodEvent.INPUT_METHOD_TEXT_CHANGED,
@@ -158,7 +158,7 @@ public class InputMethodEventTest extends TestCase {
         assertTrue(event.isConsumed());
     }
 
-    public final void testParamString() {
+    public final void _testParamString() {
         Button button = new Button("Button");
         InputMethodEvent event = new InputMethodEvent(button,
                 InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, 1000000000,

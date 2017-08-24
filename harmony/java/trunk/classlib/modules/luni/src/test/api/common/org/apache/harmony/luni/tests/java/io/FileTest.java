@@ -359,7 +359,7 @@ public class FileTest extends TestCase {
     /**
      * @tests java.io.File#createNewFile()
      */
-    public void test_createNewFile() throws IOException {
+    public void _test_createNewFile() throws IOException {
         String base = tempDirectory.getPath();
         boolean dirExists = true;
         int numDir = 1;
@@ -669,7 +669,7 @@ public class FileTest extends TestCase {
     /**
      * @tests java.io.File#equals(java.lang.Object)
      */
-    public void test_equalsLjava_lang_Object() throws IOException {
+    public void _test_equalsLjava_lang_Object() throws IOException {
         File f1 = new File("filechk.tst");
         File f2 = new File("filechk.tst");
         File f3 = new File("xxxx");

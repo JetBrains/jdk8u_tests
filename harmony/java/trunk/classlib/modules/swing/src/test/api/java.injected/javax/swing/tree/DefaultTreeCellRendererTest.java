@@ -165,7 +165,7 @@ public class DefaultTreeCellRendererTest extends BasicSwingTestCase {
         assertSame(userFont, renderer.getFont());
     }
 
-    public void testSetBackground() throws Exception {
+    public void _testSetBackground() throws Exception {
         assertNull(renderer.getBackground());
         renderer.setBackground(null);
         assertNull(renderer.getBackground());
@@ -175,7 +175,7 @@ public class DefaultTreeCellRendererTest extends BasicSwingTestCase {
         assertSame(Color.RED, renderer.getBackground());
     }
 
-    public void testGetTreeCellRendererComponent() throws Exception {
+    public void _testGetTreeCellRendererComponent() throws Exception {
         JTree tree = new JTree();
         tree.setFont(new Font("font", 20, 1));
         tree.setBackground(Color.MAGENTA);

@@ -254,6 +254,9 @@
 **/javax/swing/plaf/metal/MetalComboBoxEditorTest.java
 **/javax/swing/plaf/metal/MetalRootPaneUI$MetalRootLayoutTest
 **/javax/swing/plaf/metal/MetalRootPaneUIRTest.java
+**/org/apache/harmony/tests/java/awt/WinWindowRTest.java
+**/org/apache/harmony/x/swing/plaf/resources/basic/BasicResourceBundleTest.java
+**/org/apache/harmony/x/swing/plaf/resources/metal/MetalResourceBundleTest.java
 
 # VM crash on Mac OSX (reproduced with Oracle's java)
 **/org/apache/harmony/tests/java/awt/RobotTest.java

@@ -369,7 +369,7 @@ public class CompoundEditTest extends AbstractUndoableEditTest {
      * 
      */
     // Regression for HARMONY-2603
-    public void testGetPresentationName03() {
+    public void _testGetPresentationName03() {
         ce.addEdit(new TestUndoableEdit() {
             private static final long serialVersionUID = 1L;
 

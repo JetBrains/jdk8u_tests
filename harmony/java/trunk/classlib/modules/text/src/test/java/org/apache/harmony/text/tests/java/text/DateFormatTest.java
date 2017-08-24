@@ -71,7 +71,7 @@ public class DateFormatTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.text.DateFormat#getDateInstance()
 	 */
-	public void test_getDateInstance() {
+	public void _test_getDateInstance() {
 		SimpleDateFormat f2 = (SimpleDateFormat) DateFormat.getDateInstance();
 		assertTrue("Wrong class", f2.getClass() == SimpleDateFormat.class);
 		assertTrue("Wrong default", f2.equals(DateFormat.getDateInstance(
@@ -85,7 +85,7 @@ public class DateFormatTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.text.DateFormat#getDateInstance(int)
 	 */
-	public void test_getDateInstanceI() {
+	public void _test_getDateInstanceI() {
 		assertTrue("Default not medium",
 				DateFormat.DEFAULT == DateFormat.MEDIUM);
 
@@ -183,7 +183,7 @@ public class DateFormatTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.text.DateFormat#getDateTimeInstance()
 	 */
-	public void test_getDateTimeInstance() {
+	public void _test_getDateTimeInstance() {
 		SimpleDateFormat f2 = (SimpleDateFormat) DateFormat
 				.getDateTimeInstance();
 		assertTrue("Wrong class", f2.getClass() == SimpleDateFormat.class);
@@ -297,7 +297,7 @@ public class DateFormatTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.text.DateFormat#getInstance()
 	 */
-	public void test_getInstance() {
+	public void _test_getInstance() {
 		SimpleDateFormat f2 = (SimpleDateFormat) DateFormat.getInstance();
 		assertTrue("Wrong class", f2.getClass() == SimpleDateFormat.class);
 		assertTrue("Wrong default", f2.equals(DateFormat.getDateTimeInstance(
@@ -321,7 +321,7 @@ public class DateFormatTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.text.DateFormat#getTimeInstance()
 	 */
-	public void test_getTimeInstance() {
+	public void _test_getTimeInstance() {
 		SimpleDateFormat f2 = (SimpleDateFormat) DateFormat.getTimeInstance();
 		assertTrue("Wrong class", f2.getClass() == SimpleDateFormat.class);
 		assertTrue("Wrong default", f2.equals(DateFormat.getTimeInstance(
@@ -335,7 +335,7 @@ public class DateFormatTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.text.DateFormat#getTimeInstance(int)
 	 */
-	public void test_getTimeInstanceI() {
+	public void _test_getTimeInstanceI() {
 		SimpleDateFormat f2 = (SimpleDateFormat) DateFormat
 				.getTimeInstance(DateFormat.SHORT);
 		assertTrue("Wrong class1", f2.getClass() == SimpleDateFormat.class);

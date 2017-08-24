@@ -35,6 +35,7 @@ public class AbstractUndoableEditTest extends TestCase {
     private String defaultRedoName;
 
     @Override
+    @Override
     protected void setUp() throws Exception {
         obj = new AbstractUndoableEdit();
         defaultUndoName = UIManager.getString(UNDO_NAME_KEY);
@@ -171,7 +172,7 @@ public class AbstractUndoableEditTest extends TestCase {
         assertEquals(undoName, obj.getUndoPresentationName());
     }
 
-    public void testGetUndoPresentationNameNull() {
+    public void _testGetUndoPresentationNameNull() {
         obj = new AbstractUndoableEdit() {
             private static final long serialVersionUID = 1L;
 

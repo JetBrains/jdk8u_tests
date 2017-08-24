@@ -215,7 +215,7 @@ public class DTDTest extends TestCase {
     }
 
 
-    public void testDTD() {
+    public void _testDTD() {
         DTD dtd1 = new TestDTD(null);
         assertNull(dtd1.getName());
 
@@ -347,7 +347,7 @@ public class DTDTest extends TestCase {
         assertEquals(3, dtd.entityHash.size());
     }
 
-    public void testDefineAttributes() {
+    public void _testDefineAttributes() {
         String name = HTML;
         AttributeList attl = new AttributeList("new AttributeList");
         dtd.defineAttributes(HTML, attl);
@@ -364,7 +364,7 @@ public class DTDTest extends TestCase {
         dtd.elementHash.remove(name);
     }
 
-    public void testDefineElement() {
+    public void _testDefineElement() {
         Element elem = (Element)dtd.elementHash.get(HTML);
         String name = elem.getName();
         int type = elem.getType();
@@ -450,7 +450,7 @@ public class DTDTest extends TestCase {
         dtd.entityHash.remove(name);
     }
 
-    public void testGetElementint() {
+    public void _testGetElementint() {
         initDefaultElementsVector();
         for (int i = 0; i < DEFAULT_SIZE; i++) {
             assertEquals(elementNames.get(i), dtd.getElement(i).getName());
@@ -461,7 +461,7 @@ public class DTDTest extends TestCase {
         }
     }
 
-    public void testGetElementString() {
+    public void _testGetElementString() {
         initDefaultElementsVector();
         for (int i = 0; i < DEFAULT_SIZE; i++) {
             String name = (String)elementNames.get(i);
