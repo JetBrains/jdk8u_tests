@@ -71,6 +71,7 @@ public class JavaDrawPC extends JPanel implements ActionListener {
     private static Map<String, Map<String, Float>> fpsMap = new HashMap<String, Map<String, Float>>(2);
 
     private static String renderingType;
+    private static String vendorName;
 
     private JavaDrawPC() {
         image = Toolkit.getDefaultToolkit().getImage("bground.png");
@@ -91,7 +92,7 @@ public class JavaDrawPC extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (runTime > 10.0) {
-            prout.printf("%s:%s:%d:%.2f%n",  vendorPrefix + (renderingType!=null ? "_" + renderingType: ""), tests.replace(' ','_'),
+            prout.printf("%s:%s:%d:%.2f%n", vendorPrefix + (renderingType != null ? "_" + renderingType : ""), tests.replace(' ', '_'),
                     frames, fps);
             System.out.format("%35s %8d %8.2f%n", tests, frames, fps);
             startTime = (double) System.currentTimeMillis();
@@ -226,10 +227,10 @@ public class JavaDrawPC extends JPanel implements ActionListener {
         }
     }
 
-    private static <V> void add(Map<String, Map <String, V>> map, String key, String innerKey, V value) {
-        Map <String, V> innerMap;
+    private static <V> void add(Map<String, Map<String, V>> map, String key, String innerKey, V value) {
+        Map<String, V> innerMap;
         if (!map.containsKey(key)) {
-            innerMap = new HashMap <String, V> (12);
+            innerMap = new HashMap<String, V>(12);
             map.put(key, innerMap);
         } else {
             innerMap = map.get(key);
@@ -271,17 +272,12 @@ public class JavaDrawPC extends JPanel implements ActionListener {
 
         for (String test : originFPS.keySet()) {
             boolean failedCase = false;
-            System.out.println("##teamcity[buildStatisticValue key='" + originVendor + "." + test
-                    + "' value='" + decimalFormat.format(originFPS.get(test)) + "']");
-            System.out.format("%45s = %5.2f%n", originVendor + "." + test, originFPS.get(test));
+            printValue(originVendor, test, originFPS.get(test), "%45s = %5.2f%n");
             for (String customVendor : fpsMap.keySet()) {
                 if (customVendor.equals(originVendor)) continue;
 
                 Map<String, Float> customFPS = fpsMap.get(customVendor);
-                System.out.println("##teamcity[buildStatisticValue key='" + customVendor + "." + test
-                        + "' value='" + decimalFormat.format(customFPS.get(test)) + "']");
-
-                System.out.format("%45s = %5.2f", customVendor + "." + test, customFPS.get(test));
+                printValue(customVendor, test, customFPS.get(test), "%45s = %5.2f");
                 if (customFPS.get(test) + originFPS.get(test) * 0.1 < originFPS.get(test)) {
                     retValue = -1;
                     failedCase = true;
@@ -293,18 +289,55 @@ public class JavaDrawPC extends JPanel implements ActionListener {
         return retValue;
     }
 
+    private static int printResults2TC(String vendor) {
+        int retValue = 0;
+
+        try {
+            readValues();
+        } catch (IOException e) {
+            System.out.println(e);
+            return -1;
+        }
+
+        for (String customVendor : fpsMap.keySet()) {
+            if (!customVendor.equals(vendor)) continue;
+
+            Map<String, Float> customFPS = fpsMap.get(customVendor);
+            for (String test : customFPS.keySet()) {
+                printValue(customVendor, test, customFPS.get(test), "%45s = %5.2f");
+            }
+            break;
+        }
+        System.out.println();
+
+        return retValue;
+    }
+
+    private static void printValue(String vendor, String test, Float value, String format) {
+        System.out.println("##teamcity[buildStatisticValue key='" + vendor + "." + test
+                + "' value='" + decimalFormat.format(value) + "']");
+
+        System.out.format(format, vendor + "." + test, value);
+    }
+
     public static void main(String[] args) {
 
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-renderingType")) {
                 renderingType = args[++i];
-                renderingType = renderingType.substring(0, 1).toUpperCase() + renderingType.substring(1);;
+                renderingType = renderingType.substring(0, 1).toUpperCase() + renderingType.substring(1);
             }
+            else if (args[i].equals("-printResults2TC"))
+                    vendorName = args[++i];
         }
+
         java.util.List<String> argValues = Arrays.<String>asList(args);
 
         if (argValues.contains("-compare")) {
             System.exit(compareResults());
+
+        } else if (argValues.contains("-printResults2TC")) {
+            printResults2TC(vendorName);
 
         } else if (argValues.contains("-run")) {
             JFrame f = new JFrame(" JavaDrawPC");
