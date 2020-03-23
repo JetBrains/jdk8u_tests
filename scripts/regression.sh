@@ -67,6 +67,7 @@ echo "$testContent" 2>&1 | (
         echo \#\#teamcity[testStarted name=\'$testname\']
         echo "$s"
         [ $state -eq 2 ] && echo \#\#teamcity[testFailed name=\'$testname\' message=\'$s\']
+        echo \#\#teamcity[buildStatisticValue key=\'$testname\' value=\'$duration\']
         echo \#\#teamcity[testFinished name=\'$testname\' duration=\'$duration\']
         failed=0
         passed=0
