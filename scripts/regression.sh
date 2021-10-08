@@ -43,12 +43,12 @@ echo $refFile
 echo $resFile
 
 curValues=`cat "$curFile" | cut -f 2 | tr -d '\t'`
-curValuesHeader=`echo "$curValues" | head -n +1`_cur
-header=`cat "$refFile" | head -n +1 | awk -F'\t' -v x=$curValuesHeader '{print "  "$1"\t"$2"_ref\t"x"\tratio"}'`
+#curValuesHeader=`echo "$curValues" | head -n +1`_cur
+#header=`cat "$refFile" | head -n +1 | awk -F'\t' -v x=$curValuesHeader '{print "  "$1"\t"$2"_ref\t"x"\tratio"}'`
 
 testContent=`paste -d '\t' $refFile <(echo "$curValues") | tail -n +2`
 testContent=`echo "$testContent" | awk -F'\t' '{ if ($3>$2+$2*0.1) {print "* "$1"\t"$2"\t"$3"\t"$3/$2} else {print "  "$1"\t"$2"\t"$3"\t"$3/$2} }'`
-echo "$header" > $resFile
+#echo "$header" > $resFile
 echo "$testContent" >> $resFile
 cat "$resFile" | tr '\t' ';' | column -t -s ';' | tee $resFile
 
