@@ -28,7 +28,7 @@ exit 1 ;;
 esac
 done
 
-if [[ "$#" != "3" ]]; then
+if [[ "$#" < "3" ]]; then
     echo "Error: Invalid arguments"
     usage
     exit 1
@@ -65,7 +65,7 @@ echo "$testContent" 2>&1 | (
         state=0
         [ $passed -eq 1 ] && state=1
         [ $failed -eq 1 ] && state=2
-        echo \#\#teamcity[testStarted name=\'$testname\']
+        echo \#\#teamcity[testStarted name=\'$testNamePrefix$testname\']
         echo "$s"
         [ $state -eq 2 ] && echo \#\#teamcity[testFailed name=\'$testNamePrefix$testname\' message=\'$s\']
         echo \#\#teamcity[buildStatisticValue key=\'$testNamePrefix$testname\' value=\'$duration\']
