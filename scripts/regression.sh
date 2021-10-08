@@ -37,6 +37,7 @@ fi
 curFile=$1
 refFile=$2
 resFile=$3
+testNamePrefix=$4
 echo $curFile
 echo $refFile
 echo $resFile
@@ -66,9 +67,9 @@ echo "$testContent" 2>&1 | (
         [ $failed -eq 1 ] && state=2
         echo \#\#teamcity[testStarted name=\'$testname\']
         echo "$s"
-        [ $state -eq 2 ] && echo \#\#teamcity[testFailed name=\'$testname\' message=\'$s\']
-        echo \#\#teamcity[buildStatisticValue key=\'$testname\' value=\'$duration\']
-        echo \#\#teamcity[testFinished name=\'$testname\' duration=\'$duration\']
+        [ $state -eq 2 ] && echo \#\#teamcity[testFailed name=\'$testNamePrefix$testname\' message=\'$s\']
+        echo \#\#teamcity[buildStatisticValue key=\'$testNamePrefix$testname\' value=\'$duration\']
+        echo \#\#teamcity[testFinished name=\'$testNamePrefix$testname\' duration=\'$duration\']
         failed=0
         passed=0
     done
