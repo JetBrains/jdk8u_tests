@@ -68,16 +68,11 @@ echo "$testContent" 2>&1 | (
         testname=`echo "$s" | cut -f 1 | tr -d "[:space:]" |  tr -d "*"`
         duration=`echo "$s" | cut -f 3`
         failed=`echo "$s" | cut -c1 | grep -c "*"`
-        passed=`echo "$s" | cut -c1 | grep -c " "`
-        state=0
-        [ $passed -eq 1 ] && state=1
-        [ $failed -eq 1 ] && state=2
         echo \#\#teamcity[testStarted name=\'$testNamePrefix$testname\']
         echo "$s"
-        [ $state -eq 2 ] && echo \#\#teamcity[testFailed name=\'$testNamePrefix$testname\' message=\'$s\']
+        [ $failed -eq 1 ] && echo \#\#teamcity[testFailed name=\'$testNamePrefix$testname\' message=\'$s\']
         echo \#\#teamcity[buildStatisticValue key=\'$testNamePrefix$testname\' value=\'$duration\']
         echo \#\#teamcity[testFinished name=\'$testNamePrefix$testname\' duration=\'$duration\']
         failed=0
-        passed=0
     done
 )
