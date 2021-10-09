@@ -70,8 +70,8 @@ echo "$testContent" 2>&1 | (
         failed=`echo "$s" | cut -c1 | grep -c "*"`
         echo \#\#teamcity[testStarted name=\'$testNamePrefix$testname\']
         echo "$s"
-        [ $failed -eq 1 ] && echo \#\#teamcity[testFailed name=\'$testNamePrefix$testname\' message=\'$s\']
         echo \#\#teamcity[buildStatisticValue key=\'$testNamePrefix$testname\' value=\'$duration\']
+        [ $failed -eq 1 ] && echo \#\#teamcity[testFailed name=\'$testNamePrefix$testname\' message=\'$s\']
         echo \#\#teamcity[testFinished name=\'$testNamePrefix$testname\' duration=\'$duration\']
         failed=0
     done
